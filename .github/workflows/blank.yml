@@ -33,7 +33,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           rsync rsync://feed.community.greenbone.net:/nvt-feed
-          git add .
+          git add -A
           git commit -m "Update gbn files"
           git push
           
