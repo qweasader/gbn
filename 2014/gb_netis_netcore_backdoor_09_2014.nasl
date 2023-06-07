@@ -1,0 +1,87 @@
+###############################################################################
+# OpenVAS Vulnerability Test
+#
+# Backdoor Access To Netcore/Netis Devices
+#
+# Authors:
+# Michael Meyer <michael.meyer@greenbone.net>
+#
+# Copyright:
+# Copyright (C) 2014 Greenbone Networks GmbH
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+###############################################################################
+
+if(description)
+{
+  script_oid("1.3.6.1.4.1.25623.1.0.105075");
+  script_version("2023-03-01T10:20:04+0000");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-03-01 10:20:04 +0000 (Wed, 01 Mar 2023)");
+  script_tag(name:"creation_date", value:"2014-09-01 12:03:46 +0200 (Mon, 01 Sep 2014)");
+  script_name("Netcore/Netis Devices Backdoor Access (UDP)");
+  script_category(ACT_ATTACK);
+  script_family("Default Accounts");
+  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_dependencies("gb_default_credentials_options.nasl");
+  script_require_udp_ports(53413);
+  script_exclude_keys("default_credentials/disable_default_account_checks");
+
+  script_xref(name:"URL", value:"http://blog.trendmicro.com/trendlabs-security-intelligence/netis-routers-leave-wide-open-backdoor/");
+
+  script_tag(name:"impact", value:"Clients can leverage this service to execute arbitrary commands on the
+  underlying system");
+
+  script_tag(name:"vuldetect", value:"Send a special request to UDP port 53413 and check the response.");
+
+  script_tag(name:"insight", value:"Affected devices include a backdoor service listening on UDP port 53413.");
+
+  script_tag(name:"solution", value:"No known solution was made available for at least one year since the disclosure of this vulnerability.
+  Likely none will be provided anymore. General solution options are to upgrade to a newer release, disable respective features,
+  remove the product or replace the product by another one.");
+
+  script_tag(name:"solution_type", value:"WillNotFix");
+
+  script_tag(name:"summary", value:"Netcore/Netis devices are exposing a backdoor access.");
+
+  script_tag(name:"qod_type", value:"remote_vul");
+
+  exit(0);
+}
+
+if( get_kb_item( "default_credentials/disable_default_account_checks" ) )
+  exit( 0 );
+
+port = 53413;
+if( ! get_udp_port_state( port ) ) exit( 0 );
+if( ! soc = open_sock_udp( port ) ) exit( 0 );
+
+send( socket:soc, data:'' );
+recv = recv( socket:soc, length:64, timeout:3 );
+
+if( "Login:" >!< recv ) exit( 0 );
+
+send( socket:soc, data:'XXXXXXXXnetcore' );
+recv = recv( socket:soc, length:128, timeout:3 );
+
+close( soc );
+
+if( "Login successed" >< recv ) {
+  security_message( port:port, proto:'udp' );
+  exit( 0 );
+}
+
+exit( 99 );

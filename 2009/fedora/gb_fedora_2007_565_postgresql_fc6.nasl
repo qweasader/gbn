@@ -1,0 +1,207 @@
+###############################################################################
+# OpenVAS Vulnerability Test
+#
+# Fedora Update for postgresql FEDORA-2007-565
+#
+# Authors:
+# System Generated Check
+#
+# Copyright:
+# Copyright (C) 2009 Greenbone Networks GmbH
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License version 2
+# (or any later version), as published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+###############################################################################
+
+if(description)
+{
+  script_xref(name:"URL", value:"https://www.redhat.com/archives/fedora-package-announce/2007-June/msg00064.html");
+  script_oid("1.3.6.1.4.1.25623.1.0.860998");
+  script_version("2022-02-15T14:39:48+0000");
+  script_tag(name:"last_modification", value:"2022-02-15 14:39:48 +0000 (Tue, 15 Feb 2022)");
+  script_tag(name:"creation_date", value:"2009-02-27 16:31:39 +0100 (Fri, 27 Feb 2009)");
+  script_tag(name:"cvss_base", value:"6.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:P");
+  script_xref(name:"FEDORA", value:"2007-565");
+  script_cve_id("CVE-2007-2138");
+  script_name("Fedora Update for postgresql FEDORA-2007-565");
+  script_tag(name:"summary", value:"The remote host is missing an update for the 'postgresql'
+  package(s) announced via the referenced advisory.");
+  script_category(ACT_GATHER_INFO);
+  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_family("Fedora Local Security Checks");
+  script_dependencies("gather-package-list.nasl");
+  script_mandatory_keys("ssh/login/fedora_core", "ssh/login/rpms", re:"ssh/login/release=FC6");
+
+  script_tag(name:"affected", value:"postgresql on Fedora Core 6");
+
+  script_tag(name:"solution", value:"Please install the updated package(s).");
+  script_tag(name:"qod_type", value:"package");
+  script_tag(name:"solution_type", value:"VendorFix");
+
+  exit(0);
+}
+
+include("revisions-lib.inc");
+include("pkg-lib-rpm.inc");
+
+release = rpm_get_ssh_release();
+if(!release)
+  exit(0);
+
+res = "";
+
+if(release == "FC6")
+{
+
+  if ((res = isrpmvuln(pkg:"postgresql", rpm:"postgresql~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"x86_64/postgresql-test", rpm:"x86_64/postgresql-test~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"x86_64/postgresql-libs", rpm:"x86_64/postgresql-libs~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"x86_64/postgresql-devel", rpm:"x86_64/postgresql-devel~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"x86_64/debug/postgresql-debuginfo", rpm:"x86_64/debug/postgresql-debuginfo~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"x86_64/postgresql-pl", rpm:"x86_64/postgresql-pl~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"x86_64/postgresql-contrib", rpm:"x86_64/postgresql-contrib~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"x86_64/postgresql-python", rpm:"x86_64/postgresql-python~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"x86_64/postgresql", rpm:"x86_64/postgresql~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"x86_64/postgresql-tcl", rpm:"x86_64/postgresql-tcl~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"x86_64/postgresql-docs", rpm:"x86_64/postgresql-docs~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"x86_64/postgresql-server", rpm:"x86_64/postgresql-server~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"i386/postgresql-tcl", rpm:"i386/postgresql-tcl~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"i386/postgresql-docs", rpm:"i386/postgresql-docs~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"i386/postgresql-devel", rpm:"i386/postgresql-devel~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"i386/debug/postgresql-debuginfo", rpm:"i386/debug/postgresql-debuginfo~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"i386/postgresql-python", rpm:"i386/postgresql-python~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"i386/postgresql-contrib", rpm:"i386/postgresql-contrib~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"i386/postgresql", rpm:"i386/postgresql~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"i386/postgresql-pl", rpm:"i386/postgresql-pl~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"i386/postgresql-server", rpm:"i386/postgresql-server~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"i386/postgresql-test", rpm:"i386/postgresql-test~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if ((res = isrpmvuln(pkg:"i386/postgresql-libs", rpm:"i386/postgresql-libs~8.1.9~1.fc6", rls:"FC6")) != NULL)
+  {
+    security_message(data:res);
+    exit(0);
+  }
+
+  if (__pkg_match) exit(99);
+  exit(0);
+}

@@ -1,0 +1,73 @@
+# OpenVAS Vulnerability Test
+# Description: Auto-generated from advisory DSA 292-2
+#
+# Authors:
+# Thomas Reinke <reinke@securityspace.com>
+#
+# Copyright:
+# Copyright (C) 2008 E-Soft Inc.
+# Text descriptions are largerly excerpted from the referenced
+# advisory, and are Copyright (C) the respective author(s)
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License version 2,
+# as published by the Free Software Foundation
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+#
+
+if(description)
+{
+  script_oid("1.3.6.1.4.1.25623.1.0.53364");
+  script_version("2022-07-29T10:10:43+0000");
+  script_cve_id("CVE-2003-0214");
+  script_tag(name:"last_modification", value:"2022-07-29 10:10:43 +0000 (Fri, 29 Jul 2022)");
+  script_tag(name:"creation_date", value:"2008-01-17 22:28:10 +0100 (Thu, 17 Jan 2008)");
+  script_tag(name:"cvss_base", value:"4.6");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
+  script_name("Debian Security Advisory DSA 292-2 (mime-support)");
+  script_category(ACT_GATHER_INFO);
+  script_copyright("Copyright (C) 2008 E-Soft Inc.");
+  script_family("Debian Local Security Checks");
+      script_xref(name:"URL", value:"https://secure1.securityspace.com/smysecure/catid.html?in=DSA%20292-2");
+  script_tag(name:"insight", value:"Unfortunately yesterday's update for mime-support did not exactly work
+as expected, which requires an update.  For completeness we include
+the advisory text:
+
+Colin Phipps discovered several problems in mime-support, that contains
+support programs for the MIME control files 'mime.types' and 'mailcap'.
+When a temporary file is to be used it is created insecurely, allowing
+an attacker to overwrite arbitrary under the user id of the person
+executing run-mailcap, most probably root.  Additionally the program did
+not properly escape shell escape characters when executing a command.
+This is unlikely to be exploitable, though.
+
+For the stable distribution (woody) these problems have been fixed in
+version 3.18-1.2.
+
+For the old stable distribution (potato) these problems have been
+fixed in version 3.9-1.2.
+
+For the unstable distribution (sid) these problems have been
+fixed in version 3.22-1 (same as DSA 292-1).");
+
+  script_tag(name:"solution", value:"We recommend that you upgrade your mime-support packages.");
+  script_tag(name:"summary", value:"The remote host is missing an update to mime-support announced via advisory DSA 292-2.
+
+This VT has been merged into the VT 'Debian: Security Advisory (DSA-292)' (OID: 1.3.6.1.4.1.25623.1.0.53367).");
+  script_tag(name:"qod_type", value:"package");
+  script_tag(name:"solution_type", value:"VendorFix");
+
+  script_tag(name:"deprecated", value:TRUE);
+
+  exit(0);
+}
+
+exit(66);
