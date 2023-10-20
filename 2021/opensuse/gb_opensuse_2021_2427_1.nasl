@@ -21,11 +21,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854011");
-  script_version("2021-08-26T09:01:14+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2020-24588", "CVE-2020-26558", "CVE-2020-36385", "CVE-2020-36386", "CVE-2021-0129", "CVE-2021-0512", "CVE-2021-0605", "CVE-2021-22555", "CVE-2021-33200", "CVE-2021-33624", "CVE-2021-33909", "CVE-2021-34693", "CVE-2021-3609");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-08-26 09:01:14 +0000 (Thu, 26 Aug 2021)");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-07-06 08:15:00 +0000 (Tue, 06 Jul 2021)");
@@ -51,7 +51,7 @@ if(description)
      The following security bugs were fixed:
 
   - CVE-2021-22555: Fixed an heap out-of-bounds write in
-       net/netfilter/x_tables.c that could allow local provilege escalation.
+       net/netfilter/x_tables.c that could allow local privilege escalation.
        (bsc#1188116)
 
   - CVE-2021-33624: Fixed a bug which allows unprivileged BPF program to

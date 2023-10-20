@@ -1,46 +1,29 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2015 SCHUTZWERK GmbH
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Kanboard admin default credentials
-#
-# Authors:
-# Christian Fischer <info@schutzwerk.com>
-#
-# Copyright:
-# Copyright (C) 2015 SCHUTZWERK GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 CPE = "cpe:/a:kanboard:kanboard";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111064");
-  script_version("2022-05-31T13:44:19+0100");
+  script_version("2023-07-11T05:06:07+0000");
+  script_tag(name:"last_modification", value:"2023-07-11 05:06:07 +0000 (Tue, 11 Jul 2023)");
+  script_tag(name:"creation_date", value:"2015-12-04 13:00:00 +0100 (Fri, 04 Dec 2015)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+
   script_name("Kanboard Default Credentials (HTTP)");
-  script_tag(name:"last_modification", value:"2022-05-31 13:44:19 +0100 (Tue, 31 May 2022)");
-  script_tag(name:"creation_date", value:"2015-12-04 13:00:00 +0100 (Fri, 04 Dec 2015)");
+
   script_category(ACT_ATTACK);
+
   script_family("Default Accounts");
   script_copyright("Copyright (C) 2015 SCHUTZWERK GmbH");
-  script_dependencies("sw_kanboard_detect.nasl", "gb_default_credentials_options.nasl");
+  script_dependencies("sw_kanboard_http_detect.nasl", "gb_default_credentials_options.nasl");
   script_require_ports("Services/www", 80);
-  script_mandatory_keys("kanboard/installed");
+  script_mandatory_keys("kanboard/http/detected");
   script_exclude_keys("default_credentials/disable_default_account_checks");
 
   script_tag(name:"summary", value:"The remote Kanboard web interface is using known default
@@ -108,24 +91,24 @@ foreach controller( controllers ) {
 
   len = strlen( data );
 
-  req = 'POST ' + controller + '&action=check HTTP/1.1\r\n' +
-        'Host: ' + host + '\r\n' +
-        'User-Agent: ' + useragent + '\r\n' +
+  req = "POST " + controller + '&action=check HTTP/1.1\r\n' +
+        "Host: " + host + '\r\n' +
+        "User-Agent: " + useragent + '\r\n' +
         'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\n' +
         'Accept-Language: en-US,en;q=0.5\r\n' +
-        'Cookie: ' + cookie[0] + '\r\n' +
+        "Cookie: " + cookie[0] + '\r\n' +
         'Content-Type: application/x-www-form-urlencoded\r\n' +
-        'Content-Length: ' + len + '\r\n' +
+        "Content-Length: " + len + '\r\n' +
         '\r\n' +
         data;
   res = http_keepalive_send_recv( port:port, data:req );
 
-  req = 'GET ' + dir + '/?controller=config&action=index HTTP/1.1\r\n' +
-        'Host: ' + host + '\r\n' +
-        'User-Agent: ' + useragent + '\r\n' +
+  req = "GET " + dir + '/?controller=config&action=index HTTP/1.1\r\n' +
+        "Host: " + host + '\r\n' +
+        "User-Agent: " + useragent + '\r\n' +
         'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\n' +
         'Accept-Language: en-US,en;q=0.5\r\n' +
-        'Cookie: ' + cookie[0] + '\r\n' +
+        "Cookie: " + cookie[0] + '\r\n' +
         'Content-Type: application/x-www-form-urlencoded\r\n' +
         '\r\n';
   res = http_keepalive_send_recv( port:port, data:req );

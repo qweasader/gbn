@@ -1,28 +1,8 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Multiple Vulnerabilities in Network Time Protocol Daemon Affecting Cisco Products: January 2016
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:cisco:ip_interoperability_and_collaboration_system";
 
@@ -32,7 +12,7 @@ if (description)
   script_cve_id("CVE-2015-7974", "CVE-2015-7975", "CVE-2015-7976", "CVE-2015-7978", "CVE-2015-7977", "CVE-2015-7979", "CVE-2015-8138", "CVE-2015-8139", "CVE-2015-8140", "CVE-2015-8158", "CVE-2015-7973");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:P");
-  script_version("2021-10-08T12:01:22+0000");
+  script_version("2023-07-20T05:05:17+0000");
 
   script_name("Multiple Vulnerabilities in Network Time Protocol Daemon Affecting Cisco Products: January 2016");
 
@@ -68,14 +48,14 @@ if (description)
   script_tag(name:"qod_type", value:"package");
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_tag(name:"last_modification", value:"2021-10-08 12:01:22 +0000 (Fri, 08 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-11-21 02:29:00 +0000 (Tue, 21 Nov 2017)");
   script_tag(name:"creation_date", value:"2016-05-18 10:53:18 +0200 (Wed, 18 May 2016)");
   script_category(ACT_GATHER_INFO);
   script_family("CISCO");
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("gb_cisco_ipics_version.nasl");
   script_mandatory_keys("cisco/ipics/version");
   exit(0);

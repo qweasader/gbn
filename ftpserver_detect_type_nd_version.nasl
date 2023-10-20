@@ -1,33 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2005 SecuriTeam
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# FTP Banner Detection
-#
-# Authors:
-# Noam Rathaus <noamr@securiteam.com>
-#
-# Copyright:
-# Copyright (C) 2005 SecuriTeam
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10092");
-  script_version("2023-06-06T09:09:18+0000");
-  script_tag(name:"last_modification", value:"2023-06-06 09:09:18 +0000 (Tue, 06 Jun 2023)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -350,7 +331,7 @@ foreach port( ports ) {
   }
 
   if( banner =~ "220[- ]Titan FTP Server " ) {
-    set_kb_item( name:"ftp/titan/ftp/detected", value:TRUE );
+    set_kb_item( name:"ftp/titan_ftp_server/detected", value:TRUE );
     guess += '\n- Titan FTP Server';
   }
 
@@ -424,9 +405,13 @@ foreach port( ports ) {
     guess += '\n- ArGoSoft FTP';
   }
 
-  if( "GlobalSCAPE Secure FTP Server" >< banner ) {
+  if( "GlobalSCAPE Secure FTP Server" >< banner ||
+      "GlobalSCAPE Enhanced File Transfer Server" >< banner ||
+      "220 EFT Server" >< banner ||
+      "220 EFT Login -" >< banner ||
+      " EFT Server Enterprise" >< banner ) {
     set_kb_item( name:"ftp/globalscape/secure_ftp/detected", value:TRUE );
-    guess += '\n- GlobalSCAPE Secure FTP Server';
+    guess += '\n- Fortra Globalscape EFT';
   }
 
   if( "HP ARPA FTP" >< banner ) {
@@ -454,7 +439,7 @@ foreach port( ports ) {
     guess += '\n- Platinum FTP';
   }
 
-  if( egrep( pattern:"^220.*RobotFTP" ) ) {
+  if( egrep( pattern:"^220.*RobotFTP", string:banner ) ) {
     set_kb_item( name:"ftp/robot/ftp/detected", value:TRUE );
     guess += '\n- RobotFTP';
   }
@@ -637,6 +622,12 @@ foreach port( ports ) {
   if( "Welcome to Netman FTP service." >< banner ) {
     set_kb_item( name:"ftp/riello/netman_204/detected", value:TRUE );
     guess += '\n- Riello UPS / NetMan 204 Device';
+  }
+
+  # 220 Welcome to Honeywell Printer PX4ie
+  if( "Welcome to Honeywell Printer" >< banner ) {
+    set_kb_item( name:"ftp/honeywell/printer/detected", value:TRUE );
+    guess += '\n- Honeywell Printer';
   }
 
   report = 'Remote FTP server banner:\n\n' + banner;

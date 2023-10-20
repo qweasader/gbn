@@ -1,25 +1,8 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 Vlatko Kosturjak
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# 3com hub test NVT
-# replaces 3com_hub C plugin
-#
-# Authors:
-# Vlatko Kosturjak <kost@linux.hr>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # currently, NASL is missing ethernet level functions to implement this
 # fully in NASL, so we're using macof from dsniff -kost
@@ -27,8 +10,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.80103");
-  script_version("2020-07-30T06:58:46+0000");
-  script_tag(name:"last_modification", value:"2020-07-30 06:58:46 +0000 (Thu, 30 Jul 2020)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2009-08-10 06:09:48 +0200 (Mon, 10 Aug 2009)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
@@ -60,7 +43,7 @@ if(description)
   script_tag(name:"impact", value:"An attacker may use this flaw in the remote switch
   to sniff data going to this host.");
 
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"Workaround");
 
   exit(0);

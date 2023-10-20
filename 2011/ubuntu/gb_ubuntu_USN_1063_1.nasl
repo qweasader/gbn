@@ -1,36 +1,22 @@
-# Copyright (C) 2011 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2011 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.840585");
   script_cve_id("CVE-2011-0011");
   script_tag(name:"creation_date", value:"2011-02-16 13:19:17 +0000 (Wed, 16 Feb 2011)");
-  script_version("2022-09-16T10:11:39+0000");
-  script_tag(name:"last_modification", value:"2022-09-16 10:11:39 +0000 (Fri, 16 Sep 2022)");
+  script_version("2023-07-05T05:06:16+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:H/Au:N/C:P/I:P/A:P");
 
   script_name("Ubuntu: Security Advisory (USN-1063-1)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2011 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Ubuntu Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/ubuntu_linux", "ssh/login/packages", re:"ssh/login/release=UBUNTU(10\.04\ LTS|10\.10|9\.10)");
@@ -74,6 +60,10 @@ if(release == "UBUNTU10.04 LTS") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"0.12.3+noroms-0ubuntu9.4", rls:"UBUNTU10.04 LTS"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"qemu-arm-static", ver:"0.12.3+noroms-0ubuntu9.4", rls:"UBUNTU10.04 LTS"))) {
     report += res;
   }
@@ -82,7 +72,7 @@ if(release == "UBUNTU10.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-kvm-extras-static", ver:"0.12.3+noroms-0ubuntu9.4", rls:"UBUNTU10.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-kvm", ver:"0.12.3+noroms-0ubuntu9.4", rls:"UBUNTU10.04 LTS"))) {
     report += res;
   }
 
@@ -90,11 +80,7 @@ if(release == "UBUNTU10.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-kvm", ver:"0.12.3+noroms-0ubuntu9.4", rls:"UBUNTU10.04 LTS"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"0.12.3+noroms-0ubuntu9.4", rls:"UBUNTU10.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-kvm-extras-static", ver:"0.12.3+noroms-0ubuntu9.4", rls:"UBUNTU10.04 LTS"))) {
     report += res;
   }
 
@@ -112,15 +98,11 @@ if(release == "UBUNTU10.10") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"0.12.5+noroms-0ubuntu7.2", rls:"UBUNTU10.10"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"qemu-arm-static", ver:"0.12.5+noroms-0ubuntu7.2", rls:"UBUNTU10.10"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-kvm-extras-static", ver:"0.12.5+noroms-0ubuntu7.2", rls:"UBUNTU10.10"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-kvm-extras", ver:"0.12.5+noroms-0ubuntu7.2", rls:"UBUNTU10.10"))) {
     report += res;
   }
 
@@ -128,7 +110,11 @@ if(release == "UBUNTU10.10") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"0.12.5+noroms-0ubuntu7.2", rls:"UBUNTU10.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-kvm-extras", ver:"0.12.5+noroms-0ubuntu7.2", rls:"UBUNTU10.10"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-kvm-extras-static", ver:"0.12.5+noroms-0ubuntu7.2", rls:"UBUNTU10.10"))) {
     report += res;
   }
 
@@ -146,11 +132,11 @@ if(release == "UBUNTU9.10") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-arm-static", ver:"0.11.0-0ubuntu6.4", rls:"UBUNTU9.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"0.11.0-0ubuntu6.4", rls:"UBUNTU9.10"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-kvm-extras", ver:"0.11.0-0ubuntu6.4", rls:"UBUNTU9.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-arm-static", ver:"0.11.0-0ubuntu6.4", rls:"UBUNTU9.10"))) {
     report += res;
   }
 
@@ -158,7 +144,7 @@ if(release == "UBUNTU9.10") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"0.11.0-0ubuntu6.4", rls:"UBUNTU9.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-kvm-extras", ver:"0.11.0-0ubuntu6.4", rls:"UBUNTU9.10"))) {
     report += res;
   }
 

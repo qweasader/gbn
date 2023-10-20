@@ -1,28 +1,8 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Multiple vulnerabilities in Micro Focus (Novell) Filr
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:microfocus:filr";
 
@@ -32,7 +12,7 @@ if (description)
   script_cve_id("CVE-2016-1607", "CVE-2016-1608", "CVE-2016-1609", "CVE-2016-1610", "CVE-2016-1611");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
-  script_version("2021-10-11T08:01:31+0000");
+  script_version("2023-09-07T05:05:21+0000");
 
   script_name("Micro Focus (Novell) Filr 1.2 <= 1.2.0.846 / 2 <= 2.0.0.421 Multiple Vulnerabilities");
 
@@ -40,23 +20,23 @@ if (description)
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"The following vulnerabilities where detected in Filr:
+  script_tag(name:"insight", value:"The following vulnerabilities were detected in Filr:
 
-  - Cross Site Request Forgery (CSRF) - CVE-2016-1607
+  - CVE-2016-1607: Cross Site Request Forgery (CSRF)
 
-  - OS Command Injection - CVE-2016-1608
+  - CVE-2016-1608: OS Command Injection
 
-  - Insecure System Design
+  - CVE-2016-1609: Insecure System Design
 
-  - Persistent Cross-Site Scripting - CVE-2016-1609
+  - No CVE: Persistent Cross-Site Scripting (XSS)
 
-  - Missing Cookie Flags
+  - No CVE: Missing Cookie Flags
 
-  - Authentication Bypass - CVE-2016-1610
+  - CVE-2016-1610: Authentication Bypass
 
-  - Path Traversal - CVE-2016-1610
+  - CVE-2016-1610: Path Traversal
 
-  - Insecure File Permissions - CVE-2016-1611
+  - CVE-2016-1611: Insecure File Permissions
 
   See the referenced advisory for further information.");
 
@@ -70,14 +50,14 @@ if (description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"last_modification", value:"2021-10-11 08:01:31 +0000 (Mon, 11 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-09-07 05:05:21 +0000 (Thu, 07 Sep 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-09-03 01:29:00 +0000 (Sun, 03 Sep 2017)");
   script_tag(name:"creation_date", value:"2016-07-25 16:47:46 +0200 (Mon, 25 Jul 2016)");
   script_category(ACT_GATHER_INFO);
   script_family("General");
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("gb_microfocus_filr_consolidation.nasl");
   script_mandatory_keys("microfocus/filr/detected");
 

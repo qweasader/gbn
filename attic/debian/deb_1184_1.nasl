@@ -1,33 +1,14 @@
-# OpenVAS Vulnerability Test
-# Description: Auto-generated from advisory DSA 1184-1
+# SPDX-FileCopyrightText: 2008 E-Soft Inc.
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Thomas Reinke <reinke@securityspace.com>
-#
-# Copyright:
-# Copyright (C) 2008 E-Soft Inc.
-# Text descriptions are largerly excerpted from the referenced
-# advisory, and are Copyright (C) the respective author(s)
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.57408");
-  script_version("2022-07-29T10:10:43+0000");
-  script_tag(name:"last_modification", value:"2022-07-29 10:10:43 +0000 (Fri, 29 Jul 2022)");
+  script_version("2023-06-29T08:15:14+0000");
+  script_tag(name:"last_modification", value:"2023-06-29 08:15:14 +0000 (Thu, 29 Jun 2023)");
   script_tag(name:"creation_date", value:"2008-01-17 23:13:11 +0100 (Thu, 17 Jan 2008)");
   script_cve_id("CVE-2004-2660", "CVE-2005-4798", "CVE-2006-1052", "CVE-2006-1343", "CVE-2006-1528", "CVE-2006-1855", "CVE-2006-1856", "CVE-2006-2444", "CVE-2006-2446", "CVE-2006-2935", "CVE-2006-2936", "CVE-2006-3468", "CVE-2006-3745", "CVE-2006-4093", "CVE-2006-4145", "CVE-2006-4535");
   script_tag(name:"cvss_base", value:"7.8");
@@ -36,7 +17,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 E-Soft Inc.");
   script_family("Debian Local Security Checks");
-      script_tag(name:"summary", value:"The remote host is missing an update to kernel-source-2.6.8 announced via advisory DSA 1184-1. For details, please visit the referenced security advisories.
+  script_tag(name:"summary", value:"The remote host is missing an update to kernel-source-2.6.8 announced via advisory DSA 1184-1. For details, please visit the referenced security advisories.
 
 This VT has been merged into the VT 'Debian: Security Advisory (DSA-1184)' (OID: 1.3.6.1.4.1.25623.1.0.57477).");
   script_tag(name:"solution", value:"The following matrix explains which kernel version for which

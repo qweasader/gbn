@@ -1,45 +1,22 @@
-# OpenVAS Vulnerability Test
-# Description: TESO in.telnetd buffer overflow
+# SPDX-FileCopyrightText: 2001 Pavel Kankovsky
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Pavel Kankovsky, DCIT s.r.o. <kan@dcit.cz>
-#
-# Copyright:
-# Copyright (C) 2001 Pavel Kankovsky
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
-
-# The kudos for an idea of counting of AYT replies should go
-# to Sebastian <scut@nb.in-berlin.de> and Noam Rathaus
-# <noamr@beyondsecurity.com>.
-#
-# rd: tested against Solaris 2.8, RH Lx 6.2, FreeBSD 4.3 (patched & unpatched)
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10709");
-  script_version("2022-05-12T09:32:01+0000");
-  script_tag(name:"last_modification", value:"2022-05-12 09:32:01 +0000 (Thu, 12 May 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_xref(name:"IAVA", value:"2001-t-0008");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2001-0554");
-  script_name("TESO in.telnetd buffer overflow");
+  script_name("TESO in.telnetd Buffer Overflow DoS Vulnerability");
   script_category(ACT_DESTRUCTIVE_ATTACK);
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_copyright("Copyright (C) 2001 Pavel Kankovsky");
   script_family("Gain a shell remotely");
   # Must run AFTER ms_telnet_overflow-004.nasl
@@ -59,10 +36,15 @@ if(description)
   script_tag(name:"impact", value:"It is likely an attacker could abuse this bug to gain
   control over the remote host's superuser.");
 
+  script_tag(name:"affected", value:"Sun Solaris 2.8, RetHat Linux 6.2 and FreeBSD 4.3 are known to
+  be affected. Other versions or products might be affected as well.");
+
   script_tag(name:"solution_type", value:"Mitigation");
 
   exit(0);
 }
+
+# nb: Tested against Solaris 2.8, RH Lx 6.2, FreeBSD 4.3 (patched & unpatched)
 
 include("telnet_func.inc");
 include("misc_func.inc");

@@ -23,16 +23,19 @@ CPE = "cpe:/a:microsoft:edge_chromium_based";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832029");
-  script_version("2023-03-16T10:19:47+0000");
+  script_version("2023-10-13T05:06:10+0000");
   script_cve_id("CVE-2023-1213", "CVE-2023-1214", "CVE-2023-1215", "CVE-2023-1216",
                 "CVE-2023-1217", "CVE-2023-1218", "CVE-2023-1219", "CVE-2023-1220",
                 "CVE-2023-1221", "CVE-2023-1222", "CVE-2023-1223", "CVE-2023-1224",
                 "CVE-2023-1228", "CVE-2023-1229", "CVE-2023-1230", "CVE-2023-1231",
                 "CVE-2023-1232", "CVE-2023-1234", "CVE-2023-1235", "CVE-2023-24892",
                 "CVE-2023-1233", "CVE-2023-1236");
-  script_tag(name:"cvss_base", value:"8.5");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-03-16 10:19:47 +0000 (Thu, 16 Mar 2023)");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-03-11 02:38:00 +0000 (Sat, 11 Mar 2023)");
   script_tag(name:"creation_date", value:"2023-03-15 09:32:56 +0530 (Wed, 15 Mar 2023)");
   script_name("Microsoft Edge (Chromium-Based) Multiple Vulnerabilities (March 2023)");
 

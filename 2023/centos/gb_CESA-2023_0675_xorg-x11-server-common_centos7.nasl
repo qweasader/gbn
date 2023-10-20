@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.884276");
-  script_version("2023-03-09T10:20:45+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2023-0494");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-03-09 10:20:45 +0000 (Thu, 09 Mar 2023)");
+  script_tag(name:"cvss_base", value:"6.8");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-03-31 14:27:00 +0000 (Fri, 31 Mar 2023)");
   script_tag(name:"creation_date", value:"2023-03-07 02:00:43 +0000 (Tue, 07 Mar 2023)");
   script_name("CentOS: Security Advisory for xorg-x11-server-common (CESA-2023:0675)");
   script_category(ACT_GATHER_INFO);

@@ -1,34 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Eero Volotinen
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Gentoo Linux security check
-#
-# Authors:
-# Eero Volotinen <eero.volotinen@solinor.fi>
-#
-# Copyright:
-# Copyright (C) 2016 Eero Volotinen, http://solinor.com
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.121454");
-  script_version("2020-08-04T08:27:56+0000");
+  script_version("2023-07-20T05:05:17+0000");
   script_tag(name:"creation_date", value:"2016-03-14 15:52:48 +0200 (Mon, 14 Mar 2016)");
-  script_tag(name:"last_modification", value:"2020-08-04 08:27:56 +0000 (Tue, 04 Aug 2020)");
+  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
   script_name("Gentoo Security Advisory GLSA 201603-12");
   script_tag(name:"insight", value:"Multiple format string vulnerabilities in FlightGear and SimGear allow user-assisted remote attackers to cause a denial of service and possibly execute arbitrary code via format string specifiers in certain data chunk values in an aircraft xml model.");
   script_tag(name:"solution", value:"Update the affected packages to the latest available version.");

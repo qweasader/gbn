@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.823170");
-  script_version("2023-01-26T10:11:56+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2023-23456", "CVE-2023-23457");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-01-26 10:11:56 +0000 (Thu, 26 Jan 2023)");
+  script_tag(name:"cvss_base", value:"4.9");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:C");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-01-23 15:06:00 +0000 (Mon, 23 Jan 2023)");
   script_tag(name:"creation_date", value:"2023-01-22 02:01:47 +0000 (Sun, 22 Jan 2023)");
   script_name("Fedora: Security Advisory for upx (FEDORA-2023-89fdc22ace)");
   script_category(ACT_GATHER_INFO);

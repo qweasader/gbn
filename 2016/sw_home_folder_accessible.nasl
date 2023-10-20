@@ -1,28 +1,14 @@
-# Copyright (C) 2016 SCHUTZWERK GmbH
+# SPDX-FileCopyrightText: 2016 SCHUTZWERK GmbH
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111108");
-  script_version("2022-09-13T10:15:09+0000");
-  script_tag(name:"last_modification", value:"2022-09-13 10:15:09 +0000 (Tue, 13 Sep 2022)");
+  script_version("2023-08-01T13:29:10+0000");
+  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
   script_tag(name:"creation_date", value:"2016-07-06 16:00:00 +0200 (Wed, 06 Jul 2016)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -36,6 +22,8 @@ if(description)
 
   script_tag(name:"summary", value:"The script attempts to identify files of a linux home folder
   accessible at the webserver.");
+
+  script_tag(name:"vuldetect", value:"Check the response if files from a home folder are accessible.");
 
   script_tag(name:"insight", value:"Currently the script is checking for the following files:
 
@@ -81,10 +69,8 @@ if(description)
 
   - /.bashrc");
 
-  script_tag(name:"vuldetect", value:"Check the response if files from a home folder are accessible.");
-
-  script_tag(name:"impact", value:"Based on the information provided in these files an attacker might
-  be able to gather additional info.");
+  script_tag(name:"impact", value:"Based on the information provided in these files an attacker
+  might be able to gather additional info.");
 
   script_tag(name:"solution", value:"A users home folder shouldn't be accessible via a webserver.
   Restrict access to it or remove it completely.");
@@ -106,6 +92,8 @@ files = make_array( "/.ssh/authorized_keys", "^(ecdsa-sha2-nistp256|ssh-rsa|ssh-
                     "/.ssh/config", "^\s*(Host (\*|a-z])|(HostName|LogLevel|Compression|IdentityFile|ForwardAgent|ForwardX11|ForwardX11Trusted|ProxyCommand|LocalForward) )",
                     "/.ssh/known_hosts", "(ecdsa-sha2-nistp256|ssh-rsa|ssh-dsa|ssh-dss|ssh-ed25519)",
                     "/.ssh/identity", "^SSH PRIVATE KEY FILE FORMAT",
+                    # Some examples for private key names can be seen at e.g.:
+                    # https://en.wikibooks.org/wiki/OpenSSH/Client_Configuration_Files#Local_Account_Public_/_Private_Key_Pairs
                     "/.ssh/id_rsa", "^-----(BEGIN|END) (RSA|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
                     "/.ssh/id_rsa.pub", "^ssh-rsa",
                     "/.ssh/id_dsa", "^-----(BEGIN|END) (DSA|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
@@ -116,6 +104,16 @@ files = make_array( "/.ssh/authorized_keys", "^(ecdsa-sha2-nistp256|ssh-rsa|ssh-
                     "/.ssh/id_ecdsa.pub", "^ecdsa-sha2-nistp256",
                     "/.ssh/id_ed25519", "^-----(BEGIN|END) (ENCRYPTED|OPENSSH) PRIVATE KEY-----",
                     "/.ssh/id_ed25519.pub", "^ssh-ed25519",
+                    "/.ssh/id_ecdsa-sk", "^-----(BEGIN|END) (EC|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+                    "/.ssh/id_ed25519-sk", "^-----(BEGIN|END) (ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+                    "/.ssh/id_ecdsa-sk_rk", "^-----(BEGIN|END) (EC|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+                    "/.ssh/id_ed25519-sk_rk", "^-----(BEGIN|END) (ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+                    # Additional ones seen in examples / guides like e.g.:
+                    # https://cryptomonkeys.com/2015/04/generating-ssh-keys/
+                    "/.ssh/id_rsa_1024", "^-----(BEGIN|END) (RSA|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+                    "/.ssh/id_rsa_2048", "^-----(BEGIN|END) (RSA|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+                    "/.ssh/id_rsa_3072", "^-----(BEGIN|END) (RSA|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+                    "/.ssh/id_rsa_4096", "^-----(BEGIN|END) (RSA|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
                     "/.mysql_history", "^(INSERT INTO |DELETE FROM |(DROP|CREATE) TABLE |(DROP|CREATE) (DATABASE|SCHEMA) |SELECT ALL |GRANT ALL ON |FLUSH PRIVILEGES)",
                     "/.sqlite_history", "^(INSERT INTO |DELETE FROM |(DROP|CREATE) TABLE |(DROP|CREATE) (DATABASE|SCHEMA) |SELECT ALL |\.tables|\.quit|\.databases)",
                     "/.psql_history", "^(INSERT INTO |DELETE FROM |(DROP|CREATE) TABLE |(DROP|CREATE) (DATABASE|SCHEMA) |SELECT ALL |GRANT ALL ON )",
@@ -137,6 +135,11 @@ foreach dir( make_list_unique( "/", http_cgi_dirs( port:port ) ) ) {
 
     url = dir + file;
 
+    # nb: If required we might use a similar reporting like done in the following VTs:
+    # - 2016/sw_scm_files_accessible_http.nasl
+    # - 2018/gb_sensitive_file_disclosures_http.nasl
+    # nb: If false positives are reported at some point in the future we might want to check for a
+    # "Content-Type: text/html" and continue here if this is included.
     if( http_vuln_check( port:port, url:url, check_header:TRUE, pattern:files[file], usecache:TRUE ) ) {
       report += '\n' + http_report_vuln_url( port:port, url:url, url_only:TRUE );
       VULN = TRUE;

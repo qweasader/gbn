@@ -23,11 +23,16 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826954");
-  script_version("2023-03-30T10:19:37+0000");
-  script_cve_id("CVE-2023-27932", "CVE-2023-27954");
-  script_tag(name:"cvss_base", value:"6.8");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-03-30 10:19:37 +0000 (Thu, 30 Mar 2023)");
+  script_version("2023-10-12T05:05:32+0000");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
+  script_cve_id("CVE-2023-27932", "CVE-2023-27954", "CVE-2023-32435");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-06-30 07:32:00 +0000 (Fri, 30 Jun 2023)");
   script_tag(name:"creation_date", value:"2023-03-29 11:22:17 +0530 (Wed, 29 Mar 2023)");
   script_name("Apple Safari Security Update (HT213671)");
 
@@ -62,6 +67,7 @@ if(description)
   script_mandatory_keys("AppleSafari/MacOSX/Version", "ssh/login/osx_version");
   exit(0);
 }
+
 include("version_func.inc");
 include("ssh_func.inc");
 include("host_details.inc");
@@ -82,10 +88,9 @@ if(!infos = get_app_version_and_location(cpe:CPE, exit_no_version:TRUE)) exit(0)
 safVer = infos['version'];
 safPath = infos['location'];
 
-if(version_is_less(version:safVer, test_version:"16.4"))
-{
+if(version_is_less(version:safVer, test_version:"16.4")) {
   report = report_fixed_ver(installed_version:safVer, fixed_version:"16.4", install_path:safPath);
-  security_message(data:report);
+  security_message(port:0, data:report);
   exit(0);
 }
 exit(0);

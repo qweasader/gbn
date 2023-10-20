@@ -1,43 +1,24 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2012 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# TWiki 'MAKETEXT' variable Remote Command Execution Vulnerability
-#
-# Authors:
-# Veerendra G.G <veerendragg@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2012 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:twiki:twiki";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802048");
-  script_version("2022-04-27T12:01:52+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2012-6329", "CVE-2012-6330");
   script_tag(name:"cvss_base", value:"7.5");
-  script_tag(name:"last_modification", value:"2022-04-27 12:01:52 +0000 (Wed, 27 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"creation_date", value:"2012-12-27 12:46:41 +0530 (Thu, 27 Dec 2012)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
   script_name("TWiki 'MAKETEXT' variable Remote Command Execution Vulnerability");
 
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");
   script_dependencies("gb_twiki_detect.nasl");
@@ -136,7 +117,7 @@ req3 = string("GET ", url3 , " HTTP/1.1\r\n",
              "Content-Length: 0\r\n\r\n");
 res3 = http_keepalive_send_recv(port:twikiPort, data:req3);
 
-## RCE Clenup
+## RCE Cleanup
 url4 = dir + "/save" + sandbox_page;
 post_data = string("crypttoken=", crypt_token , "&text=OV-Test");
 req4 = string("POST ", url4 , " HTTP/1.1\r\n",

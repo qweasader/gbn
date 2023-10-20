@@ -1,43 +1,20 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2002 John Lampe
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Test for generic SQL injection in Web Applications
-#
-# Authors:
-# John Lampe ... j_lampe@bellsouth.net
-# Initial version of script was based (loosely) on wpoison by M.Meadele mm@bzero.net
-# See http://wpoison.sourceforge.net
-# re-worked Aug 20, 2004 : jwlampe -at- tenablesecurity.com adds POST checks
-# June/July 2005   : jwlampe -at- tenablesecurity.com adds Blind SQL Injection checks
-#
-# Copyright:
-# Copyright (C) 2002 John Lampe...j_lampe@bellsouth.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11139");
-  script_version("2022-08-16T10:20:04+0000");
-  script_tag(name:"last_modification", value:"2022-08-16 10:20:04 +0000 (Tue, 16 Aug 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_name("Generic HTTP SQLi (Web Application) - Active Check");
   script_category(ACT_MIXED_ATTACK);
-  script_copyright("Copyright (C) 2002 John Lampe...j_lampe@bellsouth.net");
+  script_copyright("Copyright (C) 2002 John Lampe");
   script_family("Web application abuses");
   script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
@@ -64,7 +41,7 @@ if(description)
   arguments.");
 
   script_tag(name:"solution_type", value:"Workaround");
-  script_tag(name:"qod_type", value:"remote_active");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   script_timeout(600);
 
@@ -76,7 +53,7 @@ include("http_keepalive.inc");
 include("port_service_func.inc");
 
 # TODO: Create a separate "reporting" VT which reports found items
-# by this NVT if it reached a timeout or exit(0) was used due to the failed requests.
+# by this VT if it reached a timeout or exit(0) was used due to the failed requests.
 
 # nb: We also don't want to run if optimize_test is set to "no"
 if( http_is_cgi_scan_disabled() ||
@@ -164,7 +141,7 @@ foreach cgi( cgis ) {
   #counter for current failed requests
   failedReqs = 0;
   #counter for max failed requests
-  #The NVT will exit if this is reached
+  #The VT will exit if this is reached
   #TBD: Make this configurable?
   maxFailedReqs = 5;
 

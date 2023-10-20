@@ -1,37 +1,23 @@
-# Copyright (C) 2012 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2012 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apache:struts";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802422");
-  script_version("2022-04-27T12:01:52+0000");
+  script_version("2023-07-21T05:05:22+0000");
   script_cve_id("CVE-2012-1006");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2022-04-27 12:01:52 +0000 (Wed, 27 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2012-02-08 12:14:38 +0530 (Wed, 08 Feb 2012)");
   script_name("Apache Struts < 2.3.3 Showcase Multiple Persistent XSS Vulnerabilities");
   script_category(ACT_DESTRUCTIVE_ATTACK); # Stored XSS
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_apache_struts_consolidation.nasl");
   script_require_ports("Services/www", 8080);
@@ -65,7 +51,7 @@ if(description)
 
   script_tag(name:"solution", value:"Update to version 2.3.3 or later.");
 
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"VendorFix");
 
   exit(0);

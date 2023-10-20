@@ -1,31 +1,8 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2005 Dave Aitel (ported to NASL by rd and Pavel Kankovsky)
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# DCE/RPC and MSRPC Services Enumeration
-#
-# Authors:
-# This code is 100% based on 'dcetest', by Dave Aitel, a free (GPL'ed)
-# C program available at http://www.immunitysec.com/tools.html
-# (or http://www.atstake.com)
-# NASL translation by Renaud Deraison
-# and Pavel Kankovsky, DCIT s.r.o. <kan@dcit.cz>
-#
-# Copyright:
-# Copyright (C) 2005 Dave Aitel (ported to NASL by rd and Pavel Kankovsky)
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 # DCEMAP
 #
@@ -39,8 +16,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108044");
-  script_version("2023-02-28T10:20:42+0000");
-  script_tag(name:"last_modification", value:"2023-02-28 10:20:42 +0000 (Tue, 28 Feb 2023)");
+  script_version("2023-06-22T10:34:15+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -54,7 +31,7 @@ if(description)
   script_tag(name:"summary", value:"Distributed Computing Environment / Remote Procedure Calls (DCE/RPC) or MSRPC services running
   on the remote host can be enumerated by connecting on port 135 and doing the appropriate queries.
 
-  The actual reporting takes place in the NVT 'DCE/RPC and MSRPC Services Enumeration Reporting'
+  The actual reporting takes place in the VT 'DCE/RPC and MSRPC Services Enumeration Reporting'
   (OID: 1.3.6.1.4.1.25623.1.0.10736)");
 
   script_tag(name:"impact", value:"An attacker may use this fact to gain more knowledge

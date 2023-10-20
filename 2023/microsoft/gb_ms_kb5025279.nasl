@@ -7,7 +7,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832037");
-  script_version("2023-05-18T09:08:59+0000");
+  script_version("2023-10-13T05:06:10+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2023-21729", "CVE-2023-28308", "CVE-2023-28307", "CVE-2023-28306",
@@ -23,7 +23,10 @@ if(description)
                 "CVE-2023-21769", "CVE-2023-21727", "CVE-2023-21554");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-05-18 09:08:59 +0000 (Thu, 18 May 2023)");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-04-11 21:15:00 +0000 (Tue, 11 Apr 2023)");
   script_tag(name:"creation_date", value:"2023-04-12 10:56:21 +0530 (Wed, 12 Apr 2023)");
   script_name("Microsoft Windows Multiple Vulnerabilities (KB5025279)");
 

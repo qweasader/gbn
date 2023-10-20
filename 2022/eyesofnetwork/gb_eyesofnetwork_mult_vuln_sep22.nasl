@@ -23,11 +23,14 @@ CPE = "cpe:/a:eyes_of_network:eyes_of_network";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126195");
-  script_version("2022-11-02T10:12:00+0000");
-  script_tag(name:"last_modification", value:"2022-11-02 10:12:00 +0000 (Wed, 02 Nov 2022)");
+  script_version("2023-10-18T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-11-02 09:23:33 +0000 (Wed, 02 Nov 2022)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-09-28 23:16:00 +0000 (Wed, 28 Sep 2022)");
 
   script_cve_id("CVE-2022-41571", "CVE-2022-41570");
 

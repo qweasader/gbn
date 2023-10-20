@@ -1,37 +1,23 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105497");
-  script_version("2021-09-17T12:01:50+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_name("Known SSH Host Key");
   script_cve_id("CVE-2015-6358", "CVE-2015-7255", "CVE-2015-7256", "CVE-2015-7276", "CVE-2015-8251",
                 "CVE-2015-8260", "CVE-2009-4510", "CVE-2008-0166");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-09-17 12:01:50 +0000 (Fri, 17 Sep 2021)");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"creation_date", value:"2016-01-05 13:21:28 +0100 (Tue, 05 Jan 2016)");
   script_category(ACT_GATHER_INFO);
-  script_family("General");
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_family("SSL and TLS");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("ssh_proto_version.nasl");
   script_require_ports("Services/ssh", 22);
   script_mandatory_keys("SSH/fingerprints/available");
@@ -96,10 +82,10 @@ foreach algo( ssh_host_key_algos ) {
     bhk_found = TRUE;
   }
 
-  # Those two are workarounds as we can't include such huge lists into NASL/NVTs.
+  # Those two are workarounds as we can't include such huge lists into NASL/VTs.
   # The greps will return something like "dd:f3:cc:a5:94:95:d3:75:45:be:26:be:1b:13:e0:05"
   # (including the double apostrophe) if a match was found.
-  # nb: Make sure to update the path below if moving the includes or this NVT around.
+  # nb: Make sure to update the path below if moving the includes or this VT around.
   if( algo == "ssh-rsa" ) {
     argv = make_list( "grep", host_key, "../bad_rsa_ssh_host_keys.txt" );
     res = pread( cmd:"grep", argv:argv, cd:FALSE );

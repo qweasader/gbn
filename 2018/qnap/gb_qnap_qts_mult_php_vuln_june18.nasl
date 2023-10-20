@@ -1,30 +1,16 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/o:qnap:qts";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813519");
-  script_version("2022-12-26T10:12:01+0000");
-  script_tag(name:"last_modification", value:"2022-12-26 10:12:01 +0000 (Mon, 26 Dec 2022)");
+  script_version("2023-09-27T05:05:31+0000");
+  script_tag(name:"last_modification", value:"2023-09-27 05:05:31 +0000 (Wed, 27 Sep 2023)");
   script_tag(name:"creation_date", value:"2018-06-11 17:13:13 +0530 (Mon, 11 Jun 2018)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -42,7 +28,7 @@ if (description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_qnap_nas_http_detect.nasl");
   script_mandatory_keys("qnap/nas/qts/detected");
@@ -86,16 +72,27 @@ include("host_details.inc");
 if (!version = get_app_version(cpe: CPE, nofork: TRUE))
   exit(0);
 
-if (version_in_range(version: version, test_version: "4.3.3", test_version2: "4.3.3_20180126")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "4.3.3_20180402");
+build = get_kb_item("qnap/nas/qts/build");
+
+if (version_is_less(version: version, test_version: "4.3.3")) {
+  report = report_fixed_ver(installed_version: version, installed_build: build, fixed_version: "4.3.3", fixed_build: "20180402");
   security_message(port: 0, data: report);
   exit(0);
 }
 
-if (version_in_range(version: version, test_version: "4.3.4", test_version2: "4.3.4_20180215")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "4.3.4_20180315");
+if (version_is_equal(version: version, test_version: "4.3.3") &&
+   (!build || version_is_less(version: build, test_version: "20180402"))) {
+  report = report_fixed_ver(installed_version: version, installed_build: build, fixed_version: "4.3.3", fixed_build: "20180402");
   security_message(port: 0, data: report);
   exit(0);
+}
+
+if (version =~ "^4\.3\.4") {
+   if (!build || version_is_less(version: build, test_version: "20180315")) {
+    report = report_fixed_ver(installed_version: version, installed_build: build, fixed_version: "4.3.4", fixed_build: "20180315");
+    security_message(port: 0, data: report);
+    exit(0);
+  }
 }
 
 exit(99);

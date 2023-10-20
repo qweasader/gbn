@@ -1,33 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2005 Michel Arboi
+# SPDX-FileCopyrightText: New detection methods / pattern / code since 2009 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Service Detection with 'GET' Request
-#
-# Authors:
-# Michel Arboi <mikhail@nessus.org>
-#
-# Copyright:
-# Copyright (C) 2005 Michel Arboi
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.17975");
-  script_version("2023-05-26T09:09:36+0000");
-  script_tag(name:"last_modification", value:"2023-05-26 09:09:36 +0000 (Fri, 26 May 2023)");
+  script_version("2023-09-12T05:05:19+0000");
+  script_tag(name:"last_modification", value:"2023-09-12 05:05:19 +0000 (Tue, 12 Sep 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -39,10 +21,11 @@ if(description)
                       "cifs445.nasl", "apache_SSL_complain.nasl");
   script_require_ports("Services/unknown");
 
-  script_tag(name:"summary", value:"This plugin performs service detection.
+  script_tag(name:"summary", value:"This plugin performs service detection.");
 
-  This plugin is a complement of find_service.nasl. It sends a 'GET' request
-  to the remaining unknown services and tries to identify them.");
+  script_tag(name:"insight", value:"This plugin is a complement of the plugin 'Services' (OID:
+  1.3.6.1.4.1.25623.1.0.10330). It sends a HTTP 'GET' request to the remaining unknown services and
+  tries to identify them.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -221,8 +204,8 @@ if( (r_len == 5 || r_len == 6) && r[3] == '\0' &&
 }
 
 if( r == '\x01Permission denied' || ( "lpd " >< r && "Print-services" >< r ) ) {
-  service_report( port:port, svc:"lpd", message:"An LPD server is running on this port" );
-  log_message( port:port, data:"An LPD server is running on this port" );
+  service_report( port:port, svc:"lpd", message:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
+  log_message( port:port, data:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
   exit( 0 );
 }
 
@@ -364,9 +347,12 @@ if( port =~ "^929[0-2]$" && r =~ "^0[0-2]$") {
   exit( 0 );
 }
 
-if( port == 515 && rhexstr =~ "^ff$") {
-  service_register( port:port, proto:"printer", message:"A LPD service seems to be running on this port." );
-  log_message( port:port, data:"A LPD service seems to be running on this port." );
+# Seen for/on JetDirect lpd.
+# nb: See find_service2.nasl as well. This was just added there as a fallback if this first
+# detection / connection has some hiccup.
+if( port == 515 && rhexstr =~ "^ff$" ) {
+  service_register( port:port, proto:"lpd", message:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
+  log_message( port:port, data:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
   exit( 0 );
 }
 
@@ -1057,11 +1043,38 @@ if( egrep( pattern:"^OK WorkgroupShare.+server ready", string:r, icase:FALSE ) )
 # HP OpenView Storage Data Protector A.06.00: INET, internal build 331
 # HP OpenView Storage Data Protector A.05.50: INET, internal build 330
 # HP OpenView Storage Data Protector A.05.00: INET, internal build 190, built on Tue Jul 16 17:37:32 2002.
-# nb: See find_service2.nasl as well
-if( r =~ "^HPE? (OpenView Storage )?Data Protector" ) {
-  service_register( port:port, proto:"hp_dataprotector", message:"HP/HPE (OpenView Storage) Data Protector seems to be running on this port" );
-  replace_kb_item( name:"hp_dataprotector/" + port + "/banner", value:chomp( r ) );
-  log_message( port:port, data:"HP/HPE (OpenView Storage) Data Protector seems to be running on this port" );
+# Micro Focus Data Protector A.10.03: INET, internal build 181, built on Sunday, March 25, 2018, 6:32 PM
+#
+# Some services (at least HP Data Protector ones) seems to include NUL chars in their responses as
+# seen on:
+# https://forum.greenbone.net/t/service-running-on-5555-is-data-protector/15690
+# so we need handle this a little bit differentely here...
+#
+# Method: get_httpHex
+# 0x00: 48 00 50 00 20 00 44 00 61 00 74 00 61 00 20 00 H.P. .D.a.t.a. .
+# 0x10: 50 00 72 00 6F 00 74 00 65 00 63 00 74 00 6F 00 P.r.o.t.e.c.t.o.
+# 0x20: 72 00 20 00 41 00 2E 00 30 00 39 00 2E 00 30 00 r. .A...0...9.0.
+# 0x30: 30 00 3A 00 20 00 49 00 4E 00 45 00 54 00 2C 00 0.:. .I.N.E.T.,.
+# 0x40: 20 00 69 00 6E 00 74 00 65 00 72 00 6E 00 61 00 .i.n.t.e.r.n.a.
+# 0x50: 6C 00 20 00 62 00 75 00 69 00 6C 00 64 00 20 00 l. .b.u.i.l.d. .
+# 0x60: 31 00 30 00 31 00 2C 00 20 00 62 00 75 00 69 00 1.0.1.,. .b.u.i.
+# 0x70: 6C 00 74 00 20 00 6F 00 6E 00 20 00 32 00 37 00 l.t. .o.n. .2.7.
+# 0x80: 20 00 4F 00 63 00 74 00 6F 00 62 00 65 00 72 00 .O.c.t.o.b.e.r.
+# 0x90: 20 00 32 00 30 00 31 00 34 00 2C 00 20 00 31 00 .2.0.1.4.,. .1.
+# 0xA0: 33 00 3A 00 32 00 34 00 0A 00 00 00             3.:.2.4....
+#
+# nb: See find_service2.nasl as well and keep the pattern on both the same.
+if( r =~ "^(Micro Focus|HPE?) (OpenView Storage )?Data Protector" ||
+    rbinstr_nospace =~ "^(Micro Focus|HPE?) (OpenView Storage )?Data Protector" ) {
+
+  service_register( port:port, proto:"hp_dataprotector", message:"Micro Focus/HP/HPE (OpenView Storage) Data Protector seems to be running on this port" );
+
+  if( '\0' >< r )
+    replace_kb_item( name:"hp_dataprotector/" + port + "/banner", value:chomp( rbinstr_nospace ) );
+  else
+    replace_kb_item( name:"hp_dataprotector/" + port + "/banner", value:chomp( r ) );
+
+  log_message( port:port, data:"Micro Focus/HP/HPE (OpenView Storage) Data Protector seems to be running on this port" );
   exit( 0 );
 }
 
@@ -1072,6 +1085,142 @@ if( r =~ '^<\\?xml version="1\\.0" encoding="us-ascii"\\?>[^<]+<junoscript xmlns
   service_register( port:port, proto:"junoscript", message:"Juniper Junos OS JUNOScript seems to be running on this port" );
   replace_kb_item( name:"juniper/junos/" + port + "/banner", value:chomp( r ) );
   log_message( port:port, data:"Juniper Junos OS JUNOScript seems to be running on this port" );
+  exit( 0 );
+}
+
+# Seen on FortiNAC port 1050/tcp but might be used similar on other products
+#
+# 0x0000:  AC ED 00 05 73 72 00 28 63 6F 6D 2E 62 73 63 2E    ....sr.(com.bsc.
+# 0x0010:  61 70 69 2E 6C 6F 61 64 65 72 2E 5F 4C 6F 61 64    api.loader._Load
+# 0x0020:  65 72 49 6E 74 65 72 66 61 63 65 5F 53 74 75 62    erInterface_Stub
+# 0x0030:  B2 85 D2 C8 E0 44 5A 8B 02 00 00 78 72 00 14 6A    .....DZ....xr..j
+# 0x0040:  61 76 61 78 2E 72 6D 69 2E 43 4F 52 42 41 2E 53    avax.rmi.CORBA.S
+# 0x0050:  74 75 62 0F 18 8E 25 FB C0 10 1B 03 00 00 78 70    tub...%.......xp
+# 0x0060:  77 B6 00 00 00 38 52 4D 49 3A 63 6F 6D 2E 62 73    w....8RMI:com.bs
+# 0x0070:  63 2E 61 70 69 2E 6C 6F 61 64 65 72 2E 4C 6F 61    c.api.loader.Loa
+# 0x0080:  64 65 72 49 6E 74 65 72 66 61 63 65 3A 30 30 30    derInterface:000
+# 0x0090:  30 30 30 30 30 30 30 30 30 30 30 30 30 00 00 00    0000000000000...
+# 0x00A0:  00 01 00 00 00 00 00 00 00 6E 00 01 02 00 00 00    .........n......
+# 0x00B0:  00 0B 31 30 2E 39 37 2E 30 2E 31 35 00 00 AC CA    ..10.97.0.15....
+# 0x00C0:  00 00 00 00 00 19 AF AB CB 00 00 00 00 02 CA 48    ...............H
+# 0x00D0:  99 62 00 00 00 08 00 00 00 00 00 00 00 00 14 00    .b..............
+# 0x00E0:  00 00 00 00 00 02 00 00 00 01 00 00 00 20 00 00    ............. ..
+# 0x00F0:  00 00 00 01 00 01 00 00 00 02 05 01 00 01 00 01    ................
+# 0x0100:  00 20 00 01 01 09 00 00 00 01 00 01 01 00 00 00    . ..............
+# 0x0110:  00 26 00 00 00 02 00 02 78 75 72 00 02 5B 42 AC    .&......xur..[B.
+# 0x0120:  F3 17 F8 06 08 54 E0 02 00 00 78 70 00 00 0C 66    .....T....xp...f
+# 0x0130:  FE ED FE ED 00 00 00 02 00 00 00 02 00 00 00 02    ................
+# 0x0140:  00 06 63 6C 69 65 6E 74 00 00 01 88 CA 47 6A C7    ..client.....Gj.
+# 0x0150:  00 05 58 2E 35 30 39 00 00 03 8D 30 82 03 89 30    ..X.509....0...0
+# 0x0160:  82 02 71 A0 03 02 01 02 02 04 40 CE 52 D5 30 0D    ..q.......@.R.0.
+# 0x0170:  06 09 2A 86 48 86 F7 0D 01 01 0B 05 00 30 75 31    ..*.H........0u1
+# 0x0180:  0B 30 09 06 03 55 04 06 13 02 55 53 31 0B 30 09    .0...U....US1.0.
+# 0x0190:  06 03 55 04 08 13 02 4E 48 31 10 30 0E 06 03 55    ..U....NH1.0...U
+# 0x01A0:  04 07 13 07 43 6F 6E 63 6F 72 64 31 0C 30 0A 06    ....Concord1.0..
+# 0x01B0:  03 55 04 0A 13 03 62 6E 69 31 1A 30 18 06 03 55    .U....bni1.0...U
+# 0x01C0:  04 0B 13 11 42 72 61 64 66 6F 72 64 20 4E 65 74    ....Bradford Net
+# 0x01D0:  77 6F 72 6B 73 31 1D 30 1B 06 03 55 04 03 13 14    works1.0...U....
+# 0x01E0:  62 72 61 64 66 6F 72 64 6E 65 74 77 6F 72 6B 73    bradfordnetworks
+# 0x01F0:  2E 63 6F 6D 30 1E 17 0D 32 31 30 35 30 35 31 32    .com0...21050512
+# 0x0200:  34 33 35 34 5A 17 0D 33 31 30 35 30 33 31 32 34    4354Z..310503124
+# 0x0210:  33 35 34 5A 30 75 31 0B 30 09 06 03 55 04 06 13    354Z0u1.0...U...
+# 0x0220:  02 55 53 31 0B 30 09 06 03 55 04 08 13 02 4E 48    .US1.0...U....NH
+# 0x0230:  31 10 30 0E 06 03 55 04 07 13 07 43 6F 6E 63 6F    1.0...U....Conco
+# 0x0240:  72 64 31 0C 30 0A 06 03 55 04 0A 13 03 62 6E 69    rd1.0...U....bni
+# 0x0250:  31 1A 30 18 06 03 55 04 0B 13 11 42 72 61 64 66    1.0...U....Bradf
+# 0x0260:  6F 72 64 20 4E 65 74 77 6F 72 6B 73 31 1D 30 1B    ord Networks1.0.
+# 0x0270:  06 03 55 04 03 13 14 62 72 61 64 66 6F 72 64 6E    ..U....bradfordn
+# 0x0280:  65 74 77 6F 72 6B 73 2E 63 6F 6D 30 82 01 22 30    etworks.com0.."0
+# 0x0290:  0D 06 09 2A 86 48 86 F7 0D 01 01 01 05 00 03 82    ...*.H..........
+# 0x02A0:  01 0F 00 30 82 01 0A 02 82 01 01 00 89 77 CE B8    ...0.........w..
+# 0x02B0:  46 FB 22 26 11 C4 B6 3F FE 12 7C 6A 28 E4 C2 CA    F."&...?..|j(...
+# 0x02C0:  86 42 73 11 25 AA 44 FF A9 C3 A3 5C DE 0B 4C E5    .Bs.%.D....\..L.
+# 0x02D0:  0B 16 D0 39 5C 33 BF AA 05 C3 BA 92 53 D9 7A A3    ...9\3......S.z.
+# 0x02E0:  DF A4 8E 2E FE 46 53 47 4A E6 3D E2 87 53 F3 53    .....FSGJ.=..S.S
+# 0x02F0:  45 D4 8E 73 05 D9 FA 2C 71 01 59 2D 99 0B 58 19    E..s...,q.Y-..X.
+# 0x0300:  0D A9 BF BD A2 CD 65 49 9F 1D 65 EE D4 80 FD 99    ......eI..e.....
+# 0x0310:  4D C8 03 AD 87 9B A9 65 0C 5A 23 24 FA 24 E9 22    M......e.Z#$.$."
+# 0x0320:  A5 34 27 DE 6A 44 94 14 E8 4D 0C 9B FD 1E 41 4C    .4'.jD...M....AL
+# 0x0330:  DE 62 A8 EE 91 14 9A B9 60 C7 45 F8 10 6A 21 B8    .b......`.E..j!.
+# 0x0340:  1B E7 A4 06 D8 CA 5D 97 F4 89 1E 88 E3 92 30 4B    ......].......0K
+# 0x0350:  61 D7 10 24 40 BF 59 A9 64 B6 12 83 9F 3E 1B 32    a..$@.Y.d....>.2
+# 0x0360:  12 00 16 10 79 44 8A E6 A6 FA 72 05 A7 57 88 77    ....yD....r..W.w
+# 0x0370:  29 3B F8 19 66 C4 F3 63 11 08 30 2E 78 C4 71 EA    );..f..c..0.x.q.
+# 0x0380:  3B 5E 28 13 75 C9 43 49 4B 75 61 0C 82 D2 37 F6    ;^(.u.CIKua...7.
+# 0x0390:  F0 8B 4B 37 BB 04 0E 41 35 8C C2 85 0B D2 CF E2    ..K7...A5.......
+# 0x03A0:  6C D6 EC 4C 74 F9 FA 34 39 5B 57 0F 02 03 01 00    l..Lt..49[W.....
+# 0x03B0:  01 A3 21 30 1F 30 1D 06 03 55 1D 0E 04 16 04 14    ..!0.0...U......
+# 0x03C0:  A3 D9 C1 B1 31 72 F0 0C CC CA C9 3E 2A C1 FA E2    ....1r.....>*...
+# 0x03D0:  AA CC 5F B8 30 0D 06 09 2A 86 48 86 F7 0D 01 01    .._.0...*.H.....
+# 0x03E0:  0B 05 00 03 82 01 01 00 3A 41 7F FD 31 98 B9 63    ........:A..1..c
+# 0x03F0:  38 A8 24 30 3E 07 5A 7C D4 2A CB 2E 48 AE D5 EE    8.$0>.Z|.*..H...
+# 0x0400:  BA F5 A0 15 1C F0 FE D8 8D A3 17 18 A5 0B 36 7B    ..............6{
+# 0x0410:  A3 96 39 92 BF C4 E0 19 0B 8F BF 49 31 34 A0 BB    ..9........I14..
+# 0x0420:  DD B4 07 76 FE B1 27 68 9B 1B 19 E6 AF 52 63 F5    ...v..'h.....Rc.
+# 0x0430:  DF C3 75 81 2B 8C 35 40 11 3A 4A 71 9E 1E E6 4E    ..u.+.5@.:Jq...N
+# 0x0440:  77 A9 FD 5C 31 F9 65 36 CC EB 9B C9 23 37 3C 99    w..\1.e6....#7<.
+# 0x0450:  14 BA 10 62 37 4F A6 B8 BB F2 08 5A 62 26 AF 7E    ...b7O.....Zb&.~
+# 0x0460:  80 3B C8 D4 25 C4 69 EB C9 16 9F 59 0B E5 AF 4D    .;..%.i....Y...M
+# 0x0470:  10 A9 EB C3 15 55 B1 69 77 BE 9B 41 8A CE EE CE    .....U.iw..A....
+# 0x0480:  82 69 24 CB 47 CB EB 1A C1 D7 D5 15 D7 94 2C 83    .i$.G.........,.
+# 0x0490:  EB 71 18 68 BE C3 81 C7 33 6A 60 C9 7D E7 86 E4    .q.h....3j`.}...
+# 0x04A0:  70 66 C3 BF 4F C6 C8 47 AE 32 45 01 6B D1 15 F3    pf..O..G.2E.k...
+# 0x04B0:  47 7D C6 EA 1B 89 FD F3 34 57 B1 3C 9B 15 FF 7F    G}......4W.<....
+# 0x04C0:  B6 E3 1B 08 D8 A1 E4 08 E4 77 5C 22 00 24 C0 59    .........w\".$.Y
+# 0x04D0:  18 40 E0 18 59 2B 3A F7 5C 50 67 9D 19 1A 00 A8    .@..Y+:.\Pg.....
+# 0x04E0:  CF 6A 87 99 5B 3A 94 B0 00 00 00 01 00 06 73 65    .j..[:........se
+# 0x04F0:  72 76 65 72 00 00 01 88 CA 47 6A C6 00 00 05 04    rver.....Gj.....
+# 0x0500:  30 82 05 00 30 0E 06 0A 2B 06 01 04 01 2A 02 11    0...0...+....*..
+# 0x0510:  01 01 05 00 04 82 04 EC 28 42 8B 8C 07 A7 89 40    ........(B.....@
+# 0x0520:  59 C3 FB 8D 30 F3 28 3C 4B 4E 2A 41 E4 93 64 00    Y...0.(<KN*A..d.
+# 0x0530:  7D CE 2E 81 19 1F C8 64 D8 AC 08 D1 21 88 DF 81    }......d....!...
+# 0x0540:  D1 10 F2 AF 59 1A 61 57 40 15 EE 92 97 9F 9A 10    ....Y.aW@.......
+# 0x0550:  7D E2 A9 71 C8 F3 99 F1 ED 92 EA BA 40 02 7E FE    }..q........@.~.
+# 0x0560:  2D 5B E7 AD 88 5A 47 EB D7 22 1B 51 1A C5 7E E6    -[...ZG..".Q..~.
+# 0x0570:  EA C0 01 8B 5D 23 73 1A 6F FE 61 CE 49 2E 63 08    ....]#s.o.a.I.c.
+# 0x0580:  5D 90 41 37 A4 01 68 6B 35 48 CB 21 C5 11 61 AC    ].A7..hk5H.!..a.
+# 0x0590:  DD 52 1E 66 63 1C 46 A1 E4 FD C3 AD BD 36 FD 15    .R.fc.F......6..
+# 0x05A0:  35 4D D1 56 96 B6 0D 34 33 65 8A 7E 28 13 FF 6A    5M.V...43e.~(..j
+# 0x05B0:  5F 18 70 63 CE 2E 8A 50 65 ED 51 EA E4 C3 F6 9C    _.pc...Pe.Q.....
+# 0x05C0:  5A 8C 18 D7 54 D4 6B A7 7D 7B B0 F9 55 80 22 27    Z...T.k.}{..U."'
+# 0x05D0:  F2 A3 98 A0 7C 86 73 01 C6 2B E9 48 C4 30 D9 EA    ....|.s..+.H.0..
+# 0x05E0:  32 E4 EA 21 C5 4C 53 8F 9B 19 63 BD 49 BB D0 0F    2..!.LS...c.I...
+# 0x05F0:  BF A1 DC F4 52 C0 38 57 F3 29 AB C2 58 4A A1 C2    ....R.8W.)..XJ..
+# 0x0600:  DB 4B 47 53 FA 1F CC 6F 84 C4 BB B2 DB AC 2A B7    .KGS...o......*.
+# 0x0610:  5C E2 44 C8 02 0D CF 40 84 B0 5E F5 C3 CB 06 3F    \.D....@..^....?
+# 0x0620:  8D F2 98 2E 8E 30 95 08 44 F7 F3 E4 5B BF A0 20    .....0..D...[..
+# 0x0630:  C6 32 77 A5 33 01 9B 4B AF FB A2 56 AA 94 3A 03    .2w.3..K...V..:.
+# 0x0640:  BE 9D 5D B0 12 D1 49 5B EB 1D 1D DD AB C0 A6 43    ..]...I[.......C
+# 0x0650:  4B D6 E3 0F B4 21 77 B3 D3 6F 9C 32 E0 68 53 8D    K....!w..o.2.hS.
+# 0x0660:  25 3C 9F 70 5F A6 2B B2 1D 17 6D 6D 79 44 E3 27    %<.p_.+...mmyD.'
+# 0x0670:  BC 81 E0 47 E4 E0 03 7A 02 20 6D B4 B0 A5 5A 67    ...G...z. m...Zg
+# 0x0680:  59 25 82 F3 63 7A 71 F7 51 94 34 B9 61 B0 36 67    Y%..czq.Q.4.a.6g
+# 0x0690:  82 72 C0 28 B9 75 6A D6 08 77 E7 38 AC B5 F5 4A    .r.(.uj..w.8...J
+# 0x06A0:  DD 27 97 CB A6 D5 AE D0 33 AE 45 15 31 40 DE 72    .'......3.E.1@.r
+# 0x06B0:  0B A5 3D 1F FF AC 6A C7 1E 4A 4A 84 6E 44 FF 6A    ..=...j..JJ.nD.j
+# 0x06C0:  51 50 6C C2 55 25 8F 4D D8 9D 15 9C 45 79 78 C2    QPl.U%.M....Eyx.
+# 0x06D0:  76 BD 59 09 5F 34 4B 91 21 91 C2 A7 FF 46 B1 A3    v.Y._4K.!....F..
+# 0x06E0:  1B 8B 8B 69 2C AA CF 83 75 8E 46 BC 1C 45 53 67    ...i,...u.F..ESg
+# 0x06F0:  D7 BC 4B BE DB 3C 7B 1E 80 F6 61 F4 39 34 77 F5    ..K..<{...a.94w.
+# 0x0700:  26 B8 72 62 D1 94 6A 29 01 38 21 D7 5B 1A D5 EA    &.rb..j).8!.[...
+# 0x0710:  29 3C BD 63 45 30 C9 38 16 FF 08 37 D0 06 27 63    )<.cE0.8...7..'c
+# 0x0720:  D0 2D CC 14 9F 62 3D F9 BD 8F 98 49 75 CD 1F 94    .-...b=....Iu...
+# 0x0730:  5E 01 0C 43 E9 18 B4 CE E7 D2 F2 39 83 22 E7 14    ^..C.......9."..
+# 0x0740:  9D A4 72 CE 4C DC 75 2C 64 2F 53 7A 78 9C 48 53    ..r.L.u,d/Szx.HS
+# 0x0750:  E8 5C 69 8B D5 DF B8 C5 26 99 25 B9 64 B9 E1 1F    .\i.....&.%.d...
+# 0x0760:  C4 DD 6E 5C A5 16 B4 FE AF C9 52 84 93 69 CE AB    ..n\......R..i..
+# 0x0770:  B8 0D 6B 2E 50 22 14 DB B4 AC 7F F7 AC B9 57 4F    ..k.P"........WO
+# 0x0780:  05 4A 70 56 94 0A 0F 68 DF CA DC 36 AC 25 B6 D0    .JpV...h...6.%..
+# 0x0790:  22 E4 EC 2F 8E 35 24 14 68 3D 86 1F B9 21 AC 35    "../.5$.h=...!.5
+# 0x07A0:  1A 6E B8 4E BC ED 55 19 C8 0A 11 A3 27 F3 41 BE    .n.N..U.....'.A.
+# 0x07B0:  8F CD BD 24 F4 D7 50 24 7E AC C1 7B 15 D7 92 2B    ...$..P$~..{...+
+# 0x07C0:  9D 6E 62 99 59 81 08 B6 32 34 C8 31 AF B3 07 C9    .nb.Y...24.1....
+# 0x07D0:  7C DE 06 1C 4D 11 3B 14 62 B0 0E 2C 38 A2 D9 81    |...M.;.b..,8...
+# 0x07E0:  F7 12 CF 8B FE F7 42 EA A9 C6 F8 D8 45 D9 64 17    ......B.....E.d.
+# 0x07F0:  E2 36 74 CF 9A 64 8B AB EE EF 5A F8 9B F5 98 12    .6t..d....Z.....
+if( "javax.rmi.CORBA.Stub" >< rbinstr_space ) {
+  service_register( port:port, proto:"corba", message:"A CORBA service seems to be running on this port." );
+  log_message( port:port, data:"A CORBA service seems to be running on this port." );
   exit( 0 );
 }
 
@@ -1217,6 +1366,42 @@ if( rbinstr_nospace =~ "Version mismatch, driver version is.+but server version 
   service_register( port:port, proto:"h2", message:"A H2 Database service is running at this port." );
   log_message( port:port, data:"A H2 Database service is running at this port." );
   exit( 0 );
+}
+
+# nb:
+# - Seen on port 1777/tcp
+# - reporting from unknown_services.nasl / gb_unknown_os_service_reporting.nasl before this
+#   detection got introduced
+# - Similar pattern is used in find_service_spontaneous.nasl just to be sure to catch the services
+#   at two places if it doesn't response to one probe (e.g. overloaded during "full" scans)
+#
+# Method: get_httpHex
+#
+# 0x0000:  00 00 01 60 00 00 00 25 00 00 01 2B 00 00 00 00    ...`...%...+....
+# 0x0010:  00 00 00 02 00 00 00 05 00 00 00 01 68 2E 6D 69    ............h.mi
+# 0x0020:  64 30 00 00 00 02 00 00 00 05 00 00 00 02 68 2E    d0............h.
+# 0x0030:  63 6D 64 31 38 00 00 00 02 00 00 00 05 00 00 00    cmd18...........
+# 0x0040:  03 70 2E 72 65 76 33 30 38 00 00 00 08 00 00 00    .p.rev308.......
+# 0x0050:  06 00 00 00 1C 70 2E 67 75 69 64 30 30 35 30 35    .....p.guid00505
+# 0x0060:  36 38 37 41 45 36 38 36 34 46 42 32 43 45 41 30    687AE6864FB2CEA0
+# 0x0070:  30 30 30 30 30 32 46 00 00 00 02 00 00 00 09 00    000002F.........
+# 0x0080:  00 00 01 70 2E 65 6E 63 72 79 70 74 30 00 00 00    ...p.encrypt0...
+# 0x0090:  02 00 00 00 09 00 00 00 01 70 2E 65 6E 63 6D 65    .........p.encme
+# 0x00A0:  74 68 30 00 00 00 06 00 00 00 04 00 00 00 12 70    th0............p
+# 0x00B0:  2E 69 70 31 39 32 2E 31 36 38 2E 37 39 2E 34 3A    .ip192.168.79.4:
+# 0x00C0:  34 37 36 36 33 00 00 00 01 00 00 00 05 00 00 00    47663...........
+# 0x00D0:  05 70 2E 61 6D 63 36 2E 34 2E 30 00 00 00 09 00    .p.amc6.4.0.....
+# 0x00E0:  00 00 09 00 00 00 0D 70 2E 65 6E 63 70 72 6F 74    .......p.encprot
+# 0x00F0:  30 3B 30 3B 30 3B 30 3B 30 3B 30 3B 30 00 00 00    0;0;0;0;0;0;0...
+# 0x0100:  07 00 00 00 05 00 00 00 0A 70 2E 6E 6F 77 31 36    .........p.now16
+# 0x0110:  39 34 31 38 32 36 33 34 00 00 00 02 00 00 00 08    94182634........
+# 0x0120:  00 00 00 05 70 2E 75 74 63 6F 66 66 32 35 32 30    ....p.utcoff2520
+# 0x0130:  30 00 00 00 07 00 00 00 05 00 00 00 0A 70 2E 61    0............p.a
+# 0x0140:  62 74 31 36 37 37 35 31 38 34 32 39 00 00 00 02    bt1677518429....
+# 0x0150:  00 00 00 05 00 00 00 03 70 2E 70 63 66 34 36 33    ........p.pcf463
+if( rhexstr =~ "702E67756964.+656E6370726F74.+7000000050000000a" ) {
+  service_register( port:port, proto:"avalanche_mds", message:"An Ivanti Avalanche Mobile Device Server service seems to be running on this port." );
+  log_message( port:port, data:"An Ivanti Avalanche Mobile Device Server service seems to be running on this port." );
 }
 
 exit( 0 );

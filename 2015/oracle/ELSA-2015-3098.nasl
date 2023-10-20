@@ -1,36 +1,22 @@
-# Copyright (C) 2015 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2015 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.122732");
   script_cve_id("CVE-2014-7822", "CVE-2015-1805", "CVE-2015-6937");
   script_tag(name:"creation_date", value:"2015-11-16 14:06:42 +0000 (Mon, 16 Nov 2015)");
-  script_version("2022-04-05T08:49:18+0000");
-  script_tag(name:"last_modification", value:"2022-04-05 08:49:18 +0000 (Tue, 05 Apr 2022)");
+  script_version("2023-10-06T16:09:51+0000");
+  script_tag(name:"last_modification", value:"2023-10-06 16:09:51 +0000 (Fri, 06 Oct 2023)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
 
   script_name("Oracle: Security Advisory (ELSA-2015-3098)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Oracle Linux Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/oracle_linux", "ssh/login/release", re:"ssh/login/release=(OracleLinux6|OracleLinux7)");
@@ -78,7 +64,7 @@ if(description)
 - Fix kmalloc overflow in LPFC driver at large core count (James Smart) [Orabug: 21860804]
 - lpfc: Destroy lpfc_hba_index IDR on module exit (James Smart) [Orabug: 21860804]
 - lpfc: in sli3 use configured sg_seg_cnt for sg_tablesize (James Smart) [Orabug: 21860804]
-- lpfc: Remove unnessary cast (James Smart) [Orabug: 21860804]
+- lpfc: Remove unnecessary cast (James Smart) [Orabug: 21860804]
 - lpfc: fix model description (James Smart) [Orabug: 21860804]
 - lpfc: Fix to drop PLOGIs from fabric node till LOGO proce ssing completes (James Smart) [Orabug: 21860804]
 - lpfc: Fix scsi task management error message. (James Smart) [Orabug: 21860804]

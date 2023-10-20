@@ -9,8 +9,8 @@ CPE = "cpe:/a:phpmyadmin:phpmyadmin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801994");
-  script_version("2023-05-16T09:08:27+0000");
-  script_tag(name:"last_modification", value:"2023-05-16 09:08:27 +0000 (Tue, 16 May 2023)");
+  script_version("2023-10-17T05:05:34+0000");
+  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
   script_tag(name:"creation_date", value:"2011-10-18 15:48:35 +0200 (Tue, 18 Oct 2011)");
   script_cve_id("CVE-2011-3646");
   script_tag(name:"cvss_base", value:"5.0");
@@ -26,7 +26,7 @@ if(description)
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("secpod_phpmyadmin_detect_900129.nasl");
+  script_dependencies("gb_phpmyadmin_http_detect.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("phpMyAdmin/installed");
 

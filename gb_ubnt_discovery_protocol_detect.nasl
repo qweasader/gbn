@@ -1,34 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2017 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# UBNT Discovery Protocol Detection
-#
-# Authors:
-# Christian Kuersteiner <christian.kuersteiner@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2017 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106716");
-  script_version("2020-11-10T15:30:28+0000");
-  script_tag(name:"last_modification", value:"2020-11-10 15:30:28 +0000 (Tue, 10 Nov 2020)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2017-04-03 09:45:47 +0700 (Mon, 03 Apr 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -37,14 +17,14 @@ if (description)
 
   script_name("UBNT Discovery Protocol Detection");
 
-  script_tag(name:"summary", value:"UBNT (Ubiquiti Networks) discovery protocol is running on UDP port 10001 at
-this host.");
-
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Service detection");
   script_require_udp_ports(10001);
+
+  script_tag(name:"summary", value:"UBNT (Ubiquiti Networks) discovery protocol is running on UDP
+  port 10001 on this host.");
 
   exit(0);
 }

@@ -23,12 +23,15 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826708");
-  script_version("2022-11-21T10:11:06+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-3885", "CVE-2022-3886", "CVE-2022-3887", "CVE-2022-3888",
                 "CVE-2022-3889", "CVE-2022-3890");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2022-11-21 10:11:06 +0000 (Mon, 21 Nov 2022)");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-11-09 22:15:00 +0000 (Wed, 09 Nov 2022)");
   script_tag(name:"creation_date", value:"2022-11-18 15:33:31 +0530 (Fri, 18 Nov 2022)");
   script_name("Google Chrome Security Update(stable-channel-update-for-desktop-2022-11) - Linux");
 

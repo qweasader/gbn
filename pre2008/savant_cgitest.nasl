@@ -1,39 +1,20 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2002 Michel Arboi
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Savant cgitest.exe buffer overflow
-#
-# Authors:
-# Michel Arboi <arboi@alussinan.org>
-#
-# Copyright:
-# Copyright (C) 2002 Michel Arboi
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11173");
-  script_version("2022-05-12T09:32:01+0000");
-  script_tag(name:"last_modification", value:"2022-05-12 09:32:01 +0000 (Thu, 12 May 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_cve_id("CVE-2002-2146");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/5706");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_name("Savant cgitest.exe buffer overflow");
+  script_name("Savant cgitest.exe Buffer Overflow DoS Vulnerability");
   script_category(ACT_DESTRUCTIVE_ATTACK);
   script_copyright("Copyright (C) 2002 Michel Arboi");
   script_family("Web application abuses");
@@ -47,10 +28,11 @@ if(description)
   vulnerable to a buffer overflow which may allow an attacker to crash the server or even run
   code on it.");
 
-  script_tag(name:"affected", value:"Savant version 3.1. Other versions might be affected as well.");
+  script_tag(name:"affected", value:"Savant version 3.1 is known to be affected. Other versions or
+  products might be affected as well.");
 
   script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   exit(0);
 }

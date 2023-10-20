@@ -1,34 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2017 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# ILIAS Detection
-#
-# Authors:
-# Christian Kuersteiner <christian.kuersteiner@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2017 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140443");
-  script_version("2020-11-27T13:21:49+0000");
-  script_tag(name:"last_modification", value:"2020-11-27 13:21:49 +0000 (Fri, 27 Nov 2020)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2017-10-20 10:51:43 +0700 (Fri, 20 Oct 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -41,7 +21,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Product detection");
   script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 443);
@@ -85,7 +65,7 @@ foreach dir (make_list_unique("/", "/ilias", "/ILIAS", http_cgi_dirs(port: port)
   if (isnull(loc))
     continue;
 
-  cookie = http_get_cookie_from_header( buf: res, pattern: "Set-Cookie: (SESSID=[0-9A-Za-z]+);");
+  cookie = http_get_cookie_from_header( buf: res, pattern: "[Ss]et-[Cc]ookie\s*:\s*(SESSID=[0-9A-Za-z]+);");
   # nb: If there is no such cookie (which might be possible) create a random one to avoid an error in make_array below
   if (!cookie)
     cookie = "SESSID=" + rand_str(length: 32, charset: "abcdefghijklmnopqrstuvwxyz0123456789");

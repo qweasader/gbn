@@ -1,38 +1,29 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mozilla:firefox";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.2.1.2022.44");
-  script_cve_id("CVE-2022-42927", "CVE-2022-42928", "CVE-2022-42929", "CVE-2022-42930", "CVE-2022-42931", "CVE-2022-42932", "CVE-2022-46881", "CVE-2022-46885");
+  script_cve_id("CVE-2022-42927", "CVE-2022-42928", "CVE-2022-42929", "CVE-2022-42930",
+                "CVE-2022-42931", "CVE-2022-42932", "CVE-2022-46881", "CVE-2022-46885",
+                "CVE-2022-46884");
   script_tag(name:"creation_date", value:"2022-10-19 09:20:00 +0000 (Wed, 19 Oct 2022)");
-  script_version("2022-12-14T10:20:42+0000");
-  script_tag(name:"last_modification", value:"2022-12-14 10:20:42 +0000 (Wed, 14 Dec 2022)");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-01-04 16:52:00 +0000 (Wed, 04 Jan 2023)");
 
   script_name("Mozilla Firefox Security Advisory (MFSA2022-44) - Linux");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("General");
   script_dependencies("gb_firefox_detect_lin.nasl");
   script_mandatory_keys("mozilla/firefox/linux/detected");
@@ -74,7 +65,10 @@ CVE-2022-42932: Memory safety bugs fixed in Firefox 106 and Firefox ESR 102.4
 Mozilla developers Ashley Hale and the Mozilla Fuzzing Team reported memory safety bugs present in Firefox 105 and Firefox ESR 102.3. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code.
 
 CVE-2022-46885: Memory safety bugs fixed in Firefox 106
-Mozilla developers Timothy Nikkel, Ashley Hale, and the Mozilla Fuzzing Team reported memory safety bugs present in Firefox 105. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code.");
+Mozilla developers Timothy Nikkel, Ashley Hale, and the Mozilla Fuzzing Team reported memory safety bugs present in Firefox 105. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code.
+
+CVE-2022-46884: Potential use-after-free in SVG Images
+A potential use-after-free vulnerability existed in SVG Images if the Refresh Driver was destroyed at an inopportune time. This could have lead to memory corruption or a potentially exploitable crash.");
 
   script_tag(name:"affected", value:"Firefox version(s) below 106.");
 

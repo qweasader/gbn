@@ -1,33 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# RedHat Update for krb5 RHSA-2016:0532-01
-#
-# Authors:
-# System Generated Check
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.871591");
-  script_version("2021-10-14T10:01:27+0000");
-  script_tag(name:"last_modification", value:"2021-10-14 10:01:27 +0000 (Thu, 14 Oct 2021)");
+  script_version("2023-07-14T05:06:08+0000");
+  script_tag(name:"last_modification", value:"2023-07-14 05:06:08 +0000 (Fri, 14 Jul 2023)");
   script_tag(name:"creation_date", value:"2016-04-02 05:17:42 +0200 (Sat, 02 Apr 2016)");
   script_cve_id("CVE-2015-8629", "CVE-2015-8630", "CVE-2015-8631");
   script_tag(name:"cvss_base", value:"5.0");
@@ -76,7 +57,7 @@ The CVE-2015-8631 issue was discovered by Simo Sorce of Red Hat.");
   script_xref(name:"URL", value:"https://www.redhat.com/archives/rhsa-announce/2016-April/msg00000.html");
   script_tag(name:"solution_type", value:"VendorFix");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Red Hat Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/rhel", "ssh/login/rpms", re:"ssh/login/release=RHENT_7");

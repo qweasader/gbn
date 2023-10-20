@@ -1,28 +1,14 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.147493");
-  script_version("2022-01-24T12:10:11+0000");
-  script_tag(name:"last_modification", value:"2022-01-24 12:10:11 +0000 (Mon, 24 Jan 2022)");
+  script_version("2023-08-10T05:05:53+0000");
+  script_tag(name:"last_modification", value:"2023-08-10 05:05:53 +0000 (Thu, 10 Aug 2023)");
   script_tag(name:"creation_date", value:"2022-01-20 08:31:45 +0000 (Thu, 20 Jan 2022)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -35,9 +21,9 @@ if (description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Product detection");
-  script_dependencies("gb_snmp_sysdescr_detect.nasl");
+  script_dependencies("gb_snmp_info_collect.nasl");
   script_require_udp_ports("Services/udp/snmp", 161);
   script_mandatory_keys("SNMP/sysdescr/available");
 
@@ -67,17 +53,45 @@ set_kb_item(name: "canon/printer/snmp/detected", value: TRUE);
 set_kb_item(name: "canon/printer/snmp/port", value: port);
 set_kb_item(name: "canon/printer/snmp/" + port + "/banner", value: sysdesc);
 
-# Canon iR1025 /P
-# Canon MF230 Series /P
-# Canon iR2006/2206 /P
-# Canon imageRUNNER1133 series /P
-mod_oid = "1.3.6.1.2.1.25.3.2.1.3.1";
+# nb: Using Canon-specific MIBs as seen in
+# https://github.com/gitpan/CPM/blob/master/lib/CPM.pm
+# https://github.com/Tylan/check_snmp_printer/blob/master/check_snmp_printer
+
+# MF745C/746C
+# Canon MF210 Series
+# iR-ADV C3826
+# imageRUNNER1133 series
+mod_oid = "1.3.6.1.4.1.1602.1.1.1.1.0";
 m = snmp_get(port: port, oid: mod_oid);
-mod = eregmatch(pattern: "^(Canon )?([^ ]+).*", string: m, icase: TRUE);
+if (!isnull(m)) {
+  mod = eregmatch(pattern: "^(Canon )?(.+)", string: m, icase: TRUE);
+} else {
+  # nb: Fallback to the more generic MIB as was previously implemented
+  # eg. Canon iR1025 /P
+  # Canon MF230 Series /P
+  # Canon iR2006/2206 /P
+  # Canon imageRUNNER1133 series /P
+  mod_oid = "1.3.6.1.2.1.25.3.2.1.3.1";
+  m = snmp_get(port: port, oid: mod_oid);
+  mod = eregmatch(pattern: "^(Canon )?((iR-ADV )?([^ ]+)).*", string: m, icase: TRUE);
+}
+
 if (!isnull(mod[2])) {
   model = mod[2];
   set_kb_item(name: "canon/printer/snmp/" + port + "/concludedMod", value: mod[0]);
   set_kb_item(name: "canon/printer/snmp/" + port + "/concludedModOID", value: mod_oid);
+}
+
+ver_oid = "1.3.6.1.4.1.1602.1.1.1.4.0";
+v = snmp_get(port: port, oid: ver_oid);
+
+# nb: We need to eliminate some weird cases that does not look like a valid version, like
+# 0604
+# GFC-015-04
+ver = eregmatch(pattern: "^([0-9]+\.[.0-9]+)", string: v);
+if (!isnull(ver[1])) {
+  fw_version = ver[1];
+  set_kb_item(name: "canon/printer/snmp/" + port + "/concludedFwOID", value: ver_oid);
 }
 
 set_kb_item(name: "canon/printer/snmp/" + port + "/model", value: model);

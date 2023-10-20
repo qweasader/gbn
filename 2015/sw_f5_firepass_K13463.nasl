@@ -23,8 +23,8 @@ CPE = "cpe:/h:f5:firepass";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111017");
-  script_version("2021-05-26T13:59:24+0000");
-  script_tag(name:"last_modification", value:"2021-05-26 13:59:24 +0000 (Wed, 26 May 2021)");
+  script_version("2023-08-09T05:05:14+0000");
+  script_tag(name:"last_modification", value:"2023-08-09 05:05:14 +0000 (Wed, 09 Aug 2023)");
   script_tag(name:"creation_date", value:"2015-04-17 08:00:00 +0100 (Fri, 17 Apr 2015)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -51,7 +51,7 @@ if(description)
   script_tag(name:"solution", value:"The vendor has released a Hotfix HF-377712-1 listened in the
   referenced advisory.");
 
-  script_xref(name:"URL", value:"https://support.f5.com/csp/article/K13463");
+  script_xref(name:"URL", value:"https://my.f5.com/manage/s/article/K13463");
   script_xref(name:"URL", value:"http://packetstormsecurity.org/files/111276/F5-FirePass-SSL-VPN-6.x-7.x-SQL-Injection.html");
   script_xref(name:"URL", value:"https://www.sec-consult.com/files/20120328-0_F5_FirePass_SSL_VPN_unauthenticated_remote_root_v1.0.txt");
 

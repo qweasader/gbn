@@ -1,35 +1,21 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108442");
-  script_version("2022-09-23T10:10:45+0000");
-  script_tag(name:"last_modification", value:"2022-09-23 10:10:45 +0000 (Fri, 23 Sep 2022)");
+  script_version("2023-08-03T05:05:16+0000");
+  script_tag(name:"last_modification", value:"2023-08-03 05:05:16 +0000 (Thu, 03 Aug 2023)");
   script_tag(name:"creation_date", value:"2018-05-16 07:49:52 +0200 (Wed, 16 May 2018)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_name("Authenticated Scan / LSC Info Consolidation (Windows SMB Login)");
   # nb: Needs to run at the end of the scan because of the required info only available in this phase...
   script_category(ACT_END);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Windows");
   script_dependencies("smb_registry_access.nasl", "gb_wmi_access.nasl", "smb_reg_service_pack.nasl", "lsc_options.nasl");
   script_require_ports(139, 445);
@@ -61,6 +47,9 @@ if( kb_smb_is_samba() )
 
 empty_text = "Empty/None";
 
+# nb: Special handling for Windows 11 as it still reports itself as Window 10...
+is_win11 = 0;
+
 info_array = make_array();
 # nb: key is the KB item, value the description used in the report
 # The order doesn't matter, this will be sorted later in text_format_table()
@@ -72,6 +61,7 @@ kb_array = make_array( "WMI/access_successful", "Access via WMI possible",
                        "win/lsc/disable_wmi_search", "Disable file search via WMI on Windows",
                        "SMB/registry_access", "Access to the registry possible",
                        "SMB/WindowsVersion", "Version number of the OS",
+                       "SMB/WindowsVersionString", "Version string of the OS",
                        "SMB/WindowsBuild", "Build number of the OS",
                        "SMB/WindowsName", "Product name of the OS",
                        "SMB/Windows/Arch", "Architecture of the OS",
@@ -86,6 +76,10 @@ foreach kb_item( keys( kb_array ) ) {
     if( kb == TRUE )
       kb = "TRUE";
     info_array[kb_array[kb_item] + " (" + kb_item + ")"] = kb;
+    if( kb_item == "SMB/WindowsBuild" && kb >= "22000" )
+      is_win11++;
+    if( kb_item == "SMB/WindowsName" && "Windows 10" >< kb )
+      is_win11++;
   } else {
     if( kb_item == "SMB/CSDVersion" || kb_item == "SMB/workgroup" ||
         kb_item == "SMB/Windows/Arch" || kb_item == "SMB/WindowsBuild" ||
@@ -156,6 +150,9 @@ if( miss_perm ) {
   if( miss_report )
     report += '\n' + miss_report;
 }
+
+if( is_win11 > 1 )
+  report += '\n\nNote/Important: Windows 11 still reports itself as Windows 10 in the registry so it is expected that "SMB/WindowsName" contains the Windows 10 string.';
 
 log_message( port:0, data:report );
 exit( 0 );

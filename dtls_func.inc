@@ -1,20 +1,8 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 # nb: Normally defined in byte_func.inc but openvas-nasl-lint will report
 # those as not declared in this include.
@@ -115,7 +103,7 @@ function dtls_create_client_hello(version, random, seq_num, cookie)
 
   handshake_proto = raw_string(0x01,                      # Handshake Type (Client Hello)
                                0x00, mkword(strlen(fragment)),
-                               mkword(seq_num),           # Message Sequenze
+                               mkword(seq_num),           # Message Sequence
                                0x00, 0x00, 0x00,          # Fragment Offset
                                0x00, mkword(strlen(fragment))); # Fragment Length
 

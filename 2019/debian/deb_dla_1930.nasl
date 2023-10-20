@@ -1,30 +1,16 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.891930");
   script_cve_id("CVE-2016-10905", "CVE-2018-20976", "CVE-2018-21008", "CVE-2019-0136", "CVE-2019-14814", "CVE-2019-14815", "CVE-2019-14816", "CVE-2019-14821", "CVE-2019-14835", "CVE-2019-15117", "CVE-2019-15118", "CVE-2019-15211", "CVE-2019-15212", "CVE-2019-15215", "CVE-2019-15218", "CVE-2019-15219", "CVE-2019-15220", "CVE-2019-15221", "CVE-2019-15292", "CVE-2019-15807", "CVE-2019-15917", "CVE-2019-15926", "CVE-2019-9506");
   script_tag(name:"creation_date", value:"2019-09-26 02:00:36 +0000 (Thu, 26 Sep 2019)");
-  script_version("2023-04-21T10:20:09+0000");
-  script_tag(name:"last_modification", value:"2023-04-21 10:20:09 +0000 (Fri, 21 Apr 2023)");
+  script_version("2023-07-05T05:06:17+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Debian: Security Advisory (DLA-1930)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB8");
@@ -610,6 +596,10 @@ if(release == "DEB8") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-10-all", ver:"3.16.74-1", rls:"DEB8"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-10-all-amd64", ver:"3.16.74-1", rls:"DEB8"))) {
     report += res;
   }
@@ -626,19 +616,15 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-10-all", ver:"3.16.74-1", rls:"DEB8"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-10-amd64", ver:"3.16.74-1", rls:"DEB8"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-10-armmp-lpae", ver:"3.16.74-1", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-10-armmp", ver:"3.16.74-1", rls:"DEB8"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-10-armmp", ver:"3.16.74-1", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-10-armmp-lpae", ver:"3.16.74-1", rls:"DEB8"))) {
     report += res;
   }
 
@@ -666,15 +652,11 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-10-686-pae-dbg", ver:"3.16.74-1", rls:"DEB8"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-10-686-pae", ver:"3.16.74-1", rls:"DEB8"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-10-amd64-dbg", ver:"3.16.74-1", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-10-686-pae-dbg", ver:"3.16.74-1", rls:"DEB8"))) {
     report += res;
   }
 
@@ -682,11 +664,15 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-10-armmp-lpae", ver:"3.16.74-1", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-10-amd64-dbg", ver:"3.16.74-1", rls:"DEB8"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-10-armmp", ver:"3.16.74-1", rls:"DEB8"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-10-armmp-lpae", ver:"3.16.74-1", rls:"DEB8"))) {
     report += res;
   }
 

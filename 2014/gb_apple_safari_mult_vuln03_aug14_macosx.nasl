@@ -1,34 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2014 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Apple Safari Multiple Memory Corruption Vulnerabilities-03 Aug14 (Mac OS X)
-#
-# Authors:
-# Thanga Prakash S <tprakash@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2014 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apple:safari";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804752");
-  script_version("2022-09-20T10:11:40+0000");
+  script_version("2023-07-26T05:05:09+0000");
   script_cve_id("CVE-2014-1323", "CVE-2014-1324", "CVE-2014-1326", "CVE-2014-1327",
                 "CVE-2014-1329", "CVE-2014-1330", "CVE-2014-1331", "CVE-2014-1333",
                 "CVE-2014-1334", "CVE-2014-1335", "CVE-2014-1336", "CVE-2014-1337",
@@ -36,7 +17,7 @@ if(description)
                 "CVE-2014-1343", "CVE-2014-1344", "CVE-2014-1346");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-09-20 10:11:40 +0000 (Tue, 20 Sep 2022)");
+  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
   script_tag(name:"creation_date", value:"2014-08-25 21:42:57 +0530 (Mon, 25 Aug 2014)");
   script_name("Apple Safari Multiple Memory Corruption Vulnerabilities-03 Aug14 (Mac OS X)");
 
@@ -58,7 +39,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/67553");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/67554");
   script_xref(name:"URL", value:"http://secunia.com/advisories/58890");
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("General");
   script_dependencies("macosx_safari_detect.nasl");

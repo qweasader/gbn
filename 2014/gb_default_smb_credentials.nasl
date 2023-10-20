@@ -1,37 +1,23 @@
-# Copyright (C) 2014 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2014 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804449");
-  script_version("2022-04-11T14:03:55+0000");
+  script_version("2023-09-12T05:05:19+0000");
   script_cve_id("CVE-1999-0503", "CVE-1999-0504", "CVE-1999-0505", "CVE-1999-0506", "CVE-2000-0222",
                 "CVE-2005-3595");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-04-11 14:03:55 +0000 (Mon, 11 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-09-12 05:05:19 +0000 (Tue, 12 Sep 2023)");
   script_tag(name:"creation_date", value:"2014-07-04 17:14:10 +0530 (Fri, 04 Jul 2014)");
   script_name("SMB Brute Force Logins With Default Credentials");
   script_category(ACT_ATTACK);
   script_family("Brute force attacks");
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
   script_dependencies("smb_authorization.nasl", "netbios_name_get.nasl",
                       "cifs445.nasl", "find_service.nasl", "logins.nasl",
                       "gb_default_credentials_options.nasl");
@@ -113,6 +99,7 @@ smbName = kb_smb_name();
 if( ! smbName )
   smbName = "*SMBSERVER";
 
+# nb: This is a check for always successful logins (unknown users mapped to guest) for random users.
 for( i = 1; i < 4; i++ ) {
 
   u = rand_str( length:( 7 + i ), charset:'abcdefghijklmnopqrstuvwxyz' );

@@ -1,45 +1,25 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2005 Nicolas Gregoire
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Microsoft SQL TCP/IP listener is running
-#
-# Authors:
-# Nicolas Gregoire <ngregoire@exaprobe.com>
-# Adapted from mssql_blank_password.nasl
-#
-# Copyright:
-# Copyright (C) 2005 Nicolas Gregoire
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10144");
-  script_version("2022-08-02T10:11:24+0000");
+  script_version("2023-07-05T05:06:18+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-08-02 10:11:24 +0000 (Tue, 02 Aug 2022)");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
-  script_name("Microsoft SQL Server (MSSQL) Detection (TCP/IP Listener)");
+  script_name("Microsoft SQL (MSSQL) Server Detection (TCP/IP Listener)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2005 Nicolas Gregoire");
   script_family("Product detection");
   script_dependencies("find_service.nasl", "find_service2.nasl");
   script_require_ports("Services/unknown", 1433);
 
-  script_tag(name:"summary", value:"Microsoft SQL Server (MSSQL) detection based on an exposed
+  script_tag(name:"summary", value:"Microsoft SQL (MSSQL) Server detection based on an exposed
   TCP/IP listener.");
 
   script_tag(name:"qod_type", value:"remote_banner");
@@ -102,7 +82,7 @@ if( blen < 6 || ( pos + 6 ) > strlen( buf ) )
 version = ord( buf[ pos ] ) + "." + ord( buf[ pos + 1 ] ) + "." + getword( blob:buf, pos:pos + 2 ) + "." + getword( blob:buf, pos:pos + 4 );
 service_register( port:port, proto:"mssql" );
 
-os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", port:port, desc:"Microsoft SQL Server (MSSQL) Detection (TCP/IP Listener)", runs_key:"windows" );
+os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", port:port, desc:"Microsoft SQL (MSSQL) Server Detection (TCP/IP Listener)", runs_key:"windows" );
 
 set_kb_item( name:"OpenDatabase/found", value:TRUE );
 
@@ -137,7 +117,7 @@ if( vers[1] )
 
 register_product( cpe:cpe, location:install, port:port, service:"mssql" );
 
-log_message( data:build_detection_report( app:"Microsoft SQL Server (MSSQL) " + releaseName,
+log_message( data:build_detection_report( app:"Microsoft SQL (MSSQL) Server " + releaseName,
                                           version:version,
                                           install:install,
                                           cpe:cpe ),

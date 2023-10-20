@@ -1,36 +1,16 @@
-# OpenVAS Vulnerability Test
-# Description: mod_ssl off by one
+# SPDX-FileCopyrightText: 2002 Thomas Reinke
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# This script was written by Thomas Reinke <reinke@e-softinc.com>,
-# Script audit and contributions from Carmichael Security <http://www.carmichaelsecurity.com>
-# Erik Anderson <eanders@carmichaelsecurity.com>
-# Added BugtraqID and CAN
-#
-# Copyright:
-# Copyright (C) 2002 Thomas Reinke
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apache:http_server";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11039");
-  script_version("2022-12-05T10:11:03+0000");
-  script_tag(name:"last_modification", value:"2022-12-05 10:11:03 +0000 (Mon, 05 Dec 2022)");
+  script_version("2023-08-01T13:29:10+0000");
+  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/5084");
   script_tag(name:"cvss_base", value:"4.6");

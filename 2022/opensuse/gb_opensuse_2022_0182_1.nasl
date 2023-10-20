@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854424");
-  script_version("2022-08-09T10:11:17+0000");
+  script_version("2023-10-19T05:05:21+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2019-8766", "CVE-2019-8782", "CVE-2019-8808", "CVE-2019-8815", "CVE-2020-13753", "CVE-2020-27918", "CVE-2020-29623", "CVE-2020-3902", "CVE-2020-9802", "CVE-2020-9803", "CVE-2020-9805", "CVE-2020-9947", "CVE-2020-9948", "CVE-2020-9951", "CVE-2020-9952", "CVE-2021-1765", "CVE-2021-1788", "CVE-2021-1817", "CVE-2021-1820", "CVE-2021-1825", "CVE-2021-1826", "CVE-2021-1844", "CVE-2021-1871", "CVE-2021-30661", "CVE-2021-30666", "CVE-2021-30682", "CVE-2021-30761", "CVE-2021-30762", "CVE-2021-30809", "CVE-2021-30818", "CVE-2021-30823", "CVE-2021-30836", "CVE-2021-30846", "CVE-2021-30848", "CVE-2021-30849", "CVE-2021-30851", "CVE-2021-30858", "CVE-2021-30884", "CVE-2021-30887", "CVE-2021-30888", "CVE-2021-30889", "CVE-2021-30890", "CVE-2021-30897");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-05-18 13:14:00 +0000 (Tue, 18 May 2021)");
   script_tag(name:"creation_date", value:"2022-02-08 08:14:49 +0000 (Tue, 08 Feb 2022)");

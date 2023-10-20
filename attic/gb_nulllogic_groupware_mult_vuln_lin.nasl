@@ -21,8 +21,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800907");
-  script_version("2022-04-13T07:21:45+0000");
-  script_tag(name:"last_modification", value:"2022-04-13 07:21:45 +0000 (Wed, 13 Apr 2022)");
+  script_version("2023-10-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"creation_date", value:"2009-07-18 09:37:41 +0200 (Sat, 18 Jul 2009)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
@@ -40,7 +40,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/archive/1/archive/1/504737/100/0/threaded");
 
   script_tag(name:"impact", value:"Attackers can exploit this issue to execute arbitrary
-  SQL quries in the context of affected application, and can cause buffer overflow or
+  SQL queries in the context of affected application, and can cause buffer overflow or
   a denial of service.");
 
   script_tag(name:"affected", value:"NullLogic Groupware 1.2.7 and prior.");

@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117574");
-  script_version("2023-05-26T16:08:11+0000");
-  script_tag(name:"last_modification", value:"2023-05-26 16:08:11 +0000 (Fri, 26 May 2023)");
+  script_version("2023-07-06T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2023-07-06 05:05:36 +0000 (Thu, 06 Jul 2023)");
   script_tag(name:"creation_date", value:"2021-07-22 12:59:06 +0000 (Thu, 22 Jul 2021)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
@@ -51,7 +51,8 @@ if(description)
                 "CVE-2021-43798",
                 "CVE-2022-23854",
                 "CVE-2022-24716",
-                "CVE-2022-31793");
+                "CVE-2022-31793",
+                "CVE-2023-34259");
 
   script_name("Generic HTTP Directory Traversal (Web Dirs) - Active Check");
   script_category(ACT_ATTACK);
@@ -133,6 +134,8 @@ if(description)
 
   - CVE-2022-31793: Arris routers (e.g. NVG589 and NVG510)
 
+  - CVE-2023-34259: Kyocera Printer TASKalfa 4053ci (bypass for CVE-2020-23575)
+
   - No CVE: Huawei HG255s
 
   Other products might be affected as well.");
@@ -177,7 +180,7 @@ max_count = 3;
 suffixes = make_list(
   "",
   "/", # Oracle GlassFish Server flaw (CVE-2017-1000029) but other environments / technologies might be affected as well
-  "%00index.htm", # Kyocera Printer flaw (CVE-2020-23575) but other environments / technologies might be affected as well
+  "%00index.htm", # Kyocera Printer flaws (CVE-2020-23575, CVE-2023-34259) but other environments / technologies might be affected as well
   "%23vt/test", # Spring Cloud Config flaw (CVE-2020-5410) but other environments / technologies might be affected as well
   "%00" ); # PHP < 5.3.4 but other environments / technologies might be affected as well
 
@@ -237,8 +240,9 @@ dirs = make_list_unique(
   "/assets/file:",
   # Huawei HG255s, see https://cxsecurity.com/issue/WLB-2017090053
   "/css",
-  # Kyocera Printer d-COPIA253MF
+  # Kyocera Printer d-COPIA253MF and TASKalfa 4053ci
   "/wlmeng",
+  "/wlmdeu",
   # AlquistManager
   "/asd",
   # Clustering

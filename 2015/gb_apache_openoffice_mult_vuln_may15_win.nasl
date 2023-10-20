@@ -9,11 +9,11 @@ CPE = "cpe:/a:apache:openoffice";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805603");
-  script_version("2023-04-21T10:20:09+0000");
+  script_version("2023-10-06T16:09:51+0000");
   script_cve_id("CVE-2015-1774");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-04-21 10:20:09 +0000 (Fri, 21 Apr 2023)");
+  script_tag(name:"last_modification", value:"2023-10-06 16:09:51 +0000 (Fri, 06 Oct 2023)");
   script_tag(name:"creation_date", value:"2015-05-05 12:05:22 +0530 (Tue, 05 May 2015)");
   script_tag(name:"qod_type", value:"registry");
   script_name("Apache OpenOffice Multiple Vulnerabilities May15 (Windows)");
@@ -57,7 +57,7 @@ if(!openoffcVer = get_app_version(cpe:CPE)){
   exit(0);
 }
 
-## Appache OpenOffice version 4.1.1 is equal to 4.11.9775
+## Apache OpenOffice version 4.1.1 is equal to 4.11.9775
 if(version_is_less_equal(version:openoffcVer, test_version:"4.11.9775"))
 {
   report = 'Installed version: ' + openoffcVer + '\n' +

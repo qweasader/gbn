@@ -1,38 +1,19 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2008 Tenable Network Security, Inc. and Michel Arboi
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# rpc.ypupdated remote execution
-#
-# Authors:
-# Tenable Network Security and Michel Arboi
-#
-# Copyright:
-# Copyright (C) 2008 Tenable Network Security, Inc. and Michel Arboi
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.80036");
-  script_version("2022-04-13T07:21:45+0000");
+  script_version("2023-06-22T10:34:15+0000");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/1749");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/28383");
   script_cve_id("CVE-1999-0208");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-04-13 07:21:45 +0000 (Wed, 13 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2008-10-24 20:15:31 +0200 (Fri, 24 Oct 2008)");
   script_name("rpc.ypupdated Remote Command Execution Vulnerability");
   script_category(ACT_ATTACK);
@@ -60,4 +41,4 @@ if(description)
   exit(0);
 }
 
-exit(66); # This NVT had called various functions which doesn't exist
+exit(66); # This VT had called various functions which doesn't exist

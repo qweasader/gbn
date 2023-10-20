@@ -1,26 +1,14 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.109730");
-  script_version("2022-08-31T10:10:28+0000");
-  script_tag(name:"last_modification", value:"2022-08-31 10:10:28 +0000 (Wed, 31 Aug 2022)");
+  script_version("2023-09-22T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2023-09-22 05:05:30 +0000 (Fri, 22 Sep 2023)");
   script_tag(name:"creation_date", value:"2019-01-09 08:27:42 +0100 (Wed, 09 Jan 2019)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:S/C:N/I:N/A:N");
@@ -29,7 +17,7 @@ if(description)
   script_name("Linux: Status of automounting");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("Policy");
   script_dependencies("compliance_tests.nasl", "linux_parse_chkconfig.nasl", "read_and_parse_systemctl_list_units.nasl");
   script_mandatory_keys("Compliance/Launch");
@@ -37,6 +25,7 @@ if(description)
   script_add_preference(name:"Automounting", type:"radio", value:"Disabled;Enabled", id:1);
   script_xref(name:"URL", value:"https://linux.die.net/man/5/autofs");
 
+  script_xref(name:"Policy", value:"CIS Ubuntu Linux 20.04 v2.0.0: 1.7.6 Ensure GDM automatic mounting of removable media is disabled (Automated)");
   script_xref(name:"Policy", value:"CIS Distribution Independent Linux v2.0.0: 1.1.22 Disable Automounting (Scored)");
   script_xref(name:"Policy", value:"CIS CentOS Linux 8 Benchmark v1.0.0: 1.1.22 Disable Automounting (Scored)");
   script_xref(name:"Policy", value:"CIS Controls Version 7: 8.5 Configure Devices Not To Auto-run Content");

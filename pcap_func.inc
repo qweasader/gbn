@@ -1,20 +1,8 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 # @brief Sends a standard TCP / UDP packet with the given data and returns the "data" element part
 #        of the response / the received packet.
@@ -364,14 +352,16 @@ function pcap_tcp_udp_send_recv( port, srcport, data, proto, debug, pcap_filter,
 #       the response isn't necessarily the IP which is currently scanned. Using this function should
 #       help to avoid false negatives if this is the case for a target.
 #
-# @param debug If set to TRUE additional debug output is printed out on the console.
+# @param debug              If set to TRUE additional debug output is printed out on the console.
+# @param additional_targets A list of additional targets to be added to the filter (e.g.:
+#                           additional_targets:make_list( "<ip>", "<ip2>" ) )
 #
 # @return A string with a PCAP compatible filter as described in the function description.
 #
-function pcap_src_ip_filter_from_hostnames( debug ) {
+function pcap_src_ip_filter_from_hostnames( debug, additional_targets ) {
 
   local_var debug;
-  local_var final_ip_list, hostname_list, _hostname, ip_list, _ip, ret_filter, _final_ip, count;
+  local_var final_ip_list, hostname_list, _hostname, ip_list, _ip, additional_target, ret_filter, _final_ip, count;
 
   final_ip_list = make_list();
 
@@ -401,6 +391,13 @@ function pcap_src_ip_filter_from_hostnames( debug ) {
     final_ip_list = make_list( get_host_ip() );
 
     if( debug ) display( "DEBUG: No hostname(s) known, using a single IP '", final_ip_list, "'" );
+  }
+
+  if( additional_targets ) {
+    foreach additional_target( additional_targets ) {
+      if( ! in_array( search:additional_target, array:final_ip_list, part_match:FALSE ) )
+        final_ip_list = make_list( final_ip_list, additional_target );
+    }
   }
 
   # nb: If we have only a single IP we can just return the plain filter.

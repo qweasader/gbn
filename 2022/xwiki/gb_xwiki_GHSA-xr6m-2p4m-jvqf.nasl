@@ -23,11 +23,14 @@ CPE = "cpe:/a:xwiki:xwiki";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127194");
-  script_version("2022-09-23T10:10:45+0000");
-  script_tag(name:"last_modification", value:"2022-09-23 10:10:45 +0000 (Fri, 23 Sep 2022)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-09-16 14:00:03 +0000 (Fri, 16 Sep 2022)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-09-14 16:17:00 +0000 (Wed, 14 Sep 2022)");
 
   script_cve_id("CVE-2022-36099");
 

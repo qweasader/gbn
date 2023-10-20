@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105586");
-  script_version("2023-06-06T09:09:18+0000");
-  script_tag(name:"last_modification", value:"2023-06-06 09:09:18 +0000 (Tue, 06 Jun 2023)");
+  script_version("2023-09-15T05:06:15+0000");
+  script_tag(name:"last_modification", value:"2023-09-15 05:06:15 +0000 (Fri, 15 Sep 2023)");
   script_tag(name:"creation_date", value:"2016-03-23 14:28:40 +0100 (Wed, 23 Mar 2016)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -103,6 +103,11 @@ if( egrep( pattern:"^SSH-2.0-OpenSSH_[0-9.]+ Unknown$", string:banner ) )
 # SSH-2.0-OpenSSH_6.6 PKIX
 # SSH-2.0-X PKIX[12.1]
 if( egrep( pattern:"^SSH-2.0-[^ ]+ PKIX($|\[)", string:banner ) )
+  exit( 0 );
+
+# JSCAPE MFT Server, implemented in Java and cross-platform.
+# e.g. SSH-2.0-JSCAPE
+if( egrep( pattern:"^SSH-2\.0-JSCAPE$", string:banner ) )
   exit( 0 );
 
 #For banners see e.g. https://github.com/BetterCrypto/Applied-Crypto-Hardening/blob/master/unsorted/ssh/ssh_version_strings.txt
@@ -430,6 +435,13 @@ else if( "Debian" >< banner || "Raspbian" >< banner )
   if( "SSH-2.0-OpenSSH_8.4p1 Debian-5" >< banner || "SSH-2.0-OpenSSH_8.4p1 Raspbian-5" >< banner || ( "~bpo11" >< banner && "SSH-2.0-OpenSSH_" >< banner ) )
   {
     os_register_and_report( os:"Debian GNU/Linux", version:"11", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+    exit( 0 );
+  }
+
+  # SSH-2.0-OpenSSH_9.2p1 Debian-2 other pattern may show up in the future
+  if( "SSH-2.0-OpenSSH_9.2p1 Debian-2" >< banner || ( "~bpo12" >< banner && "SSH-2.0-OpenSSH_" >< banner ) )
+  {
+    os_register_and_report( os:"Debian GNU/Linux", version:"12", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
     exit( 0 );
   }
 
@@ -850,6 +862,14 @@ if( banner =~ "OpenSSL.+-rhel" ) {
 
 # SSH-2.0-MOVEit Transfer SFTP
 else if( banner =~ "SSH-.+\-MOVEit Transfer SFTP" )
+{
+  os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
+  exit( 0 );
+}
+
+# SSH-2.0-1.82_sshlib GlobalSCAPE
+# SSH-2.0-7.9.0.0_openssh Globalscape
+else if( banner =~ "SSH-.+ Globalscape" )
 {
   os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
   exit( 0 );

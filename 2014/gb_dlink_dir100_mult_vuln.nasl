@@ -1,37 +1,18 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2014 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# D-Link DIR-100 Router Multiple Vulnerabilities
-#
-# Authors:
-# Antu Sanadi <santu@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2014 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803797");
-  script_version("2021-10-15T11:02:56+0000");
+  script_version("2023-07-27T05:05:08+0000");
   script_cve_id("CVE-2013-7051", "CVE-2013-7052", "CVE-2013-7053", "CVE-2013-7054",
                 "CVE-2013-7055");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2021-10-15 11:02:56 +0000 (Fri, 15 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-02-04 19:57:00 +0000 (Tue, 04 Feb 2020)");
@@ -70,7 +51,7 @@ if(description)
   script_xref(name:"URL", value:"http://exploitsdownload.com/exploit/na/d-link-dir-100-csrf-xss-disclosure-authentication");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_get_http_banner.nasl");
   script_require_ports("Services/www", 80);

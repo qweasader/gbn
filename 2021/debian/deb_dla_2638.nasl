@@ -1,30 +1,16 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.892638");
   script_cve_id("CVE-2020-24616", "CVE-2020-24750", "CVE-2020-35490", "CVE-2020-35491", "CVE-2020-35728", "CVE-2020-36179", "CVE-2020-36180", "CVE-2020-36181", "CVE-2020-36182", "CVE-2020-36183", "CVE-2020-36184", "CVE-2020-36185", "CVE-2020-36186", "CVE-2020-36187", "CVE-2020-36188", "CVE-2020-36189", "CVE-2021-20190");
   script_tag(name:"creation_date", value:"2021-04-25 03:00:25 +0000 (Sun, 25 Apr 2021)");
-  script_version("2023-03-09T10:20:43+0000");
-  script_tag(name:"last_modification", value:"2023-03-09 10:20:43 +0000 (Thu, 09 Mar 2023)");
+  script_version("2023-07-05T05:06:17+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Debian: Security Advisory (DLA-2638)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB9");
@@ -127,11 +113,11 @@ report = "";
 
 if(release == "DEB9") {
 
-  if(!isnull(res = isdpkgvuln(pkg:"libjackson2-databind-java-doc", ver:"2.8.6-1+deb9u9", rls:"DEB9"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libjackson2-databind-java", ver:"2.8.6-1+deb9u9", rls:"DEB9"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libjackson2-databind-java", ver:"2.8.6-1+deb9u9", rls:"DEB9"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libjackson2-databind-java-doc", ver:"2.8.6-1+deb9u9", rls:"DEB9"))) {
     report += res;
   }
 

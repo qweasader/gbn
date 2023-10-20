@@ -1,38 +1,19 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2015 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# VLC Media Player 'real_get_rdt_chunk' BOF Vulnerability-02 Jan15 (Windows)
-#
-# Authors:
-# Deependra Bapna<bdeependra@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2015 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:videolan:vlc_media_player";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805313");
-  script_version("2021-10-21T13:57:32+0000");
+  script_version("2023-07-25T05:05:58+0000");
   script_cve_id("CVE-2010-2062");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2021-10-21 13:57:32 +0000 (Thu, 21 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
   script_tag(name:"creation_date", value:"2015-01-02 12:58:41 +0530 (Fri, 02 Jan 2015)");
   script_name("VLC Media Player 'real_get_rdt_chunk' BOF Vulnerability-02 Jan15 (Windows)");
 
@@ -61,7 +42,7 @@ if(description)
   script_xref(name:"URL", value:"http://packetstormsecurity.com/files/cve/CVE-2010-2062");
   script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"registry");
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Buffer overflow");
   script_dependencies("secpod_vlc_media_player_detect_win.nasl");
   script_mandatory_keys("VLCPlayer/Win/Installed");

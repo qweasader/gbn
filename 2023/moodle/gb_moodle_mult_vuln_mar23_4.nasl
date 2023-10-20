@@ -9,11 +9,14 @@ CPE = "cpe:/a:moodle:moodle";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126025");
-  script_version("2023-04-17T10:19:34+0000");
-  script_tag(name:"last_modification", value:"2023-04-17 10:19:34 +0000 (Mon, 17 Apr 2023)");
+  script_version("2023-10-13T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-03-24 10:31:42 +0000 (Fri, 24 Mar 2023)");
-  script_tag(name:"cvss_base", value:"4.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:P");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-03-31 13:28:00 +0000 (Fri, 31 Mar 2023)");
 
   script_cve_id("CVE-2023-1402", "CVE-2023-28329", "CVE-2023-28330", "CVE-2023-28331",
                 "CVE-2023-28332", "CVE-2023-28333", "CVE-2023-28336");

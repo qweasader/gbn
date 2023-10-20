@@ -1,39 +1,20 @@
-##############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# VX Search Enterprise Server Buffer Overflow Vulnerability
-#
-# Authors:
-# Rinu Kuriakose <krinu@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:vx:search_enterprise";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809061");
-  script_version("2021-10-15T11:13:32+0000");
+  script_version("2023-07-21T05:05:22+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2021-10-15 11:13:32 +0000 (Fri, 15 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2016-10-10 10:19:35 +0530 (Mon, 10 Oct 2016)");
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_name("VX Search Enterprise Server Buffer Overflow Vulnerability");
 
   script_tag(name:"summary", value:"VX Search Enterprise Server is prone to a buffer overflow vulnerability.");
@@ -63,7 +44,7 @@ if(description)
   script_xref(name:"URL", value:"https://packetstormsecurity.com/files/138995");
 
   script_category(ACT_DENIAL);
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Denial of Service");
   script_dependencies("gb_vx_search_enterprise_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("VX/Search/Enterprise/installed", "Host/runs_windows");

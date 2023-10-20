@@ -9,17 +9,20 @@ CPE = "cpe:/a:dnnsoftware:dotnetnuke";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126079");
-  script_version("2023-04-27T12:17:38+0000");
-  script_tag(name:"last_modification", value:"2023-04-27 12:17:38 +0000 (Thu, 27 Apr 2023)");
+  script_version("2023-10-18T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-07-21 10:32:08 +0000 (Thu, 21 Jul 2022)");
-  script_tag(name:"cvss_base", value:"4.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:N");
+  script_tag(name:"cvss_base", value:"5.5");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-07-26 15:27:00 +0000 (Tue, 26 Jul 2022)");
 
   script_cve_id("CVE-2021-31858");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"WillNotFix");
 
   script_name("DotNetNuke <= 9.10.2 XSS Vulnerability");
 
@@ -40,8 +43,10 @@ if(description)
 
   script_tag(name:"affected", value:"DotNetNuke version 9.10.2 and prior.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 21th July, 2022.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.");
 
   script_xref(name:"URL", value:"https://labs.integrity.pt/advisories/cve-2021-31858/");
   script_xref(name:"URL", value:"https://www.dnnsoftware.com/community/security/security-center");

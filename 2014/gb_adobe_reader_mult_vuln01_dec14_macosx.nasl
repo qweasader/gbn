@@ -1,34 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2014 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Adobe Reader Multiple Vulnerabilities-01 Dec14 (MAC OS X)
-#
-# Authors:
-# Deependra Bapna <bdeependra@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2014 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:adobe:acrobat_reader";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805301");
-  script_version("2022-04-14T11:24:11+0000");
+  script_version("2023-10-13T16:09:03+0000");
   script_cve_id("CVE-2014-9150", "CVE-2014-9165", "CVE-2014-8445", "CVE-2014-8446",
                 "CVE-2014-8447", "CVE-2014-8448", "CVE-2014-8449", "CVE-2014-8451",
                 "CVE-2014-8452", "CVE-2014-8453", "CVE-2014-8454", "CVE-2014-8455",
@@ -36,10 +17,10 @@ if(description)
                 "CVE-2014-8461", "CVE-2014-9158", "CVE-2014-9159", "CVE-2014-8460");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-04-14 11:24:11 +0000 (Thu, 14 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2014-12-11 17:14:05 +0530 (Thu, 11 Dec 2014)");
 
-  script_name("Adobe Reader Multiple Vulnerabilities-01 Dec14 (MAC OS X)");
+  script_name("Adobe Reader Multiple Vulnerabilities-01 Dec14 - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Reader is prone to multiple vulnerabilities.");
 
@@ -65,7 +46,7 @@ if(description)
   security restrictions, execute arbitrary code and compromise a user's system.");
 
   script_tag(name:"affected", value:"Adobe  Reader 10.x before 10.1.13 and
-  Adobe Reader 11.x before 11.0.10 on MAC OS X.");
+  Adobe Reader 11.x before 11.0.10 on Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade to Adobe Reader version 10.1.13 or
   11.0.10 or later.");
@@ -96,7 +77,7 @@ if(description)
   script_xref(name:"URL", value:"http://helpx.adobe.com/security/products/reader/apsb14-28.html");
   script_xref(name:"URL", value:"https://code.google.com/p/google-security-research/issues/detail?id=103");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("General");
   script_dependencies("secpod_adobe_prdts_detect_macosx.nasl");
   script_mandatory_keys("Adobe/Reader/MacOSX/Version");

@@ -1,31 +1,8 @@
-###################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2006 John Lampe
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Microsoft's SQL Version Query
-#
-# Authors:
-# John Lampe
-# modified by Michael Scheidell SECNAP Network security
-# to poll the smb registry (udp ping returned wrong info)
-# modified by Tenable Network Security to get file version
-# to reduce false positive (registry key is not always correct)
-#
-# Copyright:
-# Copyright (C) 2006 John Lampe
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 # Supersedes MS02-034 MS02-020 MS02-007 MS01-060 MS01-032 MS00-092 MS00-048
 #            MS00-041 MS00-014 MS01-041
@@ -39,8 +16,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11217");
-  script_version("2022-05-11T14:11:36+0000");
-  script_tag(name:"last_modification", value:"2022-05-11 14:11:36 +0000 (Wed, 11 May 2022)");
+  script_version("2023-08-01T13:29:10+0000");
+  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
   script_tag(name:"creation_date", value:"2006-03-26 18:10:09 +0200 (Sun, 26 Mar 2006)");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/1292");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/2030");

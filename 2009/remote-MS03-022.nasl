@@ -1,51 +1,23 @@
-###################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 Christian Eric Edjenguele
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Microsoft Security Bulletin MS03-022
-# Vulnerability in ISAPI Extension for Windows Media Services Could Cause Code Execution
-# Microsoft Windows Media Services 'nsiislog.dll' Buffer Overflow Vulnerability (MS03-019)
-# BUGTRAQ:20030626 Windows Media Services Remote Command Execution #2
-#
-# Affected Software:
-# Microsoft Windows 2000
-#
-# Not Affected Software Versions:
-# Microsoft Windows XP
-# Microsoft Windows Server 2003
-#
-# remote-MS03-022.nasl
-#
-# Author:
-# Copyright (C) 2009 Christian Eric Edjenguele <christian.edjenguele@owasp.org>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2 or later,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.101016");
-  script_version("2020-08-24T15:18:35+0000");
-  script_tag(name:"last_modification", value:"2020-08-24 15:18:35 +0000 (Mon, 24 Aug 2020)");
+  script_version("2023-10-10T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2023-10-10 05:05:41 +0000 (Tue, 10 Oct 2023)");
   script_tag(name:"creation_date", value:"2009-03-16 23:15:41 +0100 (Mon, 16 Mar 2009)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_cve_id("CVE-2003-0349");
   script_name("Microsoft MS03-022 security check");
   script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2009 Christian Eric Edjenguele <christian.edjenguele@owasp.org>");
+  script_copyright("Copyright (C) 2009 Christian Eric Edjenguele");
   script_family("Windows : Microsoft Bulletins");
-  script_dependencies("secpod_ms_iis_detect.nasl");
+  script_dependencies("gb_microsoft_iis_http_detect.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("IIS/installed");
 

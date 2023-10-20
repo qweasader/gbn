@@ -1,40 +1,21 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2013 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Apple QuickTime Multiple Vulnerabilities - June13 (Windows)
-#
-# Authors:
-# Thanga Prakash S <tprakash@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2013 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apple:quicktime";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803809");
-  script_version("2022-04-25T14:50:49+0000");
+  script_version("2023-07-27T05:05:08+0000");
   script_cve_id("CVE-2013-1022", "CVE-2013-1021", "CVE-2013-1020", "CVE-2013-1019",
                 "CVE-2013-1018", "CVE-2013-1017", "CVE-2013-1016", "CVE-2013-1015",
                 "CVE-2013-0989", "CVE-2013-0988", "CVE-2013-0987", "CVE-2013-0986");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-04-25 14:50:49 +0000 (Mon, 25 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
   script_tag(name:"creation_date", value:"2013-06-07 18:15:48 +0530 (Fri, 07 Jun 2013)");
   script_name("Apple QuickTime Multiple Vulnerabilities - June13 (Windows)");
   script_xref(name:"URL", value:"http://support.apple.com/kb/HT5770");
@@ -53,7 +34,7 @@ if(description)
   script_xref(name:"URL", value:"http://secunia.com/advisories/53520");
   script_xref(name:"URL", value:"http://lists.apple.com/archives/security-announce/2013/May/msg00001.html");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   script_family("General");
   script_dependencies("secpod_apple_quicktime_detection_win_900124.nasl");
   script_mandatory_keys("QuickTime/Win/Ver");

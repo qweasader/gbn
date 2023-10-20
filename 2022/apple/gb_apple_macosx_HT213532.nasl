@@ -7,7 +7,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826741");
-  script_version("2023-03-28T10:19:28+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2022-42843", "CVE-2022-42858", "CVE-2022-42847", "CVE-2022-42865",
@@ -20,13 +20,13 @@ if(description)
                 "CVE-2022-46703", "CVE-2022-42866", "CVE-2022-46705", "CVE-2022-42867",
                 "CVE-2022-46691", "CVE-2022-46692", "CVE-2022-42852", "CVE-2022-46696",
                 "CVE-2022-46700", "CVE-2022-46698", "CVE-2022-46699", "CVE-2022-42863",
-                "CVE-2022-42856", "CVE-2022-42841");
+                "CVE-2022-42856", "CVE-2022-42841", "CVE-2022-46718");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-03-28 10:19:28 +0000 (Tue, 28 Mar 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-06-07 02:12:00 +0000 (Tue, 07 Jun 2022)");
+  script_tag(name:"severity_date", value:"2022-12-19 19:53:00 +0000 (Mon, 19 Dec 2022)");
   script_tag(name:"creation_date", value:"2022-12-16 13:46:21 +0530 (Fri, 16 Dec 2022)");
   script_name("Apple MacOSX Security Update (HT213532)");
 
@@ -64,6 +64,7 @@ if(description)
   script_mandatory_keys("ssh/login/osx_name", "ssh/login/osx_version", re:"ssh/login/osx_version=^13\.");
   exit(0);
 }
+
 include("version_func.inc");
 
 osName = get_kb_item("ssh/login/osx_name");
@@ -71,14 +72,13 @@ if(!osName)
   exit(0);
 
 osVer = get_kb_item("ssh/login/osx_version");
-if(!osVer || osVer !~ "^13\." || "Mac OS X" >!< osName){
+if(!osVer || osVer !~ "^13\." || "Mac OS X" >!< osName) {
   exit(0);
 }
 
-if(version_is_less(version:osVer, test_version:"13.1"))
-{
+if(version_is_less(version:osVer, test_version:"13.1")) {
   report = report_fixed_ver(installed_version:osVer, fixed_version:"13.1");
-  security_message(data:report);
+  security_message(port:0, data:report);
   exit(0);
 }
 

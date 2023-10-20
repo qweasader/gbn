@@ -9,11 +9,14 @@ CPE = "cpe:/a:phpmyfaq:phpmyfaq";
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.124332");
-  script_version("2023-06-05T09:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-06-05 09:09:07 +0000 (Mon, 05 Jun 2023)");
+  script_version("2023-10-13T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-06-01 08:30:56 +0200 (Thu, 01 Jun 2023)");
-  script_tag(name:"cvss_base", value:"8.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:M/C:C/I:P/A:C");
+  script_tag(name:"cvss_base", value:"6.4");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-06-03 00:44:00 +0000 (Sat, 03 Jun 2023)");
 
   script_cve_id("CVE-2023-2998", "CVE-2023-2999");
 

@@ -1,78 +1,71 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2010 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# CUPS IPP Use-After-Free Denial of Service Vulnerability
-#
-# Authors:
-# Veerendra G.G <veerendragg@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2010 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apple:cups";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800182");
-  script_version("2022-05-02T09:35:37+0000");
-  script_tag(name:"last_modification", value:"2022-05-02 09:35:37 +0000 (Mon, 02 May 2022)");
+  script_version("2023-08-15T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2023-08-15 05:05:29 +0000 (Tue, 15 Aug 2023)");
   script_tag(name:"creation_date", value:"2010-11-18 06:30:08 +0100 (Thu, 18 Nov 2010)");
-  script_cve_id("CVE-2010-2941");
   script_tag(name:"cvss_base", value:"7.9");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("CUPS IPP Use-After-Free Denial of Service Vulnerability");
+
+  script_tag(name:"qod_type", value:"remote_analysis");
+
+  script_tag(name:"solution_type", value:"VendorFix");
+
+  script_cve_id("CVE-2010-2941");
+
+  script_name("CUPS IPP < 1.4.5 Use After Free DoS Vulnerability");
+
   script_category(ACT_DENIAL);
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("Denial of Service");
-  script_dependencies("secpod_cups_detect.nasl");
+  script_dependencies("gb_cups_http_detect.nasl");
   script_require_ports("Services/www", 631);
-  script_mandatory_keys("CUPS/installed");
+  script_mandatory_keys("cups/http/detected");
+
+  script_tag(name:"summary", value:"CUPS is prone to a denial of service (DoS) vulnerability.");
+
+  script_tag(name:"vuldetect", value:"Sends a crafted IPP request and checks if the service is still
+  responding.");
+
+  script_tag(name:"insight", value:"The flaw is caused by improper allocation of memory for attribute
+  values with invalid string data type.");
+
+  script_tag(name:"impact", value:"Successful exploitation will let the remote unauthenticated
+  attackers to cause a denial of service (use-after-free and application crash) or possibly execute
+  arbitrary code via a crafted IPP request.");
+
+  script_tag(name:"affected", value:"CUPS version 1.4.4 and prior.");
+
+  script_tag(name:"solution", value:"Update to version 1.4.5 or later.");
 
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/62882");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/44530");
   script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=624438");
 
-  script_tag(name:"impact", value:"Successful exploitation will let the remote unauthenticated attackers to
-  cause a denial of service (use-after-free and application crash) or possibly
-  execute arbitrary code via a crafted IPP request.");
-
-  script_tag(name:"affected", value:"CUPS 1.4.4 and prior");
-
-  script_tag(name:"insight", value:"The flaw is caused by improper allocation of memory for attribute values
-  with invalid string data type.");
-
-  script_tag(name:"solution", value:"Upgrade to 1.4.5 or above.");
-
-  script_tag(name:"summary", value:"CUPS is prone to a denial of service (DoS) vulnerability.");
-
-  script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_vul");
-
-  script_xref(name:"URL", value:"http://www.cups.org/software.php");
   exit(0);
 }
 
 include("host_details.inc");
 include("http_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! get_app_location( port:port, cpe:CPE, nofork:TRUE ) )
+  exit( 0 );
+
 host = http_host_name( port:port );
 
-if( ! soc = open_sock_tcp( port ) ) exit( 0 );
+if( ! soc = open_sock_tcp( port ) )
+  exit( 0 );
 
 post_data = string( 'POST /ipp/ HTTP/1.1\r\n',
                     'Host: ' + host + '\r\n',

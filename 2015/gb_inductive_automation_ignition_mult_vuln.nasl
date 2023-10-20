@@ -1,46 +1,26 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2015 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Inductive Automation Ignition Multiple Vulnerabilities
-#
-# Authors:
-# Rinu Kuriakose <krinu@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2015 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805472");
-  script_version("2022-04-14T06:42:08+0000");
+  script_version("2023-06-22T13:00:03+0000");
   script_cve_id("CVE-2015-0995", "CVE-2015-0994", "CVE-2015-0993", "CVE-2015-0992",
                 "CVE-2015-0991", "CVE-2015-0976");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2022-04-14 06:42:08 +0000 (Thu, 14 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-06-22 13:00:03 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2015-04-11 14:20:21 +0530 (Sat, 11 Apr 2015)");
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("Inductive Automation Ignition Multiple Vulnerabilities");
+  script_name("Inductive Automation Ignition < 7.7.4 Multiple Vulnerabilities");
 
   script_tag(name:"summary", value:"Inductive Automation Ignition is prone to multiple vulnerabilities.");
 
-  script_tag(name:"vuldetect", value:"Send a crafted request via HTTP GET and
-  check whether vulnerable version of Inductive Automation Ignition is
-  installed or not.");
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks if a vulnerable
+  version is present on the target host.");
 
   script_tag(name:"insight", value:"Multiple errors exist due to:
 
@@ -82,13 +62,12 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/73468");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 8088);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
-  script_xref(name:"URL", value:"https://www.inductiveautomation.com/downloads/ignition");
   exit(0);
 }
 
@@ -97,34 +76,31 @@ include("http_keepalive.inc");
 include("port_service_func.inc");
 include("version_func.inc");
 
-http_port = http_get_port(default:8088);
+port = http_get_port(default:8088);
 
-req = http_get(item:"/main/web/status/", port:http_port);
-buf = http_keepalive_send_recv(port:http_port, data:req, bodyonly:FALSE);
+url = "/main/web/status/";
+buf = http_get_cache(item:url, port:port);
 
-if("Server: Jetty" &&  buf =~ "HTTP/1.. 302 Found")
-{
-  cookie = eregmatch( pattern:"JSESSIONID=([0-9a-zA-Z]+);", string:buf );
-  if(!cookie[1]){
+if(buf =~ "Server\s*:\s*Jetty" || buf =~ "^HTTP/1\.[01] 302") {
+
+  # nb: Grab a fresh cookie
+  req = http_get(item:url, port:port);
+  buf = http_keepalive_send_recv(port:port, data:req, bodyonly:FALSE);
+  cookie = eregmatch(pattern:"JSESSIONID=([0-9a-zA-Z]+);", string:buf);
+  if(!cookie[1])
     exit(0);
-  }
 
-  url = string("/main/web/status/;jsessionid=") + cookie[1] + "?0";
-  req = http_get(item:url, port:http_port);
-  buf = http_keepalive_send_recv(port:http_port, data:req, bodyonly:FALSE);
+  url = "/main/web/status/;jsessionid=" + cookie[1] + "?0";
+  req = http_get(item:url, port:port);
+  buf = http_keepalive_send_recv(port:port, data:req, bodyonly:FALSE);
 
-  ## cross check the application
-  if(">Ignition Gateway<" >< buf && ">Ignition by Inductive Automation" >< buf)
-  {
+  if(">Ignition Gateway<" >< buf && ">Ignition by Inductive Automation" >< buf) {
+
     ignitionVer = eregmatch(pattern:'>Ignition Gateway.*detail..([0-9.]+) ', string:buf);
-
-    if (ignitionVer[1])
-    {
-      if(version_is_equal(version:ignitionVer[1], test_version:"7.7.2"))
-      {
-        report = 'Installed version: ' + ignitionVer[1] + '\n' +
-                 'Fixed version:     ' + "7.7.4" + '\n';
-        security_message(data:report, port:http_port);
+    if (ignitionVer[1]) {
+      if(version_is_equal(version:ignitionVer[1], test_version:"7.7.2")) {
+        report = report_fixed_ver(installed_version:ignitionVer[1], fixed_version:"7.7.4");
+        security_message(data:report, port:port);
         exit(0);
       }
     }

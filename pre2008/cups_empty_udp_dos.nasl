@@ -1,58 +1,45 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2004 George A. Theall
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# CUPS Empty UDP Datagram DoS Vulnerability
-#
-# Authors:
-# George A. Theall, <theall@tifaware.com>
-#
-# Copyright:
-# Copyright (C) 2004 George A. Theall
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apple:cups";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.15900");
-  script_version("2022-12-05T10:11:03+0000");
-  script_tag(name:"last_modification", value:"2022-12-05 10:11:03 +0000 (Mon, 05 Dec 2022)");
+  script_version("2023-08-15T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2023-08-15 05:05:29 +0000 (Tue, 15 Aug 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
+
   script_cve_id("CVE-2004-0558");
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/11183");
-  script_xref(name:"OSVDB", value:"9995");
+
+  script_tag(name:"qod_type", value:"remote_analysis");
+
+  script_tag(name:"solution_type", value:"VendorFix");
+
   script_name("CUPS Empty UDP Datagram DoS Vulnerability");
+
   script_category(ACT_DENIAL);
+
   script_copyright("Copyright (C) 2004 George A. Theall");
   script_family("Denial of Service");
-  script_dependencies("secpod_cups_detect.nasl");
+  script_dependencies("gb_cups_http_detect.nasl");
   script_require_ports("Services/www", 631);
-  script_mandatory_keys("CUPS/installed");
+  script_mandatory_keys("cups/http/detected");
   script_require_udp_ports(631);
-
-  script_tag(name:"solution", value:"Upgrade to CUPS 1.1.21rc2 or later.");
 
   script_tag(name:"summary", value:"The target is running a CUPS server that supports browsing of network
   printers and that is vulnerable to a limited type of denial of service attack. Specifically, the browsing
   feature can be disabled by sending an empty UDP datagram to the CUPS server.");
 
-  script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_analysis");
+  script_tag(name:"solution", value:"Update to CUPS 1.1.21rc2 or later.");
+
+  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/11183");
+  script_xref(name:"OSVDB", value:"9995");
 
   exit(0);
 }

@@ -1,41 +1,21 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2012 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SMB Windows Detection
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2012 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103621");
-  script_version("2021-04-15T13:23:31+0000");
+  script_version("2023-08-04T05:06:23+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2021-04-15 13:23:31 +0000 (Thu, 15 Apr 2021)");
+  script_tag(name:"last_modification", value:"2023-08-04 05:06:23 +0000 (Fri, 04 Aug 2023)");
   script_tag(name:"creation_date", value:"2012-12-11 10:59:09 +0200 (Tue, 11 Dec 2012)");
   script_name("Windows Version Detection (SMB Login)");
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_dependencies("smb_reg_service_pack.nasl");
   script_mandatory_keys("SMB/WindowsVersion");
 
@@ -215,7 +195,7 @@ if( winVal == "6.3" && "Windows Embedded 8.1" >< winName ) {
   register_win_version( cpe_base:"cpe:/o:microsoft:windows_embedded", win_vers:"", servpack:csdVer, os_name:winName );
 }
 
-if( winVal == "6.3" && "Windows 10" >< winName ) {
+if( winVal == "6.3" && "Windows 10" >< winName && build < "22000" ) {
 
   vers = "";
   os_branch = "";
@@ -272,6 +252,81 @@ if( winVal == "6.3" && "Windows Server 2019" >< winName ) {
     register_win_version( cpe_base:"cpe:/o:microsoft:windows_server_2019", win_vers:vers, servpack:csdVer, os_name:winName, os_edition:os_edition, is64bit:TRUE );
   else
     register_win_version( cpe_base:"cpe:/o:microsoft:windows_server_2019", win_vers:vers, servpack:csdVer, os_name:winName, os_edition:os_edition );
+}
+
+if( winVal == "6.3" && "Windows Server 2022" >< winName ) {
+
+  vers = "";
+  os_edition = "";
+
+  if( "Datacenter" >< winName )
+    os_edition = "datacenter";
+  else if( "Standard" >< winName )
+    os_edition = "standard";
+  else if( "Essentials" >< winName )
+    os_edition = "essentials";
+  else if( "Azure Datacenter" >< winName )
+    os_edition = "azure_datacenter";
+  else
+    os_edition += "unknown_edition";
+
+  if( "x64" >< arch )
+    register_win_version( cpe_base:"cpe:/o:microsoft:windows_server_2022", win_vers:vers, servpack:csdVer, os_name:winName, os_edition:os_edition, is64bit:TRUE );
+  else
+    register_win_version( cpe_base:"cpe:/o:microsoft:windows_server_2022", win_vers:vers, servpack:csdVer, os_name:winName, os_edition:os_edition );
+}
+
+# nb: winName still contains "Windows 10" on Windows 11 (because given like this in the registry)
+# but we can detect Windows 11 based on the build.
+if( winVal == "6.3" && "Windows 10" >< winName && build >= "22000" ) {
+
+  cpe = "cpe:/o:microsoft:windows_11";
+  version = "unknown";
+
+  if( vers = get_version_from_build( string:build, win_name:"win11" ) ) {
+    cpe += ":" + tolower(vers);
+    version = vers;
+  } else {
+    cpe += "::";
+  }
+
+  if( "LTSB" >< winName )
+    cpe += ":ltsb";
+  else if( "LTSC" >< winName )
+    cpe += ":ltsc";
+  else
+    cpe += ":cb";
+
+  if( "Enterprise" >< winName )
+    edition = "enterprise";
+  else if( "Home" >< winName )
+    edition = "home";
+  else if( "Pro Education" >< winName )
+    edition = "pro_education";
+  else if( "Pro for Workstations" >< winName )
+    edition = "pro_for_workstations";
+  # nb: "Pro" and "Education" needs to be after the two above
+  else if( "Education" >< winName )
+    edition = "education";
+  else if( "Pro" >< winName )
+    edition = "pro";
+  else if( "SE" >< winName )
+    edition = "se";
+  else
+    edition = "unknown_edition";
+
+  cpe += ":" + edition;
+
+  # nb: winName still contains "Windows 10" on Windows 11 (because given like this in the registry)
+  # so we need to rewrite this here before passing the info to the user.
+  winName = str_replace( string:winName, find:"Windows 10", replace:"Windows 11" );
+
+  # nb: Microsoft's Windows 11 operating system is 64-bit supported only
+  cpe += "_x64";
+
+  # nb: Not using register_win_version() here as we already have build the full CPE etc.
+  os_register_and_report( os:winName, version:version, cpe:cpe, full_cpe:TRUE, banner_type:banner_type, desc:SCRIPT_DESC, runs_key:"windows" );
+  exit( 0 );
 }
 
 ## Fallback if none of the above is matching, also report as "unknown" OS.

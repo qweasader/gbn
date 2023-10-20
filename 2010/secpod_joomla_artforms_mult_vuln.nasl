@@ -1,30 +1,16 @@
-# Copyright (C) 2010 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2010 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:joomla:joomla";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902219");
-  script_version("2022-05-02T09:35:37+0000");
-  script_tag(name:"last_modification", value:"2022-05-02 09:35:37 +0000 (Mon, 02 May 2022)");
+  script_version("2023-10-06T16:09:51+0000");
+  script_tag(name:"last_modification", value:"2023-10-06 16:09:51 +0000 (Fri, 06 Oct 2023)");
   script_tag(name:"creation_date", value:"2010-08-02 12:38:17 +0200 (Mon, 02 Aug 2010)");
   script_cve_id("CVE-2010-2846", "CVE-2010-2848", "CVE-2010-2847");
   script_tag(name:"cvss_base", value:"7.5");
@@ -39,8 +25,8 @@ if(description)
   script_xref(name:"URL", value:"http://www.exploit-db.com/exploits/14263/");
   script_xref(name:"URL", value:"http://packetstormsecurity.org/1007-exploits/joomlaartforms-sqltraversalxss.txt");
 
-  script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_category(ACT_MIXED_ATTACK);
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("joomla_detect.nasl", "os_detection.nasl");
   script_require_ports("Services/www", 80);

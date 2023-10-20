@@ -1,34 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
-# $Id: gb_CESA-2018_2241_java_centos6.nasl 14058 2019-03-08 13:25:52Z cfischer $
+# SPDX-FileCopyrightText: 2018 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# CentOS Update for java CESA-2018:2241 centos6
-#
-# Authors:
-# System Generated Check
-#
-# Copyright:
-# Copyright (C) 2018 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.882929");
-  script_version("2022-10-10T10:12:14+0000");
-  script_tag(name:"last_modification", value:"2022-10-10 10:12:14 +0000 (Mon, 10 Oct 2022)");
+  script_version("2023-07-10T08:07:43+0000");
+  script_tag(name:"last_modification", value:"2023-07-10 08:07:43 +0000 (Mon, 10 Jul 2023)");
   script_tag(name:"creation_date", value:"2018-07-27 06:00:25 +0200 (Fri, 27 Jul 2018)");
   script_cve_id("CVE-2018-2952");
   script_tag(name:"cvss_base", value:"4.3");
@@ -59,7 +39,7 @@ the References section.");
   script_xref(name:"URL", value:"http://lists.centos.org/pipermail/centos-announce/2018-July/022974.html");
   script_tag(name:"solution_type", value:"VendorFix");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("CentOS Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/centos", "ssh/login/rpms", re:"ssh/login/release=CentOS6");

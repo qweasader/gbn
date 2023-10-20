@@ -7,11 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826981");
-  script_version("2023-05-11T09:09:33+0000");
+  script_version("2023-10-13T05:06:10+0000");
   script_cve_id("CVE-2023-24953");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-05-11 09:09:33 +0000 (Thu, 11 May 2023)");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-05-09 18:23:00 +0000 (Tue, 09 May 2023)");
   script_tag(name:"creation_date", value:"2023-05-10 10:10:23 +0530 (Wed, 10 May 2023)");
   script_name("Microsoft Excel 2013 Service Pack 1 Remote Code Execution Vulnerability (KB5002384)");
 
@@ -35,7 +38,7 @@ if(description)
   script_tag(name:"qod_type", value:"executable_version");
   script_xref(name:"URL", value:"https://support.microsoft.com/en-us/help/5002384");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2023 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
   script_dependencies("secpod_office_products_version_900032.nasl");
   script_mandatory_keys("SMB/Office/Excel/Version");

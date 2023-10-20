@@ -1,29 +1,10 @@
-###############################################################################
-# Functions for F5 LSCs
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Michael Meyer
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software
-# Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301
-# USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
-# See https://support.f5.com/csp/article/K51812227 for F5 advisory versioning.
+# See https://my.f5.com/manage/s/article/K51812227 for F5 advisory versioning.
 
 # Global vars to avoid that we're repeatedly asking redis for something we already know.
 global_var __f5_valid_products, __f5_kb_hotfix;
@@ -247,7 +228,7 @@ function f5_is_unaffected( version, unaffected )
 # @param version The installed version
 #
 # @return TRUE if the installed version is either in the affected range or equal to the affected version whereas
-#         the affected range might be just the major version (see https://support.f5.com/csp/article/K51812227),
+#         the affected range might be just the major version (see https://my.f5.com/manage/s/article/K51812227),
 #         NULL otherwise.
 #
 function f5_check_version( a, version )

@@ -1,29 +1,16 @@
-# Copyright (C) 2005 SecuriTeam
+# SPDX-FileCopyrightText: 2005 SecuriTeam
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10265");
-  script_version("2023-01-30T10:09:19+0000");
+  script_version("2023-08-10T05:05:53+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-01-30 10:09:19 +0000 (Mon, 30 Jan 2023)");
+  script_tag(name:"last_modification", value:"2023-08-10 05:05:53 +0000 (Thu, 10 Aug 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_name("An SNMP Agent is running");
   script_category(ACT_SETTINGS);
@@ -32,14 +19,17 @@ if(description)
   script_dependencies("gb_open_udp_ports.nasl", "gb_snmp_authorization.nasl", "snmp_default_communities.nasl");
   script_require_udp_ports("Services/udp/unknown", 161);
 
-  script_tag(name:"summary", value:"This script detects if SNMP is open and if it is possible to connect
-  with the given credentials / community string from one of the following resources:
+  script_tag(name:"summary", value:"This script detects if SNMP is open and if it is possible to
+  connect with the given credentials / community string from one of the following resources:
 
-  - SNMPv1/2 community string provided via the target configuration or via 'SNMP Authorization (OID: 1.3.6.1.4.1.25623.1.0.105076).'
+  - SNMPv1/2 community string provided via the target configuration or via 'SNMP Authorization (OID:
+  1.3.6.1.4.1.25623.1.0.105076).'
 
-  - SNMPv1/2 community string detected by 'Check default community names of the SNMP Agent (OID: 1.3.6.1.4.1.25623.1.0.103914).'
+  - SNMPv1/2 community string detected by 'Check default community names of the SNMP Agent (OID:
+  1.3.6.1.4.1.25623.1.0.103914).'
 
-  - SNMPv3 credentials provided via the target configuration or via 'SNMP Authorization (OID: 1.3.6.1.4.1.25623.1.0.105076).'");
+  - SNMPv3 credentials provided via the target configuration or via 'SNMP Authorization (OID:
+  1.3.6.1.4.1.25623.1.0.105076).'");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -85,17 +75,20 @@ function _create_community_list( port ) {
   return communities;
 }
 
-report = 'An SNMP server is running on this host.\n\n';
-
+# Scanner needs to be build against libsnmp or have snmpget installed for extended SNMP
+# functionality in e.g. snmp_func.inc.
+# nb: This functions should be always there since openvas-scanner version 20.08.1 / via:
+# https://github.com/greenbone/openvas-scanner/pull/594
 if( defined_func( "snmpv3_get" ) ) {
 
   port = unknownservice_get_port( default:161, ipproto:"udp" );
 
   provided_comm_report     = 'It was possible to log in using the community string provided via the target configuration or via "SNMP Authorization (OID: 1.3.6.1.4.1.25623.1.0.105076)".\n';
   default_comm_report      = 'It was possible to log in using the default community string \'public\'.\n';
-  failed_comm_report       = 'It was not possible to log in using the community string provided via the target configuration or via "SNMP Authorization (OID: 1.3.6.1.4.1.25623.1.0.105076)".\n';
+  failed_comm_report       = 'It was NOT possible to log in using the community string provided via the target configuration or via "SNMP Authorization (OID: 1.3.6.1.4.1.25623.1.0.105076)".\n';
   detected_comm_report_pre = 'It was possible to log in using the community string ';
   detected_comm_report     = ' detected by "Check default community names of the SNMP Agent (OID: 1.3.6.1.4.1.25623.1.0.103914)".\n';
+  additional_info_report   = "";
 
   communities = _create_community_list( port:port );
 
@@ -105,17 +98,17 @@ if( defined_func( "snmpv3_get" ) ) {
 
       # worked with provided community string
       if( communities[community] == "v12c_provided_creds" || communities[community] == "v12c_provided_nd_detected_creds" ) {
-        report += "SNMPv1: " + provided_comm_report;
+        additional_info_report += "- SNMPv1: " + provided_comm_report;
         snmpv1_provided_comm_worked = TRUE;
       }
 
       # worked with default community string 'public'
       if( communities[community] == "v12c_pub_comm" )
-        report += "SNMPv1: " + default_comm_report;
+        additional_info_report += "- SNMPv1: " + default_comm_report;
 
       # worked with detected community string
       if( communities[community] == "v12c_detected_creds" || communities[community] == "v12c_provided_nd_detected_creds" )
-        report += "SNMPv1: " + detected_comm_report_pre + "'" + community + "'" + detected_comm_report;
+        additional_info_report += "- SNMPv1: " + detected_comm_report_pre + "'" + community + "'" + detected_comm_report;
 
       # TBD: Set only one community?
       set_kb_item( name:"SNMP/" + port + "/v1/community", value:community );
@@ -133,17 +126,17 @@ if( defined_func( "snmpv3_get" ) ) {
 
       # worked with provided community string
       if( communities[community] == "v12c_provided_creds" || communities[community] == "v12c_provided_nd_detected_creds" ) {
-        report += "SNMPv2c: " + provided_comm_report;
+        additional_info_report += "- SNMPv2c: " + provided_comm_report;
         snmpv2c_provided_comm_worked = TRUE;
       }
 
       # worked with default community string 'public'
       if( communities[community] == "v12c_pub_comm" )
-        report += "SNMPv2c: " + default_comm_report;
+        additional_info_report += "- SNMPv2c: " + default_comm_report;
 
       # worked with detected community string
       if( communities[community] == "v12c_detected_creds" || communities[community] == "v12c_provided_nd_detected_creds" )
-        report += "SNMPv2c: " + detected_comm_report_pre + "'" + community + "'" + detected_comm_report;
+        additional_info_report += "- SNMPv2c: " + detected_comm_report_pre + "'" + community + "'" + detected_comm_report;
 
       # TBD: Set only one community?
       set_kb_item( name:"SNMP/" + port + "/v2c/community", value:community );
@@ -159,24 +152,32 @@ if( defined_func( "snmpv3_get" ) ) {
   }
 
   v3check = snmp_check_v3( port:port );
+  # nb: In case of a successful login
   if( v3check == 1 ) {
     SNMP_v3 = TRUE;
     set_kb_item( name:"SNMP/" + port + "/v3/working", value:TRUE );
     set_kb_item( name:"SNMP/" + port + "/working", value:TRUE );
     replace_kb_item( name:"SNMP/" + port + "/preferred_version", value:3 );
-  } else if( v3check == 2 ) {
+  }
+
+  # nb:
+  # - This happens if we actually have found a SNMPv3 service via the error messages reported by it
+  #   back to us (the ones defined in valid_snmpv3_errors of snmp_func.inc)
+  # - In this case we're not setting the KB keys like done in the previous case because the login
+  #   didn't worked and we want to fallback to a possible earlier SNMPv2 version if that worked
+  else if( v3check == 2 ) {
     SNMP_v3 = TRUE;
   }
 
   # Some SNMP devices (namely Huawei Versatile Routing Platform Software, Version 5.160)
   # can't handle subsequent SNMP requests if a login via SNMPv3 failed. We want to do
-  # a sleep for such devices here to avoid that e.g. gb_snmp_sysdescr_detect.nasl is failing
+  # a sleep for such devices here to avoid that e.g. gb_snmp_info_collect.nasl is failing
   # to detect the SNMP sysDescr via SNMPv1/2.
   sleep( 5 );
 
   # Notify the user if the provided community string did not work
   if( ! snmpv1_provided_comm_worked && ! snmpv2c_provided_comm_worked && provided_community && strlen( provided_community ) > 0 ) {
-    report += "SNMPv1|v2c: " + failed_comm_report;
+    additional_info_report += "- SNMPv1|v2c: " + failed_comm_report;
     set_kb_item( name:"login/SNMP/failed", value:TRUE );
     set_kb_item( name:"login/SNMP/failed/port", value:port );
     register_host_detail( name:"Auth-SNMP-Failure", value:"Protocol SNMPv1/SNMPv2c, Port " + port + "/udp, Community " + provided_community + " : Login failure" );
@@ -188,45 +189,68 @@ if( defined_func( "snmpv3_get" ) ) {
 
   if( SNMP_v1 || SNMP_v2c || SNMP_v3 ) {
 
+    do_logging = TRUE;
+
     if( SNMP_v3 ) {
       # correct provided credentials
       if( ! snmp_error ) {
-        report += 'SNMPv3: It was possible to log using the credentials provided via the target configuration or via "SNMP Authorization (OID: 1.3.6.1.4.1.25623.1.0.105076).\n';
+        additional_info_report += '- SNMPv3: It was possible to log using the credentials provided via the target configuration or via "SNMP Authorization (OID: 1.3.6.1.4.1.25623.1.0.105076).\n';
         set_kb_item( name:"login/SNMP/success", value:TRUE );
         set_kb_item( name:"login/SNMP/success/port", value:port );
         register_host_detail( name:"Auth-SNMP-Success", value:"Protocol SNMPv3, Port " + port + "/udp" );
       } else {
         # wrong provided credentials
         if( v3_creds ) {
-          report += 'SNMPv3: It was not possible to log in using the credentials provided via the target configuration or via "SNMP Authorization (OID: 1.3.6.1.4.1.25623.1.0.105076)". Error: ' + snmp_error + '\n';
+          additional_info_report += '- SNMPv3: It was NOT possible to log in using the credentials provided via the target configuration or via "SNMP Authorization (OID: 1.3.6.1.4.1.25623.1.0.105076)". Error: ' + snmp_error + '\n';
           set_kb_item( name:"login/SNMP/failed", value:TRUE );
           set_kb_item( name:"login/SNMP/failed/port", value:port );
           register_host_detail( name:"Auth-SNMP-Failure", value:"Protocol SNMPv3, Port " + port + "/udp : Login failure" );
+        } else {
+          additional_info_report += '- SNMPv3: It was possible to determine that a service is running by using random credentials and based on the following response: ' + snmp_error + '\n';
         }
       }
     }
 
-    if( v3_creds && in_array( array:invalid_snmpv3_creds_errors, search:snmp_error ) ) {
-      report += 'SNMPv3: Wrong set of credentials provided via the target configuration or via "SNMP Authorization (OID: 1.3.6.1.4.1.25623.1.0.105076)". Error: ' + snmp_error + '\n';
-      set_kb_item( name:"login/SNMP/failed", value:TRUE );
-      set_kb_item( name:"login/SNMP/failed/port", value:port );
-      register_host_detail( name:"Auth-SNMP-Failure", value:"Protocol SNMPv3, Port " + port + "/udp : Wrong set of SNMPv3 credentials given" );
-    }
+    report += 'An SNMP server is running on this host.\n\nThe following SNMP versions are supported:\n';
+    if( SNMP_v1 )  report += '- SNMPv1\n';
+    if( SNMP_v2c ) report += '- SNMPv2c\n';
+    if( SNMP_v3 )  report += '- SNMPv3\n';
 
-    report += '\nThe following SNMP versions are supported:\n';
-    if( SNMP_v1 )  report += 'SNMPv1\n';
-    if( SNMP_v2c ) report += 'SNMPv2c\n';
-    if( SNMP_v3 )  report += 'SNMPv3\n';
-
-    log_message( port:port, proto:"udp", data:report );
     service_register( port:port, ipproto:"udp", proto:"snmp" );
     set_kb_item( name:"SNMP/detected", value:TRUE );
-    exit( 0 );
   }
+
+  # nb: Other cases for SNMPv3 / from invalid_snmpv3_creds_errors which have been not covered previously
+  if( v3_creds && ! SNMP_v3 && in_array( array:invalid_snmpv3_creds_errors, search:snmp_error ) ) {
+
+    additional_info_report += '- SNMPv3: Wrong set of credentials provided via the target configuration or via "SNMP Authorization (OID: 1.3.6.1.4.1.25623.1.0.105076)". Error: ' + snmp_error + '\n';
+    if( "generate_Ku: Error" >< snmp_error )
+      additional_info_report += '- Note: "SNMPv3 Password" and/or "SNMPv3 Privacy Password" given via "SNMP Authorization (OID: 1.3.6.1.4.1.25623.1.0.105076)" is too short (should be >= 8 chars)\n';
+
+    set_kb_item( name:"login/SNMP/failed", value:TRUE );
+    set_kb_item( name:"login/SNMP/failed/port", value:port );
+    register_host_detail( name:"Auth-SNMP-Failure", value:"Protocol SNMPv3, Port " + port + "/udp : Wrong set of SNMPv3 credentials given" );
+
+    do_logging = TRUE;
+  }
+
+  if( do_logging ) {
+
+    # nb: In case of wrongly given credentials and no SNMP detection at all
+    if( ! report )
+      report = 'It was NOT possible to determine if a SNMP server is running on this host.\n';
+
+    if( additional_info_report )
+      report += '\nAdditional info:\n' + additional_info_report;
+
+    log_message( port:port, proto:"udp", data:chomp( report ) );
+  }
+
+  exit( 0 );
 }
 
-# nb: This is just a fallback to detect SNMP, however none of the SNMP functions from snmp_func.inc will work
-# as they rely on snmpv3_get() as well
+# nb: This is just a fallback to detect SNMP, however none of the SNMP functions from snmp_func.inc
+# will work as they rely on snmpv3_get() as well.
 else {
 
   #nb: Don't use UDP/PORTS or snmp_get_port() as the check below is quite unreliable against other non-snmp UDP services
@@ -248,7 +272,7 @@ else {
 
   socudp161 = open_sock_udp( port );
 
-  data = report + '\nThe following SNMP versions are supported:\n';
+  data = 'An SNMP server is running on this host.\n\nThe following SNMP versions are supported:\n';
   flag = 0;
 
   ver[0] = "1";
@@ -301,7 +325,7 @@ else {
             replace_kb_item( name:"SNMP/" + port + "/preferred_version", value:2 );
           } else if( ver[i] == "2u" && ! v2u_detected ) {
             v2u_detected = TRUE;
-            data += string( "SNMPv", ver[i], "\n" );
+            data += string( "- SNMPv", ver[i], "\n" );
           }
 
           if( ver[i] == "1" ) {

@@ -1,36 +1,22 @@
-# Copyright (C) 2008 E-Soft Inc.
-# Copyright (C) 2008 Tim Brown
-# New code since 2009 Copyright (C) 2009 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2008 E-Soft Inc.
+# SPDX-FileCopyrightText: 2008 Tim Brown
+# SPDX-FileCopyrightText: New code since 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.50282");
-  script_version("2023-06-01T09:09:48+0000");
-  script_tag(name:"last_modification", value:"2023-06-01 09:09:48 +0000 (Thu, 01 Jun 2023)");
+  script_version("2023-09-12T05:05:19+0000");
+  script_tag(name:"last_modification", value:"2023-09-12 05:05:19 +0000 (Tue, 12 Sep 2023)");
   script_tag(name:"creation_date", value:"2008-01-17 22:05:49 +0100 (Thu, 17 Jan 2008)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
   script_name("Determine OS and list of installed packages via SSH login");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2008 Greenbone Networks GmbH, E-Soft Inc. and Tim Brown");
+  script_copyright("Copyright (C) 2008 Greenbone AG, E-Soft Inc. and Tim Brown");
   script_family("Product detection");
   script_dependencies("ssh_authorization.nasl");
   script_mandatory_keys("login/SSH/success");
@@ -643,6 +629,20 @@ if( uname =~ "Cisco Prime( Virtual)? Network Analysis Module" )
   {
     set_kb_item( name:"cisco_nam/show_ver", value:show_ver );
     set_kb_item( name:"cisco_nam/ssh-login/port", value:port );
+    set_kb_item( name:"ssh/no_linux_shell", value:TRUE );
+    set_kb_item( name:"ssh/force/pty", value:TRUE );
+    replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
+    exit( 0 );
+  }
+}
+
+if( "% Unrecognized command" >< uname )
+{
+  show_ver = ssh_cmd( socket:sock, cmd:"show version", nosh:TRUE, nosu:TRUE, pty:TRUE, timeout:90, retry:10, pattern:"Product name:\s*Silver Peak", clear_buffer:TRUE );
+  if( "Product model:" >< show_ver )
+  {
+    set_kb_item( name:"silverpeak/appliance/show_ver", value:show_ver );
+    set_kb_item( name:"silverpeak/ssh-login/port", value:port );
     set_kb_item( name:"ssh/no_linux_shell", value:TRUE );
     set_kb_item( name:"ssh/force/pty", value:TRUE );
     replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
@@ -2411,7 +2411,7 @@ if( rls =~ "Rocky Linux release" ) {
 
     # Notus requires a more verbose package name output
     # and also requires it to be written to its own package_list key
-    buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n'" );
+    buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{EVR}.%{ARCH}\n'" );
     if( buf ) {
       if( ! register_rpms( buf:buf, custom_key_name:"ssh/login/package_list_notus" ) )
         error = buf;
@@ -2483,7 +2483,7 @@ if( rls =~ "AlmaLinux release" ) {
 
     # Notus requires a more verbose package name output
     # and also requires it to be written to its own package_list key
-    buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n'" );
+    buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{EVR}.%{ARCH}\n'" );
     if( buf ) {
       if( ! register_rpms( buf:buf, custom_key_name:"ssh/login/package_list_notus" ) )
         error = buf;

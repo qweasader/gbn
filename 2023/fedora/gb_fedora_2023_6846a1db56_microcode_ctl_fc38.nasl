@@ -7,11 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.827769");
-  script_version("2023-06-02T09:09:16+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2022-21216", "CVE-2022-33196", "CVE-2022-33972", "CVE-2022-38090");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-06-02 09:09:16 +0000 (Fri, 02 Jun 2023)");
+  script_tag(name:"cvss_base", value:"7.2");
+  script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:M/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:A/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-02-28 19:42:00 +0000 (Tue, 28 Feb 2023)");
   script_tag(name:"creation_date", value:"2023-05-28 01:09:14 +0000 (Sun, 28 May 2023)");
   script_name("Fedora: Security Advisory for microcode_ctl (FEDORA-2023-6846a1db56)");
   script_category(ACT_GATHER_INFO);

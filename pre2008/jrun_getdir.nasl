@@ -1,51 +1,36 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2005 Felix Huber
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Allaire JRun directory browsing vulnerability
-#
-# Authors:
-# Felix Huber <huberfelix@webtopia.de>
-# Script audit and contributions from Carmichael Security <http://www.carmichaelsecurity.com>
-# Erik Anderson <eanders@carmichaelsecurity.com>
-# Added BugtraqID
-# Changes by gareth@sensepost.com (SensePost) :
-# * Test all discovered directories for jsp bug
-#
-# Copyright:
-# Copyright (C) 2005 Felix Huber
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
+
+CPE = "cpe:/a:adobe:jrun";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10814");
-  script_version("2022-05-12T09:32:01+0000");
-  script_tag(name:"last_modification", value:"2022-05-12 09:32:01 +0000 (Thu, 12 May 2022)");
+  script_version("2023-10-10T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2023-10-10 05:05:41 +0000 (Tue, 10 Oct 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
-  script_cve_id("CVE-2001-1510");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_name("Allaire JRun directory browsing vulnerability");
-  script_category(ACT_GATHER_INFO);
+  script_cve_id("CVE-2001-1510");
+  script_name("Allaire/Macromedia JRun Directory Browsing Vulnerability (MPSB01-13) - Active Check");
+  script_category(ACT_ATTACK); # nb: Crafted request might be already seen as an attack
   script_copyright("Copyright (C) 2005 Felix Huber");
-  script_family("Web application abuses");
-  script_dependencies("gb_get_http_banner.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl");
-  script_mandatory_keys("IIS/banner");
+  script_family("Web Servers");
+  script_dependencies("gb_microsoft_iis_http_detect.nasl", "gb_adobe_jrun_http_detect.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl");
+  script_require_ports("Services/www", 8000);
+  # nb:
+  # - Seems only affected when running on IIS and not "standalone"
+  # - JRun KB key has been added because the detection is also detecting the product via other means
+  #   and not only via the banner
+  script_mandatory_keys("adobe/jrun/http/detected", "microsoft/iis/http/detected");
 
   script_xref(name:"URL", value:"http://www.allaire.com/handlers/index.cfm?ID=22236&Method=Full");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/3592");
+
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks the response.");
 
   script_tag(name:"solution", value:"From Macromedia Product Security Bulletin (MPSB01-13)
 
@@ -110,16 +95,24 @@ include("http_func.inc");
 include("http_keepalive.inc");
 include("port_service_func.inc");
 include("list_array_func.inc");
+include("host_details.inc");
 
-port = http_get_port( default:80 );
+if( ! port = get_app_port( cpe:CPE, service:"www" ) )
+  exit( 0 );
 
-foreach dir( make_list_unique( "/", "/images", "/html", http_cgi_dirs(port:port ) ) ) {
+if( ! get_app_location( cpe:CPE, port:port, nofork:TRUE ) )
+  exit( 0 );
+
+foreach dir( make_list_unique( "/", "/images", "/html", http_cgi_dirs( port:port ) ) ) {
 
   install = dir;
-  if( dir == "/" ) dir = "";
+  if( dir == "/" )
+    dir = "";
+
   req = http_get( item:dir + "/%3f.jsp", port:port );
   res = http_keepalive_send_recv( port:port, data:req );
-  if( ! res ) continue;
+  if( ! res )
+    continue;
 
   if( egrep( pattern:"Index of /", string:res ) || ( egrep( pattern:"Directory Listing", string:res ) ) )
     ddir += http_report_vuln_url( port:port, url:install, url_only:TRUE ) + '\n';

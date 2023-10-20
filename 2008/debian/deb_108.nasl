@@ -1,34 +1,15 @@
-# OpenVAS Vulnerability Test
-# Description: Auto-generated from advisory DSA 108-1
+# SPDX-FileCopyrightText: 2008 E-Soft Inc.
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Thomas Reinke <reinke@securityspace.com>
-#
-# Copyright:
-# Copyright (C) 2008 E-Soft Inc.
-# Text descriptions are largerly excerpted from the referenced
-# advisory, and are Copyright (C) the respective author(s)
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.53388");
   script_cve_id("CVE-2002-0247", "CVE-2002-0248");
-  script_version("2022-07-26T10:10:41+0000");
-  script_tag(name:"last_modification", value:"2022-07-26 10:10:41 +0000 (Tue, 26 Jul 2022)");
+  script_version("2023-10-06T16:09:51+0000");
+  script_tag(name:"last_modification", value:"2023-10-06 16:09:51 +0000 (Fri, 06 Oct 2023)");
   script_tag(name:"creation_date", value:"2008-01-17 22:24:46 +0100 (Thu, 17 Jan 2008)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
@@ -43,7 +24,7 @@ if(description)
 dockable video4linux TV player for windowmaker) which is distributed
 in Debian GNU/Linux 2.2.  With the current version of wmtv, the
 configuration file is written back as the superuser, and without any
-further checks.  A mailicious user might use that to damage important
+further checks.  A malicious user might use that to damage important
 files
 
 This problem has been fixed in version 0.6.5-2potato2 for the stable

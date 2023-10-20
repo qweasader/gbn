@@ -21,14 +21,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826507");
-  script_version("2022-10-26T10:12:44+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2022-32902", "CVE-2022-32896", "CVE-2022-32911", "CVE-2022-32864",
                 "CVE-2022-32917", "CVE-2022-32883", "CVE-2022-32908", "CVE-2022-32900");
-  script_tag(name:"cvss_base", value:"9.3");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-10-26 10:12:44 +0000 (Wed, 26 Oct 2022)");
+  script_tag(name:"cvss_base", value:"6.8");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-09-22 18:31:00 +0000 (Thu, 22 Sep 2022)");
   script_tag(name:"creation_date", value:"2022-09-13 15:37:10 +0530 (Tue, 13 Sep 2022)");
   script_name("Apple MacOSX Security Update (HT213444)");
 

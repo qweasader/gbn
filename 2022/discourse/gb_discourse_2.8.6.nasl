@@ -23,11 +23,14 @@ CPE = "cpe:/a:discourse:discourse";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.148551");
-  script_version("2022-08-02T10:11:24+0000");
-  script_tag(name:"last_modification", value:"2022-08-02 10:11:24 +0000 (Tue, 02 Aug 2022)");
+  script_version("2023-10-18T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-08-02 03:06:15 +0000 (Tue, 02 Aug 2022)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-08-09 18:48:00 +0000 (Tue, 09 Aug 2022)");
 
   script_cve_id("CVE-2022-31182", "CVE-2022-31184");
 

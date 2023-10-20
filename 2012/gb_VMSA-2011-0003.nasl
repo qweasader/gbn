@@ -1,28 +1,8 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2012 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# VMSA-2011-0003.2 Third party component updates for VMware vCenter Server, vCenter Update Manager, ESXi and ESX
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2012 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
@@ -32,13 +12,13 @@ if(description)
   script_cve_id("CVE-2009-2693", "CVE-2009-2901", "CVE-2009-2902", "CVE-2009-3548", "CVE-2010-2227", "CVE-2010-1157", "CVE-2010-2928", "CVE-2010-0734", "CVE-2010-1084", "CVE-2010-2066", "CVE-2010-2070", "CVE-2010-2226", "CVE-2010-2248", "CVE-2010-2521", "CVE-2010-2524", "CVE-2010-0008", "CVE-2010-0415", "CVE-2010-0437", "CVE-2009-4308", "CVE-2010-0003", "CVE-2010-0007", "CVE-2010-0307", "CVE-2010-1086", "CVE-2010-0410", "CVE-2010-0730", "CVE-2010-1085", "CVE-2010-0291", "CVE-2010-0622", "CVE-2010-1087", "CVE-2010-1173", "CVE-2010-1437", "CVE-2010-1088", "CVE-2010-1187", "CVE-2010-1436", "CVE-2010-1641", "CVE-2010-3081", "CVE-2010-2240", "CVE-2008-5416", "CVE-2008-0085", "CVE-2008-0086", "CVE-2008-0107", "CVE-2008-0106", "CVE-2010-0740", "CVE-2010-0433", "CVE-2010-3864", "CVE-2010-2939", "CVE-2009-3555", "CVE-2010-0082", "CVE-2010-0084", "CVE-2010-0085", "CVE-2010-0087", "CVE-2010-0088", "CVE-2010-0089", "CVE-2010-0090", "CVE-2010-0091", "CVE-2010-0092", "CVE-2010-0093", "CVE-2010-0094", "CVE-2010-0095", "CVE-2010-0837", "CVE-2010-0838", "CVE-2010-0839", "CVE-2010-0840", "CVE-2010-0841", "CVE-2010-0842", "CVE-2010-0843", "CVE-2010-0844", "CVE-2010-0845", "CVE-2010-0846", "CVE-2010-0847", "CVE-2010-0848", "CVE-2010-0849", "CVE-2010-0850", "CVE-2010-0886", "CVE-2010-3556", "CVE-2010-3566", "CVE-2010-3567", "CVE-2010-3550", "CVE-2010-3561", "CVE-2010-3573", "CVE-2010-3565", "CVE-2010-3568", "CVE-2010-3569", "CVE-2010-1321", "CVE-2010-3548", "CVE-2010-3551", "CVE-2010-3562", "CVE-2010-3571", "CVE-2010-3554", "CVE-2010-3559", "CVE-2010-3572", "CVE-2010-3553", "CVE-2010-3549", "CVE-2010-3557", "CVE-2010-3541", "CVE-2010-3574", "CVE-2008-3825", "CVE-2009-1384");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2022-08-09T10:11:17+0000");
+  script_version("2023-07-25T05:05:58+0000");
   script_name("VMware ESXi/ESX Third party component updates (VMSA-2011-0003.2)");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
+  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
   script_tag(name:"creation_date", value:"2012-03-16 11:19:42 +0100 (Fri, 16 Mar 2012)");
   script_category(ACT_GATHER_INFO);
   script_family("VMware Local Security Checks");
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_dependencies("gb_vmware_esxi_init.nasl");
   script_mandatory_keys("VMware/ESXi/LSC", "VMware/ESX/version");
 

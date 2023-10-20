@@ -1,28 +1,14 @@
-# Copyright (C) 2013 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2013 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103675");
-  script_version("2022-02-16T13:39:14+0000");
-  script_tag(name:"last_modification", value:"2022-02-16 13:39:14 +0000 (Wed, 16 Feb 2022)");
+  script_version("2023-07-27T05:05:09+0000");
+  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
   script_tag(name:"creation_date", value:"2013-03-07 14:31:24 +0100 (Thu, 07 Mar 2013)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -33,7 +19,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   script_family("Product detection");
   # nb: Don't use e.g. webmirror.nasl or DDI_Directory_Scanner.nasl as this VT should
   # run as early as possible so that the printer can be early marked dead as requested.
@@ -50,7 +36,6 @@ include("host_details.inc");
 include("hp_printers.inc");
 include("http_func.inc");
 include("http_keepalive.inc");
-include("misc_func.inc");
 include("port_service_func.inc");
 
 port = http_get_port(default: 80);
@@ -93,16 +78,24 @@ foreach url (keys(urls)) {
       set_kb_item(name: "hp/printer/http/" + port + "/modConcluded", value: match[0]);
       set_kb_item(name: "hp/printer/http/" + port + "/modConcludedUrl",
                   value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
-    } else {
+    } else if (!isnull(match[1])) {
       model = match[1];
       set_kb_item(name: "hp/printer/http/" + port + "/modConcluded", value: match[0]);
       set_kb_item(name: "hp/printer/http/" + port + "/modConcludedUrl",
                   value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
+    # nb: We're hitting this case if no group match in the regex of the get_hp_detect_urls() list
+    # was given.
+    } else {
+      set_kb_item(name: "hp/printer/http/" + port + "/generalConcluded", value: match[0]);
+      set_kb_item(name: "hp/printer/http/" + port + "/generalConcludedUrl",
+                  value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
     }
 
-    model = chomp(model);
-    model = ereg_replace(string: model, pattern: "( Wide Format)?( All-in-One)?( Printer)?( Series)?",
-                         replace: "", icase: TRUE);
+    if (model != "unknown") {
+      model = chomp(model);
+      model = ereg_replace(string: model, pattern: "( Wide Format)?( All-in-One)?( Printer)?( Series)?",
+                           replace: "", icase: TRUE);
+    }
 
     if ("Server: HP HTTP Server" >< res) {
       vers = eregmatch(pattern: 'Server: HP HTTP Server.*\\{([^},]+).*\\}[\r\n]+', string: res);
@@ -131,6 +124,24 @@ foreach url (keys(urls)) {
     } else if ('<strong id="FutureSmartBundleVersion">' >< res) {
       # <strong id="FutureSmartBundleVersion">5.2.0.2</strong>
       vers = eregmatch(pattern: '<strong id="FutureSmartBundleVersion">([0-9.]+)', string: res);
+      if (!isnull(vers[1])) {
+        fw_version = vers[1];
+        set_kb_item(name: "hp/printer/http/" + port + "/versConcluded", value: vers[0]);
+        set_kb_item(name: "hp/printer/http/" + port + "/versConcludedUrl",
+                    value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
+      }
+    } else if ("Firmware Datecode" >< res) {
+      # <option  value="x">Firmware Datecode:  20081016 02.041.0</option>
+      vers = eregmatch(pattern: "Firmware Datecode\s*:\s*[0-9]+\s+([0-9.]+)", string: res);
+      if (!isnull(vers[1])) {
+        fw_version = vers[1];
+        set_kb_item(name: "hp/printer/http/" + port + "/versConcluded", value: vers[0]);
+        set_kb_item(name: "hp/printer/http/" + port + "/versConcludedUrl",
+                    value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
+      }
+    } else if ('"firmwareVersion"' >< res) {
+      # "firmwareVersion": "6.12.0.1994-202303232157"
+      vers = eregmatch(pattern: '"firmwareVersion"\\s*:\\s*"([-.0-9]+)"', string: res);
       if (!isnull(vers[1])) {
         fw_version = vers[1];
         set_kb_item(name: "hp/printer/http/" + port + "/versConcluded", value: vers[0]);
@@ -209,7 +220,7 @@ foreach url (keys(urls)) {
                     set_kb_item(name: "hp/printer/http/" + port + "/versConcludedUrl",
                                 value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
                   } else {
-                    url = "/hp/device/this.LCDispatcher?dispatch=html&cat=0&pos=1";
+                    url = "/hp/device/this.LCDispatcher";
                     res = http_get_cache(port: port, item: url);
                     # Firmware Datecode:  20010524 01.016.0
                     vers = eregmatch(pattern: "Firmware Datecode\s*:\s*[0-9]+\s+([0-9.]+)", string: res);
@@ -219,25 +230,36 @@ foreach url (keys(urls)) {
                       set_kb_item(name: "hp/printer/http/" + port + "/versConcludedUrl",
                                   value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
                     } else {
-                      url = "/hp/device/FirmwareUpgrade";
+                      url = "/hp/device/this.LCDispatcher?dispatch=html&cat=0&pos=1";
                       res = http_get_cache(port: port, item: url);
-                      # <label>Firmware Revision</label> <p id="FirmwareRevision">2308214_000901</p>
-                      vers = eregmatch(pattern: 'id="FirmwareRevision">([0-9_]+)<', string: res);
+                      # Firmware Datecode:  20010524 01.016.0
+                      vers = eregmatch(pattern: "Firmware Datecode\s*:\s*[0-9]+\s+([0-9.]+)", string: res);
                       if (!isnull(vers[1])) {
                         fw_version = vers[1];
                         set_kb_item(name: "hp/printer/http/" + port + "/versConcluded", value: vers[0]);
                         set_kb_item(name: "hp/printer/http/" + port + "/versConcludedUrl",
                                     value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
                       } else {
-                        url = "/hp/device/InternalPages/Index?id=ConfigurationPage";
+                        url = "/hp/device/FirmwareUpgrade";
                         res = http_get_cache(port: port, item: url);
-                        # id="FirmwareRevision">2308214_000907<
+                        # <label>Firmware Revision</label> <p id="FirmwareRevision">2308214_000901</p>
                         vers = eregmatch(pattern: 'id="FirmwareRevision">([0-9_]+)<', string: res);
                         if (!isnull(vers[1])) {
                           fw_version = vers[1];
                           set_kb_item(name: "hp/printer/http/" + port + "/versConcluded", value: vers[0]);
                           set_kb_item(name: "hp/printer/http/" + port + "/versConcludedUrl",
                                       value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
+                        } else {
+                          url = "/hp/device/InternalPages/Index?id=ConfigurationPage";
+                          res = http_get_cache(port: port, item: url);
+                          # id="FirmwareRevision">2308214_000907<
+                          vers = eregmatch(pattern: 'id="FirmwareRevision">([0-9_]+)<', string: res);
+                          if (!isnull(vers[1])) {
+                            fw_version = vers[1];
+                            set_kb_item(name: "hp/printer/http/" + port + "/versConcluded", value: vers[0]);
+                            set_kb_item(name: "hp/printer/http/" + port + "/versConcludedUrl",
+                                        value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
+                          }
                         }
                       }
                     }

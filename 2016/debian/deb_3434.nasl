@@ -1,30 +1,16 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.703434");
   script_cve_id("CVE-2015-7513", "CVE-2015-7550", "CVE-2015-8550", "CVE-2015-8551", "CVE-2015-8552", "CVE-2015-8569", "CVE-2015-8575");
   script_tag(name:"creation_date", value:"2016-01-04 23:00:00 +0000 (Mon, 04 Jan 2016)");
-  script_version("2023-04-03T10:19:50+0000");
-  script_tag(name:"last_modification", value:"2023-04-03 10:19:50 +0000 (Mon, 03 Apr 2023)");
+  script_version("2023-07-05T05:06:16+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"5.7");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:P/I:P/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Debian: Security Advisory (DSA-3434)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB(7|8)");
@@ -1448,6 +1434,10 @@ if(release == "DEB7") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-all", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-all-amd64", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
@@ -1492,19 +1482,15 @@ if(release == "DEB7") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-all", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-amd64", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-common-rt", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-common", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-common", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-common-rt", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
@@ -1552,11 +1538,11 @@ if(release == "DEB7") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-powerpc-smp", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-powerpc", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-powerpc", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-powerpc-smp", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
@@ -1596,11 +1582,11 @@ if(release == "DEB7") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-sparc64-smp", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-sparc64", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-sparc64", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.2.0-4-sparc64-smp", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
@@ -1624,19 +1610,19 @@ if(release == "DEB7") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-686-pae-dbg", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-686-pae", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-amd64-dbg", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-686-pae-dbg", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-amd64", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-amd64-dbg", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
@@ -1684,11 +1670,11 @@ if(release == "DEB7") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-powerpc-smp", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-powerpc", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-powerpc", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-powerpc-smp", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
@@ -1708,11 +1694,15 @@ if(release == "DEB7") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-rt-686-pae", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-rt-686-pae-dbg", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-rt-686-pae", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-rt-amd64", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
@@ -1720,7 +1710,7 @@ if(release == "DEB7") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-rt-amd64", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-s390x", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
@@ -1732,10 +1722,6 @@ if(release == "DEB7") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-s390x", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-sb1-bcm91250a", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
@@ -1744,11 +1730,11 @@ if(release == "DEB7") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-sparc64-smp", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-sparc64", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-sparc64", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.2.0-4-sparc64-smp", ver:"3.2.73-2+deb7u2", rls:"DEB7"))) {
     report += res;
   }
 
@@ -4758,6 +4744,10 @@ if(release == "DEB8") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-4-all", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-4-all-amd64", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
     report += res;
   }
@@ -4798,10 +4788,6 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-4-all", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-4-amd64", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
     report += res;
   }
@@ -4810,11 +4796,11 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-4-armmp-lpae", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-4-armmp", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-4-armmp", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-4-armmp-lpae", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
     report += res;
   }
 
@@ -4850,11 +4836,11 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-4-powerpc-smp", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-4-powerpc", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-4-powerpc", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-4-powerpc-smp", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
     report += res;
   }
 
@@ -4898,15 +4884,11 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-686-pae-dbg", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-686-pae", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-amd64-dbg", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-686-pae-dbg", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
     report += res;
   }
 
@@ -4914,7 +4896,7 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-arm64-dbg", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-amd64-dbg", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
     report += res;
   }
 
@@ -4922,11 +4904,15 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-armmp-lpae", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-arm64-dbg", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-armmp", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-armmp-lpae", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
     report += res;
   }
 
@@ -4958,11 +4944,11 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-powerpc-smp", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-powerpc", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-powerpc", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-powerpc-smp", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
     report += res;
   }
 
@@ -4982,11 +4968,11 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-s390x-dbg", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-s390x", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-s390x", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-4-s390x-dbg", ver:"3.16.7-ckt20-1+deb8u2", rls:"DEB8"))) {
     report += res;
   }
 

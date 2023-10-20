@@ -1,28 +1,14 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106099");
-  script_version("2022-04-27T04:20:28+0000");
-  script_tag(name:"last_modification", value:"2022-04-27 04:20:28 +0000 (Wed, 27 Apr 2022)");
+  script_version("2023-10-13T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2016-06-17 17:08:52 +0700 (Fri, 17 Jun 2016)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -31,22 +17,24 @@ if(description)
 
   script_name("Siemens SIMATIC S7 Device Detection (COTP)");
 
-  script_tag(name:"summary", value:"COTP (Connection-Oriented Transport Protocol) based detection of
-  Siemens SIMATIC S7 devices.");
-
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Product detection");
   script_dependencies("find_service.nasl");
   script_require_ports(102);
 
+  script_tag(name:"summary", value:"COTP (Connection-Oriented Transport Protocol) based detection
+  of Siemens SIMATIC S7 devices.");
+
   exit(0);
 }
 
-include("host_details.inc");
 include("byte_func.inc");
+include("dump.inc");
+include("host_details.inc");
 include("http_func.inc");
+include("misc_func.inc");
 include("port_service_func.inc");
 
 function cotp_send_recv(req, soc) {
@@ -262,6 +250,8 @@ if (recv) {
 if (version != "unknown") {
   set_kb_item(name: "siemens/simatic_s7/detected", value: TRUE);
   if (model != "unknown") {
+    # The extracted model string might included some non-printable characters so normalize it first
+    model = bin2string(ddata: model, noprint_replacement: "");
     if (egrep(string: model, pattern: "^(CPU )?3.."))
       model = 300;
     set_kb_item(name: "siemens/simatic_s7/cotp/model", value: model);

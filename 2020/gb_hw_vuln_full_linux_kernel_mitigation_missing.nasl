@@ -2,18 +2,18 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108767");
-  script_version("2023-03-24T10:19:42+0000");
+  script_version("2023-09-06T05:05:19+0000");
   script_cve_id("CVE-2017-5753", "CVE-2017-5715", "CVE-2017-5754", "CVE-2019-1125", "CVE-2018-3639",
                 "CVE-2018-3615", "CVE-2018-3620", "CVE-2018-3646", "CVE-2018-12126", "CVE-2018-12130",
                 "CVE-2018-12127", "CVE-2019-11091", "CVE-2019-11135", "CVE-2018-12207", "CVE-2020-0543",
                 "CVE-2022-21123", "CVE-2022-21125", "CVE-2022-21166", "CVE-2022-27672", "CVE-2022-29900",
-                "CVE-2022-29901");
-  script_tag(name:"last_modification", value:"2023-03-24 10:19:42 +0000 (Fri, 24 Mar 2023)");
+                "CVE-2022-29901", "CVE-2022-40982", "CVE-2023-20569");
+  script_tag(name:"last_modification", value:"2023-09-06 05:05:19 +0000 (Wed, 06 Sep 2023)");
   script_tag(name:"creation_date", value:"2020-06-02 05:50:19 +0000 (Tue, 02 Jun 2020)");
   script_tag(name:"cvss_base", value:"5.4");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:P/A:N");
@@ -29,6 +29,9 @@ if(description)
 
   script_xref(name:"URL", value:"https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/index.html");
   script_xref(name:"URL", value:"https://comsec.ethz.ch/research/microarch/retbleed/");
+  script_xref(name:"URL", value:"https://downfall.page/");
+  script_xref(name:"URL", value:"https://comsec.ethz.ch/research/microarch/inception/");
+  script_xref(name:"URL", value:"https://meltdownattack.com/");
 
   script_tag(name:"summary", value:"The remote host is missing all known mitigation(s) on Linux
   Kernel side for the referenced hardware vulnerabilities.

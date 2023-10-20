@@ -1,34 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2012 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Mandriva Update for libxslt MDVSA-2012:164 (libxslt)
-#
-# Authors:
-# System Generated Check
-#
-# Copyright:
-# Copyright (C) 2012 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_xref(name:"URL", value:"http://www.mandriva.com/en/support/security/advisories/?name=MDVSA-2012:164");
   script_oid("1.3.6.1.4.1.25623.1.0.831746");
-  script_version("2022-05-31T15:35:19+0100");
-  script_tag(name:"last_modification", value:"2022-05-31 15:35:19 +0100 (Tue, 31 May 2022)");
+  script_version("2023-07-14T05:06:08+0000");
+  script_tag(name:"last_modification", value:"2023-07-14 05:06:08 +0000 (Fri, 14 Jul 2023)");
   script_tag(name:"creation_date", value:"2012-10-12 09:21:18 +0530 (Fri, 12 Oct 2012)");
   script_cve_id("CVE-2011-1202", "CVE-2012-2870", "CVE-2012-2871", "CVE-2012-2893");
   script_tag(name:"cvss_base", value:"6.8");
@@ -39,7 +20,7 @@ if(description)
   script_tag(name:"summary", value:"The remote host is missing an update for the 'libxslt'
   package(s) announced via the referenced advisory.");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Mandrake Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/mandriva_mandrake_linux", "ssh/login/release", re:"ssh/login/release=MNDK_(2011\.0|mes5\.2)");

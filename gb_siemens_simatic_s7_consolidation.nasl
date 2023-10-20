@@ -21,8 +21,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106096");
-  script_version("2022-05-03T08:45:50+0000");
-  script_tag(name:"last_modification", value:"2022-05-03 08:45:50 +0000 (Tue, 03 May 2022)");
+  script_version("2023-10-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"creation_date", value:"2016-06-15 15:30:33 +0700 (Wed, 15 Jun 2016)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -181,7 +181,7 @@ if (http_ports = get_kb_list("siemens/simatic_s7/http/port")) {
   }
 }
 
-# We don't want to register a S7 Firmware as the operting systems as it would
+# We don't want to register a S7 Firmware as the operating systems as it would
 # overwrite our previously more detailed Windows Detections. Examples are e.g.
 # module: S7 SoftPLC UA
 # modtype: IE_CP   OPC Server

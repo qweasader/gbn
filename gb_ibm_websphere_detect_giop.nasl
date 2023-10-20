@@ -1,36 +1,16 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# IBM WebSphere Application Server Detection (GIOP)
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105834");
-  script_version("2020-11-12T12:01:31+0000");
+  script_version("2023-07-12T05:05:04+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2020-11-12 12:01:31 +0000 (Thu, 12 Nov 2020)");
+  script_tag(name:"last_modification", value:"2023-07-12 05:05:04 +0000 (Wed, 12 Jul 2023)");
   script_tag(name:"creation_date", value:"2016-07-29 15:04:09 +0200 (Fri, 29 Jul 2016)");
   script_name("IBM WebSphere Application Server Detection (GIOP)");
 
@@ -41,9 +21,9 @@ if (description)
 
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("find_service2.nasl");
-  script_require_ports("Services/giop", 9100, 9900);
+  script_require_ports("Services/giop", 9100);
   exit(0);
 }
 
@@ -97,7 +77,7 @@ data = recv( socket:soc , length:4096 );
 
 close( soc );
 
-if( !data || "WebSphere" >!< data )
+if( ! data || "WebSphere" >!< data )
   exit( 0 );
 
 vers = "unknown";

@@ -1,39 +1,19 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# MyBB Multiple Vulnerabilities
-#
-# Authors:
-# Christian Kuersteiner <christian.kuersteiner@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mybb:mybb";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106276");
-  script_version("2021-09-17T13:01:55+0000");
+  script_version("2023-07-21T05:05:22+0000");
   script_cve_id("CVE-2016-9402", "CVE-2016-9403", "CVE-2016-9404", "CVE-2016-9405", "CVE-2016-9406",
                 "CVE-2016-9407", "CVE-2016-9408", "CVE-2016-9409", "CVE-2016-9410", "CVE-2016-9411",
                 "CVE-2016-9412", "CVE-2016-9413", "CVE-2016-9414");
-  script_tag(name:"last_modification", value:"2021-09-17 13:01:55 +0000 (Fri, 17 Sep 2021)");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2016-09-22 09:06:56 +0700 (Thu, 22 Sep 2016)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -48,7 +28,7 @@ if (description)
   script_name("MyBB Multiple Vulnerabilities");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("sw_mybb_detect.nasl");
   script_mandatory_keys("MyBB/installed");

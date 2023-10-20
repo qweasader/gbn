@@ -1,54 +1,20 @@
-# OpenVAS Vulnerability Test
-# Description: HTTP 1.1 header overflow
+# SPDX-FileCopyrightText: 2002 Michel Arboi
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Michel Arboi <arboi@alussinan.org>
-#
-# Copyright:
-# Copyright (C) 2002 Michel Arboi
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
-
-# I don't even know if it crashes any web server...
-# Cf. RFC 2068
-#
-# Vulnerable servers (not tested)
-#
-# Domino < 6.0.1
-# From: "NGSSoftware Insight Security Research" <nisr@nextgenss.com>
-# Subject: Lotus Domino Web Server Host/Location Buffer Overflow Vulnerability (#NISR17022003a)
-# To: <bugtraq@securityfocus.com>, <vulnwatch@vulnwatch.org>,
-#    <ntbugtraq@listserv.ntbugtraq.com>
-# Date: Mon, 17 Feb 2003 16:19:20 -0800
-#
-# From: "Matthew Murphy" <mattmurphy@kc.rr.com>
-# Subject: Multiple pServ Remote Buffer Overflow Vulnerabilities
-# To: "BugTraq" <bugtraq@securityfocus.com>
-# Date: Sun, 1 Dec 2002 12:15:52 -0600
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11129");
-  script_version("2022-05-12T09:32:01+0000");
-  script_tag(name:"last_modification", value:"2022-05-12 09:32:01 +0000 (Thu, 12 May 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_cve_id("CVE-2003-0180");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/6951");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_name("HTTP 1.1 header overflow");
+  script_name("HTTP 1.1 Header Overflow DoS Vulnerability");
   script_category(ACT_DENIAL);
   # All the www_too_long_*.nasl scripts were first declared as
   # ACT_DESTRUCTIVE_ATTACK, but many web servers are vulnerable to them:
@@ -72,11 +38,19 @@ if(description)
   script_tag(name:"impact", value:"An attacker may exploit this vulnerability to make the web server
   crash continually or even execute arbirtray code on your system.");
 
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"affected", value:"Lotus Domino Web Server prior to 6.0.1 and pServ are known to
+  be affected. Other versions or products might be affected as well.");
+
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"VendorFix");
 
   exit(0);
 }
+
+# Cf. RFC 2068
+#
+# nb: The original VT had the following comment:
+# > I don't even know if it crashes any web server...
 
 include("http_func.inc");
 include("port_service_func.inc");

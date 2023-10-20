@@ -1,42 +1,22 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SIEMENS IP-Camera Credentials Disclosure Vulnerability
-#
-# Authors:
-# Shakeel <bshakeel@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807879");
-  script_version("2021-10-15T11:13:32+0000");
+  script_version("2023-06-22T10:34:15+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-10-15 11:13:32 +0000 (Fri, 15 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2016-08-18 11:01:49 +0530 (Thu, 18 Aug 2016)");
   script_name("SIEMENS IP-Camera Credentials Disclosure Vulnerability");
 
   script_tag(name:"summary", value:"SIEMENS IP-Camera is prone to credentials disclosure vulnerability.");
 
-  script_tag(name:"vuldetect", value:"Send the crafted http GET request
-  and check whether it is able to read the credentials or not.");
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks the response.");
 
   script_tag(name:"insight", value:"The flaw exists due to an improper
   restriction on user access levels for certain pages.");
@@ -84,7 +64,7 @@ if(description)
   script_xref(name:"URL", value:"https://www.exploit-db.com/exploits/40254");
 
   script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_get_http_banner.nasl");
   script_mandatory_keys("Boa/banner");
@@ -102,7 +82,7 @@ sie_port = http_get_port(default:80);
 
 ## Siemens IP Camera uses 'Boa by topco' integrated web server
 ## Application confirmation to more specific is not possible, hence not
-## going for detect NVT.
+## going for detect VT.
 banner = http_get_remote_headers(port:sie_port);
 if('Server: Boa by topco' >!< banner){
   exit(0);

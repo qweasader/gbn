@@ -1,36 +1,22 @@
-# Copyright (C) 2008 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2008 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.56469");
   script_cve_id("CVE-2004-1017", "CVE-2005-0124", "CVE-2005-0449", "CVE-2005-2457", "CVE-2005-2490", "CVE-2005-2555", "CVE-2005-2709", "CVE-2005-2800", "CVE-2005-2973", "CVE-2005-3044", "CVE-2005-3053", "CVE-2005-3055", "CVE-2005-3180", "CVE-2005-3181", "CVE-2005-3257", "CVE-2005-3356", "CVE-2005-3358", "CVE-2005-3783", "CVE-2005-3784", "CVE-2005-3806", "CVE-2005-3847", "CVE-2005-3848", "CVE-2005-3857", "CVE-2005-3858", "CVE-2005-4605", "CVE-2005-4618", "CVE-2006-0095", "CVE-2006-0096", "CVE-2006-0482", "CVE-2006-1066");
   script_tag(name:"creation_date", value:"2008-01-17 22:09:45 +0000 (Thu, 17 Jan 2008)");
-  script_version("2023-04-03T10:19:49+0000");
-  script_tag(name:"last_modification", value:"2023-04-03 10:19:49 +0000 (Mon, 03 Apr 2023)");
+  script_version("2023-06-20T05:05:20+0000");
+  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
   script_name("Debian: Security Advisory (DSA-1017)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2008 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB3\.1");

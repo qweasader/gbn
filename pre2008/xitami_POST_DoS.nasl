@@ -1,38 +1,21 @@
-# OpenVAS Vulnerability Test
-# Description: Xitami malformed header DoS
+# SPDX-FileCopyrightText: 2003 Michel Arboi
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Michel Arboi <arboi@alussinan.org>
-#
-# Copyright:
-# Copyright (C) 2003 Michel Arboi
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11934");
-  script_version("2022-05-12T09:32:01+0000");
-  script_tag(name:"last_modification", value:"2022-05-12 09:32:01 +0000 (Thu, 12 May 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/9083");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_name("Xitami malformed header DoS");
+  script_name("Xitami Malformed Header DoS Vulnerability");
   script_category(ACT_DENIAL);
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   script_copyright("Copyright (C) 2003 Michel Arboi");
   script_family("Denial of Service");
@@ -47,7 +30,7 @@ if(description)
   script_tag(name:"summary", value:"It is possible to freeze the remote web server by
   sending a malformed POST request.");
 
-  script_tag(name:"affected", value:"This is know to affect Xitami 2.5 and earlier versions.");
+  script_tag(name:"affected", value:"Xitami version 2.5 and prior is known to be affected.");
 
   exit(0);
 }

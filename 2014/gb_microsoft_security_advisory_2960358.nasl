@@ -1,35 +1,16 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2014 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Microsoft .NET Framework 'RC4' Information Disclosure Vulnerability (2960358)
-#
-# Authors:
-# Thanga Prakash S <tprakash@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2014 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804587");
-  script_version("2020-06-09T08:59:39+0000");
+  script_version("2023-07-27T05:05:08+0000");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2020-06-09 08:59:39 +0000 (Tue, 09 Jun 2020)");
+  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
   script_tag(name:"creation_date", value:"2014-05-15 15:17:33 +0530 (Thu, 15 May 2014)");
   script_name("Microsoft .NET Framework 'RC4' Information Disclosure Vulnerability (2960358)");
 
@@ -54,7 +35,7 @@ if(description)
   script_xref(name:"URL", value:"https://technet.microsoft.com/en-us/library/security/2960358");
   script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"executable_version");
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Windows");
   script_dependencies("smb_reg_service_pack.nasl");
   script_require_ports(139, 445);

@@ -21,8 +21,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851565");
-  script_version("2021-09-15T12:01:38+0000");
-  script_tag(name:"last_modification", value:"2021-09-15 12:01:38 +0000 (Wed, 15 Sep 2021)");
+  script_version("2023-10-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"creation_date", value:"2017-06-09 06:51:15 +0200 (Fri, 09 Jun 2017)");
   script_cve_id("CVE-2017-3509", "CVE-2017-3511", "CVE-2017-3512", "CVE-2017-3514",
                 "CVE-2017-3526", "CVE-2017-3533", "CVE-2017-3539", "CVE-2017-3544");
@@ -74,7 +74,7 @@ if(description)
   Test sun/security/krb5/auto/UnboundSSL.java fails - S8164533:
   sun/security/ssl/SSLSocketImpl/CloseSocket.java failed with 'Error while
   cleaning up threads after test' - S8167179: Make XSL generated namespace
-  prefixes local to transformation process - S8168774: Polymorhic signature method
+  prefixes local to transformation process - S8168774: Polymorphic signature method
   check ... Description truncated, for more information please check the Reference
   URL");
 

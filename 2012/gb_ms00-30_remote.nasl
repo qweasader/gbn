@@ -1,39 +1,20 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2012 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Microsoft IIS Malformed File Extension Denial of Service Vulnerability
-#
-# Authors:
-# Antu Sanadi <santu@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2012 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-################################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:microsoft:internet_information_services";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802439");
-  script_version("2022-12-05T10:11:03+0000");
+  script_version("2023-10-10T05:05:41+0000");
   script_cve_id("CVE-2000-0408");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_tag(name:"creation_date", value:"2012-07-03 16:55:41 +0530 (Tue, 03 Jul 2012)");
-  script_tag(name:"last_modification", value:"2022-12-05 10:11:03 +0000 (Mon, 05 Dec 2022)");
+  script_tag(name:"last_modification", value:"2023-10-10 05:05:41 +0000 (Tue, 10 Oct 2023)");
   script_name("Microsoft IIS Malformed File Extension Denial of Service Vulnerability");
   script_xref(name:"URL", value:"http://www.ussrback.com/labs40.html");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/1190");
@@ -41,10 +22,10 @@ if(description)
   script_xref(name:"URL", value:"http://www.iss.net/security_center/reference/vuln/iis-url-extension-data-dos.htm");
 
   script_category(ACT_DENIAL);
-  script_tag(name:"qod_type", value:"remote_vul");
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_tag(name:"qod_type", value:"remote_analysis");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
-  script_dependencies("secpod_ms_iis_detect.nasl");
+  script_dependencies("gb_microsoft_iis_http_detect.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("IIS/installed");
 

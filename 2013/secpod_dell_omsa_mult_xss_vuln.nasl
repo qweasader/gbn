@@ -1,31 +1,17 @@
-# Copyright (C) 2013 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2013 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902941");
-  script_version("2022-04-25T14:50:49+0000");
+  script_version("2023-06-22T10:34:15+0000");
   script_cve_id("CVE-2012-6272");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2022-04-25 14:50:49 +0000 (Mon, 25 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2013-01-30 15:21:55 +0530 (Wed, 30 Jan 2013)");
   script_name("Dell OpenManage Server Administrator Multiple XSS Vulnerabilities");
   script_xref(name:"URL", value:"http://secunia.com/advisories/51764");
@@ -34,7 +20,7 @@ if(description)
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/81158");
 
   script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   script_family("Web application abuses");
   script_require_ports("Services/www", 1311);
   script_exclude_keys("Settings/disable_cgi_scanning");
@@ -80,7 +66,7 @@ port = http_get_port(default:1311);
 req = http_get(item:"/servlet/OMSALogin?msgStatus=null", port:port);
 res = http_keepalive_send_recv(port:port, data:req);
 
-if(res && res =~ "HTTP/1.. 200 OK" && ">Dell OpenManage <" >< res)
+if(res && res =~ "^HTTP/1\.[01] 200" && ">Dell OpenManage <" >< res)
 {
   url = '/help/sm/en/Output/wwhelp/wwhimpl/js/html/index_main.htm?topic="><' +
         '/iframe><iframe src="javascript:alert(document.cookie)';
@@ -88,7 +74,7 @@ if(res && res =~ "HTTP/1.. 200 OK" && ">Dell OpenManage <" >< res)
   req = http_get(item:url, port:port);
   res = http_keepalive_send_recv(port:port, data:req);
 
-  if(res && res =~ "HTTP/1.. 200 OK" &&
+  if(res && res =~ "^HTTP/1\.[01] 200" &&
      "javascript:alert(document.cookie)" >< res && "OMSS_Help" >< res){
     security_message(port:port);
     exit(0);

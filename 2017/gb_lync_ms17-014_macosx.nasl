@@ -1,38 +1,24 @@
-# Copyright (C) 2017 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2017 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:microsoft:lync";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810817");
-  script_version("2022-12-07T10:11:17+0000");
+  script_version("2023-10-13T16:09:03+0000");
   script_cve_id("CVE-2017-0129");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2022-12-07 10:11:17 +0000 (Wed, 07 Dec 2022)");
+  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-07-12 01:29:00 +0000 (Wed, 12 Jul 2017)");
   script_tag(name:"creation_date", value:"2017-03-20 12:56:16 +0530 (Mon, 20 Mar 2017)");
-  script_name("Microsoft Lync Certificate Validation Vulnerability-4013241 (MAC OS X)");
+  script_name("Microsoft Lync Certificate Validation Vulnerability-4013241 - Mac OS X");
 
   script_tag(name:"summary", value:"This host is missing an important security
   update according to Microsoft Bulletin MS17-014.");
@@ -45,7 +31,7 @@ if(description)
   script_tag(name:"impact", value:"Successful exploitation will allow an attacker
   to tamper the trusted communications between the server and target client.");
 
-  script_tag(name:"affected", value:"Microsoft Lync version 2011 for MAC OS X.");
+  script_tag(name:"affected", value:"Microsoft Lync version 2011 for Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade Microsoft Lync version 14.4.3.170308 or later.");
 
@@ -54,7 +40,7 @@ if(description)
   script_xref(name:"URL", value:"https://support.microsoft.com/en-us/kb/4012487");
   script_xref(name:"URL", value:"https://technet.microsoft.com/library/security/MS17-014");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Mac OS X Local Security Checks");
   script_dependencies("gb_microsoft_lync_detect_macosx.nasl");
   script_mandatory_keys("Microsoft/Lync/MacOSX/Version");

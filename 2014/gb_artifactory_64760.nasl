@@ -12,14 +12,14 @@ if (description)
   script_cve_id("CVE-2013-7285");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_version("2023-05-16T09:08:27+0000");
+  script_version("2023-10-12T05:05:32+0000");
 
   script_name("Artifactory < 3.1.1.1 XStream RCE Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/64760");
   script_xref(name:"URL", value:"http://www.jfrog.com/confluence/display/RTF/Artifactory+3.1.1");
 
-  script_tag(name:"last_modification", value:"2023-05-16 09:08:27 +0000 (Tue, 16 May 2023)");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-04-22 12:47:00 +0000 (Fri, 22 Apr 2022)");
@@ -28,7 +28,7 @@ if (description)
   script_tag(name:"qod_type", value:"remote_banner");
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2014 Greenbone AG");
-  script_dependencies("gb_artifactory_detect.nasl");
+  script_dependencies("gb_jfrog_artifactory_http_detect.nasl");
   script_mandatory_keys("artifactory/installed");
 
   script_tag(name:"impact", value:"Successfully exploiting this issue may allow an attacker to

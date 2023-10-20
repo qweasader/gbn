@@ -1,33 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2008 Renaud Deraison, modified 2004 Michael Stone
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# User Mountable NFS shares
-#
-# Authors:
-# Renaud Deraison, modified 2004 Michael Stone
-#
-# Copyright:
-# Copyright (C) 2008 Renaud Deraison, modified 2004 Michael Stone
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.80028");
-  script_version("2022-12-09T10:11:04+0000");
-  script_tag(name:"last_modification", value:"2022-12-09 10:11:04 +0000 (Fri, 09 Dec 2022)");
+  script_version("2023-09-08T05:06:21+0000");
+  script_tag(name:"last_modification", value:"2023-09-08 05:06:21 +0000 (Fri, 08 Sep 2023)");
   script_tag(name:"creation_date", value:"2008-10-24 20:15:31 +0200 (Fri, 24 Oct 2008)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -35,7 +16,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 Renaud Deraison, modified 2004 Michael Stone");
   script_family("Remote file access");
-  script_dependencies("secpod_rpc_portmap_udp.nasl", "showmount.nasl");
+  script_dependencies("gb_rpc_portmap_udp_detect.nasl", "showmount.nasl");
   script_mandatory_keys("rpc/portmap/udp/detected", "nfs/exportlist");
 
   script_tag(name:"summary", value:"It is possible to access the remote NFS shares without having

@@ -21,8 +21,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.109131");
-  script_version("2022-08-31T10:10:28+0000");
-  script_tag(name:"last_modification", value:"2022-08-31 10:10:28 +0000 (Wed, 31 Aug 2022)");
+  script_version("2023-08-25T05:06:04+0000");
+  script_tag(name:"last_modification", value:"2023-08-25 05:06:04 +0000 (Fri, 25 Aug 2023)");
   script_tag(name:"creation_date", value:"2018-04-30 13:36:08 +0200 (Mon, 30 Apr 2018)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:S/C:N/I:N/A:N");
@@ -38,6 +38,7 @@ if(description)
 
   script_add_preference(name:"Value", type:"entry", value:"Guests, Local account", id:1);
 
+  script_xref(name:"Policy", value:"CIS Microsoft Windows 10 Enterprise (Release 22H2) Benchmark v2.0.0: 2.2.20 (L1) Ensure 'Deny log on through Remote Desktop Services' to include 'Guests Local account'");
   script_xref(name:"Policy", value:"CIS Microsoft Windows 10 Enterprise (Release 2004) Benchmark v1.9.1: 2.2.20 (L1) Ensure 'Deny log on through Remote Desktop Services' to include 'Guests' and 'Local account'");
   script_xref(name:"Policy", value:"CIS Microsoft Windows Server 2019 RTM (Release 1809) Benchmark v1.1.0: 2.2.26 (L1) Ensure 'Deny log on through Remote Desktop Services' is set to 'Guests' and 'Local account' (MS only)");
   script_xref(name:"Policy", value:"CIS Controls Version 7: 16.8 Disable Any Unassociated Accounts");

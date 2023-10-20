@@ -23,11 +23,14 @@ CPE = "cpe:/a:memcached:memcached";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127322");
-  script_version("2023-02-07T12:10:58+0000");
-  script_tag(name:"last_modification", value:"2023-02-07 12:10:58 +0000 (Tue, 07 Feb 2023)");
+  script_version("2023-10-13T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-02-06 05:30:42 +0000 (Mon, 06 Feb 2023)");
-  script_tag(name:"cvss_base", value:"2.7");
-  script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:S/C:N/I:N/A:P");
+  script_tag(name:"cvss_base", value:"4.9");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-02-10 15:26:00 +0000 (Fri, 10 Feb 2023)");
 
   script_cve_id("CVE-2021-37519");
 

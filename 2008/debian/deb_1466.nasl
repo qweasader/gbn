@@ -1,36 +1,22 @@
-# Copyright (C) 2008 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2008 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.60210");
   script_cve_id("CVE-2007-5760", "CVE-2007-5958", "CVE-2007-6427", "CVE-2007-6428", "CVE-2007-6429", "CVE-2008-0006");
   script_tag(name:"creation_date", value:"2008-01-31 15:11:48 +0000 (Thu, 31 Jan 2008)");
-  script_version("2023-04-03T10:19:49+0000");
-  script_tag(name:"last_modification", value:"2023-04-03 10:19:49 +0000 (Mon, 03 Apr 2023)");
+  script_version("2023-07-05T05:06:16+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
 
   script_name("Debian: Security Advisory (DSA-1466)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2008 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB(3\.1|4)");
@@ -111,11 +97,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libdps1-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libdps1", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libdps1", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libdps1-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -123,11 +109,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libice6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libice6", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libice6", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libice6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -135,15 +121,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libsm6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"libsm6", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libx11-6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libsm6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -151,7 +133,15 @@ if(release == "DEB3.1") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"libx11-6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"libx11-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"libxaw6", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -163,7 +153,7 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxaw6", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxaw7", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -175,15 +165,7 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxaw7", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"libxext-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"libxext6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -191,7 +173,7 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxft1-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxext6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -199,11 +181,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxi-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxft1-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxi6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxi-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -211,11 +193,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxmu-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxi6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxmu6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxmu-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -223,11 +205,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxmuu-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxmu6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxmuu1-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxmuu-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -235,11 +217,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxp-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxmuu1-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxp6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxp-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -247,11 +229,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxpm-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxp6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxpm4-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxpm-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -259,11 +241,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxrandr-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxpm4-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxrandr2-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxrandr-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -271,11 +253,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxt-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxrandr2-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxt6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxt-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -283,11 +265,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxtrap-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxt6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxtrap6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxtrap-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -295,11 +277,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxtst-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxtrap6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxtst6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxtst-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -307,15 +289,19 @@ if(release == "DEB3.1") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"libxtst6-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"libxv-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxv1-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxv1", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libxv1", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libxv1-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -335,15 +321,15 @@ if(release == "DEB3.1") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"x-window-system", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"x-window-system-core", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"x-window-system-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"x-window-system", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -355,15 +341,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"xfonts-100dpi-transcoded", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"xfonts-100dpi", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"xfonts-75dpi-transcoded", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"xfonts-100dpi-transcoded", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -371,11 +353,15 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"xfonts-base-transcoded", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"xfonts-75dpi-transcoded", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"xfonts-base", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"xfonts-base-transcoded", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -403,11 +389,15 @@ if(release == "DEB3.1") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"xlibmesa-dri", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"xlibmesa-dri-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"xlibmesa-dri", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"xlibmesa-gl", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -419,7 +409,7 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"xlibmesa-gl", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"xlibmesa-glu", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -431,7 +421,7 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"xlibmesa-glu", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"xlibmesa3", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -439,11 +429,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"xlibmesa3", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"xlibosmesa-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"xlibosmesa-dev", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"xlibosmesa4", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -451,7 +441,7 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"xlibosmesa4", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"xlibs", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -479,10 +469,6 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"xlibs", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"xmh", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
@@ -495,11 +481,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"xserver-xfree86-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"xserver-xfree86", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"xserver-xfree86", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"xserver-xfree86-dbg", ver:"4.3.0.dfsg.1-14sarge7", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -529,11 +515,11 @@ if(release == "DEB3.1") {
 
 if(release == "DEB4") {
 
-  if(!isnull(res = isdpkgvuln(pkg:"xdmx-tools", ver:"2:1.1.1-21etch3", rls:"DEB4"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"xdmx", ver:"2:1.1.1-21etch3", rls:"DEB4"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"xdmx", ver:"2:1.1.1-21etch3", rls:"DEB4"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"xdmx-tools", ver:"2:1.1.1-21etch3", rls:"DEB4"))) {
     report += res;
   }
 

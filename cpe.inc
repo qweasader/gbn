@@ -1,27 +1,8 @@
-###############################################################################
-# OpenVAS Include File
+# SPDX-FileCopyrightText: 2009 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# CPE Support Functions
-#
-# Authors:
-# Michael Wiegand <michael.wiegand@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2009 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 # @brief Extends a given CPE base (like e.g. cpe:/a:vendor:product:) with
 #        a given value if the passed expression in the exp is matching this value.

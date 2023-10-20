@@ -408,7 +408,7 @@ function unknownservice_get_port( default, nodefault, ipproto ) {
 function unknown_banner_get( port, ipproto, dontfetch ) {
 
   local_var port, ipproto, dontfetch;
-  local_var kbname, kbnameHex, banner, _p, bannerHex, soc;
+  local_var kbname, kbnameHex, banner, _p, bannerHex, oids, _oid, soc;
 
   if( ! port ) {
     set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#port#-#unknown_banner_get" );
@@ -453,6 +453,32 @@ function unknown_banner_get( port, ipproto, dontfetch ) {
     }
   }
 
+  # nb: This is from unknown_banner_set()
+  if( ipproto == "tcp" )
+    oids = get_kb_list( "unknown/banner/oids/" + port );
+  else
+    oids = get_kb_list( "unknown/banner/oids/" + ipproto + "/" + port );
+
+  if( oids ) {
+    foreach _oid( oids ) {
+
+      if( ipproto == "tcp" ) {
+        banner = get_kb_item( "unknown/" + _oid + "/banner/" + port );
+        bannerHex = get_kb_item( "unknown/" + _oid + "/bannerHex/" + port );
+      } else {
+        banner = get_kb_item( "unknown/" + _oid + "/banner/" + ipproto + "/" + port );
+        bannerHex = get_kb_item( "unknown/" + _oid + "/bannerHex/" + ipproto + "/" + port );
+      }
+
+      if( banner || bannerHex ) {
+        if( strlen( bannerHex ) > 2 * strlen( banner ) )
+          return hex2raw( s:bannerHex );
+        else
+          return( banner );
+      }
+    }
+  }
+
   if( dontfetch )
     return( NULL );
 
@@ -483,38 +509,63 @@ function unknown_banner_get( port, ipproto, dontfetch ) {
 # @param port          The port of the service to set the banner for
 # @param banner        The banner to set for the service
 # @param ipproto       The IP protocol ("tcp" or "udp"), defaults to "tcp" if not given
+# @param set_oid_based If set to TRUE the KB key will be set based on the OID of the calling script
 #
 # @return NULL
 #
-function unknown_banner_set( port, banner, ipproto ) {
+function unknown_banner_set( port, banner, ipproto, set_oid_based ) {
 
-  local_var port, banner, ipproto;
-  local_var kbname;
+  local_var port, banner, ipproto, set_oid_based;
+  local_var oid, kbname;
+
+  oid = get_script_oid();
 
   if( ! port ) {
-    set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#port#-#unknown_banner_set" );
+    set_kb_item( name:"vt_debug_empty/" + oid, value:oid + "#-#port#-#unknown_banner_set" );
     return;
   }
 
   if( ! banner ) {
-    set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#banner#-#unknown_banner_set" );
+    set_kb_item( name:"vt_debug_empty/" + oid, value:oid + "#-#banner#-#unknown_banner_set" );
     return;
   }
 
   if( ! ipproto )
     ipproto = "tcp";
 
-  if( ipproto == "tcp" )
-    kbname = string( "unknown/banner/", port );
-  else
-    kbname = strcat( "unknown/banner/", ipproto, "/", port );
+  # Can be / is used later in e.g. unknown_banner_get() or unknown_banner_report().
+  if( set_oid_based ) {
+    if( ipproto == "tcp" )
+      set_kb_item( name:"unknown/banner/oids/" + port, value:oid );
+    else
+      set_kb_item( name:"unknown/banner/oids/" + ipproto + "/" + port, value:oid );
+  }
+
+  if( ipproto == "tcp" ) {
+    if( set_oid_based )
+      kbname = string( "unknown/", oid, "/banner/", port );
+    else
+      kbname = string( "unknown/banner/", port );
+  } else {
+    if( set_oid_based )
+      kbname = strcat( "unknown/", oid, "/banner/", ipproto, "/", port );
+    else
+      kbname = strcat( "unknown/banner/", ipproto, "/", port );
+  }
   set_kb_item( name:kbname, value:banner );
 
   if( '\0' >< banner ) {
-    if( ipproto == "tcp" )
-      kbname = string( "unknown/bannerHex/", port );
-    else
-      kbname = strcat( "unknown/bannerHex/", ipproto, "/", port );
+    if( ipproto == "tcp" ) {
+      if( set_oid_based )
+        kbname = string( "unknown/", oid, "/bannerHex/", port );
+      else
+        kbname = string( "unknown/bannerHex/", port );
+    } else {
+      if( set_oid_based )
+        kbname = strcat( "unknown/", oid, "/bannerHex/", ipproto, "/", port );
+      else
+        kbname = strcat( "unknown/bannerHex/", ipproto, "/", port );
+    }
     set_kb_item( name:kbname, value:hexstr( banner ) );
   }
 
@@ -536,7 +587,7 @@ function unknown_banner_set( port, banner, ipproto ) {
 function unknown_banner_report( port, ipproto ) {
 
   local_var port, ipproto;
-  local_var _method, banner;
+  local_var _method, banner, oids, _oid, bannerHex;
 
   if( ! port ) {
     set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#port#-#unknown_banner_report" );
@@ -581,6 +632,33 @@ function unknown_banner_report( port, ipproto ) {
   banner = get_kb_item( "Banner/" + port );
   if( banner )
     return( make_list( "'Banner/' KB entry", banner ) );
+
+  # nb: This is from unknown_banner_set()
+  if( ipproto == "tcp" )
+    oids = get_kb_list( "unknown/banner/oids/" + port );
+  else
+    oids = get_kb_list( "unknown/banner/oids/" + ipproto + "/" + port );
+
+  if( oids ) {
+    foreach _oid( oids ) {
+
+      if( ipproto == "tcp" ) {
+        banner = get_kb_item( "unknown/" + _oid + "/banner/" + port );
+        bannerHex = get_kb_item( "unknown/" + _oid + "/bannerHex/" + port );
+      } else {
+        banner = get_kb_item( "unknown/" + _oid + "/banner/" + ipproto + "/" + port );
+        bannerHex = get_kb_item( "unknown/" + _oid + "/bannerHex/" + ipproto + "/" + port );
+      }
+
+      # Later evaluated OID results in the foreach loop might have more data so only return here
+      # when having enough data...
+      if( bannerHex && strlen( bannerHex ) >= 3 )
+        return( make_list( "Response to a query of the VT with the OID '" + _oid + "'", bannerHex ) );
+
+      if( banner && strlen( banner ) >= 3 )
+        return( make_list( "Response to a query of the VT with the OID '" + _oid + "'", banner ) );
+    }
+  }
 }
 
 # @brief Verifies if the service on the remote host at the specified port is registered with the specified proto.

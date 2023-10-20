@@ -23,14 +23,14 @@ CPE = "cpe:/a:tenable:nessus";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.118416");
-  script_version("2022-11-15T10:10:43+0000");
-  script_tag(name:"last_modification", value:"2022-11-15 10:10:43 +0000 (Tue, 15 Nov 2022)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-11-11 13:40:06 +0000 (Fri, 11 Nov 2022)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-01-05 16:07:00 +0000 (Tue, 05 Jan 2021)");
+  script_tag(name:"severity_date", value:"2022-08-11 18:38:00 +0000 (Thu, 11 Aug 2022)");
 
   script_cve_id("CVE-2020-28458", "CVE-2021-23445", "CVE-2022-31129", "CVE-2022-24785",
                 "CVE-2022-40674", "CVE-2022-2309", "CVE-2022-29824", "CVE-2022-23308",

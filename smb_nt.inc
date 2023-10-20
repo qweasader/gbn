@@ -1,27 +1,8 @@
-###############################################################################
-# OpenVAS Include File
+# SPDX-FileCopyrightText: 2004 Anonymous
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Methods for handling SMB
-#
-# Authors:
-# Anonymous
-#
-# Copyright:
-# Copyright (C) 2004 Anonymous
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 # Global TODO: - Dedupliacte code tagged with <- START TODO: This duplicated code just makes this include huge and un-maintainable
 #              - Check the # TBD: marked items
@@ -224,7 +205,7 @@ function kb_smb_wmi_connectinfo() {
 
 # @brief Returns the info if the remote host is a Samba server.
 #
-# @note NVTs calling this function needs a dependency to netbios_name_get.nasl
+# @note VTs calling this function needs a dependency to netbios_name_get.nasl
 #       and smb_nativelanman.nasl.
 #
 # @return TRUE if the remote host is a Samba server, FALSE otherwise
@@ -255,11 +236,14 @@ function kb_smb_is_samba() {
   return is_samba;
 }
 
-# @brief Provides a mapping between a windows build number and version
-# @note Maybe this is also needed for Windows 11 ??
+# @brief Provides a mapping between a Windows 10 or Windows 11 build number and version.
+#
 # @param string - a string containing the build number like: Windows 10 Pro 10586
-# @param win_name - an exact name of the Windows release, currently only accepting: win10
-# @return Returns the Windows 10 Version for a build number or nothing.
+# @param win_name - an exact name of the Windows release, currently only accepting: win10, win11
+#
+# @return Returns the Windows 10 or Windows 11 version for a build number or NULL otherwise (
+#         if no matching build / version was found).
+#
 function get_version_from_build( string, win_name ) {
 
   local_var string, win_name;
@@ -290,6 +274,10 @@ function get_version_from_build( string, win_name ) {
     if( "19043" >< string ) return "21H1";
     if( "19044" >< string ) return "21H2";
     if( "19045" >< string ) return "22H2";
+  }
+  else if( win_name == "win11" ) {
+    if( "22000" >< string ) return "21H2";
+    if( "22621" >< string ) return "22H2";
   }
   return;
 }
@@ -5628,7 +5616,7 @@ function endianness_change_hexadecimal(hexanumber) {
   local_var dec_index, res_index, enumindex, hexanumber;
   if( isnull( hexanumber ) ) set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#hexanumber#-#endianness_change_hexadecimal" );
 
-  ## http_func.inc is dependency to be included in NVT for hex2dec()
+  ## http_func.inc is dependency to be included in VT for hex2dec()
   dec_index = hex2dec(xvalue:hexstr(hexanumber));
   if(dec_index) {
     x1 = (dec_index & 0xff) << 24;
@@ -6583,7 +6571,7 @@ function registry_key_exists( key, type, query_cache, save_cache ) {
   }
 
   if( kb_smb_is_samba() ) {
-    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#Windows SMB NVT was started against a Samba Server" );
+    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#Windows SMB VT was started against a Samba Server" );
     return NULL;
   }
 
@@ -7766,7 +7754,7 @@ function registry_get_dword( key, item, type ) {
     return kb_proxy;
 
   if( kb_smb_is_samba() ) {
-    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#Windows SMB NVT was started against a Samba Server" );
+    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#Windows SMB VT was started against a Samba Server" );
     return NULL;
   }
 
@@ -7888,7 +7876,7 @@ function registry_get_binary( key, item, type ) {
   }
 
   if( kb_smb_is_samba() ) {
-    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#Windows SMB NVT was started against a Samba Server" );
+    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#Windows SMB VT was started against a Samba Server" );
     return NULL;
   }
 
@@ -8030,7 +8018,7 @@ function registry_get_sz( key, item, type, multi_sz, query_cache, save_cache ) {
   }
 
   if( kb_smb_is_samba() ) {
-    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#Windows SMB NVT was started against a Samba Server" );
+    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#Windows SMB VT was started against a Samba Server" );
     return NULL;
   }
 
@@ -9479,7 +9467,7 @@ function registry_hku_subkeys() {
     return kb_proxy;
 
   if( kb_smb_is_samba() ) {
-    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#Windows SMB NVT was started against a Samba Server" );
+    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#Windows SMB VT was started against a Samba Server" );
     return list;
   }
 

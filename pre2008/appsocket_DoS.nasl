@@ -1,31 +1,14 @@
-# OpenVAS Vulnerability Test
-# Description: AppSocket DoS
+# SPDX-FileCopyrightText: 2002 Michel Arboi
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Michel Arboi <arboi@alussinan.org>
-#
-# Copyright:
-# Copyright (C) 2002 Michel Arboi
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11090");
-  script_version("2022-05-31T13:27:00+0100");
-  script_tag(name:"last_modification", value:"2022-05-31 13:27:00 +0100 (Tue, 31 May 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
@@ -45,7 +28,7 @@ if(description)
   cannot check if it is really running behind this port. This means a different service might be
   running behind this port and could have stopped responding as well.");
 
-  script_tag(name:"qod_type", value:"remote_banner_unreliable");
+  script_tag(name:"qod_type", value:"remote_probe");
   script_tag(name:"solution_type", value:"Mitigation");
 
   exit(0);

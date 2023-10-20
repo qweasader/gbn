@@ -21,16 +21,19 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826813");
-  script_version("2022-12-15T10:11:09+0000");
+  script_version("2023-10-19T05:05:21+0000");
   script_cve_id("CVE-2022-41089", "CVE-2022-41074", "CVE-2022-41077", "CVE-2022-41121",
                 "CVE-2022-44666", "CVE-2022-44667", "CVE-2022-44668", "CVE-2022-44670",
                 "CVE-2022-44673", "CVE-2022-44675", "CVE-2022-44676", "CVE-2022-44678",
                 "CVE-2022-44679", "CVE-2022-44680", "CVE-2022-44681", "CVE-2022-44682",
                 "CVE-2022-44683", "CVE-2022-44697", "CVE-2022-44707", "CVE-2022-41076",
                 "CVE-2022-41094");
-  script_tag(name:"cvss_base", value:"6.8");
-  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-12-15 10:11:09 +0000 (Thu, 15 Dec 2022)");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-12-13 19:25:00 +0000 (Tue, 13 Dec 2022)");
   script_tag(name:"creation_date", value:"2022-12-14 10:01:03 +0530 (Wed, 14 Dec 2022)");
   script_name("Microsoft Windows Multiple Vulnerabilities (KB5021243)");
 

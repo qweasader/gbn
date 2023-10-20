@@ -21,11 +21,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854832");
-  script_version("2022-07-28T10:10:25+0000");
+  script_version("2023-10-12T05:05:32+0000");
   # TODO: No CVE assigned yet.
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-07-28 10:10:25 +0000 (Thu, 28 Jul 2022)");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-07-26 01:01:46 +0000 (Tue, 26 Jul 2022)");
   script_name("openSUSE: Security Advisory for s390-tools (SUSE-SU-2022:2543-1)");
   script_category(ACT_GATHER_INFO);
@@ -46,7 +46,7 @@ if(description)
 
   - Fixed KMIP plugin failing to connection to KMIP server.
   When a zkey key repository is bound to the KMIP plugin, and the
-     connection to the KMIP server is to be configired using command 'zkey kms
+     connection to the KMIP server is to be configured using command 'zkey kms
      configure --kmip-server  server ', it fails to connect to the specified
      KMIP server.  (bsc#1199649)
 

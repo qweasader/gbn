@@ -1,34 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2012 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# CentOS Update for firefox CESA-2012:0142 centos4
-#
-# Authors:
-# System Generated Check
-#
-# Copyright:
-# Copyright (C) 2012 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_xref(name:"URL", value:"http://lists.centos.org/pipermail/centos-announce/2012-February/018441.html");
   script_oid("1.3.6.1.4.1.25623.1.0.881072");
-  script_version("2020-04-21T06:28:23+0000");
-  script_tag(name:"last_modification", value:"2020-04-21 06:28:23 +0000 (Tue, 21 Apr 2020)");
+  script_version("2023-07-10T08:07:43+0000");
+  script_tag(name:"last_modification", value:"2023-07-10 08:07:43 +0000 (Mon, 10 Jul 2023)");
   script_tag(name:"creation_date", value:"2012-07-30 16:00:49 +0530 (Mon, 30 Jul 2012)");
   script_cve_id("CVE-2011-3026");
   script_tag(name:"cvss_base", value:"6.8");
@@ -39,7 +20,7 @@ if(description)
   script_tag(name:"summary", value:"The remote host is missing an update for the 'firefox'
   package(s) announced via the referenced advisory.");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("CentOS Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/centos", "ssh/login/rpms", re:"ssh/login/release=CentOS4");

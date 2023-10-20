@@ -1,32 +1,14 @@
-# OpenVAS Vulnerability Test
-# Description: myServer POST Denial of Service
+# SPDX-FileCopyrightText: 2004 David Maciejak
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# David Maciejak <david dot maciejak at kyxar dot fr>
-# based on work from (C) Tenable Network Security
-#
-# Copyright:
-# Copyright (C) 2004 David Maciejak
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.14838");
-  script_version("2020-08-24T15:18:35+0000");
-  script_tag(name:"last_modification", value:"2020-08-24 15:18:35 +0000 (Mon, 24 Aug 2020)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_xref(name:"OSVDB", value:"10333");
   script_cve_id("CVE-2004-2517");
@@ -48,7 +30,7 @@ if(description)
   script_tag(name:"impact", value:"With a specially crafted HTTP POST request, an attacker can cause the service
   to stop responding.");
 
-  script_tag(name:"qod_type", value:"remote_banner");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"VendorFix");
 
   exit(0);

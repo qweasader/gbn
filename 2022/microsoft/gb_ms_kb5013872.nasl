@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.821233");
-  script_version("2022-05-23T03:07:35+0000");
+  script_version("2023-06-08T05:05:11+0000");
   script_cve_id("CVE-2022-30130");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2022-05-23 03:07:35 +0000 (Mon, 23 May 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
+  script_tag(name:"last_modification", value:"2023-06-08 05:05:11 +0000 (Thu, 08 Jun 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-05-19 17:50:00 +0000 (Thu, 19 May 2022)");
+  script_tag(name:"severity_date", value:"2023-06-05 19:15:00 +0000 (Mon, 05 Jun 2023)");
   script_tag(name:"creation_date", value:"2022-05-11 09:38:52 +0530 (Wed, 11 May 2022)");
   script_name("Microsoft .NET Framework DoS Vulnerability (KB5013872)");
 

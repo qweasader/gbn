@@ -1,36 +1,16 @@
-# OpenVAS Vulnerability Test
-# $Id: smbcl_gnutls_CB-A08-0079.nasl 13901 2019-02-27 09:33:17Z cfischer $
-# Description: GnuTLS < 2.2.4 vulnerability (Windows)
+# SPDX-FileCopyrightText: 2008 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Carsten Koch-Mauthe <c.koch-mauthe at dn-systems.de>
-# Modified to implement through 'smb_nt.inc'
-#- By Nikita MR <rnikita@secpod.com> on 2009-09-17
-#
-# Copyright:
-# Copyright (C) 2008 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:gnu:gnutls";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.90027");
-  script_version("$Revision: 13901 $");
-  script_tag(name:"last_modification", value:"$Date: 2019-02-27 10:33:17 +0100 (Wed, 27 Feb 2019) $");
+  script_version("2023-10-13T05:06:09+0000");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:09 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2008-09-06 20:50:27 +0200 (Sat, 06 Sep 2008)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -39,7 +19,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2008 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("General");
   script_dependencies("gb_gnutls_detect_win.nasl");
   script_mandatory_keys("gnutls/detected");

@@ -23,10 +23,10 @@ CPE = "cpe:/a:openssl:openssl";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806734");
-  script_version("2022-04-14T06:42:08+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-04-14 06:42:08 +0000 (Thu, 14 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"creation_date", value:"2015-11-24 18:49:30 +0530 (Tue, 24 Nov 2015)");
 
   script_cve_id("CVE-2015-0292");
@@ -51,7 +51,7 @@ if(description)
   script_tag(name:"insight", value:"A vulnerability existed in previous versions of OpenSSL related
   to the processing of base64 encoded data. Any code path that reads base64 data from an untrusted
   source could be affected (such as the PEM processing routines). Maliciously crafted base 64 data
-  could trigger a segmenation fault or memory corruption.");
+  could trigger a segmentation fault or memory corruption.");
 
   script_tag(name:"affected", value:"OpenSSL version 0.9.8 through 0.9.8y, 1.0.0 through 1.0.0l and
   1.0.1 through 1.0.1g.");

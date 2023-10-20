@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117708");
-  script_version("2023-05-26T09:09:36+0000");
+  script_version("2023-06-16T05:06:18+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
-  script_cve_id("CVE-2021-26085", "CVE-2021-26086", "CVE-2022-31656");
-  script_tag(name:"last_modification", value:"2023-05-26 09:09:36 +0000 (Fri, 26 May 2023)");
+  script_cve_id("CVE-2021-26085", "CVE-2021-26086", "CVE-2021-44138", "CVE-2022-31656");
+  script_tag(name:"last_modification", value:"2023-06-16 05:06:18 +0000 (Fri, 16 Jun 2023)");
   script_tag(name:"creation_date", value:"2021-10-06 10:19:53 +0000 (Wed, 06 Oct 2021)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_tag(name:"cvss_base", value:"5.0");
@@ -30,6 +30,7 @@ if(description)
   script_xref(name:"URL", value:"https://jira.atlassian.com/browse/CONFSERVER-67893");
   script_xref(name:"URL", value:"http://packetstormsecurity.com/files/164405/Atlassian-Jira-Server-Data-Center-8.4.0-File-Read.html");
   script_xref(name:"URL", value:"http://packetstormsecurity.com/files/164401/Atlassian-Confluence-Server-7.5.1-Arbitrary-File-Read.html");
+  script_xref(name:"URL", value:"https://github.com/maybe-why-not/reponame/issues/2");
 
   script_tag(name:"summary", value:"Various application or web servers / products are prone to an
   information disclosure vulnerability.");
@@ -41,6 +42,8 @@ if(description)
   - CVE-2021-26085: Atlassian Confluence
 
   - CVE-2021-26086: Atlassian Jira Server
+
+  - CVE-2021-44138: Caucho Resin version 4.0.52 through 4.0.56
 
   - CVE-2022-31656: VMware Workspace ONE Access, Identity Manager and Realize Automation
 
@@ -71,9 +74,11 @@ if(description)
 
   script_tag(name:"solution", value:"The following vendor fixes are known:
 
-  - Update Atlassian Confluence to the latest available version.
+  - Update Atlassian Confluence to the latest available version
 
-  - Update Atlassian Jira Server to the latest available version.
+  - Update Atlassian Jira Server to the latest available version
+
+  - Update Caucho Resin to the latest available version
 
   For other products please contact the vendor for more information on possible fixes.");
 
@@ -82,6 +87,8 @@ if(description)
 
   exit(0);
 }
+
+# nb: resin-web.xml for Caucho Resin is separately tested in common/2023/caucho/gb_resin_path_trav_vuln_apr22_active.nasl
 
 include("http_func.inc");
 include("http_keepalive.inc");

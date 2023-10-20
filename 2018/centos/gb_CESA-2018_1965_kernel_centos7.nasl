@@ -1,41 +1,21 @@
-###############################################################################
-# OpenVAS Vulnerability Test
-# $Id: gb_CESA-2018_1965_kernel_centos7.nasl 14095 2019-03-11 13:54:56Z cfischer $
+# SPDX-FileCopyrightText: 2018 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# CentOS Update for kernel CESA-2018:1965 centos7
-#
-# Authors:
-# System Generated Check
-#
-# Copyright:
-# Copyright (C) 2018 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.882915");
-  script_version("2021-05-25T06:00:12+0200");
-  script_tag(name:"last_modification", value:"2021-05-25 06:00:12 +0200 (Tue, 25 May 2021)");
+  script_version("2023-07-10T08:07:43+0000");
+  script_tag(name:"last_modification", value:"2023-07-10 08:07:43 +0000 (Mon, 10 Jul 2023)");
   script_tag(name:"creation_date", value:"2018-07-04 05:56:14 +0200 (Wed, 04 Jul 2018)");
   script_cve_id("CVE-2017-11600", "CVE-2018-3639");
   script_tag(name:"cvss_base", value:"6.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-05-14 23:29:00 +0000 (Tue, 14 May 2019)");
+  script_tag(name:"severity_date", value:"2023-06-26 16:55:00 +0000 (Mon, 26 Jun 2023)");
   script_tag(name:"qod_type", value:"package");
   script_name("CentOS Update for kernel CESA-2018:1965 centos7");
   script_tag(name:"summary", value:"Check the version of kernel");
@@ -80,7 +60,7 @@ descriptions in the referenced Knowledge Article.");
   script_xref(name:"URL", value:"https://access.redhat.com/articles/3485871");
   script_tag(name:"solution_type", value:"VendorFix");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("CentOS Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/centos", "ssh/login/rpms", re:"ssh/login/release=CentOS7");

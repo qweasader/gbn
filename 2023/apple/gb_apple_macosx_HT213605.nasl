@@ -1,37 +1,27 @@
-# Copyright (C) 2023 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2023 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826796");
-  script_version("2023-01-26T10:11:56+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2022-32221", "CVE-2022-35260", "CVE-2022-3705", "CVE-2022-42915",
                 "CVE-2022-42916", "CVE-2023-23493", "CVE-2023-23496", "CVE-2023-23497",
                 "CVE-2023-23498", "CVE-2023-23499", "CVE-2023-23500", "CVE-2023-23501",
                 "CVE-2023-23502", "CVE-2023-23503", "CVE-2023-23504", "CVE-2023-23505",
                 "CVE-2023-23506", "CVE-2023-23507", "CVE-2023-23508", "CVE-2023-23510",
                 "CVE-2023-23511", "CVE-2023-23512", "CVE-2023-23513", "CVE-2023-23517",
-                "CVE-2023-23518", "CVE-2023-23519");
-  script_tag(name:"cvss_base", value:"6.4");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-01-26 10:11:56 +0000 (Thu, 26 Jan 2023)");
+                "CVE-2023-23518", "CVE-2023-23519", "CVE-2023-32438", "CVE-2023-23539",
+                "CVE-2023-23516", "CVE-2023-28208", "CVE-2023-32393", "CVE-2022-0108");
+  script_tag(name:"cvss_base", value:"4.3");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-03-08 15:42:00 +0000 (Wed, 08 Mar 2023)");
   script_tag(name:"creation_date", value:"2023-01-25 12:04:06 +0530 (Wed, 25 Jan 2023)");
   script_name("Apple MacOSX Security Update (HT213605)");
 
@@ -50,7 +40,9 @@ if(description)
 
   - Multiple memory handling errors.
 
-  - An input validation error.");
+  - An input validation error.
+
+  Please see the references for more information.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attackers
   to conduct arbitrary code execution, elevate privileges, disclose sensitive
@@ -65,12 +57,13 @@ if(description)
   script_tag(name:"qod_type", value:"package");
   script_xref(name:"URL", value:"https://support.apple.com/en-us/HT213605");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2023 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Mac OS X Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/osx_name", "ssh/login/osx_version", re:"ssh/login/osx_version=^13\.");
   exit(0);
 }
+
 include("version_func.inc");
 
 osName = get_kb_item("ssh/login/osx_name");
@@ -82,10 +75,9 @@ if(!osVer || osVer !~ "^13\." || "Mac OS X" >!< osName){
   exit(0);
 }
 
-if(version_is_less(version:osVer, test_version:"13.2"))
-{
+if(version_is_less(version:osVer, test_version:"13.2")) {
   report = report_fixed_ver(installed_version:osVer, fixed_version:"13.2");
-  security_message(data:report);
+  security_message(port:0, data:report);
   exit(0);
 }
 

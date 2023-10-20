@@ -1,35 +1,16 @@
-###################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 LSS
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# OpenCA HTML injection
-#
-# LSS-NVT-2009-007
-#
-# Developed by LSS Security Team <http://security.lss.hr>
-#
-# Copyright (C) 2009 LSS <http://www.lss.hr>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public
-# License along with this program. If not, see
-# <http://www.gnu.org/licenses/>.
-###################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 CPE = "cpe:/a:openca:openca";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.102007");
-  script_version("2022-05-09T13:48:18+0000");
-  script_tag(name:"last_modification", value:"2022-05-09 13:48:18 +0000 (Mon, 09 May 2022)");
+  script_version("2023-08-01T13:29:10+0000");
+  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
   script_tag(name:"creation_date", value:"2009-07-28 17:03:43 +0200 (Tue, 28 Jul 2009)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");

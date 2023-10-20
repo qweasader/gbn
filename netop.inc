@@ -1,28 +1,8 @@
-###############################################################################
-# OpenVAS Include File
+# SPDX-FileCopyrightText: 2004 Martin O'Neal of Corsaire & Jakob Bohm of Danware
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Methods for handling netop
-#
-# Authors:
-# Martin O'Neal of Corsaire (http://www.corsaire.com)
-# Jakob Bohm of Danware (http://www.danware.dk)
-#
-# Copyright:
-# Copyright (C) 2004 Martin O'Neal of Corsaire & Jakob Bohm of Danware
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 # The original script produced by Martin O'Neal has been heavily modified
 # by Jakob Bohm to provide additional product detail, plus also to limit

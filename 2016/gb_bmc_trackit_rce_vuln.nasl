@@ -1,45 +1,36 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:bmc:track-it%21";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106147");
-  script_version("2022-02-23T07:14:59+0000");
-  script_tag(name:"last_modification", value:"2022-02-23 07:14:59 +0000 (Wed, 23 Feb 2022)");
+  script_version("2023-07-12T05:05:04+0000");
+  script_tag(name:"last_modification", value:"2023-07-12 05:05:04 +0000 (Wed, 12 Jul 2023)");
   script_tag(name:"creation_date", value:"2016-07-19 11:00:37 +0700 (Tue, 19 Jul 2016)");
-  script_tag(name:"cvss_base", value:"7.5");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2018-02-26 19:39:00 +0000 (Mon, 26 Feb 2018)");
 
-  script_cve_id("CVE-2015-8273", "CVE-2015-8274");
+  # nb: The two 2015 CVEs had been included in this VT since the beginning but haven't been assigned
+  # so far. They are kept for now for "historical" reasons.
+  script_cve_id("CVE-2015-8273", "CVE-2015-8274", "CVE-2016-6598", "CVE-2016-6599");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("BMC Track-It! < 11.4.0.440 Multiple Vulnerabilities");
+  script_name("BMC Track-It! < 11.4 Hotfix 3 (11.4.0.440) Multiple Vulnerabilities");
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_bmc_trackit_http_detect.nasl");
   script_mandatory_keys("bmc/trackit/detected");
@@ -48,8 +39,11 @@ if (description)
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"BMC Track-It! is prone to an arbitrary file upload and an
-  execute any action without authentication via .NET Remoting request.");
+  script_tag(name:"insight", value:"The following flaws exist:
+
+  - CVE-2016-6598: Remote code execution via file upload
+
+  - CVE-2016-6599: Domain administrator and SQL server user credentials disclosure");
 
   script_tag(name:"impact", value:"An unauthenticated attacker may upload arbitrary files and
   execute any action.");
@@ -60,7 +54,8 @@ if (description)
 
   script_xref(name:"URL", value:"https://communities.bmc.com/community/bmcdn/bmc_track-it/blog/2016/01/04/track-it-security-advisory-24-dec-2015");
   script_xref(name:"URL", value:"https://blogs.securiteam.com/index.php/archives/2713");
-
+  script_xref(name:"URL", value:"https://seclists.org/fulldisclosure/2018/Jan/92");
+  script_xref(name:"URL", value:"https://github.com/pedrib/PoC/blob/master/advisories/bmc-track-it-11.4.txt");
 
   exit(0);
 }

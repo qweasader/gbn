@@ -1,42 +1,23 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2017 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# MediaWiki Multiple Vulnerabilities - Sep15 (Linux)
-#
-# Authors:
-# Christian Fischer <christian.fischer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2017 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mediawiki:mediawiki";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108092");
-  script_version("2021-10-12T09:28:32+0000");
+  script_version("2023-07-25T05:05:58+0000");
   script_cve_id("CVE-2015-6727", "CVE-2015-6728", "CVE-2015-6729", "CVE-2015-6730", "CVE-2013-7444");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2021-10-12 09:28:32 +0000 (Tue, 12 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
   script_tag(name:"creation_date", value:"2017-03-09 10:45:17 +0100 (Thu, 09 Mar 2017)");
   script_name("MediaWiki Multiple Vulnerabilities - Sep15 (Linux)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("find_service.nasl", "os_detection.nasl", "secpod_mediawiki_detect.nasl");
   script_require_ports("Services/www", 80);

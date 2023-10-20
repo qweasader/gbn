@@ -23,19 +23,19 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826945");
-  script_version("2023-03-28T10:19:28+0000");
+  script_version("2023-10-13T16:09:03+0000");
   script_cve_id("CVE-2021-37956", "CVE-2021-37957", "CVE-2021-37958", "CVE-2021-37959",
                 "CVE-2021-37961", "CVE-2021-37962", "CVE-2021-37963", "CVE-2021-37964",
                 "CVE-2021-37965", "CVE-2021-37966", "CVE-2021-37967", "CVE-2021-37968",
                 "CVE-2021-37969", "CVE-2021-37970", "CVE-2021-37971", "CVE-2021-37972");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-03-28 10:19:28 +0000 (Tue, 28 Mar 2023)");
+  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-10-12 22:39:00 +0000 (Tue, 12 Oct 2021)");
   script_tag(name:"creation_date", value:"2023-03-23 15:42:38 +0530 (Thu, 23 Mar 2023)");
-  script_name("Google Chrome Security Update(stable-channel-update-for-desktop_21-2021-09) - MAC OS X");
+  script_name("Google Chrome Security Update(stable-channel-update-for-desktop_21-2021-09) - Mac OS X");
 
   script_tag(name:"summary", value:"Google Chrome is prone to multiple
   vulnerabilities.");
@@ -78,7 +78,7 @@ if(description)
   and cause a denial of service on affected system.");
 
   script_tag(name:"affected", value:"Google Chrome version prior to
-  94.0.4606.54 on MAC OS X");
+  94.0.4606.54 on Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade to Google Chrome version
   94.0.4606.54 or later. Please see the references for more information.");

@@ -1,34 +1,15 @@
-############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2017 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Adobe Flash Player Within Google Chrome Security Update (apsb16-25) - Mac OS X
-#
-# Authors:
-# Shakeel <bshakeel@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2017 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:adobe:flash_player_chrome";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810648");
-  script_version("2023-01-31T10:08:41+0000");
+  script_version("2023-07-25T05:05:58+0000");
   script_cve_id("CVE-2016-4172", "CVE-2016-4173", "CVE-2016-4174", "CVE-2016-4175",
                 "CVE-2016-4176", "CVE-2016-4177", "CVE-2016-4178", "CVE-2016-4179",
                 "CVE-2016-4180", "CVE-2016-4181", "CVE-2016-4182", "CVE-2016-4183",
@@ -45,7 +26,7 @@ if(description)
                 "CVE-2016-7020");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-01-31 10:08:41 +0000 (Tue, 31 Jan 2023)");
+  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-01-20 02:50:00 +0000 (Fri, 20 Jan 2023)");
@@ -94,7 +75,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/91720");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/91721");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("General");
   script_dependencies("gb_flash_player_within_google_chrome_detect_macosx.nasl");
   script_mandatory_keys("AdobeFlashPlayer/Chrome/MacOSX/Ver");

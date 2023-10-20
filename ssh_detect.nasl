@@ -1,35 +1,17 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2006 SecuriTeam
+# SPDX-FileCopyrightText: New detection methods / pattern / code since 2009 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SSH Server type and version
-#
-# Authors:
-# Noam Rathaus <noamr@securiteam.com>
-#
-# Copyright:
-# Copyright (C) 2006 SecuriTeam
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-################################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10267");
-  script_version("2023-06-06T09:09:18+0000");
+  script_version("2023-09-27T05:05:31+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-06-06 09:09:18 +0000 (Tue, 06 Jun 2023)");
+  script_tag(name:"last_modification", value:"2023-09-27 05:05:31 +0000 (Wed, 27 Sep 2023)");
   script_tag(name:"creation_date", value:"2006-03-26 17:55:15 +0200 (Sun, 26 Mar 2006)");
   script_name("SSH Server type and version");
   script_category(ACT_GATHER_INFO);
@@ -39,11 +21,12 @@ if(description)
                       "ssh_authorization_init.nasl", "global_settings.nasl");
   script_require_ports("Services/ssh", 22);
 
-  script_tag(name:"summary", value:"This detects the SSH Server's type and version by connecting to the server
-  and processing the buffer received.
+  script_tag(name:"summary", value:"This detects the SSH Server's type and version by connecting to
+  the server and processing the buffer received.");
 
-  This information gives potential attackers additional information about the system they are attacking.
-  Versions and Types should be omitted where possible.");
+  script_tag(name:"insight", value:"This information gives potential attackers additional
+  information about the system they are attacking. Versions and Types should be omitted where
+  possible.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -287,7 +270,35 @@ if( server_banner =~ "SSH-.+ArrayOS" ) {
 if( server_banner =~ "SSH-.+\-MOVEit Transfer SFTP" ) {
   set_kb_item( name:"ssh/progress/moveit_transfer/detected", value:TRUE );
   set_kb_item( name:"ssh_progress/moveit_transfer/" + port + "/detected", value:TRUE );
-  guess += '\n- MOVEit Transfer';
+  guess += '\n- Progress MOVEit Transfer';
+}
+
+# SSH-2.0-1.82_sshlib Globalscape
+if( server_banner =~ "SSH-.+ Globalscape" ) {
+  set_kb_item( name:"ssh/fortra/globalscape/eft/detected", value:TRUE );
+  set_kb_item( name:"ssh/fortra/globalscape/eft/" + port + "/detected", value:TRUE );
+  guess += '\n- Fortra Globalscape EFT';
+}
+
+# SSH-2.0-OpenSSH_7.9 PKIX[11.6]
+if( server_banner =~ "SSH-.+ PKIX" ) {
+  set_kb_item( name:"ssh/pkixssh/detected", value:TRUE );
+  set_kb_item( name:"ssh/pkixssh/" + port + "/detected", value:TRUE );
+  guess += '\n- PKIX-SSH';
+}
+
+# SSH-2.0-sashimi-0.6.5
+if( server_banner =~ "SSH-.+sashimi" ) {
+  set_kb_item( name:"ssh/sashimi/detected", value:TRUE );
+  set_kb_item( name:"ssh/sashimi/" + port + "/detected", value:TRUE );
+  guess += '\n- Sashimi';
+}
+
+# SSH-2.0-JSCAPE
+if( server_banner =~ "SSH-.+JSCAPE" ) {
+  set_kb_item( name:"ssh/jscape/mft/detected", value:TRUE );
+  set_kb_item( name:"ssh/jscape/mft/" + port + "/detected", value:TRUE );
+  guess += '\n- JSCAPE MFT Server';
 }
 
 if( login_banner ) {

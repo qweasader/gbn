@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105355");
-  script_version("2023-04-06T10:19:22+0000");
-  script_tag(name:"last_modification", value:"2023-04-06 10:19:22 +0000 (Thu, 06 Apr 2023)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2015-09-15 15:57:03 +0200 (Tue, 15 Sep 2015)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -30,7 +30,6 @@ if(description)
 include("host_details.inc");
 include("os_func.inc");
 include("ftp_func.inc");
-include("misc_func.inc");
 include("port_service_func.inc");
 
 SCRIPT_DESC = "Operating System (OS) Detection (FTP)";
@@ -323,6 +322,13 @@ if( "220 Titan FTP Server" >< banner ) {
   exit( 0 );
 }
 
+# e.g. 220 Cornerstone MFT Server 19.00.3675 Ready.
+# nb: Only runs on Windows.
+if( "220 Cornerstone MFT Server" >< banner ) {
+  os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
+  exit( 0 );
+}
+
 # e.g. 220 DrayTek FTP version 1.0
 if( "220 DrayTek FTP" >< banner ) {
   os_register_and_report( os:"DrayTek Vigor Firmware", cpe:"cpe:/o:draytek:vigor_firmware", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
@@ -398,6 +404,13 @@ if( egrep( string:banner, pattern:"WS_FTP Server" ) ) {
 # e.g. 220 Welcome to Netman FTP service.
 if( "Welcome to Netman FTP service." >< banner ) {
   os_register_and_report( os:"Riello NetMan 204 Firmware", cpe:"cpe:/o:riello-ups:netman_204_firmware", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
+# e.g. 220 Welcome to Honeywell Printer PX4ie
+# More detailed OS detection in gsf/gb_honeywell_printer_ftp_detect.nasl
+if( "Welcome to Honeywell Printer" >< banner ) {
+  os_register_and_report( os:"Honeywell Printer Unknown Model Firmware", cpe:"cpe:/o:honeywell:printer_firmware", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
   exit( 0 );
 }
 

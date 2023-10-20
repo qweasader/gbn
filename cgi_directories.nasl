@@ -1,30 +1,16 @@
-# Copyright (C) 2015 SCHUTZWERK GmbH
+# SPDX-FileCopyrightText: 2015 SCHUTZWERK GmbH
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
 include("plugin_feed_info.inc");
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111038");
-  script_version("2023-03-06T10:19:58+0000");
-  script_tag(name:"last_modification", value:"2023-03-06 10:19:58 +0000 (Mon, 06 Mar 2023)");
+  script_version("2023-06-22T10:34:15+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2015-09-14 07:00:00 +0200 (Mon, 14 Sep 2015)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -254,7 +240,7 @@ if( ! isnull( skippedDirList ) ) {
 
   tmpreport  = "The following directories were skipped for CGI scanning because the ";
   tmpreport += "'Number of cgi directories to save into KB' setting (Current: " + maxDirsInKb;
-  tmpreport += ') of the NVT Web mirroring (OID: 1.3.6.1.4.1.25623.1.0.10662) was reached:\n\n';
+  tmpreport += ') of the VT Web mirroring (OID: 1.3.6.1.4.1.25623.1.0.10662) was reached:\n\n';
 
   # Sort to not report changes on delta reports if just the order is different
   skippedDirList = sort( skippedDirList );
@@ -274,7 +260,7 @@ if( ! isnull( excludedDirList ) ) {
   currentItems = 0;
 
   tmpreport  = "The following directories were excluded from CGI scanning because";
-  tmpreport += ' the "Regex pattern to exclude directories from CGI scanning" setting of the NVT';
+  tmpreport += ' the "Regex pattern to exclude directories from CGI scanning" setting of the VT';
   tmpreport += ' "Global variable settings" (OID: 1.3.6.1.4.1.25623.1.0.12288) for this scan was: ';
   tmpreport += '"' + cgiDirExcPattern + '"\n\n';
 
@@ -297,7 +283,7 @@ if( ! isnull( srvmanualDirList ) ) {
 
   tmpreport  = "The following directories were excluded from CGI scanning because";
   tmpreport += ' of the "Exclude directories containing detected known server manuals from CGI scanning"';
-  tmpreport += ' setting of the NVT "Global variable settings" (OID: 1.3.6.1.4.1.25623.1.0.12288):\n\n';
+  tmpreport += ' setting of the VT "Global variable settings" (OID: 1.3.6.1.4.1.25623.1.0.12288):\n\n';
 
   # Sort to not report changes on delta reports if just the order is different
   srvmanualDirList = sort( srvmanualDirList );
@@ -482,7 +468,7 @@ if( ! isnull( chOptOutList ) || ! isnull( chOptInList ) ||
 
 if( maxPagesReached ) {
   report += 'The "Number of pages to mirror" setting (Current: ' + maxPagesToMirror;
-  report += ') of the NVT "Web mirroring" (OID: 1.3.6.1.4.1.25623.1.0.10662) was reached.';
+  report += ') of the VT "Web mirroring" (OID: 1.3.6.1.4.1.25623.1.0.10662) was reached.';
   report += ' Raising this limit allows to mirror this host more thoroughly';
   report += ' but might increase the scanning time.\n\n';
 }
@@ -511,7 +497,7 @@ if( ! isnull( excludedCgiList ) ) {
   currentItems = 0;
 
   tmpreport  = "The following cgi scripts were excluded from CGI scanning because";
-  tmpreport += ' of the "Regex pattern to exclude cgi scripts" setting of the NVT';
+  tmpreport += ' of the "Regex pattern to exclude cgi scripts" setting of the VT';
   tmpreport += ' "Web mirroring" (OID: 1.3.6.1.4.1.25623.1.0.10662) for this scan was: ';
   tmpreport += '"' + cgisExcPattern + '"\n\n';
   tmpreport += 'Syntax : cginame (arguments [default value])\n\n';

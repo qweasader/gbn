@@ -1,30 +1,16 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.704256");
   script_cve_id("CVE-2018-16064", "CVE-2018-17460", "CVE-2018-17461", "CVE-2018-4117", "CVE-2018-6150", "CVE-2018-6151", "CVE-2018-6152", "CVE-2018-6153", "CVE-2018-6154", "CVE-2018-6155", "CVE-2018-6156", "CVE-2018-6157", "CVE-2018-6158", "CVE-2018-6159", "CVE-2018-6161", "CVE-2018-6162", "CVE-2018-6163", "CVE-2018-6164", "CVE-2018-6165", "CVE-2018-6166", "CVE-2018-6167", "CVE-2018-6168", "CVE-2018-6169", "CVE-2018-6170", "CVE-2018-6171", "CVE-2018-6172", "CVE-2018-6173", "CVE-2018-6174", "CVE-2018-6175", "CVE-2018-6176", "CVE-2018-6177", "CVE-2018-6178", "CVE-2018-6179");
   script_tag(name:"creation_date", value:"2018-07-25 22:00:00 +0000 (Wed, 25 Jul 2018)");
-  script_version("2023-04-03T10:19:50+0000");
-  script_tag(name:"last_modification", value:"2023-04-03 10:19:50 +0000 (Mon, 03 Apr 2023)");
+  script_version("2023-07-05T05:06:17+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Debian: Security Advisory (DSA-4256)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB9");
@@ -201,6 +187,10 @@ if(release == "DEB9") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"chromium", ver:"68.0.3440.75-1~deb9u1", rls:"DEB9"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"chromium-driver", ver:"68.0.3440.75-1~deb9u1", rls:"DEB9"))) {
     report += res;
   }
@@ -214,10 +204,6 @@ if(release == "DEB9") {
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"chromium-widevine", ver:"68.0.3440.75-1~deb9u1", rls:"DEB9"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"chromium", ver:"68.0.3440.75-1~deb9u1", rls:"DEB9"))) {
     report += res;
   }
 

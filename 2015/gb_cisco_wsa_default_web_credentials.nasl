@@ -1,68 +1,61 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2015 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Cisco Web Security Appliance Web Interface Default Credentials
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2015 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105443");
-  script_version("2023-03-01T10:20:04+0000");
+  script_version("2023-07-05T05:06:18+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_tag(name:"creation_date", value:"2015-11-09 14:41:14 +0100 (Mon, 09 Nov 2015)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+
+  script_tag(name:"qod_type", value:"exploit");
+
+  script_tag(name:"solution_type", value:"Mitigation");
+
   script_name("Cisco Web Security Appliance Default Credentials (HTTP)");
-  script_tag(name:"last_modification", value:"2023-03-01 10:20:04 +0000 (Wed, 01 Mar 2023)");
-  script_tag(name:"creation_date", value:"2015-11-09 14:41:14 +0100 (Mon, 09 Nov 2015)");
+
   script_category(ACT_ATTACK);
+
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("CISCO");
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
-  script_dependencies("gb_cisco_wsa_web_detect.nasl");
+  script_dependencies("gb_cisco_wsa_web_detect.nasl", "gb_default_credentials_options.nasl");
   script_require_ports("Services/www", 443);
   script_mandatory_keys("cisco_wsa/http/cookie", "cisco_wsa/http/port");
+  script_exclude_keys("default_credentials/disable_default_account_checks");
 
-  script_tag(name:"summary", value:"The remote Cisco Web Security Appliance web interface is using known default credentials.");
-
-  script_tag(name:"impact", value:"This issue may be exploited by a remote attacker to gain access to sensitive information or modify system configuration.");
+  script_tag(name:"summary", value:"The remote Cisco Web Security Appliance web interface is using
+  known default credentials.");
 
   script_tag(name:"vuldetect", value:"Try to login with default credentials.");
 
-  script_tag(name:"insight", value:"It was possible to login with default credentials: admin/ironport");
+  script_tag(name:"impact", value:"This issue may be exploited by a remote attacker to gain access
+  to sensitive information or modify system configuration.");
+
+  script_tag(name:"insight", value:"It was possible to login with default credentials:
+  admin/ironport");
 
   script_tag(name:"solution", value:"Change the password.");
-
-  script_tag(name:"solution_type", value:"Workaround");
-  script_tag(name:"qod_type", value:"exploit");
 
   exit(0);
 }
 
+if( get_kb_item( "default_credentials/disable_default_account_checks" ) )
+  exit( 0 );
+
 include("http_func.inc");
 include("http_keepalive.inc");
 
-if( ! port = get_kb_item( "cisco_wsa/http/port" ) ) exit( 0 );
-if( ! cookie = get_kb_item( "cisco_wsa/http/cookie" ) ) exit( 0 );
+if( ! port = get_kb_item( "cisco_wsa/http/port" ) )
+  exit( 0 );
+if( ! cookie = get_kb_item( "cisco_wsa/http/cookie" ) )
+  exit( 0 );
 
-postdata = 'action=Login&referrer=&screen=login&username=admin&password=ironport';
+postdata = "action=Login&referrer=&screen=login&username=admin&password=ironport";
 len = strlen( postdata );
 
 url = "/login";
@@ -87,14 +80,17 @@ req = 'POST ' + url + ' HTTP/1.1\r\n' +
       postdata;
 res = http_keepalive_send_recv( port:port, data:req );
 
-if( "authenticated" >!< res ) exit( 99 );
+if( "authenticated" >!< res )
+  exit( 99 );
 
-ac = eregmatch( pattern:'Set-Cookie: (authenticated=[^;]+;)', string:res );
-if( isnull( ac[1] ) ) exit( 0 );
+ac = eregmatch( pattern:"Set-Cookie: (authenticated=[^;]+;)", string:res );
+if( isnull( ac[1] ) )
+  exit( 0 );
 
 cookie = ac[1] + cookie;
 
-if( http_vuln_check( port:port, url:'/monitor/wsa_user_report', pattern:"action=Logout", extra_check:make_list("System Status","Logged in as"), cookie:cookie ) ) {
+if( http_vuln_check( port:port, url:"/monitor/wsa_user_report", pattern:"action=Logout",
+                     extra_check:make_list( "System Status","Logged in as" ), cookie:cookie ) ) {
   report = http_report_vuln_url( port:port, url:url );
   security_message( port:port, data:report );
   exit( 0 );

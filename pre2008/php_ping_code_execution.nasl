@@ -1,36 +1,17 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2003 Noam Rathaus
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Remote Code Execution in PHP Ping
-#
-# Authors:
-# Noam Rathaus
-#
-# Copyright:
-# Copyright (C) 2003 Noam Rathaus
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11966");
-  script_version("2023-05-04T09:51:03+0000");
+  script_version("2023-08-03T05:05:16+0000");
   # nb: Not 100% clear if this is that flaw but if it's vulnerable against the flaw from 2005 it's
   # also vulnerable against this one...
   script_cve_id("CVE-2006-0475");
-  script_tag(name:"last_modification", value:"2023-05-04 09:51:03 +0000 (Thu, 04 May 2023)");
+  script_tag(name:"last_modification", value:"2023-08-03 05:05:16 +0000 (Thu, 03 Aug 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_xref(name:"URL", value:"https://web.archive.org/web/20061213171611/http://www.kapda.ir/advisory-231.html");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/9309");

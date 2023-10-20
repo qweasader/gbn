@@ -1,33 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2014 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# CentOS Update for openssl CESA-2014:1053 centos5
-#
-# Authors:
-# System Generated Check
-#
-# Copyright:
-# Copyright (C) 2014 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.881987");
-  script_version("$Revision: 14222 $");
-  script_tag(name:"last_modification", value:"$Date: 2019-03-15 13:50:48 +0100 (Fri, 15 Mar 2019) $");
+  script_version("2023-10-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"creation_date", value:"2014-08-14 05:54:51 +0200 (Thu, 14 Aug 2014)");
   script_cve_id("CVE-2014-0221", "CVE-2014-3505", "CVE-2014-3506", "CVE-2014-3508",
                 "CVE-2014-3510");
@@ -36,7 +17,7 @@ if(description)
   script_name("CentOS Update for openssl CESA-2014:1053 centos5");
 
   script_tag(name:"affected", value:"openssl on CentOS 5");
-  script_tag(name:"insight", value:"OpenSSL is a toolkit that implemnts the Secure Sockets Layer
+  script_tag(name:"insight", value:"OpenSSL is a toolkit that implements the Secure Sockets Layer
 (SSL), Transport Layer Security (TLS), and Datagram Transport Layer Security
 (DTLS) protocols, as well as a full-strength, general purpose cryptography
 library.
@@ -72,7 +53,7 @@ SSL-enabled services) must be restarted or the system rebooted.");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'openssl'
   package(s) announced via the referenced advisory.");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("CentOS Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/centos", "ssh/login/rpms", re:"ssh/login/release=CentOS5");

@@ -1,41 +1,21 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2013 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# List Windows File with checksum errors
-#
-# Authors:
-# Christian Kuersteiner <christian.kuersteiner@greenbone.net>
-# Thomas Rotter <thomas.rotter@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2013 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.96182");
-  script_version("2021-01-21T10:06:42+0000");
+  script_version("2023-09-07T05:05:21+0000");
   script_name("Windows file Checksums: Errors");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2021-01-21 10:06:42 +0000 (Thu, 21 Jan 2021)");
+  script_tag(name:"last_modification", value:"2023-09-07 05:05:21 +0000 (Thu, 07 Sep 2023)");
   script_tag(name:"creation_date", value:"2013-09-09 11:11:22 +0200 (Mon, 09 Sep 2013)");
   script_category(ACT_GATHER_INFO);
   script_family("Policy");
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   script_dependencies("Policy/policy_file_checksums_win.nasl");
   script_mandatory_keys("policy/file_checksums_win/started");
 
@@ -87,7 +67,7 @@ if( invalid_lines ) {
   # Sort to not report changes on delta reports if just the order is different
   invalid_lines = sort( invalid_lines );
 
-  report += 'The following invalid lines where identified within the uploaded policy file:\n\n';
+  report += 'The following invalid lines were identified within the uploaded policy file:\n\n';
   report += 'Line|Result|Errorcode;\n';
 
   foreach error( invalid_lines ) {

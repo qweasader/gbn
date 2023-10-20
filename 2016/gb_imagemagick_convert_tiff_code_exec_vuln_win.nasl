@@ -1,38 +1,19 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# ImageMagick Convert Tiff Adobe Deflate Code Execution Vulnerability (Windows)
-#
-# Authors:
-# Rinu Kuriakose <krinu@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:imagemagick:imagemagick";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810260");
-  script_version("2022-12-15T10:11:09+0000");
+  script_version("2023-07-20T05:05:17+0000");
   script_cve_id("CVE-2016-8707");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-12-15 10:11:09 +0000 (Thu, 15 Dec 2022)");
+  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-12-13 21:42:00 +0000 (Tue, 13 Dec 2022)");
@@ -63,7 +44,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/94727");
   script_xref(name:"URL", value:"https://www.imagemagick.org/script/changelog.php");
   script_xref(name:"URL", value:"http://www.talosintelligence.com/reports/TALOS-2016-0216");
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("General");
   script_dependencies("secpod_imagemagick_detect_win.nasl");

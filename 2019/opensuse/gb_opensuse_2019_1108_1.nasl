@@ -21,11 +21,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.852358");
-  script_version("2021-09-07T10:01:34+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2019-9208", "CVE-2019-9209", "CVE-2019-9214");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2021-09-07 10:01:34 +0000 (Tue, 07 Sep 2021)");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-05-16 18:29:00 +0000 (Thu, 16 May 2019)");
@@ -49,7 +49,7 @@ if(description)
 
   Security issues fixed:
 
-  - CVE-2019-9214: Avoided a dereference of a null coversation which could
+  - CVE-2019-9214: Avoided a dereference of a null conversation which could
   make RPCAP dissector crash (bsc#1127367).
 
   - CVE-2019-9209: Fixed a buffer overflow in time values which could make

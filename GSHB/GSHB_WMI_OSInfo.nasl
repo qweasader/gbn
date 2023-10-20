@@ -1,43 +1,24 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Get OS Version, OS Type, OS Servicepack and OS Name over WMI (win)
-#
-# Authors:
-# Thomas Rotter <T.Rotter@dn-systems.de>
-#
-# Copyright:
-# Copyright (C) 2009 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.96999");
-  script_version("2022-06-15T09:34:13+0000");
-  script_tag(name:"last_modification", value:"2022-06-15 09:34:13 +0000 (Wed, 15 Jun 2022)");
+  script_version("2023-06-22T10:34:15+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2009-10-23 12:32:24 +0200 (Fri, 23 Oct 2009)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_name("Get OS Version, OS Type, OS Servicepack and OS Name over WMI (win)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("IT-Grundschutz");
   script_dependencies("gb_wmi_access.nasl", "smb_nativelanman.nasl", "netbios_name_get.nasl");
   # nb: Don't add a script_mandatory_keys to e.g. WMI/access_successful or any other tag like
-  # script_exclude_keys as other NVTs having a dependency on this NVT require to have the
+  # script_exclude_keys as other VTs having a dependency on this VT require to have the
   # "errorval" below set to "none".
 
   script_tag(name:"summary", value:"Get OS Version, OS Type, OS Servicepack and OS Name over WMI (win)");
@@ -59,8 +40,8 @@ if (domain){
 passwd = kb_smb_password();
 samba  = kb_smb_is_samba();
 
-# nb: Don't change this without changing the same text of the NVTs having
-# a dependency to this NVT.
+# nb: Don't change this without changing the same text of the VTs having
+# a dependency to this VT.
 errorval = "none";
 if(samba){
   set_kb_item(name:"WMI/WMI_WindowsDomain", value:errorval);

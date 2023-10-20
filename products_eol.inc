@@ -2,21 +2,36 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 eol_cpes = make_array();
 
-# https://helpx.adobe.com/support/programs/eol-matrix.html
+# nb:
+# - General info about the EOL date for all Adobe products:
+#   https://helpx.adobe.com/support/programs/eol-matrix.html
+# - Description about the meaning of "Extended support" is available at:
+#   https://helpx.adobe.com/x-productkb/policy-pricing/policy_enterprise_lifecycle.html
+# - For ColdFusion and Connect the "End of extended support" date has been taken to avoid possible
+#   false positives.
+# - Older releases (e.g. for Connect) can be extracted from links like e.g.:
+#   - https://web.archive.org/web/20200503161900/https://helpx.adobe.com/support/programs/eol-matrix.html
+#   - https://web.archive.org/web/20180901000000*/https://helpx.adobe.com/support/programs/eol-matrix.html
+
 eol_cpes[ "cpe:/a:adobe:acrobat_reader" ] = make_array(
   "versions",      "11:2017-10-15;10:2015-11-18;9:2013-06-26;8:2011-11-03;7:2009-12-28",
   "version_regex", "^([0-9]+)"
 );
 
-# nb: For ColdFusion the "End of extended support" date has been taken to avoid possible false
-# positives.
 eol_cpes[ "cpe:/a:adobe:coldfusion" ] = make_array(
-  "versions",      "2021:2026-11-10;2018:2024-07-13;2016:2022-02-17;11:2021-04-30;10:2019-05-16;9:2016-12-31;8:2014-07-31;7:unknown;6:unknown;5:unknown;4:unknown;3:unknown;2:unknown;1:unknown",
+  "versions",      "2023:2029-05-16;2021:2026-11-10;2018:2024-07-13;2016:2022-02-17;11:2021-04-30;10:2019-05-16;9:2016-12-31;8:2014-07-31;7:unknown;6:unknown;5:unknown;4:unknown;3:unknown;2:unknown;1:unknown",
   "version_regex", "^([0-9]+)"
+);
+
+# nb: e.g. 9.1 or 9.2 are not listed on the page but haven been seen "live". For these versions the
+# EOL for version 9 on 8/31/2019 have been taken
+eol_cpes[ "cpe:/a:adobe:connect" ] = make_array(
+  "versions",      "12.1:2027-10-19;12.0:2027-09-15;11.4:2026-12-07;11.3:2026-09-26;11.2:2026-03-10;11.0:2025-09-17;10.8:2025-06-08;10.6:2024-11-17;10.5:2024-07-28;10.0:2023-10-14;9.8:2023-05-14;9.7:2022-11-17;9.6:2022-05-10;9.5:2020-10-31;9.4:2019-08-31;9.3:2019-08-31;9.2:2019-08-31;9.1:2019-08-31;9.0:2019-08-31;8.0:2017-11-30",
+  "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
 # Product phased out by vendor. No EOL statement. Product replaced.
@@ -140,10 +155,10 @@ eol_cpes[ "cpe:/a:elastic:logstash" ] = make_array(
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
-# https://support.f5.com/csp/article/K15073
+# https://my.f5.com/manage/s/article/K15073
 # nb: End of Software Development (EoSD) = No security fixes
 eol_cpes[ "cpe:/a:f5:big-iq_centralized_management" ] = make_array(
-  "versions",      "8.2.0:2024-04-26;8.1.0:2023-06-30;8.0.0:2023-02-24;7.1.0:2022-04-22;7.0.0:2021-08-09;6.1.0:2020-12-07;6.0.1:2020-08-09;6.0.0:2020-05-31;5.4.0:2019-12-27;5.3.0:2019-07-13;5.2.0:2019-04-26;5.1.0:2018-09-21;5.0.0:2018-06-13;4.6.0:2017-11-23;4.5.0:2017-01-27;4.4.0:2016-09-10;4.3.0:2016-02-26;4.2.0:2015-12-20;4.1.0:2015-08-15;4.0.0:2015-04-29",
+  "versions",      "8.3.0:2025-04-13;8.2.0:2024-04-26;8.1.0:2023-06-30;8.0.0:2023-02-24;7.1.0:2022-04-22;7.0.0:2021-08-09;6.1.0:2020-12-07;6.0.1:2020-08-09;6.0.0:2020-05-31;5.4.0:2019-12-27;5.3.0:2019-07-13;5.2.0:2019-04-26;5.1.0:2018-09-21;5.0.0:2018-06-13;4.6.0:2017-11-23;4.5.0:2017-01-27;4.4.0:2016-09-10;4.3.0:2016-02-26;4.2.0:2015-12-20;4.1.0:2015-08-15;4.0.0:2015-04-29",
   "version_regex", "^([0-9]+\.[0-9]+\.[0-9]+)"
 );
 
@@ -363,6 +378,14 @@ eol_cpes[ "cpe:/a:microsoft:sql_server" ] = make_array(
   "version_regex", "^([0-9a-z]+)"
 );
 
+# https://learn.microsoft.com/en-us/lifecycle/products/?terms=skype%20for%20business%20server
+# nb:
+# - "Extended End Date" has been taken for now
+# - Skype for Business Server 2019 and 2015 have both the same EOL date
+eol_cpes[ "cpe:/a:microsoft:skype_for_business" ] = make_array(
+  "versions", "all:2025-10-14"
+);
+
 # https://endoflife.date/nginx
 eol_cpes[ "cpe:/a:nginx:nginx" ] = make_array(
   "versions",      "1.21:2022-05-24;1.20:2022-05-24;1.18:2021-04-20;1.16:2020-04-20;1.14:2019-04-23;1.12:2018-04-17;1.10:2017-04-12;1.8:2016-04-26;1.6:2015-04-21;1.4:2014-04-24;1.2:2013-04-24;1.0:2012-04-23",
@@ -533,9 +556,20 @@ eol_cpes[ "cpe:/a:powerdns:recursor" ] = make_array(
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
+# - Main info: https://community.progress.com/s/products/moveit/product-lifecycle
+# - Some of the older versions got taken from advisories listed at
+#   https://community.progress.com/s/article/MOVEit-Transfer-Vulnerability-Scanner-Penetration-Testing-and-Hardening-FAQ-s
+#   or from older CVEs
+# - Retired date and the first day of this month is used
+eol_cpes[ "cpe:/a:progress:moveit_transfer" ] = make_array(
+  "versions",      "15.0:2025-11-01;14.1:2025-05-01;14.0:2024-10-01;13.1:2024-04-01;13.0:2023-10-01;12.1:unknown;12.0:unknown;11.2:unknown;11.1:unknown;11.0:unknown;10.2:unknown;10.1:unknown;10.0:unknown;9.0:unknown;8.3:unknown;8.2:unknown;8.1:unknown;8.0:unknown",
+  "version_regex", "^([0-9]+\.[0-9]+)"
+);
+
 # https://pve.proxmox.com/wiki/FAQ
+# nb: Usually only the EOL month is given and we're taking the first day of it.
 eol_cpes[ "cpe:/a:proxmox:virtual_environment" ] = make_array(
-  "versions",      "5:2020-07-01;4:2018-06-01;3:2017-02-01;2:2014-05-01;1:2013-01-01",
+  "versions",      "7:2024-07-01;6:2022-07-01;5:2020-07-01;4:2018-06-01;3:2017-02-01;2:2014-05-01;1:2013-01-01",
   "version_regex", "^([0-9]+)"
 );
 
@@ -581,7 +615,7 @@ eol_cpes[ "cpe:/a:samba:samba" ] = make_array(
 
 # http://igss.schneider-electric.com/products/igss/download/licensed-versions.aspx
 eol_cpes[ "cpe:/a:schneider-electric:interactive_graphical_scada_system" ] = make_array(
-  "versions",      "12.0:unknown;11.0:unknown;10.0:unknown;9.0:unknown;8.0:unknown;7.0:unknown;6.0:unknown;5.1:unknown;5.0:unknown;4.1:unknown;3.0:unknown;2.0:unknown",
+  "versions",      "13.0:unknown;12.0:unknown;11.0:unknown;10.0:unknown;9.0:unknown;8.0:unknown;7.0:unknown;6.0:unknown;5.1:unknown;5.0:unknown;4.1:unknown;3.0:unknown;2.0:unknown",
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
 

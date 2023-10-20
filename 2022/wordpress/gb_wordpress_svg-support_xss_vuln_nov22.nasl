@@ -2,18 +2,21 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:benbodhi:svg_support";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170254");
-  script_version("2023-05-26T09:09:36+0000");
-  script_tag(name:"last_modification", value:"2023-05-26 09:09:36 +0000 (Fri, 26 May 2023)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-11-25 13:37:54 +0000 (Fri, 25 Nov 2022)");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-11-18 04:44:00 +0000 (Fri, 18 Nov 2022)");
 
   script_cve_id("CVE-2022-4022");
 
@@ -35,7 +38,7 @@ if(description)
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"The plugin does not have santization enabled and does not restrict
+  script_tag(name:"insight", value:"The plugin does not have sanitization enabled and does not restrict
   SVG upload to administrator by default, which could allow users with a role as low as author to
   perform Stored Cross-Site Scripting attacks by uploading malicious SVG.");
 

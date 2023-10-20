@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113293");
-  script_version("2023-04-18T10:19:20+0000");
-  script_tag(name:"last_modification", value:"2023-04-18 10:19:20 +0000 (Tue, 18 Apr 2023)");
+  script_version("2023-07-10T08:07:43+0000");
+  script_tag(name:"last_modification", value:"2023-07-10 08:07:43 +0000 (Mon, 10 Jul 2023)");
   script_tag(name:"creation_date", value:"2018-11-08 16:44:00 +0100 (Thu, 08 Nov 2018)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -91,8 +91,10 @@ if( ! detected ) {
   }
 }
 
-# nb: DWR-118 in turn has "Server: WebServer" which seems to have the
-# same/similar software base like D-Link DIR- devices (see gb_dlink_dir_http_detect.nasl).
+# nb:
+# - DWR-118 in turn has "Server: WebServer" which seems to have the same/similar software base like
+#   D-Link DIR- devices (see gb_dlink_dir_http_detect.nasl).
+# - Also DWR-9xx devices
 if( ! detected ) {
 
   url = "/";
@@ -101,8 +103,8 @@ if( ! detected ) {
   # <title>D-Link DWR-118</title>
   # <td><script>I18N("h", "Model Name");</script> : DWR-118</td>
   if( res =~ "^HTTP/1\.[01] 200" &&
-      ( "D-Link logo" >< res || res =~ "COPYRIGHT.*D-Link" || "dlinkrouter.local" >< res ) &&
-      ( res =~ "<title>D-Link DWR-[0-9+]</title>" ||
+      ( "D-Link logo" >< res || res =~ "COPYRIGHT.*D-Link" || "dlinkrouter.local" >< res || '"loginpage.htm"' >< res ) &&
+      ( res =~ "<title>D-Link DWR-[0-9]+</title>" ||
         res =~ "Model Name.+DWR-[0-9]+" ) ) {
     detected = TRUE;
     concl_url = http_report_vuln_url( port: port, url: url, url_only: TRUE );
@@ -145,6 +147,15 @@ if( detected ) {
     mo = eregmatch( string: infos, pattern: '"model_name":"DWR-([0-9]+)"', icase: FALSE );
     if( mo[1] )
       model = mo[1];
+  }
+
+  if( model == "unknown" ) {
+    mo = eregmatch( string: res, pattern: "<title>D-Link DWR-([0-9]+)</title>", icase: FALSE );
+    if( mo[1] ) {
+      model = mo[1];
+      # nb: Needs to be set as otherwise this info would be not available in the reporting
+      info[0] = mo[0];
+    }
   }
 
   if( fw_version == "unknown" ) {

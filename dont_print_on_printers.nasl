@@ -1,42 +1,22 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2005 Laurent Facq
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Do not print on AppSocket and socketAPI printers
-#
-# Authors:
-# Laurent Facq <facq@u-bordeaux.fr> 05/2004
-# 99% based on dont_scan_printers by Michel Arboi <arboi@alussinan.org>
-#
-# Copyright:
-# Copyright (C) 2005 by Laurent Facq
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.12241");
-  script_version("2023-05-26T16:08:11+0000");
-  script_tag(name:"last_modification", value:"2023-05-26 16:08:11 +0000 (Fri, 26 May 2023)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
   script_name("Do not print on AppSocket and socketAPI printers");
   script_category(ACT_SETTINGS);
-  script_copyright("Copyright (C) 2005 by Laurent Facq");
+  script_copyright("Copyright (C) 2005 Laurent Facq");
   script_family("Settings");
-  script_dependencies("gb_snmp_sysdescr_detect.nasl", "nmap_mac.nasl", "global_settings.nasl");
+  script_dependencies("gb_snmp_info_collect.nasl", "nmap_mac.nasl", "global_settings.nasl");
 
   script_add_preference(name:"Exclude PJL printer ports from scan", type:"entry", value:"2000,2501,9100,9101,9102,9103,9104,9105,9106,9107,9112,9113,9114,9115,9116,9200,10001", id:1);
 
@@ -53,6 +33,8 @@ if( get_kb_item( "Host/scanned" ) == 0 )
   exit( 0 );
 
 include("host_details.inc");
+include("byte_func.inc");
+include("list_array_func.inc");
 include("ftp_func.inc");
 include("telnet_func.inc");
 include("http_func.inc");
@@ -68,10 +50,14 @@ include("ricoh_printers.inc");
 include("toshiba_printers.inc");
 include("epson_printers.inc");
 include("canon_printers.inc");
+include("fujifilm_printers.inc");
+include("brother_printers.inc");
 include("snmp_func.inc");
 include("pcl_pjl.inc");
+include("ipp.inc");
 include("port_service_func.inc");
 include("misc_func.inc");
+include("honeywell_printers.inc");
 
 pjl_ports_list = make_list();
 
@@ -95,9 +81,9 @@ function check_pjl_port_list( list ) {
   return TRUE;
 }
 
-function report( data ) {
+function register_and_report( dont_set_is_printer, data ) {
 
-  local_var data, port;
+  local_var dont_set_is_printer, data, port;
 
   pcl_pjl_register_all_ports( ports:pjl_ports_list );
   if( ! invalid_list ) {
@@ -109,8 +95,20 @@ function report( data ) {
   }
 
   log_message( port:0, data:'Exclusion reason:\n\n' + data );
-  set_kb_item( name:"Host/is_printer/reason", value:data );
-  set_kb_item( name:"Host/is_printer", value:TRUE );
+
+  # Used in gb_ipp_detect.nasl as a "script_mandatory_keys()" as we don't want to run that VT
+  # against every web server and just against the ones on systems which *might* support IPP.
+  set_kb_item( name:"Host/could_support_ipp", value:TRUE );
+
+  if( ! dont_set_is_printer ) {
+    # nb:
+    # - Used in dont_scan_printers.nasl to mark a printer as "dead"
+    # - This should be only done if we're absolutely sure that the target is a printer and
+    #   excluded via the "dont_set_is_printer" parameter otherwise (e.g. IPP).
+    set_kb_item( name:"Host/is_printer/reason", value:data );
+    set_kb_item( name:"Host/is_printer", value:TRUE );
+  }
+
   exit( 0 );
 }
 
@@ -147,8 +145,19 @@ if( sysdesc = snmp_get_sysdescr( port:port ) ) {
     sysdesc = bin2string( ddata:sysdesc, noprint_replacement:"" );
   }
 
-  # nb: Keep in sync with the pattern used in gb_xerox_printer_snmp_detect.nasl
-  if( sysdesc =~ "^(FUJI )?(Xerox|XEROX) " ) {
+  # nb:
+  # - Keep in sync with the pattern used in gb_xerox_printer_snmp_detect.nasl
+  # - Case insensitive match (via "=~") is expected / done on purpose as different writings of XEROX
+  #   vs. Xerox has been seen
+  if( sysdesc =~ "^Xerox( \(R\))? " ) {
+    is_printer = TRUE;
+  }
+
+  # nb:
+  # - Keep in sync with the pattern used in gb_fujifilm_printer_snmp_detect.nasl
+  # - Case insensitive match (via "=~") is expected / done on purpose as different writings of XEROX
+  #   vs. Xerox has been seen
+  if( sysdesc =~ "^(FUJI XEROX|FUJIFILM|FX DocuPrint) " ) {
     is_printer = TRUE;
   }
 
@@ -196,9 +205,22 @@ if( sysdesc = snmp_get_sysdescr( port:port ) ) {
   if( sysdesc =~ "^HP ETHERNET MULTI-ENVIRONMENT" ) {
     is_printer = TRUE;
   }
+
+  if( sysdesc =~ "^Brother " ) {
+    is_printer = TRUE;
+  }
+
+  # nb:
+  # - Keep in sync with the pattern used in gsf/gb_honeywell_printer_snmp_detect.nasl and
+  #   gb_snmp_os_detection.nasl
+  # - The model regex below should be checked from time to time to include possible additional
+  #   models
+  if( egrep( string:sysdesc, pattern:"^Honeywell P[CMXD][0-9]+", icase:FALSE ) ) {
+    is_printer = TRUE;
+  }
 }
 
-if( is_printer ) report( data:"Detected from SNMP sysDescr OID on port " + port + '/udp:\n\n' + sysdesc );
+if( is_printer ) register_and_report( data:"Detected from SNMP sysDescr OID on port " + port + '/udp:\n\n' + sysdesc );
 
 # Often the printer model is readable over this OID
 mod_oid = "1.3.6.1.2.1.25.3.2.1.3.1";
@@ -252,7 +274,7 @@ if( model ) {
   }
 }
 
-if( is_printer ) report( data:"Detected from SNMP OID '" + mod_oid + "' on port " + port + '/udp:\n\n' + model );
+if( is_printer ) register_and_report( data:"Detected from SNMP OID '" + mod_oid + "' on port " + port + '/udp:\n\n' + model );
 
 # UDP AppSocket
 port = 9101;
@@ -268,7 +290,7 @@ if( get_udp_port_state( port ) ) {
   }
 }
 
-if( is_printer ) report( data:"Detected UDP AppSocket on port " + port + '/udp' );
+if( is_printer ) register_and_report( data:"Detected UDP AppSocket on port " + port + '/udp' );
 
 # TBD: Also test all ports of pcl_pjl_get_default_ports()?
 # nb: The ( ! r && se == ETIMEDOUT ) might cause false positives here
@@ -298,7 +320,7 @@ if( get_port_state( port ) ) {
   }
 }
 
-if( is_printer ) report( data:"Detected Printer Job Language (PJL) / Printer Command Language (PCL) service on port " + port + "/tcp" );
+if( is_printer ) register_and_report( data:"Detected Printer Job Language (PJL) / Printer Command Language (PCL) service on port " + port + "/tcp" );
 
 ports = make_list( 9290, 9291, 9292 );
 
@@ -317,7 +339,7 @@ foreach port( ports ) {
   }
 }
 
-if( is_printer ) report( data:"Detected 'Raw scanning to peripherals with IEEE 1284.4 specifications' service on port " + port + "/tcp" );
+if( is_printer ) register_and_report( data:"Detected 'Raw scanning to peripherals with IEEE 1284.4 specifications' service on port " + port + "/tcp" );
 
 port = 21;
 if( get_port_state( port ) ) {
@@ -352,10 +374,12 @@ if( get_port_state( port ) ) {
     is_printer = TRUE;
   } else if( banner =~ "220 SHARP .*FTP Server" ) {
     is_printer = TRUE;
+  } else if( banner =~ "220 Welcome to Honeywell Printer" ) {
+    is_printer = TRUE;
   }
 }
 
-if( is_printer ) report( data:"Detected FTP banner on port " + port + '/tcp:\n\n' + banner );
+if( is_printer ) register_and_report( data:"Detected FTP banner on port " + port + '/tcp:\n\n' + banner );
 
 port = 23;
 if( get_port_state( port ) ) {
@@ -371,7 +395,7 @@ if( get_port_state( port ) ) {
   }
 }
 
-if( is_printer ) report( data:"Detected Telnet banner on port " + port + '/tcp:\n\n' + banner );
+if( is_printer ) register_and_report( data:"Detected Telnet banner on port " + port + '/tcp:\n\n' + banner );
 
 port = 79;
 if( get_port_state( port ) ) {
@@ -388,7 +412,7 @@ if( get_port_state( port ) ) {
   }
 }
 
-if( is_printer ) report( data:"Detected Finger banner on port " + port + '/tcp:\n\n' + banner );
+if( is_printer ) register_and_report( data:"Detected Finger banner on port " + port + '/tcp:\n\n' + banner );
 
 # Xerox DocuPrint
 port = 2002;
@@ -404,14 +428,14 @@ if( get_port_state( port ) ) {
   }
 }
 
-if( is_printer ) report( data:"Detected Xerox DocuPrint banner on port " + port + '/tcp:\n\n' + banner );
+if( is_printer ) register_and_report( data:"Detected Xerox DocuPrint banner on port " + port + '/tcp:\n\n' + banner );
 
 if( mac = get_kb_item( "Host/mac_address" ) ) {
   if( is_printer_mac( mac:mac ) )
     is_printer = TRUE;
 }
 
-if( is_printer ) report( data:"Detected MAC-Address of a Printer vendor: " + mac );
+if( is_printer ) register_and_report( data:"Detected MAC-Address of a Printer vendor: " + mac );
 
 ports = make_list( 9220, 9221, 9222 );
 
@@ -430,16 +454,16 @@ foreach port( ports ) {
   }
 }
 
-if( is_printer ) report( data:"Detected Generic Scan Gateway (GGW) server service on port " + port + '/tcp:\n\n' + chomp( banner ) );
+if( is_printer ) register_and_report( data:"Detected Generic Scan Gateway (GGW) server service on port " + port + '/tcp:\n\n' + chomp( banner ) );
 
 # nb: Keep the HTTP check at the bottom as this can take quite some time
 
 # nb: For the HTTPS detection these pattern needs to be updated
 # as those redirects only happen on HTTP.
 konica_detect_urls = make_array();
-konica_detect_urls['/wcd/top.xml'] = "^HTTP/1\.[01] 301 Movprm";
-konica_detect_urls['/wcd/system_device.xml'] = "^HTTP/1\.[01] 301 Movprm";
-konica_detect_urls['/wcd/system.xml'] = "^HTTP/1\.[01] 301 Movprm";
+konica_detect_urls["/wcd/top.xml"] = "^HTTP/1\.[01] 301 Movprm";
+konica_detect_urls["/wcd/system_device.xml"] = "^HTTP/1\.[01] 301 Movprm";
+konica_detect_urls["/wcd/system.xml"] = "^HTTP/1\.[01] 301 Movprm";
 
 ports = make_list( 80, 8000, 280, 631 ); # TODO: Re-add 443 and add 8443 once a solution was found to detect SSL/TLS without a dependency to find_service.nasl
 
@@ -471,14 +495,22 @@ foreach port( ports ) {
     }
   }
 
-  # Brother HL Printer from gb_brother_hl_series_printer_detect.nasl
-  # If updating here please also update the check in gb_brother_hl_series_printer_detect.nasl
-  url = "/general/information.html?kind=item";
-  buf = http_get_cache( item:url, port:port );
-  if( buf =~ "<title>Brother HL.*series</title>" && buf =~ "Copyright.*Brother Industries" ) {
-    is_printer = TRUE;
-    reason     = "Brother Banner/Text on URL: " + http_report_vuln_url( port:port, url:url, url_only:TRUE );
-    break;
+  # Brother printer, see also gb_brother_printer_http_detect.nasl
+  urls = get_brother_detect_urls();
+  foreach url( keys( urls ) ) {
+
+    pattern = urls[url];
+    url = ereg_replace( string:url, pattern:"(#--avoid-dup[0-9]+--#)", replace:"" );
+
+    buf = http_get_cache( item:url, port:port );
+    if( ! buf || buf !~ "^HTTP/1\.[01] 200" )
+      continue;
+
+    if( eregmatch( pattern:pattern, string:buf, icase:TRUE ) ) {
+      is_printer = TRUE;
+      reason     = "Found pattern: " + pattern + " on URL: " + http_report_vuln_url( port:port, url:url, url_only:TRUE );
+      break;
+    }
   }
 
   # SATO, see also gb_sato_printer_http_detect.nasl
@@ -609,6 +641,26 @@ foreach port( ports ) {
     }
   }
 
+  # Fuji Xerox / Fujifilm, see also gb_fujifilm_printer_http_detect.nasl
+  urls = get_fujifilm_detect_urls();
+  foreach url( keys( urls ) ) {
+
+    pattern = urls[url];
+    url = ereg_replace( string:url, pattern:"(#--avoid-dup[0-9]+--#)", replace:"" );
+
+    buf = http_get_cache( item:url, port:port );
+    if( ! buf || ( buf !~ "^HTTP/1\.[01] 200" && buf !~ "^HTTP/1\.[01] 401" ) )
+      continue;
+
+    # Replace non-printable characters to avoid language based false-negatives
+    buf = bin2string( ddata:buf, noprint_replacement:"" );
+    if( eregmatch( pattern:pattern, string:buf, icase:TRUE ) ) {
+      is_printer = TRUE;
+      reason     = "Found pattern: " + pattern + " on URL: " + http_report_vuln_url( port:port, url:url, url_only:TRUE );
+      break;
+    }
+  }
+
   if( is_printer ) break;
 
   # Ricoh, see also gb_ricoh_printer_http_detect.nasl
@@ -728,6 +780,24 @@ foreach port( ports ) {
     }
   }
 
+  # Honeywell printer, see also gsf/gb_honeywell_printer_http_detect.nasl
+  urls = get_honeywell_detect_urls();
+  foreach url( keys( urls ) ) {
+
+    pattern = urls[url];
+    url = ereg_replace( string:url, pattern:"(#--avoid-dup[0-9]+--#)", replace:"" );
+
+    buf = http_get_cache( item:url, port:port );
+    if( ! buf || buf !~ "^HTTP/1\.[01] 200" )
+      continue;
+
+    if( eregmatch( pattern:pattern, string:buf, icase:FALSE ) ) {
+      is_printer = TRUE;
+      reason     = "Found pattern: " + pattern + " on URL: " + http_report_vuln_url( port:port, url:url, url_only:TRUE );
+      break;
+    }
+  }
+
   # TODO: Re-verify these URLs and the banners below
   foreach url( make_list( "/", "/main.asp", "/index.asp",
                           "/index.html", "/index.htm", "/default.html" ) ) {
@@ -761,7 +831,22 @@ foreach port( ports ) {
   if( is_printer ) break;
 }
 
-if( is_printer ) report( data:reason );
+if( is_printer ) register_and_report( data:reason );
+
+# nb: This should be at the bottom / the last check as a system supporting IPP isn't necessarily a
+# printer (it could be an arbitrary system running e.g. CUPS) and we're thus not setting the
+# "Host/is_printer" KB key. But if the check would be done earlier we could not set it even if the
+# system is actually a printer.
+port = 631;
+
+if( get_port_state( port ) ) {
+  attrs = ipp_get_printer_info( port:port );
+  # nb: Maybe just checking result is not null should suffice but added an extra check that some content was returned
+  if ( ! isnull( attrs ) && is_array( attrs ) )
+    is_printer = TRUE;
+}
+
+if( is_printer ) register_and_report( dont_set_is_printer:TRUE, data:"Detected Internet Printing Protocol (IPP) service on port " + port + "/tcp" );
 
 exit( 0 );
 

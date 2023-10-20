@@ -1,36 +1,16 @@
-###############################################################################
-# OpenVAS Vulnerability Test
-# $Id: gb_ibm_tsm_client_detect_macosx.nasl 14305 2019-03-19 09:17:40Z cfischer $
+# SPDX-FileCopyrightText: 2017 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# IBM Tivoli Storage Manager Client Version Detection (Mac OS X)
-#
-# Authors:
-# Shakeel <bshakeel@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2017 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811062");
-  script_version("$Revision: 14305 $");
+  script_version("2023-07-25T05:05:58+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"$Date: 2019-03-19 10:17:40 +0100 (Tue, 19 Mar 2019) $");
+  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
   script_tag(name:"creation_date", value:"2017-06-02 15:14:25 +0530 (Fri, 02 Jun 2017)");
   script_name("IBM Tivoli Storage Manager Client Version Detection (Mac OS X)");
 
@@ -44,7 +24,7 @@ if(description)
   script_tag(name:"qod_type", value:"executable_version");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/osx_name");

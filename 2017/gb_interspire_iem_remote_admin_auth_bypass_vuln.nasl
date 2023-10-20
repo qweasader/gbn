@@ -1,36 +1,16 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2017 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Interspire IEM Remote Authentication Admin Bypass Vulnerability
-#
-# Authors:
-# Adrian Steins <adrian.steins@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2017 Greenbone Networks GmbH, https://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:interspire:iem";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112087");
-  script_version("2021-09-16T13:01:47+0000");
-  script_tag(name:"last_modification", value:"2021-09-16 13:01:47 +0000 (Thu, 16 Sep 2021)");
+  script_version("2023-06-22T10:34:15+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2017-10-19 08:54:12 +0200 (Thu, 19 Oct 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -48,7 +28,7 @@ if(description)
 
   script_category(ACT_ATTACK);
 
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_interspire_iem_detect.nasl");
   script_require_ports("Services/www", 80);
@@ -75,8 +55,14 @@ include("http_func.inc");
 include("http_keepalive.inc");
 include("misc_func.inc");
 
-if (!port = get_app_port(cpe:CPE)) exit(0);
-if (!dir = get_app_location(cpe:CPE, port:port)) exit(0);
+if (!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if (!dir = get_app_location(cpe:CPE, port:port))
+  exit(0);
+
+if(dir == "/")
+  dir = "";
 
 url = dir + "/admin/index.php?Page=&Action=Login";
 
@@ -89,7 +75,7 @@ data = "ss_username=admin&ss_password=admin&ss_takemeto=index.php&SubmitButton=L
 req = http_post_put_req(port:port, url:url, data:data, add_headers:make_array("Cookie", cookie), accept_header:"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
 res = http_keepalive_send_recv(port:port, data:req);
 
-if (res =~ "HTTP/1\.. 200 OK" &&
+if (res =~ "^HTTP/1\.[01] 200" &&
     ('admin/index.php?Page=Addons&Addon=dbcheck"' >< res || 'admin/index.php?Page=Addons&Addon=checkpermissions' >< res) &&
     ('<div class="loggedinas">' >< res || '<a href="index.php?Page=Logout"' >< res)
    )
@@ -102,7 +88,7 @@ if (res =~ "HTTP/1\.. 200 OK" &&
   req = http_get_req(port:port, url:url, add_headers:make_array("Cookie", cookie), accept_header:"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
   res = http_keepalive_send_recv(port:port, data:req);
 
-  if (res =~ "HTTP/1\.. 200 OK" &&
+  if (res =~ "^HTTP/1\.[01] 200" &&
       (('System' >< res && 'Build Date' >< res) || '<title>phpinfo()</title>' >< res ||
         '<h1>Configuration</h1>' >< res || ('SERVER_ADMIN' >< res && 'SERVER_ADDR' >< res))
      )

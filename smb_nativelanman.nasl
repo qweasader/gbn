@@ -1,35 +1,16 @@
-###################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 LSS
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SMB NativeLanMan
-#
-# LSS-NVT-2009-011
-#
-# Developed by LSS Security Team <http://security.lss.hr>
-#
-# Copyright (C) 2009 LSS <http://www.lss.hr>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public
-# License along with this program. If not, see
-# <http://www.gnu.org/licenses/>.
-###################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.102011");
-  script_version("2023-04-24T10:19:26+0000");
+  script_version("2023-07-12T05:05:05+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-04-24 10:19:26 +0000 (Mon, 24 Apr 2023)");
+  script_tag(name:"last_modification", value:"2023-07-12 05:05:05 +0000 (Wed, 12 Jul 2023)");
   script_tag(name:"creation_date", value:"2009-09-18 16:06:42 +0200 (Fri, 18 Sep 2009)");
   script_name("SMB NativeLanMan");
   script_category(ACT_GATHER_INFO);
@@ -67,7 +48,7 @@ if( ! r ) {
   exit( 0 );
 }
 
-# TODO: Implement "usesmbv1" in smb_neg_prot() and use this here (This NVT needs SMBv1)
+# TODO: Implement "usesmbv1" in smb_neg_prot() and use this here (This VT needs SMBv1)
 # Then we could also pass the credentials as NTLMSSP/NTLMv2 from the KB
 prot = smb_neg_prot_NTLMv1( soc:soc );
 if( ! prot ) {
@@ -207,6 +188,9 @@ for( x = l-3; x > 0 && c < 3; x = x - 2 ) {
           } else if( "Samba 4.13.13-Debian" >< smb_str ) {
             os_str = "Debian GNU/Linux 11";
             os_register_and_report( os:"Debian GNU/Linux", version:"11", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+          } else if( "Samba 4.17.8-Debian" >< smb_str ) {
+            os_str = "Debian GNU/Linux 12";
+            os_register_and_report( os:"Debian GNU/Linux", version:"12", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
           } else {
             os_str = "Debian GNU/Linux";
             os_register_and_report( os:"Debian GNU/Linux", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );

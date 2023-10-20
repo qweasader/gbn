@@ -23,8 +23,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.122729");
   script_cve_id("CVE-2015-3240");
   script_tag(name:"creation_date", value:"2015-11-08 11:05:19 +0000 (Sun, 08 Nov 2015)");
-  script_version("2022-04-04T14:03:28+0000");
-  script_tag(name:"last_modification", value:"2022-04-04 14:03:28 +0000 (Mon, 04 Apr 2022)");
+  script_version("2023-10-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
 
@@ -65,7 +65,7 @@ if(description)
 - Parser fix to allow specifying time without unit (openswan compat)
 - Fix Labeled IPsec on rekeyed IPsec SA's
 - Workaround for wrong padding by racoon2
-- Disable NSS HW GCM to workaround rhel6 xen builers bug");
+- Disable NSS HW GCM to workaround rhel6 xen builders bug");
 
   script_tag(name:"affected", value:"'libreswan' package(s) on Oracle Linux 7.");
 

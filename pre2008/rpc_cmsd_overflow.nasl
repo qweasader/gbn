@@ -1,29 +1,40 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2003 Xue Yong Zhi
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Sun rpc.cmsd overflow
-#
-# Authors:
-# Xue Yong Zhi <xueyong@udel.edu>
-#
-# Copyright:
-# Copyright (C) 2003 Xue Yong Zhi
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
-# This script was written by Xue Yong Zhi <xueyong@udel.edu>
+if(description)
+{
+  script_oid("1.3.6.1.4.1.25623.1.0.11418");
+  script_version("2023-09-08T05:06:21+0000");
+  script_tag(name:"last_modification", value:"2023-09-08 05:06:21 +0000 (Fri, 08 Sep 2023)");
+  script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/5356");
+  script_cve_id("CVE-2002-0391");
+  script_name("Sun rpc.cmsd Overflow");
+  script_category(ACT_DESTRUCTIVE_ATTACK);
+  script_copyright("Copyright (C) 2003 Xue Yong Zhi");
+  script_family("General");
+  script_dependencies("gb_rpc_portmap_udp_detect.nasl", "gb_rpc_portmap_tcp_detect.nasl");
+  script_mandatory_keys("rpc/portmap/tcp_or_udp/detected");
+
+  script_tag(name:"solution", value:"We suggest that you disable this service and apply a new patch.");
+
+  script_tag(name:"summary", value:"The remote Sun rpc.cmsd has integer overflow problem in xdr_array. An attacker
+  may use this flaw to execute arbitrary code on this host with the privileges rpc.cmsd is running as (typically, root),
+  by sending a specially crafted request to this service.");
+
+  script_tag(name:"affected", value:"Sun Solaris 8 is known to be affected. Other versions or
+  products might be affected as well.");
+
+  script_tag(name:"solution_type", value:"Mitigation");
+  script_tag(name:"qod_type", value:"remote_analysis"); # rpc.cmsd is started from inetd
+
+  exit(0);
+}
 
 # Data structure of cms_create_args(maybe wrong)
 # struct cms_pid_t {
@@ -40,35 +51,6 @@
 # };
 #
 # Successfully tested against Solaris 8
-
-if(description)
-{
-  script_oid("1.3.6.1.4.1.25623.1.0.11418");
-  script_version("2022-12-09T10:11:04+0000");
-  script_tag(name:"last_modification", value:"2022-12-09 10:11:04 +0000 (Fri, 09 Dec 2022)");
-  script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
-  script_tag(name:"cvss_base", value:"10.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/5356");
-  script_cve_id("CVE-2002-0391");
-  script_name("Sun rpc.cmsd Overflow");
-  script_category(ACT_DESTRUCTIVE_ATTACK);
-  script_copyright("Copyright (C) 2003 Xue Yong Zhi");
-  script_family("General");
-  script_dependencies("secpod_rpc_portmap_udp.nasl", "secpod_rpc_portmap_tcp.nasl");
-  script_mandatory_keys("rpc/portmap");
-
-  script_tag(name:"solution", value:"We suggest that you disable this service and apply a new patch.");
-
-  script_tag(name:"summary", value:"The remote Sun rpc.cmsd has integer overflow problem in xdr_array. An attacker
-  may use this flaw to execute arbitrary code on this host with the privileges rpc.cmsd is running as (typically, root),
-  by sending a specially crafted request to this service.");
-
-  script_tag(name:"solution_type", value:"Mitigation");
-  script_tag(name:"qod_type", value:"remote_vul"); # rpc.cmsd is started from inetd
-
-  exit(0);
-}
 
 include("rpc.inc");
 include("nfs_func.inc");

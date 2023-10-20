@@ -1,28 +1,14 @@
-# Copyright (C) 2013 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2013 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103707");
-  script_version("2022-01-31T13:17:52+0000");
-  script_tag(name:"last_modification", value:"2022-01-31 13:17:52 +0000 (Mon, 31 Jan 2022)");
+  script_version("2023-07-14T05:06:08+0000");
+  script_tag(name:"last_modification", value:"2023-07-14 05:06:08 +0000 (Fri, 14 Jul 2023)");
   script_tag(name:"creation_date", value:"2013-05-08 11:31:24 +0100 (Wed, 08 May 2013)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -33,7 +19,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   script_family("Product detection");
   # nb: Don't use e.g. webmirror.nasl or DDI_Directory_Scanner.nasl as this VT should
   # run as early as possible so that the printer can be early marked dead as requested.
@@ -60,8 +46,12 @@ urls = kyocera_get_detect_urls();
 foreach url (keys(urls)) {
   pattern = urls[url];
   url = ereg_replace(string: url, pattern: "(#--avoid-dup[0-9]+--#)", replace: "");
-
-  res = http_get_cache(item: url, port: port);
+  if ( "_pp.f_getPrinterModel = '([^']+)';" >< pattern) {
+    req = http_get_req(port: port, url: url, add_headers: make_array("Cookie", "rtl=0; css=1"), referer_url: "/startwlm/Start_Wlm.htm");
+    res = http_send_recv(port: port, data: req);
+  } else {
+    res = http_get_cache(item: url, port: port);
+  }
   if (!res || res !~ "^HTTP/1\.[01] 200")
     continue;
 
@@ -104,8 +94,8 @@ foreach url (keys(urls)) {
                     value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
       } else {
         url = "/js/jssrc/model/dvcinfo/dvcconfig/DvcConfig_Config.model.htm?arg1=0";
-        res = http_get_cache(port: port, item: url);
-
+        req = http_get_req(port: port, url: url, add_headers: make_array("Cookie", "rtl=0"), referer_url: "/dvcinfo/dvcconfig/DvcConfig_Config.htm");
+        res = http_send_recv(port: port, data: req);
         # _pp.system = '2V8_S000.002.232';
         vers = eregmatch(pattern: "_pp.system\s*=\s*'([^']+)'", string: res);
         if (!isnull(vers[1])) {

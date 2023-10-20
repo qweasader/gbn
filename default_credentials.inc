@@ -1,25 +1,14 @@
-# Copyright (C) 2009 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
-# user:pass:vendor(multiple vendors separated by ","):protocol(multiple protocols separated by ",")
-# Current available options protocol: all,ssh,http,telnet,ftp
+# - Syntax is the following:
+#   user:pass:vendor(multiple vendors separated by ","):protocol(multiple protocols separated by ",")
+# - Current available options protocol: all,ssh,http,telnet,ftp
+# - The string "none" can be used for testing an empty password
+#
 credentials = make_list(
 "root:pass:axis:all,ftp",
 "root:calvin:dell:all",
@@ -223,6 +212,8 @@ credentials = make_list(
 "foo:bar:wazuh:http", # foo:$apr1$qdSLixxe$4syV8RRHWSSsvo8Gu6rZ.1 from user file of wazuh-api
 "tomcat:tomcat:tomcat,metasploitable:http", # For e.g. the Tomcat installation on the Metasploitable 2 VM
 "ftpuser1:none:foscam,opticam:ftp", # CVE-2018-19064
+"insite:2getin:GEHealthcare:telnet,ftp", # CVE-2013-7404
+"entegra:0:GEHealthcare:ftp", # CVE-2001-1594
 # If the default docker command from https://sdk.collaboraonline.com/docs/installation/CODE_Docker_image.html is used.
 # Availability check of the Basic Auth protected admin backend is done via gb_collabora_libreoffice_online_http_detect.nasl.
 # Might be used by other systems as well so "all" and a few other protocols are used here.
@@ -232,7 +223,9 @@ credentials = make_list(
 # - No "live" system available so this was added here to have at least some basic coverage
 # - Password might also refer to `Awind Inc.` and this might catch additional devices we won't get a
 #   hand on
-"root:awind5885:crestron,awind:ssh,telnet"
+"root:awind5885:crestron,awind:ssh,telnet",
+# From CVE-2020-9473
+"ftp:none:siedle:ssh"
 );
 
 uploaded_credentials = get_kb_list( "default_credentials/credentials" );

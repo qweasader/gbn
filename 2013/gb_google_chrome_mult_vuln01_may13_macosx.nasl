@@ -1,41 +1,22 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2013 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Google Chrome Multiple Vulnerabilities-01 May13 (MAC OS X)
-#
-# Authors:
-# Antu Sanadi <santu@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2013 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803706");
-  script_version("2022-04-25T14:50:49+0000");
+  script_version("2023-10-13T16:09:03+0000");
   script_cve_id("CVE-2013-2836", "CVE-2013-2837", "CVE-2013-2838", "CVE-2013-2839",
                 "CVE-2013-2840", "CVE-2013-2841", "CVE-2013-2842", "CVE-2013-2843",
                 "CVE-2013-2844", "CVE-2013-2845", "CVE-2013-2846", "CVE-2013-2847",
                 "CVE-2013-2848", "CVE-2013-2849");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-04-25 14:50:49 +0000 (Mon, 25 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2013-05-24 11:44:26 +0530 (Fri, 24 May 2013)");
-  script_name("Google Chrome Multiple Vulnerabilities-01 May13 (MAC OS X)");
+  script_name("Google Chrome Multiple Vulnerabilities-01 May13 - Mac OS X");
   script_xref(name:"URL", value:"http://secunia.com/advisories/53430");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/60062");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/60063");
@@ -53,7 +34,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/60076");
   script_xref(name:"URL", value:"http://securitytracker.com/id/1028588");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.in/2013/05/stable-channel-release.html");
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("General");
   script_dependencies("gb_google_chrome_detect_macosx.nasl");
@@ -61,7 +42,7 @@ if(description)
   script_tag(name:"impact", value:"Successful exploitation will allow attackers to execute arbitrary code or
   disclose sensitive information, conduct cross-site scripting attacks and
   compromise a users system.");
-  script_tag(name:"affected", value:"Google Chrome version prior to 27.0.1453.93 on MAC OS X");
+  script_tag(name:"affected", value:"Google Chrome version prior to 27.0.1453.93 on Mac OS X.");
   script_tag(name:"insight", value:"Please see the references for more information on the vulnerabilities.");
   script_tag(name:"solution", value:"Upgrade to the Google Chrome 27.0.1453.93 or later.");
   script_tag(name:"summary", value:"Google Chrome is prone to multiple vulnerabilities.");
@@ -70,7 +51,6 @@ if(description)
 
   exit(0);
 }
-
 
 include("version_func.inc");
 

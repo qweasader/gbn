@@ -1,33 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2002 Digital Defense Inc.
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Sun JavaServer Default Admin Password
-#
-# Authors:
-# H D Moore <hdmoore@digitaldefense.net>
-#
-# Copyright:
-# Copyright (C) 2002 Digital Defense Inc.
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10995");
-  script_version("2022-04-11T14:03:55+0000");
-  script_tag(name:"last_modification", value:"2022-04-11 14:03:55 +0000 (Mon, 11 Apr 2022)");
+  script_version("2023-06-27T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -36,7 +17,7 @@ if(description)
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2002 Digital Defense Inc.");
   script_family("Default Accounts");
-  script_dependencies("find_service.nasl", "httpver.nasl", "embedded_web_server_detect.nasl", "gb_default_credentials_options.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "httpver.nasl", "gb_default_credentials_options.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 9090);
   script_exclude_keys("Settings/disable_cgi_scanning", "default_credentials/disable_default_account_checks");
 
@@ -69,8 +50,6 @@ url += "nonce%3D%222b089ba7985a883ab2eddcd3539a6c94%22%2C+realm%3D%22adminRealm%
 url += "uri%3D%22%2Fservlet%2Fadmin%22&service=";
 
 port = http_get_port( default:9090 );
-if( http_get_is_marked_embedded( port:port ) )
-  exit( 0 );
 
 req = string( "GET ", url, " HTTP/1.0\r\n\r\n" );
 res = http_keepalive_send_recv( port:port, data:req );

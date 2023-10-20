@@ -7,13 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.149702");
-  script_version("2023-05-19T16:07:05+0000");
-  script_tag(name:"last_modification", value:"2023-05-19 16:07:05 +0000 (Fri, 19 May 2023)");
+  script_version("2023-10-13T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-05-19 07:45:46 +0000 (Fri, 19 May 2023)");
-  script_tag(name:"cvss_base", value:"4.6");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:M/C:N/I:C/A:N");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-07-10 15:25:00 +0000 (Mon, 10 Jul 2023)");
 
-  script_cve_id("CVE-2022-36326", "CVE-2022-36327", "CVE-2022-36328", "CVE-2022-29840");
+  script_cve_id("CVE-2022-36326", "CVE-2022-36327", "CVE-2022-36328", "CVE-2022-29840",
+                "CVE-2023-22814");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -48,7 +52,10 @@ if(description)
   and exfiltrate sensitive files, passwords, users and device configurations.
 
   - CVE-2022-29840: Server-side request forgery (SSRF) vulnerability that could allow a rogue
-  server on the local network to modify its URL to point back to the loopback adapter.");
+  server on the local network to modify its URL to point back to the loopback adapter.
+
+  - CVE-2023-22814: Vulnerability in the token-based authentication mechanism that could allow an
+  attacker to carry out an impersonation attack.");
 
   script_tag(name:"affected", value:"Western Digital My Cloud PR2100, My Cloud PR4100, My Cloud
   EX4100, My Cloud EX2 Ultra, My Cloud Mirror Gen 2, My Cloud DL2100, My Cloud DL4100, My Cloud

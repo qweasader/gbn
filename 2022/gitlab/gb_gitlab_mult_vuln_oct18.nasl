@@ -1,30 +1,16 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:gitlab:gitlab";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170067");
-  script_version("2022-04-04T03:03:57+0000");
-  script_tag(name:"last_modification", value:"2022-04-04 03:03:57 +0000 (Mon, 04 Apr 2022)");
+  script_version("2023-06-19T05:05:07+0000");
+  script_tag(name:"last_modification", value:"2023-06-19 05:05:07 +0000 (Mon, 19 Jun 2023)");
   script_tag(name:"creation_date", value:"2022-03-28 08:06:32 +0000 (Mon, 28 Mar 2022)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -42,7 +28,7 @@ if (description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_gitlab_consolidation.nasl");
   script_mandatory_keys("gitlab/detected");
@@ -53,7 +39,7 @@ if (description)
 
   script_tag(name:"insight", value:"The following vulnerabilities exist:
 
-  - CVE-2018-16049: credentails used for repository import are visible inside the Sidekiq logs
+  - CVE-2018-16049: credentials used for repository import are visible inside the Sidekiq logs
 
   - CVE-2018-16051: Geo: Renaming a namespace fails to move project files of any subgroups properly
   on the secondary when hashed storage is not enabled");

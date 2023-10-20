@@ -1,33 +1,22 @@
-# Copyright (C) 2023 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2023 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:elastic:kibana";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126333");
-  script_version("2023-02-15T10:19:49+0000");
-  script_tag(name:"last_modification", value:"2023-02-15 10:19:49 +0000 (Wed, 15 Feb 2023)");
+  script_version("2023-10-13T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-02-06 15:00:34 +0000 (Mon, 06 Feb 2023)");
-  script_tag(name:"cvss_base", value:"6.8");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:C");
+  script_tag(name:"cvss_base", value:"7.8");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-12-01 20:25:00 +0000 (Thu, 01 Dec 2022)");
 
   # nb: First CVE is for Kibana, the second CVE is from the component which seems to cause this flaw.
   script_cve_id("CVE-2022-38778", "CVE-2022-38900");
@@ -40,7 +29,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2023 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_elastic_kibana_detect_http.nasl");
   script_mandatory_keys("elastic/kibana/detected");
@@ -89,4 +78,3 @@ if (version_in_range_exclusive(version: version, test_version_lo: "8.0.0", test_
 }
 
 exit(99);
-

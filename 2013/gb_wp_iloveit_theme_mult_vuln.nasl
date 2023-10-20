@@ -1,40 +1,27 @@
-# Copyright (C) 2013 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2013 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:cosmothemes:iloveit";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803844");
-  script_version("2020-09-10T09:13:09+0000");
+  script_version("2023-09-29T05:05:51+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2020-09-10 09:13:09 +0000 (Thu, 10 Sep 2020)");
+  script_tag(name:"last_modification", value:"2023-09-29 05:05:51 +0000 (Fri, 29 Sep 2023)");
   script_tag(name:"creation_date", value:"2013-07-29 12:46:47 +0530 (Mon, 29 Jul 2013)");
 
-  script_name("WordPress I Love It Theme Multiple Vulnerabilities");
+  script_name("WordPress I Love It Theme <= 1.9 Multiple Vulnerabilities");
 
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_analysis");
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_wordpress_theme_http_detect.nasl");
+  script_dependencies("gb_wordpress_themes_http_detect.nasl");
   script_mandatory_keys("wordpress/theme/iloveit/detected");
 
   script_tag(name:"summary", value:"The WordPress theme 'I Love It' is prone to multiple vulnerabilities.");

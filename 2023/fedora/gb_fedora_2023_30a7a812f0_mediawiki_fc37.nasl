@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.827023");
-  script_version("2023-01-31T10:08:41+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2021-44854", "CVE-2021-44855", "CVE-2021-44856", "CVE-2022-41765", "CVE-2022-41767", "CVE-2022-47927", "CVE-2023-22945", "CVE-2023-22911", "CVE-2023-22909");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-01-31 10:08:41 +0000 (Tue, 31 Jan 2023)");
+  script_tag(name:"cvss_base", value:"6.4");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-01-13 06:34:00 +0000 (Fri, 13 Jan 2023)");
   script_tag(name:"creation_date", value:"2023-01-29 02:02:17 +0000 (Sun, 29 Jan 2023)");
   script_name("Fedora: Security Advisory for mediawiki (FEDORA-2023-30a7a812f0)");
   script_category(ACT_GATHER_INFO);

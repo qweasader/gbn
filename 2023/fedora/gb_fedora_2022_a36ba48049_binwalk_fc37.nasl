@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.823109");
-  script_version("2023-01-10T10:12:01+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2021-4287");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-01-10 10:12:01 +0000 (Tue, 10 Jan 2023)");
+  script_tag(name:"cvss_base", value:"7.8");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-01-18 14:11:00 +0000 (Wed, 18 Jan 2023)");
   script_tag(name:"creation_date", value:"2023-01-09 08:48:36 +0000 (Mon, 09 Jan 2023)");
   script_name("Fedora: Security Advisory for binwalk (FEDORA-2022-a36ba48049)");
   script_category(ACT_GATHER_INFO);

@@ -1,34 +1,24 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mozilla:firefox";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826597");
-  script_version("2022-12-14T10:20:42+0000");
+  script_version("2023-10-19T05:05:21+0000");
   script_cve_id("CVE-2022-42927", "CVE-2022-42928", "CVE-2022-42929", "CVE-2022-42930",
-                "CVE-2022-42931", "CVE-2022-42932", "CVE-2022-46881", "CVE-2022-46885");
-  script_tag(name:"cvss_base", value:"6.8");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-12-14 10:20:42 +0000 (Wed, 14 Dec 2022)");
+                "CVE-2022-42931", "CVE-2022-42932", "CVE-2022-46881", "CVE-2022-46885",
+                "CVE-2022-46884");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-01-04 16:52:00 +0000 (Wed, 04 Jan 2023)");
   script_tag(name:"creation_date", value:"2022-10-19 17:19:22 +0530 (Wed, 19 Oct 2022)");
   script_name("Mozilla Firefox Security Update (MFSA2022-44) - Windows");
 
@@ -52,7 +42,9 @@ if(description)
 
   - Memory safety bugs.
 
-  - Memory corruption in WebGL.");
+  - Memory corruption in WebGL.
+
+  - Potential use-after-free in SVG Images.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow
   attackers to run arbitrary code, cause denial of service and disclose
@@ -67,7 +59,7 @@ if(description)
   script_tag(name:"qod_type", value:"registry");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2022-44");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("General");
   script_dependencies("gb_firefox_detect_win.nasl");
   script_mandatory_keys("Firefox/Win/Ver");

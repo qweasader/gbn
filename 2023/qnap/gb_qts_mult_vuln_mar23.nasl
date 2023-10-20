@@ -9,11 +9,14 @@ CPE = "cpe:/o:qnap:qts";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.149471");
-  script_version("2023-03-31T10:19:34+0000");
-  script_tag(name:"last_modification", value:"2023-03-31 10:19:34 +0000 (Fri, 31 Mar 2023)");
+  script_version("2023-10-13T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-03-31 03:54:16 +0000 (Fri, 31 Mar 2023)");
-  script_tag(name:"cvss_base", value:"5.8");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:M/C:P/I:P/A:P");
+  script_tag(name:"cvss_base", value:"9.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-01-05 20:28:00 +0000 (Thu, 05 Jan 2023)");
 
   script_cve_id("CVE-2023-0286", "CVE-2022-4304", "CVE-2023-0215", "CVE-2022-4450",
                 "CVE-2023-22809", "CVE-2023-23355", "CVE-2022-27597", "CVE-2022-27598",
@@ -70,10 +73,21 @@ include("version_func.inc");
 if (!version = get_app_version(cpe: CPE, nofork: TRUE))
   exit(0);
 
-if (version_in_range_exclusive(version: version, test_version_lo: "5.0.1", test_version_up: "5.0.1_20230322")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "5.0.1_20230322");
-  security_message(port: 0, data: report);
-  exit(0);
+build = get_kb_item("qnap/nas/qts/build");
+
+if (version =~ "^5\.0\.1") {
+  if (version_is_less(version: version, test_version: "5.0.1.2234")) {
+    report = report_fixed_ver(installed_version: version, fixed_version: "5.0.1.2234", fixed_build: "20230322");
+    security_message(port: 0, data: report);
+    exit(0);
+  }
+
+  if (version_is_equal(version: version, test_version: "5.0.1.2234") &&
+     (!build || version_is_less(version: build, test_version: "20230322"))) {
+    report = report_fixed_ver(installed_version: version, fixed_version: "5.0.1.2234", fixed_build: "20230322");
+    security_message(port: 0, data: report);
+    exit(0);
+  }
 }
 
 exit(99);

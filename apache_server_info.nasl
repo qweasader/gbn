@@ -1,40 +1,21 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2005 StrongHoldNet
+# SPDX-FileCopyrightText: New NASL / detection code since 2015 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Apache HTTP Server /server-info accessible (HTTP)
-#
-# Authors:
-# Vincent Renardias <vincent@strongholdnet.com>
-#
-# Copyright:
-# Copyright (C) 2005 StrongHoldNet
-# New NASL / detection code since 2015 Copyright (C) 2015 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10678");
-  script_version("2022-01-13T16:09:14+0000");
-  script_tag(name:"last_modification", value:"2022-01-13 16:09:14 +0000 (Thu, 13 Jan 2022)");
+  script_version("2023-10-13T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_name("Apache HTTP Server /server-info accessible (HTTP)");
+  script_name("Apache HTTP Server /server-info Accessible (HTTP)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2005 StrongHoldNet / 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2005 StrongHoldNet / 2015 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);

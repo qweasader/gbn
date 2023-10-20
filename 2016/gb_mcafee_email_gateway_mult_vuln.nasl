@@ -1,39 +1,19 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# McAfee Email Gateway Multiple Vulnerabilities
-#
-# Authors:
-# Shakeel <bshakeel@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mcafee:email_gateway";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807868");
-  script_version("2022-04-13T13:17:10+0000");
+  script_version("2023-07-20T05:05:17+0000");
   script_cve_id("CVE-2013-7103", "CVE-2013-7104", "CVE-2013-7092");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-04-13 13:17:10 +0000 (Wed, 13 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
   script_tag(name:"creation_date", value:"2016-07-14 11:01:01 +0530 (Thu, 14 Jul 2016)");
   script_tag(name:"qod_type", value:"remote_banner");
   script_name("McAfee Email Gateway Multiple Vulnerabilities");
@@ -65,7 +45,7 @@ if (description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/64150");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("General");
   script_dependencies("gb_mcafee_email_gateway_version.nasl");
   script_mandatory_keys("mcafee_email_gateway/product_version", "mcafee_email_gateway/patches");

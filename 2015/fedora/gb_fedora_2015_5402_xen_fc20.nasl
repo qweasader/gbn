@@ -1,33 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2015 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Fedora Update for xen FEDORA-2015-5402
-#
-# Authors:
-# System Generated Check
-#
-# Copyright:
-# Copyright (C) 2015 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.869230");
-  script_version("2022-02-15T14:39:48+0000");
-  script_tag(name:"last_modification", value:"2022-02-15 14:39:48 +0000 (Tue, 15 Feb 2022)");
+  script_version("2023-06-22T10:34:15+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2015-04-12 05:51:42 +0200 (Sun, 12 Apr 2015)");
   script_cve_id("CVE-2015-2752", "CVE-2015-2756", "CVE-2015-2751", "CVE-2015-2152", "CVE-2015-2151", "CVE-2015-2044", "CVE-2015-2045", "CVE-2015-0361", "CVE-2014-9065", "CVE-2014-8866", "CVE-2014-8867", "CVE-2014-9030", "CVE-2014-8594", "CVE-2014-8595", "CVE-2014-0150", "CVE-2014-7188", "CVE-2014-7154", "CVE-2014-7155", "CVE-2014-7156", "CVE-2014-5146", "CVE-2014-4021", "CVE-2014-3967", "CVE-2014-3968", "CVE-2014-3124", "CVE-2014-2599", "CVE-2013-2212", "CVE-2014-1950", "CVE-2014-1891", "CVE-2014-1892", "CVE-2014-1893", "CVE-2014-1894", "CVE-2014-1895", "CVE-2014-1896", "CVE-2014-1666", "CVE-2014-1642", "CVE-2013-6400", "CVE-2013-6885", "CVE-2013-4553", "CVE-2013-4554", "CVE-2013-6375");
   script_tag(name:"cvss_base", value:"8.3");
@@ -43,7 +24,7 @@ if(description)
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/pipermail/package-announce/2015-April/154579.html");
   script_tag(name:"solution_type", value:"VendorFix");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Fedora Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/fedora", "ssh/login/rpms", re:"ssh/login/release=FC20");

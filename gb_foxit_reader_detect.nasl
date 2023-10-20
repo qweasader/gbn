@@ -1,35 +1,16 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Foxit Reader Version Detection
-#
-# Authors:
-# Nikita MR <rnikita@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2009 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800536");
-  script_version("2019-07-31T09:47:07+0000");
+  script_version("2023-06-22T10:34:15+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2019-07-31 09:47:07 +0000 (Wed, 31 Jul 2019)");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2009-03-17 05:28:51 +0100 (Tue, 17 Mar 2009)");
   script_name("Foxit Reader Version Detection");
 
@@ -39,7 +20,7 @@ if(description)
 
   script_tag(name:"qod_type", value:"executable_version");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Product detection");
   script_dependencies("smb_reg_service_pack.nasl");
   script_mandatory_keys("SMB/WindowsVersion", "SMB/Windows/Arch");
@@ -108,7 +89,7 @@ foreach key(key_list){
     }
 
     # Used in gb_foxit_reader_detect_portable_win.nasl to avoid doubled detections.
-    # We're also stripping a possible ending backslash away as the portable NVT is getting
+    # We're also stripping a possible ending backslash away as the portable VT is getting
     # the file path without the ending backslash from WMI.
     tmp_location = tolower(foxitPath);
     tmp_location = ereg_replace(pattern:"\\$", string:tmp_location, replace:'');

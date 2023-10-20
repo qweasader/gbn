@@ -1,28 +1,8 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2014 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# VMSA-2014-0005: VMware Workstation, Player, Fusion, and ESXi patches address a guest privilege escalation (remote check)
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2014 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
@@ -30,13 +10,13 @@ if(description)
   script_cve_id("CVE-2014-3793");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:P/I:P/A:P");
-  script_version("2022-05-31T13:45:57+0100");
-  script_name("VMSA-2014-0005: VMware Workstation, Player, Fusion, and ESXi patches address a guest privilege escalation (remote check)");
-  script_tag(name:"last_modification", value:"2022-05-31 13:45:57 +0100 (Tue, 31 May 2022)");
+  script_version("2023-06-28T05:05:21+0000");
+  script_name("VMware ESXi patches address a guest privilege escalation (VMSA-2014-0005) - Remote Version Check");
+  script_tag(name:"last_modification", value:"2023-06-28 05:05:21 +0000 (Wed, 28 Jun 2023)");
   script_tag(name:"creation_date", value:"2014-06-02 11:04:01 +0100 (Mon, 02 Jun 2014)");
   script_category(ACT_GATHER_INFO);
   script_family("General");
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
   script_dependencies("gb_vmware_esx_web_detect.nasl");
   script_mandatory_keys("VMware/ESX/build", "VMware/ESX/version");
 
@@ -56,8 +36,7 @@ if(description)
 
   script_tag(name:"solution", value:"Apply the missing patch(es).");
 
-  script_tag(name:"summary", value:"VMware Workstation, Player, Fusion, and ESXi patches address a
-  vulnerability in VMware Tools which could result in a privilege escalation on Microsoft Windows 8.1.");
+  script_tag(name:"summary", value:"VMware ESXi patches address a vulnerability in VMware Tools which could result in a privilege escalation on Microsoft Windows 8.1.");
 
   script_tag(name:"affected", value:"ESXi 5.5 without patch ESXi550-201403102-SG
 

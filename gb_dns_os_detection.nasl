@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108014");
-  script_version("2023-03-28T10:19:28+0000");
-  script_tag(name:"last_modification", value:"2023-03-28 10:19:28 +0000 (Tue, 28 Mar 2023)");
+  script_version("2023-09-26T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2023-09-26 05:05:30 +0000 (Tue, 26 Sep 2023)");
   script_tag(name:"creation_date", value:"2016-11-03 14:13:48 +0100 (Thu, 03 Nov 2016)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -132,17 +132,37 @@ foreach proto( make_list( "udp", "tcp" ) ) {
       continue;
     }
 
+    # PowerDNS Authoritative Server 3.4.1 (jenkins@autotest.powerdns.com built 20171202211242 root@x86-ubc-01.debian.org)
+    #
+    # nb:
+    # - Seems only Debian 8 and later included the OS info
+    # - Order matters a little so that e.g. "~bpo11" in "9.18.16-1~deb12u1~bpo11+1-Debian" is
+    #   detected before "~deb12" as we need to detect Debian 11 and not Debian 12 in this case.
+    #
+    # 9.9.5-9+deb8u6-Debian
+    # 9.9.5-9+deb8u29-Debian
+    # 9.11.2-P1-1~bpo9+1-Debian
+    # 9.11.5-P4-5~bpo9+1-Debian
     # 9.11.5-P4-5.1+deb10u1-Debian
+    # 9.18.16-1~deb12u1~bpo11+1-Debian
+    # 9.18.12-1~bpo11+1-Debian
+    # 9.16.44-Debian (this was bind9 package 1:9.16.44-1~deb11u1 and the banner didn't included the "-1")
+    # nb: On Debian 12/bookworn the versioning scheme changed to include the "-1" from the package:
+    # 9.18.16-1-Debian (for bind9 package 1:9.18.16-1~deb12u1)
+    # 9.18.19-1-Debian (for bind9 package 1:9.18.19-1~deb12u1)
+    # also seens the following for Debian 12 (banner info might depend on some configuration or similar):
+    # 9.18.16-1~deb12u1-Debian
+    # 9.18.19-1~deb12u1-Debian
     if( "-Debian" >< banner || ( "PowerDNS Authoritative Server" >< banner && "debian.org)" >< banner ) ) {
-      if( "+deb8" >< banner ) {
+      if( "~deb8" >< banner || "+deb8" >< banner ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"8", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:proto, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
-      } else if( "9.10.3-P4-Debian" >< banner || "+deb9" >< banner ) {
+      } else if( "9.10.3-P4-Debian" >< banner || "~deb9" >< banner || "+deb9" >< banner || "~bpo9" >< banner ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"9", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:proto, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
-      } else if( "9.11.5-P4-5.1-Debian" >< banner || "+deb10" >< banner ) {
+      } else if( "9.11.5-P4-5.1-Debian" >< banner || "~deb10" >< banner || "+deb10" >< banner || "~bpo10" >< banner ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"10", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:proto, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
-      } else if( "9.16.33-Debian" >< banner || "9.16.27-Debian" >< banner || "9.16.37-Debian" >< banner || "+deb11" >< banner ) {
+      } else if( "9.16.33-Debian" >< banner || "9.16.27-Debian" >< banner || "9.16.37-Debian" >< banner || "9.16.42-Debian" >< banner || "9.16.44-Debian" >< banner || "~deb11" >< banner || "+deb11" >< banner || "~bpo11" >< banner ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"11", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:proto, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
-      } else if( "+deb12" >< banner ) {
+      } else if( "9.18.16-1-Debian" >< banner || "9.18.19-1-Debian" >< banner || "~deb12" >< banner || "+deb12" >< banner || "~bpo12" >< banner ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"12", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:proto, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       } else {
         os_register_and_report( os:"Debian GNU/Linux", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:proto, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );

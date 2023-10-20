@@ -1,51 +1,31 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2018 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Silver Peak Appliance Detection (SNMP)
-#
-# Authors:
-# Christian Kuersteiner <christian.kuersteiner@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2018 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141389");
-  script_version("2021-03-24T10:08:26+0000");
-  script_tag(name:"last_modification", value:"2021-03-24 10:08:26 +0000 (Wed, 24 Mar 2021)");
+  script_version("2023-08-10T05:05:53+0000");
+  script_tag(name:"last_modification", value:"2023-08-10 05:05:53 +0000 (Thu, 10 Aug 2023)");
   script_tag(name:"creation_date", value:"2018-08-23 12:36:07 +0700 (Thu, 23 Aug 2018)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_name("Silver Peak Appliance Detection (SNMP)");
-
-  script_tag(name:"summary", value:"This script performs an SNMP based detection of Silver Peak appliances.");
+  script_name("Aruba / Silver Peak Appliance Detection (SNMP)");
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Product detection");
-  script_dependencies("gb_snmp_sysdescr_detect.nasl");
+  script_dependencies("gb_snmp_info_collect.nasl");
   script_require_udp_ports("Services/udp/snmp", 161);
   script_mandatory_keys("SNMP/sysdescr/available");
+
+  script_tag(name:"summary", value:"SNMP based detection of Aruba / Silver Peak appliances.");
 
   exit(0);
 }
@@ -58,13 +38,16 @@ port = snmp_get_port(default: 161);
 if (!sysdesc = snmp_get_sysdescr(port: port))
   exit(0);
 
-if (sysdesc !~ "Silver Peak Systems, Inc\. (EC|NX|VX)" || "VXOA " >!< sysdesc)
+if (sysdesc !~ "Silver Peak Systems, Inc\. (EC|NX|VX)" || sysdesc !~ "(VXOA |ECOS)")
   exit(0);
 
-set_kb_item(name: "silverpeak_appliance/detected", value: TRUE);
-set_kb_item(name: "silverpeak_appliance/snmp/detected", value: TRUE);
-set_kb_item(name: "silverpeak_appliance/snmp/port", value: port);
-set_kb_item(name: "silverpeak_appliance/snmp/" + port + "/concluded", value: sysdesc);
+model = "unknown";
+version = "unknown";
+
+set_kb_item(name: "silverpeak/appliance/detected", value: TRUE);
+set_kb_item(name: "silverpeak/appliance/snmp/detected", value: TRUE);
+set_kb_item(name: "silverpeak/appliance/snmp/port", value: port);
+set_kb_item(name: "silverpeak/appliance/snmp/" + port + "/concluded", value: sysdesc);
 
 #Silver Peak Systems, Inc. ECV
 #Linux $hostname 2.6.38.6-rc1 #1 VXOA 8.1.8.0_71257 SMP Mon Jun 18 15:28:45 PDT 2018 x86_64
@@ -78,6 +61,9 @@ set_kb_item(name: "silverpeak_appliance/snmp/" + port + "/concluded", value: sys
 #Silver Peak Systems, Inc. ECM
 #Linux $hostname 2.6.38.6-rc1 #1 VXOA 8.1.6.0_67090 SMP Fri Sep 15 17:35:59 PDT 2017 x86_64
 #
+#Silver Peak Systems, Inc. ECV
+#Linux test-ECV01 4.19.87-sps #1 SMP PREEMPT Wed Sep 28 11:24:27 UTC 2022 ECOS 9.1.4.1_92329 #1-dev 2022-11-16 12:49:46 x86_64 sptest@yocto-app-build6:unknown
+#
 #Based on -> https://www.silver-peak.com/products/wan-optimization/nx-physical-appliances
 #Silver Peak Systems, Inc. NX11k
 #Linux ...
@@ -85,12 +71,18 @@ set_kb_item(name: "silverpeak_appliance/snmp/" + port + "/concluded", value: sys
 #Silver Peak Systems, Inc. NX5700
 #Linux $hostname 2.6.38.6-rc1 #1 VXOA 8.1.5.9_69125 SMP Wed Feb 28 14:54:46 PST 2018 x86_64
 #
-mod = eregmatch(pattern: "Silver Peak Systems, Inc. ((EC(V|XS|S|M|L|XL))|NX[0-9]+k?|VX[0-9]+)", string: sysdesc);
+mod = eregmatch(pattern: "Silver Peak Systems, Inc. ((EC(V|XS|S|M|L|XL|US))|NX[0-9]+k?|VX[0-9]+)", string: sysdesc);
 if (!isnull(mod[1]))
-  set_kb_item(name: "silverpeak_appliance/snmp/" + port + "/model", value: mod[1]);
+  model = mod[1];
 
-vers = eregmatch(pattern: "VXOA ([0-9._]+)", string: sysdesc);
+vers = eregmatch(pattern: "VXOA ([0-9.]+)", string: sysdesc);
+if (isnull(vers[1]))
+  vers = eregmatch(pattern: "ECOS ([0-9.]+)", string: sysdesc);
+
 if (!isnull(vers[1]))
-  set_kb_item(name: "silverpeak_appliance/snmp/" + port + "/version", value: vers[1]);
+  version = vers[1];
+
+set_kb_item(name: "silverpeak/appliance/snmp/" + port + "/model", value: model);
+set_kb_item(name: "silverpeak/appliance/snmp/" + port + "/version", value: version);
 
 exit(0);

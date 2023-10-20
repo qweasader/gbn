@@ -1,45 +1,23 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2012 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Adobe Shockwave Player Multiple Vulnerabilities - Feb 2012 (MAC OS X)
-#
-# Authors:
-# Rachana Shetty <srachana@secpod.com>
-#
-# Updated By: Rajat Mishra <rajatm@secpod.com> on 2018-02-19
-# - Updated to include Installation path in the report.
-#
-# Copyright:
-# Copyright (C) 2012 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:adobe:shockwave_player";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802399");
-  script_version("2022-04-27T12:01:52+0000");
+  script_version("2023-10-13T16:09:03+0000");
   script_cve_id("CVE-2012-0757", "CVE-2012-0759", "CVE-2012-0760", "CVE-2012-0761",
                 "CVE-2012-0762", "CVE-2012-0763", "CVE-2012-0764", "CVE-2012-0766",
                 "CVE-2012-0758", "CVE-2012-0771");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-04-27 12:01:52 +0000 (Wed, 27 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2012-02-17 13:34:43 +0530 (Fri, 17 Feb 2012)");
-  script_name("Adobe Shockwave Player Multiple Vulnerabilities - Feb 2012 (MAC OS X)");
+  script_name("Adobe Shockwave Player Multiple Vulnerabilities (Feb 2012) - Mac OS X");
   script_xref(name:"URL", value:"http://secunia.com/advisories/47932/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51999");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/52000");
@@ -54,14 +32,14 @@ if(description)
   script_xref(name:"URL", value:"http://www.adobe.com/support/security/bulletins/apsb12-02.html");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("General");
   script_dependencies("secpod_adobe_shockwave_detect_macosx.nasl");
   script_mandatory_keys("Adobe/Shockwave/MacOSX/Version");
   script_tag(name:"impact", value:"Successful exploitation will allow attackers to cause denial of service or
   execute arbitrary code by tricking a user into visiting a specially crafted
   web page.");
-  script_tag(name:"affected", value:"Adobe Shockwave Player Versions 11.6.3.633 and prior on Mac OS X");
+  script_tag(name:"affected", value:"Adobe Shockwave Player Versions 11.6.3.633 and prior on Mac OS X.");
   script_tag(name:"insight", value:"The flaws are due to memory corruptions errors in Shockwave 3D Asset
   component when processing malformed file.");
   script_tag(name:"solution", value:"Upgrade to Adobe Shockwave Player version 11.6.4.634 or later.");

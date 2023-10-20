@@ -25,10 +25,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.2.1.2023.01");
   script_cve_id("CVE-2023-23597", "CVE-2023-23598", "CVE-2023-23599", "CVE-2023-23601", "CVE-2023-23602", "CVE-2023-23603", "CVE-2023-23604", "CVE-2023-23605", "CVE-2023-23606");
   script_tag(name:"creation_date", value:"2023-01-18 09:32:25 +0000 (Wed, 18 Jan 2023)");
-  script_version("2023-02-16T10:19:47+0000");
-  script_tag(name:"last_modification", value:"2023-02-16 10:19:47 +0000 (Thu, 16 Feb 2023)");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
+  script_version("2023-10-13T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-06-08 13:51:00 +0000 (Thu, 08 Jun 2023)");
 
   script_name("Mozilla Firefox Security Advisory (MFSA2023-01) - Linux");
   script_category(ACT_GATHER_INFO);

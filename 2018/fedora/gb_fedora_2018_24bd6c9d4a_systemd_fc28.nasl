@@ -1,45 +1,24 @@
-###############################################################################
-# OpenVAS Vulnerability Test
-#
-# Fedora Update for systemd FEDORA-2018-24bd6c9d4a
-#
-# Authors:
-# System Generated Check
-#
-# Copyright:
-# Copyright (C) 2018 Greenbone Networks GmbH, http://www.greenbone.net
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.875239");
-  script_version("2022-02-02T03:03:45+0000");
+  script_version("2023-06-28T05:05:21+0000");
   script_cve_id("CVE-2018-15687", "CVE-2018-15686", "CVE-2018-15688");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-02-02 03:03:45 +0000 (Wed, 02 Feb 2022)");
+  script_tag(name:"last_modification", value:"2023-06-28 05:05:21 +0000 (Wed, 28 Jun 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-07-28 16:33:00 +0000 (Wed, 28 Jul 2021)");
   script_tag(name:"creation_date", value:"2018-11-05 06:18:32 +0100 (Mon, 05 Nov 2018)");
   script_name("Fedora Update for systemd FEDORA-2018-24bd6c9d4a");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Fedora Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/fedora", "ssh/login/rpms", re:"ssh/login/release=FC28");

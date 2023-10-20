@@ -7,11 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.827320");
-  script_version("2023-03-23T10:19:31+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2023-23934", "CVE-2023-25577");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-03-23 10:19:31 +0000 (Thu, 23 Mar 2023)");
+  script_tag(name:"cvss_base", value:"7.8");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-02-23 22:21:00 +0000 (Thu, 23 Feb 2023)");
   script_tag(name:"creation_date", value:"2023-03-17 02:03:44 +0000 (Fri, 17 Mar 2023)");
   script_name("Fedora: Security Advisory for mingw-python-werkzeug (FEDORA-2023-af75e27098)");
   script_category(ACT_GATHER_INFO);

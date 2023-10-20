@@ -1,35 +1,21 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108021");
-  script_version("2021-08-12T13:22:20+0000");
-  script_tag(name:"last_modification", value:"2021-08-12 13:22:20 +0000 (Thu, 12 Aug 2021)");
+  script_version("2023-06-22T10:34:15+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2016-11-21 12:08:04 +0100 (Mon, 21 Nov 2016)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_name("Nmap OS Identification (NASL wrapper)");
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   # This should run after os_fingerprint.nasl so we're only running it if its really required
   script_dependencies("secpod_open_tcp_ports.nasl", "toolcheck.nasl", "os_fingerprint.nasl");
   script_mandatory_keys("TCP/PORTS", "Tools/Present/nmap");
@@ -74,7 +60,7 @@ if( ! run_routine )
 if( run_routine == "no" )
   exit( 0 );
 
-# nb: We only want to run this NVT as a "last fallback" if all of the other OS
+# nb: We only want to run this VT as a "last fallback" if all of the other OS
 # detections failed. This is due to the reasons explained in the script summary.
 # Furthermore we want to run it if os_fingerprint.nasl is the only detection
 # method and has a low confidence (it isn't that reliable these days...).
@@ -277,7 +263,7 @@ if( osTxt[2] ) {
   if( "windows" >< tolower( osTxt[2] ) )
     runs_key = "windows";
   else
-    runs_key = "unixoide"; # nb: This is also used as a fallback for unknown OS variants to make sure that we still scheduling NVTs using Host/runs_unixoide
+    runs_key = "unixoide"; # nb: This is also used as a fallback for unknown OS variants to make sure that we still scheduling VTs using Host/runs_unixoide
   os_register_and_report( os:osTxt[2], banner_type:"Nmap TCP/IP fingerprinting", banner:'\n' + osTxt[0], desc:"Nmap OS Identification (NASL wrapper)", runs_key:runs_key );
 }
 

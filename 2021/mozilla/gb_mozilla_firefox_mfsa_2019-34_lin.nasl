@@ -1,32 +1,18 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mozilla:firefox";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.2.1.2019.34");
-  script_cve_id("CVE-2018-6156", "CVE-2019-11757", "CVE-2019-11759", "CVE-2019-11760", "CVE-2019-11761", "CVE-2019-11762", "CVE-2019-11763", "CVE-2019-11764", "CVE-2019-11765", "CVE-2019-15903", "CVE-2019-17000", "CVE-2019-17001", "CVE-2019-17002", "CVE-2020-12412");
+  script_cve_id("CVE-2018-6156", "CVE-2019-11757", "CVE-2019-11759", "CVE-2019-11760", "CVE-2019-11761", "CVE-2019-11762", "CVE-2019-11763", "CVE-2019-11764", "CVE-2019-11765", "CVE-2019-15903", "CVE-2019-17000", "CVE-2019-17001", "CVE-2019-17002", "CVE-2019-25136", "CVE-2020-12412");
   script_tag(name:"creation_date", value:"2021-11-08 15:21:25 +0000 (Mon, 08 Nov 2021)");
-  script_version("2023-03-02T10:19:53+0000");
-  script_tag(name:"last_modification", value:"2023-03-02 10:19:53 +0000 (Thu, 02 Mar 2023)");
+  script_version("2023-06-20T05:05:27+0000");
+  script_tag(name:"last_modification", value:"2023-06-20 05:05:27 +0000 (Tue, 20 Jun 2023)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
@@ -35,7 +21,7 @@ if(description)
 
   script_name("Mozilla Firefox Security Advisory (MFSA2019-34) - Linux");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("General");
   script_dependencies("gb_firefox_detect_lin.nasl");
   script_mandatory_keys("mozilla/firefox/linux/detected");
@@ -46,6 +32,7 @@ if(description)
   script_xref(name:"URL", value:"https://bugzilla.mozilla.org/show_bug.cgi?id=1441468");
   script_xref(name:"URL", value:"https://bugzilla.mozilla.org/show_bug.cgi?id=1480088");
   script_xref(name:"URL", value:"https://bugzilla.mozilla.org/show_bug.cgi?id=1528587");
+  script_xref(name:"URL", value:"https://bugzilla.mozilla.org/show_bug.cgi?id=1530709");
   script_xref(name:"URL", value:"https://bugzilla.mozilla.org/show_bug.cgi?id=1561056");
   script_xref(name:"URL", value:"https://bugzilla.mozilla.org/show_bug.cgi?id=1561502");
   script_xref(name:"URL", value:"https://bugzilla.mozilla.org/show_bug.cgi?id=1562582");
@@ -70,6 +57,9 @@ In libexpat before 2.2.8, crafted XML input could fool the parser into changing 
 CVE-2019-11757: Use-after-free when creating index updates in IndexedDB
 When storing a value in IndexedDB, the value's prototype chain is followed and it was possible to retain a reference to a locale, delete it, and subsequently reference it. This resulted in a use-after-free and a potentially exploitable crash.
 
+CVE-2019-25136: Invalid styles allowed from content processes
+A compromised child process could have injected XBL Bindings into privileged CSS rules, resulting in arbitrary code execution and a sandbox escape.
+
 CVE-2020-12412: Address bar spoof using history navigation and blocked ports
 By navigating a tab using the history API, an attacker could cause the address bar to display the incorrect domain (with the https:// scheme, a blocked port number such as '1', and without a lock icon) while controlling the page contents.
 
@@ -86,10 +76,7 @@ CVE-2019-11762: document.domain-based origin isolation has same-origin-property 
 If two same-origin documents set document.domain differently to become cross-origin, it was possible for them to call arbitrary DOM methods/getters/setters on the now-cross-origin window.
 
 CVE-2019-11763: Incorrect HTML parsing results in XSS bypass technique
-Failure to correctly handle null bytes when processing HTML entities resulted in Firefox incorrectly parsing these entities. This could have led to HTML comment text being treated as HTML which could have led to XSS in a web application under certain conditions. It could have also led to HTML entities being masked from filters, enabling the use of entities to mask the actual characters of interest from filters.
-
-CVE-2019-11765: Incorrect permissions could be granted to a website
-A compromised content process could send a message to the parent process that would cause the 'Click to Play' permission ... [Please see the references for more information on the vulnerabilities]");
+Failure to correctly handle null bytes when processing HTML entities resulted in Firefox incorrectly parsing these entities. This could have led to HTML comment text being treated as HTML which could have led to XSS in a web application under certain conditions. It could have also led to HTML entities being masked from filters, enabling the use of entities to mask the actual characters of ... [Please see the references for more information on the vulnerabilities]");
 
   script_tag(name:"affected", value:"Firefox version(s) below 70.");
 

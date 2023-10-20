@@ -1,36 +1,16 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2018 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Rockwell Automation MicroLogix Detection (EtherNet/IP)
-#
-# Authors:
-# Christian Kuersteiner <christian.kuersteiner@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2018 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 include("plugin_feed_info.inc");
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141771");
-  script_version("2020-11-10T15:30:28+0000");
-  script_tag(name:"last_modification", value:"2020-11-10 15:30:28 +0000 (Tue, 10 Nov 2020)");
+  script_version("2023-08-11T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2023-08-11 05:05:41 +0000 (Fri, 11 Aug 2023)");
   script_tag(name:"creation_date", value:"2018-12-12 12:47:16 +0700 (Wed, 12 Dec 2018)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -45,7 +25,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_ethernetip_tcp_detect.nasl");
   if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
@@ -67,13 +47,13 @@ if (!vendor || vendor !~ "^Rockwell Automation")
   exit(0);
 
 prod_name = get_kb_item("ethernetip/" + port + "/" + proto + "/product_name");
-if (!prod_name || prod_name !~ "^17")
+# MicroLogix product name start with 176x (e.g. 1766-L32BXBA)
+if (!prod_name || prod_name !~ "^176")
   exit(0);
 
 set_kb_item(name: "rockwell_micrologix/detected", value: TRUE);
 set_kb_item(name: "rockwell_micrologix/ethernetip/detected", value: TRUE);
 set_kb_item(name: "rockwell_micrologix/ethernetip/port", value: port);
-set_kb_item(name: "rockwell_micrologix/ethernetip/proto", value: proto);
 set_kb_item(name: "rockwell_micrologix/ethernetip/" + port + "/proto", value: proto);
 
 mod = eregmatch(pattern: "([^/ ]+)", string: prod_name);

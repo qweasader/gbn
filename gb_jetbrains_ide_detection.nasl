@@ -1,34 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2017 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# JetBrains IDE Detection
-#
-# Authors:
-# Tameem Eissa <tameem.eissa@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2017 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107232");
-  script_version("2020-08-24T15:18:35+0000");
-  script_tag(name:"last_modification", value:"2020-08-24 15:18:35 +0000 (Mon, 24 Aug 2020)");
+  script_version("2023-07-12T05:05:04+0000");
+  script_tag(name:"last_modification", value:"2023-07-12 05:05:04 +0000 (Wed, 12 Jul 2023)");
   script_tag(name:"creation_date", value:"2017-08-25 11:19:19 +0700 (Fri, 25 Aug 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -37,16 +17,14 @@ if (description)
 
   script_name("JetBrains IDE Detection (HTTP)");
 
-  script_tag(name:"summary", value:"Detection of JetBrains IDE products.
-
-  This script tries to detect various JetBrains IDE products via HTTP GET request.");
+  script_tag(name:"summary", value:"HTTP based detection of JetBrains IDE products.");
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_get_http_banner.nasl");
-  script_require_ports("Services/www", 8080, 8090, 63342);
+  script_require_ports("Services/www", 8090);
   script_mandatory_keys("JetBrainsIDEs/banner");
 
   script_xref(name:"URL", value:"https://www.jetbrains.com/");
@@ -67,11 +45,13 @@ banner = http_get_remote_headers( port: port );
 if( ! banner )
   exit( 0 );
 
-if( ! concl = egrep( string: banner, pattern:"server: (PyCharm|WebStorm|CLion|DataGrip|IntelliJ IDEA|JetBrains MPS|jetBrains Rider|RubyMine)", icase: TRUE ) )
+if( ! concl = egrep( string: banner, pattern:"server\s*:\s*(PyCharm|WebStorm|CLion|DataGrip|IntelliJ IDEA|JetBrains MPS|jetBrains Rider|RubyMine)", icase: TRUE ) )
   exit( 0 );
 
 concl = chomp( concl );
 set_kb_item( name: "jetBrains/installed", value: TRUE);
+set_kb_item( name: "jetbrains/product/detected", value: TRUE);
+set_kb_item( name: "jetbrains/product/http/detected", value: TRUE);
 
 random = rand_str( length: 13, charset: "0123456789" );
 url = "/api/about?more-true?a=" + random;
@@ -107,7 +87,7 @@ if (!cpe)
 
 register_product( cpe: cpe, port: port, location: "/", service: "www" );
 
-log_message(data: build_detection_report( app: "jetBrains " + ide_name , version: ide_version, install: "/",
+log_message(data: build_detection_report( app: "JetBrains " + ide_name , version: ide_version, install: "/",
                                           cpe: cpe, concluded: concl, concludedUrl: url),
             port: port );
 

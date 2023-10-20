@@ -1,34 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2017 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Schneider Electric Modicon M340 DoS Vulnerability
-#
-# Authors:
-# Christian Kuersteiner <christian.kuersteiner@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2017 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106630");
-  script_version("2021-09-13T14:16:31+0000");
-  script_tag(name:"last_modification", value:"2021-09-13 14:16:31 +0000 (Mon, 13 Sep 2021)");
+  script_version("2023-08-11T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2023-08-11 05:05:41 +0000 (Fri, 11 Aug 2023)");
   script_tag(name:"creation_date", value:"2017-03-03 14:24:24 +0700 (Fri, 03 Mar 2017)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
@@ -45,7 +25,7 @@ if (description)
   script_name("Schneider Electric Modicon M340 DoS Vulnerability");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Denial of Service");
   script_dependencies("gb_schneider_modbus_detect.nasl");
   script_mandatory_keys("schneider_electric/detected", "schneider_electric/product", "schneider_electric/version");
@@ -84,10 +64,10 @@ version = get_kb_item("schneider_electric/version");
 if (!version)
   exit(0);
 
-if (prod == "BMX NOC 0401" || prod == "BMX NOE 0100" || prod == "BMX NOE 0110" || prod == "BMX NOE 0110H" ||
-    prod == "BMX NOR 0200H" || prod == "BMX P34 1000" || prod == "BMX P34 2000" || prod == "BMX P34 20102" ||
-    prod == "BMX P34 20102CL" || prod == "BMX P34 2020" || prod == "BMX P34 2020H" || prod == "BMX P34 2030" ||
-    prod == "BMX P34 20302" || prod == "BMX P34 20302H" || prod == "BMX P34 2030H") {
+if (prod =~ "^BMX\s*NOC\s*0401$" || prod =~ "^BMX\s*NOE\s*0100$" || prod =~ "^BMX\s*NOE\s*0110$" || prod =~ "^BMX\s*NOE\s*0110H$" ||
+    prod =~ "^BMX\s*NOR\s*0200H$" || prod =~ "^BMX\s*P34\s*1000$" || prod =~ "^BMX\s*P34\s*2000$" || prod =~ "^BMX\s*P34\s*20102$" ||
+    prod =~ "^BMX\s*P34\s*20102CL$" || prod =~ "^BMX\s*P34\s*2020$" || prod =~ "^BMX\s*P34\s*2020H$" || prod =~ "^BMX\s*P34\s*2030$" ||
+    prod =~ "^BMX\s*P34\s*20302$" || prod =~ "^BMX\s*P34\s*20302H$" || prod =~ "^BMX\s*P34\s*2030H$") {
   if (version_is_less(version: version, test_version: "2.9")) {
     report = report_fixed_ver(installed_version: version, fixed_version: "2.9");
     security_message(port: 0, data: report);
@@ -95,4 +75,4 @@ if (prod == "BMX NOC 0401" || prod == "BMX NOE 0100" || prod == "BMX NOE 0110" |
   }
 }
 
-exit(0);
+exit(99);

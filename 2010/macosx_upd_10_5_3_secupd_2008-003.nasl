@@ -1,33 +1,14 @@
-###################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2010 LSS
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Mac OS X 10.5.3 Update / Mac OS X Security Update 2008-003
-#
-# LSS-NVT-2010-020
-#
-# Developed by LSS Security Team <http://security.lss.hr>
-#
-# Copyright (C) 2010 LSS <http://www.lss.hr>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public
-# License along with this program. If not, see
-# <http://www.gnu.org/licenses/>.
-###################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.102031");
-  script_version("2021-09-20T13:38:59+0000");
-  script_tag(name:"last_modification", value:"2021-09-20 13:38:59 +0000 (Mon, 20 Sep 2021)");
+  script_version("2023-08-01T13:29:10+0000");
+  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
   script_tag(name:"creation_date", value:"2010-05-12 14:48:44 +0200 (Wed, 12 May 2010)");
   script_cve_id("CVE-2008-1027", "CVE-2005-3352", "CVE-2005-3357", "CVE-2006-3747", "CVE-2007-1863",
                 "CVE-2007-3847", "CVE-2007-4465", "CVE-2007-5000", "CVE-2007-6388", "CVE-2008-1028",

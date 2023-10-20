@@ -10,16 +10,16 @@ if (description)
   script_cve_id("CVE-2014-4863");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_version("2023-04-18T10:19:20+0000");
+  script_version("2023-08-10T05:05:53+0000");
 
   script_name("Arris DOCSIS Password Disclosure");
 
-  script_tag(name:"last_modification", value:"2023-04-18 10:19:20 +0000 (Tue, 18 Apr 2023)");
+  script_tag(name:"last_modification", value:"2023-08-10 05:05:53 +0000 (Thu, 10 Aug 2023)");
   script_tag(name:"creation_date", value:"2014-08-25 12:47:33 +0100 (Mon, 25 Aug 2014)");
   script_category(ACT_ATTACK);
   script_family("SNMP");
   script_copyright("Copyright (C) 2014 Greenbone AG");
-  script_dependencies("gb_snmp_sysdescr_detect.nasl");
+  script_dependencies("gb_snmp_info_collect.nasl");
   script_require_udp_ports("Services/udp/snmp", 161);
   script_mandatory_keys("SNMP/sysdescr/available");
 

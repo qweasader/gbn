@@ -1,35 +1,24 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mozilla:firefox_esr";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826424");
-  script_version("2022-08-26T10:12:16+0000");
+  script_version("2023-10-19T05:05:21+0000");
   script_cve_id("CVE-2022-38472", "CVE-2022-38473", "CVE-2022-38478");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-08-26 10:12:16 +0000 (Fri, 26 Aug 2022)");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-12-31 02:35:00 +0000 (Sat, 31 Dec 2022)");
   script_tag(name:"creation_date", value:"2022-08-25 12:47:43 +0530 (Thu, 25 Aug 2022)");
-  script_name("Mozilla Firefox ESR Security Update(mfsa2022-35) - MAC OS X");
+  script_name("Mozilla Firefox ESR Security Update(mfsa2022-35) - Mac OS X");
 
   script_tag(name:"summary", value:"Mozilla Firefox ESR is prone to multiple
   vulnerabilities.");
@@ -50,7 +39,7 @@ if(description)
   on affected system.");
 
   script_tag(name:"affected", value:"Mozilla Firefox ESR version before
-  91.13 on MAC OS X.");
+  91.13 on Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade to Mozilla Firefox ESR version
   91.13 or later, Please see the references for more information.");
@@ -59,7 +48,7 @@ if(description)
   script_tag(name:"qod_type", value:"executable_version");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2022-35");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("General");
   script_dependencies("gb_mozilla_prdts_detect_macosx.nasl");
   script_mandatory_keys("Mozilla/Firefox-ESR/MacOSX/Version");

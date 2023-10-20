@@ -1,34 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2015 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Microsoft Internet Explorer Multiple Vulnerabilities (3116180)
-#
-# Authors:
-# Shakeel <bshakeel@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2015 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:microsoft:ie";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806646");
-  script_version("2020-10-29T15:35:19+0000");
+  script_version("2023-07-25T05:05:58+0000");
   script_cve_id("CVE-2015-6083", "CVE-2015-6134", "CVE-2015-6135", "CVE-2015-6136",
                 "CVE-2015-6138", "CVE-2015-6139", "CVE-2015-6140", "CVE-2015-6141",
                 "CVE-2015-6142", "CVE-2015-6143", "CVE-2015-6144", "CVE-2015-6145",
@@ -39,7 +20,7 @@ if(description)
                 "CVE-2015-6162", "CVE-2015-6164");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2020-10-29 15:35:19 +0000 (Thu, 29 Oct 2020)");
+  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
   script_tag(name:"creation_date", value:"2015-12-09 11:34:00 +0530 (Wed, 09 Dec 2015)");
   script_tag(name:"qod_type", value:"executable_version");
   script_name("Microsoft Internet Explorer Multiple Vulnerabilities (3116180)");
@@ -87,7 +68,7 @@ if(description)
   script_xref(name:"URL", value:"https://technet.microsoft.com/library/security/MS15-124");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
   script_dependencies("gb_ms_ie_detect.nasl");
   script_require_ports(139, 445);

@@ -1,62 +1,47 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2013 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Buffalo TeraStation Multiple Security Vulnerabilities
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2013 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
-CPE = "cpe:/h:buffalotech:nas";
+CPE_PREFIX = "cpe:/o:buffalo";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103650");
-  script_version("2022-04-25T14:50:49+0000");
-  script_name("Buffalo TeraStation Multiple Security Vulnerabilities");
+  script_version("2023-09-20T05:05:13+0000");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:P/A:N");
-  script_tag(name:"last_modification", value:"2022-04-25 14:50:49 +0000 (Mon, 25 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-09-20 05:05:13 +0000 (Wed, 20 Sep 2023)");
   script_tag(name:"creation_date", value:"2013-01-31 12:41:05 +0100 (Thu, 31 Jan 2013)");
-  script_category(ACT_ATTACK);
-  script_family("Web application abuses");
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
-  script_dependencies("gb_buffalotech_nas_web_detect.nasl", "os_detection.nasl");
-  script_mandatory_keys("buffalo/nas/detected");
 
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/57634");
-
-  script_tag(name:"solution", value:"No known solution was made available for at least one year
-  since the disclosure of this vulnerability. Likely none will be provided anymore.
-  General solution options are to upgrade to a newer release, disable respective features,
-  remove the product or replace the product by another one.");
-
-  script_tag(name:"summary", value:"Buffalo TeraStation is prone to an arbitrary file download and an
-  arbitrary command-injection vulnerability because it fails to sufficiently sanitize user-supplied data.");
-
-  script_tag(name:"impact", value:"An attacker can exploit these issues to download arbitrary files and
-  execute arbitrary-commands with root privilege within the context of the vulnerable system. Successful
-  exploits will result in the complete compromise of affected system.");
+  script_tag(name:"qod_type", value:"remote_app");
 
   script_tag(name:"solution_type", value:"WillNotFix");
-  script_tag(name:"qod_type", value:"remote_app");
+
+  # nb: Since it is not clear which devices are affected, we check all Buffalo NAS, not only TeraStation
+  script_name("Buffalo TeraStation Multiple Security Vulnerabilities (Jan 2013)");
+
+  script_category(ACT_ATTACK);
+  script_family("Web application abuses");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
+  script_dependencies("gb_buffalo_nas_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("buffalo/nas/detected");
+
+  script_tag(name:"summary", value:"Buffalo TeraStation is prone to an arbitrary file download and an
+  arbitrary command-injection vulnerability because it fails to sufficiently sanitize user-supplied
+  data.");
+
+  script_tag(name:"impact", value:"An attacker can exploit these issues to download arbitrary files
+  and execute arbitrary-commands with root privilege within the context of the vulnerable system.
+  Successful exploits will result in the complete compromise of affected system.");
+
+  script_tag(name:"solution", value:"No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
+  options are to upgrade to a newer release, disable respective features, remove the product or
+  replace the product by another one.");
+
+  script_xref(name:"URL", value:"https://web.archive.org/web/20200229104610/https://www.securityfocus.com/bid/57634");
 
   exit(0);
 }
@@ -67,8 +52,11 @@ include("host_details.inc");
 include("os_func.inc");
 include("misc_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) )
+if( ! infos = get_app_port_from_cpe_prefix( cpe:CPE_PREFIX, service:"www" ) )
   exit( 0 );
+
+port = infos["port"];
+CPE  = infos["cpe"];
 
 if( ! dir = get_app_location( port:port, cpe:CPE ) )
   exit( 0 );

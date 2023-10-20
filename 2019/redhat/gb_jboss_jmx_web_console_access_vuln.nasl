@@ -1,30 +1,16 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:redhat:jboss_application_server";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.142595");
-  script_version("2022-05-13T07:00:26+0000");
-  script_tag(name:"last_modification", value:"2022-05-13 07:00:26 +0000 (Fri, 13 May 2022)");
+  script_version("2023-09-06T05:05:19+0000");
+  script_tag(name:"last_modification", value:"2023-09-06 05:05:19 +0000 (Wed, 06 Sep 2023)");
   script_tag(name:"creation_date", value:"2019-07-12 06:01:03 +0000 (Fri, 12 Jul 2019)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -39,9 +25,10 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("Web Servers");
-  script_dependencies("gb_red_hat_jboss_prds_http_detect.nasl", "gb_red_hat_jboss_eap_http_detect.nasl");
+  script_dependencies("gb_red_hat_jboss_prds_http_detect.nasl", "gb_red_hat_jboss_eap_http_detect.nasl",
+                      "sw_redhat_wildfly_http_detect.nasl");
   script_require_ports("Services/www", 8080);
   script_mandatory_keys("redhat/jboss/prds/http/detected");
 
@@ -70,7 +57,8 @@ include("http_func.inc");
 include("http_keepalive.inc");
 
 cpe_list = make_list("cpe:/a:redhat:jboss_application_server",
-                     "cpe:/a:redhat:jboss_enterprise_application_platform");
+                     "cpe:/a:redhat:jboss_enterprise_application_platform",
+                     "cpe:/a:redhat:jboss_wildfly_application_server");
 
 if (!infos = get_app_port_from_list(cpe_list: cpe_list, service: "www", first_cpe_only: TRUE))
   exit(0);

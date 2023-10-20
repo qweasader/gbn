@@ -1,36 +1,22 @@
-# Copyright (C) 2010 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2010 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.840383");
   script_cve_id("CVE-2009-4020", "CVE-2009-4021", "CVE-2009-4031", "CVE-2009-4138", "CVE-2009-4141", "CVE-2009-4308", "CVE-2009-4536", "CVE-2009-4538", "CVE-2010-0003", "CVE-2010-0006", "CVE-2010-0007", "CVE-2010-0291");
   script_tag(name:"creation_date", value:"2010-02-08 10:34:22 +0000 (Mon, 08 Feb 2010)");
-  script_version("2022-09-16T10:11:39+0000");
-  script_tag(name:"last_modification", value:"2022-09-16 10:11:39 +0000 (Fri, 16 Sep 2022)");
+  script_version("2023-07-05T05:06:16+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
   script_name("Ubuntu: Security Advisory (USN-894-1)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("Ubuntu Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/ubuntu_linux", "ssh/login/packages", re:"ssh/login/release=UBUNTU(6\.06\ LTS|8\.04\ LTS|8\.10|9\.04|9\.10)");
@@ -137,15 +123,11 @@ if(release == "UBUNTU6.06 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-hppa32-smp", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-hppa32", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-hppa64-smp", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-hppa32-smp", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
     report += res;
   }
 
@@ -153,7 +135,7 @@ if(release == "UBUNTU6.06 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-itanium-smp", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-hppa64-smp", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
     report += res;
   }
 
@@ -161,11 +143,11 @@ if(release == "UBUNTU6.06 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-k7", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-itanium-smp", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-mckinley-smp", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-k7", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
     report += res;
   }
 
@@ -173,7 +155,7 @@ if(release == "UBUNTU6.06 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-powerpc-smp", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-mckinley-smp", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
     report += res;
   }
 
@@ -181,11 +163,11 @@ if(release == "UBUNTU6.06 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-powerpc64-smp", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-powerpc-smp", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-server-bigiron", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-powerpc64-smp", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
     report += res;
   }
 
@@ -193,11 +175,15 @@ if(release == "UBUNTU6.06 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-sparc64-smp", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-server-bigiron", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-sparc64", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.15-55-sparc64-smp", ver:"2.6.15-55.82", rls:"UBUNTU6.06 LTS"))) {
     report += res;
   }
 
@@ -247,11 +233,11 @@ if(release == "UBUNTU8.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.24-27-powerpc-smp", ver:"2.6.24-27.65", rls:"UBUNTU8.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.24-27-powerpc", ver:"2.6.24-27.65", rls:"UBUNTU8.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.24-27-powerpc", ver:"2.6.24-27.65", rls:"UBUNTU8.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.24-27-powerpc-smp", ver:"2.6.24-27.65", rls:"UBUNTU8.04 LTS"))) {
     report += res;
   }
 
@@ -267,11 +253,11 @@ if(release == "UBUNTU8.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.24-27-sparc64-smp", ver:"2.6.24-27.65", rls:"UBUNTU8.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.24-27-sparc64", ver:"2.6.24-27.65", rls:"UBUNTU8.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.24-27-sparc64", ver:"2.6.24-27.65", rls:"UBUNTU8.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.24-27-sparc64-smp", ver:"2.6.24-27.65", rls:"UBUNTU8.04 LTS"))) {
     report += res;
   }
 
@@ -365,11 +351,11 @@ if(release == "UBUNTU9.10") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-19-generic-pae", ver:"2.6.31-19.56", rls:"UBUNTU9.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-19-generic", ver:"2.6.31-19.56", rls:"UBUNTU9.10"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-19-generic", ver:"2.6.31-19.56", rls:"UBUNTU9.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-19-generic-pae", ver:"2.6.31-19.56", rls:"UBUNTU9.10"))) {
     report += res;
   }
 
@@ -381,11 +367,11 @@ if(release == "UBUNTU9.10") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-19-powerpc-smp", ver:"2.6.31-19.56", rls:"UBUNTU9.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-19-powerpc", ver:"2.6.31-19.56", rls:"UBUNTU9.10"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-19-powerpc", ver:"2.6.31-19.56", rls:"UBUNTU9.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-19-powerpc-smp", ver:"2.6.31-19.56", rls:"UBUNTU9.10"))) {
     report += res;
   }
 
@@ -397,11 +383,11 @@ if(release == "UBUNTU9.10") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-19-sparc64-smp", ver:"2.6.31-19.56", rls:"UBUNTU9.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-19-sparc64", ver:"2.6.31-19.56", rls:"UBUNTU9.10"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-19-sparc64", ver:"2.6.31-19.56", rls:"UBUNTU9.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-19-sparc64-smp", ver:"2.6.31-19.56", rls:"UBUNTU9.10"))) {
     report += res;
   }
 
@@ -409,11 +395,11 @@ if(release == "UBUNTU9.10") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-211-dove-z0", ver:"2.6.31-211.22", rls:"UBUNTU9.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-211-dove", ver:"2.6.31-211.22", rls:"UBUNTU9.10"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-211-dove", ver:"2.6.31-211.22", rls:"UBUNTU9.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.31-211-dove-z0", ver:"2.6.31-211.22", rls:"UBUNTU9.10"))) {
     report += res;
   }
 

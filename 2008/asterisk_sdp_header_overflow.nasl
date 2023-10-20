@@ -1,44 +1,16 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2008 Ferdy Riphagen
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Asterisk PBX SDP Header Overflow Vulnerability
-#
-# Authors:
-# Ferdy Riphagen
-#
-# Copyright:
-# Copyright (C) 2008 Ferdy Riphagen
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:digium:asterisk";
-
-# Note :
-# Because probably many systems running safe_asterisk
-# as a watchdog for the asterisk pid, this check could
-# be very false-negative prone. Additionally an INVITE
-# message on secure systems need authentication, so this
-# only works on systems using 'allowguest=yes' in sip.conf
-# and for peers without authentication info with the use
-# of an edited 'logins.nasl' (not supplied).
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.9999992");
-  script_version("2022-05-11T11:17:52+0000");
-  script_tag(name:"last_modification", value:"2022-05-11 11:17:52 +0000 (Wed, 11 May 2022)");
+  script_version("2023-10-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"creation_date", value:"2008-08-22 16:09:14 +0200 (Fri, 22 Aug 2008)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
@@ -62,14 +34,20 @@ if(description)
 
   script_tag(name:"insight", value:"The application installed suffers from a remote overflow in the SIP service
   resulting in a denial of service. An attacker can send a malformed INVITE packet
-  with two SDP headers, whitin the first header an existing IP address in the 'c=' variable
+  with two SDP headers, within the first header an existing IP address in the 'c=' variable
   and in the second SDP header a NOT existing IP address in 'c='.");
 
   script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"exploit");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   exit(0);
 }
+
+# Note :
+# Because probably many systems running safe_asterisk as a watchdog for the asterisk pid, this check
+# could be very false-negative prone. Additionally an INVITE message on secure systems need
+# authentication, so this only works on systems using 'allowguest=yes' in sip.conf and for peers
+# without authentication info with the use of an edited 'logins.nasl' (not supplied).
 
 include("sip.inc");
 include("host_details.inc");

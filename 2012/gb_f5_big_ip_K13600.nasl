@@ -1,36 +1,22 @@
-# Copyright (C) 2012 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2012 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103494");
-  script_version("2022-12-05T10:11:03+0000");
+  script_version("2023-08-09T05:05:14+0000");
   script_cve_id("CVE-2012-1493");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-12-05 10:11:03 +0000 (Mon, 05 Dec 2022)");
+  script_tag(name:"last_modification", value:"2023-08-09 05:05:14 +0000 (Wed, 09 Aug 2023)");
   script_tag(name:"creation_date", value:"2012-06-14 13:35:33 +0200 (Thu, 14 Jun 2012)");
   script_name("Multiple F5 Networks Products - SSH vulnerability CVE-2012-1493");
   script_category(ACT_ATTACK);
   script_family("Gain a shell remotely");
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_dependencies("ssh_detect.nasl", "gb_default_credentials_options.nasl");
   script_require_ports("Services/ssh", 22);
   script_mandatory_keys("ssh/server_banner/available");
@@ -38,7 +24,7 @@ if(description)
 
   script_xref(name:"URL", value:"https://www.trustmatta.com/advisories/MATTA-2012-002.txt");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/53897");
-  script_xref(name:"URL", value:"https://support.f5.com/csp/article/K13600");
+  script_xref(name:"URL", value:"https://my.f5.com/manage/s/article/K13600");
 
   script_tag(name:"summary", value:"Multiple F5 Networks products are prone to an SSH vulnerability.");
 

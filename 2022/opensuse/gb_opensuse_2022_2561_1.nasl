@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854841");
-  script_version("2022-07-28T10:10:25+0000");
+  script_version("2023-10-19T05:05:21+0000");
   script_cve_id("CVE-2021-46657", "CVE-2021-46658", "CVE-2021-46659", "CVE-2021-46661", "CVE-2021-46663", "CVE-2021-46664", "CVE-2021-46665", "CVE-2021-46668", "CVE-2021-46669", "CVE-2022-24048", "CVE-2022-24050", "CVE-2022-24051", "CVE-2022-24052", "CVE-2022-27376", "CVE-2022-27377", "CVE-2022-27378", "CVE-2022-27379", "CVE-2022-27380", "CVE-2022-27381", "CVE-2022-27382", "CVE-2022-27383", "CVE-2022-27384", "CVE-2022-27386", "CVE-2022-27387", "CVE-2022-27444", "CVE-2022-27445", "CVE-2022-27446", "CVE-2022-27447", "CVE-2022-27448", "CVE-2022-27449", "CVE-2022-27451", "CVE-2022-27452", "CVE-2022-27455", "CVE-2022-27456", "CVE-2022-27457", "CVE-2022-27458", "CVE-2022-21427");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2022-07-28 10:10:25 +0000 (Thu, 28 Jul 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-02-03 15:46:00 +0000 (Thu, 03 Feb 2022)");
+  script_tag(name:"severity_date", value:"2022-04-21 13:53:00 +0000 (Thu, 21 Apr 2022)");
   script_tag(name:"creation_date", value:"2022-07-28 01:01:52 +0000 (Thu, 28 Jul 2022)");
   script_name("openSUSE: Security Advisory for mariadb (SUSE-SU-2022:2561-1)");
   script_category(ACT_GATHER_INFO);

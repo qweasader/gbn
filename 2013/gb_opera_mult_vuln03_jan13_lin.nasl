@@ -1,37 +1,18 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2013 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Opera Multiple Vulnerabilities-03 Jan13 (Linux)
-#
-# Authors:
-# Antu Sanadi <santu@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2013 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803145");
-  script_version("2022-04-25T14:50:49+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2012-6461", "CVE-2012-6462", "CVE-2012-6463", "CVE-2012-6464",
                 "CVE-2012-6465", "CVE-2012-6466", "CVE-2012-6467");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-04-25 14:50:49 +0000 (Mon, 25 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"creation_date", value:"2013-01-07 16:09:01 +0530 (Mon, 07 Jan 2013)");
   script_name("Opera Multiple Vulnerabilities-03 Jan13 (Linux)");
   script_xref(name:"URL", value:"http://www.opera.com/support/kb/view/1034/");
@@ -48,7 +29,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.opera.com/docs/changelogs/unified/1210/");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   script_family("General");
   script_dependencies("secpod_opera_detection_linux_900037.nasl");
   script_mandatory_keys("Opera/Linux/Version");
@@ -73,7 +54,7 @@ if(description)
   - CORS requests can incorrectly retrieve contents of cross origin pages.
 
   - Certificate revocation service failure may cause Opera to show an
-    unverified site as secur.");
+    unverified site as secure.");
 
   script_tag(name:"solution", value:"Upgrade to Opera version 12.10 or later.");
 

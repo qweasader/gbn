@@ -1,8 +1,14 @@
+# SPDX-FileCopyrightText: 2023 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
+#
+# SPDX-License-Identifier: GPL-2.0-only
+
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126304");
-  script_version("2023-05-18T09:08:59+0000");
-  script_tag(name:"last_modification", value:"2023-05-18 09:08:59 +0000 (Thu, 18 May 2023)");
+  script_version("2023-08-01T13:29:10+0000");
+  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
   script_tag(name:"creation_date", value:"2023-01-23 12:50:47 +0000 (Mon, 23 Jan 2023)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:M/C:C/I:C/A:C");
@@ -17,20 +23,22 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2023 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Privilege escalation");
 
   script_tag(name:"summary", value:"Tenable Nessus is prone to a privilege escalation vulnerability.
 
-  This VT has been replaced by the VT 'gb_tns-2023-01 and gb_tns-2023-02'
-  (OID: 1.3.6.1.4.1.25623.1.0.126339 and 1.3.6.1.4.1.25623.1.0.126340).");
+  This VT has been replaced by the VTs 'Tenable Nessus < 8.15.8 Privilege Escalation Vulnerability
+  (TNS-2023-02)' (OID: 1.3.6.1.4.1.25623.1.0.126339) and 'Tenable Nessus 10.x < 10.4.2 Privilege
+  Escalation Vulnerability (TNS-2023-01)' (OID: 1.3.6.1.4.1.25623.1.0.126340).");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"impact", value:"An authenticated attacker could potentially execute a specially
   crafted file to obtain root or NT AUTHORITY / SYSTEM privileges on the Nessus host.");
 
-  script_tag(name:"affected", value:"Tenable Nessus versions prior to 8.15.8 and 10.0.x prior to 10.4.2.");
+  script_tag(name:"affected", value:"Tenable Nessus versions prior to 8.15.8 and 10.0.x prior to
+  10.4.2.");
 
   script_tag(name:"solution", value:"Update to version 8.15.8, 10.4.2 or later.");
 

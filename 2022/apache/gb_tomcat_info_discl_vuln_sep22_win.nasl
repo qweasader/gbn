@@ -23,11 +23,14 @@ CPE = "cpe:/a:apache:tomcat";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.148786");
-  script_version("2022-09-29T10:24:47+0000");
-  script_tag(name:"last_modification", value:"2022-09-29 10:24:47 +0000 (Thu, 29 Sep 2022)");
+  script_version("2023-10-18T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-09-29 06:38:35 +0000 (Thu, 29 Sep 2022)");
-  script_tag(name:"cvss_base", value:"4.3");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
+  script_tag(name:"cvss_base", value:"2.6");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:P/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-10-05 17:12:00 +0000 (Wed, 05 Oct 2022)");
 
   script_cve_id("CVE-2021-43980");
 

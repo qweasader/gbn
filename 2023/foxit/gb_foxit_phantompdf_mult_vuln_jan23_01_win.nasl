@@ -23,7 +23,7 @@ CPE = "cpe:/a:foxitsoftware:phantompdf";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826903");
-  script_version("2023-01-31T10:08:41+0000");
+  script_version("2023-10-13T05:06:10+0000");
   script_cve_id("CVE-2022-47881", "CVE-2022-25641", "CVE-2022-30557", "CVE-2022-28670",
                 "CVE-2022-28669", "CVE-2022-28671", "CVE-2022-28672", "CVE-2022-28673",
                 "CVE-2022-28675", "CVE-2022-28676", "CVE-2022-28674", "CVE-2022-28678",
@@ -31,10 +31,10 @@ if(description)
                 "CVE-2022-28683", "CVE-2022-28682");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-01-31 10:08:41 +0000 (Tue, 31 Jan 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-05-20 17:14:00 +0000 (Fri, 20 May 2022)");
+  script_tag(name:"severity_date", value:"2022-07-23 03:05:00 +0000 (Sat, 23 Jul 2022)");
   script_tag(name:"creation_date", value:"2023-01-30 17:08:32 +0530 (Mon, 30 Jan 2023)");
   script_name("Foxit Reader Multiple Vulnerabilities January-01 2023");
 

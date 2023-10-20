@@ -1,30 +1,16 @@
-# Copyright (C) 2014 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2014 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.702906");
   script_cve_id("CVE-2013-0343", "CVE-2013-2147", "CVE-2013-2889", "CVE-2013-2893", "CVE-2013-2929", "CVE-2013-4162", "CVE-2013-4299", "CVE-2013-4345", "CVE-2013-4511", "CVE-2013-4512", "CVE-2013-4587", "CVE-2013-4588", "CVE-2013-6367", "CVE-2013-6378", "CVE-2013-6380", "CVE-2013-6381", "CVE-2013-6382", "CVE-2013-6383", "CVE-2013-7263", "CVE-2013-7264", "CVE-2013-7265", "CVE-2013-7339", "CVE-2014-0101", "CVE-2014-1444", "CVE-2014-1445", "CVE-2014-1446", "CVE-2014-1874", "CVE-2014-2039", "CVE-2014-2523");
   script_tag(name:"creation_date", value:"2014-04-23 22:00:00 +0000 (Wed, 23 Apr 2014)");
-  script_version("2023-04-03T10:19:50+0000");
-  script_tag(name:"last_modification", value:"2023-04-03 10:19:50 +0000 (Mon, 03 Apr 2023)");
+  script_version("2023-07-05T05:06:16+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Debian: Security Advisory (DSA-2906)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB6");
@@ -150,11 +136,15 @@ if(release == "DEB6") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-686", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-686-bigmem", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-686", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-all", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
@@ -194,11 +184,11 @@ if(release == "DEB6") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-all", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-amd64", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-amd64", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-common", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
@@ -211,10 +201,6 @@ if(release == "DEB6") {
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-common-xen", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-common", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
@@ -250,11 +236,11 @@ if(release == "DEB6") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-powerpc-smp", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-powerpc", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-powerpc", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-powerpc-smp", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
@@ -286,11 +272,11 @@ if(release == "DEB6") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-sparc64-smp", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-sparc64", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-sparc64", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-sparc64-smp", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
@@ -298,11 +284,11 @@ if(release == "DEB6") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-vserver-686-bigmem", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-vserver-686", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-vserver-686", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-2.6.32-5-vserver-686-bigmem", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
@@ -354,7 +340,7 @@ if(release == "DEB6") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-686-bigmem-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-686", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
@@ -362,15 +348,15 @@ if(release == "DEB6") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-686", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-amd64-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-686-bigmem-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-amd64", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-amd64-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
@@ -394,15 +380,11 @@ if(release == "DEB6") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-openvz-686-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-openvz-686", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-openvz-amd64-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-openvz-686-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
@@ -410,15 +392,19 @@ if(release == "DEB6") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-openvz-amd64-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-orion5x", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-powerpc-smp", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-powerpc", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-powerpc", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-powerpc-smp", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
@@ -438,11 +424,11 @@ if(release == "DEB6") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-s390x-tape", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-s390x", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-s390x", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-s390x-tape", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
@@ -454,11 +440,11 @@ if(release == "DEB6") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-sparc64-smp", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-sparc64", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-sparc64", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-sparc64-smp", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
@@ -466,7 +452,7 @@ if(release == "DEB6") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-vserver-686-bigmem-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-vserver-686", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
@@ -474,15 +460,15 @@ if(release == "DEB6") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-vserver-686", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-vserver-amd64-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-vserver-686-bigmem-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-vserver-amd64", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-vserver-amd64-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
@@ -510,19 +496,19 @@ if(release == "DEB6") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-xen-686-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-xen-686", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-xen-amd64-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-xen-686-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-xen-amd64", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-2.6.32-5-xen-amd64-dbg", ver:"2.6.32-48squeeze5", rls:"DEB6"))) {
     report += res;
   }
 

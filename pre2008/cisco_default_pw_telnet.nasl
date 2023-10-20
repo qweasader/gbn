@@ -1,27 +1,8 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2007 Javier Fernandez-Sanguino and Renaud Deraison
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Javier Fernandez-Sanguino
-# based on a script written by Renaud Deraison <deraison@cvs.nessus.org>
-# with contributions by Gareth M Phillips <gareth@sensepost.com> (additional logins and passwords)
-#
-# Copyright:
-# Copyright (C) 2007 Javier Fernandez-Sanguino and Renaud Deraison
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 # nb: Previously this was a single "cisco_default_pw.nasl" script which got split into
 # "cisco_default_pw_ssh.nasl" and "cisco_default_pw_telnet.nasl" to have dedicated VTs for each
@@ -30,9 +11,9 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.23938");
-  script_version("2022-10-17T11:13:19+0000");
+  script_version("2023-06-22T10:34:15+0000");
   script_cve_id("CVE-1999-0507", "CVE-1999-0508");
-  script_tag(name:"last_modification", value:"2022-10-17 11:13:19 +0000 (Mon, 17 Oct 2022)");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2007-11-04 00:32:20 +0100 (Sun, 04 Nov 2007)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -169,7 +150,7 @@ foreach credential( clist ) {
   user_pass = split( credential, sep:":", keep:FALSE );
   if( isnull( user_pass[0] ) || isnull( user_pass[1] ) ) {
     # nb: ';' was used pre r9566 but was changed to ':' as a separator as the
-    # GSA is stripping ';' from the NVT description. Keeping both in here
+    # GSA is stripping ';' from the VT description. Keeping both in here
     # for backwards compatibility with older scan configs.
     user_pass = split( credential, sep:";", keep:FALSE );
     if( isnull( user_pass[0] ) || isnull( user_pass[1] ) )

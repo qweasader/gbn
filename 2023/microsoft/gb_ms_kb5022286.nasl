@@ -21,7 +21,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826829");
-  script_version("2023-03-15T10:19:45+0000");
+  script_version("2023-10-13T05:06:10+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2023-21535", "CVE-2023-21546", "CVE-2023-21543", "CVE-2023-21548",
@@ -39,9 +39,12 @@ if(description)
                 "CVE-2023-21752", "CVE-2023-21774", "CVE-2023-21524", "CVE-2023-21750",
                 "CVE-2023-21772", "CVE-2023-21766", "CVE-2023-21525", "CVE-2023-21755",
                 "CVE-2023-21757", "CVE-2023-21748", "CVE-2023-21767");
-  script_tag(name:"cvss_base", value:"7.6");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-03-15 10:19:45 +0000 (Wed, 15 Mar 2023)");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-01-10 22:15:00 +0000 (Tue, 10 Jan 2023)");
   script_tag(name:"creation_date", value:"2023-01-11 10:00:19 +0530 (Wed, 11 Jan 2023)");
   script_name("Microsoft Windows Multiple Vulnerabilities (KB5022286)");
 

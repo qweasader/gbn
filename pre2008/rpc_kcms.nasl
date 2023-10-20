@@ -1,34 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2002 Michael Scheidell
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Kcms Profile Server
-#
-# Authors:
-# Michael Scheidell  <scheidell at secnap.net>
-# based on a script written by Renaud Deraison <deraison@cvs.nessus.org>
-#
-# Copyright:
-# Copyright (C) 2002 Michael Scheidell
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10832");
-  script_version("2022-05-12T09:32:01+0000");
-  script_tag(name:"last_modification", value:"2022-05-12 09:32:01 +0000 (Thu, 12 May 2022)");
+  script_version("2023-09-08T05:06:21+0000");
+  script_tag(name:"last_modification", value:"2023-09-08 05:06:21 +0000 (Fri, 08 Sep 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
@@ -37,8 +17,8 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2002 Michael Scheidell");
   script_family("RPC");
-  script_dependencies("secpod_rpc_portmap_udp.nasl", "secpod_rpc_portmap_tcp.nasl", "gather-package-list.nasl", "os_detection.nasl");
-  script_mandatory_keys("rpc/portmap");
+  script_dependencies("gb_rpc_portmap_udp_detect.nasl", "gb_rpc_portmap_tcp_detect.nasl", "gather-package-list.nasl", "os_detection.nasl");
+  script_mandatory_keys("rpc/portmap/tcp_or_udp/detected");
 
   script_xref(name:"URL", value:"http://packetstorm.decepticons.org/advisories/ibm-ers/96-09");
   script_xref(name:"URL", value:"http://www.eeye.com/html/Research/Advisories/AD20010409.html");

@@ -1,31 +1,14 @@
-# OpenVAS Vulnerability Test
-# Description: Unmaintained Gentoo packages
+# SPDX-FileCopyrightText: 2008 Michel Arboi <mikhail@nessus.org>
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Michel Arboi <mikhail@nessus.org>
-#
-# Copyright:
-# Copyright (C) 2008 Michel Arboi <mikhail@nessus.org>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.24017");
-  script_version("2022-05-17T07:54:59+0000");
-  script_tag(name:"last_modification", value:"2022-05-17 07:54:59 +0000 (Tue, 17 May 2022)");
+  script_version("2023-07-19T05:05:15+0000");
+  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
   script_tag(name:"creation_date", value:"2008-10-08 21:18:44 +0200 (Wed, 08 Oct 2008)");
   script_tag(name:"cvss_base", value:"6.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:P");

@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.822907");
-  script_version("2022-12-01T10:11:22+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-42898", "CVE-2022-3437", "CVE-2022-41916", "CVE-2021-44758", "CVE-2021-3671", "CVE-2022-44640");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2022-12-01 10:11:22 +0000 (Thu, 01 Dec 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-10-19 12:17:00 +0000 (Tue, 19 Oct 2021)");
+  script_tag(name:"severity_date", value:"2023-01-04 18:28:00 +0000 (Wed, 04 Jan 2023)");
   script_tag(name:"creation_date", value:"2022-11-30 02:13:32 +0000 (Wed, 30 Nov 2022)");
   script_name("Fedora: Security Advisory for heimdal (FEDORA-2022-dba9ba8e2b)");
   script_category(ACT_GATHER_INFO);

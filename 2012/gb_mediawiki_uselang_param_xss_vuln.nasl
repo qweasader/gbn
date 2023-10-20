@@ -1,38 +1,19 @@
-##############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2012 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# MediaWiki 'uselang' Parameter Cross Site Scripting Vulnerability
-#
-# Authors:
-# Madhuri D <dmadhuri@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2012 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mediawiki:mediawiki";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802910");
-  script_version("2022-04-27T12:01:52+0000");
+  script_version("2023-06-22T10:34:14+0000");
   script_cve_id("CVE-2012-2698");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2022-04-27 12:01:52 +0000 (Wed, 27 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:14 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2012-07-09 13:41:49 +0530 (Mon, 09 Jul 2012)");
   script_name("MediaWiki 'uselang' Parameter Cross Site Scripting Vulnerability");
   script_xref(name:"URL", value:"http://secunia.com/advisories/49484");
@@ -44,7 +25,7 @@ if(description)
 
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("secpod_mediawiki_detect.nasl");
   script_mandatory_keys("mediawiki/installed");
@@ -61,21 +42,20 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_xref(name:"URL", value:"http://www.mediawiki.org/wiki/MediaWiki");
   exit(0);
 }
 
 include("http_func.inc");
 include("host_details.inc");
 
-
-if(!port = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!dir = get_app_location(cpe:CPE, port:port)){
+if(!dir = get_app_location(cpe:CPE, port:port))
   exit(0);
-}
+
+if(dir == "/")
+  dir = "";
 
 host = http_host_name(port:port);
 
@@ -84,7 +64,7 @@ req = string("GET ", url, " HTTP/1.1\r\n",
              "Host: ", host, "\r\n\r\n");
 res = http_send_recv(port:port, data:req);
 
-if(egrep(pattern:"^HTTP/.* 200 OK", string:res) &&
+if(egrep(pattern:"^HTTP/1\.[01] 200", string:res, icase:TRUE) &&
          'alert("document.cookie")' >< res && ">MediaWiki" >< res){
   security_message(port:port);
 }

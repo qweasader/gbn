@@ -1,36 +1,16 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2018 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# MagniComp SysInfo Version Detection (Linux)
-#
-# Authors:
-# Vidita V Koushik <vidita@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2018 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation;
-# either version 2 of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.814303");
-  script_version("2020-03-27T14:05:33+0000");
+  script_version("2023-07-26T05:05:09+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2020-03-27 14:05:33 +0000 (Fri, 27 Mar 2020)");
+  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
   script_tag(name:"creation_date", value:"2018-10-04 12:30:19 +0530 (Thu, 04 Oct 2018)");
   script_tag(name:"qod_type", value:"executable_version");
   script_name("MagniComp SysInfo Version Detection (Linux)");
@@ -43,7 +23,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_xref(name:"URL", value:"https://www.magnicomp.com");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("login/SSH/success");

@@ -1,31 +1,17 @@
-# Copyright (C) 2008 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2008 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900204");
-  script_version("2022-05-11T11:17:52+0000");
-  script_tag(name:"last_modification", value:"2022-05-11 11:17:52 +0000 (Wed, 11 May 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2008-08-22 10:29:01 +0200 (Fri, 22 Aug 2008)");
   script_cve_id("CVE-2008-3726");
-  script_copyright("Copyright (C) 2008 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2008 Greenbone AG");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
   script_category(ACT_MIXED_ATTACK);
@@ -61,7 +47,7 @@ if(description)
   context of the website to steal cookie-based authentication credentials.");
 
   script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_banner");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   exit(0);
 }
@@ -73,34 +59,35 @@ include("http_keepalive.inc");
 port = 10443;
 if( ! get_port_state( port ) ) exit( 0 );
 
-sndReq = http_get(item:"/main.dll", port:port);
-rcvRes = http_keepalive_send_recv(port:port, data:sndReq);
+req = http_get(item:"/main.dll", port:port);
+res = http_keepalive_send_recv(port:port, data:req);
 
-if("Welcome to MicroWorld's MailScan" >!< rcvRes){
+if("Welcome to MicroWorld's MailScan" >!< res)
+  exit(0);
+
+if(!safe_checks()) {
+  url = "/../../../../boot.ini";
+  req = http_get(item:url, port:port);
+  res = http_keepalive_send_recv(port:port, data:req);
+
+  if(res =~ "^HTTP/1\.[01] 200" && "[boot loader]" >< res) {
+    report = http_report_vuln_url(port:port, url:url);
+    security_message(port:port, data:report);
+  }
   exit(0);
 }
 
- if(!safe_checks())
- {
- # Directory Traversal Request
-        sndReq = http_get(item:"/../../../../boot.ini", port:port);
-        rcvRes = http_keepalive_send_recv(port:port, data:sndReq);
+if(!get_kb_item("SMB/WindowsVersion"))
+  exit(0);
 
-        if("HTTP/1.1 200" >< rcvRes && "[boot loader]" >< rcvRes){
-                security_message(port);
-        }
-        exit(0);
- }
+mailScanVer = registry_get_sz(key:"SOFTWARE\MicroWorld\C:#PROGRA~1#MAILSCAN" +
+                              "#MAILSCAN.INI\General", item:"Version");
+if(!mailScanVer)
+  exit(0);
 
- if(!get_kb_item("SMB/WindowsVersion")){
-        exit(0);
- }
+if(egrep(pattern:"^([0-4]\..*|5\.[0-5][a-z]?|5\.6a?)$", string:mailScanVer)){
+  security_message(port:port);
+  exit(0);
+}
 
- mailScanVer = registry_get_sz(key:"SOFTWARE\MicroWorld\C:#PROGRA~1#MAILSCAN" +
-                               "#MAILSCAN.INI\General", item:"Version");
- if(!mailScanVer)
-   exit(0);
-
- if(egrep(pattern:"^([0-4]\..*|5\.[0-5][a-z]?|5\.6a?)$", string:mailScanVer)){
-   security_message(port);
- }
+exit(99);

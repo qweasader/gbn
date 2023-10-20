@@ -23,8 +23,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.122447");
   script_cve_id("CVE-2008-5188");
   script_tag(name:"creation_date", value:"2015-10-08 11:45:32 +0000 (Thu, 08 Oct 2015)");
-  script_version("2022-04-05T09:12:43+0000");
-  script_tag(name:"last_modification", value:"2022-04-05 09:12:43 +0000 (Tue, 05 Apr 2022)");
+  script_version("2023-10-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
 
@@ -64,7 +64,7 @@ if(description)
 - refuse mounting with too small rsa key (#499175)
 - don't error out when adding key that already exists (#500361)
 - allow only working key sizes (#500352)
-- retutn nonzero when fnek is not supported (#500566)
+- return nonzero when fnek is not supported (#500566)
 - add icon for Access-Your-Private-Data.desktop file (#500623)
 - fix information about openssl_passwd in openssl_passwd_file (#499128)
 - don't list mount.ecryptfs_private twice

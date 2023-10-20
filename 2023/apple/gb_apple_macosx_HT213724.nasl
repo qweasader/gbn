@@ -7,13 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826966");
-  script_version("2023-05-18T09:08:59+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2023-28206");
-  script_tag(name:"cvss_base", value:"9.3");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-05-18 09:08:59 +0000 (Thu, 18 May 2023)");
+  script_tag(name:"cvss_base", value:"7.2");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-04-11 14:35:00 +0000 (Tue, 11 Apr 2023)");
   script_tag(name:"creation_date", value:"2023-04-14 15:30:20 +0530 (Fri, 14 Apr 2023)");
   script_name("Apple MacOSX Security Update (HT213724)");
 

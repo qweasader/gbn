@@ -23,7 +23,7 @@ CPE = "cpe:/a:adobe:indesign_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826462");
-  script_version("2022-09-19T10:11:35+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-28851", "CVE-2022-28852", "CVE-2022-28853", "CVE-2022-28854",
                 "CVE-2022-28855", "CVE-2022-28856", "CVE-2022-28857", "CVE-2022-30671",
                 "CVE-2022-30672", "CVE-2022-30673", "CVE-2022-30674", "CVE-2022-30675",
@@ -31,7 +31,10 @@ if(description)
                 "CVE-2022-38416", "CVE-2022-38417");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-09-19 10:11:35 +0000 (Mon, 19 Sep 2022)");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-09-20 15:19:00 +0000 (Tue, 20 Sep 2022)");
   script_tag(name:"creation_date", value:"2022-09-15 11:33:35 +0530 (Thu, 15 Sep 2022)");
   script_name("Adobe InDesign Multiple Vulnerabilities (APSB22-50) - Mac OS X");
 

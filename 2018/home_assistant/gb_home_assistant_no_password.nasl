@@ -4,11 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 
+CPE = "cpe:/a:home-assistant:home-assistant";
+
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113250");
-  script_version("2023-05-18T09:08:59+0000");
-  script_tag(name:"last_modification", value:"2023-05-18 09:08:59 +0000 (Thu, 18 May 2023)");
+  script_version("2023-06-22T10:34:15+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2018-08-22 12:10:24 +0200 (Wed, 22 Aug 2018)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -24,7 +26,7 @@ if( description )
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("General");
   script_dependencies("gb_home_assistant_consolidation.nasl");
-  script_require_ports("Services/www", 80, 443);
+  script_require_ports("Services/www", 8123);
   script_mandatory_keys("home_assistant/http/detected");
 
   script_tag(name:"summary", value:"By default, the full control dashboard of Home Assistant
@@ -36,30 +38,26 @@ if( description )
 
   script_tag(name:"solution", value:"Set a password.");
 
-  script_xref(name:"URL", value:"https://www.home-assistant.io/");
-
   exit(0);
 }
-
-CPE = "cpe:/a:home_assistant:home_assistant";
 
 include( "host_details.inc" );
 include( "http_func.inc" );
 include( "http_keepalive.inc" );
 
-if( ! port = get_app_port( cpe: CPE ) )
+if( ! port = get_app_port( cpe: CPE, service: "www" ) )
   exit( 0 );
 
-if( ! location = get_app_location( cpe: CPE, port: port ) )
+if( ! dir = get_app_location( cpe: CPE, port: port ) )
   exit( 0 );
 
-if( location == "/" )
-  location = "";
+if( dir == "/" )
+  dir = "";
 
-path = location + "/states";
+path = dir + "/states";
 buf = http_get_cache( port: port, item: path );
 buf = ereg_replace( pattern: '[\r\n]*', string:buf, replace:'', icase: TRUE );
-if( buf =~ "200 OK" && buf =~ 'window.noAuth[ ]*=[ ]*["\']?(true|1)["\']?' ) {
+if( buf =~ "^HTTP/1\.[01] 200" && buf =~ 'window.noAuth[ ]*=[ ]*["\']?(true|1)["\']?' ) {
   report = "It was possible to access the control dashboard without a password.";
   security_message( data: report, port: port );
   exit( 0 );

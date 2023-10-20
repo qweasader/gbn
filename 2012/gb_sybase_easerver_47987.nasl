@@ -9,8 +9,8 @@ CPE = "cpe:/a:sybase:easerver";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103478");
-  script_version("2023-04-04T10:19:20+0000");
-  script_tag(name:"last_modification", value:"2023-04-04 10:19:20 +0000 (Tue, 04 Apr 2023)");
+  script_version("2023-07-14T16:09:26+0000");
+  script_tag(name:"last_modification", value:"2023-07-14 16:09:26 +0000 (Fri, 14 Jul 2023)");
   script_tag(name:"creation_date", value:"2012-04-25 14:01:37 +0200 (Wed, 25 Apr 2012)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -25,7 +25,7 @@ if(description)
 
   script_category(ACT_ATTACK);
 
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("sybase_easerver_http_detect.nasl");
   script_mandatory_keys("sybase/easerver/http/detected");

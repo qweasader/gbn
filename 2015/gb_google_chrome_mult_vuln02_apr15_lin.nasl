@@ -1,41 +1,22 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2015 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Google Chrome Multiple Vulnerabilities-02 Apr15 (Linux)
-#
-# Authors:
-# Rinu Kuriakose <krinu@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2015 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:google:chrome";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805468");
-  script_version("2022-04-14T06:42:08+0000");
+  script_version("2023-07-25T05:05:58+0000");
   script_cve_id("CVE-2015-3335", "CVE-2015-3334", "CVE-2015-3333", "CVE-2015-1249",
                 "CVE-2015-1247", "CVE-2015-1246", "CVE-2015-1244", "CVE-2015-1242",
                 "CVE-2015-1241", "CVE-2015-1240", "CVE-2015-1238", "CVE-2015-1237",
                 "CVE-2015-1236", "CVE-2015-1235", "CVE-2015-3336");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-04-14 06:42:08 +0000 (Thu, 14 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
   script_tag(name:"creation_date", value:"2015-04-21 18:46:52 +0530 (Tue, 21 Apr 2015)");
   script_name("Google Chrome Multiple Vulnerabilities-02 Apr15 (Linux)");
 
@@ -104,7 +85,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/74225");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/74221");
 
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("General");
   script_dependencies("gb_google_chrome_detect_lin.nasl");

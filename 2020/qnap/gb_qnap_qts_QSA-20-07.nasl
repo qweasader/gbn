@@ -1,30 +1,16 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/o:qnap:qts";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.144825");
-  script_version("2022-08-09T10:11:17+0000");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
+  script_version("2023-09-27T05:05:31+0000");
+  script_tag(name:"last_modification", value:"2023-09-27 05:05:31 +0000 (Wed, 27 Sep 2023)");
   script_tag(name:"creation_date", value:"2020-10-26 06:34:20 +0000 (Mon, 26 Oct 2020)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
@@ -44,7 +30,7 @@ if (description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("General");
   script_dependencies("gb_qnap_nas_http_detect.nasl");
   script_mandatory_keys("qnap/nas/qts/detected");
@@ -58,7 +44,8 @@ if (description)
   may be exposed to this vulnerability if users have configured the device as a domain controller in
   Control Panel > Network & File Services > Win/Mac/NFS > Microsoft Networking.");
 
-  script_tag(name:"affected", value:"QNAP QTS versions 4.3.3, 4.3.4, 4.3.6, 4.4.3 and 4.5.1.");
+  # nb: Advisory states that "QTS 2.x and QES are not affected by this vulnerability." thus we can concluded QTS 3.x is also affected
+  script_tag(name:"affected", value:"QNAP QTS versions 3.x, 4.3.3, 4.3.4, 4.3.6, 4.4.3 and 4.5.1.");
 
   script_tag(name:"solution", value:"Update to version 4.3.3.1432 build 20201006, 4.3.4.1463
   build 20201006, 4.3.6.1446 Build 20200929, 4.4.3.1439 build 20200925, 4.5.1.1456 build 20201015
@@ -75,34 +62,81 @@ include("version_func.inc");
 if (!version = get_app_version(cpe: CPE, nofork: TRUE))
   exit(0);
 
-if (version_in_range(version: version, test_version: "4.3.3", test_version2: "4.3.3_20201005")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "4.3.3_20201006");
-  security_message(port: 0, data: report);
-  exit(0);
+build = get_kb_item("qnap/nas/qts/build");
+
+if (version =~ "^[34]") {
+  if (version_is_less(version: version, test_version: "4.3.3.1432")) {
+    report = report_fixed_ver(installed_version: version, installed_build: build, fixed_version: "4.3.3.1432", fixed_build: "20201006");
+    security_message(port: 0, data: report);
+    exit(0);
+  }
+
+  if (version_is_equal(version: version, test_version: "4.3.3.1432") &&
+            (!build || version_is_less(version: build, test_version: "20201006"))) {
+    report = report_fixed_ver(installed_version: version, installed_build: build, fixed_version: "4.3.3.1432", fixed_build: "20201006");
+    security_message(port: 0, data: report);
+    exit(0);
+  }
 }
 
-if (version_in_range(version: version, test_version: "4.3.4", test_version2: "4.3.4_20201005")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "4.3.4_20201006");
-  security_message(port: 0, data: report);
-  exit(0);
+if (version =~ "^4\.3\.4") {
+  if (version_is_less(version: version, test_version: "4.3.4.1463")) {
+    report = report_fixed_ver(installed_version: version, installed_build: build, fixed_version: "4.3.4.1463", fixed_build: "20201006");
+    security_message(port: 0, data: report);
+    exit(0);
+  }
+
+  if (version_is_equal(version: version, test_version: "4.3.4.1463") &&
+            (!build || version_is_less(version: build, test_version: "20201006"))) {
+    report = report_fixed_ver(installed_version: version, installed_build: build, fixed_version: "4.3.4.1463", fixed_build: "20201006");
+    security_message(port: 0, data: report);
+    exit(0);
+  }
 }
 
-if (version_in_range(version: version, test_version: "4.3.6", test_version2: "4.3.6_20200928")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "4.3.6_20200929");
-  security_message(port: 0, data: report);
-  exit(0);
+if (version =~ "^4\.3\.[56]") {
+  if (version_is_less(version: version, test_version: "4.3.6.1446")) {
+    report = report_fixed_ver(installed_version: version, installed_build: build, fixed_version: "4.3.6.1446", fixed_build: "20200929");
+    security_message(port: 0, data: report);
+    exit(0);
+  }
+
+  if (version_is_equal(version: version, test_version: "4.3.6.1446") &&
+            (!build || version_is_less(version: build, test_version: "20200929"))) {
+    report = report_fixed_ver(installed_version: version, installed_build: build, fixed_version: "4.3.6.1446", fixed_build: "20200929");
+    security_message(port: 0, data: report);
+    exit(0);
+  }
 }
 
-if (version_in_range(version: version, test_version: "4.4.3", test_version2: "4.4.3_20200924")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "4.4.3_20200925");
-  security_message(port: 0, data: report);
-  exit(0);
+if (version =~ "^4\.4") {
+  if (version_is_less(version: version, test_version: "4.4.3.1439")) {
+    report = report_fixed_ver(installed_version: version, installed_build: build, fixed_version: "4.4.3.1439", fixed_build: "20200925");
+    security_message(port: 0, data: report);
+    exit(0);
+  }
+
+  if (version_is_equal(version: version, test_version: "4.4.3.1439") &&
+            (!build || version_is_less(version: build, test_version: "20200925"))) {
+    report = report_fixed_ver(installed_version: version, installed_build: build, fixed_version: "4.4.3.1439", fixed_build: "20200925");
+    security_message(port: 0, data: report);
+    exit(0);
+  }
 }
 
-if (version_in_range(version: version, test_version: "4.5.1", test_version2: "4.5.1_20201014")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "4.5.1_20201015");
-  security_message(port: 0, data: report);
-  exit(0);
+if (version =~ "^4\.5") {
+  if (version_is_less(version: version, test_version: "4.5.1.1456")) {
+    report = report_fixed_ver(installed_version: version, installed_build: build, fixed_version: "4.5.1.1456", fixed_build: "20201015");
+    security_message(port: 0, data: report);
+    exit(0);
+  }
+
+  if (version_is_equal(version: version, test_version: "4.5.1.1456") &&
+            (!build || version_is_less(version: build, test_version: "20201015"))) {
+    report = report_fixed_ver(installed_version: version, installed_build: build, fixed_version: "4.5.1.1456", fixed_build: "20201015");
+    security_message(port: 0, data: report);
+    exit(0);
+  }
 }
 
 exit(99);

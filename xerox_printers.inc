@@ -1,22 +1,8 @@
-# Copyright (C) 2013 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2013 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 global_var xerox_cookie, xerox_last_user, xerox_last_pass;
 
@@ -40,25 +26,25 @@ function get_xerox_detect_urls() {
 
   xerox_detect_urls = make_array();
 
+  xerox_detect_urls["/"]                                                      = "<title>Xerox\(R\) ([BC][0-9]+)";                                          # B and C series eg. B315
   # nb: Some uses "<div", some "<tb" for the 'id ="' part below
   xerox_detect_urls["/header.php"]                                            = 'id="productName">XEROX ((WorkCentre|Phaser|ColorQube) [^<]+)</div>';      # WorkCentre 6400 a.o.
+  xerox_detect_urls["/header.php#--avoid-dup1--#"]                            = 'id="productName">XEROX<sup>&reg; </sup>([^<]+)<sup>[^<]+</sup>([^<]+)</'; # WorkCentre 5865 a.o.
   xerox_detect_urls["/sitemap.php"]                                           = 'id="productName">XEROX<sup>&reg; </sup>([^<]+)<sup>[^<]+</sup>([^<]+)</'; # WorkCentre 6655 a.o.
-  xerox_detect_urls["/hdstat.htm"]                                            = '(WorkCentre [^ \r\n]+)';                                                  # WorkCentre 7120 a.o.
-  xerox_detect_urls["/hdstat.htm#--avoid-dup1--#"]                            = '"productName">\\s*Xerox ([^ ]+)';                                           # Xerox D136 Copier-Printer a.o.
+  xerox_detect_urls["/stat/welcome.php?tab=status"]                           = 'id="productName"><sup> </sup>([^<]+)<sup>[^<]+</sup>([^<]+)</';           # Altalink C8155 a.o.
+  xerox_detect_urls["/hdstat.htm"]                                            = '(WorkCentre [^< \r\n]+)';                                                 # WorkCentre 7120 a.o.
+  xerox_detect_urls["/hdstat.htm#--avoid-dup1--#"]                            = '"productName">\\s*Xerox ([^ ]+)';                                         # Xerox D136 Copier-Printer a.o.
   xerox_detect_urls["/headhome.htm"]                                          = '<title>((Xerox )?(WorkCentre|Phaser) [^ <\r\n]+)';                        # WorkCentre 6605dn a.o.
   xerox_detect_urls["/tabsFrame.dhtml"]                                       = '(WorkCentre [^ <]+)';                                                     # WorkCentre M20i a.o.
   xerox_detect_urls["/tabsFrame.dhtml#--avoid-dup1--#"]                       = 'Xerox&nbsp;(Phaser [^<]+)<';                                              # Phaser 4622 a.o.
-  xerox_detect_urls["/hdjobq.htm"]                                            = '((WorkCentre|ApeosPort-IV) [^ \r\n]+)';                                   # WorkCentre M118 a.o
+  xerox_detect_urls["/hdjobq.htm"]                                            = '(WorkCentre [^< \r\n]+)';                                                 # WorkCentre M118 a.o
   xerox_detect_urls["/home.html"]                                             = '((WorkCentre|Phaser|ColorQube) [^ \n\r<]+)';                              # Phaser 3435 a.o
   xerox_detect_urls["/properties/configuration.php"]                          = 'Machine Model:</td><td>Xerox (AltaLink [^<]+)';                           # AltaLink
-  xerox_detect_urls["/setting/prtinfo.htm"]                                   = 'Product Name</td><td class=std_2>(DocuPrint [^<]+)';                      # DocuPrint
-  xerox_detect_urls["/isgw/Welcome.do?method=setupStartPage"]                 = '"signatureText1">[A-Za-z ]+?Xerox ([^<]+)';                               # Nuvera, Docuprint a.o.
+  xerox_detect_urls["/isgw/Welcome.do?method=setupStartPage"]                 = '"signatureText1">[A-Za-z ]+?Xerox ([^<]+)';                               # Nuvera a.o.
   xerox_detect_urls["/isgw/Welcome.do?method=setupStartPage#--avoid-dup1--#"] = '"signatureText1">Xerox\xae([^<]+)';                                       # Xerox 700 a.o.
   xerox_detect_urls["/isgw/Welcome.do?method=setupStartPage#--avoid-dup2--#"] = '"signatureText1">Xerox.. ([^<]+)';                                        # Xerox? Versant a.o.
   xerox_detect_urls["/wt4/home"]                                              = '"_blank">Xerox ([^<]+)';                                                  # some Xerox Versant a.o.
   xerox_detect_urls["/home/msg/message_en-US.json"]                           = '("Xerox Asset Tag")';                                                     # some Xerox Phaser a.o.
-  xerox_detect_urls["/wt2parser.cgi?home_en"]                                 = '<td align="left" valign="middle" class="name">DC-([0-9]+)[^<]*</td>';     # DocuColor, e.g. DC-260-D44DB8
-  xerox_detect_urls["/sprt.htm"]                                              = "var prd='(DocuColor [0-9]+)";                                             # DocuColor, e.g. DocuColor 1450 GA
 
   # Detection string from dont_print_on_printers.nasl. TBD: Include here?
   # if( banner && "Server: Xerox_MicroServer/Xerox" >< banner || "Server: EWS-NIC" >< banner || "<title>DocuPrint" >< banner || "<title>Phaser" >< banner || ( "XEROX WORKCENTRE" >< banner && "Xerox Corporation. All Rights Reserved." >< banner ) || ( "DocuCentre" >< banner && "Fuji Xerox Co., Ltd." >< banner ) ) {
@@ -214,7 +200,8 @@ function xerox_login_details( model, port ) {
      model == "ColorQube 9303"    ||
      model == "Phaser 6700DT") {
 
-    if(!xeorx_cookie) xerox_set_cookie( url:"/header.php", port:port );
+    if(!xerox_cookie)
+      xerox_set_cookie( url:"/header.php", port:port );
 
     xerox['req_type'] = "POST";
     xerox['login_url'] = '/userpost/xerox.set';
@@ -239,8 +226,6 @@ function xerox_login_details( model, port ) {
           model == "WorkCentre 7346"    ||
           model == "WorkCentre 7425"    ||
           model == "WorkCentre 7428"    ||
-          model == "ApeosPort-IV C3370" ||
-          model == "ApeosPort-IV C4470" ||
           model == "WorkCentre 7435") {
 
     xerox['req_type'] = "GET";
@@ -426,55 +411,7 @@ function build_xerox_cpe(model) {
     }
   }
 
-  else if("ApeosPort" >< model) {
-
-    model = tolower(model);
-    m = split(model, sep:" ", keep:FALSE);
-
-    if(isnull(m[1])) {
-      return cpe + ':xerox:apeosport';
-    } else {
-      return cpe + ':xerox:apeosport_' + m[1];
-    }
-  }
-
-  else if("DocuPrint" >< model) {
-
-    model = tolower(model);
-    m = split(model, sep:" ", keep:FALSE);
-
-    if(isnull(m[1])) {
-      return cpe + ':xerox:docuprint';
-    } else {
-      return cpe + ':xerox:docuprint_' + m[1];
-    }
-  }
-
-  else if("DocuCentre" >< model) {
-
-    model = tolower(model);
-    m = split(model, sep:" ", keep:FALSE);
-
-    if(isnull(m[1])) {
-      return cpe + ':xerox:docucentre';
-    } else {
-      return cpe + ':xerox:docucentre_' + m[1];
-    }
-  }
-
-  else if("DocuColor" >< model) {
-
-    model = tolower(model);
-    m = split(model, sep:" ", keep:FALSE);
-
-    if(isnull(m[1])) {
-      return cpe + ':xerox:docucolor';
-    } else {
-      return cpe + ':xerox:docucolor_' + m[1];
-    }
-  }
-
-  else if(model =~ "^[BD]?[0-9]{2,3}") {
+  else if(model =~ "^[BCD]?[0-9]{2,3}") {
 
     model = tolower(model);
     m = split(model, sep:" ", keep:FALSE);

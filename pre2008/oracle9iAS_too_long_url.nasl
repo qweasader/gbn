@@ -1,43 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2002 Michel Arboi
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Oracle9iAS too long URL
-#
-# Authors:
-# Michel Arboi <arboi@alussinan.org>
-#
-# Copyright:
-# Copyright (C) 2002 Michel Arboi
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
-
-# References:
-# Date:  Thu, 18 Oct 2001 16:16:20 +0200
-# From: "andreas junestam" <andreas.junestam@defcom.com>
-# Affiliation: Defcom
-# To: "bugtraq" <bugtraq@securityfocus.com>
-# Subject: def-2001-30
-#
-# Affected:
-# Oracle9iAS Web Cache/2.0.0.1.0
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11081");
-  script_version("2022-05-12T09:32:01+0000");
-  script_tag(name:"last_modification", value:"2022-05-12 09:32:01 +0000 (Thu, 12 May 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/3443");
   script_tag(name:"cvss_base", value:"7.5");
@@ -49,16 +20,17 @@ if(description)
   script_family("Gain a shell remotely");
   script_dependencies("gb_get_http_banner.nasl");
   script_mandatory_keys("Oracle/banner");
-  script_require_ports("Services/www", 1100, 4000, 4001, 4002);
+  script_require_ports("Services/www", 1100);
+
+  script_tag(name:"summary", value:"It may be possible to make the Oracle9i application server crash
+  or execute arbitrary code by sending it a too long url specially crafted URL.");
+
+  script_tag(name:"affected", value:"Oracle9iAS Web Cache/2.0.0.1.0.");
 
   script_tag(name:"solution", value:"Upgrade your server.");
 
-  script_tag(name:"summary", value:"It may be possible to make the Oracle9i application server
-  crash or execute arbitrary code by sending it a too long url
-  specially crafted URL.");
-
   script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   exit(0);
 }

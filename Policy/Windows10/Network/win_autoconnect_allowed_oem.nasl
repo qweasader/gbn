@@ -1,28 +1,14 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.109339");
-  script_version("2022-08-31T10:10:28+0000");
-  script_tag(name:"last_modification", value:"2022-08-31 10:10:28 +0000 (Wed, 31 Aug 2022)");
+  script_version("2023-08-23T05:05:12+0000");
+  script_tag(name:"last_modification", value:"2023-08-23 05:05:12 +0000 (Wed, 23 Aug 2023)");
   script_tag(name:"creation_date", value:"2018-06-22 14:49:11 +0200 (Fri, 22 Jun 2018)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:S/C:N/I:N/A:N");
@@ -31,13 +17,14 @@ if(description)
   script_name("Microsoft Windows 10: Automatically connect to suggested open hotspots");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Policy");
   script_dependencies("compliance_tests.nasl", "smb_reg_service_pack.nasl", "os_detection.nasl");
   script_mandatory_keys("Compliance/Launch");
 
   script_add_preference(name:"Value", type:"radio", value:"0;1", id:1);
 
+  script_xref(name:"Policy", value:"CIS Microsoft Windows 10 Enterprise (Release 22H2) Benchmark v2.0.0: 18.6.23.2.1 (L1) Ensure 'Allow Windows to automatically connect to suggested open hotspots to networks shared by contacts and to hotspots offering paid services' is set to 'Disabled'");
   script_xref(name:"Policy", value:"CIS Microsoft Windows 10 Enterprise (Release 2004) Benchmark v1.9.1: 18.5.23.2.1  (L1) Ensure 'Allow Windows to automatically connect to suggested open hotspots networks shared by contacts and to hotspots offering paid services' is set to 'Disabled'");
   script_xref(name:"Policy", value:"CIS Controls Version 7: 15.4 Disable Wireless Access on Devices if Not Required");
   script_xref(name:"Policy", value:"CIS Controls Version 7: 15.5 Limit Wireless Access on Client Devices");

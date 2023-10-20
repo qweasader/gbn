@@ -1,18 +1,8 @@
-# This script was written by Thomas Reinke <reinke@securityspace.com>
+# SPDX-FileCopyrightText: 2005 E-Soft Inc.
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Copyright (C) 2005 E-Soft Inc. http://www.securityspace.com
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License Version 2
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 # This variable is defined at inclusion time. It's declared global and is set
 # to TRUE if isrpmvuln() is called for an OS version and a package name that

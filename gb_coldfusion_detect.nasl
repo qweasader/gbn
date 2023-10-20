@@ -1,35 +1,21 @@
-# Copyright (C) 2010 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2010 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100773");
-  script_version("2021-12-21T06:23:19+0000");
-  script_tag(name:"last_modification", value:"2021-12-21 06:23:19 +0000 (Tue, 21 Dec 2021)");
+  script_version("2023-07-25T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
   script_tag(name:"creation_date", value:"2010-09-02 16:10:00 +0200 (Thu, 02 Sep 2010)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_name("Adobe ColdFusion Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
@@ -58,8 +44,55 @@ res1 = http_get_cache( port:port, item:url1 );
 url2 = "/enter.cfm";
 res2 = http_get_cache( port:port, item:url2 );
 
-if( "<title>ColdFusion Administrator Login</title>" >< res1 || "ColdFusion" >< res1 ||
-    "<title>ColdFusion Administrator Login</title>" >< res2 ) {
+# Some systems which only have one of these in the source code:
+# <script type="text/javascript" src="/cf_scripts/scripts/cfform.js"></script>
+# <link href="http://<redacted>:80/cf_scripts/scripts/assets/style.css"
+# <img src="https://<redacted>:443/cf_scripts/scripts/assets/spot.png" />
+# <script type="text/javascript" src="/cf_scripts/scripts/masks.js"></script>
+#
+# Those might exist on the index page (which could be also a 404) or an error page so a single
+# pattern is used for the next two requests.
+pattern = "^\s*<(script|link|img).+/cf_scripts/scripts/((cfform|masks)\.js|assets/(style\.css|spot\.png))";
+
+url3 = "/";
+res3 = http_get_cache( port:port, item:url3, fetch404:TRUE );
+
+# And the last one based on some fingerprinting on a possible error page just to be sure that
+# we're detecting the product if everything else failed (e.g. for active checks)
+url4 = "/vt-test-non-existent.cfm";
+res4 = http_get_cache( port:port, item:url4, fetch404:TRUE );
+
+if( "<title>ColdFusion Administrator Login</title>" >< res1 || "ColdFusion" >< res1 ) {
+  found = TRUE;
+  concUrl = http_report_vuln_url( port:port, url:url1, url_only:TRUE );
+}
+
+if( "<title>ColdFusion Administrator Login</title>" >< res2 ) {
+  found = TRUE;
+  if( concUrl )
+    concUrl += '\n';
+  concUrl += http_report_vuln_url( port:port, url:url2, url_only:TRUE );
+}
+
+if( egrep( string:res3, pattern:pattern, icase:FALSE ) ) {
+  found = TRUE;
+  if( concUrl )
+    concUrl += '\n';
+  concUrl += http_report_vuln_url( port:port, url:url3, url_only:TRUE );
+}
+
+if( ">ColdFusion documentation<" >< res4 ||
+    egrep( string:res4, pattern:pattern, icase:FALSE ) ) {
+  found = TRUE;
+  if( concUrl )
+    concUrl += '\n';
+  concUrl += http_report_vuln_url( port:port, url:url4, url_only:TRUE );
+}
+
+if( found ) {
+
+  install = "/";
+
   url = base + "/adminapi/administrator.cfc?method=getBuildNumber";
   req = http_get( item:url, port:port );
   buf = http_send_recv( port:port, data:req, bodyonly:TRUE );
@@ -68,7 +101,7 @@ if( "<title>ColdFusion Administrator Login</title>" >< res1 || "ColdFusion" >< r
   version = eregmatch( pattern:"([0-9]+,[0-9]+,[0-9]+,[0-9]+)", string:buf );
   if( ! isnull( version[1] ) ) {
     cf_version = str_replace( string:version[1], find:",", replace:"." );
-    concUrl = http_report_vuln_url( port:port, url:url, url_only:TRUE );
+    concUrl += '\n' + http_report_vuln_url( port:port, url:url, url_only:TRUE );
   }
 
   if( ! cf_version ) {
@@ -81,7 +114,7 @@ if( "<title>ColdFusion Administrator Login</title>" >< res1 || "ColdFusion" >< r
       version = eregmatch( pattern:"WSDL created by ColdFusion version ([0-9,]+)-->", string:buf );
       if( ! isnull( version[1] ) ) {
         cf_version = str_replace( string:version[1], find:",", replace:"." );
-        concUrl = http_report_vuln_url( port:port, url:url, url_only:TRUE );
+        concUrl += '\n' + http_report_vuln_url( port:port, url:url, url_only:TRUE );
       }
     }
   }
@@ -96,7 +129,7 @@ if( "<title>ColdFusion Administrator Login</title>" >< res1 || "ColdFusion" >< r
       version = eregmatch( pattern:"WSDL created by ColdFusion version ([0-9,]+)-->", string:buf );
       if( ! isnull( version[1] ) ) {
         cf_version = str_replace( string:version[1], find:",", replace:"." );
-        concUrl = http_report_vuln_url( port:port, url:url, url_only:TRUE );
+        concUrl += '\n' + http_report_vuln_url( port:port, url:url, url_only:TRUE );
       }
     }
   }
@@ -111,19 +144,22 @@ if( "<title>ColdFusion Administrator Login</title>" >< res1 || "ColdFusion" >< r
       version = eregmatch( pattern:"Version: ([0-9,hf_]+)</strong>", string:buf );
       if( ! isnull( version[1] ) ) {
         cf_version = str_replace( string:version[1], find:",", replace:"." );
-        concUrl = http_report_vuln_url( port:port, url:url, url_only:TRUE );
+        concUrl += '\n' + http_report_vuln_url( port:port, url:url, url_only:TRUE );
       } else {
         # ColdFusion &#x28;2021 Release
         version = eregmatch( pattern:"ColdFusion[^;]+;([0-9]+) Release", string:buf );
         if( ! isnull( version[1] ) ) {
           cf_version = str_replace( string:version[1], find:",", replace:"." );
-          concUrl = http_report_vuln_url( port:port, url:url, url_only:TRUE );
+          concUrl += '\n' + http_report_vuln_url( port:port, url:url, url_only:TRUE );
         }
       }
     }
   }
 
   if( ! cf_version ) {
+
+    # nb: This only includes the major version. Due to this some special handling in version based
+    # VTs needs to be applied (see existing examples).
     url = base + "/administrator/help/index.html";
     req = http_get( item:url, port:port );
     buf = http_send_recv( port:port, data:req, bodyonly:FALSE );
@@ -133,7 +169,7 @@ if( "<title>ColdFusion Administrator Login</title>" >< res1 || "ColdFusion" >< r
       version = eregmatch( pattern:"Configuring and Administering ColdFusion ([0-9]+)", string:buf );
       if( ! isnull( version[1] ) ) {
         cf_version = version[1];
-        concUrl = http_report_vuln_url( port:port, url:url, url_only:TRUE );
+        concUrl += '\n' + http_report_vuln_url( port:port, url:url, url_only:TRUE );
       }
     }
   }
@@ -145,11 +181,11 @@ if( "<title>ColdFusion Administrator Login</title>" >< res1 || "ColdFusion" >< r
     cpe = "cpe:/a:adobe:coldfusion:" + cf_version;
   }
 
-  register_product( cpe:cpe, location:"/", port:port, service:"www" );
+  register_product( cpe:cpe, location:install, port:port, service:"www" );
   set_kb_item( name:"adobe/coldfusion/detected", value:TRUE );
   set_kb_item( name:"adobe/coldfusion/http/detected", value:TRUE );
 
-  log_message( data:build_detection_report( app:"Adobe ColdFusion", version:cf_version, install:"/",
+  log_message( data:build_detection_report( app:"Adobe ColdFusion", version:cf_version, install:install,
                                             cpe:cpe, concluded:version[0], concludedUrl:concUrl ),
                port:port );
 

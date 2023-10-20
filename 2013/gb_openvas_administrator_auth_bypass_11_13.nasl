@@ -1,44 +1,24 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2013 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# OpenVAS Administrator Authentication Bypass
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2013 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:openvas:openvas_administrator";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103828");
-  script_version("2022-12-05T10:11:03+0000");
+  script_version("2023-06-23T16:09:17+0000");
   script_cve_id("CVE-2013-6766");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-12-05 10:11:03 +0000 (Mon, 05 Dec 2022)");
+  script_tag(name:"last_modification", value:"2023-06-23 16:09:17 +0000 (Fri, 23 Jun 2023)");
   script_tag(name:"creation_date", value:"2013-11-08 13:03:55 +0200 (Fri, 08 Nov 2013)");
-  script_name("OpenVAS Administrator Authentication Bypass");
+  script_name("OpenVAS Administrator Authentication Bypass Vulnerability (OVSA20131108)");
   script_category(ACT_GATHER_INFO);
   script_family("General");
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   script_dependencies("gb_openvas_administrator_detect.nasl", "gb_greenbone_os_consolidation.nasl");
   script_require_ports("Services/oap", 9393);
   script_mandatory_keys("openvas_administrator/detected");
@@ -68,7 +48,7 @@ if(description)
 include("host_details.inc");
 
 if( get_kb_item( "greenbone/gos/detected" ) )
-  exit( 0 ); # there is an extra nvt gb_gsm_manager_auth_bypass_11_13.nasl for the gsm
+  exit( 0 ); # there is an extra VT gb_gsm_manager_auth_bypass_11_13.nasl for the GSM
 
 if( ! port = get_app_port( cpe:CPE ) )
   exit( 0 );

@@ -1,34 +1,15 @@
-##############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2017 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Google Chrome Security Updates(stable-channel-update-for-desktop-2017-10)-MAC OS X
-#
-# Authors:
-# Rinu Kuriakose <krinu@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2017 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:google:chrome";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811874");
-  script_version("2022-04-13T11:57:07+0000");
+  script_version("2023-10-13T16:09:03+0000");
   script_cve_id("CVE-2017-5124", "CVE-2017-5125", "CVE-2017-5126", "CVE-2017-5127",
                 "CVE-2017-5128", "CVE-2017-5129", "CVE-2017-5132", "CVE-2017-5130",
                 "CVE-2017-5131", "CVE-2017-5133", "CVE-2017-15386", "CVE-2017-15387",
@@ -36,12 +17,12 @@ if(description)
                 "CVE-2017-15392", "CVE-2017-15393", "CVE-2017-15394", "CVE-2017-15395");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-04-13 11:57:07 +0000 (Wed, 13 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-02-23 15:55:00 +0000 (Fri, 23 Feb 2018)");
   script_tag(name:"creation_date", value:"2017-10-19 12:40:22 +0530 (Thu, 19 Oct 2017)");
-  script_name("Google Chrome Security Updates(stable-channel-update-for-desktop-2017-10)-MAC OS X");
+  script_name("Google Chrome Security Updates (stable-channel-update-for-desktop-2017-10) - Mac OS X");
 
   script_tag(name:"summary", value:"Google Chrome is prone to multiple vulnerabilities.");
 
@@ -83,7 +64,7 @@ if(description)
   denial of service condition.");
 
   script_tag(name:"affected", value:"Google Chrome version prior to
-  62.0.3202.62 on MAC OS X.");
+  62.0.3202.62 on Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade to Google Chrome version
   62.0.3202.62 or later.");
@@ -96,7 +77,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/101482");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("General");
   script_dependencies("gb_google_chrome_detect_macosx.nasl");
   script_mandatory_keys("GoogleChrome/MacOSX/Version");

@@ -1,28 +1,8 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Palo Alto PAN-OS PAN-SA-2016-0005 (Remote Check)
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/o:paloaltonetworks:pan-os";
 
@@ -31,11 +11,11 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.105627");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2022-11-10T10:12:04+0000");
+  script_version("2023-06-27T05:05:30+0000");
   script_cve_id("CVE-2016-3657");
-  script_name("Palo Alto PAN-OS PAN-SA-2016-0005 (Remote Check)");
+  script_name("Palo Alto PAN-OS Unauthenticated Buffer Overflow (PAN-SA-2016-0005) - Active Check");
 
-  script_xref(name:"URL", value:"https://securityadvisories.paloaltonetworks.com/Home/Detail/38");
+  script_xref(name:"URL", value:"https://security.paloaltonetworks.com/CVE-2016-3657");
 
   script_tag(name:"summary", value:"When a PAN-OS device is configured as a GlobalProtect portal, a vulnerability exists
   where an improper handling of a buffer involved in the processing of SSL VPN requests can result in device crash and possible remote code execution.");
@@ -51,14 +31,14 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_active");
 
-  script_tag(name:"last_modification", value:"2022-11-10 10:12:04 +0000 (Thu, 10 Nov 2022)");
+  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-02-17 16:15:00 +0000 (Mon, 17 Feb 2020)");
   script_tag(name:"creation_date", value:"2016-04-29 10:43:26 +0200 (Fri, 29 Apr 2016)");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("gb_paloalto_panos_consolidation.nasl");
   script_mandatory_keys("palo_alto/http/detected");
   script_require_ports("Services/www", 443);
@@ -71,15 +51,20 @@ include("http_keepalive.inc");
 include("host_details.inc");
 include("misc_func.inc");
 
-if( ! port = get_app_port( cpe:CPE, service:"www" ) ) exit( 0 );
-if( ! dir  = get_app_location( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE, service:"www" ) )
+  exit( 0 );
 
-if( dir == "/" ) dir = "";
+if( ! dir  = get_app_location( cpe:CPE, port:port ) )
+  exit( 0 );
+
+if( dir == "/" )
+  dir = "";
+
 url = dir + "/global-protect/login.esp";
 req = http_get( item:url, port:port );
 buf = http_keepalive_send_recv( port:port, data:req, bodyonly:FALSE );
 
-if( buf =~ "HTTP/1\.. 404" ) exit( 99 );
+if( buf =~ "^HTTP/1\.[01] 404" ) exit( 99 );
 
 user = crap( data:"X", length:500 );
 
@@ -95,13 +80,13 @@ data = 'prot=https%3A' +
        '&ok=Login';
 
 req = http_post_put_req( port:port,
-                     url:url,
-                     data:data,
-                     add_headers: make_array( "Content-Type", "application/x-www-form-urlencoded" )
-                   );
+                         url:url,
+                         data:data,
+                         add_headers:make_array( "Content-Type", "application/x-www-form-urlencoded" )
+                       );
 
 buf = http_keepalive_send_recv( port:port, data:req, bodyonly:FALSE );
-if( buf !~ "HTTP/1\.. 512 Custom error" ) exit( 99 );
+if( buf !~ "^HTTP/1\.[01] 512" ) exit( 99 );
 
 # It seems that the check for "512 Custom error" is enough to detect vulnerable hosts.
 # But to be sure check also for different response in "respMsg"
@@ -126,9 +111,9 @@ foreach line ( lines )
   }
 }
 
-if( VULN )
-{
-  security_message( port:port );
+if( VULN ) {
+  report = http_report_vuln_url( port:port, url:url );
+  security_message( port:port, data:report );
   exit( 0 );
 }
 

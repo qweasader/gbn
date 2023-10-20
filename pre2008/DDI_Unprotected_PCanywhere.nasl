@@ -1,38 +1,21 @@
-# OpenVAS Vulnerability Test
-# Description: Unprotected PC Anywhere Service
+# SPDX-FileCopyrightText: 2005 Digital Defense Inc.
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# H D Moore
-#
-# Copyright:
-# Copyright (C) 2005 Digital Defense Incorporated
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10798");
-  script_version("2023-03-01T10:20:05+0000");
-  script_tag(name:"last_modification", value:"2023-03-01 10:20:05 +0000 (Wed, 01 Mar 2023)");
+  script_version("2023-07-07T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-07-07 05:05:26 +0000 (Fri, 07 Jul 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_cve_id("CVE-1999-0507", "CVE-1999-0508");
   script_name("Unprotected PC Anywhere Service (pcAnywhere Protocol)");
   script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2005 Digital Defense Incorporated");
+  script_copyright("Copyright (C) 2005 Digital Defense Inc.");
   script_family("Default Accounts");
   script_dependencies("find_service.nasl", "PC_anywhere_tcp.nasl", "gb_default_credentials_options.nasl",
                       "gb_symantec_pcanywhere_access_server_detect.nasl", "os_detection.nasl");

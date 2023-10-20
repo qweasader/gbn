@@ -1,40 +1,21 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2015 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Web Reference Database Multiple Vulnerabilities
-#
-# Authors:
-# Rinu Kuriakose <krinu@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2015 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:refbase:refbase";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806062");
-  script_version("2021-10-21T13:57:32+0000");
+  script_version("2023-07-25T05:05:58+0000");
   script_cve_id("CVE-2015-6007", "CVE-2015-6008", "CVE-2015-6009", "CVE-2015-6010",
                 "CVE-2015-6011", "CVE-2015-6012", "CVE-2015-7381", "CVE-2015-7382",
                 "CVE-2015-7383");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2021-10-21 13:57:32 +0000 (Thu, 21 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
   script_tag(name:"creation_date", value:"2015-10-05 13:23:43 +0530 (Mon, 05 Oct 2015)");
   script_tag(name:"qod_type", value:"remote_active");
   script_name("Web Reference Database Multiple Vulnerabilities");
@@ -98,7 +79,7 @@ if(description)
   script_xref(name:"URL", value:"https://www.exploit-db.com/exploits/38292");
 
   script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_refbase_detect.nasl");
   script_mandatory_keys("Refbase/Installed");

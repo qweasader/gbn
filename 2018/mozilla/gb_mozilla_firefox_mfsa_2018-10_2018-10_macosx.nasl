@@ -1,43 +1,24 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2018 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Mozilla Firefox Security Updates(mfsa_2018-10_2018-10)-MAC OS X
-#
-# Authors:
-# Rinu Kuriaksoe <krinu@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2018 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mozilla:firefox";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813057");
-  script_version("2022-04-13T07:21:45+0000");
+  script_version("2023-10-13T16:09:03+0000");
   script_cve_id("CVE-2018-5148");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-04-13 07:21:45 +0000 (Wed, 13 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-08-09 14:26:00 +0000 (Thu, 09 Aug 2018)");
   script_tag(name:"creation_date", value:"2018-03-27 16:44:09 +0530 (Tue, 27 Mar 2018)");
-  script_name("Mozilla Firefox Security Updates(mfsa_2018-10_2018-10)-MAC OS X");
+  script_name("Mozilla Firefox Security Updates (mfsa_2018-10_2018-10) - Mac OS X");
 
   script_tag(name:"summary", value:"Mozilla Firefox is prone to an use-after-free vulnerability.");
 
@@ -51,7 +32,7 @@ if(description)
   attacker to crash the affected applicationa and denying service to
   legitimate users.");
 
-  script_tag(name:"affected", value:"Mozilla Firefox version before 59.0.2 on MAC OS X.");
+  script_tag(name:"affected", value:"Mozilla Firefox version before 59.0.2 on Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade to Mozilla Firefox version 59.0.2
   or later.");
@@ -61,7 +42,7 @@ if(description)
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2018-10/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/103506");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("General");
   script_dependencies("gb_mozilla_prdts_detect_macosx.nasl");
   script_mandatory_keys("Mozilla/Firefox/MacOSX/Version");

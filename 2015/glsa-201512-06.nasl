@@ -1,34 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2015 Eero Volotinen
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Gentoo Linux security check
-#
-# Authors:
-# Eero Volotinen <eero.volotinen@solinor.com>
-#
-# Copyright:
-# Copyright (C) 2015 Eero Volotinen, http://solinor.com
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.121428");
-  script_version("2021-10-18T13:03:43+0000");
+  script_version("2023-07-19T05:05:15+0000");
   script_tag(name:"creation_date", value:"2015-12-31 11:46:01 +0200 (Thu, 31 Dec 2015)");
-  script_tag(name:"last_modification", value:"2021-10-18 13:03:43 +0000 (Mon, 18 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
   script_name("Gentoo Security Advisory GLSA 201512-06");
   script_tag(name:"insight", value:"MPFR fails to adequately check user-supplied input, which could lead to a buffer overflow.");
   script_tag(name:"solution", value:"Update the affected packages to the latest available version.");

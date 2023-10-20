@@ -1,35 +1,14 @@
-# OpenVAS Vulnerability Test
-#
-# Auto-generated from advisory SUSE-SR:2009:001
-#
-# Authors:
-# Thomas Reinke <reinke@securityspace.com>
-#
-# Copyright:
-# Copyright (C) 2009 E-Soft Inc.
+# SPDX-FileCopyrightText: 2009 E-Soft Inc.
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# or at your option, GNU General Public License version 3,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.63186");
-  script_version("2022-01-20T14:18:20+0000");
-  script_tag(name:"last_modification", value:"2022-01-20 14:18:20 +0000 (Thu, 20 Jan 2022)");
+  script_version("2023-07-18T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2023-07-18 05:05:36 +0000 (Tue, 18 Jul 2023)");
   script_tag(name:"creation_date", value:"2009-01-20 22:42:09 +0100 (Tue, 20 Jan 2009)");
   script_cve_id("CVE-2008-2380", "CVE-2008-3933", "CVE-2008-3934", "CVE-2008-3963", "CVE-2008-4097", "CVE-2008-4098", "CVE-2008-4225", "CVE-2008-4314", "CVE-2008-4552", "CVE-2008-4575", "CVE-2008-4639", "CVE-2008-4640", "CVE-2008-4641", "CVE-2008-4680", "CVE-2008-4681", "CVE-2008-4682", "CVE-2008-4683", "CVE-2008-4684", "CVE-2008-4685", "CVE-2008-4864", "CVE-2008-5006", "CVE-2008-5031", "CVE-2008-5285", "CVE-2008-5514", "CVE-2008-5517", "CVE-2008-5617", "CVE-2008-5618", "CVE-2009-0022", "CVE-2008-5660");
   script_tag(name:"cvss_base", value:"10.0");

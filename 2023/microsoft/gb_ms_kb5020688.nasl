@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826908");
-  script_version("2023-02-07T12:10:58+0000");
+  script_version("2023-10-13T05:06:10+0000");
   script_cve_id("CVE-2022-41064");
-  script_tag(name:"cvss_base", value:"7.2");
-  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-02-07 12:10:58 +0000 (Tue, 07 Feb 2023)");
+  script_tag(name:"cvss_base", value:"4.3");
+  script_tag(name:"cvss_base_vector", value:"AV:A/AC:H/Au:S/C:C/I:N/A:N");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:A/AC:H/PR:L/UI:N/S:C/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-11-10 00:33:00 +0000 (Thu, 10 Nov 2022)");
   script_tag(name:"creation_date", value:"2023-02-02 16:59:05 +0530 (Thu, 02 Feb 2023)");
   script_name("Microsoft .NET Framework Information Disclosure Vulnerability (KB5020688)");
 

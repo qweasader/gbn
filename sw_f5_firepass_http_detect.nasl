@@ -1,30 +1,16 @@
-# Copyright (C) 2015 SCHUTZWERK GmbH
+# SPDX-FileCopyrightText: 2015 SCHUTZWERK GmbH
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111015");
-  script_version("2021-05-26T13:59:24+0000");
+  script_version("2023-08-10T05:05:53+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2021-05-26 13:59:24 +0000 (Wed, 26 May 2021)");
+  script_tag(name:"last_modification", value:"2023-08-10 05:05:53 +0000 (Thu, 10 Aug 2023)");
   script_tag(name:"creation_date", value:"2015-04-17 08:00:00 +0100 (Fri, 17 Apr 2015)");
   script_name("F5 FirePass Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
@@ -63,6 +49,7 @@ if( ( res1 && "FirePass server could not handle the request" >< res1 ) ||
     ( res2 && "Version - FirePass" >< res2 ) ) {
 
   version = "unknown";
+  install = "/";
   set_kb_item( name:"f5/firepass/detected", value:TRUE );
   set_kb_item( name:"f5/firepass/http/detected", value:TRUE );
 
@@ -76,9 +63,9 @@ if( ( res1 && "FirePass server could not handle the request" >< res1 ) ||
   if( ! cpe )
     cpe = "cpe:/h:f5:firepass";
 
-  register_product( cpe:cpe, location:"/", port:port, service:"www" );
+  register_product( cpe:cpe, location:install, port:port, service:"www" );
 
-  # From https://support.f5.com/csp/article/K2253:
+  # From https://my.f5.com/manage/s/article/K2253:
   # 6.1.0 through 7.0.0 -> Slackware Linux version 7.1
   # nb: Base OS of other versions are unknown
   if( version != "unknown" && version_in_range( version:version, test_version:"6.1.0", test_version2:"7.0.0" ) )
@@ -88,7 +75,7 @@ if( ( res1 && "FirePass server could not handle the request" >< res1 ) ||
 
   log_message( data:build_detection_report( app:"F5 FirePass",
                                             version:version,
-                                            install:"/",
+                                            install:install,
                                             cpe:cpe,
                                             concludedUrl:conclurl,
                                             concluded:ver[0] ),

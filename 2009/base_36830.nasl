@@ -1,40 +1,16 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Basic Analysis and Security Engine Multiple Input Validation Vulnerabilities
-#
-# Authors:
-# Michael Meyer
-#
-# Updated By Sooraj KS <kssooraj@secpod.com>
-# date update: 2010/05/14
-# Added CVE-2009-4837  CVE-2009-4838  CVE-2009-4839 and BID 18298
-#
-#
-# Copyright:
-# Copyright (C) 2009 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:secureideas:base";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100323");
-  script_version("2022-05-09T13:48:18+0000");
-  script_tag(name:"last_modification", value:"2022-05-09 13:48:18 +0000 (Mon, 09 May 2022)");
+  script_version("2023-07-27T05:05:08+0000");
+  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
   script_tag(name:"creation_date", value:"2009-10-29 12:31:54 +0100 (Thu, 29 Oct 2009)");
   script_cve_id("CVE-2009-4590", "CVE-2009-4591", "CVE-2009-4592", "CVE-2009-4837", "CVE-2009-4838", "CVE-2009-4839");
   script_tag(name:"cvss_base", value:"7.5");
@@ -48,7 +24,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"remote_banner");
   script_family("Web application abuses");
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_dependencies("base_detect.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("BASE/installed");

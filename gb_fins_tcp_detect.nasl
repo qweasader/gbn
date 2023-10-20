@@ -1,34 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2017 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Factory Interface Network Service (FINS) Detection (TCP)
-#
-# Authors:
-# Christian Kuersteiner <christian.kuersteiner@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2017 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140512");
-  script_version("2020-11-10T15:30:28+0000");
-  script_tag(name:"last_modification", value:"2020-11-10 15:30:28 +0000 (Tue, 10 Nov 2020)");
+  script_version("2023-09-19T05:06:03+0000");
+  script_tag(name:"last_modification", value:"2023-09-19 05:06:03 +0000 (Tue, 19 Sep 2023)");
   script_tag(name:"creation_date", value:"2017-11-20 16:46:39 +0700 (Mon, 20 Nov 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -37,25 +17,27 @@ if(description)
 
   script_name("Factory Interface Network Service (FINS) Detection (TCP)");
 
-  script_tag(name:"summary", value:"A Factory Interface Network Service (FINS) over TCP is running at this host.
-
-Factory Interface Network Service, is a network protocol used by Omron PLCs. The FINS communications service was
-developed by Omron to provide a consistent way for PLCs and computers on various networks to communicate.");
-
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Service detection");
   script_dependencies("find_service.nasl");
   script_require_ports(9600);
+
+  script_tag(name:"summary", value:"TCP based detection of services supporting the Factory Interface
+  Network Service (FINS) protocol.");
+
+  script_tag(name:"insight", value:"FINS is a network protocol used by Omron PLCs. The FINS
+  communications service was developed by Omron to provide a consistent way for PLCs and computers
+  on various networks to communicate.");
 
   script_xref(name:"URL", value:"http://www.omron.com/");
 
   exit(0);
 }
 
-include("host_details.inc");
 include("dump.inc");
+include("host_details.inc");
 include("port_service_func.inc");
 include("misc_func.inc");
 
@@ -110,12 +92,12 @@ set_kb_item(name: "fins/detected", value: TRUE);
 
 service_register(port: port, proto: "fins", ipproto: "tcp");
 
-report = "A FINS service is running at this port.\n";
+report = "A FINS service is running at this port.";
 
 if (model || version) {
-  report += "\nThe following information was extracted:\n\n" +
-            "Controller Model:      " + model + "\n" +
-            "Controller Version:    " + version + "\n";
+  report += '\n\nThe following information was extracted:\n\n' +
+            "Controller Model:      " + model + '\n' +
+            "Controller Version:    " + version;
 }
 
 log_message(port: port, data: report);

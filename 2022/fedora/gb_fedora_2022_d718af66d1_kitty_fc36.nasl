@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.822590");
-  script_version("2022-10-04T10:10:56+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-41322");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-10-04 10:10:56 +0000 (Tue, 04 Oct 2022)");
+  script_tag(name:"cvss_base", value:"7.2");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-09-26 16:16:00 +0000 (Mon, 26 Sep 2022)");
   script_tag(name:"creation_date", value:"2022-10-03 01:13:23 +0000 (Mon, 03 Oct 2022)");
   script_name("Fedora: Security Advisory for kitty (FEDORA-2022-d718af66d1)");
   script_category(ACT_GATHER_INFO);

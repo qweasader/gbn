@@ -1,30 +1,16 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.891497");
   script_cve_id("CVE-2015-8666", "CVE-2016-10155", "CVE-2016-2198", "CVE-2016-6833", "CVE-2016-6835", "CVE-2016-8576", "CVE-2016-8667", "CVE-2016-8669", "CVE-2016-9602", "CVE-2016-9603", "CVE-2016-9776", "CVE-2016-9907", "CVE-2016-9911", "CVE-2016-9914", "CVE-2016-9915", "CVE-2016-9916", "CVE-2016-9921", "CVE-2016-9922", "CVE-2017-10806", "CVE-2017-10911", "CVE-2017-11434", "CVE-2017-14167", "CVE-2017-15038", "CVE-2017-15289", "CVE-2017-16845", "CVE-2017-18030", "CVE-2017-18043", "CVE-2017-2615", "CVE-2017-2620", "CVE-2017-5525", "CVE-2017-5526", "CVE-2017-5579", "CVE-2017-5667", "CVE-2017-5715", "CVE-2017-5856", "CVE-2017-5973", "CVE-2017-5987", "CVE-2017-6505", "CVE-2017-7377", "CVE-2017-7493", "CVE-2017-7718", "CVE-2017-7980", "CVE-2017-8086", "CVE-2017-8112", "CVE-2017-8309", "CVE-2017-8379", "CVE-2017-9330", "CVE-2017-9373", "CVE-2017-9374", "CVE-2017-9503", "CVE-2018-5683", "CVE-2018-7550");
   script_tag(name:"creation_date", value:"2018-09-06 22:00:00 +0000 (Thu, 06 Sep 2018)");
-  script_version("2023-03-09T10:20:43+0000");
-  script_tag(name:"last_modification", value:"2023-03-09 10:20:43 +0000 (Thu, 09 Mar 2023)");
+  script_version("2023-07-05T05:06:17+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Debian: Security Advisory (DLA-1497)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB8");
@@ -159,11 +145,19 @@ report = "";
 
 if(release == "DEB8") {
 
+  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"1:2.1+dfsg-12+deb8u7", rls:"DEB8"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"qemu-guest-agent", ver:"1:2.1+dfsg-12+deb8u7", rls:"DEB8"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"qemu-kvm", ver:"1:2.1+dfsg-12+deb8u7", rls:"DEB8"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:2.1+dfsg-12+deb8u7", rls:"DEB8"))) {
     report += res;
   }
 
@@ -195,7 +189,7 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:2.1+dfsg-12+deb8u7", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-user", ver:"1:2.1+dfsg-12+deb8u7", rls:"DEB8"))) {
     report += res;
   }
 
@@ -207,15 +201,7 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-user", ver:"1:2.1+dfsg-12+deb8u7", rls:"DEB8"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"qemu-utils", ver:"1:2.1+dfsg-12+deb8u7", rls:"DEB8"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"1:2.1+dfsg-12+deb8u7", rls:"DEB8"))) {
     report += res;
   }
 

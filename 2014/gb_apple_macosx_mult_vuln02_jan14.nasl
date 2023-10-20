@@ -1,32 +1,13 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2014 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Apple Mac OS X Multiple Vulnerabilities - 02 Jan14
-#
-# Authors:
-# Thanga Prakash S <tprakash@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2014 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804061");
-  script_version("2021-10-28T14:26:49+0000");
+  script_version("2023-07-27T05:05:08+0000");
   script_cve_id("CVE-2013-0982", "CVE-2013-0983", "CVE-2012-5519", "CVE-2013-0985",
                 "CVE-2013-0989", "CVE-2012-4929", "CVE-2011-1945", "CVE-2011-3207",
                 "CVE-2011-3210", "CVE-2011-4108", "CVE-2011-4109", "CVE-2011-4576",
@@ -35,7 +16,7 @@ if(description)
                 "CVE-2013-0988", "CVE-2013-0990", "CVE-2013-0975", "CVE-2013-1024");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-10-28 14:26:49 +0000 (Thu, 28 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
   script_tag(name:"creation_date", value:"2014-01-20 19:13:47 +0530 (Mon, 20 Jan 2014)");
   script_name("Apple Mac OS X Multiple Vulnerabilities - 02 Jan14");
 
@@ -92,7 +73,7 @@ if(description)
   script_xref(name:"URL", value:"http://support.apple.com/kb/HT5784");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Mac OS X Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/osx_name", "ssh/login/osx_version", re:"ssh/login/osx_version=^10\.[6-8]");

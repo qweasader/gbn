@@ -1,30 +1,16 @@
-# Copyright (C) 2023 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2023 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.4.2023.0618.1");
-  script_cve_id("CVE-2022-3107", "CVE-2022-3108", "CVE-2022-3564", "CVE-2022-36280", "CVE-2022-4662", "CVE-2022-47929", "CVE-2023-0045", "CVE-2023-0266", "CVE-2023-0590", "CVE-2023-23454");
+  script_cve_id("CVE-2022-3107", "CVE-2022-3108", "CVE-2022-3564", "CVE-2022-36280", "CVE-2022-4662", "CVE-2022-47929", "CVE-2023-0045", "CVE-2023-0266", "CVE-2023-0394", "CVE-2023-0590", "CVE-2023-23454");
   script_tag(name:"creation_date", value:"2023-03-28 13:04:06 +0000 (Tue, 28 Mar 2023)");
-  script_version("2023-03-29T10:21:17+0000");
-  script_tag(name:"last_modification", value:"2023-03-29 10:21:17 +0000 (Wed, 29 Mar 2023)");
+  script_version("2023-06-22T10:34:14+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:14 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("SUSE: Security Advisory (SUSE-SU-2023:0618-1)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2023 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("SuSE Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/suse_sles", "ssh/login/rpms", re:"ssh/login/release=(SLES12\.0SP5)");
@@ -50,6 +36,7 @@ The following security bugs were fixed:
 
 CVE-2023-23454: Fixed denial or service in cbq_classify in net/sched/sch_cbq.c (bnc#1207036).
 CVE-2023-0590: Fixed race condition in qdisc_graft() (bsc#1207795).
+CVE-2023-0394: Fixed a null pointer dereference flaw in the network subcomponent in the Linux kernel which could lead to system crash (bsc#1207168).
 CVE-2023-0266: Fixed a use-after-free vulnerability inside the ALSA PCM package. SNDRV_CTL_IOCTL_ELEM_{READ<pipe>WRITE}32 was missing locks that could have been used in a use-after-free that could have resulted in a priviledge escalation to gain ring0 access from the system user (bsc#1207134).
 CVE-2023-0045: Fixed flush IBP in ib_prctl_set() (bsc#1207773).
 CVE-2022-47929: Fixed NULL pointer dereference bug in the traffic control subsystem (bnc#1207237).
@@ -81,10 +68,7 @@ NFS: Correct size calculation for create reply length (git-fixes).
 NFS: Fix an Oops in nfs_d_automount() (git-fixes).
 NFS: Fix initialisation of I/O result struct in nfs_pgio_rpcsetup (git-fixes).
 NFS: Fix memory leaks in nfs_pageio_stop_mirroring() (git-fixes).
-NFS: direct.c: Fix memory leak of dreq when nfs_get_lock_context fails (git-fixes).
-NFS: nfs_compare_mount_options always compare auth flavors (git-fixes).
-NFS: nfs_find_open_context() may only select open files (git-fixes).
-NFS: ... [Please see the references for more information on the vulnerabilities]");
+NFS: direct.c: Fix memory leak of dreq when nfs_get_lock_context fails ... [Please see the references for more information on the vulnerabilities]");
 
   script_tag(name:"affected", value:"'Linux Kernel' package(s) on SUSE Linux Enterprise High Performance Computing 12-SP5, SUSE Linux Enterprise Server 12-SP5, SUSE Linux Enterprise Server for SAP Applications 12-SP5.");
 

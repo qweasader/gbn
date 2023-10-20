@@ -1,30 +1,16 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.12.2022.5772.1");
   script_cve_id("CVE-2021-3682", "CVE-2021-3750", "CVE-2021-3930", "CVE-2022-0216", "CVE-2022-2962", "CVE-2022-3165");
   script_tag(name:"creation_date", value:"2022-12-13 04:10:37 +0000 (Tue, 13 Dec 2022)");
-  script_version("2022-12-13T10:10:56+0000");
-  script_tag(name:"last_modification", value:"2022-12-13 10:10:56 +0000 (Tue, 13 Dec 2022)");
+  script_version("2023-07-05T05:06:17+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"6.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Ubuntu: Security Advisory (USN-5772-1)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Ubuntu Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/ubuntu_linux", "ssh/login/packages", re:"ssh/login/release=UBUNTU(14\.04\ LTS|16\.04\ LTS|18\.04\ LTS|20\.04\ LTS|22\.04\ LTS|22\.10)");
@@ -99,6 +85,14 @@ report = "";
 
 if(release == "UBUNTU14.04 LTS") {
 
+  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"2.0.0+dfsg-2ubuntu1.47+esm2", rls:"UBUNTU14.04 LTS"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"2.0.0+dfsg-2ubuntu1.47+esm2", rls:"UBUNTU14.04 LTS"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-aarch64", ver:"2.0.0+dfsg-2ubuntu1.47+esm2", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
@@ -127,14 +121,6 @@ if(release == "UBUNTU14.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"2.0.0+dfsg-2ubuntu1.47+esm2", rls:"UBUNTU14.04 LTS"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"2.0.0+dfsg-2ubuntu1.47+esm2", rls:"UBUNTU14.04 LTS"))) {
-    report += res;
-  }
-
   if(report != "") {
     security_message(data:report);
   } else if(__pkg_match) {
@@ -144,6 +130,14 @@ if(release == "UBUNTU14.04 LTS") {
 }
 
 if(release == "UBUNTU16.04 LTS") {
+
+  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"1:2.5+dfsg-5ubuntu10.51+esm1", rls:"UBUNTU16.04 LTS"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:2.5+dfsg-5ubuntu10.51+esm1", rls:"UBUNTU16.04 LTS"))) {
+    report += res;
+  }
 
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-aarch64", ver:"1:2.5+dfsg-5ubuntu10.51+esm1", rls:"UBUNTU16.04 LTS"))) {
     report += res;
@@ -177,14 +171,6 @@ if(release == "UBUNTU16.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:2.5+dfsg-5ubuntu10.51+esm1", rls:"UBUNTU16.04 LTS"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"1:2.5+dfsg-5ubuntu10.51+esm1", rls:"UBUNTU16.04 LTS"))) {
-    report += res;
-  }
-
   if(report != "") {
     security_message(data:report);
   } else if(__pkg_match) {
@@ -194,6 +180,14 @@ if(release == "UBUNTU16.04 LTS") {
 }
 
 if(release == "UBUNTU18.04 LTS") {
+
+  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"1:2.11+dfsg-1ubuntu7.41", rls:"UBUNTU18.04 LTS"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:2.11+dfsg-1ubuntu7.41", rls:"UBUNTU18.04 LTS"))) {
+    report += res;
+  }
 
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-arm", ver:"1:2.11+dfsg-1ubuntu7.41", rls:"UBUNTU18.04 LTS"))) {
     report += res;
@@ -223,14 +217,6 @@ if(release == "UBUNTU18.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:2.11+dfsg-1ubuntu7.41", rls:"UBUNTU18.04 LTS"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"1:2.11+dfsg-1ubuntu7.41", rls:"UBUNTU18.04 LTS"))) {
-    report += res;
-  }
-
   if(report != "") {
     security_message(data:report);
   } else if(__pkg_match) {
@@ -240,6 +226,14 @@ if(release == "UBUNTU18.04 LTS") {
 }
 
 if(release == "UBUNTU20.04 LTS") {
+
+  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"1:4.2-3ubuntu6.24", rls:"UBUNTU20.04 LTS"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:4.2-3ubuntu6.24", rls:"UBUNTU20.04 LTS"))) {
+    report += res;
+  }
 
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-arm", ver:"1:4.2-3ubuntu6.24", rls:"UBUNTU20.04 LTS"))) {
     report += res;
@@ -265,23 +259,15 @@ if(release == "UBUNTU20.04 LTS") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-system-x86", ver:"1:4.2-3ubuntu6.24", rls:"UBUNTU20.04 LTS"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-x86-microvm", ver:"1:4.2-3ubuntu6.24", rls:"UBUNTU20.04 LTS"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-x86-xen", ver:"1:4.2-3ubuntu6.24", rls:"UBUNTU20.04 LTS"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-system-x86", ver:"1:4.2-3ubuntu6.24", rls:"UBUNTU20.04 LTS"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:4.2-3ubuntu6.24", rls:"UBUNTU20.04 LTS"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"1:4.2-3ubuntu6.24", rls:"UBUNTU20.04 LTS"))) {
     report += res;
   }
 
@@ -294,6 +280,14 @@ if(release == "UBUNTU20.04 LTS") {
 }
 
 if(release == "UBUNTU22.04 LTS") {
+
+  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"1:6.2+dfsg-2ubuntu6.6", rls:"UBUNTU22.04 LTS"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:6.2+dfsg-2ubuntu6.6", rls:"UBUNTU22.04 LTS"))) {
+    report += res;
+  }
 
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-arm", ver:"1:6.2+dfsg-2ubuntu6.6", rls:"UBUNTU22.04 LTS"))) {
     report += res;
@@ -319,23 +313,15 @@ if(release == "UBUNTU22.04 LTS") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-system-x86", ver:"1:6.2+dfsg-2ubuntu6.6", rls:"UBUNTU22.04 LTS"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-x86-microvm", ver:"1:6.2+dfsg-2ubuntu6.6", rls:"UBUNTU22.04 LTS"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-x86-xen", ver:"1:6.2+dfsg-2ubuntu6.6", rls:"UBUNTU22.04 LTS"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-system-x86", ver:"1:6.2+dfsg-2ubuntu6.6", rls:"UBUNTU22.04 LTS"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:6.2+dfsg-2ubuntu6.6", rls:"UBUNTU22.04 LTS"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"qemu", ver:"1:6.2+dfsg-2ubuntu6.6", rls:"UBUNTU22.04 LTS"))) {
     report += res;
   }
 
@@ -348,6 +334,10 @@ if(release == "UBUNTU22.04 LTS") {
 }
 
 if(release == "UBUNTU22.10") {
+
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:7.0+dfsg-7ubuntu2.1", rls:"UBUNTU22.10"))) {
+    report += res;
+  }
 
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-arm", ver:"1:7.0+dfsg-7ubuntu2.1", rls:"UBUNTU22.10"))) {
     report += res;
@@ -373,15 +363,11 @@ if(release == "UBUNTU22.10") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-system-x86-xen", ver:"1:7.0+dfsg-7ubuntu2.1", rls:"UBUNTU22.10"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-x86", ver:"1:7.0+dfsg-7ubuntu2.1", rls:"UBUNTU22.10"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:7.0+dfsg-7ubuntu2.1", rls:"UBUNTU22.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-system-x86-xen", ver:"1:7.0+dfsg-7ubuntu2.1", rls:"UBUNTU22.10"))) {
     report += res;
   }
 

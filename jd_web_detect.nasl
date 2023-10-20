@@ -1,49 +1,28 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# JDownloader Web Detection
-#
-# Authors:
-# Michael Meyer
-#
-# Copyright:
-# Copyright (C) 2009 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100301");
-  script_version("2022-10-17T11:13:19+0000");
-  script_tag(name:"last_modification", value:"2022-10-17 11:13:19 +0000 (Mon, 17 Oct 2022)");
+  script_version("2023-07-12T05:05:05+0000");
+  script_tag(name:"last_modification", value:"2023-07-12 05:05:05 +0000 (Wed, 12 Jul 2023)");
   script_tag(name:"creation_date", value:"2009-10-11 19:51:15 +0200 (Sun, 11 Oct 2009)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_name("JDownloader Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl", "gb_default_credentials_options.nasl");
-  script_require_ports("Services/www", 8765, 9666);
+  script_require_ports("Services/www", 8765);
   script_exclude_keys("Settings/disable_cgi_scanning", "default_credentials/disable_default_account_checks");
 
   script_xref(name:"URL", value:"http://jdownloader.org");
 
-  script_tag(name:"summary", value:"JDownloader is running at this port. JDownloader is open
-  source, platform independent and written completely in Java. It simplifies downloading files
-  from One-Click-Hosters like Rapidshare.com or Megaupload.com.");
+  script_tag(name:"summary", value:"HTTP based detection of JDownloader.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -94,8 +73,8 @@ if( 'WWW-Authenticate: Basic realm="JDownloader' >< banner ) {
   version = eregmatch( pattern:"Webinterface-([0-9]+)", string:buf );
 }
 
-if( "Server: jDownloader" >< banner ) {
-  concl = egrep( pattern:"^Server: jDownloader", string:banner );
+if( banner =~ "Server\s*:\s*jDownloader" ) {
+  concl = egrep( pattern:"^[Ss]erver\s*:\s*jDownloader", string:banner, icase:FALSE );
   JD = TRUE;
   JD_WEBSERVER = TRUE;
   set_kb_item( name:"www/" + host + "/" + port + "/jdwebserver", value:TRUE );
@@ -114,12 +93,12 @@ if( JD ) {
     if( JD_UNPROTECTED ) {
       info += string("\nJDownloader Webinterface is *not* protected by password.\n");
     } else if( DEFAULT_PW ) {
-      # TBD: Write a separate Vuln-NVT for this?
+      # TBD: Write a separate Vuln-VT for this?
       info += string("\nIt was possible to log in into the JDownloader Webinterface\nby using 'JD' (the default username and password) as username and password.\n");
     }
 
     cpe = build_cpe( value:vers, exp:"^([0-9.]+)", base:"cpe:/a:jdownloader:jdownloader_webgui:" );
-    if( isnull( cpe ) )
+    if( ! cpe )
       cpe = "cpe:/a:jdownloader:jdownloader_webgui";
 
     register_product( cpe:cpe, location:url, port:port, service:"www" );

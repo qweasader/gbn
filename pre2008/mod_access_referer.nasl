@@ -1,35 +1,16 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2003 Xue Yong Zhi
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# mod_access_referer 1.0.2 NULL pointer dereference
-#
-# Authors:
-# Xue Yong Zhi (xueyong@udel.edu)
-#
-# Copyright:
-# Copyright (C) 2003 Xue Yong Zhi
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apache:http_server";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11543");
-  script_version("2022-12-05T10:11:03+0000");
-  script_tag(name:"last_modification", value:"2022-12-05 10:11:03 +0000 (Mon, 05 Dec 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_cve_id("CVE-2003-1054");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/7375");
@@ -52,7 +33,7 @@ if(description)
   script_tag(name:"solution", value:"Try another access control module, mod_access_referer
   has not been updated for a long time.");
 
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"Mitigation");
 
   exit(0);

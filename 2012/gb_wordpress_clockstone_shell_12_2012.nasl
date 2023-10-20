@@ -1,30 +1,16 @@
-# Copyright (C) 2012 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2012 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:cmsmasters:clockstone";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103626");
-  script_version("2022-01-31T12:11:21+0000");
-  script_tag(name:"last_modification", value:"2022-01-31 12:11:21 +0000 (Mon, 31 Jan 2022)");
+  script_version("2023-09-29T05:05:51+0000");
+  script_tag(name:"last_modification", value:"2023-09-29 05:05:51 +0000 (Fri, 29 Sep 2023)");
   script_tag(name:"creation_date", value:"2012-12-19 12:55:53 +0100 (Wed, 19 Dec 2012)");
   script_tag(name:"cvss_base", value:"9.7");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:P");
@@ -35,9 +21,9 @@ if(description)
   script_name("WordPress Clockstone Theme Arbitrary File Upload Vulnerability");
 
   script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_wordpress_theme_http_detect.nasl");
+  script_dependencies("gb_wordpress_themes_http_detect.nasl");
   script_mandatory_keys("wordpress/theme/clockstone/detected");
 
   script_tag(name:"summary", value:"The Clockstone Theme for WordPress is prone to an arbitrary file-

@@ -1,28 +1,15 @@
-# Copyright (C) 2005 Digital Defense Inc.
+# SPDX-FileCopyrightText: 2005 Digital Defense Inc.
+# SPDX-FileCopyrightText: Improved code and additional directories since 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11032");
-  script_version("2023-05-26T09:09:36+0000");
-  script_tag(name:"last_modification", value:"2023-05-26 09:09:36 +0000 (Fri, 26 May 2023)");
+  script_version("2023-10-17T05:05:34+0000");
+  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -38,7 +25,7 @@ if(description)
   script_timeout(900);
 
   script_tag(name:"summary", value:"This plugin attempts to determine the presence of various
-  common dirs on the remote web server");
+  common dirs on the remote web server.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -232,7 +219,6 @@ testDirList = make_list(
 "_derived",
 "_errors",
 "_fpclass",
-"_mem_bin",
 "_notes",
 "_objects",
 "_old",
@@ -259,7 +245,6 @@ testDirList = make_list(
 "admin_",
 "admin.back",
 "admin-bak",
-"adminer",
 "administration",
 "administrator",
 "admin-old",
@@ -544,9 +529,6 @@ testDirList = make_list(
 "icons",
 "idea",
 "ideas",
-"iisadmin",
-"iisprotect",
-"iissamples",
 "ikiwiki",
 "image",
 "imagenes",
@@ -592,7 +574,6 @@ testDirList = make_list(
 "l",
 "labs",
 "lam",
-"laravel",
 "lcgi",
 "ldap",
 "ldapadmin",
@@ -619,12 +600,10 @@ testDirList = make_list(
 "m",
 "mail",
 "mail_log_files",
-"mailman",
 "mailroot",
 "makefile",
 "mall_log_files",
 "manage",
-"manageengine",
 "manual",
 "marketing",
 "matomo",
@@ -705,9 +684,9 @@ testDirList = make_list(
 "phpldapadmin/htdocs",
 "phpmyadmin",
 "phpMyAdmin",
+"phpMyAdminOLD",
 "PHPMyAdmin",
 "phpnuke",
-"phppgadmin",
 "phpPhotoAlbum",
 "phpprojekt",
 "phpSecurePages",
@@ -978,10 +957,6 @@ testDirList = make_list(
 "~stats",
 "~webstats",
 "~wsdocs",
-# The three following directories exist on Resin default installation
-"faq",
-"ref",
-"cmp",
 # Phishing
 "cgi-bim",
 # Lite-serve
@@ -1406,6 +1381,11 @@ testDirList = make_list(
 "dana-cached/sc",
 "dana-cached/setup",
 # Citrix ADC / Gateway
+"eap",
+"gwtest",
+"logon",
+"logon/vpn",
+"saml",
 "vpn",
 "vpn/js",
 "vpns",
@@ -1484,8 +1464,6 @@ testDirList = make_list(
 "cdn-cgi/apps/head",
 "cdn-cgi/scripts",
 "cdn-cgi/pe",
-# Trend Micro Apex Central (this has /webapp which is already included above).
-"ControlManager",
 # Trend Micro Apex One (see info of the structure in e.g. CVE-2023-0587)
 "officescan",
 "officescan/console",
@@ -1500,8 +1478,15 @@ testDirList = make_list(
 # Outlook Web App
 "owa",
 "owa/auth",
-# Laravel Telescope
+# Laravel / Laravel Telescope
+"laravel",
+"laravel/public",
+"laravel/telescope",
+"project",
+"public",
 "telescope",
+"vendor",
+"vendor/laravel",
 # Apache Solr
 "solr",
 "apachesolr",
@@ -1578,7 +1563,7 @@ testDirList = make_list(
 "api/2.1",
 "api/2.1/rest",
 # Various application servers like Apache Tomcat or Mortbay Jetty. Normally these should prevent the
-# direct access to the directory but we're checking it anyway if there are any mis-configurations in place.
+# direct access to the directory but we're checking it anyway if there are any misconfigurations in place.
 "WEB-INF",
 "WEB-INF/classes",
 "WEB-INF/lib",
@@ -1706,8 +1691,6 @@ testDirList = make_list(
 # RedHat Stronghold
 "stronghold-info",
 "stronghold-status",
-# Resin
-"caucho-status",
 # Enterasys Dragon Enterprise Reporting
 "dragon",
 # HP Systems Insight Manager
@@ -1766,6 +1749,21 @@ testDirList = make_list(
 "cfmx/CFIDE/scripts",
 "cfmx/CFIDE/scripts/ajax",
 "cfmx/CFIDE/scripts/ajax/package",
+"restplay",
+"CFIDE/restplay",
+"CFIDE/main",
+"CFIDE/componentutils",
+"CFIDE/wizards",
+"CFIDE/servermanager",
+"CFIDE/AIR",
+"CFIDE/appdeployment",
+"CFIDE/cftags",
+"CFIDE/debug",
+"CFIDE/lockdown",
+"CFIDE/orm",
+"CFIDE/scheduler",
+"CFIDE/services",
+"CFIDE/websocket",
 # Proxmox Virtual Environment (VE, PVE)
 "pve2",
 "pve2/images",
@@ -1779,6 +1777,7 @@ testDirList = make_list(
 "pve2/fa/css",
 "pve2/css",
 "pve2/js",
+"pve-docs",
 "pwt/css",
 # SAP NetWeaver Portal
 "irj",
@@ -1794,7 +1793,15 @@ testDirList = make_list(
 "portal/irj/servlet/prt/portal",
 "portal/irj/servlet/prt/portal/prtroot",
 # SAP Solution Manager
-"EemAdminService",
+"EemAdminService", # Seen in CVE-2020-6207
+# Those have been also seen on such SAP Solution Manager installs:
+"sap",
+"sap/bc",
+"sap/bc/bsp",
+"sap/bc/bsp/sap",
+"sap/bc/bsp/sap/crm_ui_start",
+"sap/bc/webdynpro",
+"sap/bc/webdynpro/sap",
 # Apache Struts
 # nb: The "config-browser" ones are from the Config Browser Plugin (https://struts.apache.org/plugins/config-browser/)
 "struts",
@@ -1846,6 +1853,8 @@ testDirList = make_list(
 "OA_HTML/cabo",
 "OA_HTML/cabo/jsLibs",
 "OA_HTML/cabo/jsps",
+"OA_HTML/media",
+"OA_MEDIA",
 # Sun/Oracle Web Server
 "admingui",
 "admingui/version",
@@ -1855,6 +1864,9 @@ testDirList = make_list(
 # SICF service on SAP AS ABAP
 "sap/public/bc",
 "sap/public/bc/abap",
+# SAP Internet Communication Framework (ICF)
+"sap/public/bc/icf",
+"sap/public/bc/icf/systemloginjs",
 # SAP Internet Communication Manager (ICM)
 "sap/admin",
 "sap/admin/icp",
@@ -1869,10 +1881,29 @@ testDirList = make_list(
 "sap/wdisp/admin/public/resources",
 "sap/wdisp/admin/publicicp",
 # Additional unknown SAP URLs
+"SAP",
+"SAP/BC",
+"SAP/BC/UI5_UI5",
+"SAP/BC/UI5_UI5/SYM",
+"SAP/BC/UI5_UI5/SYM/SU_SUPPLIER",
+# nb: sap/bc is already included in some other places
+"sap/bc/gui",
+"sap/bc/gui/sap",
+"sap/bc/gui/sap/its",
+"sap/bc/nwbc",
+"sap/bc/nwbc/srm",
+# Those have been seen on NetWeaver systems
+"sap/public/bc/icons",
 "sap/public/bc/ur",
 "sap/public/bc/ur/Login",
 "sap/public/bc/ur/Login/assets",
 "sap/public/bc/ur/Login/assets/corbu",
+"sap/public/bc/ur/nw5",
+"sap/public/bc/ur/nw5/themes",
+"sap/public/bc/ur/nw7",
+"sap/public/bc/ur/nw7/js",
+"sap/public/bc/ur/nw7/js/classes",
+"sap/public/bc/ur/nw7/js/texts",
 # SAP XML Data Archiving Service on SAP AS Java
 "DataArchivingService",
 "DataArchivingService/webcontent",
@@ -2025,6 +2056,8 @@ testDirList = make_list(
 "grades",
 "onlinegrades",
 # Adobe Experience Manager (AEM)
+"bin",
+"bin/wcm",
 "libs",
 "libs/granite",
 "libs/granite/core",
@@ -2282,6 +2315,7 @@ testDirList = make_list(
 "wt4",
 "wt4/configure",
 # XEROX printers
+"Config",
 "home",
 "home/msg",
 "isgw",
@@ -2290,10 +2324,43 @@ testDirList = make_list(
 "ssm",
 "ssm/Management",
 "ssm/Management/Anonymous",
+"stat",
+"stat/php",
+"sws",
+"sws/util",
+"toolkits",
+"toolkits/mobileWebToolkit",
+"toolkits/mobileWebToolkit/js",
+"vdesk",
 "wt4",
+"web_lang",
+"webglue/isw",
+"XUX-gfocal",
+"XUX-gfocal/xux-js",
+"XUX-gfocal/xux-l10n",
+# Fujifilm printers
+"common/api",
+"ews",
+"ews/setting",
+"globalnav",
+"globalnav/js",
+"globalnav/msg",
+"globalnav/template",
+"home/api",
+"home/js",
+"home/template",
+"permissions/api",
+"system/api",
+"wuilib",
+"wuilib/js",
+"wuilib/msg",
 # e.g. Microsoft Open Management Infrastructure (OMI)
 "wsman",
-# Microsoft FronPage
+# Microsoft Sharepoint
+"_api",
+"_api/web",
+# Microsoft FronPage / IIS / Exchange related
+"_mem_bin",
 "_vti_bin",
 "_vti_bot",
 "_vti_cnf",
@@ -2301,6 +2368,34 @@ testDirList = make_list(
 "_vti_pvt",
 "_vti_shm",
 "_vti_txt",
+"exchange",
+"msadc",
+"msadc/Samples",
+"msadc/Samples/SELECTOR",
+"iisadmin",
+"iisadmpwd",
+"iisprotect",
+"iissamples",
+"iissamples/sdk",
+"iissamples/sdk/asp",
+"iissamples/sdk/asp/docs",
+"pbserver",
+"rpc",
+"scripts/iisadmin",
+"Sites",
+"Sites/Knowledge",
+"Sites/Knowledge/Membership",
+"Sites/Knowledge/Membership/Inspired",
+"Sites/Knowledge/Membership/Inspiredtutorial",
+"Sites/Samples",
+"Sites/Samples/Knowledge",
+"Sites/Samples/Knowledge/Membership",
+"Sites/Samples/Knowledge/Membership/Inspired",
+"Sites/Samples/Knowledge/Membership/Inspiredtutorial",
+"Sites/Samples/Knowledge/Push",
+"Sites/Samples/Knowledge/Search",
+"SiteServer",
+"SiteServer/Publishing",
 # ManageEngine OpManager and / or Desktop Central.
 # nb: a few might already exist in the list but where added here for easier maintenance
 "api",
@@ -2510,9 +2605,15 @@ testDirList = make_list(
 "JSPWiki",
 "JSPWiki/scripts",
 "JSPWiki/templates",
-# MobileIron Core / Sentry
+# MobileIron Core / Sentry / Endpoint Manager Mobile (EPMM)
 "mics",
 "mifs",
+"mifs/c",
+"mifs/c/windows",
+"mifs/c/windows/api",
+"mifs/c/windows/api/v2",
+"mifs/c/windows/api/v2/device",
+"mifs/scripts",
 "mifs/user",
 # PhreeBooks
 "phreeBooks",
@@ -2579,11 +2680,12 @@ testDirList = make_list(
 "tasks",
 "users",
 "users/givenUser",
-# Some Lexmark Printer
+# Lexmark printers
 "cgi-bin",
 "cgi-bin/dynamic",
 "cgi-bin/dynamic/printer",
 "cgi-bin/dynamic/printer/config",
+"cgi-bin/dynamic/printer/config/reports",
 "cgi-bin/dynamic/printer/config/secure",
 "Settings",
 "Settings/Device",
@@ -2619,15 +2721,6 @@ testDirList = make_list(
 # ClearSite
 "clearsite",
 "clearsite/include",
-# Kyocera Printers
-"basic",
-"eng",
-"eng/basic",
-"eng/security",
-"eng/start",
-"eng/status",
-"start",
-"startwlm",
 # Xoops Celepar
 "xoopsclepar",
 # Evaria ECMS
@@ -2963,7 +3056,25 @@ testDirList = make_list(
 "bill",
 "support",
 "management",
-# Kyocera Printers
+# Kyocera printers
+"basic",
+"dvcinfo",
+"dvcinfo/dvcconfig",
+"eng",
+"eng/basic",
+"eng/security",
+"eng/start",
+"eng/status",
+"js",
+"js/jssrc",
+"js/jssrc/model",
+"js/jssrc/model/dvcinfo",
+"js/jssrc/model/dvcinfo/dvcconfig",
+"js/jssrc/model/startwlm",
+"start",
+"startwlm",
+"wlmeng",
+"wlmdeu",
 "ws",
 "ws/km-wsdl",
 "ws/km-wsdl/setting",
@@ -3013,8 +3124,6 @@ testDirList = make_list(
 "webEdition",
 # Gitea
 "gitea",
-# Kyocera Printer d-COPIA253MF
-"wlmeng",
 # AlquistManager
 "asd",
 # Clustering
@@ -3061,8 +3170,15 @@ testDirList = make_list(
 "photo/gallery",
 "video",
 "video/api",
-# Sonicwall SMA/SRA
+# SonicWall SMA/SRA
+"__api__",
+"__extraweb__",
+"__extraweb__/assets",
+"Console",
+"Console/UI",
 "spog",
+"workplace",
+"workplace/access",
 # osCSS
 "catalog",
 "osCSS",
@@ -3429,7 +3545,15 @@ testDirList = make_list(
 # Course MS
 "coursems",
 # Progress WS_FTP Server
+"AHT",
+"AHT/AHT_UI",
+"AHT/AHT_UI/public",
+"AHT/AHT_UI/public/js",
 "thinclient",
+"ThinClient",
+"ThinClient/WTM",
+"ThinClient/WTM/public",
+"ThinClient/WTM/public/js",
 # PHPAuctions
 "phpauctions",
 "phpauction",
@@ -3502,10 +3626,17 @@ testDirList = make_list(
 "lcms",
 "cms",
 # Tosiba printers
+"Device",
 "TopAccess",
 "TopAccess/Administrator",
 "TopAccess/Administrator/Setup",
 "TopAccess/Administrator/Setup/ScanToFile",
+"TopAccess/Device",
+"cgi-bin",
+"cgi-bin/dynamic",
+"cgi-bin/dynamic/printer",
+"cgi-bin/dynamic/printer/config",
+"cgi-bin/dynamic/printer/config/reports",
 # Tableau server
 "auth",
 "javascripts",
@@ -3650,7 +3781,7 @@ testDirList = make_list(
 "hdpui",
 # netjukebox
 "netjukebox",
-# Ajax File and Image Manager
+# Ajax File and Image Manager / PHP File Manager
 "fm",
 "fm/ajaxfilemanager",
 "file",
@@ -3851,6 +3982,52 @@ testDirList = make_list(
 "Annuaire/admin",
 # WAGO I/O System 758 series
 "cgi-bin/ssi.cgi",
+# WAGO Ethernet Web-based Management / PLC
+"wbm",
+"wbm/css",
+"wbm/images",
+"wbm/js",
+"wbm/php",
+"wbm/php/parameter",
+"wbm/php/plugins",
+"wbm/plugins",
+"wbm/plugins/wbm-aide",
+"wbm/plugins/wbm-bacnet",
+"wbm/plugins/wbm-certificate-uploads",
+"wbm/plugins/wbm-clock",
+"wbm/plugins/wbm-cloud-connectivity",
+"wbm/plugins/wbm-create-image",
+"wbm/plugins/wbm-diagnostic",
+"wbm/plugins/wbm-firewall",
+"wbm/plugins/wbm-information",
+"wbm/plugins/wbm-ipk-uploads",
+"wbm/plugins/wbm-legal-information",
+"wbm/plugins/wbm-legal-information/platform",
+"wbm/plugins/wbm-legal-information/platform/pfcXXX",
+"wbm/plugins/wbm-massstorage",
+"wbm/plugins/wbm-modbus",
+"wbm/plugins/wbm-networking",
+"wbm/plugins/wbm-opcua",
+"wbm/plugins/wbm-openvpn-ipsec",
+"wbm/plugins/wbm-package-server",
+"wbm/plugins/wbm-ports",
+"wbm/plugins/wbm-runtime-configuration",
+"wbm/plugins/wbm-runtime-information",
+"wbm/plugins/wbm-runtime-services",
+"wbm/plugins/wbm-security",
+"wbm/plugins/wbm-serial-interface",
+"wbm/plugins/wbm-service-interface",
+"wbm/plugins/wbm-snmp",
+"wbm/plugins/wbm-statusdate",
+"wbm/plugins/wbm-statusled",
+"wbm/plugins/wbm-statusled/platform",
+"wbm/plugins/wbm-statusled/platform/pfcXXX",
+"wbm/plugins/wbm-statusled/platform/pfcXXX/parameter",
+"wbm/plugins/wbm-statusled/platform/pfcXXX/parameter/transforms",
+"wbm/plugins/wbm-statusplcswitch",
+"wbm/plugins/wbm-user",
+"webserv",
+"webserv/cplcfg",
 # Sourcefabric Newscoop
 "newscoop",
 "newscoop/admin",
@@ -4216,9 +4393,598 @@ testDirList = make_list(
 # Odoo
 "base_import",
 "base_import/static",
+# Caucho Resin
+"caucho-status",
+"cmp",
+"faq",
+"ref",
+"resin-admin",
+"resin-doc",
+# Progress MOVEit Transfer
+"api",
+"api/v1",
+"api/v1/folders",
+"api/v1/users",
+"moveitisapi", # nb: Seen on https://github.com/Neo23x0/signature-base/blob/ec3edef498b01b6da71d7fb1c6dc271cc0d16993/yara/vuln_moveit_0day_jun23.yar#L2
+# Home Assistant OS and Home Assistant Supervised installations (Docker images don't have these)
+"api",
+"api/hassio",
+"api/hassio/app",
+"api/hassio_ingress",
+# Inductive Automation Ignition
+"main",
+"main/res",
+"main/res/sys",
+"main/system",
+"main/web",
+"main/web/config",
+"main/web/home",
+"main/web/status",
+"main/web/wicket",
+"main/web/wicket/resource",
+# Allaire/Macromedia/Adobe JRun Sample Files, see e.g. pre2008/DDI_JRun_Sample_Files.nasl
+"cfanywhere",
+"docs",
+"docs/servlets",
+"jsp",
+"webl",
+# VMware vRealize Network Insight / Aria Operations for Networks
+"saas",
+"vneraapp",
+"vneraapp/assets",
+# EZsite Forum
+"Database",
+"forum/Database",
 # Basilic
 "basilic",
-"basilic/Config" );
+"basilic/Config",
+# asaanCart
+"asaancart",
+"asaancart/libs",
+"asaancart/libs/smarty_ajax",
+"shop",
+"shop/libs",
+"shop/libs/smarty_ajax",
+"libs/smarty_ajax",
+# AMSI
+"amsi",
+"AMSI",
+# Arcserve Unified Data Protection (UDP)
+"authenticationendpoint",
+"commonauth",
+"contents",
+"contents/service",
+"gateway",
+"gateway/services",
+"management",
+"samlsso",
+"UDPUpdates",
+"UDPUpdates/Config",
+"WebServiceImpl",
+"WebServiceImpl/services",
+# Clearswift MIMEsweeper
+"MSWSMTP",
+"MSWSMTP/Common",
+"MSWSMTP/Common/Authentication",
+# Adminer
+"adminer",
+# RoboHelp Server
+"robohelp",
+"robohelp/admin",
+# Apache Axis / Axis2
+"axis",
+"axis/services",
+"axis/servlet",
+"axis2",
+"axis2/axis2-admin",
+"axis2/axis2-web",
+"axis2/services",
+"axis2/services/Version",
+"axis2/services/version",
+## SAP Business Objects 12 and/or 3com IMC (See CVE-2010-2103)
+"imcws",
+"imcws/axis2-admin",
+"imcws/axis2-web",
+"imcws/services",
+"imcws/services/Version",
+"imcws/services/version",
+"imcws/servlet",
+## Computer Associates ARCserve D2D r15 Web Service (See CVE-2010-0219 / https://www.exploit-db.com/exploits/15869)
+"WebServiceImpl",
+"WebServiceImpl/axis2-admin",
+"WebServiceImpl/axis2-web",
+"WebServiceImpl/services",
+"WebServiceImpl/services/Version",
+"WebServiceImpl/services/version",
+"WebServiceImpl/servlet",
+## SAP BusinessObjects Enterprise XI 3.2 (See CVE-2010-0219)
+"dswsbobje",
+"dswsbobje/axis2-admin",
+"dswsbobje/axis2-web",
+"dswsbobje/services",
+"dswsbobje/services/Version",
+"dswsbobje/services/version",
+"dswsbobje/servlet",
+## SAP BusinessObjects
+"BusinessProcessBI",
+"BusinessProcessBI/axis2-admin",
+"BusinessProcessBI/axis2-web",
+"BusinessProcessBI/services",
+"BusinessProcessBI/services/Version",
+"BusinessProcessBI/services/version",
+"BusinessProcessBI/servlet",
+## VMware Smarts NCM
+"Api",
+"Api/axis2-admin",
+"Api/axis2-web",
+"Api/services",
+"Api/services/Version",
+"Api/services/version",
+"Api/servlet",
+## Oracle Communications Billing and Revenue Management Web Services Manager
+"infranetwebsvc",
+"infranetwebsvc/axis2-admin",
+"infranetwebsvc/axis2-web",
+"infranetwebsvc/services",
+"infranetwebsvc/services/Version",
+"infranetwebsvc/services/version",
+"infranetwebsvc/servlet",
+"BrmWebServices",
+"BrmWebServices/axis2-admin",
+"BrmWebServices/axis2-web",
+"BrmWebServices/services",
+"BrmWebServices/services/Version",
+"BrmWebServices/services/version",
+"BrmWebServices/servlet",
+## Unknown
+"ws",
+"ws/axis2-admin",
+"ws/axis2-web",
+"ws/services",
+"ws/services/Version",
+"ws/services/version",
+"ws/servlet",
+"services",
+## Microstrategy Web 10.4 (See CVE-2020-11450)
+"MicroStrategyWS",
+"MicroStrategyWS/axis2-admin",
+"MicroStrategyWS/axis2-web",
+"MicroStrategyWS/services",
+"MicroStrategyWS/services/Version",
+"MicroStrategyWS/services/version",
+"MicroStrategyWS/servlet",
+## JBoss.net Axis integration
+"jboss-net",
+"jboss-net/axis2-admin",
+"jboss-net/axis2-web",
+"jboss-net/services",
+"jboss-net/services/Version",
+"jboss-net/services/version",
+"jboss-net/servlet",
+## Tomcat, seen "in the wild"
+"tomcat",
+"tomcat/axis2-admin",
+"tomcat/axis2-web",
+"tomcat/services",
+"tomcat/services/Version",
+"tomcat/services/version",
+"tomcat/servlet",
+"tomcat/axis",
+"tomcat/axis/axis2-admin",
+"tomcat/axis/axis2-web",
+"tomcat/axis/services",
+"tomcat/axis/services/Version",
+"tomcat/axis/services/version",
+"tomcat/axis/servlet",
+## Both for JBuilder Apache Axis
+"wssgs",
+"wssgs/axis2-admin",
+"wssgs/axis2-web",
+"wssgs/services",
+"wssgs/services/Version",
+"wssgs/services/version",
+"wssgs/servlet",
+"tresearch",
+"tresearch/axis2-admin",
+"tresearch/axis2-web",
+"tresearch/services",
+"tresearch/services/Version",
+"tresearch/services/version",
+"tresearch/servlet",
+# Apache Hadoop
+"cluster",
+# Cisco Application Policy Infrastructure Controller (APIC)
+"insieme",
+"insieme/stromboli",
+"insieme/stromboli/meta",
+# Cisco Network Analysis Module (NAM)
+"authenticate",
+# Cisco Prime Collaboration Provisioning Web Interface
+"cupm",
+"dfcweb",
+"dfcweb/lib",
+"dfcweb/lib/cupm",
+"dfcweb/lib/cupm/nls",
+# Cisco Prime Infrastructure (PIS) Web Interface
+"webacs",
+"webacs/js",
+"webacs/js/xmp",
+"webacs/js/xmp/nls",
+"webacs/pages",
+"webacs/pages/common",
+# Docker HTTP REST API (API versions might need to be re-checked in the future...)
+"container",
+"containers", # nb: Both not seen so far but might be related...
+"images",
+"v1.12.0",
+"v1.12.0/containers",
+"v1.12.0/images",
+"v1.19",
+"v1.19/containers",
+"v1.19/images",
+"v1.21",
+"v1.21/containers",
+"v1.21/images",
+"v1.24",
+"v1.24/containers",
+"v1.24/images",
+"v1.26",
+"v1.26/containers",
+"v1.26/images",
+"v1.29",
+"v1.29/containers",
+"v1.29/images",
+"v1.37",
+"v1.37/containers",
+"v1.37/images",
+"v1.39",
+"v1.39/containers",
+"v1.39/images",
+"v1.40",
+"v1.40/containers",
+"v1.40/images",
+"v1.41",
+"v1.41/containers",
+"v1.41/images",
+"v1.43",
+"v1.43/containers",
+"v1.43/images",
+# ExpressionEngine CMS
+"cms/system",
+"system",
+# Eyes Of Network (EON)
+"eonapi",
+# Froxlor Server Management Panel
+"froxlor",
+# Junos Space Web-UI
+"mainui",
+# ZOHO / ManageEngine products
+"manageengine",
+# Pacific Timesheet
+"timesheet",
+# phpPgAdmin
+"phpPgAdmin",
+"pgadmin",
+"phppgadmin",
+# Sensiolabs Symfony
+"_profiler",
+"symfony",
+"symfony/src",
+"symfony/src/Symfony",
+"symfony/src/Symfony/Component",
+"symfony/src/Symfony/Component/Console",
+"symfony/web",
+"symfony/web/app_dev.php",
+"symfony/web/app_dev.php/_configurator",
+"symfony/web/app_dev.php/_configurator/step",
+"src",
+"src/Symfony",
+"src/Symfony/Component",
+"src/Symfony/Component/Console",
+"web",
+"web/app_dev.php",
+"web/app_dev.php/_configurator",
+"web/app_dev.php/_configurator/step",
+# vtiger CRM
+"crm",
+"vtigercrm",
+# Zenoss Server
+"zport",
+"zport/acl_users",
+"zport/acl_users/cookieAuthHelper",
+# Mailman
+"mailman",
+# Apache Tiles
+"apidocs",
+"apidocs/org",
+"apidocs/org/apache",
+"apidocs/org/apache/tiles",
+"apidocs/org/apache/tiles/definition",
+"apidocs/org/apache/tiles/definition/digester",
+"tiles/apidocs",
+"tiles/apidocs/org",
+"tiles/apidocs/org/apache",
+"tiles/apidocs/org/apache/tiles",
+"tiles/apidocs/org/apache/tiles/definition",
+"tiles/apidocs/org/apache/tiles/definition/digester",
+# Mahara
+"mahara",
+"mahara/admin",
+# RainLoop Webmail
+"mail",
+"rainloop",
+"webmail",
+# nb:
+# - Windows Server Update Services (WSUS)
+# - IIS/Windows is usually case insensitive
+"WsusAdmin",
+"WsusAdmin/Common",
+"WsusAdmin/Errors",
+# 3CX Phone System Management Console
+"#",
+"api",
+"connect",
+"public",
+"signin",
+"webclient",
+"webclient/#",
+"webclient/api",
+"webclient/api/Login",
+"webclient/SignIn",
+# Those are from CVE-2022-48482/CVE-2022-48483 of the same product
+"Electron",
+"Electron/download",
+"Electron/download/windows",
+# Skype for Business Server
+"dialin",
+"lwa",
+"lwa/Webpages",
+"PassiveAuth",
+# IPP / CUPS systems
+"ipp",
+"printer", # nb: From RFC3510
+"printers",
+# Konica Minolta printers
+"wcd",
+# Brother HL printers
+"general",
+# SATO printers
+"WebConfig",
+# HP / Hewlett Packard printers
+"DevMgmt",
+"cdm",
+"cdm/system",
+"cdm/system/v1",
+"hp",
+"hp/device",
+"hp/device/InternalPages",
+"hp/device/SignIn",
+"hp/device/webAccess",
+"hp/jetdirect",
+# Epson printers
+"PRESENTATION",
+"PRESENTATION/ADVANCED",
+"PRESENTATION/ADVANCED/FORCE_PASSWORD",
+"PRESENTATION/ADVANCED/INFO_PRTINFO",
+"PRESENTATION/HTML",
+"PRESENTATION/HTML/TOP",
+# RICOH printers
+"web",
+"web/guest",
+"web/guest/en",
+"web/guest/en/websys",
+"web/guest/en/websys/status",
+# PHPMoAdmin
+"phpmoadmin",
+"modamin",
+"wu-modadmin",
+# AMI MegaRAC SP
+"help",
+"impl",
+"Java",
+"lib",
+"page",
+"res",
+"str",
+"style",
+# Trend Micro Control Manager (TMCM) / Apex Central
+"ControlManager",
+"ControlManager/download",
+"ControlManager/help",
+"WebApp",
+"WebApp/Administration",
+"WebApp/common",
+"WebApp/common/yui",
+"WebApp/CommonDataBackend",
+"WebApp/CommonDataBackend/CommonDataResource",
+"WebApp/ExeDashboardBackend",
+"WebApp/ExeDashboardBackend/ExeDashboardResource",
+"WebApp/html",
+"WebApp/js",
+"WebApp/page",
+"WebApp/Reports",
+"WebApp/UserManager",
+"WebApp/v1es",
+"WebApp/widget",
+# Redfish API
+# nb: Those are the default ones defined in / by:
+# https://www.dmtf.org/sites/default/files/standards/documents/DSP0266_1.18.0.html#redfish-defined-uris-and-relative-reference-rules
+"redfish",
+"redfish/v1",
+"redfish/v1/Schemas",
+# From the RackHD API Reference Guide
+"redfish/v1/systems",
+# From the SuperMicro API Reference Guide
+"redfish/v1/Registries",
+"redfish/v1/UpdateService",
+# A few seen in the scope of CVE-2021-29203
+"redfish/v1/AccountService",
+"redfish/v1/AccountService/Accounts",
+"redfish/v1/SessionService",
+"redfish/v1/SessionService/Sessions",
+# Atlassian Bitbucket
+"bitbucket",
+"stash",
+# Kubernetes API Server
+"apis",
+"apis/admissionregistration.k8s.io",
+"apis/apiextensions.k8s.io",
+"apis/apiregistration.k8s.io",
+"apis/apps",
+"apis/authentication.k8s.io",
+"apis/authorization.k8s.io",
+"apis/autoscaling",
+"apis/batch",
+"apis/certificates.k8s.io",
+"apis/coordination.k8s.io",
+"apis/custom.metrics.k8s.io",
+"apis/discovery.k8s.io",
+"apis/events.k8s.io",
+"apis/extensions",
+"apis/metrics.k8s.io",
+"apis/networking.k8s.io",
+"apis/node.k8s.io",
+"apis/policy",
+"apis/rbac.authorization.k8s.io",
+"apis/scheduling.k8s.io",
+"apis/storage.k8s.io",
+"healthz",
+"livez",
+"openapi",
+"readyz",
+# Adiscon Loganalyzer
+"loganalyzer",
+# Adobe BlazeDS
+"flex2gateway",
+"flex2gateway/http",
+"flex2gateway/httpsecure",
+"flex2gateway/cfamfpolling",
+"flex2gateway/amf",
+"flex2gateway/amfpolling",
+"messagebroker",
+"messagebroker/http",
+"messagebroker/httpsecure",
+"blazed",
+"blazeds/messagebroker",
+"blazeds/messagebroker/http",
+"blazeds/messagebroker/httpsecure",
+"samples",
+"samples/messagebroker",
+"samples/messagebroker/http",
+"samples/messagebroker/httpsecure",
+"lcds",
+"lcds/messagebroker",
+"lcds/messagebroker/http",
+"lcds/messagebroker/httpsecure",
+"lcds-samples",
+"lcds-samples/messagebroker",
+"lcds-samples/messagebroker/http",
+"lcds-samples/messagebroker/httpsecure",
+# Dell Foundation Services
+"Dell%20Foundation%20Services",
+"Dell%20Foundation%20Services/eDell",
+"Dell%20Foundation%20Services/eDell/IeDellCapabilitiesApi",
+"Dell%20Foundation%20Services/eDell/IeDellCapabilitiesApi/REST",
+# eTouch SamePage
+"samepage",
+"samepage/cm",
+"samepage/cm/blogrss",
+"samepage/cm/newui",
+"samepage/cm/newui/wiki",
+"cm",
+"cm/blogrss",
+"cm/newui",
+"cm/newui/wiki",
+# FIT2CLOUD JumpServer
+"api",
+"api/v1",
+"api/v1/authentication",
+"api/v1/authentication/connection-token",
+"api/v1/terminal",
+"api/v1/terminal/sessions",
+"api/v1/users",
+"api/v1/users/connection-token",
+"auth",
+"auth/login",
+"core",
+"core/auth",
+"core/auth/login",
+"core/auth/password",
+"guacamole",
+"koko",
+"login",
+"luna",
+"media",
+"static",
+"static/js",
+"static/js/plugins",
+"ui",
+"users",
+"users/login",
+"ws",
+# Buffalo NAS
+"lightbox",
+"lightbox/css",
+"lightbox/images",
+"lightbox/js",
+"adapter",
+"adapter/ext",
+"normalcss",
+"webaccess",
+"st",
+"st/js",
+"bower_components",
+"help",
+"help/ja",
+"js",
+"js/application",
+"js/backup",
+"js/backup/backup",
+"js/backup/directcopy",
+"js/backup/failover",
+"js/backup/replication",
+"js/backup/rsync",
+"js/backup/timemachine",
+"js/common",
+"js/disk",
+"js/disk/disk",
+"js/disk/iscsi",
+"js/disk/lvm",
+"js/disk/raid",
+"js/disk/usbdisk",
+"js/dojo",
+"js/ext",
+"js/ext/resources",
+"js/ext/resources/css",
+"js/manage",
+"js/network",
+"js/service",
+"js/service/web",
+"js/share",
+"js/staticData",
+"js/ux",
+"js/webservice",
+# PHPRecipeBook
+"phprecipebook",
+"recipebook",
+"recipe",
+# ISPWorker
+"ispworker",
+"ispworker/module",
+"ispworker/module/biz",
+"ispworker/module/ticket",
+"module",
+"module/biz",
+"module/ticket",
+# WPEngine
+"_wpeprivate",
+# Sangfor Next Generation Application Firewall (NGAF)
+"html",
+"svpn_html",
+# nForum
+"nforum",
+"forum",
+"board" );
 
 # Add domain name parts, create_hostname_parts_list() always returns a list, even an empty one
 hnlist = create_hostname_parts_list();
@@ -4245,7 +5011,7 @@ failedReqs = 0;
 # counter for the current amount of done requests
 currReqs = 0;
 # counter for max failed requests
-# The NVT will exit if this is reached
+# The VT will exit if this is reached
 # TBD: Make this configurable?
 maxFailedReqs = 3;
 
@@ -4401,6 +5167,16 @@ foreach cdir( testDirList ) {
       currReqs++;
       if( man_res && "Apache Tomcat" >< man_res && "Documentation Index" >< man_res ) {
         set_kb_item( name:"www/" + host + "/" + port + "/content/servermanual_directories", value:http_report_vuln_url( port:port, url:url, url_only:TRUE ) + ", Content: Apache Tomcat Documentation" );
+        continue;
+      }
+    }
+
+    # And the same for Caucho Resin
+    if( url =~ "^/resin-doc" ) {
+      man_res = http_get_cache( item:"/resin-doc/", port:port );
+      currReqs++;
+      if( man_res && ">Resin Documentation<" >< man_res ) {
+        set_kb_item( name:"www/" + host + "/" + port + "/content/servermanual_directories", value:http_report_vuln_url( port:port, url:url, url_only:TRUE ) + ", Content: Caucho Resin Documentation" );
         continue;
       }
     }

@@ -7,11 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.827360");
-  script_version("2023-03-28T10:19:28+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2023-27522", "CVE-2023-25690");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-03-28 10:19:28 +0000 (Tue, 28 Mar 2023)");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-03-14 15:41:00 +0000 (Tue, 14 Mar 2023)");
   script_tag(name:"creation_date", value:"2023-03-26 01:05:48 +0000 (Sun, 26 Mar 2023)");
   script_name("Fedora: Security Advisory for httpd (FEDORA-2023-7df48f618b)");
   script_category(ACT_GATHER_INFO);

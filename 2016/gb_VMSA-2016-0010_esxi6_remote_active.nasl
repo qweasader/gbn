@@ -1,28 +1,8 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# VMSA-2016-0010 (CVE-2016-5331) ESXi: VMware product updates address multiple important security issues (remote active check)
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
@@ -30,13 +10,13 @@ if(description)
   script_cve_id("CVE-2016-5331");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_version("2021-10-11T12:01:24+0000");
+  script_version("2023-06-28T05:05:21+0000");
 
-  script_name("VMSA-2016-0010 (CVE-2016-5331) ESXi: VMware product updates address multiple important security issues (remote active check)");
+  script_name("VMware ESXi product updates address multiple important security issues (VMSA-2016-0010) - Active Check");
 
   script_xref(name:"URL", value:"http://www.vmware.com/security/advisories/VMSA-2016-0010.html");
 
-  script_tag(name:"vuldetect", value:"Send a special crafted HTTP GET request and check the response.");
+  script_tag(name:"vuldetect", value:"Sends a special crafted HTTP GET request and checks the response.");
 
   script_tag(name:"solution", value:"Apply the missing patch(es).");
 
@@ -45,7 +25,7 @@ if(description)
 
   script_tag(name:"affected", value:"ESXi 6.0 without patch ESXi600-201603101-SG");
 
-  script_tag(name:"last_modification", value:"2021-10-11 12:01:24 +0000 (Mon, 11 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-06-28 05:05:21 +0000 (Wed, 28 Jun 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-09 20:00:00 +0000 (Tue, 09 Oct 2018)");
@@ -54,7 +34,7 @@ if(description)
   script_tag(name:"solution_type", value:"VendorFix");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("gb_vmware_esx_web_detect.nasl");
   script_mandatory_keys("VMware/ESX/port");
 
@@ -73,10 +53,10 @@ vtstring = vtstrings["default"];
 vtstring_lo = vtstrings["lowercase"];
 
 co = 'Set-Cookie:%20' + vtstring + '=' + rand();
-co_s = str_replace( string:co, find:'%20', replace:' ');
+co_s = str_replace( string:co, find:'%20', replace:' ' );
 
 h1 = vtstring_lo + ':%20' + rand();
-h1_s = str_replace( string:h1, find:'%20', replace:' ');
+h1_s = str_replace( string:h1, find:'%20', replace:' ' );
 
 url = '/?syss%0d%0a' + co + '%0d%0a' + h1;
 

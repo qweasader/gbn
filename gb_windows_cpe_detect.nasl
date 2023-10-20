@@ -1,34 +1,20 @@
-# Copyright (C) 2011 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2011 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.96207");
-  script_version("2023-03-14T10:20:43+0000");
-  script_tag(name:"last_modification", value:"2023-03-14 10:20:43 +0000 (Tue, 14 Mar 2023)");
+  script_version("2023-08-04T05:06:23+0000");
+  script_tag(name:"last_modification", value:"2023-08-04 05:06:23 +0000 (Fri, 04 Aug 2023)");
   script_tag(name:"creation_date", value:"2011-04-26 12:54:47 +0200 (Tue, 26 Apr 2011)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_name("Windows Application CPE Detection (SMB Login)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2011 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Product detection");
   # Don't add a dependency to os_detection.nasl. This will cause a dependency cycle.
   script_dependencies("toolcheck.nasl", "smb_login.nasl", "smb_nativelanman.nasl", "netbios_name_get.nasl");
@@ -1606,7 +1592,7 @@ if (OSVER == "6.3"){
       os_register_and_report( os:OSNAME, runs_key:"windows", banner_type:BANNER_TYPE, cpe:"cpe:/o:microsoft:windows_server_2016", desc:SCRIPT_DESC);
     }
     else if ("Windows Server 2019" >< OSNAME){
-
+      ver = "";
       cpe = "cpe:/o:microsoft:windows_server_2019";
 
       if( ver = get_version_from_build( string:build, win_name:"win10" ) )
@@ -1626,14 +1612,17 @@ if (OSVER == "6.3"){
 
       os_register_and_report( os:OSNAME, version:ver, runs_key:"windows", banner_type:BANNER_TYPE, cpe:cpe, full_cpe:TRUE, desc:SCRIPT_DESC);
     }
-    else if ("Windows 10" >< OSNAME){
+    else if ("Windows 10" >< OSNAME && build < "22000"){
 
       cpe = "cpe:/o:microsoft:windows_10";
+      version = "unknown";
 
-      if( ver = get_version_from_build( string:build, win_name:"win10" ) )
-        cpe += ":" + tolower( ver );
-      else
-        cpe += ":";
+      if (vers = get_version_from_build(string:build, win_name:"win10")) {
+        cpe += ":" + tolower(vers);
+        version = vers;
+      } else {
+        cpe += "::";
+      }
 
       if ("LTSB" >< OSNAME)
         cpe += ":ltsb";
@@ -1656,7 +1645,82 @@ if (OSVER == "6.3"){
       if (x64 == "1")
         cpe += "_x64";
 
+      os_register_and_report(os:OSNAME, version:version, runs_key:"windows", banner_type:BANNER_TYPE, cpe:cpe, full_cpe:TRUE, desc:SCRIPT_DESC);
+    }
+
+    else if ("Windows Server 2022" >< OSNAME){
+
+      cpe = "cpe:/o:microsoft:windows_server_2022";
+      ver = "";
+
+      if ("Datacenter" >< OSNAME)
+        cpe += ":datacenter";
+      else if ("Standard" >< OSNAME)
+        cpe += ":standard";
+      else if ("Essentials" >< OSNAME)
+        cpe += ":essentials";
+      else if ("Azure Datacenter" >< OSNAME)
+        cpe += ":azure_datacenter";
+      else
+        cpe += ":unknown_edition";
+
+      if (x64 == "1")
+        cpe += "_x64";
+
       os_register_and_report( os:OSNAME, version:ver, runs_key:"windows", banner_type:BANNER_TYPE, cpe:cpe, full_cpe:TRUE, desc:SCRIPT_DESC);
+    }
+
+    # nb: OSNAME still contains "Windows 10" on Windows 11 (because given like this in the registry)
+    # but we can detect Windows 11 based on the build.
+    else if ("Windows 10" >< OSNAME && build >= "22000"){
+
+      cpe = "cpe:/o:microsoft:windows_11";
+      version = "unknown";
+
+      if (vers = get_version_from_build(string:build, win_name:"win11")){
+        cpe += ":" + tolower(vers);
+        version = vers;
+      } else {
+        cpe += "::";
+      }
+
+      ## https://techcommunity.microsoft.com/t5/windows-it-pro-blog/windows-client-roadmap-update/ba-p/3805227
+      if ("LTSB" >< OSNAME)
+        cpe += ":ltsb";
+      else if ("LTSC" >< OSNAME)
+        cpe += ":ltsc";
+      else
+        cpe += ":cb";
+
+       ## https://en.wikipedia.org/wiki/List_of_Microsoft_Windows_versions
+      if ("Enterprise" >< OSNAME)
+        edition = "enterprise";
+      else if ("Home" >< OSNAME)
+        edition = "home";
+      else if ("Pro Education" >< OSNAME)
+        edition = "pro_education";
+      else if ("Pro for Workstations" >< OSNAME)
+        edition = "pro_for_workstations";
+      # nb: "Pro" and "Education" needs to be after the two above
+      else if ("Education" >< OSNAME)
+        edition = "education";
+      else if ("Pro" >< OSNAME)
+        edition = "pro";
+      else if ("SE" >< OSNAME)
+        edition = "se";
+      else
+        edition = "unknown_edition";
+
+      cpe += ":" + edition;
+
+      # nb: Microsoft's Windows 11 operating system is 64-bit supported only
+      if (x64 == "1")
+        cpe += "_x64";
+
+      # nb: OSNAME still contains "Windows 10" on Windows 11 (because given like this in the
+      # registry) so we need to rewrite this here before passing the info to the user.
+      OSNAME = str_replace(string:OSNAME, find:"Windows 10", replace:"Windows 11");
+      os_register_and_report(os:OSNAME, version:version, runs_key:"windows", banner_type:BANNER_TYPE, cpe:cpe, full_cpe:TRUE, desc:SCRIPT_DESC);
     }
     else if ("Windows Embedded 8.1" >< OSNAME){
       os_register_and_report( os:OSNAME, runs_key:"windows", banner_type:BANNER_TYPE, cpe:"cpe:/o:microsoft:windows_embedded_8.1", desc:SCRIPT_DESC );

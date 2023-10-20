@@ -1,42 +1,23 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2017 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Microsoft Graphics Component 'gdi32.dll' Information Disclosure Vulnerability
-#
-# Authors:
-# Kashinath T <tkashinath@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2017 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809889");
-  script_version("2021-10-12T09:28:32+0000");
+  script_version("2023-06-23T16:09:17+0000");
   script_cve_id("CVE-2017-0038");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2021-10-12 09:28:32 +0000 (Tue, 12 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-06-23 16:09:17 +0000 (Fri, 23 Jun 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-09-01 01:29:00 +0000 (Fri, 01 Sep 2017)");
   script_tag(name:"creation_date", value:"2017-02-21 17:10:32 +0530 (Tue, 21 Feb 2017)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("Microsoft Graphics Component 'gdi32.dll' Information Disclosure Vulnerability");
+  script_name("Microsoft Graphics Component 'gdi32.dll' Information Disclosure Vulnerability (MS17-013)");
 
   script_tag(name:"summary", value:"'gdi32.dll' Graphics Device Interface is prone to an information disclosure vulnerability.");
 
@@ -70,7 +51,7 @@ if(description)
   script_xref(name:"URL", value:"https://bugs.chromium.org/p/project-zero/issues/detail?id=992");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
   script_dependencies("smb_reg_service_pack.nasl");
   script_require_ports(139, 445);
@@ -84,7 +65,7 @@ include("secpod_reg.inc");
 include("version_func.inc");
 include("secpod_smb_func.inc");
 
-##Reference nvt gb_ms16-074.nasl
+##Reference VT gb_ms16-074.nasl
 ##Version is checked as less and equal here, as the vulnerability was not patched properly
 
 if(hotfix_check_sp(winVista:3, winVistax64:3, win2008x64:3, win7:2, win7x64:2, win2008:3, win2008r2:2,

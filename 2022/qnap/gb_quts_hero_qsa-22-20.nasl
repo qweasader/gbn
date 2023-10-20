@@ -1,30 +1,16 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/o:qnap:quts_hero";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170132");
-  script_version("2022-08-09T10:11:17+0000");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
+  script_version("2023-09-27T05:05:31+0000");
+  script_tag(name:"last_modification", value:"2023-09-27 05:05:31 +0000 (Wed, 27 Sep 2023)");
   script_tag(name:"creation_date", value:"2022-06-23 12:03:37 +0000 (Thu, 23 Jun 2022)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -44,7 +30,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("General");
   script_dependencies("gb_qnap_nas_http_detect.nasl");
   script_mandatory_keys("qnap/nas/quts_hero/detected");
@@ -67,10 +53,10 @@ if(description)
   script_tag(name:"affected", value:"QNAP QuTS hero version h4.5.x and h5.0.x prior to h5.0.0.2069
   build 20220614.");
 
-  script_tag(name:"solution", value:"Update to version QuTS hero h5.0.0 build 20220614 or later.");
+  script_tag(name:"solution", value:"Update to version h4.5.4.1971 build 20220310, h5.0.0.2069 build
+  20220614 or later.");
 
-  script_xref(name:"URL", value:"https://www.qnap.com/en/security-advisory/qsa-22-16");
-  script_xref(name:"URL", value:"https://www.qnap.com/en/release-notes/quts_hero/h5.0.0.1986/20220324");
+  script_xref(name:"URL", value:"https://www.qnap.com/en/security-advisory/qsa-22-20");
 
   exit(0);
 }
@@ -81,10 +67,20 @@ include("version_func.inc");
 if ( ! version = get_app_version( cpe:CPE, nofork:TRUE ) )
   exit( 0 );
 
-if ( version_in_range_exclusive( version:version, test_version_lo:"h4.5.0", test_version_up:"h5.0.0_20220614" ) ) {
-  report = report_fixed_ver( installed_version:version, fixed_version:"h5.0.0_20220614" );
+build = get_kb_item( "qnap/nas/quts_hero/build" );
+
+if ( version_in_range_exclusive( version:version, test_version_lo:"h4.5.0", test_version_up:"h5.0.0.2069" ) ) {
+  report = report_fixed_ver( installed_version:version, installed_build:build, fixed_version:"h5.0.0.2069", fixed_build:"20220614" );
   security_message( port:0, data:report );
   exit( 0 );
 }
+
+if ( version_is_equal( version:version, test_version:"h5.0.0.2069" ) &&
+   ( ! build || version_is_less( version:build, test_version:"20220614" ) ) ) {
+  report = report_fixed_ver( installed_version:version, installed_build:build, fixed_version:"h5.0.0.2069", fixed_build:"20220614" );
+  security_message( port:0, data:report );
+  exit( 0 );
+}
+
 
 exit( 99 );

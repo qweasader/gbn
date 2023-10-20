@@ -1,50 +1,31 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2005 Michel Arboi
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# IP protocols scan
-#
-# Authors:
-# Michel Arboi <mikhail@nessus.org>
-#
-# Copyright:
-# Copyright (C) 2005 Michel Arboi
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.14788");
-  script_version("2022-05-31T14:50:18+0000");
-  script_tag(name:"last_modification", value:"2022-05-31 14:50:18 +0000 (Tue, 31 May 2022)");
+  script_version("2023-06-23T16:09:17+0000");
+  script_tag(name:"last_modification", value:"2023-06-23 16:09:17 +0000 (Fri, 23 Jun 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_name("IP protocols scan");
+  script_name("IP Protocols Scan");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2005 Michel Arboi");
   script_family("Service detection");
   script_dependencies("global_settings.nasl");
   script_exclude_keys("keys/islocalhost", "keys/TARGET_IS_IPV6");
 
-  script_timeout(900);  # So far, I've run in less than 10 minutes
+  script_timeout(900);  # nb: So far, I've run in less than 10 minutes
   script_add_preference(name:"Run IP protocols scan", type:"checkbox", value:"no", id:2);
 
   script_xref(name:"URL", value:"http://www.iana.org/assignments/protocol-numbers");
 
-  script_tag(name:"summary", value:"This plugin detects the protocols understood by the remote IP stack. The routine
-  might take good amount of time to complete so it is not enabled by default.");
+  script_tag(name:"summary", value:"This plugin detects the protocols understood by the remote IP
+  stack. The routine might take good amount of time to complete so it is not enabled by default.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -53,13 +34,16 @@ if(description)
 
 include("global_settings.inc");
 
-run_nvt = script_get_preference( "Run IP protocols scan" );
+run_vt = script_get_preference( "Run IP protocols scan", id:2 );
 
-if( 'yes' >!< run_nvt ) exit( 0 );
+if("yes" >!< run_vt)
+  exit(0);
 
-if(TARGET_IS_IPV6())exit(0);
+if(TARGET_IS_IPV6())
+  exit(0);
 
-if (islocalhost()) exit(0); # pcap problems
+if(islocalhost())
+  exit(0); # nb: pcap problems
 
 s = this_host();
 d = get_host_ip();

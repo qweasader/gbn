@@ -1,44 +1,14 @@
-# OpenVAS Vulnerability Test
-# Description: Bugbear worm
+# SPDX-FileCopyrightText: 2005 Michel Arboi & Thomas Reinke
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Michel Arboi <arboi@alussinan.org>
-# Well, in fact I started from a simple script by Thomas Reinke and
-# heavily hacked every byte of it :-]
-# Script audit and contributions from Carmichael Security <http://www.carmichaelsecurity.com>
-# Erik Anderson <eanders@carmichaelsecurity.com>
-# Added links to the Bugtraq message archive and Microsoft Knowledgebase
-#
-# Copyright:
-# Copyright (C) 2005 Michel Arboi & Thomas Reinke
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
-# There was no information on the BugBear protocol.
-# I found a worm in the wild and found that it replied to the "p" command;
-# the data look random but ends with "ID:"  and a number
-# Thomas Reinke confirmed that his specimen of the worm behaved in the
-# same way.
-# We will not provide the full data here because it might contain
-# confidential information.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11135");
-  script_version("2022-05-11T14:11:36+0000");
-  script_tag(name:"last_modification", value:"2022-05-11 14:11:36 +0000 (Wed, 11 May 2022)");
+  script_version("2023-08-01T13:29:10+0000");
+  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_xref(name:"IAVA", value:"2001-a-0004");
   script_cve_id("CVE-2001-0154"); # For MS01-020 - should be changed later
@@ -88,7 +58,6 @@ if(description)
 }
 
 include("host_details.inc");
-include("misc_func.inc");
 
 port = 36794;
 

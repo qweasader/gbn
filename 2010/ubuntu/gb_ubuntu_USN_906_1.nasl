@@ -1,36 +1,22 @@
-# Copyright (C) 2010 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2010 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.840396");
   script_cve_id("CVE-2009-3553", "CVE-2010-0302", "CVE-2010-0393");
   script_tag(name:"creation_date", value:"2010-03-05 11:48:43 +0000 (Fri, 05 Mar 2010)");
-  script_version("2022-09-16T10:11:39+0000");
-  script_tag(name:"last_modification", value:"2022-09-16 10:11:39 +0000 (Fri, 16 Sep 2022)");
+  script_version("2023-07-05T05:06:16+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"6.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:C/A:C");
 
   script_name("Ubuntu: Security Advisory (USN-906-1)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("Ubuntu Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/ubuntu_linux", "ssh/login/packages", re:"ssh/login/release=UBUNTU(6\.06\ LTS|8\.04\ LTS|8\.10|9\.04|9\.10)");
@@ -77,11 +63,11 @@ report = "";
 
 if(release == "UBUNTU6.06 LTS") {
 
-  if(!isnull(res = isdpkgvuln(pkg:"cupsys-client", ver:"1.2.2-0ubuntu0.6.06.17", rls:"UBUNTU6.06 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"cupsys", ver:"1.2.2-0ubuntu0.6.06.17", rls:"UBUNTU6.06 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"cupsys", ver:"1.2.2-0ubuntu0.6.06.17", rls:"UBUNTU6.06 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"cupsys-client", ver:"1.2.2-0ubuntu0.6.06.17", rls:"UBUNTU6.06 LTS"))) {
     report += res;
   }
 
@@ -95,11 +81,11 @@ if(release == "UBUNTU6.06 LTS") {
 
 if(release == "UBUNTU8.04 LTS") {
 
-  if(!isnull(res = isdpkgvuln(pkg:"cupsys-client", ver:"1.3.7-1ubuntu3.8", rls:"UBUNTU8.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"cupsys", ver:"1.3.7-1ubuntu3.8", rls:"UBUNTU8.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"cupsys", ver:"1.3.7-1ubuntu3.8", rls:"UBUNTU8.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"cupsys-client", ver:"1.3.7-1ubuntu3.8", rls:"UBUNTU8.04 LTS"))) {
     report += res;
   }
 
@@ -113,11 +99,11 @@ if(release == "UBUNTU8.04 LTS") {
 
 if(release == "UBUNTU8.10") {
 
-  if(!isnull(res = isdpkgvuln(pkg:"cups-client", ver:"1.3.9-2ubuntu9.5", rls:"UBUNTU8.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"cups", ver:"1.3.9-2ubuntu9.5", rls:"UBUNTU8.10"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"cups", ver:"1.3.9-2ubuntu9.5", rls:"UBUNTU8.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"cups-client", ver:"1.3.9-2ubuntu9.5", rls:"UBUNTU8.10"))) {
     report += res;
   }
 
@@ -131,11 +117,11 @@ if(release == "UBUNTU8.10") {
 
 if(release == "UBUNTU9.04") {
 
-  if(!isnull(res = isdpkgvuln(pkg:"cups-client", ver:"1.3.9-17ubuntu3.6", rls:"UBUNTU9.04"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"cups", ver:"1.3.9-17ubuntu3.6", rls:"UBUNTU9.04"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"cups", ver:"1.3.9-17ubuntu3.6", rls:"UBUNTU9.04"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"cups-client", ver:"1.3.9-17ubuntu3.6", rls:"UBUNTU9.04"))) {
     report += res;
   }
 
@@ -149,11 +135,11 @@ if(release == "UBUNTU9.04") {
 
 if(release == "UBUNTU9.10") {
 
-  if(!isnull(res = isdpkgvuln(pkg:"cups-client", ver:"1.4.1-5ubuntu2.4", rls:"UBUNTU9.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"cups", ver:"1.4.1-5ubuntu2.4", rls:"UBUNTU9.10"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"cups", ver:"1.4.1-5ubuntu2.4", rls:"UBUNTU9.10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"cups-client", ver:"1.4.1-5ubuntu2.4", rls:"UBUNTU9.10"))) {
     report += res;
   }
 

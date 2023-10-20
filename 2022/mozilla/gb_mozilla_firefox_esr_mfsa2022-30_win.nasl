@@ -23,11 +23,14 @@ CPE = "cpe:/a:mozilla:firefox_esr";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.821199");
-  script_version("2022-08-26T10:12:16+0000");
+  script_version("2023-10-19T05:05:21+0000");
   script_cve_id("CVE-2022-36319", "CVE-2022-36318", "CVE-2022-36314", "CVE-2022-2505");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-08-26 10:12:16 +0000 (Fri, 26 Aug 2022)");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-01-03 21:04:00 +0000 (Tue, 03 Jan 2023)");
   script_tag(name:"creation_date", value:"2022-07-28 15:38:59 +0530 (Thu, 28 Jul 2022)");
   script_name("Mozilla Firefox ESR Security Update(mfsa2022-30) - Windows");
 

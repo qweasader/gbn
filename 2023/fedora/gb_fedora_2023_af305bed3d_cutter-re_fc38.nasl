@@ -7,11 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.827378");
-  script_version("2023-03-31T10:19:34+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2022-34612", "CVE-2022-36042", "CVE-2022-36040", "CVE-2022-36041", "CVE-2022-36043", "CVE-2022-36044");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-03-31 10:19:34 +0000 (Fri, 31 Mar 2023)");
+  script_tag(name:"cvss_base", value:"7.2");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-09-09 16:53:00 +0000 (Fri, 09 Sep 2022)");
   script_tag(name:"creation_date", value:"2023-03-30 01:07:07 +0000 (Thu, 30 Mar 2023)");
   script_name("Fedora: Security Advisory for cutter-re (FEDORA-2023-af305bed3d)");
   script_category(ACT_GATHER_INFO);

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141622");
-  script_version("2023-04-06T10:19:22+0000");
-  script_tag(name:"last_modification", value:"2023-04-06 10:19:22 +0000 (Thu, 06 Apr 2023)");
+  script_version("2023-07-14T05:06:08+0000");
+  script_tag(name:"last_modification", value:"2023-07-14 05:06:08 +0000 (Fri, 14 Jul 2023)");
   script_tag(name:"creation_date", value:"2018-11-01 09:53:59 +0700 (Thu, 01 Nov 2018)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -171,6 +171,12 @@ foreach dir (make_list_unique("/", http_cgi_dirs(port: port))) {
     set_kb_item(name: "jquery/detected", value: TRUE);
     set_kb_item(name: "jquery/http/detected", value: TRUE);
     set_kb_item(name: "jquery/http/" + port + "/installs", value: port + "#---#" + location + "#---#" + version + "#---#" + detect[0] + "#---#" + concUrl + "#---#" + extra);
+    # nb: For additional reporting in the Vuln-VTs as users often miss to look into the detection
+    # report itself and might be confused where the detection is originating from.
+    extra_reporting = concUrl;
+    if (extra)
+      extra_reporting += '\n\nNote: ' + extra;
+    set_kb_item(name: "jquery/http/" + port + "/" + location + "/extra_reporting", value: extra_reporting);
   }
 
   # src="/imports/jquery/dist/jquery.slim.min.js"
@@ -265,6 +271,12 @@ foreach dir (make_list_unique("/", http_cgi_dirs(port: port))) {
     set_kb_item(name: "jquery/detected", value: TRUE);
     set_kb_item(name: "jquery/http/detected", value: TRUE);
     set_kb_item(name: "jquery/http/" + port + "/installs", value: port + "#---#" + location + "#---#" + version + "#---#" + concl + "#---#" + concUrl + "#---#" + extra);
+    # nb: For additional reporting in the Vuln-VTs as users often miss to look into the detection
+    # report itself and might be confused where the detection is originating from.
+    extra_reporting = concUrl;
+    if (extra)
+      extra_reporting += '\n\nNote: ' + extra;
+    set_kb_item(name: "jquery/http/" + port + "/" + location + "/extra_reporting", value: extra_reporting);
   }
 }
 

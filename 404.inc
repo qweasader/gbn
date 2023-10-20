@@ -1,30 +1,10 @@
-###############################################################################
-# OpenVAS Include File
-# Include to provide common error messages interpreted as a 404
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Extracted from no404.nasl and DDI_Directory_Scanner.nasl
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software
-# Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
-# nb: DDI_Directory_Scanner.nasl and no404.nasl are using an egrep so
-# we can use regex pattern here
+# nb: DDI_Directory_Scanner.nasl and no404.nasl are using an egrep so we can use regex pattern here
 errmessages_404 = make_list(
 "not found", # TBD: too generic?
 "404", # TBD: too generic?
@@ -62,7 +42,7 @@ errmessages_404 = make_list(
 "Error - Bad Request",
 "Insufficient Access",
 "The userid or password that was specified is not valid",
-"The requested page could not be found\.", # drupal
+"The requested page could not be found\.", # Drupal
 "Content-Length: 0",
 "submitLogin\(\)",
 ">Login<",
@@ -75,7 +55,13 @@ errmessages_404 = make_list(
 # Discourse, should throw an 404 Not Found but there might be other deployments where this doesn't apply.
 # nb: the "." between "doesn" and "t" is expected as we can't use UTF-8 chars in VTs yet...
 "Oops! That page doesn.t exist or is private\.",
+# On:
+# Server: pve-api-daemon/3.0
+# the following has been seen on non-existing pages:
+# HTTP/1.1 501 no such file '/resin-doc/'
+"no such file",
 "Requested resource does not exist", # SAP NetWeaver
+"Sorry, the page you were looking for does not exist", # VMware Operations for Logs which had thrown a 403 error including this message for non-existing pages
 "<TITLE>Invalid URL</TITLE>" ); # AkamaiGHost might throw a 400 instead of 404 on non-existing files, see e.g. https://seclists.org/pen-test/2003/Oct/2
 
 global_var errmessges_404;

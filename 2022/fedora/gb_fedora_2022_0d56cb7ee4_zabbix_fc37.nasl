@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.822478");
-  script_version("2022-09-20T10:11:40+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-40626");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-09-20 10:11:40 +0000 (Tue, 20 Sep 2022)");
+  script_tag(name:"cvss_base", value:"6.4");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-09-16 03:15:00 +0000 (Fri, 16 Sep 2022)");
   script_tag(name:"creation_date", value:"2022-09-19 01:15:20 +0000 (Mon, 19 Sep 2022)");
   script_name("Fedora: Security Advisory for zabbix (FEDORA-2022-0d56cb7ee4)");
   script_category(ACT_GATHER_INFO);

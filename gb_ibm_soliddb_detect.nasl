@@ -1,51 +1,29 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2010 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SolidDB Detection
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2010 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100721");
-  script_version("2020-11-12T05:31:02+0000");
+  script_version("2023-06-23T16:09:17+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2020-11-12 05:31:02 +0000 (Thu, 12 Nov 2020)");
+  script_tag(name:"last_modification", value:"2023-06-23 16:09:17 +0000 (Fri, 23 Jun 2023)");
   script_tag(name:"creation_date", value:"2010-07-21 19:56:46 +0200 (Wed, 21 Jul 2010)");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_name("SolidDB Detection");
+  script_name("UNICOM/IBM solidDB Detection (TCP)");
 
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_dependencies("find_service.nasl");
   script_require_ports("Services/unknown", 1315);
 
-  script_tag(name:"summary", value:"Detection of SolidDB.
-
-  The script sends a connection request to the server and attempts to
-  extract the version number from the reply.");
+  script_tag(name:"summary", value:"TCP based detection of UNICOM/IBM solidDB.");
 
   script_xref(name:"URL", value:"https://www.teamblue.unicomsi.com/products/soliddb/");
 
@@ -61,8 +39,7 @@ include("host_details.inc");
 port = unknownservice_get_port( default:1315 );
 host = get_host_name();
 
-soc = open_sock_tcp( port );
-if( ! soc )
+if( ! soc = open_sock_tcp( port ) )
   exit( 0 );
 
 user = "DBA";
@@ -137,7 +114,7 @@ if( ( len == 35 || len >= 27 ) &&
     set_kb_item( name:"IBM-soliddb/installed", value:TRUE );
     register_product( cpe:cpe, location:install, port:port );
 
-    log_message( data:build_detection_report( app:"IBM solidDB Server",
+    log_message( data:build_detection_report( app:"UNICOM/IBM solidDB",
                                               version:vers,
                                               install:install,
                                               cpe:cpe ),
@@ -148,14 +125,14 @@ if( ( len == 35 || len >= 27 ) &&
     set_kb_item( name:"IBM-soliddb/installed", value:TRUE );
     set_kb_item( name:"soliddb/" + port + "/version", value:vers );
 
-    ## if build version is required you need to use the get_kb_item() instead of get_app_version() in vulnerable nvt.
+    ## if build version is required you need to use the get_kb_item() instead of get_app_version() in the VT.
     cpe = build_cpe( value:vers, exp:"^([0-9.]+)", base:"cpe:/a:ibm:soliddb:" );
-    if( isnull( cpe ) )
+    if( ! cpe )
       cpe = "cpe:/a:ibm:soliddb";
 
     register_product( cpe:cpe, location:install, port:port );
 
-    log_message( data:build_detection_report( app:"IBM solidDB Server",
+    log_message( data:build_detection_report( app:"UNICOM/IBM solidDB",
                                               version:vers,
                                               install:install,
                                               cpe:cpe,

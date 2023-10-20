@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.884241");
-  script_version("2022-09-05T10:11:01+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-29154");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-09-05 10:11:01 +0000 (Mon, 05 Sep 2022)");
+  script_tag(name:"cvss_base", value:"7.1");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:N/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-08-09 18:22:00 +0000 (Tue, 09 Aug 2022)");
   script_tag(name:"creation_date", value:"2022-09-02 01:00:56 +0000 (Fri, 02 Sep 2022)");
   script_name("CentOS: Security Advisory for rsync (CESA-2022:6170)");
   script_category(ACT_GATHER_INFO);

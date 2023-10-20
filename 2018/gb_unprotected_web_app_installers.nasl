@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107307");
-  script_version("2023-06-01T09:09:48+0000");
-  script_tag(name:"last_modification", value:"2023-06-01 09:09:48 +0000 (Thu, 01 Jun 2023)");
+  script_version("2023-07-20T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
   script_tag(name:"creation_date", value:"2018-05-07 12:00:20 +0200 (Mon, 07 May 2018)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_tag(name:"cvss_base", value:"5.0");
@@ -19,7 +19,7 @@ if(description)
   script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "sw_magento_detect.nasl",
                       "gb_wordpress_http_detect.nasl", "osticket_http_detect.nasl", "gb_dotnetnuke_http_detect.nasl",
                       "secpod_tikiwiki_detect.nasl", "gb_nuxeo_platform_detect.nasl", "gb_owncloud_detect.nasl",
-                      "gb_dolibarr_http_detect.nasl", "global_settings.nasl");
+                      "gb_dolibarr_http_detect.nasl", "gb_atlassian_jira_http_detect.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
@@ -128,6 +128,12 @@ dolibarrfiles = make_array(
 "/install/check.php", "Dolibarr ERP/CRM installer / updater#-#<title>Dolibarr install or upgrade</title>"
 );
 
+jirafiles = make_array(
+# <title>JIRA - JIRA setup</title>
+# <title>Jira - Jira setup</title>
+"/secure/SetupMode!default.jspa", "Atlassian Jira installer#-#<title>Jira - Jira setup</title>"
+);
+
 global_var report, VULN;
 
 function check_files( filesarray, dirlist, port ) {
@@ -223,6 +229,13 @@ if( dolibarrdirs )
 else
   dolibarrdirlist = dirlist;
 check_files( filesarray:dolibarrfiles, dirlist:dolibarrdirlist, port:port );
+
+jiradirs = get_app_location( port:port, cpe:"cpe:/a:atlassian:jira", service:"www", nofork:TRUE );
+if( jiradirs )
+  jiradirlist = make_list_unique( jiradirs, dirlist );
+else
+  jiradirlist = dirlist;
+check_files( filesarray:jirafiles, dirlist:jiradirlist, port:port );
 
 if( VULN ) {
   security_message( port:port, data:report );

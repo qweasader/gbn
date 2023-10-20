@@ -1,30 +1,16 @@
-# Copyright (C) 2017 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2017 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.703831");
   script_cve_id("CVE-2017-5429", "CVE-2017-5432", "CVE-2017-5433", "CVE-2017-5434", "CVE-2017-5435", "CVE-2017-5436", "CVE-2017-5438", "CVE-2017-5439", "CVE-2017-5440", "CVE-2017-5441", "CVE-2017-5442", "CVE-2017-5443", "CVE-2017-5444", "CVE-2017-5445", "CVE-2017-5446", "CVE-2017-5447", "CVE-2017-5448", "CVE-2017-5459", "CVE-2017-5460", "CVE-2017-5461", "CVE-2017-5462", "CVE-2017-5464", "CVE-2017-5465", "CVE-2017-5469");
   script_tag(name:"creation_date", value:"2017-04-19 22:00:00 +0000 (Wed, 19 Apr 2017)");
-  script_version("2023-04-03T10:19:50+0000");
-  script_tag(name:"last_modification", value:"2023-04-03 10:19:50 +0000 (Mon, 03 Apr 2023)");
+  script_version("2023-07-05T05:06:17+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Debian: Security Advisory (DSA-3831)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB8");
@@ -75,6 +61,10 @@ res = "";
 report = "";
 
 if(release == "DEB8") {
+
+  if(!isnull(res = isdpkgvuln(pkg:"firefox-esr", ver:"45.9.0esr-1~deb8u1", rls:"DEB8"))) {
+    report += res;
+  }
 
   if(!isnull(res = isdpkgvuln(pkg:"firefox-esr-dbg", ver:"45.9.0esr-1~deb8u1", rls:"DEB8"))) {
     report += res;
@@ -444,7 +434,7 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"firefox-esr", ver:"45.9.0esr-1~deb8u1", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"iceweasel", ver:"45.9.0esr-1~deb8u1", rls:"DEB8"))) {
     report += res;
   }
 
@@ -813,10 +803,6 @@ if(release == "DEB8") {
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"iceweasel-l10n-zh-tw", ver:"1:45.9.0esr-1~deb8u1", rls:"DEB8"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"iceweasel", ver:"45.9.0esr-1~deb8u1", rls:"DEB8"))) {
     report += res;
   }
 

@@ -21,7 +21,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826952");
-  script_version("2023-03-30T10:19:37+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2023-0433", "CVE-2023-0512", "CVE-2023-23514", "CVE-2023-23527",
                 "CVE-2023-23533", "CVE-2023-23538", "CVE-2023-23540", "CVE-2023-23542",
                 "CVE-2023-27933", "CVE-2023-27935", "CVE-2023-27936", "CVE-2023-27937",
@@ -29,9 +29,12 @@ if(description)
                 "CVE-2023-27951", "CVE-2023-27953", "CVE-2023-27955", "CVE-2023-27958",
                 "CVE-2023-27961", "CVE-2023-27962", "CVE-2023-27963", "CVE-2023-28178",
                 "CVE-2023-28182", "CVE-2023-28192", "CVE-2023-28200");
-  script_tag(name:"cvss_base", value:"9.3");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-03-30 10:19:37 +0000 (Thu, 30 Mar 2023)");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-05-12 18:47:00 +0000 (Fri, 12 May 2023)");
   script_tag(name:"creation_date", value:"2023-03-29 11:22:17 +0530 (Wed, 29 Mar 2023)");
   script_name("Apple MacOSX Security Update (HT213677)");
 

@@ -23,13 +23,16 @@ CPE = "cpe:/a:adobe:bridge_cc";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826460");
-  script_version("2022-09-19T10:11:35+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-35699", "CVE-2022-35700", "CVE-2022-35701", "CVE-2022-35702",
                 "CVE-2022-35703", "CVE-2022-35704", "CVE-2022-35705", "CVE-2022-35706",
                 "CVE-2022-35707", "CVE-2022-35708", "CVE-2022-35709", "CVE-2022-38425");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-09-19 10:11:35 +0000 (Mon, 19 Sep 2022)");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-09-19 16:24:00 +0000 (Mon, 19 Sep 2022)");
   script_tag(name:"creation_date", value:"2022-09-15 11:33:35 +0530 (Thu, 15 Sep 2022)");
   script_name("Adobe Bridge Multiple Vulnerabilities (APSB22-49) - Mac OS X");
 

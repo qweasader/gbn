@@ -1,36 +1,22 @@
-# Copyright (C) 2023 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2023 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2015.359");
   script_cve_id("CVE-2015-0499", "CVE-2015-0501", "CVE-2015-0505", "CVE-2015-2568", "CVE-2015-2571", "CVE-2015-2573", "CVE-2015-2582", "CVE-2015-2620", "CVE-2015-2643", "CVE-2015-2648", "CVE-2015-4737", "CVE-2015-4752", "CVE-2015-4792", "CVE-2015-4802", "CVE-2015-4815", "CVE-2015-4816", "CVE-2015-4819", "CVE-2015-4826", "CVE-2015-4830", "CVE-2015-4836", "CVE-2015-4858", "CVE-2015-4861", "CVE-2015-4870", "CVE-2015-4879", "CVE-2015-4913");
   script_tag(name:"creation_date", value:"2023-03-08 12:56:44 +0000 (Wed, 08 Mar 2023)");
-  script_version("2023-03-09T10:20:44+0000");
-  script_tag(name:"last_modification", value:"2023-03-09 10:20:44 +0000 (Thu, 09 Mar 2023)");
+  script_version("2023-07-05T05:06:18+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
 
   script_name("Debian: Security Advisory (DLA-359)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2023 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB6");
@@ -100,15 +86,19 @@ if(release == "DEB6") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"mysql-client-5.5", ver:"5.5.46-0+deb6u1", rls:"DEB6"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"mysql-client", ver:"5.5.46-0+deb6u1", rls:"DEB6"))) {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"mysql-client-5.5", ver:"5.5.46-0+deb6u1", rls:"DEB6"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"mysql-common-5.5", ver:"5.5.46-0+deb6u1", rls:"DEB6"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"mysql-server", ver:"5.5.46-0+deb6u1", rls:"DEB6"))) {
     report += res;
   }
 
@@ -117,10 +107,6 @@ if(release == "DEB6") {
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"mysql-server-core-5.5", ver:"5.5.46-0+deb6u1", rls:"DEB6"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"mysql-server", ver:"5.5.46-0+deb6u1", rls:"DEB6"))) {
     report += res;
   }
 

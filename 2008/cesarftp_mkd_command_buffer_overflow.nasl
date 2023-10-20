@@ -1,42 +1,20 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2008 Ferdy Riphagen
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# CesarFTP MKD Command Buffer Overflow
-#
-# Authors:
-# Ferdy Riphagen
-#
-# Copyright:
-# Copyright (C) 2008 Ferdy Riphagen
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
-
-# Original advisory:
-# http://www.securiteam.com/exploits/5AP0B2AIUY.html
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.200058");
-  script_version("2022-05-11T11:17:52+0000");
-  script_tag(name:"last_modification", value:"2022-05-11 11:17:52 +0000 (Wed, 11 May 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2008-08-22 16:09:14 +0200 (Fri, 22 Aug 2008)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_cve_id("CVE-2006-2961");
   script_xref(name:"OSVDB", value:"26364");
-  script_name("CesarFTP MKD Command Buffer Overflow");
+  script_name("CesarFTP MKD Command Buffer Overflow DoS Vulnerability");
   script_category(ACT_DENIAL);
   script_family("Denial of Service");
   script_copyright("Copyright (C) 2008 Ferdy Riphagen");
@@ -55,7 +33,7 @@ if(description)
   Likely none will be provided anymore. General solution options are to upgrade to a newer release, disable respective features, remove the
   product or replace the product by another one.");
 
-  script_tag(name:"affected", value:"CesarFTP Server version <= 0.99g.");
+  script_tag(name:"affected", value:"CesarFTP Server version <= 0.99g are known to be affected.");
 
   script_tag(name:"impact", value:"The system could crash, and accepts/execute arbitrary commands
   after the initial overflow attack.");
@@ -68,7 +46,7 @@ if(description)
   by using a valid account/password or if activated the anonymous account.");
 
   script_tag(name:"solution_type", value:"WillNotFix");
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   exit(0);
 }

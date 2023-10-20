@@ -9,11 +9,14 @@ CPE = "cpe:/a:nextcloud:nextcloud_server";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127268");
-  script_version("2023-05-15T09:08:55+0000");
-  script_tag(name:"last_modification", value:"2023-05-15 09:08:55 +0000 (Mon, 15 May 2023)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-11-28 10:30:11 +0000 (Mon, 28 Nov 2022)");
-  script_tag(name:"cvss_base", value:"4.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
+  script_tag(name:"cvss_base", value:"6.8");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-12-01 19:50:00 +0000 (Thu, 01 Dec 2022)");
 
   script_cve_id("CVE-2022-39346");
 

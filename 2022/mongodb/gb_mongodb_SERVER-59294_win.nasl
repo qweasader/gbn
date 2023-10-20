@@ -1,30 +1,16 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mongodb:mongodb";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.147597");
-  script_version("2022-02-11T03:04:03+0000");
-  script_tag(name:"last_modification", value:"2022-02-11 03:04:03 +0000 (Fri, 11 Feb 2022)");
+  script_version("2023-07-12T05:05:04+0000");
+  script_tag(name:"last_modification", value:"2023-07-12 05:05:04 +0000 (Wed, 12 Jul 2023)");
   script_tag(name:"creation_date", value:"2022-02-07 03:14:08 +0000 (Mon, 07 Feb 2022)");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:P");
@@ -38,11 +24,11 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("MongoDB DoS Vulnerability (SERVER-51083) - Windows");
+  script_name("MongoDB DoS Vulnerability (SERVER-59294) - Windows");
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Databases");
   script_dependencies("gb_mongodb_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("mongodb/installed", "Host/runs_windows");

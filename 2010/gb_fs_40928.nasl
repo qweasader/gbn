@@ -1,34 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2010 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# File Sharing Wizard 'HEAD' Command Remote Buffer Overflow Vulnerability
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2010 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
-
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100745");
-  script_version("2022-05-02T09:35:37+0000");
-  script_tag(name:"last_modification", value:"2022-05-02 09:35:37 +0000 (Mon, 02 May 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2010-08-05 13:46:20 +0200 (Thu, 05 Aug 2010)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
@@ -37,26 +17,25 @@ if (description)
   script_name("File Sharing Wizard 'HEAD' Command Remote Buffer Overflow Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/40928");
-  script_xref(name:"URL", value:"http://www.sharing-file.net/");
 
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_category(ACT_DENIAL);
   script_family("Buffer overflow");
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
   script_tag(name:"summary", value:"File Sharing Wizard is prone to a remote buffer-overflow
-vulnerability because it fails to perform adequate boundary checks on
-user-supplied input.
+  vulnerability because it fails to perform adequate boundary checks on user-supplied input.");
 
-Successfully exploiting this issue may allow remote attackers to
-execute arbitrary code in the context of the application. Failed
-attacks will cause denial-of-service conditions.
+  script_tag(name:"impact", value:"Successfully exploiting this issue may allow remote attackers to
+  execute arbitrary code in the context of the application. Failed attacks will cause
+  denial-of-service conditions.");
 
-File Sharing Wizard 1.5.0 is vulnerable, other versions may also
-be affected.");
+  script_tag(name:"affected", value:"File Sharing Wizard 1.5.0 is known to be vulnerable. Other
+  versions may also be affected.");
+
   script_tag(name:"solution_type", value:"WillNotFix");
   script_tag(name:"solution", value:"No known solution was made available for at least one year
   since the disclosure of this vulnerability. Likely none will be provided anymore.
@@ -69,7 +48,6 @@ be affected.");
 include("http_func.inc");
 include("http_keepalive.inc");
 include("port_service_func.inc");
-
 
 port = http_get_port( default:80 );
 

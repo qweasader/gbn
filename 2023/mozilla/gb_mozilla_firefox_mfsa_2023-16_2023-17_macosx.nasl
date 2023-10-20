@@ -9,15 +9,18 @@ CPE = "cpe:/a:mozilla:firefox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832077");
-  script_version("2023-05-12T10:50:26+0000");
+  script_version("2023-10-13T16:09:03+0000");
   script_cve_id("CVE-2023-32205", "CVE-2023-32206", "CVE-2023-32207", "CVE-2023-32208",
                 "CVE-2023-32209", "CVE-2023-32210", "CVE-2023-32211", "CVE-2023-32212",
                 "CVE-2023-32213", "CVE-2023-32215", "CVE-2023-32216");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-05-12 10:50:26 +0000 (Fri, 12 May 2023)");
+  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-06-27 08:25:00 +0000 (Tue, 27 Jun 2023)");
   script_tag(name:"creation_date", value:"2023-05-11 15:34:01 +0530 (Thu, 11 May 2023)");
-  script_name("Mozilla Firefox Security Updates(mfsa_2023-16_2023-17)-MAC OS X");
+  script_name("Mozilla Firefox Security Updates (mfsa_2023-16_2023-17) - Mac OS X");
 
   script_tag(name:"summary", value:"Mozilla Firefox is prone to multiple
   vulnerabilities.");
@@ -49,7 +52,7 @@ if(description)
   disclose sensitive information, execute arbitrary code and cause denial of service
   condition.");
 
-  script_tag(name:"affected", value:"Mozilla Firefox version before 113 on MAC OS X.");
+  script_tag(name:"affected", value:"Mozilla Firefox version before 113 on Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade to Mozilla Firefox version 113
   or later, Please see the references for more information.");

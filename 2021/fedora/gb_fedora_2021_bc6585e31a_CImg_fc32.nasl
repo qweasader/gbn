@@ -21,11 +21,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.879405");
-  script_version("2021-08-23T06:00:57+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2020-25693");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:P");
-  script_tag(name:"last_modification", value:"2021-08-23 06:00:57 +0000 (Mon, 23 Aug 2021)");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-05-05 13:06:00 +0000 (Wed, 05 May 2021)");
@@ -49,7 +49,7 @@ if(description)
 It consists in a single header file &#39, CImg.h&#39, providing a minimal set of C++
 classes and methods that can be used in your own sources, to load/save,
 process and display images. Very portable, efficient and easy to use,
-it&#39, s a pleasant library for developping image processing algorithms in C++.");
+it&#39, s a pleasant library for developing image processing algorithms in C++.");
 
   script_tag(name:"affected", value:"'CImg' package(s) on Fedora 32.");
 

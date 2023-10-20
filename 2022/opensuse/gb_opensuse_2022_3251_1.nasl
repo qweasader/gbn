@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854975");
-  script_version("2022-09-14T10:57:19+0000");
+  script_version("2023-10-19T05:05:21+0000");
   script_cve_id("CVE-2022-29244", "CVE-2022-31150", "CVE-2022-35948", "CVE-2022-35949");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-09-14 10:57:19 +0000 (Wed, 14 Sep 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-06-27 15:51:00 +0000 (Mon, 27 Jun 2022)");
+  script_tag(name:"severity_date", value:"2022-08-16 16:15:00 +0000 (Tue, 16 Aug 2022)");
   script_tag(name:"creation_date", value:"2022-09-13 01:01:47 +0000 (Tue, 13 Sep 2022)");
   script_name("openSUSE: Security Advisory for nodejs16 (SUSE-SU-2022:3251-1)");
   script_category(ACT_GATHER_INFO);

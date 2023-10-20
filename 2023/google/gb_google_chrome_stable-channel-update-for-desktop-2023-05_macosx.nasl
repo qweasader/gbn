@@ -9,15 +9,18 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832057");
-  script_version("2023-05-05T16:07:24+0000");
+  script_version("2023-10-13T16:09:03+0000");
   script_cve_id("CVE-2023-2459", "CVE-2023-2460", "CVE-2023-2461", "CVE-2023-2462",
                 "CVE-2023-2463", "CVE-2023-2464", "CVE-2023-2465", "CVE-2023-2466",
                 "CVE-2023-2467", "CVE-2023-2468");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-05-05 16:07:24 +0000 (Fri, 05 May 2023)");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-05-10 04:15:00 +0000 (Wed, 10 May 2023)");
   script_tag(name:"creation_date", value:"2023-05-03 14:31:36 +0530 (Wed, 03 May 2023)");
-  script_name("Google Chrome Security Update(stable-channel-update-for-desktop-2023-05)-MAC OS X");
+  script_name("Google Chrome Security Update (stable-channel-update-for-desktop-2023-05) - Mac OS X");
 
   script_tag(name:"summary", value:"Google Chrome is prone to multiple
   vulnerabilities.");
@@ -44,7 +47,7 @@ if(description)
   and cause a denial of service on affected system.");
 
   script_tag(name:"affected", value:"Google Chrome version prior to
-  113.0.5672.63 on MAC OS X");
+  113.0.5672.63 on Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade to Google Chrome version
   113.0.5672.63 or later. Please see the references for more information.");

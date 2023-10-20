@@ -1,22 +1,8 @@
-# Copyright (C) 2012 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2012 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 global_var sess, esxi_error, installed_bulletins, response, esxi_version;
 
@@ -61,7 +47,7 @@ function start_esxi_session(port, user, pass) {
                             search:search, port:port);
 
   if(!recv) {
-    _esx_error(data:"ESXi 4.x/5.x/6.x/7.x: Initial connection failed.", search:search);
+    _esx_error(data:"ESXi 4.x/5.x/6.x/7.x/8.x: Initial connection failed.", search:search);
     return FALSE;
   }
 
@@ -84,15 +70,15 @@ function start_esxi_session(port, user, pass) {
                             search:search, port:port);
 
   if(!recv) {
-    _esx_error(data:"ESXi 4.x/5.x/6.x/7.x: Login failed.", search:search);
+    _esx_error(data:"ESXi 4.x/5.x/6.x/7.x/8.x: Login failed.", search:search);
     return FALSE;
   }
 
-  search = 'Set-Cookie: vmware_soap_session="([^"]+)"';
+  search = '[Ss]et-[Cc]ookie\\s*:\\s*vmware_soap_session="([^"]+)"';
   c = eregmatch(pattern:search, string:recv);
 
   if(isnull(c[1])) {
-    _esx_error(data:"ESXi 4.x/5.x/6.x/7.x: Could not extract session cookie from response.", search:search);
+    _esx_error(data:"ESXi 4.x/5.x/6.x/7.x/8.x: Could not extract session cookie from response.", search:search);
     return FALSE;
   }
 
@@ -102,7 +88,8 @@ function start_esxi_session(port, user, pass) {
 }
 
 # @brief Tries to gather/receive the installed bulletins/patches from the remote ESXi server for
-#        ESXi versions 5.x, 6.x and 7.x. For ESXi version 4.x @ref get_esxi4_x_vibs needs to be used.
+#        ESXi versions 5.x, 6.x, 7.x and 8.x. For ESXi version 4.x @ref get_esxi4_x_vibs needs to
+#        be used.
 #        This function calls @ref parse_esxi_5_0_response internally which in addition saves
 #        the installed bulletins/patches (if received successfully) into the internal KB.
 #
@@ -129,13 +116,13 @@ function get_esxi5_0_vibs(port, user, pass) {
   if(!pass)
     set_kb_item(name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#pass#-#get_esxi5_0_vibs");
 
-  if(esxi_version !~ "^[567]\.") {
-    _esx_error(data:"ESXi 5.x/6.x/7.x: Wrong ESXi version. Expected: 5.x/6.x/7.x. Received: " + esxi_version, skip_search:TRUE, skip_response:TRUE);
+  if(esxi_version !~ "^[5678]\.") {
+    _esx_error(data:"ESXi 5.x/6.x/7.x/8.x: Wrong ESXi version. Expected: 5.x/6.x/7.x/8.x. Received: " + esxi_version, skip_search:TRUE, skip_response:TRUE);
     return FALSE;
   }
 
   if(!user || !pass) {
-    _esx_error(data:"ESXi 5.x/6.x/7.x: username or password missing in internal knowledgebase.", skip_search:TRUE, skip_response:TRUE);
+    _esx_error(data:"ESXi 5.x/6.x/7.x/8.x: username or password missing in internal knowledgebase.", skip_search:TRUE, skip_response:TRUE);
     return FALSE;
   }
 
@@ -150,7 +137,7 @@ function get_esxi5_0_vibs(port, user, pass) {
                             search:search, port:port);
 
   if(!recv) {
-    _esx_error(data:"ESXi 5.x/6.x/7.x: Failed to receive the installed bulletins/patches.", search:search);
+    _esx_error(data:"ESXi 5.x/6.x/7.x/8.x: Failed to receive the installed bulletins/patches.", search:search);
     return FALSE;
   }
 
@@ -161,7 +148,7 @@ function get_esxi5_0_vibs(port, user, pass) {
 }
 
 # @brief Tries to gather/receive the installed bulletins/patches from the remote ESXi server for
-#        ESXi version 4.x. For ESXi version 5.x, 6.x or 7.x @ref get_esxi5_0_vibs needs to be used.
+#        ESXi version 4.x. For ESXi version 5.x, 6.x, 7.x or 8.x @ref get_esxi5_0_vibs needs to be used.
 #        This function calls @ref parse_esxi_4_x_response internally which in addition saves
 #        the installed bulletins/patches (if received successfully) into the internal KB.
 #
@@ -570,7 +557,7 @@ function parse_esxi_5_0_response(recv) {
   # nb: esxi_version and installed_bulletins are global_vars on top.
 
   if(strlen(recv) < 1) {
-    _esx_error(data:"ESXi 5.x/6.x/7.x: Unexpected response from ESXi server.", search:"Length > 0");
+    _esx_error(data:"ESXi 5.x/6.x/7.x/8.x: Unexpected response from ESXi server.", search:"Length > 0");
     set_kb_item(name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#recv#-#parse_esxi_5_0_response");
     return FALSE;
   }
@@ -614,7 +601,7 @@ function parse_esxi_5_0_response(recv) {
     set_kb_item(name:'VMware/esxi/' + esxi_version + '/last_bulletin', value:last);
     return TRUE;
   } else {
-    _esx_error(data:"ESXi 5.x/6.x/7.x: Could not extract date of last bulletin.", skip_search:TRUE, skip_response:TRUE);
+    _esx_error(data:"ESXi 5.x/6.x/7.x/8.x: Could not extract date of last bulletin.", skip_search:TRUE, skip_response:TRUE);
     return FALSE;
   }
 }
@@ -670,7 +657,7 @@ function _esxi_soap_request(port, data, search) {
 
   soc = open_sock_tcp(port);
   if(!soc) {
-    _esx_error(data:"ESXi 4.x/5.x/6.x/7.x: Could not create socket.", skip_search:TRUE, skip_response:TRUE);
+    _esx_error(data:"ESXi 4.x/5.x/6.x/7.x/8.x: Could not create socket.", skip_search:TRUE, skip_response:TRUE);
     return FALSE;
   }
 

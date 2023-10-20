@@ -1,35 +1,21 @@
-# Copyright (C) 2017 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2017 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108201");
-  script_version("2023-03-21T10:19:36+0000");
-  script_tag(name:"last_modification", value:"2023-03-21 10:19:36 +0000 (Tue, 21 Mar 2023)");
+  script_version("2023-10-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"creation_date", value:"2017-08-01 11:13:48 +0200 (Tue, 01 Aug 2017)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
   script_name("Operating System (OS) Detection (SIP)");
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_dependencies("sip_detection.nasl", "sip_detection_tcp.nasl");
   script_mandatory_keys("sip/detected");
 
@@ -82,6 +68,11 @@ if( serverbanner ) {
   }
 
   # nb: Starting with Wheezy (7.x) we have minor releases within the version so we don't use an exact version like 7.0 as we can't differ between the OS in the banner here
+  if( "+deb12" >< serverbanner ) {
+    os_register_and_report( os:"Debian GNU/Linux", version:"12", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:proto, banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide" );
+    exit( 0 );
+  }
+
   if( "+deb11" >< serverbanner ) {
     os_register_and_report( os:"Debian GNU/Linux", version:"11", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:proto, banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide" );
     exit( 0 );
@@ -157,6 +148,16 @@ if( serverbanner ) {
   # RTCC/5.0.0.0 MSExchangeUM/15.01.2507.017
   if( "MSExchangeUM" >< serverbanner ) {
     os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:BANNER_TYPE, port:port, proto:proto, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+    exit( 0 );
+  }
+
+  # e.g.:
+  # Cisco/SPA303-7.4.8a
+  # Cisco/SPA122-1.4.1(SR5)
+  # Cisco/SPA504G-7.6.2c
+  # nb: More detailed detection in gb_cisco_spa_voip_device_sip_detect.nasl
+  if( "Cisco/SPA" >< serverbanner ) {
+    os_register_and_report( os:"Cisco SPA Firmware", cpe:"cpe:/o:cisco:spa_firmware", banner_type:BANNER_TYPE, port:port, proto:proto, banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide" );
     exit( 0 );
   }
 }
@@ -286,14 +287,38 @@ if( uabanner ) {
   # Server: Cisco-ATA191-MPP/11-1-0MSR3-9
   # nb: More detailed detection in gb_cisco_ata_sip_detect.nasl
   if( uabanner =~ "Cisco[- ]ATA ?[0-9]{3}" || serverbanner =~ "Cisco[- ]ATA ?[0-9]{3}" ) {
-    os_register_and_report( os:"Cisco ATA Analog Telephone Adapter Firmware", cpe:"cpe:/o:cisco:ata_analog_telephone_adaptor_firmware", banner_type:BANNER_TYPE, port:port, proto:proto, banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide" );
+    os_register_and_report( os:"Cisco ATA Analog Telephone Adapter Firmware", cpe:"cpe:/o:cisco:ata_analog_telephone_adapter_firmware", banner_type:BANNER_TYPE, port:port, proto:proto, banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide" );
     exit( 0 );
   }
+
+  # User-Agent: Yealink SIP-T21P_E2 52.83.0.35
+  # User-Agent: Yealink W60B 77.83.0.85
+  # User-Agent: Yealink VC800 63.345.0.40
+  # nb: More detailed detection in gb_yealink_ip_phone_sip_detect.nasl
+  if( uabanner =~ "Yealink " ) {
+    os_register_and_report( os:"Yealink IP Phone Firmware", cpe:"cpe:/o:yealink:voip_phone_firmware", banner_type:BANNER_TYPE, port:port, proto:proto, banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide" );
+    exit( 0 );
+  }
+
+  # e.g.:
+  # User-Agent: PolycomVVX-VVX_250-UA/6.4.3.5156
+  # nb: More detailed detection in gsf/gb_polycom_vvx_sip_detect.nasl
+  if( "PolycomVVX" >< uabanner ) {
+    os_register_and_report( os:"Polycom Unified Communications Software", cpe:"cpe:/o:polycom:unified_communications_software", banner_type:BANNER_TYPE, port:port, proto:proto, banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide" );
+    exit( 0 );
+  }
+
 }
 
 # Not detailed enough, could be anything. e.g.:
 # RTCC/5.0.0.0
 if( egrep( pattern:"^RTCC(/[0-9.]+)?$", string:serverbanner, icase:FALSE ) )
+  exit( 0 );
+
+# The PBX is running / supported on at least Windows and Linux
+# Server: 3CX
+# User-Agent: 3CXPhoneSystem 15.5.15502.6 (15502)
+if( serverbanner == "3CX" || "3CXPhoneSystem" >< uabanner )
   exit( 0 );
 
 os_register_unknown_banner( banner:full_banner, banner_type_name:BANNER_TYPE, banner_type_short:"sip_banner", port:port, proto:proto );

@@ -1,30 +1,17 @@
-# Copyright (C) 2011 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2011 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802280");
-  script_version("2022-02-17T14:14:34+0000");
+  script_version("2023-07-21T05:05:22+0000");
   script_cve_id("CVE-2011-5007", "CVE-2011-5008", "CVE-2011-5009", "CVE-2011-5058");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-02-17 14:14:34 +0000 (Thu, 17 Feb 2022)");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2011-12-06 12:12:12 +0530 (Tue, 06 Dec 2011)");
   script_name("Codesys CmpWebServer Multiple Vulnerabilities");
 
@@ -34,7 +21,7 @@ if(description)
   script_xref(name:"URL", value:"http://packetstormsecurity.org/files/107456/codesys-overflow.txt");
 
   script_category(ACT_DENIAL);
-  script_copyright("Copyright (C) 2011 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Buffer overflow");
   script_dependencies("gb_get_http_banner.nasl");
   script_require_ports("Services/www", 8080);
@@ -72,7 +59,7 @@ if(description)
   script_tag(name:"summary", value:"Codesys is prone to multiple vulnerabilities.");
 
   script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"exploit");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   exit(0);
 }

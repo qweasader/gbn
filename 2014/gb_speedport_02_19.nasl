@@ -1,35 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2014 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Speedport DSL-Router Multiple Vulnerabilities
-#
-# Authors:
-# Christian Kuersteiner <christian.kuersteiner@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2014 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = 'cpe:/a:t-com:speedport';
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105901");
-  script_version("2022-05-31T13:45:57+0100");
+  script_version("2023-07-27T05:05:09+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2014-9727");
@@ -38,12 +18,12 @@ if (description)
   script_xref(name:"URL", value:"http://www.telekom.com/verantwortung/sicherheit/216230");
   script_xref(name:"URL", value:"http://www.heise.de/newsticker/meldung/Fritzbox-Luecke-Vier-Speedport-Modelle-der-Telekom-betroffen-2118595.html");
 
-  script_tag(name:"last_modification", value:"2022-05-31 13:45:57 +0100 (Tue, 31 May 2022)");
+  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
   script_tag(name:"creation_date", value:"2014-03-14 12:11:28 +0700 (Fri, 14 Mar 2014)");
   script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"remote_banner");
   script_family("General");
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
   script_dependencies("gb_speedport_detect.nasl");
   script_mandatory_keys("speedport/model", "speedport/firmware_version");
 

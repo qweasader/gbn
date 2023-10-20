@@ -1,35 +1,16 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 SCHUTZWERK GmbH
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# TUTOS phpinfo() information disclosure
-#
-# Authors:
-# Christian Fischer <info at schutzwerk.com>
-#
-# Copyright:
-# Copyright (C) 2016 SCHUTZWERK GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 CPE = "cpe:/a:tutos:tutos";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111106");
-  script_version("2021-09-02T11:51:43+0000");
-  script_tag(name:"last_modification", value:"2021-09-02 11:51:43 +0000 (Thu, 02 Sep 2021)");
+  script_version("2023-06-22T10:34:15+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2016-06-16 16:40:16 +0200 (Thu, 16 Jun 2016)");
   script_cve_id("CVE-2008-0149");
   script_tag(name:"cvss_base", value:"5.0");
@@ -88,7 +69,7 @@ if( "<title>phpinfo()</title>" >< res ) {
   # TODO: Save the output into a different KB key and update
   # gb_php_detect.nasl to use this info as well. Also remove
   # the http_can_host_php() from sw_tutos_detect.nasl once this is
-  # done as the NVT would need to run before gb_php_detect.nasl.
+  # done as the VT would need to run before gb_php_detect.nasl.
   # Take care to not introduce some sort of dependency cycle.
   #  set_kb_item( name:"php/phpinfo/" + host + "/" + port + "/detected_urls", value:url );
   # phpversion = get_php_version( data:res );

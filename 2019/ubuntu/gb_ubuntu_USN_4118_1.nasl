@@ -1,30 +1,16 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.844159");
   script_cve_id("CVE-2018-13053", "CVE-2018-13093", "CVE-2018-13096", "CVE-2018-13097", "CVE-2018-13098", "CVE-2018-13099", "CVE-2018-13100", "CVE-2018-14609", "CVE-2018-14610", "CVE-2018-14611", "CVE-2018-14612", "CVE-2018-14613", "CVE-2018-14614", "CVE-2018-14615", "CVE-2018-14616", "CVE-2018-14617", "CVE-2018-16862", "CVE-2018-19985", "CVE-2018-20169", "CVE-2018-20511", "CVE-2018-20784", "CVE-2018-20856", "CVE-2018-5383", "CVE-2019-0136", "CVE-2019-10126", "CVE-2019-10207", "CVE-2019-10638", "CVE-2019-10639", "CVE-2019-11085", "CVE-2019-11487", "CVE-2019-11599", "CVE-2019-11810", "CVE-2019-11815", "CVE-2019-11833", "CVE-2019-11884", "CVE-2019-12818", "CVE-2019-12819", "CVE-2019-12984", "CVE-2019-13233", "CVE-2019-13272", "CVE-2019-13631", "CVE-2019-14283", "CVE-2019-14284", "CVE-2019-14763", "CVE-2019-15090", "CVE-2019-15211", "CVE-2019-15212", "CVE-2019-15214", "CVE-2019-15215", "CVE-2019-15216", "CVE-2019-15218", "CVE-2019-15220", "CVE-2019-15221", "CVE-2019-15292", "CVE-2019-2024", "CVE-2019-2101", "CVE-2019-3701", "CVE-2019-3819", "CVE-2019-3846", "CVE-2019-3900", "CVE-2019-9506");
   script_tag(name:"creation_date", value:"2019-09-03 02:02:11 +0000 (Tue, 03 Sep 2019)");
-  script_version("2023-04-21T10:20:09+0000");
-  script_tag(name:"last_modification", value:"2023-04-21 10:20:09 +0000 (Fri, 21 Apr 2023)");
+  script_version("2023-06-21T05:06:21+0000");
+  script_tag(name:"last_modification", value:"2023-06-21 05:06:21 +0000 (Wed, 21 Jun 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Ubuntu: Security Advisory (USN-4118-1)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("Ubuntu Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/ubuntu_linux", "ssh/login/packages", re:"ssh/login/release=UBUNTU(16\.04\ LTS|18\.04\ LTS)");

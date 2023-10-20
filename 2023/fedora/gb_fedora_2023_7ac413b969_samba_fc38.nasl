@@ -7,11 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.827431");
-  script_version("2023-04-07T10:19:27+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2023-0225", "CVE-2023-0922", "CVE-2023-0614");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-04-07 10:19:27 +0000 (Fri, 07 Apr 2023)");
+  script_tag(name:"cvss_base", value:"6.8");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:N/A:N");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-04-10 18:38:00 +0000 (Mon, 10 Apr 2023)");
   script_tag(name:"creation_date", value:"2023-04-03 01:06:32 +0000 (Mon, 03 Apr 2023)");
   script_name("Fedora: Security Advisory for samba (FEDORA-2023-7ac413b969)");
   script_category(ACT_GATHER_INFO);

@@ -1,33 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2005 Michel Arboi
+# SPDX-FileCopyrightText: New detection methods / pattern / code since 2009 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Service Detection with 'HELP' Request
-#
-# Authors:
-# Michel Arboi <arboi@alussinan.org>
-#
-# Copyright:
-# Copyright (C) 2005 Michel Arboi
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11153");
-  script_version("2023-05-30T09:08:51+0000");
-  script_tag(name:"last_modification", value:"2023-05-30 09:08:51 +0000 (Tue, 30 May 2023)");
+  script_version("2023-09-12T05:05:19+0000");
+  script_tag(name:"last_modification", value:"2023-09-12 05:05:19 +0000 (Tue, 12 Sep 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -38,10 +20,11 @@ if(description)
   script_dependencies("find_service1.nasl", "find_service_3digits.nasl", "rpcinfo.nasl", "dcetest.nasl", "apache_SSL_complain.nasl");
   script_require_ports("Services/unknown");
 
-  script_tag(name:"summary", value:"This plugin performs service detection.
+  script_tag(name:"summary", value:"This plugin performs service detection.");
 
-  This plugin is a complement of find_service.nasl. It sends a 'HELP'
-  request to the remaining unknown services and tries to identify them.");
+  script_tag(name:"insight", value:"This plugin is a complement of the plugin 'Services' (OID:
+  1.3.6.1.4.1.25623.1.0.10330). It sends a 'HELP' request to the remaining unknown services and
+  tries to identify them.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -53,6 +36,8 @@ include("host_details.inc");
 include("global_settings.inc");
 include("port_service_func.inc");
 include("string_hex_func.inc");
+include("dump.inc");
+include("misc_func.inc");
 
 port = get_kb_item( "Services/unknown" );
 if( ! port ) exit( 0 );
@@ -89,6 +74,9 @@ rhexstr = hexstr( r );
 if( '\0' >< r )
   set_kb_item( name:k + "Hex", value:rhexstr );
 
+rbinstr_space = bin2string( ddata:r, noprint_replacement:' ' );
+rbinstr_nospace = bin2string( ddata:r );
+
 # The full banner is (without end of line:
 # ( success ( 1 2 ( ANONYMOUS ) ( edit-pipeline ) ) )
 # ( success ( 2 2 ( ) ( edit-pipeline svndiff1 absent-entries commit-revprops depth log-revprops partial-replay ) ) )
@@ -104,7 +92,7 @@ if( "Invalid protocol verification, illegal ORMI request" >< r ) {
   exit( 0 );
 }
 
-if( raw_string(0x51, 0x00, 0x00, 0x00) >< r && port == 264 ) {
+if( raw_string( 0x51, 0x00, 0x00, 0x00 ) >< r && port == 264 ) {
   service_register( port:port, proto:"checkpoint_fw_ng_gettopo_port" );
   log_message( port:port, data:"A CheckPoint FW NG gettopo_port service is running on this port" );
   exit( 0 );
@@ -456,8 +444,8 @@ if( ( "SGUIL" >< r ) && ereg( pattern:"^SGUIL-[0-9]+\.[0-9]+\.[0-9]+ OPENSSL (EN
 
 # (Solaris) lpd server
 if( ereg( pattern: "^Invalid protocol request.*:HHELP.*", string:r ) ) {
-  service_register( port:port, proto:"lpd" );
-  log_message( port:port, data:"An LPD server seems to be running on this port" );
+  service_register( port:port, proto:"lpd", message:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
+  log_message( port:port, data:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
   exit( 0 );
 }
 
@@ -524,14 +512,14 @@ if( "DeltaUPS:" >< r ) {
 }
 
 if( ereg( pattern:"lpd: .*", string:r ) ) {
-  service_register( port:port, proto:"lpd" );
-  log_message( port:port, data:"An LPD server seems to be running on this port" );
+  service_register( port:port, proto:"lpd", message:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
+  log_message( port:port, data:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
   exit( 0 );
 }
 
 if( ereg( pattern:"^/usr/sbin/lpd.*", string:r ) ) {
-  service_register( port:port, proto:"lpd" );
-  log_message( port:port, data:"An LPD server seems to be running on this port" );
+  service_register( port:port, proto:"lpd", message:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
+  log_message( port:port, data:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
   exit( 0 );
 }
 
@@ -543,15 +531,15 @@ if( "<!doctype html" >< tolower( r ) ) {
 
 if( "An lpd test connection was completed" >< r || "Bad from address." >< r ||
     "your host does not have line printer access" >< r || "does not have access to remote printer" >< r ) {
-  service_register( port:port, proto:"lpd" );
-  log_message( port:port, data:"An LPD server seems to be running on this port" );
+  service_register( port:port, proto:"lpd", message:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
+  log_message( port:port, data:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
   exit( 0 );
 }
 
 # PPR
 if( r =~ "^lprsrv: unrecognized command:" ) {
-  service_register( port:port, proto:"lpd" );
-  log_message( port:port, data:"PPR seems to be running on this port" );
+  service_register( port:port, proto:"lpd", message:"PPR seems to be running on this port." );
+  log_message( port:port, data:"PPR seems to be running on this port." );
   exit( 0 );
 }
 
@@ -618,10 +606,36 @@ if( match( string:r, pattern:"HP OpenView OmniBack II*" ) ) {
 # HP OpenView Storage Data Protector A.05.50: INET, internal build 330
 # HP OpenView Storage Data Protector A.05.00: INET, internal build 190, built on Tue Jul 16 17:37:32 2002.
 # Micro Focus Data Protector A.10.03: INET, internal build 181, built on Sunday, March 25, 2018, 6:32 PM
-# nb: See find_service1.nasl as well
-if( r =~ "^(Micro Focus|HPE?) (OpenView Storage )?Data Protector" ) {
+#
+# Some services (at least HP Data Protector ones) seems to include NUL chars in their responses as
+# seen on:
+# https://forum.greenbone.net/t/service-running-on-5555-is-data-protector/15690
+# so we need handle this a little bit differentely here...
+#
+# Method: get_httpHex
+# 0x00: 48 00 50 00 20 00 44 00 61 00 74 00 61 00 20 00 H.P. .D.a.t.a. .
+# 0x10: 50 00 72 00 6F 00 74 00 65 00 63 00 74 00 6F 00 P.r.o.t.e.c.t.o.
+# 0x20: 72 00 20 00 41 00 2E 00 30 00 39 00 2E 00 30 00 r. .A...0...9.0.
+# 0x30: 30 00 3A 00 20 00 49 00 4E 00 45 00 54 00 2C 00 0.:. .I.N.E.T.,.
+# 0x40: 20 00 69 00 6E 00 74 00 65 00 72 00 6E 00 61 00 .i.n.t.e.r.n.a.
+# 0x50: 6C 00 20 00 62 00 75 00 69 00 6C 00 64 00 20 00 l. .b.u.i.l.d. .
+# 0x60: 31 00 30 00 31 00 2C 00 20 00 62 00 75 00 69 00 1.0.1.,. .b.u.i.
+# 0x70: 6C 00 74 00 20 00 6F 00 6E 00 20 00 32 00 37 00 l.t. .o.n. .2.7.
+# 0x80: 20 00 4F 00 63 00 74 00 6F 00 62 00 65 00 72 00 .O.c.t.o.b.e.r.
+# 0x90: 20 00 32 00 30 00 31 00 34 00 2C 00 20 00 31 00 .2.0.1.4.,. .1.
+# 0xA0: 33 00 3A 00 32 00 34 00 0A 00 00 00             3.:.2.4....
+#
+# nb: See find_service1.nasl as well and keep the pattern on both the same.
+if( r =~ "^(Micro Focus|HPE?) (OpenView Storage )?Data Protector" ||
+    rbinstr_nospace =~ "^(Micro Focus|HPE?) (OpenView Storage )?Data Protector" ) {
+
   service_register( port:port, proto:"hp_dataprotector", message:"Micro Focus/HP/HPE (OpenView Storage) Data Protector seems to be running on this port" );
-  replace_kb_item( name:"hp_dataprotector/" + port + "/banner", value:chomp( r ) );
+
+  if( '\0' >< r )
+    replace_kb_item( name:"hp_dataprotector/" + port + "/banner", value:chomp( rbinstr_nospace ) );
+  else
+    replace_kb_item( name:"hp_dataprotector/" + port + "/banner", value:chomp( r ) );
+
   log_message( port:port, data:"Micro Focus/HP/HPE (OpenView Storage) Data Protector seems to be running on this port" );
   exit( 0 );
 }
@@ -1703,6 +1717,15 @@ if( rhexstr =~ "^15030[0-3]00020[1-2]..$" ||
     rhexstr =~ "^150301$" ) {
   service_register( port:port, proto:"ssl", message:"A service responding with an SSL/TLS alert seems to be running on this port." );
   log_message( port:port, data:"A service responding with an SSL/TLS alert seems to be running on this port." );
+  exit( 0 );
+}
+
+# Seen for/on JetDirect lpd.
+# nb: See find_service1.nasl as well. This was just added here as a fallback if the first detection
+# / connection has some hiccup.
+if( port == 515 && rhexstr =~ "^ff$" ) {
+  service_register( port:port, proto:"lpd", message:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
+  log_message( port:port, data:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
   exit( 0 );
 }
 

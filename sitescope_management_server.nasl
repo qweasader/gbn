@@ -1,42 +1,21 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2005 Noam Rathaus / SecuriTeam
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SiteScope Web Managegment Server Detect
-#
-# Authors:
-# Noam Rathaus <noamr@securiteam.com>
-#
-# Copyright:
-# Copyright (C) 2005 Noam Rathaus <noamr@securiteam.com>
-# Copyright (C) 2005 SecuriTeam
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10740");
-  script_version("2020-08-24T15:18:35+0000");
-  script_tag(name:"last_modification", value:"2020-08-24 15:18:35 +0000 (Mon, 24 Aug 2020)");
+  script_version("2023-06-27T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_name("SiteScope Web Managegment Server Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2005 SecuriTeam");
+  script_copyright("Copyright (C) 2005 Noam Rathaus / SecuriTeam");
   script_family("Web application abuses");
-  # nb: Don't add a dependency to embedded_web_server_detect.nasl which has a dependency to this VT.
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 8888);
   script_exclude_keys("Settings/disable_cgi_scanning");
@@ -78,7 +57,6 @@ foreach url( make_list( "/SiteScope/htdocs/SiteScope.html", "/" ) ) {
   } else if ( "URL=/SiteScope/htdocs/SiteScope.html" >< res && "A HREF=/SiteScope/htdocs/SiteScope.html" >< res ) {
     report = http_report_vuln_url( port:port, url:url );
     security_message( port:port, data:report );
-    http_set_is_marked_embedded( port:port );
     exit( 0 );
   }
 }

@@ -1,36 +1,22 @@
-# Copyright (C) 2008 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2008 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.56013");
   script_cve_id("CVE-2005-0756", "CVE-2005-0757", "CVE-2005-1762", "CVE-2005-1767", "CVE-2005-1768", "CVE-2005-2456", "CVE-2005-2458", "CVE-2005-2459", "CVE-2005-2553", "CVE-2005-2801", "CVE-2005-2872", "CVE-2005-3275");
   script_tag(name:"creation_date", value:"2008-01-17 22:07:13 +0000 (Thu, 17 Jan 2008)");
-  script_version("2023-04-03T10:19:49+0000");
-  script_tag(name:"last_modification", value:"2023-04-03 10:19:49 +0000 (Mon, 03 Apr 2023)");
+  script_version("2023-07-05T05:06:16+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
 
   script_name("Debian: Security Advisory (DSA-921)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2008 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB3\.1");
@@ -143,6 +129,10 @@ report = "";
 
 if(release == "DEB3.1") {
 
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-build-2.4.27", ver:"2.4.27-2sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"kernel-build-2.4.27-2", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
@@ -159,6 +149,10 @@ if(release == "DEB3.1") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-build-2.4.27-powerpc", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"kernel-build-2.4.27-powerpc-small", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
@@ -167,83 +161,15 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-build-2.4.27-powerpc", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-build-2.4.27", ver:"2.4.27-2sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"kernel-doc-2.4.27", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-386", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27", ver:"2.4.27-10.sarge1.040815-1", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-586tsc", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-686-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-686", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-generic", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-itanium-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-itanium", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-k6", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-k7-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-k7", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-mckinley-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-mckinley", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-sparc32-smp", ver:"2.4.27-9sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-sparc32", ver:"2.4.27-9sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-sparc64-smp", ver:"2.4.27-9sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-sparc64", ver:"2.4.27-9sarge1", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27", ver:"2.4.27-2sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -259,6 +185,74 @@ if(release == "DEB3.1") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-386", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-586tsc", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-686", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-686-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-generic", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-itanium", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-itanium-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-k6", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-k7", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-k7-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-mckinley", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-mckinley-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-sparc32", ver:"2.4.27-9sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-sparc32-smp", ver:"2.4.27-9sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-sparc64", ver:"2.4.27-9sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-2-sparc64-smp", ver:"2.4.27-9sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27-apus", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
@@ -271,11 +265,7 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27", ver:"2.4.27-10.sarge1.040815-1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-headers-2.4.27", ver:"2.4.27-2sarge1", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4-itanium", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -283,15 +273,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4-itanium", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4-mckinley", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4-mckinley-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4-mckinley", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -303,11 +289,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-686-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-686", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-686", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-686-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -315,11 +301,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-itanium-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-itanium", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-itanium", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-itanium-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -327,15 +313,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-k7-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-k7", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-mckinley-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-k7-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -343,11 +325,15 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-s390-tape", ver:"2.4.27-2sarge1", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-mckinley-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-s390", ver:"2.4.27-2sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-s390-tape", ver:"2.4.27-2sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -359,19 +345,19 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-sparc32-smp", ver:"2.4.27-9sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-sparc32", ver:"2.4.27-9sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-sparc64-smp", ver:"2.4.27-9sarge1", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-sparc32-smp", ver:"2.4.27-9sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-sparc64", ver:"2.4.27-9sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-2-sparc64-smp", ver:"2.4.27-9sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -419,15 +405,15 @@ if(release == "DEB3.1") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-powerpc", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-powerpc-small", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-powerpc-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-image-2.4.27-powerpc", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -503,11 +489,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-pcmcia-modules-2.4.27-2-686-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-pcmcia-modules-2.4.27-2-686", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-pcmcia-modules-2.4.27-2-686", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-pcmcia-modules-2.4.27-2-686-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
@@ -515,11 +501,11 @@ if(release == "DEB3.1") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-pcmcia-modules-2.4.27-2-k7-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-pcmcia-modules-2.4.27-2-k7", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"kernel-pcmcia-modules-2.4.27-2-k7", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"kernel-pcmcia-modules-2.4.27-2-k7-smp", ver:"2.4.27-10sarge1", rls:"DEB3.1"))) {
     report += res;
   }
 

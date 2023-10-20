@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108203");
-  script_version("2023-05-30T09:08:51+0000");
-  script_tag(name:"last_modification", value:"2023-05-30 09:08:51 +0000 (Tue, 30 May 2023)");
+  script_version("2023-06-14T05:05:19+0000");
+  script_tag(name:"last_modification", value:"2023-06-14 05:05:19 +0000 (Wed, 14 Jun 2023)");
   script_tag(name:"creation_date", value:"2017-08-04 09:08:04 +0200 (Fri, 04 Aug 2017)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -19,10 +19,11 @@ if(description)
   script_dependencies("find_service4.nasl");
   script_require_ports("Services/unknown");
 
-  script_tag(name:"summary", value:"This plugin performs service detection.
+  script_tag(name:"summary", value:"This plugin performs service detection.");
 
-  This plugin is a complement of find_service.nasl. It sends a 'SIP' OPTIONS
-  request to the remaining unknown services and tries to identify them.");
+  script_tag(name:"insight", value:"This plugin is a complement of the plugin 'Services' (OID:
+  1.3.6.1.4.1.25623.1.0.10330). It sends a 'SIP OPTIONS' request to the remaining unknown services
+  and tries to identify them.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 

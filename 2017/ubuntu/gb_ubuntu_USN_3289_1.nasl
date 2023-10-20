@@ -1,30 +1,16 @@
-# Copyright (C) 2017 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2017 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.843172");
   script_cve_id("CVE-2017-7377", "CVE-2017-7718", "CVE-2017-7980", "CVE-2017-8086", "CVE-2017-8309", "CVE-2017-8379");
   script_tag(name:"creation_date", value:"2017-05-17 04:54:41 +0000 (Wed, 17 May 2017)");
-  script_version("2022-09-16T10:11:40+0000");
-  script_tag(name:"last_modification", value:"2022-09-16 10:11:40 +0000 (Fri, 16 Sep 2022)");
+  script_version("2023-07-05T05:06:17+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Ubuntu: Security Advisory (USN-3289-1)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Ubuntu Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/ubuntu_linux", "ssh/login/packages", re:"ssh/login/release=UBUNTU(14\.04\ LTS|16\.04\ LTS|16\.10|17\.04)");
@@ -91,6 +77,10 @@ report = "";
 
 if(release == "UBUNTU14.04 LTS") {
 
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"2.0.0+dfsg-2ubuntu1.34", rls:"UBUNTU14.04 LTS"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-aarch64", ver:"2.0.0+dfsg-2ubuntu1.34", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
@@ -119,10 +109,6 @@ if(release == "UBUNTU14.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"2.0.0+dfsg-2ubuntu1.34", rls:"UBUNTU14.04 LTS"))) {
-    report += res;
-  }
-
   if(report != "") {
     security_message(data:report);
   } else if(__pkg_match) {
@@ -132,6 +118,10 @@ if(release == "UBUNTU14.04 LTS") {
 }
 
 if(release == "UBUNTU16.04 LTS") {
+
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:2.5+dfsg-5ubuntu10.14", rls:"UBUNTU16.04 LTS"))) {
+    report += res;
+  }
 
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-aarch64", ver:"1:2.5+dfsg-5ubuntu10.14", rls:"UBUNTU16.04 LTS"))) {
     report += res;
@@ -165,10 +155,6 @@ if(release == "UBUNTU16.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:2.5+dfsg-5ubuntu10.14", rls:"UBUNTU16.04 LTS"))) {
-    report += res;
-  }
-
   if(report != "") {
     security_message(data:report);
   } else if(__pkg_match) {
@@ -178,6 +164,10 @@ if(release == "UBUNTU16.04 LTS") {
 }
 
 if(release == "UBUNTU16.10") {
+
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:2.6.1+dfsg-0ubuntu5.5", rls:"UBUNTU16.10"))) {
+    report += res;
+  }
 
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-aarch64", ver:"1:2.6.1+dfsg-0ubuntu5.5", rls:"UBUNTU16.10"))) {
     report += res;
@@ -211,10 +201,6 @@ if(release == "UBUNTU16.10") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:2.6.1+dfsg-0ubuntu5.5", rls:"UBUNTU16.10"))) {
-    report += res;
-  }
-
   if(report != "") {
     security_message(data:report);
   } else if(__pkg_match) {
@@ -224,6 +210,10 @@ if(release == "UBUNTU16.10") {
 }
 
 if(release == "UBUNTU17.04") {
+
+  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:2.8+dfsg-3ubuntu2.2", rls:"UBUNTU17.04"))) {
+    report += res;
+  }
 
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-aarch64", ver:"1:2.8+dfsg-3ubuntu2.2", rls:"UBUNTU17.04"))) {
     report += res;
@@ -254,10 +244,6 @@ if(release == "UBUNTU17.04") {
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"qemu-system-x86", ver:"1:2.8+dfsg-3ubuntu2.2", rls:"UBUNTU17.04"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"qemu-system", ver:"1:2.8+dfsg-3ubuntu2.2", rls:"UBUNTU17.04"))) {
     report += res;
   }
 

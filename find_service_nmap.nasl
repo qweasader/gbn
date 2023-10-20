@@ -1,27 +1,8 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 E-Soft Inc.
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Service Detection (unknown) with nmap
-#
-# Authors:
-# Thomas Reinke
-#
-# Copyright:
-# Copyright (C) 2009 E-Soft Inc.
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # For those who wish to go digging, please note that this is potentially
 # the second time nmap will be launched with -sV (service identification)
@@ -36,8 +17,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.66286");
-  script_version("2022-10-17T11:13:19+0000");
-  script_tag(name:"last_modification", value:"2022-10-17 11:13:19 +0000 (Mon, 17 Oct 2022)");
+  script_version("2023-06-14T05:05:19+0000");
+  script_tag(name:"last_modification", value:"2023-06-14 05:05:19 +0000 (Wed, 14 Jun 2023)");
   script_tag(name:"creation_date", value:"2009-11-18 19:41:26 +0100 (Wed, 18 Nov 2009)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -51,16 +32,18 @@ if(description)
   script_dependencies("toolcheck.nasl", "unknown_services.nasl");
   script_mandatory_keys("Tools/Present/nmap");
 
-  script_tag(name:"summary", value:"This plugin performs service detection by launching nmap's
-  service probe (nmap -sV) against ports that are running services marked as 'unknown' and where
-  unidentified so far.
+  script_tag(name:"summary", value:"This plugin performs service detection.");
 
-  The actual reporting takes place in the separate NVT 'Unknown OS and Service Banner Reporting'
+  script_tag(name:"insight", value:"This plugin is a complement of the plugin 'Services' (OID:
+  1.3.6.1.4.1.25623.1.0.10330). It identifies services by launching nmap's service probe (nmap -sV)
+  against ports that are running services marked as 'unknown' and were unidentified so far.
+
+  The actual reporting takes place in the separate plugin 'Unknown OS and Service Banner Reporting'
   OID: 1.3.6.1.4.1.25623.1.0.108441.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_timeout(900); #TBD: This NVT had a timeout of 0 which means currently the default of 320. Assuming 900 for now
+  script_timeout(900); #TBD: This VT had a timeout of 0 which means currently the default of 320. Assuming 900 for now
 
   exit(0);
 }

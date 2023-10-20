@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.822342");
-  script_version("2022-08-17T10:11:15+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2021-46829");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-08-17 10:11:15 +0000 (Wed, 17 Aug 2022)");
+  script_tag(name:"cvss_base", value:"7.2");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-08-02 17:20:00 +0000 (Tue, 02 Aug 2022)");
   script_tag(name:"creation_date", value:"2022-08-15 01:11:05 +0000 (Mon, 15 Aug 2022)");
   script_name("Fedora: Security Advisory for mingw-gdk-pixbuf (FEDORA-2022-7254ec5e96)");
   script_category(ACT_GATHER_INFO);

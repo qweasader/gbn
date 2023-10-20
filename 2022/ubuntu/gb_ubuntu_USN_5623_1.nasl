@@ -1,30 +1,16 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.12.2022.5623.1");
   script_cve_id("CVE-2021-33061", "CVE-2021-33655", "CVE-2022-1012", "CVE-2022-1729", "CVE-2022-1852", "CVE-2022-1943", "CVE-2022-1973", "CVE-2022-2318", "CVE-2022-2503", "CVE-2022-26365", "CVE-2022-2873", "CVE-2022-2959", "CVE-2022-32296", "CVE-2022-33740", "CVE-2022-33741", "CVE-2022-33742", "CVE-2022-33743", "CVE-2022-33744", "CVE-2022-34494", "CVE-2022-34495", "CVE-2022-36946");
   script_tag(name:"creation_date", value:"2022-09-22 04:39:28 +0000 (Thu, 22 Sep 2022)");
-  script_version("2022-11-09T10:31:49+0000");
-  script_tag(name:"last_modification", value:"2022-11-09 10:31:49 +0000 (Wed, 09 Nov 2022)");
+  script_version("2023-07-05T05:06:17+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Ubuntu: Security Advisory (USN-5623-1)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Ubuntu Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/ubuntu_linux", "ssh/login/packages", re:"ssh/login/release=UBUNTU20\.04\ LTS");
@@ -121,6 +107,10 @@ report = "";
 
 if(release == "UBUNTU20.04 LTS") {
 
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-5.15.0-48-generic", ver:"5.15.0-48.54~20.04.1", rls:"UBUNTU20.04 LTS"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-5.15.0-48-generic-64k", ver:"5.15.0-48.54~20.04.1", rls:"UBUNTU20.04 LTS"))) {
     report += res;
   }
@@ -129,15 +119,11 @@ if(release == "UBUNTU20.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-5.15.0-48-generic", ver:"5.15.0-48.54~20.04.1", rls:"UBUNTU20.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-5.15.0-48-lowlatency", ver:"5.15.0-48.54~20.04.1", rls:"UBUNTU20.04 LTS"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-5.15.0-48-lowlatency-64k", ver:"5.15.0-48.54~20.04.1", rls:"UBUNTU20.04 LTS"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-5.15.0-48-lowlatency", ver:"5.15.0-48.54~20.04.1", rls:"UBUNTU20.04 LTS"))) {
     report += res;
   }
 

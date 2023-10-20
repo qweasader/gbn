@@ -1,43 +1,22 @@
-###############################################################################
-# OpenVAS Vulnerability Test
-#
-# Samba MS-RPC Remote Shell Command Execution Vulnerability (Active Check)
-#
-# Authors:
-# Christian Fischer <christian.fischer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:samba:samba";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108011");
-  script_version("2022-12-05T10:11:03+0000");
+  script_version("2023-07-20T05:05:17+0000");
   script_cve_id("CVE-2007-2447");
   script_tag(name:"cvss_base", value:"6.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-12-05 10:11:03 +0000 (Mon, 05 Dec 2022)");
+  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
   script_tag(name:"creation_date", value:"2016-10-31 11:47:00 +0200 (Mon, 31 Oct 2016)");
   script_name("Samba MS-RPC Remote Shell Command Execution Vulnerability - Active Check");
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_category(ACT_ATTACK);
   script_family("Gain a shell remotely");
   script_dependencies("smb_nativelanman.nasl");

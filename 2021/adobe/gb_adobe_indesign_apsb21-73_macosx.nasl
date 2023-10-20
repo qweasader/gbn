@@ -23,14 +23,14 @@ CPE = "cpe:/a:adobe:indesign_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.818544");
-  script_version("2022-09-19T10:11:35+0000");
+  script_version("2023-08-04T05:06:23+0000");
   script_cve_id("CVE-2021-39820", "CVE-2021-39821", "CVE-2021-39822");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-09-19 10:11:35 +0000 (Mon, 19 Sep 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-08-04 05:06:23 +0000 (Fri, 04 Aug 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-06-24 13:45:00 +0000 (Fri, 24 Jun 2022)");
+  script_tag(name:"severity_date", value:"2023-08-01 09:15:00 +0000 (Tue, 01 Aug 2023)");
   script_tag(name:"creation_date", value:"2021-09-17 08:37:30 +0530 (Fri, 17 Sep 2021)");
   script_name("Adobe InDesign RCE Vulnerabilities (APSB21-73) - Mac OS X");
 

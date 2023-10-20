@@ -23,12 +23,15 @@ CPE = "cpe:/a:microsoft:edge_chromium_based";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826639");
-  script_version("2022-11-11T10:10:59+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-3652", "CVE-2022-3653", "CVE-2022-3654", "CVE-2022-3655",
                 "CVE-2022-3656", "CVE-2022-3657", "CVE-2022-3660", "CVE-2022-3661");
-  script_tag(name:"cvss_base", value:"6.7");
-  script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-11-11 10:10:59 +0000 (Fri, 11 Nov 2022)");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-11-02 19:20:00 +0000 (Wed, 02 Nov 2022)");
   script_tag(name:"creation_date", value:"2022-11-10 20:11:12 +0530 (Thu, 10 Nov 2022)");
   script_name("Microsoft Edge (Chromium-Based) Multiple Vulnerabilities (November 2022)");
 

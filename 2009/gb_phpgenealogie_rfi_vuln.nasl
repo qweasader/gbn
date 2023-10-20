@@ -1,37 +1,23 @@
-# Copyright (C) 2009 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:phpgenealogy:phpgenealogy";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801008");
-  script_version("2022-09-30T13:25:06+0000");
-  script_tag(name:"last_modification", value:"2022-09-30 13:25:06 +0000 (Fri, 30 Sep 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2009-10-08 08:22:29 +0200 (Thu, 08 Oct 2009)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_cve_id("CVE-2009-3541");
-  script_name("PHPGenealogie 'CoupleDB.php' RFI Vulnerability");
+  script_name("PHPGenealogie 2.0 'CoupleDB.php' RFI Vulnerability");
   script_category(ACT_MIXED_ATTACK);
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_phpgenealogie_http_detect.nasl");
   script_require_ports("Services/www", 80);
@@ -46,9 +32,9 @@ if(description)
   script_tag(name:"vuldetect", value:"Depending on the 'safe_checks' setting of the scan
   configuration:
 
-  - Checks if a vulnerable version is present on the target host
+  - Setting 'yes': Checks if a vulnerable version is present on the target host
 
-  - Sends a crafted HTTP request and checks the response");
+  - Setting 'no': Sends a crafted HTTP GET request and checks the response");
 
   script_tag(name:"insight", value:"The flaw is due to error in 'DataDirectory' parameter in
   'CoupleDB.php' which is not properly verified before being used to include files.");
@@ -64,7 +50,7 @@ if(description)
   options are to upgrade to a newer release, disable respective features, remove the product or
   replace the product by another one.");
 
-  script_tag(name:"qod_type", value:"remote_banner");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"WillNotFix");
 
   exit(0);

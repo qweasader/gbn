@@ -1,20 +1,8 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 valid_snmpv3_errors = make_list( "Unknown user name",
                                  "Unsupported security level",
@@ -24,13 +12,24 @@ valid_snmpv3_errors = make_list( "Unknown user name",
                                  "MIB not initialized",
                                  "Authentication failure (incorrect password, community or key)" );
 
-# From nasl_snmpv3_get of openvas-scanner/nasl/nasl_snmp.c
+# From nasl_snmpv3_get_action() of:
+# https://github.com/greenbone/openvas-scanner/blob/v22.7.2/nasl/nasl_snmp.c#L761-L799
 invalid_snmpv3_creds_errors = make_list( "Missing function argument",
                                          "Invalid port value",
                                          "Invalid protocol value",
                                          "Missing privproto or privpass",
                                          "authproto should be md5 or sha1",
-                                         "privproto should be des or aes" );
+                                         "privproto should be des or aes",
+                                         # Those two are from snmpv3_get() of:
+                                         # https://github.com/greenbone/openvas-scanner/blob/v22.7.2/nasl/nasl_snmp.c#L303-L317
+                                         "DES not supported in this net-snmp version",
+                                         # nb:
+                                         # - If either snmpv3_password and/or snmpv3_privpass is too
+                                         #   short (USM_LENGTH_P_MIN which is usually 8)
+                                         # - In this case we get a message like e.g. the following
+                                         #   from the snmp libs:
+                                         #   Error: passphrase chosen is below the length requirements of the USM (min=8).
+                                         "generate_Ku: Error" );
 
 global_var snmp_error, v3_creds, valid_snmpv3_errors, invalid_snmpv3_creds_errors, last_snmp_error, _snmp_func_debug;
 _snmp_func_debug = FALSE;
@@ -107,10 +106,18 @@ function snmp_check_v3( port ) {
     # Set some credentials to test for SNMPv3
     vt_strings = get_vt_strings();
     snmpv3_username = vt_strings["lowercase"];
-    snmpv3_password = vt_strings["lowercase"];
     snmpv3_authalgo = "md5";
-    snmpv3_privpass = vt_strings["lowercase"];
     snmpv3_privalgo = "des";
+
+    # nb: See above for the reason for the length check in these two
+    snmpv3_password = vt_strings["lowercase"];
+    if( strlen( snmpv3_password ) < 8 )
+      snmpv3_password = vt_strings["lowercase_rand"];
+
+    snmpv3_privpass = vt_strings["lowercase"];
+    if( strlen( snmpv3_privpass ) < 8 )
+      snmpv3_privpass = vt_strings["lowercase_rand"];
+
   } else {
     snmpv3_password = get_kb_item( "SNMP/v3/password" );
     snmpv3_authalgo = get_kb_item( "SNMP/v3/auth_algorithm" );
@@ -149,8 +156,10 @@ function snmp_get( port, oid, version, community ) {
   local_var port, oid, version, community;
   local_var report, v3_username, v3_password, v3_authalgo, v3_privpass, v3_privalgo, ret;
 
-  # The SNMP functions needs this include but the installation might be lacking libsnmp support
-  # Report this back to the caller so we at least know why snmp_get is failing
+  # The SNMP functions needs this function but the installation might be lacking libsnmp support.
+  # Report this back to the caller so we at least know why snmp_get is failing.
+  # nb: This functions should be always there since openvas-scanner version 20.08.1 / via:
+  # https://github.com/greenbone/openvas-scanner/pull/594
   if( ! defined_func( "snmpv3_get" ) ) {
     report  = "snmp_get: The scanner/libraries are not build with libsnmp support. Advanced SNMP checks will fail.";
     report += " Please rebuild with SNMP support enabled.";
@@ -382,7 +391,7 @@ function snmp_get_sysdescr( port ) {
 # @param port      The (required) UDP port of the remote SNMP service.
 # @param community The (required) SNMP community to be used.
 #
-# @return TRUE if it was possible to read the sysDescr, FALSE otherwise and NUL if not all required
+# @return TRUE if it was possible to read the sysDescr, FALSE otherwise and NULL if not all required
 #         parameters got passed.
 #
 function snmp_v12c_sysdescr_accessible( port, community ) {

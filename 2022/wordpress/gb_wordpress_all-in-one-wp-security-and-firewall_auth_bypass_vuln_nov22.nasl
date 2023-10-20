@@ -23,11 +23,14 @@ CPE = "cpe:/a:tipsandtricks-hq:all_in_one_wp_security_%26_firewall";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127279");
-  script_version("2022-12-14T10:20:42+0000");
-  script_tag(name:"last_modification", value:"2022-12-14 10:20:42 +0000 (Wed, 14 Dec 2022)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-12-13 06:15:43 +0000 (Tue, 13 Dec 2022)");
-  script_tag(name:"cvss_base", value:"6.5");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
+  script_tag(name:"cvss_base", value:"5.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-12-15 14:01:00 +0000 (Thu, 15 Dec 2022)");
 
   script_cve_id("CVE-2022-4097");
 

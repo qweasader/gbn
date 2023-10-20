@@ -23,11 +23,14 @@ CPE = "cpe:/a:apache:jspwiki";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.148572");
-  script_version("2022-08-08T10:24:51+0000");
-  script_tag(name:"last_modification", value:"2022-08-08 10:24:51 +0000 (Mon, 08 Aug 2022)");
+  script_version("2023-10-18T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-08-05 09:31:32 +0000 (Fri, 05 Aug 2022)");
-  script_tag(name:"cvss_base", value:"6.5");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-08-10 15:53:00 +0000 (Wed, 10 Aug 2022)");
 
   script_cve_id("CVE-2022-27166", "CVE-2022-28730", "CVE-2022-28731", "CVE-2022-28732",
                 "CVE-2022-34158");

@@ -1,34 +1,20 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108560");
-  script_version("2023-03-14T10:20:43+0000");
-  script_tag(name:"last_modification", value:"2023-03-14 10:20:43 +0000 (Tue, 14 Mar 2023)");
+  script_version("2023-07-19T05:05:15+0000");
+  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
   script_tag(name:"creation_date", value:"2019-03-16 08:57:17 +0100 (Sat, 16 Mar 2019)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_name("Report outdated / end-of-life Scan Engine / Environment (local)");
   script_category(ACT_SETTINGS);
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("General");
   script_dependencies("global_settings.nasl");
   # Greenbone OS (GOS) installations have their own update notification in the admin shell. In
@@ -44,10 +30,10 @@ if(description)
   script_tag(name:"summary", value:"This script checks and reports an outdated or end-of-life scan
   engine for the following environments:
 
-  - Greenbone Source Edition (GSE)
+  - Greenbone Community Edition
 
   - Greenbone Enterprise TRIAL (formerly Greenbone Security Manager TRIAL / Greenbone Community
-  Edition (GCE))
+  Edition VM)
 
   used for this scan.
 
@@ -94,35 +80,26 @@ include("version_func.inc");
 include("misc_func.inc");
 
 # nb: Different version scheme (with / without leading 0) is expected.
-expected_gsm_trial_ver = "22.04.9";
+expected_gsm_trial_ver = "22.04.11";
 # nb: OPENVAS_VERSION returns the version of the scanner since GVM-10
-expected_scanner_ver1 = "22.4.1";
-# nb: See comment below why this is commented out.
-#expected_scanner_ver2 = "11.0.1";
+expected_scanner_ver1 = "22.7.3";
 
 if( gos_vers = get_local_gos_version() ) {
   if( version_is_less( version:gos_vers, test_version:expected_gsm_trial_ver ) ) {
-    report  = "Installed GSM TRIAL / GCE version:  " + gos_vers + '\n';
-    report += "Latest available GSM TRIAL version: " + expected_gsm_trial_ver + '\n';
+    report  = "Installed Greenbone Enterprise TRIAL version:        " + gos_vers + '\n';
+    report += "Latest available Greenbone Enterprise TRIAL version: " + expected_gsm_trial_ver + '\n';
     report += "Reference URL:                      https://www.greenbone.net/en/testnow/";
     security_message( port:0, data:report );
     exit( 0 );
   }
 } else if( OPENVAS_VERSION && OPENVAS_VERSION =~ "^[0-9.]+" ) {
   if( version_is_less( version:OPENVAS_VERSION, test_version:expected_scanner_ver1 ) ) {
-    report  = "Version of installed component:           " + OPENVAS_VERSION + ' (Installed component: openvas-libraries on OpenVAS <= 9, openvas-scanner on GVM >= 10)\n';
+    report  = "Version of installed component:           " + OPENVAS_VERSION + ' (Installed component: openvas-libraries on OpenVAS <= 9, openvas-scanner on Greenbone Community Edition >= 10)\n';
     report += "Latest available openvas-scanner version: " + expected_scanner_ver1 + '\n';
     report += "Reference URL(s) for the latest available version: https://forum.greenbone.net/t/greenbone-community-edition-22-4-stable-initial-release-2022-07-25/12638";
     security_message( port:0, data:report );
     exit( 0 );
-  # nb: Currently commented out for easier re-use once there are two supported GVM releases again.
-  } #else if( OPENVAS_VERSION =~ "^11\.0\.[0-9]+" && version_is_less( version:OPENVAS_VERSION, test_version:expected_scanner_ver2 ) ) {
-    #report  = "Installed GVM Libraries (gvm-libs) version:        " + OPENVAS_VERSION + '\n';
-    #report += "Latest available GVM Libraries (gvm-libs) version: " + expected_scanner_ver2 + '\n';
-    #report += "Reference URL(s) for the latest available version: https://forum.greenbone.net/t/gvm-11-end-of-life-initial-release-2019-10-14/3674";
-    #security_message( port:0, data:report );
-    #exit( 0 );
-  #}
+  }
 }
 
 exit( 99 );

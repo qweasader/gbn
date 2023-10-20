@@ -23,11 +23,14 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.821352");
-  script_version("2023-01-30T10:09:19+0000");
+  script_version("2023-10-13T05:06:10+0000");
   script_cve_id("CVE-2023-0471", "CVE-2023-0472", "CVE-2023-0473", "CVE-2023-0474");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-01-30 10:09:19 +0000 (Mon, 30 Jan 2023)");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-02-06 21:28:00 +0000 (Mon, 06 Feb 2023)");
   script_tag(name:"creation_date", value:"2023-01-27 11:27:57 +0530 (Fri, 27 Jan 2023)");
   script_name("Google Chrome Security Updates(stable-channel-update-for-desktop_24-2023-01)-Windows");
 

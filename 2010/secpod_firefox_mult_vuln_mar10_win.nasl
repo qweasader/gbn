@@ -21,8 +21,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902145");
-  script_version("2022-05-02T09:35:37+0000");
-  script_tag(name:"last_modification", value:"2022-05-02 09:35:37 +0000 (Mon, 02 May 2022)");
+  script_version("2023-10-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"creation_date", value:"2010-03-30 16:15:33 +0200 (Tue, 30 Mar 2010)");
   script_cve_id("CVE-2010-0164", "CVE-2010-0165", "CVE-2010-0170", "CVE-2010-0172");
   script_tag(name:"cvss_base", value:"9.3");
@@ -48,7 +48,7 @@ if(description)
      function in 'src/imgContainer.cpp' in 'libpr0n' allows to cause denial of service
      via a multipart/x-mixed-replace animation.
 
-  - An error in 'TraceRecorder::traverseScopeChain()' wthin 'js/src/jstracer.cpp'
+  - An error in 'TraceRecorder::traverseScopeChain()' within 'js/src/jstracer.cpp'
      allows to cause a memory corruption via vectors involving certain indirect
      calls to the JavaScript eval function.
 

@@ -23,8 +23,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.123699");
   script_cve_id("CVE-2012-4546");
   script_tag(name:"creation_date", value:"2015-10-06 11:07:24 +0000 (Tue, 06 Oct 2015)");
-  script_version("2022-04-05T06:38:34+0000");
-  script_tag(name:"last_modification", value:"2022-04-05 06:38:34 +0000 (Tue, 05 Apr 2022)");
+  script_version("2023-10-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
 
@@ -79,7 +79,7 @@ if(description)
 - Installing IPA with a single realm component sometimes fails (#893187)
 
 [3.0.0-20.el6]
-- Set maxbersize to a large value to accomondate large CRLs during replica
+- Set maxbersize to a large value to accommodate large CRLs during replica
  installation. (#888956)
 - Set minimum version of pki-ca, pki-slient and pki-setup to 9.0.3-29 to
  pick up default CA validity period of 20 years. (#891980)

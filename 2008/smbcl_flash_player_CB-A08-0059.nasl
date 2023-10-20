@@ -1,35 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
-# Description: Adobe Flash Player 9.0.115.0 and earlier vulnerability (Windows)
+# SPDX-FileCopyrightText: 2008 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Carsten Koch-Mauthe <c.koch-mauthe at dn-systems.de>
-# Modified to Implement based on 'smb_nt.inc'
-#  - By Sharath S <sharaths@secpod.com> On 2009-09-14
-#
-# Copyright:
-# Copyright (C) 2008 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:adobe:flash_player";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.90019");
-  script_version("2022-05-11T11:17:52+0000");
+  script_version("2023-10-13T05:06:09+0000");
   script_cve_id("CVE-2007-5275", "CVE-2007-6019", "CVE-2007-6243",
                 "CVE-2007-6637", "CVE-2008-1654", "CVE-2008-1655");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/26930");
@@ -40,7 +20,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/28697");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-05-11 11:17:52 +0000 (Wed, 11 May 2022)");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:09 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2008-09-03 22:30:27 +0200 (Wed, 03 Sep 2008)");
   script_tag(name:"qod_type", value:"registry");
   script_name("Adobe Flash Player 9.0.115.0 and earlier vulnerability (Windows)");
@@ -100,7 +80,7 @@ if(description)
   script_tag(name:"solution_type", value:"VendorFix");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2008 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Windows");
   script_dependencies("gb_adobe_flash_player_detect_win.nasl");
   script_mandatory_keys("AdobeFlashPlayer/Win/Installed");

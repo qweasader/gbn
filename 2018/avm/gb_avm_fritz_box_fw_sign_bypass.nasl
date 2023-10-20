@@ -1,49 +1,27 @@
-###############################################################################
-# OpenVAS Vulnerability Test
-#
-# AVM FRITZ!Box Firmware Signature Bypass
-#
-# Authors:
-# Christian Fischer <christian.fischer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2018 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/o:avm:fritz%21_os";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108462");
-  script_version("2021-06-22T02:00:27+0000");
+  script_version("2023-07-20T05:05:17+0000");
   script_cve_id("CVE-2014-8872");
   script_name("AVM FRITZ!Box Firmware Signature Bypass");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-06-22 02:00:27 +0000 (Tue, 22 Jun 2021)");
+  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-09 19:54:00 +0000 (Tue, 09 Oct 2018)");
   script_tag(name:"creation_date", value:"2018-09-16 13:38:48 +0200 (Sun, 16 Sep 2018)");
   script_category(ACT_GATHER_INFO);
   script_family("General");
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_dependencies("gb_avm_fritz_box_detect.nasl");
   script_mandatory_keys("avm/fritz/model", "avm/fritz/firmware_version");
 

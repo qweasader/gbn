@@ -23,7 +23,7 @@ CPE = "cpe:/a:adobe:acrobat";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.821186");
-  script_version("2022-08-03T10:11:15+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-34230", "CVE-2022-34229", "CVE-2022-34228", "CVE-2022-34227",
                 "CVE-2022-34226", "CVE-2022-34225", "CVE-2022-34224", "CVE-2022-34223",
                 "CVE-2022-34222", "CVE-2022-34237", "CVE-2022-34238", "CVE-2022-34239",
@@ -32,7 +32,10 @@ if(description)
                 "CVE-2022-34215", "CVE-2022-34232", "CVE-2022-35669");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-08-03 10:11:15 +0000 (Wed, 03 Aug 2022)");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-07-21 17:57:00 +0000 (Thu, 21 Jul 2022)");
   script_tag(name:"creation_date", value:"2022-07-13 09:06:05 +0530 (Wed, 13 Jul 2022)");
   script_name("Adobe Acrobat 2017 Security Update (APSB22-32) - Windows");
 

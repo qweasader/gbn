@@ -1,62 +1,48 @@
-# Copyright (C) 2011 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2011 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802137");
-  script_version("2021-10-20T09:03:29+0000");
-  script_tag(name:"last_modification", value:"2021-10-20 09:03:29 +0000 (Wed, 20 Oct 2021)");
+  script_version("2023-09-12T05:05:19+0000");
+  script_tag(name:"last_modification", value:"2023-09-12 05:05:19 +0000 (Tue, 12 Sep 2023)");
   script_tag(name:"creation_date", value:"2011-08-18 14:57:45 +0200 (Thu, 18 Aug 2011)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_cve_id("CVE-1999-0625");
   script_name("Nfs-utils rpc.rquotad Service Detection");
-  script_copyright("Copyright (C) 2011 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2011 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("RPC");
-  script_dependencies("secpod_rpc_portmap_udp.nasl", "secpod_rpc_portmap_tcp.nasl");
-  script_mandatory_keys("rpc/portmap");
+  script_dependencies("gb_rpc_portmap_udp_detect.nasl", "gb_rpc_portmap_tcp_detect.nasl");
+  script_mandatory_keys("rpc/portmap/tcp_or_udp/detected");
 
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/265");
   script_xref(name:"URL", value:"http://www.exploitsearch.net/index.php?q=CVE-1999-0625");
   script_xref(name:"URL", value:"http://www.iss.net/security_center/reference/vuln/rquotad.htm");
 
-  script_tag(name:"impact", value:"Successful exploitation could allow attackers to execute to gain
-  information about NFS services including user/system quotas.");
+  script_tag(name:"summary", value:"This script detects the running 'rpc.rquotad' service on the host.");
 
-  script_tag(name:"insight", value:"The flaw is due to error in the 'rpc.rquotad' service. If this
-  service is running then disable it as it may become a security threat.
+  script_tag(name:"vuldetect", value:"Checks whether a rpc.rquotad service is exposed on the target
+  host.");
+
+  script_tag(name:"insight", value:"rpc.rquotad is an unsecured and obsolete protocol and it should
+  be disabled.
 
   Remark: NIST don't see 'configuration issues' as software flaws so the referenced CVE has a
   severity of 0.0. The severity of this VT has been raised by Greenbone to still report a
   configuration issue on the target.");
 
-  script_tag(name:"summary", value:"This script detects the running 'rpc.rquotad' service on the host.");
+  script_tag(name:"impact", value:"Successful exploitation could allow attackers to execute to gain
+  information about NFS services including user/system quotas.");
 
-  script_tag(name:"solution", value:"No known solution was made available for at least one year
-  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
-  options are to upgrade to a newer release, disable respective features, remove the product or
-  replace the product by another one.");
+  script_tag(name:"solution", value:"Disable the rpc.rquotad Service.");
 
   script_tag(name:"qod_type", value:"remote_banner");
-  script_tag(name:"solution_type", value:"WillNotFix");
+  script_tag(name:"solution_type", value:"Mitigation");
 
   exit(0);
 }

@@ -1,33 +1,14 @@
-# OpenVAS Vulnerability Test
-# Description: Auto-generated from advisory DSA 900-2
+# SPDX-FileCopyrightText: 2008 E-Soft Inc.
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Thomas Reinke <reinke@securityspace.com>
-#
-# Copyright:
-# Copyright (C) 2008 E-Soft Inc.
-# Text descriptions are largerly excerpted from the referenced
-# advisory, and are Copyright (C) the respective author(s)
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.55901");
-  script_version("2022-07-29T10:10:43+0000");
-  script_tag(name:"last_modification", value:"2022-07-29 10:10:43 +0000 (Fri, 29 Jul 2022)");
+  script_version("2023-06-29T08:15:14+0000");
+  script_tag(name:"last_modification", value:"2023-06-29 08:15:14 +0000 (Thu, 29 Jun 2023)");
   script_tag(name:"creation_date", value:"2008-01-17 23:07:13 +0100 (Thu, 17 Jan 2008)");
   script_cve_id("CVE-2005-3088");
   script_tag(name:"cvss_base", value:"2.1");
@@ -36,7 +17,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 E-Soft Inc.");
   script_family("Debian Local Security Checks");
-      script_tag(name:"solution", value:"For the stable distribution (sarge) this problem has been fixed in
+  script_tag(name:"solution", value:"For the stable distribution (sarge) this problem has been fixed in
 version 6.2.5-12sarge3.
 
 For the unstable distribution (sid) this problem has been fixed in

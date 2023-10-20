@@ -1,22 +1,8 @@
-# Copyright (C) 2011 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2011 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 # Used in get_app_port/get_app_location to return a default
 # location if none was previously detected and optimize_test
@@ -38,7 +24,7 @@ global_var _get_app_version_used, _get_app_location_used;
 #     <source>
 #       <type>nvt</type>
 #       <name>1.2.3.4.5.6</name>
-#       <description>NVT description</description>
+#       <description>VT description</description>
 #     </source>
 #   </detail>
 # </host>
@@ -49,7 +35,7 @@ global_var _get_app_version_used, _get_app_location_used;
 #     <source>
 #       <type>nvt</type>
 #       <nvt>1.2.3.4</nvt>
-#       <description>another NVT description</description>
+#       <description>another VT description</description>
 #     </source>
 #   </detail>
 # </host>
@@ -60,13 +46,13 @@ global_var _get_app_version_used, _get_app_location_used;
 # HostDetails                     => "OS"
 # HostDetails/NVT                 => "1.2.3.4.5.6"
 # --
-# HostDetails/NVT/1.2.3.4.5.6     => "NVT Description"
+# HostDetails/NVT/1.2.3.4.5.6     => "VT Description"
 # HostDetails/NVT/1.2.3.4.5.6/OS  => "Debian"
 # --
 # HostDetails                     => "OS"
 # HostDetails/NVT                 => "1.2.3.4"
 # --
-# HostDetails/NVT/1.2.3.4         => "another NVT description"
+# HostDetails/NVT/1.2.3.4         => "another VT description"
 # HostDetails/NVT/1.2.3.4/OS      => "cpe:/o:debian_linux:debian:5.0"
 ##
 
@@ -229,18 +215,18 @@ function report_host_details() {
   # get the names of the host details we gathered
   names = get_kb_list( "HostDetails" );
 
-  # list of concerned NVTs
+  # list of concerned VTs
   nvts = get_kb_list( "HostDetails/NVT" );
   foreach _nvt( nvts ) {
 
-    # description of the current NVT
+    # description of the current VT
     desc = get_kb_item( "HostDetails/NVT/" + _nvt );
 
     # iterate over the registered entries...
     foreach _name( names ) {
       details = get_kb_list( "HostDetails/NVT/" + _nvt + "/" + _name );
 
-      # add a section in case the current NVT has some value for this entry
+      # add a section in case the current VT has some value for this entry
       foreach _item( details ) {
         if( ! isnull( _item ) ) {
           report_host_detail_single( name:_name, value:_item, nvt:_nvt, desc:desc );
@@ -399,17 +385,17 @@ function get_app( cpe, loc ) {
 #
 # @return A version of the application matching the specified data, NULL in the case no CPE was passed or no matching info was found.
 #
-# @note *NEVER* use get_app_version() and get_app_location() together in a single NVT. If both information is required,
+# @note *NEVER* use get_app_version() and get_app_location() together in a single VT. If both information is required,
 #       use get_app_version_and_location() or get_app_full().
 #
 function get_app_version( cpe, port, service, nofork, version_regex ) {
 
   local_var cpe, port, service, nofork, version_regex;
 
-  # To report if get_app_version() and get_app_location() is used together in one single NVT
+  # To report if get_app_version() and get_app_location() is used together in one single VT
   _get_app_version_used = TRUE;
   if( _get_app_location_used )
-    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#get_app_version() used together with get_app_location() in one single NVT. Please use get_app_version_and_location instead." );
+    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#get_app_version() used together with get_app_location() in one single VT. Please use get_app_version_and_location instead." );
 
   if( ! cpe ) {
     set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#cpe#-#get_app_version" );
@@ -482,17 +468,17 @@ function get_highest_app_version( cpe, port ) {
 # @return A location of the application matching the specified data, NULL in the case no CPE was passed or no matching info was found.
 #         The return value is either a list of locations if nofork is set to TRUE or a string containing the list.
 #
-# @note *NEVER* use get_app_version() and get_app_location() together in a single NVT. If both information is required,
+# @note *NEVER* use get_app_version() and get_app_location() together in a single VT. If both information is required,
 #       use get_app_version_and_location() or get_app_full().
 #
 function get_app_location( cpe, port, nofork, skip_port, default ) {
 
   local_var cpe, port, nofork, skip_port, default;
 
-  # To report if get_app_version() and get_app_location() is used together in one single NVT
+  # To report if get_app_version() and get_app_location() is used together in one single VT
   _get_app_location_used = TRUE;
   if( _get_app_version_used )
-    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#get_app_version() used together with get_app_location() in one single NVT. Please use get_app_version_and_location instead." );
+    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#get_app_version() used together with get_app_location() in one single VT. Please use get_app_version_and_location instead." );
 
   if( ! cpe ) {
     set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#cpe#-#get_app_location" );
@@ -854,7 +840,7 @@ function get_app_port( cpe, service, default ) {
 #
 #         or NULL in the case no CPE was passed or no matching info was found.
 #
-# @note get_app_version_and_location() should be used instead of get_app_version() and get_app_location() together in a single NVT if both information is required.
+# @note get_app_version_and_location() should be used instead of get_app_version() and get_app_location() together in a single VT if both information is required.
 #
 function get_app_version_and_location( cpe, port, exit_no_version, version_regex, default_location ) {
 

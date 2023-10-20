@@ -1,35 +1,16 @@
-##############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2012 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Simple Web Server Connection Header Buffer Overflow Vulnerability
-#
-# Authors:
-# Madhuri D <dmadhuri@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2012 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802916");
-  script_version("2022-04-27T12:01:52+0000");
+  script_version("2023-07-21T05:05:22+0000");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-04-27 12:01:52 +0000 (Wed, 27 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2012-07-23 16:50:34 +0530 (Mon, 23 Jul 2012)");
   script_name("Simple Web Server Connection Header Buffer Overflow Vulnerability");
 
@@ -40,8 +21,8 @@ if(description)
   script_xref(name:"URL", value:"http://packetstormsecurity.org/files/114892/SimpleWebServer-2.2-rc2-Remote-Buffer-Overflow.html");
 
   script_category(ACT_DENIAL);
-  script_tag(name:"qod_type", value:"remote_vul");
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_tag(name:"qod_type", value:"remote_analysis");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Buffer overflow");
   script_dependencies("gb_get_http_banner.nasl");
   script_require_ports("Services/www", 80);

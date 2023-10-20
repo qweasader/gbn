@@ -21,9 +21,9 @@ CPE = "cpe:/a:magic:airmusic";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108651");
-  script_version("2021-09-08T10:01:41+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2019-13474");
-  script_tag(name:"last_modification", value:"2021-09-08 10:01:41 +0000 (Wed, 08 Sep 2021)");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"creation_date", value:"2019-03-17 11:11:44 +0100 (Sun, 17 Mar 2019)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -45,7 +45,7 @@ if(description)
   script_tag(name:"summary", value:"Various products of multiple vendors using the Magic AirMusic web interface for
   the control of the device are prone to an insufficient access control vulnerability.");
 
-  script_tag(name:"impact", value:"In the worst case a remote attacker could modify the system to spread remotly
+  script_tag(name:"impact", value:"In the worst case a remote attacker could modify the system to spread remotely
   ransomware or other malformed malicious viruses / rootkits / destruktive scripts. He can aslso use the web-server
   to be part of an iot botnet.");
 

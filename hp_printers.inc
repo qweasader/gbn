@@ -1,22 +1,8 @@
-# Copyright (C) 2013 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2013 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
 # @brief Returns an array containing the URL for a HP printer detection
 #        as the array key and the regex to extract the type/model as the value.
@@ -38,31 +24,34 @@ function get_hp_detect_urls() {
 
   hp_detect_urls = make_array();
 
-  hp_detect_urls['/info_deviceStatus.html']                             = '<title>HP (LaserJet [^ ]+) Series';                                                                # HP LaserJet P2015 a.o.
-  hp_detect_urls['/hp/device/']                                         = '<title> HP Color i(LaserJet [^\n ]+)';                                                             # HP Color LaserJet 2840 a.o.
-  hp_detect_urls['/info_deviceStatus.html?tab=Status']                  = '<title>HP Color (LaserJet [^&]+)';                                                                 # HP Color LaserJet CP2025n a.o.
-  hp_detect_urls['/info_deviceStatus.html?']                            = '<title>HP (LaserJet [^&]+)';                                                                       # HP LaserJet 400 M401n a.o.
-  hp_detect_urls['/index_top.htm']                                      = string("(HP (LaserJet [^\n ]+)|HP Color (LaserJet [^\n ]+)|(DesignJet [^ ]+)|(psc [^ ]+) series)"); # LaserJet 3600 a.o.
-  hp_detect_urls['/index.htm?cat=info&page=printerInfo']                = string("((Officejet Pro [^& ]+)|(Officejet [^\n ]+))");                                             # K5400 a.o.
-  hp_detect_urls['/hp/device/InternalPages/Index?id=ConfigurationPage'] = '<strong id="ProductName">HP ?([^&<]+)';                                                            # HP Color LaserJet Flow MFP 680 a.o.
-  hp_detect_urls['/']                                                   = '<strong class="product">HP ?([^&<]+)';                                                             # HP Color LaserJet M651 a.o.
-  hp_detect_urls['/hp/jetdirect/index.html']                            = '<h1>HP (Latex [0-9]+)';                                                                            # HP Latex 315 a.o.
-  hp_detect_urls['/hp/jetdirect/index.html#--avoid-dup1--#']            = '<h1>HP (Color LaserJet [^<]+)';                                                                    # HP Color LaserJet CM4540 MFP a.o.
-  hp_detect_urls['/DevMgmt/ProductConfigDyn.xml']                       = '<dd:MakeAndModel>HP (PageWide Pro [^<]+)';                                                         # HP PageWide Pro 477 a.o.
-  hp_detect_urls['/DevMgmt/ProductConfigDyn.xml#--avoid-dup1--#']       = '<dd:MakeAndModel>HP (PageWide [^<]+)';                                                             # HP PageWide 352dw a.o
-  hp_detect_urls['/DevMgmt/ProductConfigDyn.xml#--avoid-dup2--#']       = '<dd:MakeAndModel>(Deskjet [^<]+)';                                                                 # HP Deskjet 2540 a.o.
-  hp_detect_urls['/DevMgmt/ProductConfigDyn.xml#--avoid-dup3--#']       = '<dd:MakeAndModel>(Envy [^<]+)';                                                                    # HP ENVY 120 series a.o.
-  hp_detect_urls['/DevMgmt/ProductConfigDyn.xml#--avoid-dup4--#']       = '<dd:MakeAndModel>(Ink Tank [^<]+)';                                                                # HP Ink Tank Wireless 410 series a.o.
-  hp_detect_urls['/DevMgmt/ProductConfigDyn.xml#--avoid-dup5--#']       = '<dd:MakeAndModel>(Photosmart [^<]+)';                                                              # HP Photosmart 5510 series a.o.
-  hp_detect_urls['/DevMgmt/ProductConfigDyn.xml#--avoid-dup6--#']       = '<dd:MakeAndModel>HP (Smart Tank [^<]+)';                                                           # HP Smart Tank Wireless 450 series a.o.
-  hp_detect_urls['/DevMgmt/ProductConfigDyn.xml#--avoid-dup7--#']       = '<dd:MakeAndModel>(Smart Tank [^<]+)';                                                              # HP Smart Tank Wireless 450 series a.o.
-  hp_detect_urls['/DevMgmt/ProductConfigDyn.xml#--avoid-dup8--#']       = '<dd:MakeAndModel>HP (OfficeJet [^<]+)';                                                            # HP OfficeJet Pro 8210 series a.o.
-  hp_detect_urls['/DevMgmt/ProductConfigDyn.xml#--avoid-dup9--#']       = '<dd:MakeAndModel>HP (Color Laser [^<]+)';                                                          # HP Color Laser MFP 179 a.o.
-  hp_detect_urls['/DevMgmt/ProductConfigDyn.xml#--avoid-dup10--#']      = '<dd:MakeAndModel>HP (LaserJet [^<]+)';
-  hp_detect_urls['/DevMgmt/ProductConfigDyn.xml#--avoid-dup11--#']      = '<dd:MakeAndModel>(OfficeJet [^<]+)';                                                               # HP OfficeJet Pro 6978 series a.o.
-  hp_detect_urls['/DevMgmt/ProductConfigDyn.xml#--avoid-dup12--#']      = '<dd:MakeAndModel>HP (Laser [^<]+)';                                                                # HP Color Laser MFP 179 a.o.
-  hp_detect_urls['/DevMgmt/ProductConfigDyn.xml#--avoid-dup13--#']      = '<dd:MakeAndModel>HP (Color LaserJet [^<]+)';                                                      # HP Color LaserJet Pro M454nw a.o
-  hp_detect_urls['/hp/device/SignIn/Index']                             = '"product">HP (LaserJet [^<]+)';                                                                    # HP LaserJet 700 color MFP M775 a.o.
+  hp_detect_urls["/info_deviceStatus.html"]                             = '<title>HP (LaserJet [^ ]+) Series';                                                                # HP LaserJet P2015 a.o.
+  hp_detect_urls["/hp/device/"]                                         = '<title> HP Color (LaserJet [^\n ]+)';                                                              # HP Color LaserJet 2840 a.o.
+  hp_detect_urls["/hp/device/#--avoid-dup1--#"]                         = '<title>\\s*HP (LaserJet [^\n ]+)';                                                                 # HP LaserJet P3005 a.o.
+  hp_detect_urls["/info_deviceStatus.html?tab=Status"]                  = '<title>HP Color (LaserJet [^&]+)';                                                                 # HP Color LaserJet CP2025n a.o.
+  hp_detect_urls["/info_deviceStatus.html?"]                            = '<title>HP (LaserJet [^&]+)';                                                                       # HP LaserJet 400 M401n a.o.
+  hp_detect_urls["/index_top.htm"]                                      = string("(HP (LaserJet [^\n ]+)|HP Color (LaserJet [^\n ]+)|(DesignJet [^ ]+)|(psc [^ ]+) series)"); # LaserJet 3600 a.o.
+  hp_detect_urls["/index.htm?cat=info&page=printerInfo"]                = string("((Officejet Pro [^& ]+)|(Officejet [^\n ]+))");                                             # K5400 a.o.
+  hp_detect_urls["/hp/device/InternalPages/Index?id=ConfigurationPage"] = '<strong id="ProductName">HP ?([^&<]+)';                                                            # HP Color LaserJet Flow MFP 680 a.o.
+  hp_detect_urls["/"]                                                   = '<strong class="product">HP ?([^&<]+)';                                                             # HP Color LaserJet M651 a.o.
+  hp_detect_urls["/hp/jetdirect/index.html"]                            = '<h1>HP (Latex [0-9]+)';                                                                            # HP Latex 315 a.o.
+  hp_detect_urls["/hp/jetdirect/index.html#--avoid-dup1--#"]            = '<h1>HP (Color LaserJet [^<]+)';                                                                    # HP Color LaserJet CM4540 MFP a.o.
+  hp_detect_urls["/DevMgmt/ProductConfigDyn.xml"]                       = '<dd:MakeAndModel>HP (PageWide Pro [^<]+)';                                                         # HP PageWide Pro 477 a.o.
+  hp_detect_urls["/DevMgmt/ProductConfigDyn.xml#--avoid-dup1--#"]       = '<dd:MakeAndModel>HP (PageWide [^<]+)';                                                             # HP PageWide 352dw a.o
+  hp_detect_urls["/DevMgmt/ProductConfigDyn.xml#--avoid-dup2--#"]       = '<dd:MakeAndModel>(Deskjet [^<]+)';                                                                 # HP Deskjet 2540 a.o.
+  hp_detect_urls["/DevMgmt/ProductConfigDyn.xml#--avoid-dup3--#"]       = '<dd:MakeAndModel>(Envy [^<]+)';                                                                    # HP ENVY 120 series a.o.
+  hp_detect_urls["/DevMgmt/ProductConfigDyn.xml#--avoid-dup4--#"]       = '<dd:MakeAndModel>(Ink Tank [^<]+)';                                                                # HP Ink Tank Wireless 410 series a.o.
+  hp_detect_urls["/DevMgmt/ProductConfigDyn.xml#--avoid-dup5--#"]       = '<dd:MakeAndModel>(Photosmart [^<]+)';                                                              # HP Photosmart 5510 series a.o.
+  hp_detect_urls["/DevMgmt/ProductConfigDyn.xml#--avoid-dup6--#"]       = '<dd:MakeAndModel>HP (Smart Tank [^<]+)';                                                           # HP Smart Tank Wireless 450 series a.o.
+  hp_detect_urls["/DevMgmt/ProductConfigDyn.xml#--avoid-dup7--#"]       = '<dd:MakeAndModel>(Smart Tank [^<]+)';                                                              # HP Smart Tank Wireless 450 series a.o.
+  hp_detect_urls["/DevMgmt/ProductConfigDyn.xml#--avoid-dup8--#"]       = '<dd:MakeAndModel>HP (OfficeJet [^<]+)';                                                            # HP OfficeJet Pro 8210 series a.o.
+  hp_detect_urls["/DevMgmt/ProductConfigDyn.xml#--avoid-dup9--#"]       = '<dd:MakeAndModel>HP (Color Laser [^<]+)';                                                          # HP Color Laser MFP 179 a.o.
+  hp_detect_urls["/DevMgmt/ProductConfigDyn.xml#--avoid-dup10--#"]      = '<dd:MakeAndModel>HP (LaserJet [^<]+)';
+  hp_detect_urls["/DevMgmt/ProductConfigDyn.xml#--avoid-dup11--#"]      = '<dd:MakeAndModel>(OfficeJet [^<]+)';                                                               # HP OfficeJet Pro 6978 series a.o.
+  hp_detect_urls["/DevMgmt/ProductConfigDyn.xml#--avoid-dup12--#"]      = '<dd:MakeAndModel>HP (Laser [^<]+)';                                                                # HP Color Laser MFP 179 a.o.
+  hp_detect_urls["/DevMgmt/ProductConfigDyn.xml#--avoid-dup13--#"]      = '<dd:MakeAndModel>HP (Color LaserJet [^<]+)';                                                       # HP Color LaserJet Pro M454nw a.o
+  hp_detect_urls["/hp/device/SignIn/Index"]                             = '"product">HP (LaserJet [^<]+)';                                                                    # HP LaserJet 700 color MFP M775 a.o.
+  hp_detect_urls["/Navmenu.html"]                                       = 'value="Web JetAdmin';                                                                              # Unknown older HP printers
+  hp_detect_urls["/cdm/system/v1/identity"]                             = '"base"\\s*:\\s*"HP Color (LaserJet [^"]+)';                                                        # HP Color LaserJet Pro 4201 a.o.
 
   # Detection string from dont_print_on_printers.nasl. TBD: Include here?
   # if( "<title>Hewlett Packard</title>" >< banner || egrep( pattern:"<title>.*LaserJet.*</title>", string:banner, icase:TRUE ) || "HP Officejet" >< banner || "server: hp-chai" >< tolower( banner ) || ( "Server: Virata-EmWeb/" >< banner && ( "HP" >< banner || "printer" >< banner ) ) ) {

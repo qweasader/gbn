@@ -1,20 +1,8 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 # Various functions and comments based on the Bluekeep Metasploit module cve_2019_0708_bluekeep.rb
 
@@ -977,7 +965,7 @@ function rdp_build_pkt( data, channel_id, client_info, rdp_sec, enc_data, hmacke
   udl_with_flag = dec2hex( num:0x8000 | user_data_len );
 
   req = raw_string( 0x64 ) +       # sendDataRequest
-        raw_string( 0x00, 0x08 ) + # intiator userId .. TODO: for a functional client this isn't static
+        raw_string( 0x00, 0x08 ) + # initiator userId .. TODO: for a functional client this isn't static
         channel_id +               # channelId
         raw_string( 0x70 ) +       # dataPriority
         udl_with_flag +

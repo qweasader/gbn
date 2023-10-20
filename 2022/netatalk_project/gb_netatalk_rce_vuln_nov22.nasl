@@ -23,11 +23,14 @@ CPE = "cpe:/a:netatalk_project:netatalk";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.148913");
-  script_version("2022-11-16T10:12:35+0000");
-  script_tag(name:"last_modification", value:"2022-11-16 10:12:35 +0000 (Wed, 16 Nov 2022)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-11-15 08:40:15 +0000 (Tue, 15 Nov 2022)");
-  script_tag(name:"cvss_base", value:"6.5");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
+  script_tag(name:"cvss_base", value:"7.2");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-11-17 16:16:00 +0000 (Thu, 17 Nov 2022)");
 
   script_cve_id("CVE-2022-45188");
 

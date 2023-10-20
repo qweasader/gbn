@@ -1,30 +1,16 @@
-# Copyright (C) 2015 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2015 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 include("plugin_feed_info.inc");
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105263");
-  script_version("2023-02-23T10:19:58+0000");
-  script_tag(name:"last_modification", value:"2023-02-23 10:19:58 +0000 (Thu, 23 Feb 2023)");
+  script_version("2023-06-22T10:34:15+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2015-04-22 14:02:11 +0200 (Wed, 22 Apr 2015)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -35,7 +21,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_paloalto_panos_http_detect.nasl",
                       "gb_paloalto_panos_http_xml-api_detect.nasl");
@@ -132,8 +118,8 @@ if( http_ports = get_kb_list( "palo_alto/http/port" ) ) {
     if( concluded_url )
       extra += "  Concluded from version/product identification location: " + concluded_url + '\n';
 
-    # nb: Its expected to have this in here as the XML-API NVT is using
-    # "palo_alto/ihttp/port" and will log all failed reasons to the key below
+    # nb: Its expected to have this in here as the XML-API VT is using
+    # "palo_alto/http/port" and will log all failed reasons to the key below
     failed = get_kb_item( "palo_alto/xml-api/" + port + "/fail_reason" );
     if( failed )
       failed_reasons += failed + '\n';

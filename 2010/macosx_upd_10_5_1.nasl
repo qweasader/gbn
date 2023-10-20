@@ -1,37 +1,17 @@
-###################################################################
-# OpenVAS Vulnerability Test
-# $Id: macosx_upd_10_5_1.nasl 14307 2019-03-19 10:09:27Z cfischer $
+# SPDX-FileCopyrightText: 2010 LSS
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Mac OS X 10.5.1 Update
-#
-# LSS-NVT-2010-018
-#
-# Developed by LSS Security Team <http://security.lss.hr>
-#
-# Copyright (C) 2010 LSS <http://www.lss.hr>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public
-# License along with this program. If not, see
-# <http://www.gnu.org/licenses/>.
-###################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.102030");
-  script_version("$Revision: 14307 $");
-  script_tag(name:"last_modification", value:"$Date: 2019-03-19 11:09:27 +0100 (Tue, 19 Mar 2019) $");
+  script_version("2023-07-28T16:09:07+0000");
+  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
   script_tag(name:"creation_date", value:"2010-05-12 14:48:44 +0200 (Wed, 12 May 2010)");
   script_cve_id("CVE-2007-4702", "CVE-2007-4703", "CVE-2007-4704");
-  script_name("Mac OS X 10.5.1 Update");
+  script_name("Mac OS X 10.5.1 Security Update (HT2169)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_category(ACT_GATHER_INFO);

@@ -1,28 +1,14 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.143118");
-  script_version("2022-04-28T10:08:05+0000");
-  script_tag(name:"last_modification", value:"2022-04-28 10:08:05 +0000 (Thu, 28 Apr 2022)");
+  script_version("2023-08-10T05:05:53+0000");
+  script_tag(name:"last_modification", value:"2023-08-10 05:05:53 +0000 (Thu, 10 Aug 2023)");
   script_tag(name:"creation_date", value:"2019-11-13 06:37:37 +0000 (Wed, 13 Nov 2019)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -35,7 +21,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_f5_big_iq_http_detect.nasl", "gb_f5_big_iq_ssh_login_detect.nasl");
   script_mandatory_keys("f5/big_iq/detected");
@@ -110,12 +96,21 @@ if (http_ports = get_kb_list("f5/big_iq/http/port")) {
   }
 }
 
-# From https://support.f5.com/csp/article/K14377:
-# 8.0.0 -> CentOS 7.3
+# https://my.f5.com/manage/s/article/K14377 had the following in the past:
 # 6.0.0 - 7.1.0 -> CentOS 6.6
-# and from https://support.f5.com/csp/article/K121:
+# and now includes:
+# 8.0.0 - 8.3.0 -> CentOS 7.3
+#
+# https://my.f5.com/manage/s/article/K121 had the following in the past:
 # BIG-IQ Centralized Management 4.6.0 - 7.1.0 -> CentOS Linux
-if (version_is_equal(version: detected_version, test_version: "8.0.0"))
+# and now includes:
+# BIG-IQ Centralized Management 7.0.0 - 8.3.0 -> CentOS Linux
+#
+# If this needs to be cross-checked pages like "archive.org" can be used. Make sure to use the older
+# support.f5.com/csp/article/Kxxx URLs for this as the my.f5.com URLs are probably not archived for
+# 2022 and earlier.
+#
+if (version_in_range(version: detected_version, test_version: "8.0.0", test_version2: "8.3.0"))
   os_register_and_report(os: "CentOS", version: "7.3", cpe: "cpe:/o:centos:centos", desc: SCRIPT_DESC, runs_key: "unixoide");
 
 else if (version_in_range(version: detected_version, test_version: "6.0.0", test_version2: "7.1.0"))

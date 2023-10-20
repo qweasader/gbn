@@ -1,31 +1,14 @@
-# OpenVAS Vulnerability Test
-# Description: TFTP file detection (HP Ignite-UX passwd)
+# SPDX-FileCopyrightText: 2005 Corsaire Limited.
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Martin O'Neal of Corsaire (http://www.corsaire.com)
-#
-# Copyright:
-# Copyright (C) 2005 Corsaire Limited
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.19509");
-  script_version("2022-05-12T09:32:01+0000");
-  script_tag(name:"last_modification", value:"2022-05-12 09:32:01 +0000 (Thu, 12 May 2022)");
+  script_version("2023-08-01T13:29:10+0000");
+  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
   script_tag(name:"creation_date", value:"2006-03-26 17:55:15 +0200 (Sun, 26 Mar 2006)");
   script_cve_id("CVE-2004-0951");
   script_tag(name:"cvss_base", value:"7.5");
@@ -59,7 +42,6 @@ if(TARGET_IS_IPV6())
   exit(0);
 
 include("tftp.inc");
-include("misc_func.inc");
 include("port_service_func.inc");
 
 port = service_get_port(default:69, proto:"tftp", ipproto:"udp");

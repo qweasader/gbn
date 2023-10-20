@@ -2,15 +2,15 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mysitemyway:method";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105051");
-  script_version("2023-04-18T10:19:20+0000");
-  script_tag(name:"last_modification", value:"2023-04-18 10:19:20 +0000 (Tue, 18 Apr 2023)");
+  script_version("2023-09-29T05:05:51+0000");
+  script_tag(name:"last_modification", value:"2023-09-29 05:05:51 +0000 (Fri, 29 Sep 2023)");
   script_tag(name:"creation_date", value:"2014-06-26 14:02:57 +0200 (Thu, 26 Jun 2014)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -25,7 +25,7 @@ if(description)
 
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2014 Greenbone AG");
-  script_dependencies("gb_wordpress_theme_http_detect.nasl", "os_detection.nasl");
+  script_dependencies("gb_wordpress_themes_http_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("wordpress/theme/method/detected");
 
   script_xref(name:"URL", value:"https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-themes/method/method-21-arbitrary-file-download");

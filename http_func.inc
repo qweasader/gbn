@@ -1,28 +1,8 @@
-###############################################################################
-# OpenVAS Include File
+# SPDX-FileCopyrightText: 2002 Michel Arboi
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Methods to handle HTTP
-#
-# Authors:
-# Michel Arboi <arboi@alussinan.org>
-# http_get_port added by Georges Dagousset
-#
-# Copyright:
-# Copyright (C) 2002 Michel Arboi <arboi@alussinan.org>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 # Enables to include the OID of the VT within the HTTP user agent of http_get_user_agent()
 # and http_send_recv() for debugging purposes on the target / targets logfiles.
@@ -41,7 +21,7 @@ global_var optimize_test_enabled;
 optimize_test_enabled = get_preference( "optimize_test" );
 
 # Global vars to avoid that we're repeatedly asking redis for something we already know.
-global_var _http_is_broken_array, _http_no404_string_array, _http_has_generic_xss_array, _http_is_embedded_array;
+global_var _http_is_broken_array, _http_no404_string_array, _http_has_generic_xss_array;
 
 # nb: key is the host+port or NULL (if not previously checked), value TRUE/FALSE if broken or not
 _http_is_broken_array = make_array();
@@ -51,9 +31,6 @@ _http_no404_string_array = make_array();
 
 # nb: key is the host+port or NULL (if not previously checked), value TRUE/FALSE if it has a generic XSS or not
 _http_has_generic_xss_array = make_array();
-
-# nb: key is the port or NULL (if not previously checked), value TRUE/FALSE if embedded or not
-_http_is_embedded_array = make_array();
 
 # @brief Returns a HTTP User Agent string which can be used by VTs within the
 #        User-Agent: header of HTTP requests.
@@ -246,7 +223,7 @@ function http_get_remote_headers( port, file, ignore_broken ) {
     return banner;
 
   if( ! ignore_broken && http_get_is_marked_broken( port:port, host:"*" ) )
-    return NULL; # TBD: Really return NULL if marked as broken? We still could use the banner version in NVTs...
+    return NULL; # TBD: Really return NULL if marked as broken? We still could use the banner version in VTs...
 
   # nb: Always keep http_get() before http_open_socket() as the first could
   # fork with multiple vhosts and the child's would share the same socket
@@ -825,7 +802,7 @@ function http_cgi_dirs( port, host ) {
 
   # TBD: Use http_host_name(dont_add_port:TRUE) if(!host) ?
   # This would require an additional parameter to skip this if
-  # the NVT dev wants to get the directories of all hosts...
+  # the VT dev wants to get the directories of all hosts...
 
   if( port && host ) {
     kb = get_kb_list( "www/" + host + "/" + port + "/content/directories" );
@@ -1323,7 +1300,7 @@ function http_get_cookie_from_header( buf, pattern ) {
   }
 
   if( ! pattern )
-    pattern = 'Set-Cookie\\s*:\\s*([^\r\n]+)';
+    pattern = '[Ss]et-[Cc]ookie\\s*:\\s*([^\r\n]+)';
 
   if( match = eregmatch( pattern:pattern, string:buf ) )
     return match[ max_index( match ) -1 ];
@@ -1486,7 +1463,7 @@ function http_get_is_marked_broken( port, host ) {
   return marked_broken;
 }
 
-# @brief Sets if a remote web server should be marked as "broken" to other NVTs.
+# @brief Sets if a remote web server should be marked as "broken" to other VTs.
 #        The status is set within the following KB entry:
 #        "www/" + host + "/" + port + "/is_broken"
 #
@@ -1545,7 +1522,7 @@ function http_set_is_marked_broken( port, host, reason ) {
 #         have matched the parameters or none have been identified at all.
 #
 # @note Add a dependency to at least DDI_Directory_Scanner.nasl and webmirror.nasl
-#       when using this function within an NVT.
+#       when using this function within a VT.
 #
 function http_get_kb_file_extensions( port, host, ext ) {
 
@@ -1592,7 +1569,7 @@ function http_get_kb_file_extensions( port, host, ext ) {
 #         directories have matched the parameters or none have been identified at all.
 #
 # @note Add a dependency to at least DDI_Directory_Scanner.nasl and webmirror.nasl
-#       when using this function within an NVT.
+#       when using this function within a VT.
 #
 function http_get_kb_auth_required( port, host ) {
 
@@ -1716,7 +1693,7 @@ function http_get_kb_cgis_full( port, host ) {
 
 # @brief Returns a string which was identified by no404.nasl for a remote web server
 #        returning a 200 HTTP (Found) status code for non-existing pages. The string
-#        contains a pattern like e.g. "not found" which can be used by a NVT as a sign
+#        contains a pattern like e.g. "not found" which can be used by a VT as a sign
 #        that the web server hasn't returned the expected result about the existence
 #        of a file/url. It will also save the information in an internal array to avoid
 #        that redis is queried again for the same info.
@@ -1784,7 +1761,7 @@ function http_get_no404_string( port, host ) {
   return no404_string;
 }
 
-# @brief Sets a specific string which should be assumed by NVTs as a sign for a
+# @brief Sets a specific string which should be assumed by VTs as a sign for a
 #        "file not found" if a remote web server isn't responding with a 200 HTTP
 #        status code to non-existent files. The string is set within the following
 #        KB entry: "www/" + host "/" + port + "/no404_string"
@@ -2184,7 +2161,7 @@ function http_get_req( port, url, add_headers, accept_header, accept_encoding, u
 }
 
 # @brief Returns the info if a "generic" XSS was found on the remote web server
-#        to avoid that e.g. more than one NVT is reporting the same XSS multiple
+#        to avoid that e.g. more than one VT is reporting the same XSS multiple
 #        times. It will also save the information in an internal array to avoid
 #        that redis is queried again for the same info.
 #
@@ -2249,7 +2226,7 @@ function http_get_has_generic_xss( port, host ) {
 }
 
 # @brief Sets the info if a "generic" XSS was found on the remote web server to
-#        avoid that e.g. more than one NVT is reporting the same XSS multiple
+#        avoid that e.g. more than one VT is reporting the same XSS multiple
 #        times. The status is set within the following KB entry:
 #        "www/" + host + "/" + port + "/generic_xss"
 #
@@ -2301,70 +2278,6 @@ function http_is_cgi_scan_disabled() {
     is_cgi_scan_disabled = __http_is_cgi_scan_disabled;
   }
   return is_cgi_scan_disabled;
-}
-
-# @brief Returns the info if a remote web server was internally (in the KB)
-#        marked as being an embedded web server. It will also save the information
-#        in an internal array to avoid that redis is queried again for the
-#        same info.
-#
-# @param port The port of the remote server.
-#
-# @return TRUE if the remote web server was marked as embedded, FALSE otherwise and
-#         NULL in the case where the port parameter wasn't passed.
-#
-function http_get_is_marked_embedded( port ) {
-
-  local_var port;
-  local_var marked_embedded;
-  # nb: _http_is_embedded_array is a global_var (see on top)
-
-  if( ! port ) {
-    set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#port#-#http_get_is_marked_embedded" );
-    return NULL;
-  }
-
-  # Used to not query redis with the get_kb_item below
-  # to save some requests.
-  if( ! isnull( _http_is_embedded_array[port] ) ) {
-    if( _http_is_embedded_array[port] )
-      return TRUE;
-    else
-      return FALSE;
-  }
-
-  marked_embedded = get_kb_item( "www/" + port + "/is_embedded" );
-  if( marked_embedded ) {
-    _http_is_embedded_array[port] = TRUE;
-  } else {
-    _http_is_embedded_array[port] = FALSE;
-    marked_embedded = FALSE;
-  }
-
-  return marked_embedded;
-}
-
-# @brief Sets if a remote web server should be marked as "embedded" to other NVTs.
-#        The status is set within the following KB entry:
-#        "www/" + host + "/" + port + "/is_embedded"
-#
-# @param port The port of the remote server.
-#
-# @return TRUE if the status was successfully saved within the KB and
-#         NULL if no port or host parameter was passed.
-#
-function http_set_is_marked_embedded( port ) {
-
-  local_var port;
-
-  if( ! port ) {
-    set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#port#-#http_set_is_marked_embedded" );
-    return NULL;
-  }
-
-  set_kb_item( name:"www/" + port + "/is_embedded", value:TRUE );
-  _http_is_embedded_array[port] = TRUE;
-  return TRUE;
 }
 
 # @brief Extracts the body of a full (including headers) HTTP response.

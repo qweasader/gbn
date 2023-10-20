@@ -7,11 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.827334");
-  script_version("2023-03-23T10:19:31+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2023-27586");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-03-23 10:19:31 +0000 (Thu, 23 Mar 2023)");
+  script_tag(name:"cvss_base", value:"6.6");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:N/A:C");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-03-23 18:23:00 +0000 (Thu, 23 Mar 2023)");
   script_tag(name:"creation_date", value:"2023-03-23 02:04:46 +0000 (Thu, 23 Mar 2023)");
   script_name("Fedora: Security Advisory for python-cairosvg (FEDORA-2023-ab86bdbce6)");
   script_category(ACT_GATHER_INFO);

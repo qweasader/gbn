@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107305");
-  script_version("2023-05-23T11:14:48+0000");
-  script_tag(name:"last_modification", value:"2023-05-23 11:14:48 +0000 (Tue, 23 May 2023)");
+  script_version("2023-09-26T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2023-09-26 05:05:30 +0000 (Tue, 26 Sep 2023)");
   script_tag(name:"creation_date", value:"2018-04-20 16:04:01 +0200 (Fri, 20 Apr 2018)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_tag(name:"cvss_base", value:"5.0");
@@ -22,24 +22,28 @@ if(description)
   script_exclude_keys("Settings/disable_cgi_scanning");
 
   script_tag(name:"summary", value:"The script attempts to identify files containing sensitive data
-  at the remote web server like e.g.:
-
-  - software (Blog, CMS) configuration or log files
-
-  - web / application server configuration / password files (.htaccess, .htpasswd, web.config,
-  web.xml, ...)
-
-  - Cloud (e.g. AWS) configuration files
-
-  - database backup files
-
-  - SSH or SSL/TLS Private-Keys");
+  at the remote web server.");
 
   script_tag(name:"vuldetect", value:"Enumerate the remote web server and check if sensitive files
   are accessible.");
 
-  script_tag(name:"impact", value:"Based on the information provided in these files an attacker might
-  be able to gather additional info and/or sensitive data like usernames and passwords.");
+  script_tag(name:"insight", value:"Currently the script is checking for files like e.g.:
+
+  - Software (Blog, CMS) configuration or log files
+
+  - Web / application server configuration / password files (.htaccess, .htpasswd, web.config,
+  web.xml, ...)
+
+  - Cloud (e.g. AWS) configuration files
+
+  - Files containing API keys for services / providers
+
+  - Database backup files
+
+  - SSH or SSL/TLS Private Keys");
+
+  script_tag(name:"impact", value:"Based on the information provided in these files an attacker
+  might be able to gather additional info and/or sensitive data like usernames and passwords.");
 
   script_tag(name:"solution", value:"The sensitive files shouldn't be accessible via a web server.
   Restrict access to it or remove it completely.");
@@ -74,7 +78,12 @@ include("misc_func.inc");
 #
 genericfiles = make_array(
 "/local.properties", "Generic properties (may contain sensitive configuration information) / Allaire JRUN configuration (could contain sensitive information about the structure of the application / web server) file accessible.#-#^(#Properties File|\s*(perfmon\.installDir|apple\.awt\.graphics\.Use(OpenGL|Quartz))\s*=.+|\s*\[?(file\.browsedirs=(false|true)|users\.location=.+))",
-"/.git-credentials", 'Git Credential Storage File containing a username and/or password.#-#^[ ]*https?://[^:@]+[:@]',
+# https://git-scm.com/docs/git-credential-store#_storage_format
+# nb: Unclear if e.g. also https://<username>:@example.com is possible so the "[^@]*" regex has been
+# used to allow / support this for now.
+"/.git-credentials", "Git Credential Storage File containing a username and/or password.#-#^\s*https?://[^:]+:[^@]*@.+",
+"/git/credentials", "Git Credential Storage File containing a username and/or password.#-#^\s*https?://[^:]+:[^@]*@.+",
+"/.config/git/credentials", "Git Credential Storage File containing a username and/or password.#-#^\s*https?://[^:]+:[^@]*@.+",
 "/.idea/WebServers.xml", 'IntelliJ Platform Configuration File containing a username and/or password.#-#<component name="WebServers">#-#(password|username)=',
 # see e.g. https://symfony.com/legacy/doc/reference/1_2/en/07-databases
 "/config/databases.yml", "Symfony Framework Database Configuration File containing a username and/or password.#-#^\s*(param|class)\s*:#-#^\s*(username|password)\s*:",
@@ -87,17 +96,33 @@ genericfiles = make_array(
 # [2017-04-21 17:50:02] event.DEBUG: Notified event "console.command" to listener
 "/app/logs/prod.log", "Symfony Framework log file.#-#^\[[^]]+\]\s+[^.]+\.(ERROR|NOTICE|INFO|DEBUG):\s+",
 "/app/logs/dev.log", "Symfony Framework log file.#-#^\[[^]]+\]\s+[^.]+\.(ERROR|NOTICE|INFO|DEBUG):\s+",
-"/config/database.yml", 'Rails Database Configuration File containing a username and/or password.#-#(adapter|database|production)\\s*:#-#(username|password)\\s*:',
+# https://guides.rubyonrails.org/configuring.html#configuring-a-database
+# https://guides.rubyonrails.org/configuring.html#connection-preference
+# nb: "production", "development" and "test" seems to be "fixed" strings:
+# > The config/database.yml file contains sections for three different environments in which Rails can run by default:
+"/config/database.yml", "Ruby on Rails Database Configuration File containing sensitive info like a username, password, URL and/or hostname.#-#^\s*(production|development|test)\s*:\s*$#-#^\s*(username|password|url|host)\s*:.+",
 "/DEADJOE", 'Editor JOE created the file DEADJOE on crash, which contains content of the currently edited files.#-#JOE (when it|was) aborted',
-"/server.key", 'SSL/TLS Private-Key is publicly accessible.#-#BEGIN (RSA|DSA|DSS|EC)? ?PRIVATE KEY',
-"/privatekey.key", 'SSL/TLS Private-Key is publicly accessible.#-#BEGIN (RSA|DSA|DSS|EC)? ?PRIVATE KEY',
-"/myserver.key", 'SSL/TLS Private-Key is publicly accessible.#-#BEGIN (RSA|DSA|DSS|EC)? ?PRIVATE KEY',
-"/key.pem", 'SSL/TLS Private-Key is publicly accessible.#-#BEGIN (RSA|DSA|DSS|EC)? ?PRIVATE KEY',
-"/id_rsa", 'SSH Private-Key publicly accessible.#-#^-----(BEGIN|END) (RSA|ENCRYPTED|OPENSSH) PRIVATE KEY-----',
-"/id_dsa", 'SSH Private-Key publicly accessible.#-#^-----(BEGIN|END) (DSA|ENCRYPTED|OPENSSH) PRIVATE KEY-----',
-"/id_dss", 'SSH Private-Key publicly accessible.#-#^-----(BEGIN|END) (DSS|ENCRYPTED|OPENSSH) PRIVATE KEY-----',
-"/id_ecdsa", 'SSH Private-Key publicly accessible.#-#^-----(BEGIN|END) (EC|ENCRYPTED|OPENSSH) PRIVATE KEY-----',
-"/id_ed25519", 'SSH Private-Key publicly accessible.#-#^-----(BEGIN|END) (ENCRYPTED|OPENSSH) PRIVATE KEY-----',
+"/server.key", "SSL/TLS Private Key is publicly accessible.#-#BEGIN (RSA|DSA|DSS|EC|ENCRYPTED|OPENSSH)? ?PRIVATE KEY",
+"/privatekey.key", "SSL/TLS Private Key is publicly accessible.#-#BEGIN (RSA|DSA|DSS|EC|ENCRYPTED|OPENSSH)? ?PRIVATE KEY",
+"/myserver.key", "SSL/TLS Private Key is publicly accessible.#-#BEGIN (RSA|DSA|DSS|EC|ENCRYPTED|OPENSSH)? ?PRIVATE KEY",
+"/key.pem", "SSL/TLS Private Key is publicly accessible.#-#BEGIN (RSA|DSA|DSS|EC|ENCRYPTED|OPENSSH)? ?PRIVATE KEY",
+# Some examples for private key names can be seen at e.g.:
+# https://en.wikibooks.org/wiki/OpenSSH/Client_Configuration_Files#Local_Account_Public_/_Private_Key_Pairs
+"/id_rsa", "SSH Private Key publicly accessible.#-#^-----(BEGIN|END) (RSA|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+"/id_dsa", "SSH Private Key publicly accessible.#-#^-----(BEGIN|END) (DSA|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+"/id_dss", "SSH Private Key publicly accessible.#-#^-----(BEGIN|END) (DSS|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+"/id_ecdsa", "SSH Private Key publicly accessible.#-#^-----(BEGIN|END) (EC|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+"/id_ed25519", "SSH Private Key publicly accessible.#-#^-----(BEGIN|END) (ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+"/id_ecdsa-sk", "SSH Private Key publicly accessible.#-#^-----(BEGIN|END) (EC|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+"/id_ed25519-sk", "SSH Private Key publicly accessible.#-#^-----(BEGIN|END) (ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+"/id_ecdsa-sk_rk", "SSH Private Key publicly accessible.#-#^-----(BEGIN|END) (EC|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+"/id_ed25519-sk_rk", "SSH Private Key publicly accessible.#-#^-----(BEGIN|END) (ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+# Additional ones seen in examples / guides like e.g.:
+# https://cryptomonkeys.com/2015/04/generating-ssh-keys/
+"/id_rsa_1024", "SSH Private Key publicly accessible.#-#^-----(BEGIN|END) (RSA|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+"/id_rsa_2048", "SSH Private Key publicly accessible.#-#^-----(BEGIN|END) (RSA|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+"/id_rsa_3072", "SSH Private Key publicly accessible.#-#^-----(BEGIN|END) (RSA|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
+"/id_rsa_4096", "SSH Private Key publicly accessible.#-#^-----(BEGIN|END) (RSA|ENCRYPTED|OPENSSH) PRIVATE KEY-----",
 # https://laravel.com/docs/master/configuration#environment-configuration
 # https://blog.quickadminpanel.com/how-to-use-laravel-env-example-files/
 # nb: There is also a check for .env.$hostname separately created further down
@@ -128,6 +153,8 @@ genericfiles = make_array(
 "/.local", 'Laravel config file present that may contain sensitive information like database credentials.#-#^(APP_(NAME|ENV|KEY|DEBUG|URL|PASSWORD)|DB_(HOST|USERNAME|PASSWORD|DATABASE))=.+',
 "/.production", 'Laravel config file present that may contain sensitive information like database credentials.#-#^(APP_(NAME|ENV|KEY|DEBUG|URL|PASSWORD)|DB_(HOST|USERNAME|PASSWORD|DATABASE))=.+',
 "/.remote", 'Laravel config file present that may contain sensitive information like database credentials.#-#^(APP_(NAME|ENV|KEY|DEBUG|URL|PASSWORD)|DB_(HOST|USERNAME|PASSWORD|DATABASE))=.+',
+"/staging2.env.example", 'Laravel config file present that may contain sensitive information like database credentials.#-#^(APP_(NAME|ENV|KEY|DEBUG|URL|PASSWORD)|DB_(HOST|USERNAME|PASSWORD|DATABASE))=.+',
+"/env.example", 'Laravel config file present that may contain sensitive information like database credentials.#-#^(APP_(NAME|ENV|KEY|DEBUG|URL|PASSWORD)|DB_(HOST|USERNAME|PASSWORD|DATABASE))=.+',
 "/app/config/parameters.yml", "Contao CMS, PrestaShop or Symfony Framework Database Configuration File containing a username and/or password.#-#(^\s*parameters\s*:|This file is auto-generated during the composer install)#-#^\s*((database_)?(user|password|host|name)|secret|dbhost|dbname)\s*:",
 "/config.development.json", 'Ghost Database Configuration File containing a username and/or password.#-#"database" ?:#-#"(user|password)"',
 "/config.production.json", 'Ghost Database Configuration File containing a username and/or password.#-#"database" ?:#-#"(user|password)"',
@@ -235,7 +262,15 @@ genericfiles = make_array(
 "/.mylogin.cnf", "mysql_config_editor configuration file containing database configuration info.#-#^\s*user\s*=.+#-#^\s*password\s*=.+#-#^\s*host\s*=.+",
 # https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials_profiles.html
 "/.aws/credentials", "AWS credentials file which might contain sensitive access keys.#-#^\[[^]]+\]\s*$#-#^(aws_access_key_id|aws_secret_access_key|role_arn|source_profile|role_session_name)\s*=.+",
-"/.aws/config", "AWS profile file which might contain sensitive application info.#-#^\[[^]]+\]\s*$#-#^(role_arn|source_profile|role_session_name)\s*=.+"
+"/.aws/config", "AWS profile file which might contain sensitive application info.#-#^\[[^]]+\]\s*$#-#^(role_arn|source_profile|role_session_name)\s*=.+",
+# https://sendgrid.com/blog/dont-let-your-credentials-get-stolen-on-github/
+# https://docs.sendgrid.com/ui/account-and-settings/api-keys (includes the info on the length on the API key)
+# https://stackoverflow.com/questions/42030912/how-to-get-the-full-sendgrid-api-key (Example for an API key)
+"/sendgrid.env", "Twilio SendGrid API key, more info on https://sendgrid.com/blog/dont-let-your-credentials-get-stolen-on-github/#-#(SENDGRID_API_KEY.+|SG\.[a-zA-Z0-9_-]{22}\.[a-zA-Z0-9_-]{43})",
+# From https://twitter.com/therceman/status/1704560089309257868
+# nb: Seems the `_wpeprivate` folder can exist on an arbitrary sub-folder so it was added here and
+# not to "rootdirfiles" or a specific WordPress check
+"/_wpeprivate/config.json", 'WPEngine configuration file, https://twitter.com/therceman/status/1704560089309257868#-#\\{"env"\\s*:\\s*\\{.*"(WPENGINE_(ACCOUNT|SESSION_DB_USERNAME|SESSION_DB_PASSWORD)|wpengine_apikey)"\\s*:\\s*"[^"]+"'
 );
 
 # https://doc.nette.org/en/configuring or https://github.com/nette/examples/blob/master/CD-collection/app/config.neon
@@ -246,9 +281,9 @@ foreach nettedir( make_list( "/app/config", "/app", "" ) ) {
 # Add domain specific key names and backup files from above
 hnlist = create_hostname_parts_list();
 foreach hn( hnlist ) {
-  genericfiles["/" + hn + ".key"] = 'SSL/TLS Private-Key is publicly accessible.#-#BEGIN (RSA|DSA|DSS|EC)? ?PRIVATE KEY';
-  genericfiles["/" + hn + ".pem"] = 'SSL/TLS Private-Key is publicly accessible.#-#BEGIN (RSA|DSA|DSS|EC)? ?PRIVATE KEY';
-  genericfiles["/" + hn + ".sql"] = 'Database backup file publicly accessible.#-#^(-- (MySQL|MariaDB) dump |INSERT INTO |DROP TABLE |CREATE TABLE )';
+  genericfiles["/" + hn + ".key"] = "SSL/TLS Private Key is publicly accessible.#-#BEGIN (RSA|DSA|DSS|EC|ENCRYPTED|OPENSSH)? ?PRIVATE KEY";
+  genericfiles["/" + hn + ".pem"] = "SSL/TLS Private Key is publicly accessible.#-#BEGIN (RSA|DSA|DSS|EC|ENCRYPTED|OPENSSH)? ?PRIVATE KEY";
+  genericfiles["/" + hn + ".sql"] = "Database backup file publicly accessible.#-#^(-- (MySQL|MariaDB) dump |INSERT INTO |DROP TABLE |CREATE TABLE )";
   genericfiles["/env." + hn ] = 'Laravel ".env" file present that may contain sensitive information like database credentials.#-#^(APP_(NAME|ENV|KEY|DEBUG|URL|PASSWORD)|DB_(HOST|USERNAME|PASSWORD|DATABASE))=.+';
 }
 
@@ -308,6 +343,9 @@ function check_files( filesarray, dirlist, port ) {
       url = dir + file;
 
       res = http_get_cache( port:port, item:url );
+
+      # nb: If false positives are reported at some point in the future we might want to check for a
+      # "Content-Type: text/html" and continue here if this is included.
       if( ! res || res !~ "^HTTP/1\.[01] 200" )
         continue;
 

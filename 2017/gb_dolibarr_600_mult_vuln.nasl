@@ -9,8 +9,8 @@ CPE = "cpe:/a:dolibarr:dolibarr";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113000");
-  script_version("2023-05-09T09:12:26+0000");
-  script_tag(name:"last_modification", value:"2023-05-09 09:12:26 +0000 (Tue, 09 May 2023)");
+  script_version("2023-07-14T16:09:27+0000");
+  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
   script_tag(name:"creation_date", value:"2017-09-19 08:36:42 +0200 (Tue, 19 Sep 2017)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -29,7 +29,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_dolibarr_http_detect.nasl");
   script_mandatory_keys("dolibarr/detected");

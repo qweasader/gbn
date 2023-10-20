@@ -1,41 +1,16 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2011 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Citrix Provisioning Services Version Detection
-#
-# Authors:
-# Sooraj KS <kssooraj@secpod.com>
-#
-# Updated By : Rachana Shetty <srachana@secpod.com> on 2012-08-03
-# - Updated to Set KB for InstallLocation and according to CR-57
-#
-# Updated By: Thanga Prakash S <tprakash@secpod.com> on 2014-06-26
-# Updated plugin to support 32 and 64 bit
-#
-# Copyright:
-# Copyright (C) 2011 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802220");
-  script_version("2022-05-31T20:54:22+0100");
+  script_version("2023-07-26T05:05:09+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-05-31 20:54:22 +0100 (Tue, 31 May 2022)");
+  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
   script_tag(name:"creation_date", value:"2011-07-13 17:31:13 +0200 (Wed, 13 Jul 2011)");
   script_tag(name:"qod_type", value:"registry");
   script_name("Citrix Provisioning Services Version Detection");
@@ -47,7 +22,7 @@ The script logs in via smb, searches for Citrix Provisioning Services in the
 registry and gets the version from 'DisplayVersion' string in registry.");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2011 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Product detection");
   script_dependencies("smb_reg_service_pack.nasl");
   script_mandatory_keys("SMB/WindowsVersion", "SMB/Windows/Arch");

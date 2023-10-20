@@ -21,11 +21,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854131");
-  script_version("2021-09-06T09:01:34+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2021-0089", "CVE-2021-28690", "CVE-2021-28692", "CVE-2021-28693", "CVE-2021-28694", "CVE-2021-28695", "CVE-2021-28696", "CVE-2021-28697", "CVE-2021-28698", "CVE-2021-28699", "CVE-2021-28700");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2021-09-06 09:01:34 +0000 (Mon, 06 Sep 2021)");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-09-01 17:35:00 +0000 (Wed, 01 Sep 2021)");
@@ -80,7 +80,7 @@ if(description)
 
   - Fixed 'Panic on CPU 0: IO-APIC + timer doesn&#x27 t work!' (bsc#1180491)
 
-  - Fixed an issue with xencommons, where file format expecations by fillup
+  - Fixed an issue with xencommons, where file format expectations by fillup
        did not align (bsc#1185682)
 
   - Fixed shell macro expansion in the spec file, so that ExecStart= in

@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.822384");
-  script_version("2022-09-02T10:10:40+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-38150");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-09-02 10:10:40 +0000 (Fri, 02 Sep 2022)");
+  script_tag(name:"cvss_base", value:"7.8");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-08-15 16:08:00 +0000 (Mon, 15 Aug 2022)");
   script_tag(name:"creation_date", value:"2022-08-31 01:13:28 +0000 (Wed, 31 Aug 2022)");
   script_name("Fedora: Security Advisory for varnish-modules (FEDORA-2022-99702d9bdd)");
   script_category(ACT_GATHER_INFO);

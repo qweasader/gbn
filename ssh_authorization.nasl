@@ -1,43 +1,20 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2007,2008,2009,2010,2011,2012 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# This script allows to set SSH credentials for target hosts.
-#
-# Authors:
-# Jan-Oliver Wagner <jan-oliver.wagner@greenbone.net>
-# Felix Wolfsteller <felix.wolfsteller@greenbone.net>
-# Chandrashekhar B <bchandra@secpod.com>
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2007,2008,2009,2010,2011,2012 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.90022");
-  script_version("2022-12-16T10:18:13+0000");
-  script_tag(name:"last_modification", value:"2022-12-16 10:18:13 +0000 (Fri, 16 Dec 2022)");
+  script_version("2023-07-28T16:09:07+0000");
+  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
   script_tag(name:"creation_date", value:"2007-11-01 23:55:52 +0100 (Thu, 01 Nov 2007)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_name("SSH Authorization Check");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2007-2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2007-2012 Greenbone AG");
   script_family("General");
   script_dependencies("find_service.nasl", "ssh_authorization_init.nasl", "global_settings.nasl", "lsc_options.nasl");
   script_mandatory_keys("Secret/SSH/login");

@@ -1,45 +1,27 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2010 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Read /etc/fstab and search for Volumes with reiserfs
-#
-# Authors:
-# Thomas Rotter <T.Rotter@dn-systems.de>
-#
-# Copyright:
-# Copyright (C) 2010 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.96094");
-  script_version("2020-08-24T08:40:10+0000");
-  script_tag(name:"last_modification", value:"2020-08-24 08:40:10 +0000 (Mon, 24 Aug 2020)");
+  script_version("2023-07-14T16:09:27+0000");
+  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
   script_tag(name:"creation_date", value:"2010-06-21 10:39:50 +0200 (Mon, 21 Jun 2010)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"qod_type", value:"package");
-  script_name("Read /etc/fstab and search for Volumes with reiserfs");
+  script_name("Read /etc/fstab and search for volumes with reiserfs");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("IT-Grundschutz");
   script_mandatory_keys("Compliance/Launch/GSHB");
   script_dependencies("compliance_tests.nasl", "find_service.nasl", "gather-package-list.nasl");
 
-  script_tag(name:"summary", value:"This plugin uses ssh to Read /etc/fstab and search for Volumes with reiserfs.");
+  script_tag(name:"summary", value:"This plugin uses ssh to Read /etc/fstab and search for Volumes
+  with reiserfs.");
 
   exit(0);
 }
@@ -54,12 +36,12 @@ if(!port)
 
 sock = ssh_login_or_reuse_connection();
 if(!sock) {
-    error = ssh_get_error();
-    if (!error) error = "No SSH Port or Connection!";
-    log_message(port:port, data:error);
-    set_kb_item(name: "GSHB/FSTAB/reiserfs", value:"error");
-    set_kb_item(name: "GSHB/FSTAB/log", value:error);
-    exit(0);
+  error = ssh_get_error();
+  if (!error) error = "No SSH Port or Connection!";
+  log_message(port:port, data:error);
+  set_kb_item(name: "GSHB/FSTAB/reiserfs", value:"error");
+  set_kb_item(name: "GSHB/FSTAB/log", value:error);
+  exit(0);
 }
 
 windowstest = ssh_cmd(socket:sock, cmd:"cmd /?");
@@ -68,9 +50,8 @@ if (("windows" >< windowstest && "interpreter" >< windowstest) || ("Windows" >< 
   exit(0);
 }
 
-
 fstab = ssh_cmd(socket:sock, cmd:"grep -v '^#' /etc/fstab");
-if (fstab =~ ".*Datei oder Verzeichnis nicht gefunden.*" ||  fstab =~ ".*No such file or directory.*") fstab = "none";
+if (fstab =~ ".*(Datei oder Verzeichnis nicht gefunden|No such file or directory).*") fstab = "none";
 
 if (fstab != "none" && "reiserfs" >< fstab){
   Lst = split(fstab, keep:0);
@@ -81,7 +62,6 @@ if (fstab != "none" && "reiserfs" >< fstab){
   fstab = val;
 }
 else fstab = "noreiserfs";
-
 
 set_kb_item(name: "GSHB/FSTAB/reiserfs", value:fstab);
 

@@ -23,11 +23,14 @@ CPE = "cpe:/a:grafana:grafana";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.124200");
-  script_version("2022-10-19T10:16:43+0000");
-  script_tag(name:"last_modification", value:"2022-10-19 10:16:43 +0000 (Wed, 19 Oct 2022)");
+  script_version("2023-10-18T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-10-18 04:19:15 +0000 (Tue, 18 Oct 2022)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-10-14 13:15:00 +0000 (Fri, 14 Oct 2022)");
 
   script_cve_id("CVE-2022-31123");
 

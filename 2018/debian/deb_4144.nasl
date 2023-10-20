@@ -1,30 +1,16 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.704144");
   script_cve_id("CVE-2018-2579", "CVE-2018-2582", "CVE-2018-2588", "CVE-2018-2599", "CVE-2018-2602", "CVE-2018-2603", "CVE-2018-2618", "CVE-2018-2629", "CVE-2018-2633", "CVE-2018-2634", "CVE-2018-2637", "CVE-2018-2641", "CVE-2018-2663", "CVE-2018-2677", "CVE-2018-2678");
   script_tag(name:"creation_date", value:"2018-03-16 23:00:00 +0000 (Fri, 16 Mar 2018)");
-  script_version("2023-04-03T10:19:50+0000");
-  script_tag(name:"last_modification", value:"2023-04-03 10:19:50 +0000 (Mon, 03 Apr 2023)");
+  script_version("2023-07-05T05:06:17+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:H/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Debian: Security Advisory (DSA-4144)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB9");
@@ -89,11 +75,15 @@ if(release == "DEB9") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"openjdk-8-jdk", ver:"8u162-b12-1~deb9u1", rls:"DEB9"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"openjdk-8-jdk-headless", ver:"8u162-b12-1~deb9u1", rls:"DEB9"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"openjdk-8-jdk", ver:"8u162-b12-1~deb9u1", rls:"DEB9"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"openjdk-8-jre", ver:"8u162-b12-1~deb9u1", rls:"DEB9"))) {
     report += res;
   }
 
@@ -102,10 +92,6 @@ if(release == "DEB9") {
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"openjdk-8-jre-zero", ver:"8u162-b12-1~deb9u1", rls:"DEB9"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"openjdk-8-jre", ver:"8u162-b12-1~deb9u1", rls:"DEB9"))) {
     report += res;
   }
 

@@ -2,7 +2,7 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 global_var eol_urls, eol_names, eol_regex, eol_cpes;
 
@@ -11,7 +11,7 @@ eol_names = make_array();
 eol_regex = make_array();
 eol_cpes  = make_array();
 
-# See gather-package-list.nasl for valid/known linux cpes
+# See gather-package-list.nasl for valid/known Linux CPEs
 
 # openSUSE Leap (http://en.opensuse.org/Lifetime)
 eol_urls['cpe:/o:opensuse_project:leap'] = 'http://en.opensuse.org/Lifetime'; # Starting with 42.2 the correct one is used by the NVD
@@ -441,66 +441,102 @@ eol_cpes['cpe:/o:fedoraproject:fedora_core:2'] = '2005-04-11';
 eol_cpes['cpe:/o:fedoraproject:fedora_core:1'] = '2004-09-20';
 
 # Debian (https://en.wikipedia.org/wiki/List_of_Debian_releases#Release_table)
-eol_urls['cpe:/o:debian:debian_linux'] = 'https://en.wikipedia.org/wiki/List_of_Debian_releases#Release_table';
-eol_names['cpe:/o:debian:debian_linux'] = 'Debian GNU/Linux';
-eol_cpes['cpe:/o:debian:debian_linux:9.13'] = '2022-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:9.12'] = '2022-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:9.11'] = '2022-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:9.10'] = '2022-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:9.9'] = '2022-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:9.8'] = '2022-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:9.7'] = '2022-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:9.6'] = '2022-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:9.5'] = '2022-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:9.4'] = '2022-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:9.3'] = '2022-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:9.2'] = '2022-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:9.1'] = '2022-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:9.0'] = '2022-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:9'] = '2022-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:8.11'] = '2020-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:8.10'] = '2020-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:8.9'] = '2020-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:8.8'] = '2020-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:8.7'] = '2020-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:8.6'] = '2020-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:8.5'] = '2020-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:8.4'] = '2020-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:8.3'] = '2020-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:8.2'] = '2020-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:8.1'] = '2020-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:8.0'] = '2020-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:8'] = '2020-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:7.11'] = '2018-05-31';
-eol_cpes['cpe:/o:debian:debian_linux:7.10'] = '2018-05-31';
-eol_cpes['cpe:/o:debian:debian_linux:7.9'] = '2018-05-31';
-eol_cpes['cpe:/o:debian:debian_linux:7.8'] = '2018-05-31';
-eol_cpes['cpe:/o:debian:debian_linux:7.7'] = '2018-05-31';
-eol_cpes['cpe:/o:debian:debian_linux:7.6'] = '2018-05-31';
-eol_cpes['cpe:/o:debian:debian_linux:7.5'] = '2018-05-31';
-eol_cpes['cpe:/o:debian:debian_linux:7.4'] = '2018-05-31';
-eol_cpes['cpe:/o:debian:debian_linux:7.3'] = '2018-05-31';
-eol_cpes['cpe:/o:debian:debian_linux:7.2'] = '2018-05-31';
-eol_cpes['cpe:/o:debian:debian_linux:7.1'] = '2018-05-31';
-eol_cpes['cpe:/o:debian:debian_linux:7.0'] = '2018-05-31';
-eol_cpes['cpe:/o:debian:debian_linux:7'] = '2018-05-31';
-eol_cpes['cpe:/o:debian:debian_linux:6.0'] = '2016-02-29';
-eol_cpes['cpe:/o:debian:debian_linux:6'] = '2016-02-29';
-eol_cpes['cpe:/o:debian:debian_linux:5.0'] = '2012-02-06';
-eol_cpes['cpe:/o:debian:debian_linux:5'] = '2012-02-06';
-eol_cpes['cpe:/o:debian:debian_linux:4.0'] = '2010-02-15';
-eol_cpes['cpe:/o:debian:debian_linux:4'] = '2010-02-15';
-eol_cpes['cpe:/o:debian:debian_linux:3.1'] = '2008-03-31';
-eol_cpes['cpe:/o:debian:debian_linux:3.0'] = '2006-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:3'] = '2008-03-31';
-eol_cpes['cpe:/o:debian:debian_linux:2.2'] = '2003-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:2.1'] = '2000-10-30';
-eol_cpes['cpe:/o:debian:debian_linux:2.0'] = 'unknown';
-eol_cpes['cpe:/o:debian:debian_linux:2'] = '2003-06-30';
-eol_cpes['cpe:/o:debian:debian_linux:1.3'] = 'unknown';
-eol_cpes['cpe:/o:debian:debian_linux:1.2'] = 'unknown';
-eol_cpes['cpe:/o:debian:debian_linux:1.1'] = 'unknown';
-eol_cpes['cpe:/o:debian:debian_linux:1'] = 'unknown';
+# nb: The date of the "Long-term" End of support is taken
+eol_urls["cpe:/o:debian:debian_linux"] = "https://en.wikipedia.org/wiki/List_of_Debian_releases#Release_table";
+eol_names["cpe:/o:debian:debian_linux"] = "Debian GNU/Linux";
+eol_cpes["cpe:/o:debian:debian_linux:10.13"] = "2024-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:10.12"] = "2024-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:10.11"] = "2024-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:10.10"] = "2024-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:10.9"] = "2024-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:10.8"] = "2024-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:10.7"] = "2024-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:10.6"] = "2024-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:10.5"] = "2024-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:10.4"] = "2024-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:10.3"] = "2024-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:10.2"] = "2024-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:10.1"] = "2024-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:10.0"] = "2024-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:10"] = "2024-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:9.13"] = "2022-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:9.12"] = "2022-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:9.11"] = "2022-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:9.10"] = "2022-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:9.9"] = "2022-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:9.8"] = "2022-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:9.7"] = "2022-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:9.6"] = "2022-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:9.5"] = "2022-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:9.4"] = "2022-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:9.3"] = "2022-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:9.2"] = "2022-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:9.1"] = "2022-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:9.0"] = "2022-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:9"] = "2022-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:8.11"] = "2020-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:8.10"] = "2020-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:8.9"] = "2020-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:8.8"] = "2020-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:8.7"] = "2020-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:8.6"] = "2020-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:8.5"] = "2020-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:8.4"] = "2020-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:8.3"] = "2020-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:8.2"] = "2020-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:8.1"] = "2020-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:8.0"] = "2020-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:8"] = "2020-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:7.11"] = "2018-05-31";
+eol_cpes["cpe:/o:debian:debian_linux:7.10"] = "2018-05-31";
+eol_cpes["cpe:/o:debian:debian_linux:7.9"] = "2018-05-31";
+eol_cpes["cpe:/o:debian:debian_linux:7.8"] = "2018-05-31";
+eol_cpes["cpe:/o:debian:debian_linux:7.7"] = "2018-05-31";
+eol_cpes["cpe:/o:debian:debian_linux:7.6"] = "2018-05-31";
+eol_cpes["cpe:/o:debian:debian_linux:7.5"] = "2018-05-31";
+eol_cpes["cpe:/o:debian:debian_linux:7.4"] = "2018-05-31";
+eol_cpes["cpe:/o:debian:debian_linux:7.3"] = "2018-05-31";
+eol_cpes["cpe:/o:debian:debian_linux:7.2"] = "2018-05-31";
+eol_cpes["cpe:/o:debian:debian_linux:7.1"] = "2018-05-31";
+eol_cpes["cpe:/o:debian:debian_linux:7.0"] = "2018-05-31";
+eol_cpes["cpe:/o:debian:debian_linux:7"] = "2018-05-31";
+eol_cpes["cpe:/o:debian:debian_linux:6.10"] = "2016-02-29";
+eol_cpes["cpe:/o:debian:debian_linux:6.9"] = "2016-02-29";
+eol_cpes["cpe:/o:debian:debian_linux:6.8"] = "2016-02-29";
+eol_cpes["cpe:/o:debian:debian_linux:6.7"] = "2016-02-29";
+eol_cpes["cpe:/o:debian:debian_linux:6.6"] = "2016-02-29";
+eol_cpes["cpe:/o:debian:debian_linux:6.5"] = "2016-02-29";
+eol_cpes["cpe:/o:debian:debian_linux:6.4"] = "2016-02-29";
+eol_cpes["cpe:/o:debian:debian_linux:6.3"] = "2016-02-29";
+eol_cpes["cpe:/o:debian:debian_linux:6.2"] = "2016-02-29";
+eol_cpes["cpe:/o:debian:debian_linux:6.1"] = "2016-02-29";
+eol_cpes["cpe:/o:debian:debian_linux:6.0"] = "2016-02-29";
+eol_cpes["cpe:/o:debian:debian_linux:6"] = "2016-02-29";
+eol_cpes["cpe:/o:debian:debian_linux:5.10"] = "2012-02-06";
+eol_cpes["cpe:/o:debian:debian_linux:5.9"] = "2012-02-06";
+eol_cpes["cpe:/o:debian:debian_linux:5.8"] = "2012-02-06";
+eol_cpes["cpe:/o:debian:debian_linux:5.7"] = "2012-02-06";
+eol_cpes["cpe:/o:debian:debian_linux:5.6"] = "2012-02-06";
+eol_cpes["cpe:/o:debian:debian_linux:5.5"] = "2012-02-06";
+eol_cpes["cpe:/o:debian:debian_linux:5.4"] = "2012-02-06";
+eol_cpes["cpe:/o:debian:debian_linux:5.3"] = "2012-02-06";
+eol_cpes["cpe:/o:debian:debian_linux:5.2"] = "2012-02-06";
+eol_cpes["cpe:/o:debian:debian_linux:5.1"] = "2012-02-06";
+eol_cpes["cpe:/o:debian:debian_linux:5.0"] = "2012-02-06";
+eol_cpes["cpe:/o:debian:debian_linux:5"] = "2012-02-06";
+eol_cpes["cpe:/o:debian:debian_linux:4.0"] = "2010-02-15";
+eol_cpes["cpe:/o:debian:debian_linux:4"] = "2010-02-15";
+eol_cpes["cpe:/o:debian:debian_linux:3.1"] = "2008-03-31";
+eol_cpes["cpe:/o:debian:debian_linux:3.0"] = "2006-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:3"] = "2008-03-31";
+eol_cpes["cpe:/o:debian:debian_linux:2.2"] = "2003-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:2.1"] = "2000-10-30";
+eol_cpes["cpe:/o:debian:debian_linux:2.0"] = "unknown";
+eol_cpes["cpe:/o:debian:debian_linux:2"] = "2003-06-30";
+eol_cpes["cpe:/o:debian:debian_linux:1.3"] = "unknown";
+eol_cpes["cpe:/o:debian:debian_linux:1.2"] = "unknown";
+eol_cpes["cpe:/o:debian:debian_linux:1.1"] = "unknown";
+eol_cpes["cpe:/o:debian:debian_linux:1"] = "unknown";
 
 # Mandriva (https://en.wikipedia.org/wiki/Mandriva_Linux#Versions)
 eol_urls['cpe:/o:mandriva:linux'] = 'https://en.wikipedia.org/wiki/Mandriva_Linux#Versions';
@@ -539,9 +575,10 @@ eol_cpes['cpe:/o:mandrakesoft:mandrake_linux:7.2'] = 'unknown';
 eol_urls['cpe:/o:mageia:linux'] = 'https://www.mageia.org/en/support/#lifecycle';
 eol_names['cpe:/o:mageia:linux'] = 'Mageia Linux';
 # nb:
-# - Mageia 8 will be supported until August 31st, 2022, or for at least 3 months after Mageia 9 release.
-# - Mageia 9 wasn't released yet (Feb 2023) so it wasn't added here yet.
-# eol_cpes['cpe:/o:mageia:linux:8'] = '2022-08-31';
+# Mageia releases are supported at least for 18 months or a
+# minimum of 3 months after the next release, whichever is longer.
+eol_cpes['cpe:/o:mageia:linux:9'] = '2025-03-31';
+eol_cpes['cpe:/o:mageia:linux:8'] = '2023-11-30';
 eol_cpes['cpe:/o:mageia:linux:7.1'] = '2021-06-30';
 eol_cpes['cpe:/o:mageia:linux:7'] = '2021-06-30';
 eol_cpes['cpe:/o:mageia:linux:6.1'] = '2019-09-30';

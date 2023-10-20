@@ -1,66 +1,52 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2015 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Arcserve Unified Data Protection Multiple Vulnerabilities
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2015 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:arcserve:arcserve_unified_data_protection";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105295");
-  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
-  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
-  script_cve_id("CVE-2015-4069", "CVE-2015-4068");
+  script_version("2023-07-05T05:06:18+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_tag(name:"creation_date", value:"2015-06-11 17:46:01 +0200 (Thu, 11 Jun 2015)");
   script_tag(name:"cvss_base", value:"9.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:C");
-  script_version("2022-08-09T10:11:17+0000");
 
-  script_name("Arcserve Unified Data Protection Multiple Vulnerabilities");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/74838");
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/74845");
-
-  script_tag(name:"impact", value:"Attackers can exploit these issues to obtain sensitive information
-that may lead to further attacks.");
-
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
-  script_tag(name:"solution", value:"Updates are available");
-  script_tag(name:"summary", value:"Arcserve Unified Data Protection is prone to multiple information-
-disclosure vulnerabilities and multiple directory traversal vulnerabilities.");
-  script_tag(name:"affected", value:"Arcserve UDP before 5.0 Update 4");
-  script_tag(name:"solution_type", value:"VendorFix");
+  script_cve_id("CVE-2015-4069", "CVE-2015-4068");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
-  script_tag(name:"creation_date", value:"2015-06-11 17:46:01 +0200 (Thu, 11 Jun 2015)");
+  script_tag(name:"solution_type", value:"VendorFix");
+
+  script_name("Arcserve Unified Data Protection (UDP) < 5.0 Update 4 Multiple Vulnerabilities");
+
   script_category(ACT_GATHER_INFO);
+
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
-  script_dependencies("gb_arcserve_udp_detect.nasl");
-  script_require_ports("Services/www", 8014);
-  script_mandatory_keys("arcserve_udp/detected");
+  script_dependencies("gb_arcserve_udp_http_detect.nasl");
+  script_mandatory_keys("arcserve/udp/detected");
+
+  script_tag(name:"summary", value:"Arcserve Unified Data Protection (UDP) is prone to multiple
+  information disclosure vulnerabilities and multiple directory traversal vulnerabilities.");
+
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+
+  script_tag(name:"impact", value:"Attackers can exploit these issues to obtain sensitive
+  information that may lead to further attacks.");
+
+  script_tag(name:"affected", value:"Arcserve UDP prior to version 5.0 Update 4.");
+
+  script_tag(name:"solution", value:"Update to version 5.0 Update 4 or later.");
+
+  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/74838");
+  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/74845");
 
   exit(0);
 }
@@ -68,39 +54,37 @@ disclosure vulnerabilities and multiple directory traversal vulnerabilities.");
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
 
-if( version_is_greater( version:vers, test_version:"5.0" ) ) exit( 99 );
-if( version_is_less( version:vers, test_version:"5.0" ) ) VULN = TRUE;
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
-if( ! VULN )
-{
-  build = get_kb_item("arcserve_udp/build");
-  typ = get_kb_item("arcserve_udp/soap_typ");
-  if( typ == 'linux' )
-  {
-    if( build )
-    {
-      if( version_is_less( version:build, test_version:"3230.1" ) ) VULN = TRUE;
+if( version_is_greater( version:vers, test_version:"5.0" ) )
+  exit( 99 );
+
+if( version_is_less( version:vers, test_version:"5.0" ) )
+  vuln = TRUE;
+
+if( ! vuln ) {
+  build = get_kb_item("arcserve/udp/build");
+  type = get_kb_item("arcserve/udp/soap_type");
+  if( type == "linux" ) {
+    if( build ) {
+      if( version_is_less( version:build, test_version:"3230.1" ) )
+        vuln = TRUE;
     }
   }
-  else if( typ == "windows" )
-  {
-    update = get_kb_item("arcserve_udp/update");
-    if( int( update ) < 4 ) VULN = TRUE;
+  else if( type == "windows" ) {
+    update = get_kb_item("arcserve/udp/update");
+    if( ! update || int( update ) < 4 )
+      vuln = TRUE;
   }
 }
 
-if( VULN )
-{
-  report = 'Installed version: ' + vers + '\n';
-
-  if( build && ! update )
-    report += 'Build:             ' + build + '\n' + 'Fixed build:       3230.1 (Update 4)\n';
-  else if( update )
-    report += 'Build:             ' + build + '\n' + 'Installed update:  ' + update + '\n' + 'Fixed update:      4\n';
-
+if( vuln ) {
+  report = report_fixed_ver( installed_version:vers, installed_build:build, installed_patch:update,
+                             fixed_version:"5.0", fixed_build:"3230.1", fixed_patch:"4" );
   security_message( port:port, data:report );
   exit( 0 );
 }

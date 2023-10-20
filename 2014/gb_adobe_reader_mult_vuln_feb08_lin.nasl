@@ -1,41 +1,22 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2014 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Adobe Reader Multiple Vulnerabilities Feb08 (Linux)
-#
-# Authors:
-# Shakeel <bshakeel@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2014 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:adobe:acrobat_reader";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804374");
-  script_version("2022-08-09T10:11:17+0000");
+  script_version("2023-07-26T05:05:09+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2008-0667", "CVE-2007-5666", "CVE-2007-5659", "CVE-2007-5663",
                 "CVE-2008-0726", "CVE-2008-0655", "CVE-2008-2042");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
+  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
   script_tag(name:"creation_date", value:"2014-04-08 19:38:29 +0530 (Tue, 08 Apr 2014)");
   script_name("Adobe Reader Multiple Vulnerabilities Feb08 (Linux)");
 
@@ -67,7 +48,7 @@ and execution of arbitrary code or compromise a user's system.");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/27641");
   script_xref(name:"URL", value:"http://www.adobe.com/support/security/advisories/apsa08-01.html");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("General");
   script_dependencies("gb_adobe_prdts_detect_lin.nasl");
   script_mandatory_keys("Adobe/Reader/Linux/Version");

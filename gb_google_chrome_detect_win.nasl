@@ -1,46 +1,24 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2008 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Google Chrome Version Detection (Windows)
-#
-# Authors:
-# Veerendra GG <veerendragg@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2008 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800120");
-  script_version("2022-05-31T20:54:22+0100");
+  script_version("2023-06-27T05:05:30+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-05-31 20:54:22 +0100 (Tue, 31 May 2022)");
+  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
   script_tag(name:"creation_date", value:"2008-10-31 15:07:51 +0100 (Fri, 31 Oct 2008)");
   script_tag(name:"qod_type", value:"registry");
-  script_name("Google Chrome Version Detection (Windows)");
+  script_name("Google Chrome Detection (Windows SMB Login)");
 
-  script_tag(name:"summary", value:"Detects the installed version of Google Chrome on Windows.
-
-The script logs in via smb, searches for Google Chrome in the registry and gets
-the version from registry.");
+  script_tag(name:"summary", value:"SMB login-based detection of Google Chrome.");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2008 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Product detection");
   script_dependencies("smb_reg_service_pack.nasl");
   script_require_ports(139, 445);
@@ -82,20 +60,22 @@ foreach item (registry_enum_keys(key:key))
       chromePath = registry_get_sz(key:key + item, item:"InstallLocation");
 
       set_kb_item(name:"GoogleChrome/Win/Ver", value:chromeVer);
+      set_kb_item(name:"google/chrome/detected", value:TRUE);
 
       cpe = build_cpe(value:chromeVer, exp:"^([0-9.]+)", base:"cpe:/a:google:chrome:");
-      if(isnull(cpe))
+      if(!cpe)
         cpe = "cpe:/a:google:chrome";
 
-      # Used in gb_google_chrome_detect_portable_win.nasl to detect doubled detections
+      # nb: Used in gb_google_chrome_detect_portable_win.nasl to detect doubled detections
       set_kb_item(name:"GoogleChrome/Win/InstallLocations", value:tolower(chromePath));
 
-      register_product(cpe: cpe, location: chromePath);
-      log_message(data: build_detection_report(app: "Google Chrome",
-                                               version: chromeVer,
-                                               install: chromePath,
-                                                   cpe: cpe,
-                                             concluded: chromeVer));
+      register_product(cpe:cpe, location:chromePath, port:0, service:"smb-login");
+      log_message(data:build_detection_report(app:"Google Chrome",
+                                              version:chromeVer,
+                                              install:chromePath,
+                                              cpe:cpe,
+                                              concluded:chromeVer),
+                  port:0);
     }
   }
 }
@@ -115,21 +95,23 @@ foreach key (enumKeys)
     chromePath = registry_get_sz(key:key + "\Software\Microsoft\Windows\CurrentVersion\Uninstall\Google Chrome", item:"InstallLocation", type:"HKU");
 
     set_kb_item(name:"GoogleChrome/Win/Ver", value:chromeVer);
+    set_kb_item(name:"google/chrome/detected", value:TRUE);
 
     cpe = build_cpe(value:chromeVer, exp:"^([0-9.]+)", base:"cpe:/a:google:chrome:");
-    if(isnull(cpe))
+    if(!cpe)
      cpe = "cpe:/a:google:chrome";
 
     # Used in gb_google_chrome_detect_portable_win.nasl to detect doubled detections
     set_kb_item(name:"GoogleChrome/Win/InstallLocations", value:tolower(chromePath));
 
-    register_product(cpe: cpe, location: chromePath);
-    log_message(data: build_detection_report(app: "Google Chrome",
-                                             version: chromeVer,
-                                             install: chromePath,
-                                             cpe: cpe,
-                                             concluded: chromeVer));
-
-
+    register_product(cpe:cpe, location:chromePath, port:0, service:"smb-login");
+    log_message(data:build_detection_report(app:"Google Chrome",
+                                            version:chromeVer,
+                                            install:chromePath,
+                                            cpe:cpe,
+                                            concluded:chromeVer),
+                port:0);
   }
 }
+
+exit(0);

@@ -1,29 +1,15 @@
-# Copyright (C) 2012 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2012 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.850379");
-  script_version("2022-07-05T11:37:00+0000");
+  script_version("2023-06-22T10:34:15+0000");
   script_tag(name:"deprecated", value:TRUE);
-  script_tag(name:"last_modification", value:"2022-07-05 11:37:00 +0000 (Tue, 05 Jul 2022)");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2012-12-14 09:52:50 +0530 (Fri, 14 Dec 2012)");
   script_cve_id("CVE-2012-5130", "CVE-2012-5131", "CVE-2012-5132", "CVE-2012-5133",
                 "CVE-2012-5134", "CVE-2012-5135", "CVE-2012-5136", "CVE-2012-5137",
@@ -33,7 +19,7 @@ if(description)
   script_xref(name:"openSUSE-SU", value:"2012:1637-1");
   script_name("openSUSE: Security Advisory for Chromium (openSUSE-SU-2012:1637-1)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("SuSE Local Security Checks");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'Chromium'
@@ -105,7 +91,7 @@ if(description)
 
   - add explicit buildrequire on libbz2-devel
 
-  This NVT has been replaced by OID:1.3.6.1.4.1.25623.1.0.850385.");
+  This VT has been replaced by OID:1.3.6.1.4.1.25623.1.0.850385.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
@@ -115,4 +101,4 @@ if(description)
 }
 
 
-exit(66); ## This NVT is deprecated as addressed in 2013/gb_suse_2012_1637_1.nasl
+exit(66); ## This VT is deprecated as addressed in 2013/gb_suse_2012_1637_1.nasl

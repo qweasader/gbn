@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.827285");
-  script_version("2023-03-16T10:19:47+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2023-23931");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-03-16 10:19:47 +0000 (Thu, 16 Mar 2023)");
+  script_tag(name:"cvss_base", value:"6.4");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:P");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-02-16 16:57:00 +0000 (Thu, 16 Feb 2023)");
   script_tag(name:"creation_date", value:"2023-03-12 02:03:47 +0000 (Sun, 12 Mar 2023)");
   script_name("Fedora: Security Advisory for python-cryptography (FEDORA-2023-749dd47c79)");
   script_category(ACT_GATHER_INFO);

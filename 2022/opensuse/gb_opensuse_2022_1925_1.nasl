@@ -21,12 +21,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854725");
-  script_version("2022-06-15T14:04:03+0000");
+  script_version("2023-10-19T05:05:21+0000");
   script_cve_id("CVE-2018-6952", "CVE-2019-13636");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-06-15 14:04:03 +0000 (Wed, 15 Jun 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-07-24 17:15:00 +0000 (Wed, 24 Jul 2019)");
   script_tag(name:"creation_date", value:"2022-06-03 01:01:48 +0000 (Fri, 03 Jun 2022)");

@@ -1,39 +1,25 @@
-# Copyright (C) 2023 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2023 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.1.1.2023.5415");
   script_cve_id("CVE-2023-0950", "CVE-2023-2255");
   script_tag(name:"creation_date", value:"2023-05-29 04:22:35 +0000 (Mon, 29 May 2023)");
-  script_version("2023-06-05T09:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-06-05 09:09:07 +0000 (Mon, 05 Jun 2023)");
-  script_tag(name:"cvss_base", value:"10.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_version("2023-07-05T05:06:18+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_tag(name:"cvss_base", value:"7.2");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-06-01 17:29:00 +0000 (Thu, 01 Jun 2023)");
+  script_tag(name:"severity_date", value:"2023-06-07 17:42:00 +0000 (Wed, 07 Jun 2023)");
 
   script_name("Debian: Security Advisory (DSA-5415)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2023 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB11");
@@ -105,7 +91,15 @@ if(release == "DEB11") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"libreoffice-avmedia-backend-gstreamer", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-base", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
@@ -121,7 +115,7 @@ if(release == "DEB11") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-base", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-calc", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
@@ -129,11 +123,11 @@ if(release == "DEB11") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-calc", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-common", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-common", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-core", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
@@ -141,7 +135,7 @@ if(release == "DEB11") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-core", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-dev", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
@@ -157,15 +151,11 @@ if(release == "DEB11") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-dev", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-draw", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"libreoffice-draw-nogui", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-draw", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
@@ -281,11 +271,11 @@ if(release == "DEB11") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-help-pt-br", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-help-pt", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-help-pt", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-help-pt-br", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
@@ -321,11 +311,11 @@ if(release == "DEB11") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-impress-nogui", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-impress", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-impress", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-impress-nogui", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
@@ -593,11 +583,11 @@ if(release == "DEB11") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-l10n-pt-br", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-l10n-pt", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-l10n-pt", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-l10n-pt-br", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
@@ -717,11 +707,11 @@ if(release == "DEB11") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-math-nogui", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-math", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-math", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-math-nogui", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
@@ -749,7 +739,7 @@ if(release == "DEB11") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-report-builder-bin-nogui", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-report-builder", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
@@ -757,7 +747,7 @@ if(release == "DEB11") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-report-builder", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-report-builder-bin-nogui", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
@@ -825,15 +815,11 @@ if(release == "DEB11") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-writer-nogui", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"libreoffice-writer", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libreoffice", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libreoffice-writer-nogui", ver:"1:7.0.4-4+deb11u7", rls:"DEB11"))) {
     report += res;
   }
 

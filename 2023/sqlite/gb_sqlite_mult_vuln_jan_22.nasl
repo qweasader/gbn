@@ -23,11 +23,14 @@ CPE = "cpe:/a:sqlite:sqlite";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126291");
-  script_version("2023-01-12T10:12:15+0000");
-  script_tag(name:"last_modification", value:"2023-01-12 10:12:15 +0000 (Thu, 12 Jan 2023)");
+  script_version("2023-10-13T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-01-10 10:28:38 +0000 (Tue, 10 Jan 2023)");
-  script_tag(name:"cvss_base", value:"5.2");
+  script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-09-07 17:47:00 +0000 (Wed, 07 Sep 2022)");
 
   script_tag(name:"qod_type", value:"executable_version_unreliable");
 

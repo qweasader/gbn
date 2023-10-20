@@ -1,39 +1,26 @@
-# Copyright (C) 2015 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2015 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105303");
-  script_version("2021-05-27T09:46:37+0000");
+  script_version("2023-08-10T05:05:53+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2021-05-27 09:46:37 +0000 (Thu, 27 May 2021)");
+  script_tag(name:"last_modification", value:"2023-08-10 05:05:53 +0000 (Thu, 10 Aug 2023)");
   script_tag(name:"creation_date", value:"2015-06-23 14:39:15 +0200 (Tue, 23 Jun 2015)");
   script_name("F5 Networks Enterprise Manager Detection (SSH Login)");
 
   script_tag(name:"summary", value:"SSH login-based detection of the F5 Networks Enterprise Manager.");
+
   script_tag(name:"qod_type", value:"package");
 
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_dependencies("gather-package-list.nasl");
   script_require_ports("Services/ssh", 22);
   script_mandatory_keys("f5/f5_enterprise_manager/VERSION_RAW");
@@ -127,7 +114,7 @@ report = 'Detected F5 Enterprise Manager (ssh)\n' +
 if( active_modules )
   report += 'Modules: ' + active_modules + '\n';
 
-# From https://support.f5.com/csp/article/K7545:
+# From https://my.f5.com/manage/s/article/K7545:
 # 3.0.0 - 3.1.1 -> CentOS 5.4 - 6.0
 # 2.0.0 - 2.3.0 -> CentOS 5.4
 if( version_in_range( version:_version, test_version:"2.0.0", test_version2:"2.3.0" ) )

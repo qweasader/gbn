@@ -1,33 +1,9 @@
-###############################################################################
-# OpenVAS Include File
+# SPDX-FileCopyrightText: 2002 Michel Arboi
+# SPDX-FileCopyrightText: New code since 2009 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Methods for handling some network operations
-#
-# Authors:
-# Michel Arboi <arboi@alussinan.org>
-#
-# Veerendra G.G <veerendragg@secpod.com>
-# Added new function check_udp_port_status() to check UDP port status
-#
-# Antu Sanadi <santu@secpod.com>
-# Added new function is_radius_alive() to check Radius server status
-#
-# Copyright:
-# Copyright (C) 2002 Michel Arboi <arboi@alussinan.org>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 # @brief test if address is on a Private LAN, reserved or not routable address.
 #

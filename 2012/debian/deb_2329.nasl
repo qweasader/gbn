@@ -1,36 +1,22 @@
-# Copyright (C) 2012 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2012 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.70544");
   script_cve_id("CVE-2011-2193");
   script_tag(name:"creation_date", value:"2012-02-11 07:26:55 +0000 (Sat, 11 Feb 2012)");
-  script_version("2023-04-03T10:19:50+0000");
-  script_tag(name:"last_modification", value:"2023-04-03 10:19:50 +0000 (Mon, 03 Apr 2023)");
+  script_version("2023-07-05T05:06:16+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:C/I:C/A:C");
 
   script_name("Debian: Security Advisory (DSA-2329)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB6");
@@ -77,19 +63,19 @@ report = "";
 
 if(release == "DEB6") {
 
-  if(!isnull(res = isdpkgvuln(pkg:"libtorque2-dev", ver:"2.4.8+dfsg-9squeeze1", rls:"DEB6"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"libtorque2", ver:"2.4.8+dfsg-9squeeze1", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"torque-client-x11", ver:"2.4.8+dfsg-9squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libtorque2-dev", ver:"2.4.8+dfsg-9squeeze1", rls:"DEB6"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"torque-client", ver:"2.4.8+dfsg-9squeeze1", rls:"DEB6"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"torque-client-x11", ver:"2.4.8+dfsg-9squeeze1", rls:"DEB6"))) {
     report += res;
   }
 

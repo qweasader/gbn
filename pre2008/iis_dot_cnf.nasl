@@ -1,46 +1,27 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2003 John Lampe
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Check for IIS .cnf file leakage
-#
-# Authors:
-# John Lampe (j_lampe@bellsouth.net)
-# Script audit and contributions from Carmichael Security <http://www.carmichaelsecurity.com>
-# Erik Anderson <eanders@carmichaelsecurity.com>
-# Added BugtraqID
-#
-# Copyright:
-# Copyright (C) 2003 John Lampe....j_lampe@bellsouth.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
+
+CPE = "cpe:/a:microsoft:internet_information_services";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10575");
-  script_version("2022-05-12T09:32:01+0000");
-  script_tag(name:"last_modification", value:"2022-05-12 09:32:01 +0000 (Thu, 12 May 2022)");
+  script_version("2023-10-10T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2023-10-10 05:05:41 +0000 (Tue, 10 Oct 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_cve_id("CVE-2002-1717");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_name("Check for IIS .cnf file leakage");
+  script_name("Microsoft IIS '.cnf' File Leakage Vulnerability - Active Check");
   script_category(ACT_GATHER_INFO);
   script_family("Web Servers");
-  script_copyright("Copyright (C) 2003 John Lampe....j_lampe@bellsouth.net");
-  script_dependencies("gb_get_http_banner.nasl", "no404.nasl");
-  script_mandatory_keys("IIS/banner");
+  script_copyright("Copyright (C) 2003 John Lampe");
+  script_dependencies("gb_microsoft_iis_http_detect.nasl");
+  script_require_ports("Services/www", 80);
+  script_mandatory_keys("microsoft/iis/http/detected");
 
   script_xref(name:"URL", value:"http://www.safehack.com/Advisory/IIS5webdir.txt");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/4078");
@@ -63,16 +44,13 @@ if(description)
 
 include("http_func.inc");
 include("http_keepalive.inc");
-include("port_service_func.inc");
 include("list_array_func.inc");
+include("host_details.inc");
 
-port = http_get_port(default:80);
-sig = http_get_remote_headers(port:port);
-if(!sig || "IIS" >!< sig )
+if(!port = get_app_port(cpe:CPE, service:"www"))
   exit(0);
 
-host = http_host_name(dont_add_port:TRUE);
-if(http_get_no404_string(port:port, host:host))
+if(!get_app_location(cpe:CPE, port:port, nofork:TRUE))
   exit(0);
 
 fl[0] = "/_vti_pvt%5caccess.cnf";
@@ -86,7 +64,7 @@ fl[7] = "/_vti_pvt%5clinkinfo.cnf";
 
 for(i = 0; fl[i]; i++) {
   if(http_is_cgi_installed_ka(item:fl[i], port:port)){
-    res = http_keepalive_send_recv(data:http_get(item:fl[i], port:port), port:port, bodyonly:1);
+    res = http_keepalive_send_recv(data:http_get(item:fl[i], port:port), port:port, bodyonly:TRUE);
     data  = "The IIS web server may allow remote users to read sensitive information from .cnf files. This is not the default configuration.";
     data += '\n\nExample : requesting ' + fl[i] + ' produces the following data :\n\n' + res;
     security_message(port:port, data:data);

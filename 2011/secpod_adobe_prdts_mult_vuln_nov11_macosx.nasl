@@ -1,35 +1,21 @@
-# Copyright (C) 2011 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2011 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902751");
-  script_version("2022-04-28T13:38:57+0000");
+  script_version("2023-10-13T16:09:03+0000");
   script_cve_id("CVE-2011-2445", "CVE-2011-2450", "CVE-2011-2451", "CVE-2011-2452",
                 "CVE-2011-2453", "CVE-2011-2454", "CVE-2011-2455", "CVE-2011-2456",
                 "CVE-2011-2457", "CVE-2011-2458", "CVE-2011-2459", "CVE-2011-2460");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-04-28 13:38:57 +0000 (Thu, 28 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2011-11-16 11:54:43 +0530 (Wed, 16 Nov 2011)");
-  script_name("Adobe Flash Player/Air Multiple Vulnerabilities - November 11 (MAC OS X)");
+  script_name("Adobe Flash Player/Air Multiple Vulnerabilities (Nov 2011) - Mac OS X");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/46818/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/50618");
@@ -47,15 +33,16 @@ if(description)
   script_xref(name:"URL", value:"http://www.adobe.com/support/security/bulletins/apsb11-28.html");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2011 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("General");
   script_dependencies("secpod_adobe_prdts_detect_macosx.nasl");
   script_mandatory_keys("Adobe/Air_or_Flash_or_Reader/MacOSX/Installed");
   script_tag(name:"impact", value:"Successful exploitation will allow remote attackers to execute arbitrary
   code or cause a denial of service (memory corruption) via unspecified
   vectors.");
-  script_tag(name:"affected", value:"Adobe AIR version prior to 3.1.0.4880 on MAC OS X
-  Adobe Flash Player version prior to 10.3.183.11 and 11.x through 11.0.1.152 on MAC OS X");
+  script_tag(name:"affected", value:"Adobe AIR version prior to 3.1.0.4880 on Mac OS X
+
+  Adobe Flash Player version prior to 10.3.183.11 and 11.x through 11.0.1.152 on Mac OS X.");
   script_tag(name:"insight", value:"The flaws are due to memory corruption, heap corruption, buffer
   overflow, stack overflow errors that could lead to code execution.");
   script_tag(name:"summary", value:"Adobe Flash Player/Air is prone to multiple vulnerabilities.");

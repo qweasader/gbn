@@ -25,13 +25,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.2.1.2022.01");
   script_cve_id("CVE-2021-4140", "CVE-2022-22737", "CVE-2022-22738", "CVE-2022-22739", "CVE-2022-22740", "CVE-2022-22741", "CVE-2022-22742", "CVE-2022-22743", "CVE-2022-22745", "CVE-2022-22747", "CVE-2022-22748", "CVE-2022-22751", "CVE-2022-22752", "CVE-2022-22763");
   script_tag(name:"creation_date", value:"2022-02-09 13:04:21 +0000 (Wed, 09 Feb 2022)");
-  script_version("2022-09-22T10:44:54+0000");
-  script_tag(name:"last_modification", value:"2022-09-22 10:44:54 +0000 (Thu, 22 Sep 2022)");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N");
-  script_tag(name:"severity_origin", value:"Greenbone");
-  script_tag(name:"severity_date", value:"2022-02-09 13:04:21 +0000 (Wed, 09 Feb 2022)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-01-03 20:03:00 +0000 (Tue, 03 Jan 2023)");
 
   script_name("Mozilla Firefox Security Advisory (MFSA2022-01) - Linux");
   script_category(ACT_GATHER_INFO);

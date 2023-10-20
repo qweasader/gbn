@@ -181,7 +181,7 @@ function registry_enum_values( key, type ) {
     return kb_proxy;
 
   if( kb_smb_is_samba() ) {
-    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#Windows SMB NVT was started against a Samba Server" );
+    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#Windows SMB VT was started against a Samba Server" );
     return list;
   }
 
@@ -322,7 +322,7 @@ function registry_enum_keys( key, type ) {
     return kb_proxy;
 
   if( kb_smb_is_samba() ) {
-    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#Windows SMB NVT was started against a Samba Server" );
+    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#Windows SMB VT was started against a Samba Server" );
     return list;
   }
 
@@ -632,7 +632,7 @@ function GetVer( file, share, prodvers ) {
   sections_cnt = bin_word( data:smb_read_file( share:share, file:file, offset:pe_offset + 6, count:2 ) );
   section_offset = pe_offset + bin_word( data:smb_read_file( share:share, file:file, offset:pe_offset + 20, count:2 ) ) + 24;
   rsrc_start = NULL;
-  max_recurs = 22;
+  max_recurs = 100;
 
   for( itr = 0; itr < sections_cnt; itr++ ) {
     sections_data = smb_read_file( share:share, file:file, offset:section_offset + itr * 40, count:40 );

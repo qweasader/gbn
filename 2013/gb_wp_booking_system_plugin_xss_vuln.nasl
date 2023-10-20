@@ -1,27 +1,8 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2013 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# WordPress Booking System Plugin XSS Vulnerability
-#
-# Authors:
-# Arun Kallavi <karun@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2013 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:wordpress:wordpress";
 
@@ -39,10 +20,10 @@ General solution options are to upgrade to a newer release, disable respective
 features, remove the product or replace the product by another one.");
   script_tag(name:"summary", value:"The WordPress plugin 'Booking System' is prone to a cross-site scripting (XSS) vulnerability.");
   script_oid("1.3.6.1.4.1.25623.1.0.803696");
-  script_version("2023-03-01T10:20:04+0000");
+  script_version("2023-07-27T05:05:08+0000");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-03-01 10:20:04 +0000 (Wed, 01 Mar 2023)");
+  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
   script_tag(name:"creation_date", value:"2013-07-08 16:10:14 +0530 (Mon, 08 Jul 2013)");
   script_tag(name:"solution_type", value:"WillNotFix");
   script_name("WordPress Booking System Plugin XSS Vulnerability");
@@ -51,7 +32,7 @@ features, remove the product or replace the product by another one.");
   script_xref(name:"URL", value:"http://packetstormsecurity.com/files/122289/WordPress-Booking-System-Cross-Site-Scripting.html");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_wordpress_http_detect.nasl");
   script_require_ports("Services/www", 80);

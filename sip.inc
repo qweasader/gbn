@@ -1,27 +1,8 @@
-###############################################################################
-# OpenVAS Include File
+# SPDX-FileCopyrightText: 2007 Ferdy Riphagen
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# functions to support sip
-#
-# Authors:
-# Ferdy Riphagen <f.riphagen@nsec.nl>
-#
-# Copyright:
-# Copyright (C) 2007 Ferdy Riphagen <f.riphagen@nsec.nl>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 # @brief Creates a SIP OPTIONS request, sends the request to the target, receives the
 #        response and extracts the SIP header (banner) from the response. If a header
@@ -308,8 +289,8 @@ function sip_construct_options_req( port, proto, add_headers, add_branch_rport )
 # @param proto The (optional) IP Protocol ("tcp" or "udp") to be used. Defaults to "udp"
 #              if not passed.
 #
-# @param The opened socket, FALSE in the case no socket could be opened or the port wasn't
-#        scanned previously and NULL if no port parameter was passed.
+# @return The opened socket, FALSE in the case no socket could be opened or the port wasn't
+#         scanned previously and NULL if no port parameter was passed.
 #
 function sip_open_socket( port, proto ) {
 

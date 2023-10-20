@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140170");
-  script_version("2023-06-02T09:09:16+0000");
-  script_tag(name:"last_modification", value:"2023-06-02 09:09:16 +0000 (Fri, 02 Jun 2023)");
+  script_version("2023-09-21T05:05:45+0000");
+  script_tag(name:"last_modification", value:"2023-09-21 05:05:45 +0000 (Thu, 21 Sep 2023)");
   script_tag(name:"creation_date", value:"2017-02-21 11:53:19 +0100 (Tue, 21 Feb 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -77,13 +77,14 @@ main_page_res = http_get_cache( item:"/", port:port );
 set_mandatory_key( key:"+WN", regex:"^Server\s*:\s*+WN", banner:banner );
 set_mandatory_key( key:"3S_WebServer", regex:"^Server\s*:\s*3S_WebServer", banner:banner );
 set_mandatory_key( key:"4D_WebSTAR", regex:"^Server\s*:\s*4D_WebSTAR", banner:banner );
+set_mandatory_key( key:"AAS", regex:"^Server\s*:\s*AAS", banner:banner );
 set_mandatory_key( key:"ABwww", regex:"^Server\s*:\s*A-B WWW", banner:banner );
 set_mandatory_key( key:"ACS", regex:"^Server\s*:\s*ACS", banner:banner );
 set_mandatory_key( key:"ADSL_MODEM", regex:'Basic realm="ADSL Modem"', banner:banner );
 set_mandatory_key( key:"ALLPLAYER-DLNA", regex:"^Server\s*:\s*ALLPLAYER-DLNA", banner:banner );
 set_mandatory_key( key:"AOLserver", regex:"AOLserver", banner:banner );
 set_mandatory_key( key:"ATR-HTTP", regex:"^Server\s*:\s*ATR-HTTP-Server", banner:banner );
-set_mandatory_key( key:"ATS", regex:"^Server\s*:\s*ATS", banner:banner );
+set_mandatory_key( key:"ATS", regex:"^(Server\s*:\s*ATS|Via\s*:.*ApacheTrafficServer)", banner:banner );
 set_mandatory_key( key:"Aastra_6753i", regex:'Basic realm="Aastra 6753i"', banner:banner );
 set_mandatory_key( key:"Abyss", regex:"Abyss", banner:banner );
 set_mandatory_key( key:"AirLive", regex:"AirLive", banner:banner );
@@ -167,6 +168,8 @@ set_mandatory_key( key:"IBM_HTTP_Server", regex:"^Server\s*:\s*IBM[_-]HTTP[-_]Se
 set_mandatory_key( key:"IBM_WebSphere", regex:"^Server\s*:\s*IBM WebSphere", banner:banner );
 set_mandatory_key( key:"IIS", regex:"^Server\s*:\s*(Microsoft-)?IIS", banner:banner );
 set_mandatory_key( key:"ILOM-Web-Server", regex:"^Server\s*:\s*(Sun|Oracle)-ILOM-Web-Server", banner:banner );
+# nb: Might need some improvements / extensions in the future if this doesn't match all known IPP services
+set_mandatory_key( key:"IPP", regex:"^(Server\s*:.*IPP|Server\s*:\s*HP-ChaiServer|Content-type\s*:\s*application/ipp|.+cups\.css|.+/hp/device/info_deviceStatus.html)", banner:banner, main_page_res:main_page_res, extra_key:"Host/could_support_ipp" );
 set_mandatory_key( key:"IOServer", regex:"^Server\s*:\s*IOServer", banner:banner );
 set_mandatory_key( key:"IQhttp", regex:"^Server\s*:\s*IQhttp", banner:banner );
 set_mandatory_key( key:"ISM", regex:"^Server\s*:\s*Intel\(R\) Standard Manageability", banner:banner );
@@ -336,6 +339,7 @@ set_mandatory_key( key:"WebServer_IPCamera_Logo", regex:"^Server\s*:\s*WebServer
 set_mandatory_key( key:"Web_Server", regex:"^Server\s*:\s*Web Server", banner:banner );
 set_mandatory_key( key:"Web_Server_4D", regex:"Web_Server_4D", banner:banner );
 set_mandatory_key( key:"Weborf", regex:"^Server\s*:\s*[Ww]eborf", banner:banner );
+set_mandatory_key( key:"WildFly", regex:"^Server\s*:\s*WildFly", banner:banner );
 set_mandatory_key( key:"WinGate", regex:"WinGate", banner:banner );
 set_mandatory_key( key:"WindRiver-WebServer", regex:"WindRiver-WebServer", banner:banner );
 set_mandatory_key( key:"Wing_FTP_Server", regex:"^Server\s*:\s*Wing FTP Server", banner:banner );
@@ -353,6 +357,7 @@ set_mandatory_key( key:"Zervit", regex:"^Server\s*:\s*Zervit", banner:banner );
 set_mandatory_key( key:"Zeus", regex:"^Server\s*:\s*Zeus", banner:banner );
 set_mandatory_key( key:"ZyXEL-RomPager", regex:"ZyXEL-RomPager", banner:banner );
 set_mandatory_key( key:"multi/ip_cameras", regex:'(alt="ABUS Security-Center"|<title>IP CAMERA Viewer</title>)', banner:banner, main_page_res:main_page_res );
+set_mandatory_key( key:"adobe/jrun", regex:"(^[Ss]erver\s*:\s*JRun Web Server|<title>JRun Servlet Error</title>)", banner:banner, main_page_res:main_page_res );
 set_mandatory_key( key:"agent_dvr", regex:'^[Ww]{3}-[Aa]uthenticate\\s*:\\s*Basic realm="Agent DVR"', banner:banner );
 set_mandatory_key( key:"aiohttp", regex:"^Server\s*:.*aiohttp", banner:banner );
 set_mandatory_key( key:"akamai_ghost", regex:"^Server\s*:\s*AkamaiGHost", banner:banner );
@@ -428,6 +433,7 @@ set_mandatory_key( key:"myCIO", regex:"myCIO", banner:banner );
 set_mandatory_key( key:"ncsa", regex:"^Server\s*:\s*NCSA", banner:banner );
 set_mandatory_key( key:"netcache", regex:"^Server\s*:\s*NetCache", banner:banner );
 set_mandatory_key( key:"netcam", regex:'Basic realm="netcam"', banner:banner );
+set_mandatory_key( key:"netgear/device", regex:"NETGEAR", banner:banner );
 set_mandatory_key( key:"netware", regex:"^Server\s*:\s*NetWare", banner:banner );
 set_mandatory_key( key:"nghttpx", regex:"^Server\s*:\s*nghttpx", banner:banner );
 set_mandatory_key( key:"nginx", regex:"^Server\s*:\s*nginx", banner:banner );
@@ -462,6 +468,7 @@ set_mandatory_key( key:"thin", regex:"^Server\s*:\s*thin", banner:banner );
 set_mandatory_key( key:"thttpd", regex:"^Server\s*:\s*thttpd", banner:banner );
 set_mandatory_key( key:"thttpd-alphanetworks", regex:"thttpd-alphanetworks", banner:banner );
 set_mandatory_key( key:"tigershark", regex:"^Server\s*:.*tigershark", banner:banner );
+set_mandatory_key( key:"titanftp", regex:"^Server\s*:.*Titan FTP Server", banner:banner );
 set_mandatory_key( key:"tplink_httpd", regex:"^Server\s*:\s*TP-LINK HTTPD", banner:banner );
 set_mandatory_key( key:"tracd", regex:"^Server\s*:\s*tracd", banner:banner );
 set_mandatory_key( key:"tripwire", regex:"^Server\s*:\s*Apache.* Intrusion", banner:banner );
@@ -483,5 +490,6 @@ set_mandatory_key( key:"wowza_streaming_engine", regex:"^Server\s*:\s*WowzaStrea
 set_mandatory_key( key:"www_fileshare_pro", regex:"^Server\s*:\s*WWW File Share Pro", banner:banner );
 set_mandatory_key( key:"yawcam", regex:"^Server\s*:\s*yawcam", banner:banner );
 set_mandatory_key( key:"zope", regex:"Zope", banner:banner );
+set_mandatory_key( key:"polycom_telephone", regex:"^Server\s*:\s*Poly(com)? .*Telephone HTTPd", banner:banner );
 
 exit( 0 );

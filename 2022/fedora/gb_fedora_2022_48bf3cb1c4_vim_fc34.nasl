@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.819792");
-  script_version("2022-03-15T14:03:18+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-0554", "CVE-2022-0714", "CVE-2022-0729", "CVE-2022-0696", "CVE-2022-0629", "CVE-2022-0572", "CVE-2022-0408", "CVE-2022-0413", "CVE-2022-0393", "CVE-2022-0417", "CVE-2022-0443", "CVE-2022-0685");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-03-15 14:03:18 +0000 (Tue, 15 Mar 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-03-04 19:48:00 +0000 (Fri, 04 Mar 2022)");
+  script_tag(name:"severity_date", value:"2022-03-02 02:36:00 +0000 (Wed, 02 Mar 2022)");
   script_tag(name:"creation_date", value:"2022-02-26 02:04:14 +0000 (Sat, 26 Feb 2022)");
   script_name("Fedora: Security Advisory for vim (FEDORA-2022-48bf3cb1c4)");
   script_category(ACT_GATHER_INFO);

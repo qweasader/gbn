@@ -1,41 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 Renaud Deraison
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# WEBMIRROR 2.0
-#
-# Saved from
-# http://patch-tracker.debian.org/patch/misc/view/nessus-plugins/2.2.10-6/scripts/webmirror.nasl
-# (nessus internal revision 1.86 released with 2.2.0 in November 2004 under GNU GPL terms)
-#
-# Authors:
-# Renaud Deraison <deraison@nessus.org>.
-#
-# includes some code by H D Moore <hdmoore@digitaldefense.net>
-#
-# Modified by Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2009 Renaud Deraison
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10662");
-  script_version("2023-01-16T10:11:20+0000");
-  script_tag(name:"last_modification", value:"2023-01-16 10:11:20 +0000 (Mon, 16 Jan 2023)");
+  script_version("2023-07-07T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-07-07 05:05:26 +0000 (Fri, 07 Jul 2023)");
   script_tag(name:"creation_date", value:"2009-10-02 19:48:14 +0200 (Fri, 02 Oct 2009)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -69,6 +42,11 @@ if(description)
 
   exit(0);
 }
+
+# - Initial version was saved from
+# http://patch-tracker.debian.org/patch/misc/view/nessus-plugins/2.2.10-6/scripts/webmirror.nasl
+# (nessus internal revision 1.86 released with 2.2.0 in November 2004 under GNU GPL terms)
+# - includes some code by HD Moore <hdmoore@digitaldefense.net>
 
 include("http_func.inc");
 include("http_keepalive.inc");
@@ -109,7 +87,7 @@ failedReqs = 0;
 # counter for the current amount of done requests
 currReqs = 0;
 # counter for max failed requests
-# The NVT will exit if this is reached
+# The VT will exit if this is reached
 # TBD: Make this configurable?
 maxFailedReqs = 3;
 
@@ -1005,7 +983,7 @@ while( TRUE ) {
         if( URL =~ "^/manual" ) {
           res = http_get_cache( item:"/manual/en/index.html", port:port );
           currReqs++;
-          if( "Documentation - Apache HTTP Server" >< res ) {
+          if( res && "Documentation - Apache HTTP Server" >< res ) {
             URLs_hash[URL] = 1;
             set_kb_item( name:"www/" + host + "/" + port + "/content/servermanual_directories", value:http_report_vuln_url( port:port, url:URL, url_only:TRUE ) + ", Content: Apache HTTP Server Manual" );
             continue;
@@ -1016,9 +994,20 @@ while( TRUE ) {
         if( URL =~ "^/tomcat-docs" ) {
           res = http_get_cache( item:"/tomcat-docs/", port:port );
           currReqs++;
-          if( "Apache Tomcat" >< res && "Documentation Index" >< res ) {
+          if( res && "Apache Tomcat" >< res && "Documentation Index" >< res ) {
             URLs_hash[URL] = 1;
             set_kb_item( name:"www/" + host + "/" + port + "/content/servermanual_directories", value:http_report_vuln_url( port:port, url:URL, url_only:TRUE ) + ", Content: Apache Tomcat Documentation" );
+            continue;
+          }
+        }
+
+        # And the same for Caucho Resin
+        if( URL =~ "^/resin-doc" ) {
+          res = http_get_cache( item:"/resin-doc/", port:port );
+          currReqs++;
+          if( res && ">Resin Documentation<" >< res ) {
+            URLs_hash[URL] = 1;
+            set_kb_item( name:"www/" + host + "/" + port + "/content/servermanual_directories", value:http_report_vuln_url( port:port, url:URL, url_only:TRUE ) + ", Content: Caucho Resin Documentation" );
             continue;
           }
         }

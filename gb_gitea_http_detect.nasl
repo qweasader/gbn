@@ -1,34 +1,20 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141676");
-  script_version("2022-11-23T10:13:09+0000");
-  script_tag(name:"last_modification", value:"2022-11-23 10:13:09 +0000 (Wed, 23 Nov 2022)");
+  script_version("2023-06-20T05:05:27+0000");
+  script_tag(name:"last_modification", value:"2023-06-20 05:05:27 +0000 (Tue, 20 Jun 2023)");
   script_tag(name:"creation_date", value:"2018-11-13 11:18:05 +0700 (Tue, 13 Nov 2018)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_name("Gitea Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Product detection");
   script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 3000);
@@ -76,9 +62,11 @@ foreach dir (make_list_unique("/", "/gitea", http_cgi_dirs(port: port))) {
     # Gitea Version: 1.13.0&#43;dev-403-gc18b0529e
     # Powered by Gitea Version: 1.14.3 Page: <strong>7ms</strong> Template: <strong>1ms</strong>
     # Powered by Gitea\n\t\t\t\n\t\t\t\tVersion:\n\t\t\t\t\n\t\t\t\t\t1.17.3
-    vers = eregmatch(pattern: "Gitea\s+Version:\s+([^ ]+)", string: res);
-    if (!isnull(vers[1])) {
-      _version = str_replace(string: vers[1], find: "&#43;", replace: ".");
+    # Powered by Gitea</a>\n\t\t\n\t\t\tVersion:\n\t\t\t\n\t\t\t\t1.19.3
+    # Powered by Gitea</a>\n\t\t\n\t\t\tVersion:\n\t\t\t\n\t\t\t\t1.20.0&#43;rc0-64-gb71cb7acd
+    vers = eregmatch(pattern: "Gitea(</a>)?\s+Version:\s+([^ ]+)", string: res);
+    if (!isnull(vers[2])) {
+      _version = str_replace(string: vers[2], find: "&#43;", replace: ".");
       _version = str_replace(string: _version, find: "-", replace: ".");
       # nb: The first eregmatch above might catch "too" much in the case of having the \t\n included
       _version = eregmatch(string: _version, pattern: "^([0-9a-z.]+)");

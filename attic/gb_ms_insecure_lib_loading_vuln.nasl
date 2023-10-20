@@ -1,34 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2011 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Microsoft Windows Insecure Library Loading Vulnerability (2269637)
-#
-# Authors:
-# Madhuri D <dmadhuri@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2011 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802136");
-  script_version("2020-04-02T11:36:28+0000");
+  script_version("2023-06-22T10:34:15+0000");
   script_tag(name:"deprecated", value:TRUE);
-  script_tag(name:"last_modification", value:"2020-04-02 11:36:28 +0000 (Thu, 02 Apr 2020)");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2011-08-11 06:41:03 +0200 (Thu, 11 Aug 2011)");
   script_cve_id("CVE-2010-3337");
   script_tag(name:"cvss_base", value:"9.3");
@@ -41,7 +22,7 @@ if(description)
 
   script_tag(name:"qod_type", value:"registry");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2011 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Windows");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attacker to remotely execute arbitrary
@@ -64,7 +45,7 @@ if(description)
   script_tag(name:"summary", value:"This host is missing a critical security update according to Microsoft
   Security Advisory (2269637).
 
-  This NVT has been replaced by OID:1.3.6.1.4.1.25623.1.0.902792.");
+  This VT has been replaced by OID:1.3.6.1.4.1.25623.1.0.902792.");
 
   script_tag(name:"solution", value:"No known solution was made available for at least one year since the disclosure
   of this vulnerability. Likely none will be provided anymore. General solution options are to upgrade to a newer
@@ -75,4 +56,4 @@ if(description)
   exit(0);
 }
 
-exit(66); ## This NVT is deprecated as addressed in secpod_ms12-014.nasl
+exit(66); ## This VT is deprecated as addressed in secpod_ms12-014.nasl

@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854990");
-  script_version("2022-09-20T10:11:40+0000");
+  script_version("2023-10-19T05:05:21+0000");
   script_cve_id("CVE-2022-21554", "CVE-2022-21571");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-09-20 10:11:40 +0000 (Tue, 20 Sep 2022)");
+  script_tag(name:"cvss_base", value:"6.5");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:M/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-07-19 22:15:00 +0000 (Tue, 19 Jul 2022)");
   script_tag(name:"creation_date", value:"2022-09-17 01:02:42 +0000 (Sat, 17 Sep 2022)");
   script_name("openSUSE: Security Advisory for virtualbox (openSUSE-SU-2022:10122-1)");
   script_category(ACT_GATHER_INFO);

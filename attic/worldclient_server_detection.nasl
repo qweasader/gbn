@@ -1,37 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2005 Noam Rathaus <noamr@securiteam.com> & SecuriTeam
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# WorldClient for MDaemon Server Detection
-#
-# Authors:
-# Noam Rathaus <noamr@securiteam.com>
-# Script audit and contributions from Carmichael Security <http://www.carmichaelsecurity.com>
-# Erik Anderson <eanders@carmichaelsecurity.com>
-# Currently no testing scripts for WorldClient vulnerabilities.  Added
-# notes of the current list of WorldClient vulnerabilities
-#
-# Copyright:
-# Copyright (C) 2005 Noam Rathaus <noamr@securiteam.com> & SecuriTeam
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10745");
-  script_version("2022-06-28T10:11:01+0000");
-  script_tag(name:"last_modification", value:"2022-06-28 10:11:01 +0000 (Tue, 28 Jun 2022)");
+  script_version("2023-08-01T13:29:10+0000");
+  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_cve_id("CVE-2000-0660");
   script_tag(name:"cvss_base", value:"5.0");

@@ -23,14 +23,14 @@ CPE = "cpe:/a:oracle:mysql";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113945");
-  script_version("2022-04-29T03:03:59+0000");
-  script_tag(name:"last_modification", value:"2022-04-29 03:03:59 +0000 (Fri, 29 Apr 2022)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-04-25 12:30:46 +0000 (Mon, 25 Apr 2022)");
   script_tag(name:"cvss_base", value:"5.5");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:L/A:H");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-04-27 18:02:00 +0000 (Wed, 27 Apr 2022)");
+  script_tag(name:"severity_date", value:"2022-05-02 16:26:00 +0000 (Mon, 02 May 2022)");
 
   script_cve_id("CVE-2021-22570", "CVE-2022-21457", "CVE-2022-21425", "CVE-2022-21440",
                 "CVE-2022-21459", "CVE-2022-21478", "CVE-2022-21479", "CVE-2022-21418",

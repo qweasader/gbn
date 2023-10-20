@@ -23,8 +23,8 @@ CPE = "cpe:/a:ui:unifi_video";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.143681");
-  script_version("2021-08-17T06:00:55+0000");
-  script_tag(name:"last_modification", value:"2021-08-17 06:00:55 +0000 (Tue, 17 Aug 2021)");
+  script_version("2023-10-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"creation_date", value:"2020-04-08 04:52:39 +0000 (Wed, 08 Apr 2020)");
   script_tag(name:"cvss_base", value:"6.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:C/A:C");
@@ -52,7 +52,7 @@ if (description)
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"UniFi contains a local privileges escalation to SYSTEM from arbitrary file
-  deletetion and a DLL hijack vulnerability.");
+  deletion and a DLL hijack vulnerability.");
 
   script_tag(name:"affected", value:"UniFi Video version 3.10.2 and prior on Windows.");
 

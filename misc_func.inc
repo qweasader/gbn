@@ -1,23 +1,9 @@
-# Copyright (C) 2002 Michel Arboi <arboi@alussinan.org>
-# New code since 2009 Copyright (C) 2009 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2002 Michel Arboi
+# SPDX-FileCopyrightText: New code / functions since 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
 function rand_str( length, charset ) {
 
@@ -493,8 +479,10 @@ function build_eol_message( eol_type, name, cpe, version, location, skip_version
 
     if( ! skip_version ) {
       report = 'The "' + name + '" version on the remote host has reached the end of life.\n\n' +
-               'CPE:               ' + cpe + ':' + version + '\n' +
-               'Installed version: ' + version;
+               "CPE:               " + cpe;
+      if( tolower( version ) != "unknown" )
+        report += ":" + version;
+      report += '\nInstalled version: ' + version;
     } else {
       report = 'The "' + name + '" product on the remote host has reached the end of life.\n\n' +
                'CPE:               ' + cpe;
@@ -912,37 +900,37 @@ function get_local_gos_version() {
 #
 # @note The returned string depends on the platform (OpenVAS/GVM/GOS) the scanner is running at.
 #
-# @return An array containing various string representations of either "GBNVT" or "OpenVASVT"
+# @return An array containing various string representations of either "GBVT" or "OpenVASVT"
 #         depending on the platform the scanner is running at. Currently the following array indices
 #         are supported / available:
 #
-#         ret_array["default"]             = either "GBNVT" or "OpenVASVT"
+#         ret_array["default"]             = either "GBVT" or "OpenVASVT"
 #         ret_array["default_rand"]        = "default" with random numbers appended
 #         ret_array["default_hex"]         = "default" converted to a hex string
 #         ret_array["default_rand_hex"]    = "default_rand" converted to a hex string
 #         ret_array["default_ver_space"]   = "default" with the current library version appended and a space as a separator
 #         ret_array["default_ver_dash"]    = "default" with the current library version appended and a dash as a separator
-#         ret_array["default_dash"]        = "default" with a dash ("-"), e.g. "GBN-VT" or "OpenVAS-VT"
+#         ret_array["default_dash"]        = "default" with a dash ("-"), e.g. "GB-VT" or "OpenVAS-VT"
 #         ret_array["default_rand_dash"]   = "default" with a dash with random numbers appended
 #
-#         ret_array["ping_string"] = either "GBNVT" or "OpenVASVT" in a form of e.g. "_GBNVT1234_" filled up to 16 bytes of total length, for the use in the "-p" parameter of unixoide ping commands which allows a max. of 16 bytes in the passed string
+#         ret_array["ping_string"] = either "GBVT" or "OpenVASVT" in a form of e.g. "_GBVT1234_" filled up to 16 bytes of total length, for the use in the "-p" parameter of unixoide ping commands which allows a max. of 16 bytes in the passed string
 #
-#         ret_array["lowercase"]           = either "gbnvt" or "openvasvt"
+#         ret_array["lowercase"]           = either "gbvt" or "openvasvt"
 #         ret_array["lowercase_rand"]      = "lowercase" with random numbers appended
 #         ret_array["lowercase_hex"]       = "lowercase" converted to a hex string
 #         ret_array["lowercase_rand_hex"]  = "lowercase_rand" converted to a hex string
 #         ret_array["lowercase_ver_space"] = "lowercase" with the current library version appended and a space as a separator
 #         ret_array["lowercase_ver_dash"]  = "lowercase" with the current library version appended and a dash as a separator
-#         ret_array["lowercase_dash"]      = "lowercase" with a dash ("-"), e.g. "GBN-VT" or "OpenVAS-VT"
+#         ret_array["lowercase_dash"]      = "lowercase" with a dash ("-"), e.g. "GB-VT" or "OpenVAS-VT"
 #         ret_array["lowercase_rand_dash"] = "lowercase" with a dash with random numbers appended
 #
-#         ret_array["uppercase"]           = either "GBNVT" or "OPENVASVT"
+#         ret_array["uppercase"]           = either "GBVT" or "OPENVASVT"
 #         ret_array["uppercase_rand"]      = "uppercase" with random numbers appended
 #         ret_array["uppercase_hex"]       = "uppercase" converted to a hex string
 #         ret_array["uppercase_rand_hex"]  = "uppercase_rand" converted to a hex string
 #         ret_array["uppercase_ver_space"] = "uppercase" with the current library version appended and a space as a separator
 #         ret_array["uppercase_ver_dash"]  = "uppercase" with the current library version appended and a dash as a separator
-#         ret_array["uppercase_dash"]      = "uppercase" with a dash ("-"), e.g. "GBN-VT" or "OpenVAS-VT"
+#         ret_array["uppercase_dash"]      = "uppercase" with a dash ("-"), e.g. "GB-VT" or "OpenVAS-VT"
 #         ret_array["uppercase_rand_dash"] = "uppercase" with a dash with random numbers appended
 #
 function get_vt_strings() {
@@ -952,8 +940,8 @@ function get_vt_strings() {
   ret_array = make_array();
 
   if( executed_on_gos() ) {
-    vt_string = "GBNVT";
-    vt_string_dash = "GBN-VT";
+    vt_string = "GBVT";
+    vt_string_dash = "GB-VT";
   } else {
     vt_string = "OpenVASVT";
     vt_string_dash = "OpenVAS-VT";

@@ -21,7 +21,9 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826953");
-  script_version("2023-03-30T10:19:37+0000");
+  script_version("2023-10-12T05:05:32+0000");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2022-43551", "CVE-2022-43552", "CVE-2023-0049", "CVE-2023-0051",
                 "CVE-2023-0054", "CVE-2023-0288", "CVE-2023-0433", "CVE-2023-0512",
                 "CVE-2023-23514", "CVE-2023-23523", "CVE-2023-23525", "CVE-2023-23526",
@@ -36,10 +38,19 @@ if(description)
                 "CVE-2023-27961", "CVE-2023-27962", "CVE-2023-27963", "CVE-2023-27965",
                 "CVE-2023-27968", "CVE-2023-27969", "CVE-2023-28178", "CVE-2023-28180",
                 "CVE-2023-28181", "CVE-2023-28182", "CVE-2023-28190", "CVE-2023-28192",
-                "CVE-2023-28200");
-  script_tag(name:"cvss_base", value:"6.4");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-03-30 10:19:37 +0000 (Thu, 30 Mar 2023)");
+                "CVE-2023-28200", "CVE-2023-23536", "CVE-2023-27939", "CVE-2023-27947",
+                "CVE-2023-27948", "CVE-2023-27950", "CVE-2023-27966", "CVE-2023-28179",
+                "CVE-2023-28187", "CVE-2023-28188", "CVE-2023-28189", "CVE-2023-28195",
+                "CVE-2023-28198", "CVE-2023-28199", "CVE-2023-28201", "CVE-2023-28209",
+                "CVE-2023-28210", "CVE-2023-28211", "CVE-2023-28212", "CVE-2023-28213",
+                "CVE-2023-28214", "CVE-2023-28215", "CVE-2023-32356", "CVE-2023-32358",
+                "CVE-2023-32362", "CVE-2023-32370", "CVE-2023-32426", "CVE-2023-32435");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-05-15 13:24:00 +0000 (Mon, 15 May 2023)");
   script_tag(name:"creation_date", value:"2023-03-29 11:22:17 +0530 (Wed, 29 Mar 2023)");
   script_name("Apple MacOSX Security Update (HT213670)");
 
@@ -79,6 +90,7 @@ if(description)
   script_mandatory_keys("ssh/login/osx_name", "ssh/login/osx_version", re:"ssh/login/osx_version=^13\.");
   exit(0);
 }
+
 include("version_func.inc");
 
 osName = get_kb_item("ssh/login/osx_name");
@@ -86,14 +98,13 @@ if(!osName)
   exit(0);
 
 osVer = get_kb_item("ssh/login/osx_version");
-if(!osVer || osVer !~ "^13\." || "Mac OS X" >!< osName){
+if(!osVer || osVer !~ "^13\." || "Mac OS X" >!< osName) {
   exit(0);
 }
 
-if(version_is_less(version:osVer, test_version:"13.3"))
-{
+if(version_is_less(version:osVer, test_version:"13.3")) {
   report = report_fixed_ver(installed_version:osVer, fixed_version:"13.3");
-  security_message(data:report);
+  security_message(port:0, data:report);
   exit(0);
 }
 

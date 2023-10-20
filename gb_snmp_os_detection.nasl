@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103429");
-  script_version("2023-05-11T09:09:33+0000");
-  script_tag(name:"last_modification", value:"2023-05-11 09:09:33 +0000 (Thu, 11 May 2023)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2012-02-17 10:17:12 +0100 (Fri, 17 Feb 2012)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -16,7 +16,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
   script_copyright("Copyright (C) 2012 Greenbone AG");
-  script_dependencies("gb_snmp_sysdescr_detect.nasl");
+  script_dependencies("gb_snmp_info_collect.nasl");
   script_require_udp_ports("Services/udp/snmp", 161);
   script_mandatory_keys("SNMP/sysdescr/available");
 
@@ -65,6 +65,9 @@ if( sysdesc =~ "Linux" && " Debian " >< sysdesc ) {
   } else if( "+deb11" >< sysdesc || "~bpo11" >< sysdesc ) {
     set_kb_item( name:"Host/OS/SNMP", value:"Debian GNU/Linux 11" );
     os_register_and_report( os:"Debian GNU/Linux", version:"11", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  } else if( "+deb12" >< sysdesc || "~bpo12" >< sysdesc ) {
+    set_kb_item( name:"Host/OS/SNMP", value:"Debian GNU/Linux 12" );
+    os_register_and_report( os:"Debian GNU/Linux", version:"12", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
   } else {
     set_kb_item( name:"Host/OS/SNMP", value:"Debian GNU/Linux" );
     os_register_and_report( os:"Debian GNU/Linux", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
@@ -335,7 +338,7 @@ if( sysdesc =~ "^Darwin [^ ]+ " || "Darwin Kernel" >< sysdesc ) {
   set_kb_item( name:"Host/OS/SNMP", value:"Apple Mac OS X" );
   set_kb_item( name:"Host/OS/SNMP/Confidence", value:100 );
 
-  os_register_and_report( os:"MAC OS X", cpe:"cpe:/o:apple:mac_os_x", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  os_register_and_report( os:"Mac OS X", cpe:"cpe:/o:apple:mac_os_x", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
 
   exit( 0 );
 }
@@ -467,7 +470,7 @@ if( "Cisco IOS XR" >< sysdesc ) {
 }
 
 if( "ArubaOS" >< sysdesc ) {
-  exit( 0 ); # 1.3.6.1.4.1.25623.1.0.105244 (gb_arubaos_detect.nasl)
+  exit( 0 ); # 1.3.6.1.4.1.25623.1.0.105244 (gb_aruba_arubaos_snmp_detect.nasl)
 }
 
 if( "Cisco NX-OS" >< sysdesc ) {
@@ -531,7 +534,7 @@ if( sysdesc =~ "^Ruckus Wireless ZD[0-9]+" ) {
 }
 
 # nb: More detailed OS Detection covered in gsf/gb_aruba_switches_snmp_detect.nasl
-if( sysdesc =~ "^(Aruba|HP|ProCurve) J[^ ]+ .*Switch" ) {
+if( sysdesc =~ "^(Aruba|HP|ProCurve) .*Switch" ) {
   os_register_and_report( os:"Aruba/HP/HPE Switch Firmware", cpe:"cpe:/o:arubanetworks:switch_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
   exit( 0 );
 }
@@ -690,6 +693,29 @@ if( sysdesc =~ "^SHARP " ) {
   exit( 0 );
 }
 
+# e.g.:
+# Xerox(R) B225 MFP
+# Xerox AltaLink C8045
+# - More detailed OS Detection covered in gb_xerox_printer_consolidation.nasl
+# - Case insensitive match (via "=~") is expected / done on purpose as different writings of XEROX
+#   vs. Xerox has been seen
+if( sysdesc =~ "^Xerox( \(R\))? " ) {
+  os_register_and_report( os:"Xerox Printer Firmware", cpe:"cpe:/o:xerox:printer_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
+# e.g.:
+# FUJI XEROX DocuColor 1450 GA
+# FUJIFILM ApeosPort C2410SD
+# FX DocuPrint P115 w
+# - More detailed OS Detection covered in gb_fujifilm_printer_consolidation.nasl
+# - Case insensitive match (via "=~") is expected / done on purpose as different writings of XEROX
+#   vs. Xerox has been seen
+if( sysdesc =~ "^(FUJI XEROX|FUJIFILM|FX DocuPrint) " ) {
+  os_register_and_report( os:"Fujifilm Printer Firmware", cpe:"cpe:/o:fujifilm:printer_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
 # More detailed OS Detection covered in gsf/gb_watchguard_firebox_snmp_detect.nasl
 if( sysdesc =~ "^(XTM([0-9]+(-[AFPRW])?)|T[0-9]{2}(-W)?|M[0-9]+|Firebox(V|Cloud)?(-[A-Z]+)?)$" ) {
   os_register_and_report( os:"WatchGuard Fireware Firmware", cpe:"cpe:/o:watchguard:fireware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
@@ -702,6 +728,22 @@ if( "SonicOS" >< sysdesc ) {
   exit( 0 );
 }
 
+# e.g.:
+# SonicWall SMA 400 (9.0.0.11-31sv)
+# More detailed OS detection in VTs like e.g. gb_dell_sonicwall_sma_sra_consolidation.nasl
+if( egrep( pattern:"SonicW[Aa][Ll]{2} SMA", string:sysdesc, icase:FALSE ) ) {
+  os_register_and_report( os:"SonicWall SMA Firmware", cpe:"cpe:/o:sonicwall:sma_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
+# e.g.:
+# Dell SonicWALL SRA Virtual Appliance ( 8.1.0.10-25sv)
+# More detailed OS detection in VTs like e.g. gb_dell_sonicwall_sma_sra_consolidation.nasl
+if( egrep( pattern:"SonicW[Aa][Ll]{2} SRA", string:sysdesc, icase:FALSE ) ) {
+  os_register_and_report( os:"SonicWall SRA Firmware", cpe:"cpe:/o:sonicwall:sra_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
 # More detailed OS Detection covered in e.g. gsf/gb_turck_snmp_detect.nasl
 if( sysdesc =~ "^Turck," ) {
   os_register_and_report( os:"Turck Device Firmware", cpe:"cpe:/o:turck:device_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
@@ -709,7 +751,7 @@ if( sysdesc =~ "^Turck," ) {
 }
 
 # More detailed OS Detection covered in e.g. gsf/gb_paloalto_panos_snmp_detect.nasl
-if( sysdesc =~ "^^Palo Alto Networks" ) {
+if( sysdesc =~ "^Palo Alto Networks" ) {
   os_register_and_report( os:"Palo Alto PAN-OS", cpe:"cpe:/o:paloaltonetworks:pan-os", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
   exit( 0 );
 }
@@ -865,6 +907,12 @@ if( sysdesc =~ "^MiiNePort" ) {
   exit( 0 );
 }
 
+# nb: More detailed detection covered in gb_citrix_netscaler_snmp_detect.nasl
+if( sysdesc =~ "^NetScaler NS" ) {
+  os_register_and_report( os:"Citrix NetScaler OS", cpe:"cpe:/o:citrix:netscaler", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
 if( # e.g.:
     # 24-Port GbE L2+ Managed Fiber Switch
     # nb: Seen on at least these two vendors / devices
@@ -887,6 +935,32 @@ if( # e.g.:
 # nb: More detailed detection covered in gb_meinberg_lantime_consolidation.nasl
 if( "Meinberg LANTIME" >< sysdesc ) {
   os_register_and_report( os:"Meinberg LANTIME Firmware", cpe:"cpe:/o:meinbergglobal:lantime_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
+# WAGO 750-8212 PFC200 G2 2ETH RS
+# WAGO 750-881 PFC ETHERNET
+# WAGO IO-IPC
+# nb: More detailed detection covered in gb_wago_plc_snmp_detect.nasl
+if( egrep( pattern:"^WAGO ", string:sysdesc, icase:FALSE ) ) {
+  os_register_and_report( os:"WAGO PLC Controller Firmware", cpe:"cpe:/o:wago:plc_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
+# Rockwell Automation 1756-L83E/B
+# nb: More detailed detection covered in gsf/gb_rockwell_controllogix_snmp_detect.nasl
+if( sysdesc =~ "Rockwell Automation 175[0-9]\-[A-Z0-9]{4}" ) {
+  os_register_and_report( os:"Rockwell Automation ControlLogix Firmware", cpe:"cpe:/o:rockwellautomation:controllogix_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
+# nb:
+# - Keep in sync with the pattern used in gsf/gb_honeywell_printer_snmp_detect.nasl and
+#   dont_print_on_printers.nasl
+# - The model regex below should be checked from time to time to include possible additional
+#   models
+if( sysdesc =~ "^Honeywell P[CMXD][0-9]+" ) {
+  os_register_and_report( os:"Honeywell Printer Unknown Model Firmware", cpe:"cpe:/o:honeywell:printer_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
   exit( 0 );
 }
 

@@ -1,34 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2011 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Apple MAC OS X v10.6.8 Safari Multiple Vulnerabilities
-#
-# Authors:
-# Madhuri D <dmadhuri@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2011 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apple:safari";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802192");
-  script_version("2022-04-28T13:38:57+0000");
+  script_version("2023-10-13T16:09:03+0000");
   script_cve_id("CVE-2011-3229", "CVE-2011-3230", "CVE-2011-3231", "CVE-2011-1440",
                 "CVE-2011-2338", "CVE-2011-2339", "CVE-2011-2341", "CVE-2011-2351",
                 "CVE-2011-2352", "CVE-2011-2354", "CVE-2011-2356", "CVE-2011-2359",
@@ -40,12 +21,12 @@ if(description)
                 "CVE-2011-3235", "CVE-2011-3236", "CVE-2011-3237", "CVE-2011-3238",
                 "CVE-2011-3239", "CVE-2011-3241", "CVE-2011-2800", "CVE-2011-2805",
                 "CVE-2011-2819", "CVE-2011-3243", "CVE-2011-3242");
-  script_tag(name:"last_modification", value:"2022-04-28 13:38:57 +0000 (Thu, 28 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2011-10-20 08:43:23 +0200 (Thu, 20 Oct 2011)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("Apple MAC OS X v10.6.8 Safari Multiple Vulnerabilities");
-  script_copyright("Copyright (C) 2011 Greenbone Networks GmbH");
+  script_name("Apple Mac OS X v10.6.8 Safari Multiple Vulnerabilities");
+  script_copyright("Copyright (C) 2011 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Mac OS X Local Security Checks");
   script_dependencies("macosx_safari_detect.nasl");
@@ -70,7 +51,7 @@ if(description)
   script_tag(name:"impact", value:"Successful exploitation could allow attackers to opening a maliciously
   crafted files, which leads to an unexpected application termination or arbitrary code execution.");
 
-  script_tag(name:"affected", value:"Safari version prior to 5.1.1 on MAC OS X/Mac OS X Server 10.6.8.");
+  script_tag(name:"affected", value:"Safari version prior to 5.1.1 on Mac OS X/Mac OS X Server 10.6.8.");
 
   script_tag(name:"insight", value:"The flaws are due to
 

@@ -1,40 +1,21 @@
-##############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2017 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# IT-Grundschutz Baustein: SYS.1.2.2 Windows Server 2012
-#
-# Authors:
-# Emanuel Moss <emanuel.moss@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2017 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.109035");
-  script_version("2022-06-03T10:43:51+0000");
-  script_tag(name:"last_modification", value:"2022-06-03 10:43:51 +0000 (Fri, 03 Jun 2022)");
+  script_version("2023-07-28T16:09:07+0000");
+  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
   script_tag(name:"creation_date", value:"2017-11-15 14:42:28 +0200 (Wed, 15 Nov 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:S/C:N/I:N/A:N");
   script_tag(name:"qod", value:"97");
   script_name('SYS.1.2.2 Windows Server 2012');
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("IT-Grundschutz");
   script_mandatory_keys("Compliance/Launch/GSHB-ITG");
   script_dependencies("GSHB/GSHB_WMI_OSInfo.nasl", "GSHB/GSHB_M4_097.nasl", "gb_ms_ie_detect.nasl", "lsc_options.nasl");

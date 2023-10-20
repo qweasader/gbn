@@ -1,31 +1,14 @@
-# OpenVAS Vulnerability Test
-# Description: Linksys multiple remote vulnerabilities
+# SPDX-FileCopyrightText: 2005 Josh Zlatin-Amishav
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Josh Zlatin-Amishav (josh at ramat dot cc)
-#
-# Copyright:
-# Copyright (C) 2005 Josh Zlatin-Amishav
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.20096");
-  script_version("2022-05-12T09:32:01+0000");
-  script_tag(name:"last_modification", value:"2022-05-12 09:32:01 +0000 (Thu, 12 May 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2006-03-26 17:55:15 +0200 (Sun, 26 Mar 2006)");
   script_cve_id("CVE-2005-2799", "CVE-2005-2914", "CVE-2005-2915", "CVE-2005-2916");
   script_xref(name:"OSVDB", value:"19386");
@@ -37,7 +20,7 @@ if(description)
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_name("Linksys multiple remote vulnerabilities");
   script_category(ACT_DENIAL);
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_copyright("Copyright (C) 2005 Josh Zlatin-Amishav");
   script_family("Gain a shell remotely");
   script_dependencies("gb_get_http_banner.nasl");

@@ -9,11 +9,14 @@ CPE_PREFIX = "cpe:/o:hp:color_laserjet_pro";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.149651");
-  script_version("2023-05-08T09:08:51+0000");
-  script_tag(name:"last_modification", value:"2023-05-08 09:08:51 +0000 (Mon, 08 May 2023)");
+  script_version("2023-10-13T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-05-08 06:13:22 +0000 (Mon, 08 May 2023)");
-  script_tag(name:"cvss_base", value:"8.3");
-  script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-05-17 14:53:00 +0000 (Wed, 17 May 2023)");
 
   script_cve_id("CVE-2023-27971", "CVE-2023-27972", "CVE-2023-27973");
 

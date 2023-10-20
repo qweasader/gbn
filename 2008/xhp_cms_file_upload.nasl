@@ -1,30 +1,14 @@
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2008 Ferdy Riphagen
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Ferdy Riphagen
-#
-# Copyright:
-# Copyright (C) 2008 Ferdy Riphagen
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.200100");
-  script_version("2022-07-05T11:37:00+0000");
-  script_tag(name:"last_modification", value:"2022-07-05 11:37:00 +0000 (Tue, 05 Jul 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2008-08-22 16:09:14 +0200 (Fri, 22 Aug 2008)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -32,7 +16,7 @@ if(description)
   script_xref(name:"OSVDB", value:"24058");
   script_xref(name:"OSVDB", value:"24059");
   script_name("XHP CMS <= 0.5 File Upload Vulnerability");
-  script_category(ACT_MIXED_ATTACK);
+  script_category(ACT_MIXED_ATTACK); # nb: Storing file on the target without deleting it...
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2008 Ferdy Riphagen");
   script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
@@ -48,9 +32,9 @@ if(description)
   script_tag(name:"vuldetect", value:"Depending on the 'safe_checks' setting of the scan
   configuration:
 
-  - Checks if a vulnerable version is present on the target host
+  - Setting 'yes': Checks if a vulnerable version is present on the target host
 
-  - Sends a crafted HTTP request and checks the response");
+  - Setting 'no': Sends a crafted HTTP POST request and checks the response");
 
   script_tag(name:"insight", value:"The flaw exists because the application does not authenticate
   users to access the FileManager scripts located at:
@@ -66,7 +50,7 @@ if(description)
 
   script_tag(name:"solution", value:"Update to version 0.51 or later.");
 
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_banner");
   script_tag(name:"solution_type", value:"VendorFix");
 
   exit(0);

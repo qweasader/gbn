@@ -1,29 +1,15 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:google:chrome";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.815700");
-  script_version("2021-10-07T07:48:17+0000");
+  script_version("2023-10-13T16:09:03+0000");
   script_cve_id("CVE-2019-5870", "CVE-2019-5871", "CVE-2019-5872", "CVE-2019-5873",
                 "CVE-2019-5874", "CVE-2019-5875", "CVE-2019-5876", "CVE-2019-5877",
                 "CVE-2019-5878", "CVE-2019-5879", "CVE-2019-5880", "CVE-2019-5881",
@@ -35,12 +21,12 @@ if(description)
                 "CVE-2019-13680", "CVE-2019-13681", "CVE-2019-13682", "CVE-2019-13683");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2021-10-07 07:48:17 +0000 (Thu, 07 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-11-25 21:15:00 +0000 (Mon, 25 Nov 2019)");
   script_tag(name:"creation_date", value:"2019-09-13 15:05:26 +0530 (Fri, 13 Sep 2019)");
-  script_name("Google Chrome Security Updates(stable-channel-update-for-desktop-2019-09)-MAC OS X");
+  script_name("Google Chrome Security Updates (stable-channel-update-for-desktop-2019-09) - Mac OS X");
 
   script_tag(name:"summary", value:"Google Chrome is prone to multiple vulnerabilities.");
 
@@ -79,7 +65,7 @@ if(description)
   to execute arbitrary code, conduct spoofing attacks, cause denial of service and
   also take control of an affected system.");
 
-  script_tag(name:"affected", value:"Google Chrome version prior to 77.0.3865.75 on MAC OS X");
+  script_tag(name:"affected", value:"Google Chrome version prior to 77.0.3865.75 on Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade to Google Chrome version 77.0.3865.75 or later.
   Please see the references for more information.");
@@ -88,7 +74,7 @@ if(description)
   script_tag(name:"qod_type", value:"executable_version");
   script_xref(name:"URL", value:"https://chromereleases.googleblog.com/2019/09/stable-channel-update-for-desktop.html");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("General");
   script_dependencies("gb_google_chrome_detect_macosx.nasl");
   script_mandatory_keys("GoogleChrome/MacOSX/Version");

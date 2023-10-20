@@ -1,31 +1,17 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:python:python";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107021");
-  script_version("2021-09-20T11:01:47+0000");
+  script_version("2023-07-05T05:06:18+0000");
   script_cve_id("CVE-2013-7440");
-  script_tag(name:"last_modification", value:"2021-09-20 11:01:47 +0000 (Mon, 20 Sep 2021)");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"creation_date", value:"2016-07-04 19:31:49 +0200 (Mon, 04 Jul 2016)");
@@ -36,7 +22,7 @@ if(description)
   script_tag(name:"severity_date", value:"2016-11-28 19:10:00 +0000 (Mon, 28 Nov 2016)");
   script_name("CPython Man In The Middle Attack Vulnerability");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_python_consolidation.nasl");
   script_mandatory_keys("python/detected");
@@ -63,7 +49,7 @@ include("version_func.inc");
 if(isnull(port = get_app_port(cpe:CPE)))
   exit(0);
 
-if(!infos = get_app_version_and_location(cpe:CPE, port:port, exit_no_version:TRUE))
+if(!infos = get_app_version_and_location(cpe:CPE, port:port, exit_no_version:TRUE, version_regex:"^[0-9]+\.[0-9]+\.[0-9]+"))
   exit(0);
 
 vers = infos["version"];

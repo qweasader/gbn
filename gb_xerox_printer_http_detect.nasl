@@ -1,28 +1,14 @@
-# Copyright (C) 2013 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2013 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103648");
-  script_version("2022-05-13T07:00:26+0000");
-  script_tag(name:"last_modification", value:"2022-05-13 07:00:26 +0000 (Fri, 13 May 2022)");
+  script_version("2023-08-08T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2023-08-08 05:06:11 +0000 (Tue, 08 Aug 2023)");
   script_tag(name:"creation_date", value:"2013-01-30 14:31:24 +0100 (Wed, 30 Jan 2013)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -31,7 +17,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   # nb: Don't use e.g. webmirror.nasl or DDI_Directory_Scanner.nasl as this VT should
   # run as early as possible so that the printer can be early marked dead as requested.
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
@@ -59,11 +45,13 @@ urls = get_xerox_detect_urls();
 
 foreach url (keys(urls)) {
 
+  version = "unknown";
+
   pattern = urls[url];
   url = ereg_replace(string: url, pattern: "(#--avoid-dup[0-9]+--#)", replace: "");
 
   buf = http_get_cache(item: url, port: port);
-  if(!buf || (buf !~ "^HTTP/1\.[01] 200" && buf !~ "^HTTP/1\.[01] 401"))
+  if (!buf || (buf !~ "^HTTP/1\.[01] 200" && buf !~ "^HTTP/1\.[01] 401"))
     continue;
 
   # Replace non-printable characters to avoid language based false-negatives
@@ -102,6 +90,7 @@ foreach url (keys(urls)) {
              '</msg:From></msg:MessageInformation></soap:Header>' +
              '<soap:Body><cfg:GetAttribute xmlns:cfg="http://www.fujixerox.co.jp/2003/12/ssm/management/statusConfig">' +
              '<cfg:Object name="urn:fujixerox:names:ssm:1.0:management:ProductName" offset="0"/>' +
+             '<cfg:Object name="urn:fujixerox:names:ssm:1.0:management:GRSFirmwareWatchStatus" offset="0"/>' +
              '</cfg:GetAttribute></soap:Body></soap:Envelope>';
       req = http_post_put_req(port: port, url: url, data: data, add_headers: headers, referer_url: "/home/index.html");
       # nb: Don't use http_keepalive_send_recv() since we get a nested response
@@ -115,17 +104,37 @@ foreach url (keys(urls)) {
         model = mod[1];
         model = str_replace(string: model, find: " Printer", replace: "");
       }
+      # <Attribute name="CurrentVersion" type="string">64.50.61</Attribute>
+      vers = eregmatch(pattern: '<Attribute name="CurrentVersion" type="string">([0-9.]+)<', string: res);
+      if (!isnull(vers[1])) {
+        concl += '\n    ' + vers[0];
+        version = vers[1];
+      }
+    } else if ("<title>Xerox\(R\) ([BC][0-9]+)" >< pattern) {
+      model = chomp(match[1]);
+      # nb: For B and C series printers
+      url = "/webglue/rawcontent?timedRefresh=1&c=Status&lang=en";
+      res = http_get_cache(item: url, port: port);
+
+      if (!res || (res !~ "^HTTP/1\.[01] 200" && res !~ "^HTTP/1\.[01] 401"))
+        continue;
+      # "DeviceFirmwareLevel","text":{"id":-1,"text":"MXLBD.081.215"
+      vers = eregmatch(pattern: '"DeviceFirmwareLevel","text":\\{"id":[^,]+,"text":"([^"]+)"', string: res);
+      if (!isnull(vers[1])) {
+        concl += '\n    ' + vers[0];
+        conclUrl += '\n    ' + http_report_vuln_url(port: port, url: url, url_only: TRUE);
+        version = vers[1];
+      }
     } else if ('"name">DC-' >< pattern) {
       # <td align="left" valign="middle" class="name">DC-260-D44DB8</td>
       model = "DocuColor " + match[1];
     } else {
-
       # nb: One example:
       # <TD id = "productName">
       # Xerox D136 Copier-Printer
       # </TD>
       model = chomp(match[1]);
-      if(!isnull(match[2]))
+      if(!isnull(match[2]) && "WorkCentre" >!< match[2] && "Phaser" >!< match[2] && "ColorQube" >!< match[2])
         model += " " + chomp(match[2]);
     }
 
@@ -134,6 +143,12 @@ foreach url (keys(urls)) {
     set_kb_item(name: "xerox/printer/http/port", value: port);
     set_kb_item(name: "xerox/printer/http/" + port + "/model", value: model);
 
+    if (version != "unknown") {
+      set_kb_item(name: "xerox/printer/http/" + port + "/fw_version", value: version);
+      set_kb_item(name: "xerox/printer/http/" + port + "/concluded", value: concl);
+      set_kb_item(name: "xerox/printer/http/" + port + "/concludedUrl", value: conclUrl);
+      exit(0);
+    }
     # AltaLink
     # <tr ><td>Device Software:</td><td>100.002.008.05702</td></tr>
     vers = eregmatch(pattern: "Device Software:</td><td>([0-9.]+)<", string: buf);
@@ -145,7 +160,6 @@ foreach url (keys(urls)) {
       exit(0);
     }
 
-    # DocuPrint
     # Version</td><td class=std_2>201210101131</td></tr>
     vers = eregmatch(pattern: "Version</td><td class=std_2>([0-9]+)<", string: buf);
     if (!isnull(vers[1])) {
@@ -171,11 +185,11 @@ foreach url (keys(urls)) {
     # System Software:</td><td>072.162.004.09100</td></tr>
     url = "/properties/configuration.php?tab=Status#heading2";
     res = http_get_cache(port: port, item: url);
-    vers = eregmatch(pattern: "System Software:</td><td>([0-9.]+)<", string: res);
-    if (!isnull(vers[1])) {
+    vers = eregmatch(pattern: "System Software( Version)?:</td><td>([0-9.]+)<", string: res);
+    if (!isnull(vers[2])) {
       concl += '\n    ' + vers[0];
       conclUrl += '\n    ' + http_report_vuln_url(port: port, url: url, url_only: TRUE);
-      set_kb_item(name: "xerox/printer/http/" + port + "/fw_version", value: vers[1]);
+      set_kb_item(name: "xerox/printer/http/" + port + "/fw_version", value: vers[2]);
       set_kb_item(name: "xerox/printer/http/" + port + "/concluded", value: concl);
       set_kb_item(name: "xerox/printer/http/" + port + "/concludedUrl", value: conclUrl);
       exit(0);
@@ -195,12 +209,9 @@ foreach url (keys(urls)) {
       set_kb_item(name: "xerox/printer/http/" + port + "/concludedUrl", value: conclUrl);
       exit(0);
     }
-
-    # AltaLink C8055
-    # td>Device Software Version:</td><td>103.002.011.14100</td></tr>
-    url = "/properties/configuration.php?tab=Status";
-    res = http_get_cache(port: port, item: url);
-    vers = eregmatch(pattern: ">Device Software Version:</td><td>([^<]+)</td>", string: res);
+    # Operating System(OS)</td>
+    #<td>7.92</td>
+    vers = eregmatch(pattern: "Operating System\(OS\)</td>[^<]+<td>([^<]+)</td>", string: res);
     if (!isnull(vers[1])) {
       concl += '\n    ' + vers[0];
       conclUrl += '\n    ' + http_report_vuln_url(port: port, url: url, url_only: TRUE);
@@ -210,25 +221,11 @@ foreach url (keys(urls)) {
       exit(0);
     }
 
-    # Phaser 6510DN
-    # <Attribute name="Version" type="string">1.30.6</Attribute>
-    url = "/ssm/Management/Anonymous/StatusConfig";
-    headers = make_array("Content-Type", "text/xml;",
-                         "soapAction", "http://www.fujixerox.co.jp/2003/12/ssm/management/statusConfig#GetAttribute",
-                         "X-Requested-With", "XMLHttpRequest");
-    data = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' +
-           '<soap:Header xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' +
-           '<msg:MessageInformation xmlns:msg="http://www.fujixerox.co.jp/2014/08/ssm/management/message"><msg:MessageExchangeType>RequestResponse</msg:MessageExchangeType>' +
-           '<msg:MessageType>Request</msg:MessageType><msg:Action>http://www.fujixerox.co.jp/2003/12/ssm/management/statusConfig#GetAttribute</msg:Action>' +
-           '<msg:From><msg:Address>http://www.fujixerox.co.jp/2014/08/ssm/management/soap/epr/client</msg:Address><msg:ReferenceParameters/></msg:From>' +
-           '</msg:MessageInformation></soap:Header>' +
-           '<soap:Body><cfg:GetAttribute xmlns:cfg="http://www.fujixerox.co.jp/2003/12/ssm/management/statusConfig">' +
-           '<cfg:Object name="urn:fujixerox:names:ssm:1.0:management:root" offset="0"/>' +
-           '</cfg:GetAttribute></soap:Body></soap:Envelope>';
-    req = http_post_put_req(port: port, url: url, data: data, add_headers: headers, referer_url: "/home/index.html");
-    # nb: Don't use http_keepalive_send_recv() since we get a nested response
-    res = http_send_recv(port: port, data: req);
-    vers = eregmatch(pattern: '<Attribute name="Version" type="string">([0-9.]+)<', string: res);
+    # AltaLink C8055
+    # td>Device Software Version:</td><td>103.002.011.14100</td></tr>
+    url = "/properties/configuration.php?tab=Status";
+    res = http_get_cache(port: port, item: url);
+    vers = eregmatch(pattern: ">Device Software Version:</td><td>([^<]+)</td>", string: res);
     if (!isnull(vers[1])) {
       concl += '\n    ' + vers[0];
       conclUrl += '\n    ' + http_report_vuln_url(port: port, url: url, url_only: TRUE);

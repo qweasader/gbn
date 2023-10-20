@@ -21,11 +21,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854898");
-  script_version("2022-08-17T10:11:15+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2021-33655", "CVE-2022-21505", "CVE-2022-2585", "CVE-2022-26373", "CVE-2022-29581");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-08-17 10:11:15 +0000 (Wed, 17 Aug 2022)");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-05-26 00:05:00 +0000 (Thu, 26 May 2022)");
@@ -115,7 +115,7 @@ if(description)
   - ARM: dts: stm32: use the correct clock source for CEC on stm32mp151
        (git-fixes).
 
-  - ARM: dts: sunxi: Fix SPI NOR campatible on Orange Pi Zero (git-fixes).
+  - ARM: dts: sunxi: Fix SPI NOR compatible on Orange Pi Zero (git-fixes).
 
   - ASoC: Intel: Skylake: Correct the handling of fmt_config flexible array
        (git-fixes).

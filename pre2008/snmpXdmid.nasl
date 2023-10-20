@@ -1,33 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2001 Intranode
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# snmpXdmid overflow
-#
-# Authors:
-# Intranode
-#
-# Copyright:
-# Copyright (C) 2001 Intranode
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10659");
-  script_version("2022-05-12T09:32:01+0000");
-  script_tag(name:"last_modification", value:"2022-05-12 09:32:01 +0000 (Thu, 12 May 2022)");
+  script_version("2023-09-08T05:06:21+0000");
+  script_tag(name:"last_modification", value:"2023-09-08 05:06:21 +0000 (Fri, 08 Sep 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/2417");
   script_tag(name:"cvss_base", value:"10.0");
@@ -37,7 +18,7 @@ if(description)
   script_category(ACT_MIXED_ATTACK);
   script_copyright("Copyright (C) 2001 Intranode");
   script_family("Gain a shell remotely");
-  script_dependencies("secpod_rpc_portmap_tcp.nasl");
+  script_dependencies("gb_rpc_portmap_tcp_detect.nasl");
   script_mandatory_keys("rpc/portmap/tcp/detected");
 
   script_xref(name:"IAVA", value:"2001-a-0003");
@@ -49,7 +30,7 @@ if(description)
   to a heap overflow which allows any user to obtain a root shell on this host.");
 
   script_tag(name:"solution_type", value:"Mitigation");
-  script_tag(name:"qod_type", value:"remote_banner_unreliable");
+  script_tag(name:"qod_type", value:"remote_probe");
 
   exit(0);
 }

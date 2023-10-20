@@ -1,34 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2015 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Apple Safari Multiple Vulnerabilities-01 Sep15 (Mac OS X)
-#
-# Authors:
-# Shakeel <bshakeel@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2015 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apple:safari";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805968");
-  script_version("2022-04-14T06:42:08+0000");
+  script_version("2023-07-25T05:05:58+0000");
   script_cve_id("CVE-2015-3729", "CVE-2015-3730", "CVE-2015-3731", "CVE-2015-3732",
                 "CVE-2015-3733", "CVE-2015-3734", "CVE-2015-3735", "CVE-2015-3736",
                 "CVE-2015-3737", "CVE-2015-3738", "CVE-2015-3739", "CVE-2015-3740",
@@ -38,7 +19,7 @@ if(description)
                 "CVE-2015-3753", "CVE-2015-3754", "CVE-2015-3755");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-04-14 06:42:08 +0000 (Thu, 14 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
   script_tag(name:"creation_date", value:"2015-09-01 11:47:05 +0530 (Tue, 01 Sep 2015)");
   script_name("Apple Safari Multiple Vulnerabilities-01 Sep15 (Mac OS X)");
 
@@ -99,7 +80,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/76344");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("General");
   script_dependencies("macosx_safari_detect.nasl");
   script_mandatory_keys("AppleSafari/MacOSX/Version");

@@ -1,35 +1,16 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2008 Renaud Deraison
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SMB Registry : Windows Build Number and Service Pack Version
-#
-# Authors:
-# Renaud Deraison <deraison@cvs.nessus.org>
-#
-# Copyright:
-# Copyright (C) 2008 Renaud Deraison
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10401");
-  script_version("2022-09-22T10:44:54+0000");
+  script_version("2023-08-03T05:05:16+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-09-22 10:44:54 +0000 (Thu, 22 Sep 2022)");
+  script_tag(name:"last_modification", value:"2023-08-03 05:05:16 +0000 (Thu, 03 Aug 2023)");
   script_tag(name:"creation_date", value:"2008-08-27 12:14:14 +0200 (Wed, 27 Aug 2008)");
   script_name("SMB Registry : Windows Build Number and Service Pack Version");
   script_category(ACT_GATHER_INFO);
@@ -228,11 +209,11 @@ if( csdVer && "NO_Service_Pack" >!< csdVer ) {
     set_kb_item( name:"SMB/Win8.1x64/ServicePack", value:csdVer );
   }
 
-  if( winVal == "6.3" && "Windows 10" >< winName && "x86" >< arch ) {
+  if( winVal == "6.3" && "Windows 10" >< winName && "x86" >< arch && winBuild < "22000" ) {
     set_kb_item( name:"SMB/Win10/ServicePack", value:csdVer );
   }
 
-  if( winVal == "6.3" && "Windows 10" >< winName && "64" >< arch ) {
+  if( winVal == "6.3" && "Windows 10" >< winName && "64" >< arch && winBuild < "22000" ) {
     set_kb_item( name:"SMB/Win10x64/ServicePack", value:csdVer );
   }
 
@@ -248,6 +229,14 @@ if( csdVer && "NO_Service_Pack" >!< csdVer ) {
     set_kb_item( name:"SMB/Win2019/ServicePack", value:csdVer );
   }
 
+  if( winVal == "6.3" && "Windows Server 2022" >< winName && "64" >< arch ) {
+    set_kb_item( name:"SMB/Win2022/ServicePack", value:csdVer );
+  }
+
+  if( winVal == "6.3" && "Windows 10" >< winName && "64" >< arch && winBuild >= "22000" ) {
+    os_str = "Windows 11";
+    set_kb_item( name:"SMB/Win11/ServicePack", value:csdVer );
+  }
   #nb: If updating / adding an OS here also update gb_windows_cpe_detect.nasl and gb_smb_windows_detect.nasl
 }
 
@@ -258,6 +247,18 @@ if( ! isnull( os_str ) && ! isnull( csdVer ) && "NO_Service_Pack" >!< csdVer ) {
 
 # At least Windows 10 don't have any Services Packs but just build numbers
 else if( ! isnull( os_str ) && "Windows 10" >< winName && winBuild ) {
+  if( winBuild >= "22000" ) {
+    os_str = "Windows 11";
+    winVersString = get_version_from_build( string:winBuild, win_name:"win11" );
+  } else {
+    winVersString = get_version_from_build( string:winBuild, win_name:"win10" );
+  }
+
+  if( winVersString ) {
+    os_str += " (" + winVersString + ")";
+    set_kb_item( name:"SMB/WindowsVersionString", value:winVersString );
+  }
+
   set_kb_item( name:"SMB/Windows/ServicePack", value:"0" );
   report = os_str + " is installed with build number " + winBuild;
   log_message( port:0, data:report );

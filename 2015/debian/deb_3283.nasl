@@ -1,36 +1,22 @@
-# Copyright (C) 2015 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2015 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.703283");
   script_cve_id("CVE-2015-1158", "CVE-2015-1159");
   script_tag(name:"creation_date", value:"2015-06-08 22:00:00 +0000 (Mon, 08 Jun 2015)");
-  script_version("2023-04-03T10:19:50+0000");
-  script_tag(name:"last_modification", value:"2023-04-03 10:19:50 +0000 (Mon, 03 Apr 2023)");
+  script_version("2023-07-05T05:06:16+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
   script_name("Debian: Security Advisory (DSA-3283)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB(7|8)");
@@ -75,6 +61,10 @@ report = "";
 
 if(release == "DEB7") {
 
+  if(!isnull(res = isdpkgvuln(pkg:"cups", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"cups-bsd", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
     report += res;
   }
@@ -95,15 +85,7 @@ if(release == "DEB7") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"cups", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"cupsddk", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"libcups2-dev", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
     report += res;
   }
 
@@ -111,7 +93,7 @@ if(release == "DEB7") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libcupscgi1-dev", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libcups2-dev", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
     report += res;
   }
 
@@ -119,7 +101,7 @@ if(release == "DEB7") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libcupsdriver1-dev", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libcupscgi1-dev", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
     report += res;
   }
 
@@ -127,7 +109,7 @@ if(release == "DEB7") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libcupsimage2-dev", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libcupsdriver1-dev", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
     report += res;
   }
 
@@ -135,7 +117,7 @@ if(release == "DEB7") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libcupsmime1-dev", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libcupsimage2-dev", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
     report += res;
   }
 
@@ -143,11 +125,15 @@ if(release == "DEB7") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libcupsppdc1-dev", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libcupsmime1-dev", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"libcupsppdc1", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"libcupsppdc1-dev", ver:"1.5.3-5+deb7u6", rls:"DEB7"))) {
     report += res;
   }
 
@@ -160,6 +146,10 @@ if(release == "DEB7") {
 }
 
 if(release == "DEB8") {
+
+  if(!isnull(res = isdpkgvuln(pkg:"cups", ver:"1.7.5-11+deb8u1", rls:"DEB8"))) {
+    report += res;
+  }
 
   if(!isnull(res = isdpkgvuln(pkg:"cups-bsd", ver:"1.7.5-11+deb8u1", rls:"DEB8"))) {
     report += res;
@@ -193,7 +183,7 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"cups", ver:"1.7.5-11+deb8u1", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libcups2", ver:"1.7.5-11+deb8u1", rls:"DEB8"))) {
     report += res;
   }
 
@@ -201,7 +191,7 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libcups2", ver:"1.7.5-11+deb8u1", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libcupscgi1", ver:"1.7.5-11+deb8u1", rls:"DEB8"))) {
     report += res;
   }
 
@@ -209,7 +199,7 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libcupscgi1", ver:"1.7.5-11+deb8u1", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libcupsimage2", ver:"1.7.5-11+deb8u1", rls:"DEB8"))) {
     report += res;
   }
 
@@ -217,7 +207,7 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libcupsimage2", ver:"1.7.5-11+deb8u1", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libcupsmime1", ver:"1.7.5-11+deb8u1", rls:"DEB8"))) {
     report += res;
   }
 
@@ -225,15 +215,11 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libcupsmime1", ver:"1.7.5-11+deb8u1", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libcupsppdc1", ver:"1.7.5-11+deb8u1", rls:"DEB8"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"libcupsppdc1-dev", ver:"1.7.5-11+deb8u1", rls:"DEB8"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"libcupsppdc1", ver:"1.7.5-11+deb8u1", rls:"DEB8"))) {
     report += res;
   }
 

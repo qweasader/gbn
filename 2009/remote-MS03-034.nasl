@@ -1,45 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 Christian Eric Edjenguele
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Microsoft Security Bulletin MS03-034 Flaw in NetBIOS Could Lead to Information Disclosure
-#
-# Affected software
-#
-# Microsoft Windows NT Workstation 4.0
-# Microsoft Windows NT Server 4.0®
-# Microsoft Windows NT Server 4.0, Terminal Server Edition
-# Microsoft Windows 2000
-# Microsoft Windows XP
-# Microsoft Windows Server 2003
-#
-# Not Affected Software:
-#
-# Microsoft Windows Millennium Edition
-#
-# remote-MS03-034.nasl
-#
-# Author:
-# Copyright (C) 2009 Christian Eric Edjenguele
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2 or later,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.101015");
-  script_version("2021-04-14T12:07:16+0000");
-  script_tag(name:"last_modification", value:"2021-04-14 12:07:16 +0000 (Wed, 14 Apr 2021)");
+  script_version("2023-08-01T13:29:10+0000");
+  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
   script_tag(name:"creation_date", value:"2009-03-16 23:15:41 +0100 (Mon, 16 Mar 2009)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");

@@ -23,11 +23,14 @@ CPE = "cpe:/a:drupal:drupal";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.104336");
-  script_version("2022-09-30T10:11:44+0000");
-  script_tag(name:"last_modification", value:"2022-09-30 10:11:44 +0000 (Fri, 30 Sep 2022)");
+  script_version("2023-10-18T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-09-29 11:33:30 +0000 (Thu, 29 Sep 2022)");
-  script_tag(name:"cvss_base", value:"7.7");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:M/C:C/I:C/A:N");
+  script_tag(name:"cvss_base", value:"7.8");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-09-30 19:58:00 +0000 (Fri, 30 Sep 2022)");
 
   script_cve_id("CVE-2022-39261");
 

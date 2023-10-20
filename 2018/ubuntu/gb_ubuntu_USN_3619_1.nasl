@@ -1,30 +1,16 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.843496");
   script_cve_id("CVE-2017-0861", "CVE-2017-1000407", "CVE-2017-11472", "CVE-2017-15129", "CVE-2017-16528", "CVE-2017-16532", "CVE-2017-16536", "CVE-2017-16537", "CVE-2017-16645", "CVE-2017-16646", "CVE-2017-16649", "CVE-2017-16650", "CVE-2017-16911", "CVE-2017-16912", "CVE-2017-16913", "CVE-2017-16914", "CVE-2017-16994", "CVE-2017-16995", "CVE-2017-17448", "CVE-2017-17449", "CVE-2017-17450", "CVE-2017-17558", "CVE-2017-17741", "CVE-2017-17805", "CVE-2017-17806", "CVE-2017-17807", "CVE-2017-17862", "CVE-2017-18075", "CVE-2017-18203", "CVE-2017-18204", "CVE-2017-18208", "CVE-2017-7518", "CVE-2018-1000026", "CVE-2018-5332", "CVE-2018-5333", "CVE-2018-5344", "CVE-2018-6927", "CVE-2018-7492", "CVE-2018-8043");
   script_tag(name:"creation_date", value:"2018-04-06 07:52:06 +0000 (Fri, 06 Apr 2018)");
-  script_version("2022-10-10T10:12:14+0000");
-  script_tag(name:"last_modification", value:"2022-10-10 10:12:14 +0000 (Mon, 10 Oct 2022)");
+  script_version("2023-07-05T05:06:17+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Ubuntu: Security Advisory (USN-3619-1)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Ubuntu Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/ubuntu_linux", "ssh/login/packages", re:"ssh/login/release=UBUNTU16\.04\ LTS");
@@ -142,11 +128,11 @@ if(release == "UBUNTU16.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.4.0-119-generic-lpae", ver:"4.4.0-119.143", rls:"UBUNTU16.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.4.0-119-generic", ver:"4.4.0-119.143", rls:"UBUNTU16.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.4.0-119-generic", ver:"4.4.0-119.143", rls:"UBUNTU16.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.4.0-119-generic-lpae", ver:"4.4.0-119.143", rls:"UBUNTU16.04 LTS"))) {
     report += res;
   }
 
@@ -174,11 +160,11 @@ if(release == "UBUNTU16.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-lpae", ver:"4.4.0.119.125", rls:"UBUNTU16.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic", ver:"4.4.0.119.125", rls:"UBUNTU16.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic", ver:"4.4.0.119.125", rls:"UBUNTU16.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-lpae", ver:"4.4.0.119.125", rls:"UBUNTU16.04 LTS"))) {
     report += res;
   }
 

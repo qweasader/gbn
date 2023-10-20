@@ -1,33 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# ProSysInfo TFTPDWIN Remote Buffer Overflow Vulnerability
-#
-# Authors:
-# Michael Meyer
-#
-# Copyright:
-# Copyright (C) 2009 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100265");
-  script_version("2022-05-09T13:48:18+0000");
-  script_tag(name:"last_modification", value:"2022-05-09 13:48:18 +0000 (Mon, 09 May 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2009-08-31 21:01:49 +0200 (Mon, 31 Aug 2009)");
   script_cve_id("CVE-2006-4948");
   script_tag(name:"cvss_base", value:"7.5");
@@ -37,7 +18,7 @@ if(description)
 
   script_category(ACT_DENIAL);
   script_family("Denial of Service");
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_dependencies("tftpd_detect.nasl", "global_settings.nasl", "os_detection.nasl");
   script_require_udp_ports("Services/udp/tftp", 69);
   script_mandatory_keys("tftp/detected");
@@ -55,7 +36,7 @@ if(description)
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/20131");
 
-  script_tag(name:"qod_type", value:"exploit");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"WillNotFix");
 
   script_tag(name:"solution", value:"No known solution was made available for at least one year since the disclosure

@@ -21,16 +21,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.884205");
-  script_version("2022-08-09T10:11:17+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2020-0465", "CVE-2020-0466", "CVE-2021-0920", "CVE-2021-3564", "CVE-2021-3573", "CVE-2021-3752", "CVE-2021-4155", "CVE-2022-0330", "CVE-2022-22942");
   script_tag(name:"cvss_base", value:"7.9");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:A/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-02-28 19:47:00 +0000 (Mon, 28 Feb 2022)");
+  script_tag(name:"severity_date", value:"2022-04-07 14:23:00 +0000 (Thu, 07 Apr 2022)");
   script_tag(name:"creation_date", value:"2022-02-26 02:01:34 +0000 (Sat, 26 Feb 2022)");
   script_name("CentOS: Security Advisory for bpftool (CESA-2022:0620)");
   script_category(ACT_GATHER_INFO);

@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.827375");
-  script_version("2023-04-03T10:19:50+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2022-37603", "CVE-2022-38900", "CVE-2021-43138", "CVE-2022-3517", "CVE-2020-7677");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-04-03 10:19:50 +0000 (Mon, 03 Apr 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-04-13 19:03:00 +0000 (Wed, 13 Apr 2022)");
+  script_tag(name:"severity_date", value:"2022-08-01 17:22:00 +0000 (Mon, 01 Aug 2022)");
   script_tag(name:"creation_date", value:"2023-03-30 01:07:18 +0000 (Thu, 30 Mar 2023)");
   script_name("Fedora: Security Advisory for yarnpkg (FEDORA-2023-2e38c3756f)");
   script_category(ACT_GATHER_INFO);

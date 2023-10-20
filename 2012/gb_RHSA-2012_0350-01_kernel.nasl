@@ -1,34 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2012 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# RedHat Update for kernel RHSA-2012:0350-01
-#
-# Authors:
-# System Generated Check
-#
-# Copyright:
-# Copyright (C) 2012 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_xref(name:"URL", value:"https://www.redhat.com/archives/rhsa-announce/2012-March/msg00002.html");
   script_oid("1.3.6.1.4.1.25623.1.0.870729");
-  script_version("2021-08-27T11:01:07+0000");
-  script_tag(name:"last_modification", value:"2021-08-27 11:01:07 +0000 (Fri, 27 Aug 2021)");
+  script_version("2023-07-14T05:06:08+0000");
+  script_tag(name:"last_modification", value:"2023-07-14 05:06:08 +0000 (Fri, 14 Jul 2023)");
   script_tag(name:"creation_date", value:"2012-07-09 10:55:49 +0530 (Mon, 09 Jul 2012)");
   script_cve_id("CVE-2011-4077", "CVE-2011-4081", "CVE-2011-4132", "CVE-2011-4347",
                 "CVE-2011-4594", "CVE-2011-4611", "CVE-2011-4622", "CVE-2012-0038",
@@ -44,7 +25,7 @@ if(description)
   script_tag(name:"summary", value:"The remote host is missing an update for the 'kernel'
   package(s) announced via the referenced advisory.");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Red Hat Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/rhel", "ssh/login/rpms", re:"ssh/login/release=RHENT_6");

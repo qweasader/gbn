@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.820368");
-  script_version("2022-04-29T13:21:21+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-26356", "CVE-2022-26357", "CVE-2022-26358", "CVE-2022-26359", "CVE-2022-26360", "CVE-2022-26361");
   script_tag(name:"cvss_base", value:"6.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-04-29 13:21:21 +0000 (Fri, 29 Apr 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-04-14 18:26:00 +0000 (Thu, 14 Apr 2022)");
+  script_tag(name:"severity_date", value:"2022-04-14 19:17:00 +0000 (Thu, 14 Apr 2022)");
   script_tag(name:"creation_date", value:"2022-04-22 01:05:06 +0000 (Fri, 22 Apr 2022)");
   script_name("Fedora: Security Advisory for xen (FEDORA-2022-dfbf7e2372)");
   script_category(ACT_GATHER_INFO);

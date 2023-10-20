@@ -9,8 +9,8 @@ CPE = "cpe:/a:python:python";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113931");
-  script_version("2023-04-03T10:19:50+0000");
-  script_tag(name:"last_modification", value:"2023-04-03 10:19:50 +0000 (Mon, 03 Apr 2023)");
+  script_version("2023-07-05T05:06:18+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"creation_date", value:"2022-04-21 12:40:42 +0000 (Thu, 21 Apr 2022)");
   script_tag(name:"cvss_base", value:"8.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:C/A:P");
@@ -64,7 +64,7 @@ include("version_func.inc");
 if (isnull(port = get_app_port(cpe: CPE)))
   exit(0);
 
-if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE))
+if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE, version_regex:"^[0-9]+\.[0-9]+\.[0-9]+"))
   exit(0);
 
 version = infos["version"];

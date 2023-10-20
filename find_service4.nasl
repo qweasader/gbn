@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108199");
-  script_version("2023-05-30T09:08:51+0000");
-  script_tag(name:"last_modification", value:"2023-05-30 09:08:51 +0000 (Tue, 30 May 2023)");
+  script_version("2023-06-22T10:34:15+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2017-07-20 14:08:04 +0200 (Thu, 20 Jul 2017)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -19,10 +19,11 @@ if(description)
   script_dependencies("find_service3.nasl");
   script_require_ports("Services/unknown");
 
-  script_tag(name:"summary", value:"This plugin performs service detection.
+  script_tag(name:"summary", value:"This plugin performs service detection.");
 
-  This plugin is a complement of find_service.nasl. It sends a 'JSON'
-  request to the remaining unknown services and tries to identify them.");
+  script_tag(name:"insight", value:"This plugin is a complement of the plugin 'Services' (OID:
+  1.3.6.1.4.1.25623.1.0.10330). It sends a 'JSON' request to the remaining unknown services and
+  tries to identify them.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -42,7 +43,7 @@ soc = open_sock_tcp( port );
 if( ! soc ) exit( 0 );
 
 # This is a request where a Zabbix Server/Agent is answering to. There might be other services out there answering to
-# such a JSON request. And at least we catch a Zabbix Service early without throwing more service detections NVTs on it.
+# such a JSON request. And at least we catch a Zabbix Service early without throwing more service detections VTs on it.
 send( socket:soc, data:'{"request":"active checks"}\n' ); # TBD: \r\n instead?
 r = recv( socket:soc, length:4096 );
 close( soc );

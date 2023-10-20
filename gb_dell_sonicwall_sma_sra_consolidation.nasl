@@ -1,30 +1,16 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 include("plugin_feed_info.inc");
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.143539");
-  script_version("2022-05-16T11:09:56+0000");
-  script_tag(name:"last_modification", value:"2022-05-16 11:09:56 +0000 (Mon, 16 May 2022)");
+  script_version("2023-07-11T05:06:07+0000");
+  script_tag(name:"last_modification", value:"2023-07-11 05:06:07 +0000 (Tue, 11 Jul 2023)");
   script_tag(name:"creation_date", value:"2020-02-20 06:51:05 +0000 (Thu, 20 Feb 2020)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -33,20 +19,20 @@ if (description)
 
   script_name("SonicWall / Dell SonicWALL SRA / SMA Detection Consolidation");
 
-  script_tag(name:"summary", value:"Consolidation of SonicWall / Dell SonicWALL Secure Mobile Access
-  (SMA) and Secure Remote Access (SRA) detections.");
-
-  script_tag(name:"insight", value:"SonicWall / Dell SonicWALL SMA 100 series also includes
-  SSL-VPN 200, SSL-VPN 2000 and SSL-VPN 4000 devices which are detected and reported as well.");
-
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_dell_sonicwall_sma_sra_snmp_detect.nasl");
   if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
     script_dependencies("gsf/gb_dell_sonicwall_sma_sra_http_detect.nasl");
   script_mandatory_keys("sonicwall/sra_sma/detected");
+
+  script_tag(name:"summary", value:"Consolidation of SonicWall / Dell SonicWALL Secure Mobile Access
+  (SMA) and Secure Remote Access (SRA) detections.");
+
+  script_tag(name:"insight", value:"SonicWall / Dell SonicWALL SMA 100 series also includes
+  SSL-VPN 200, SSL-VPN 2000 and SSL-VPN 4000 devices which are detected and reported as well.");
 
   script_xref(name:"URL", value:"https://www.sonicwall.com/products/remote-access/remote-access-appliances/");
 
@@ -123,7 +109,11 @@ if (http_ports = get_kb_list("sonicwall/sra_sma/http/port")) {
 
     concluded = get_kb_item("sonicwall/sra_sma/http/" + port + "/concluded");
     if (concluded)
-      extra += '  Concluded from version/product identification result: ' + concluded + '\n';
+      extra += "  Concluded from version/product identification result: " + concluded + '\n';
+
+    concludedUrl = get_kb_item("sonicwall/sra_sma/http/" + port + "/concludedUrl");
+    if (concludedUrl)
+      extra += "  Concluded from version/product identification location: " + concludedUrl + '\n';
 
     register_product(cpe: os_cpe, location: location, port: port, service: "www");
     if (hw_cpe)
@@ -139,7 +129,7 @@ if (snmp_ports = get_kb_list("sonicwall/sra_sma/snmp/port")) {
 
     concluded = get_kb_item("sonicwall/sra_sma/snmp/" + port + "/concluded");
     if (concluded)
-      extra += '  Concluded from SNMP sysDescr OID: ' + concluded + '\n';
+      extra += "  Concluded from:" + concluded + '\n';
 
     register_product(cpe: os_cpe, location: location, port: port, service: "snmp", proto: "udp");
     if (hw_cpe)

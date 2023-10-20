@@ -21,12 +21,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.104292");
-  script_version("2022-08-12T10:10:36+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2021-46778");
-  script_tag(name:"last_modification", value:"2022-08-12 10:10:36 +0000 (Fri, 12 Aug 2022)");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-08-11 11:49:08 +0000 (Thu, 11 Aug 2022)");
-  script_tag(name:"cvss_base", value:"4.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
+  script_tag(name:"cvss_base", value:"3.8");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:S/C:C/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-08-19 13:59:00 +0000 (Fri, 19 Aug 2022)");
   script_name("AMD CPU Information Disclosure Vulnerability (AMD-SB-1039, SQUIP)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");

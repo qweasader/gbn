@@ -1,40 +1,21 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2015 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Wireshark Multiple Denial-of-Service Vulnerabilities-01 August15 (Mac OS X)
-#
-# Authors:
-# Rinu Kuriakose <krinu@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2015 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:wireshark:wireshark";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806030");
-  script_version("2021-10-21T13:57:32+0000");
+  script_version("2023-07-25T05:05:58+0000");
   script_cve_id("CVE-2015-6241", "CVE-2015-6242", "CVE-2015-6243", "CVE-2015-6244",
                 "CVE-2015-6245", "CVE-2015-6246", "CVE-2015-6247", "CVE-2015-6248",
                 "CVE-2015-6249");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2021-10-21 13:57:32 +0000 (Thu, 21 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
   script_tag(name:"creation_date", value:"2015-08-28 12:21:03 +0530 (Fri, 28 Aug 2015)");
   script_name("Wireshark Multiple Denial-of-Service Vulnerabilities-01 August15 (Mac OS X)");
 
@@ -92,7 +73,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
   script_family("Denial of Service");
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_dependencies("gb_wireshark_detect_macosx.nasl");
   script_mandatory_keys("Wireshark/MacOSX/Version");
   exit(0);

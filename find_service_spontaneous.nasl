@@ -1,42 +1,29 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
-# Older service detection pattern were moved from find_service1.nasl
-# into this VT, and are Copyright (C) by the respective right holder(s)
+# SPDX-FileCopyrightText: 2020 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108747");
-  script_version("2022-01-31T16:15:30+0000");
-  script_tag(name:"last_modification", value:"2022-01-31 16:15:30 +0000 (Mon, 31 Jan 2022)");
+  script_version("2023-09-08T16:09:14+0000");
+  script_tag(name:"last_modification", value:"2023-09-08 16:09:14 +0000 (Fri, 08 Sep 2023)");
   script_tag(name:"creation_date", value:"2020-04-14 11:32:00 +0000 (Tue, 14 Apr 2020)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
   script_name("Service Detection from 'spontaneous' Banner");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Service detection");
   script_dependencies("find_service.nasl");
   script_require_ports("Services/unknown");
 
-  script_tag(name:"summary", value:"This plugin performs service detection.
+  script_tag(name:"summary", value:"This plugin performs service detection.");
 
-  This plugin is a complement of find_service.nasl. It evaluates 'spontaneous' banners
-  sent by the remaining unknown services and tries to identify them.");
+  script_tag(name:"insight", value:"This plugin is a complement of the plugin 'Services' (OID:
+  1.3.6.1.4.1.25623.1.0.10330). It evaluates 'spontaneous' banners sent by the remaining unknown
+  services and tries to identify them.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -258,6 +245,37 @@ if( ssh_verify_server_ident( data:banner ) ) {
 if( bannerhex =~ "^ACED....(.+|$)" ) {
   service_register( port:port, proto:"java-rmi", message:"A Java RMI service seems to be running on this port." );
   log_message( port:port, data:"A Java RMI service seems to be running on this port." );
+}
+
+# nb:
+# - Seen on port 1777/tcp
+# - reporting from unknown_services.nasl / gb_unknown_os_service_reporting.nasl before this
+#   detection got introduced
+# - Similar pattern is used in find_service1.nasl just to be sure to catch the services at two
+#   places if it doesn't response to one probe (e.g. overloaded during "full" scans)
+#
+# Method: spontaneousHex
+#
+# 0x0000:  00 00 01 60 00 00 00 25 00 00 01 2B 00 00 00 00    ...`...%...+....
+# 0x0010:  00 00 00 02 00 00 00 05 00 00 00 01 68 2E 6D 69    ............h.mi
+# 0x0020:  64 30 00 00 00 02 00 00 00 05 00 00 00 02 68 2E    d0............h.
+# 0x0030:  63 6D 64 31 38 00 00 00 02 00 00 00 05 00 00 00    cmd18...........
+# 0x0040:  03 70 2E 72 65 76 33 30 38 00 00 00 08 00 00 00    .p.rev308.......
+# 0x0050:  06 00 00 00 1C 70 2E 67 75 69 64 30 30 35 30 35    .....p.guid00505
+# 0x0060:  36 38 37 41 45 36 38 36 34 46 42 32 41 33 31 30    687AE6864FB2A310
+# 0x0070:  30 30 30 30 30 32 35 00 00 00 02 00 00 00 09 00    0000025.........
+# 0x0080:  00 00 01 70 2E 65 6E 63 72 79 70 74 30 00 00 00    ...p.encrypt0...
+# 0x0090:  02 00 00 00 09 00 00 00 01 70 2E 65 6E 63 6D 65    .........p.encme
+# 0x00A0:  74 68 30 00 00 00 06 00 00 00 04 00 00 00 12 70    th0............p
+# 0x00B0:  2E 69 70 31 39 32 2E 31 36 38 2E 37 39 2E 34 3A    .ip192.168.79.4:
+# 0x00C0:  35 34 36 37 31 00 00 00 01 00 00 00 05 00 00 00    54671...........
+# 0x00D0:  05 70 2E 61 6D 63 36 2E 34 2E 30 00 00 00 09 00    .p.amc6.4.0.....
+# 0x00E0:  00 00 09 00 00 00 0D 70 2E 65 6E 63 70 72 6F 74    .......p.encprot
+# 0x00F0:  30 3B 30 3B 30 3B 30 3B 30 3B 30 3B 30 00 00 00    0;0;0;0;0;0;0...
+# 0x0100:  07 00 00 00 05 00 00 00 0A                         .........
+if( bannerhex =~ "702E67756964.+656E6370726F74.+7000000050000000a$" ) {
+  service_register( port:port, proto:"avalanche_mds", message:"An Ivanti Avalanche Mobile Device Server service seems to be running on this port." );
+  log_message( port:port, data:"An Ivanti Avalanche Mobile Device Server service seems to be running on this port." );
 }
 
 # Keep qotd at the end of the list, as it may generate false detection

@@ -1,49 +1,32 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Cisco Application Policy Infrastructure Controller Enterprise Module Detection
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105536");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_version("2022-03-24T09:16:49+0000");
-  script_tag(name:"last_modification", value:"2022-03-24 09:16:49 +0000 (Thu, 24 Mar 2022)");
+  script_version("2023-09-07T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-09-07 05:05:21 +0000 (Thu, 07 Sep 2023)");
   script_tag(name:"creation_date", value:"2016-02-11 12:25:49 +0100 (Thu, 11 Feb 2016)");
-  script_name("Cisco Application Policy Infrastructure Controller Enterprise Module Detection");
+  script_name("Cisco Application Policy Infrastructure Controller Enterprise Module Detection (HTTP)");
 
-  script_tag(name:"summary", value:"This Script performs HTTP(s) based detection of Cisco Application Policy Infrastructure Controller Enterprise Module.
-  When HTTP(s) credentials are given, the script is able to extract version and patch information from the application.");
+  script_tag(name:"summary", value:"HTTP based detection of Cisco Application Policy Infrastructure
+  Controller Enterprise Module.
+
+  Note: When HTTP credentials are given, the script is able to extract version and patch information
+  from the application.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
-  script_require_ports("Services/www", 80, 443);
+  script_require_ports("Services/www", 443);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
   script_add_preference(name:"APIC Username: ", value:"", type:"entry", id:1);
@@ -64,11 +47,13 @@ buf = http_get_cache( port:port, item:"/" );
 if( "<title>Home - APIC - Enterprise Module</title>" >!< buf || "APIC-EM" >!< buf ) exit( 0 );
 
 set_kb_item( name:"cisco/apic_em/installed", value:TRUE );
+set_kb_item( name:"cisco/apic_em/detected", value:TRUE );
+set_kb_item( name:"cisco/apic_em/http/detected", value:TRUE );
 
-user = script_get_preference( "APIC Username: " );
-pass = script_get_preference( "APIC Password: " );
+user = script_get_preference( "APIC Username: ", id:1 );
+pass = script_get_preference( "APIC Password: ", id:2 );
 
-cpe = 'cpe:/a:cisco:application_policy_infrastructure_controller_enterprise_module';
+cpe = "cpe:/a:cisco:application_policy_infrastructure_controller_enterprise_module";
 
 if( user && pass )
 {
@@ -170,7 +155,7 @@ else
     else
       extra_report = '\n\n** The scanner was not able to login using the given credentials **.\n\n';
   else
-    extra_report = '\n\n** No HTTP(s) credentials where given. Scanner was not able to extract version and patch information from the application. **\n\n';
+    extra_report = '\n\n** No HTTP(s) credentials were given. Scanner was not able to extract version and patch information from the application. **\n\n';
 }
 
 report += 'CPE: ' + cpe + '\n';

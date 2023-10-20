@@ -1,58 +1,42 @@
-# OpenVAS Vulnerability Test
-# Description: ActivePerl perlIS.dll Buffer Overflow
+# SPDX-FileCopyrightText: 2001 HD Moore & Drew Hintz
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Drew Hintz ( http://guh.nu )
-# It is based on scripts written by Renaud Deraison and  HD Moore
-#
-# Copyright:
-# Copyright (C) 2001 H D Moore & Drew Hintz ( http://guh.nu )
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
+
+CPE = "cpe:/a:microsoft:internet_information_services";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10811");
-  script_version("2022-05-12T09:32:01+0000");
-  script_tag(name:"last_modification", value:"2022-05-12 09:32:01 +0000 (Thu, 12 May 2022)");
+  script_version("2023-10-10T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2023-10-10 05:05:41 +0000 (Tue, 10 Oct 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/3526");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_cve_id("CVE-2001-0815");
-  script_name("ActivePerl perlIS.dll Buffer Overflow");
+  script_name("ActivePerl perlIS.dll Buffer Overflow Vulnerability - Active Check");
   script_category(ACT_DESTRUCTIVE_ATTACK);
-  script_copyright("Copyright (C) 2001 H D Moore & Drew Hintz ( http://guh.nu )");
+  script_copyright("Copyright (C) 2001 HD Moore & Drew Hintz");
   script_family("Web application abuses");
-  script_dependencies("gb_get_http_banner.nasl");
+  script_dependencies("gb_microsoft_iis_http_detect.nasl");
   script_require_ports("Services/www", 80);
-  script_mandatory_keys("IIS/banner");
+  script_mandatory_keys("microsoft/iis/http/detected");
 
   script_tag(name:"solution", value:"Either upgrade to a version of ActivePerl more
-  recent than 5.6.1.629 or enable the Check that file exists option.
+  recent than 5.6.1.629 or enable the 'Check that file exists' option.
 
   To enable this option, open up the IIS MMC, right click on a (virtual) directory in
   your web server, choose Properties, click on the Configuration... button, highlight
-  the .plx item, click Edit, and then check Check that file exists.");
+  the .plx item, click Edit, and then check/enable the 'Check that file exists' option.");
 
   script_tag(name:"summary", value:"An attacker can run arbitrary code on the remote computer.
 
   This is because the remote IIS server is running a version of ActivePerl prior to 5.6.1.630
   and has the Check that file exists option disabled for the perlIS.dll.");
 
-  script_tag(name:"qod_type", value:"remote_active");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"VendorFix");
 
   exit(0);
@@ -60,11 +44,11 @@ if(description)
 
 include("http_func.inc");
 include("http_keepalive.inc");
-include("port_service_func.inc");
+include("host_details.inc");
 
-port = http_get_port(default:80);
-sig = http_get_remote_headers(port:port);
-if( ! sig || "IIS" >!< sig )
+# nb: No get_app_location() as IIS is not "directly" affected and the initial version of
+# this VT had only checked for the banner of IIS.
+if(!port = get_app_port(cpe:CPE, service:"www"))
   exit(0);
 
 function check(url) {
@@ -74,7 +58,7 @@ function check(url) {
   if(!r)
     return(0);
 
-  if("HTTP/1.1 500 Server Error" >< r && ("The remote procedure call failed." >< r || "<html><head><title>Error</title>" >< r)) {
+  if(r =~ "^HTTP/1\.[01] 500" && ("The remote procedure call failed." >< r || "<html><head><title>Error</title>" >< r)) {
     security_message(port:port);
     return(1);
   }

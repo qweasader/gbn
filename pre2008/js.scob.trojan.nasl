@@ -1,38 +1,21 @@
-# OpenVAS Vulnerability Test
-# Description: JS.Scob.Trojan or Download.Ject Trojan
+# SPDX-FileCopyrightText: 2004 Jeff Adams
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Jeff Adams <jadams@netcentrics.com>
-#
-# Copyright:
-# Copyright (C) 2004 Jeff Adams
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.12286");
-  script_version("2022-05-31T13:27:00+0100");
-  script_tag(name:"last_modification", value:"2022-05-31 13:27:00 +0100 (Tue, 31 May 2022)");
+  script_version("2023-09-07T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-09-07 05:05:21 +0000 (Thu, 07 Sep 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_name("JS.Scob.Trojan or Download.Ject Trojan");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2004 Jeff Adams");
-  script_family("Windows");
+  script_family("Malware");
   script_dependencies("smb_reg_service_pack.nasl");
   script_require_ports(139, 445);
   script_mandatory_keys("SMB/WindowsVersion");
@@ -40,7 +23,7 @@ if(description)
   script_tag(name:"solution", value:"Use Latest Anti Virus to clean machine. Virus Definitions
   and removal tools are being released as of 06/25/04");
 
-  script_tag(name:"summary", value:"JS.Scob.Trojan or Download.Ject Trojan where detected.");
+  script_tag(name:"summary", value:"JS.Scob.Trojan or Download.Ject Trojan were detected.");
 
   script_tag(name:"insight", value:"JS.Scob.Trojan or Download.Ject is a simple Trojan that executes a
   JavaScript file from a remote server.

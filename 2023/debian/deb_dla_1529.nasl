@@ -1,30 +1,16 @@
-# Copyright (C) 2023 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2023 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2018.1529");
   script_cve_id("CVE-2018-10021", "CVE-2018-10323", "CVE-2018-10876", "CVE-2018-10877", "CVE-2018-10878", "CVE-2018-10879", "CVE-2018-10880", "CVE-2018-10881", "CVE-2018-10882", "CVE-2018-10883", "CVE-2018-10902", "CVE-2018-13093", "CVE-2018-13094", "CVE-2018-13405", "CVE-2018-13406", "CVE-2018-14609", "CVE-2018-14617", "CVE-2018-14633", "CVE-2018-14634", "CVE-2018-14678", "CVE-2018-14734", "CVE-2018-15572", "CVE-2018-15594", "CVE-2018-16276", "CVE-2018-16658", "CVE-2018-17182", "CVE-2018-3620", "CVE-2018-3639", "CVE-2018-5391", "CVE-2018-6554", "CVE-2018-6555", "CVE-2018-7755", "CVE-2018-9363", "CVE-2018-9516");
   script_tag(name:"creation_date", value:"2023-03-08 12:56:44 +0000 (Wed, 08 Mar 2023)");
-  script_version("2023-03-09T10:20:44+0000");
-  script_tag(name:"last_modification", value:"2023-03-09 10:20:44 +0000 (Thu, 09 Mar 2023)");
+  script_version("2023-07-05T05:06:18+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Debian: Security Advisory (DLA-1529)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2023 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB8");
@@ -604,6 +590,10 @@ if(release == "DEB8") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-7-all", ver:"3.16.59-1", rls:"DEB8"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-7-all-amd64", ver:"3.16.59-1", rls:"DEB8"))) {
     report += res;
   }
@@ -620,19 +610,15 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-7-all", ver:"3.16.59-1", rls:"DEB8"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-7-amd64", ver:"3.16.59-1", rls:"DEB8"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-7-armmp-lpae", ver:"3.16.59-1", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-7-armmp", ver:"3.16.59-1", rls:"DEB8"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-7-armmp", ver:"3.16.59-1", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-headers-3.16.0-7-armmp-lpae", ver:"3.16.59-1", rls:"DEB8"))) {
     report += res;
   }
 
@@ -660,15 +646,11 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-7-686-pae-dbg", ver:"3.16.59-1", rls:"DEB8"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-7-686-pae", ver:"3.16.59-1", rls:"DEB8"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-7-amd64-dbg", ver:"3.16.59-1", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-7-686-pae-dbg", ver:"3.16.59-1", rls:"DEB8"))) {
     report += res;
   }
 
@@ -676,11 +658,15 @@ if(release == "DEB8") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-7-armmp-lpae", ver:"3.16.59-1", rls:"DEB8"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-7-amd64-dbg", ver:"3.16.59-1", rls:"DEB8"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-7-armmp", ver:"3.16.59-1", rls:"DEB8"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.16.0-7-armmp-lpae", ver:"3.16.59-1", rls:"DEB8"))) {
     report += res;
   }
 

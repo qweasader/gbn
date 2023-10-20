@@ -1,39 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2003 Michel Arboi
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# MonkeyWeb POST with too much data
-#
-# Authors:
-# Michel Arboi <arboi@alussinan.org>
-#
-# Copyright:
-# Copyright (C) 2003 Michel Arboi
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
-
-# Ref:
-# From: "Matthew Murphy" <mattmurphy@kc.rr.com>
-# To: "BugTraq" <bugtraq@securityfocus.com>
-# Subject: Monkey HTTPd Remote Buffer Overflow
-# Date: Sun, 20 Apr 2003 16:34:03 -0500
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11544");
-  script_version("2022-05-12T09:32:01+0000");
-  script_tag(name:"last_modification", value:"2022-05-12 09:32:01 +0000 (Thu, 12 May 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_cve_id("CVE-2003-0218");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/7202");
@@ -46,7 +21,7 @@ if(description)
   script_dependencies("gb_get_http_banner.nasl");
   # The listening port in the example configuration file is 2001
   # I suspect that some people might leave it unchanged.
-  script_require_ports("Services/www", 80, 2001);
+  script_require_ports("Services/www", 80);
   script_mandatory_keys("Monkey/banner");
 
   script_tag(name:"solution", value:"Upgrade to Monkey web server 0.6.2.");
@@ -62,7 +37,7 @@ if(description)
   script_tag(name:"impact", value:"It is possible to make this web server crash or execute
   arbitrary code.");
 
-  script_tag(name:"qod_type", value:"remote_banner");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"VendorFix");
 
   exit(0);

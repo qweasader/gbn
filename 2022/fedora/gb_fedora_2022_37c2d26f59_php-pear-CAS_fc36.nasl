@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.822768");
-  script_version("2022-11-17T10:12:09+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-39369");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-11-17 10:12:09 +0000 (Thu, 17 Nov 2022)");
+  script_tag(name:"cvss_base", value:"9.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-11-05 01:52:00 +0000 (Sat, 05 Nov 2022)");
   script_tag(name:"creation_date", value:"2022-11-11 02:19:58 +0000 (Fri, 11 Nov 2022)");
   script_name("Fedora: Security Advisory for php-pear-CAS (FEDORA-2022-37c2d26f59)");
   script_category(ACT_GATHER_INFO);

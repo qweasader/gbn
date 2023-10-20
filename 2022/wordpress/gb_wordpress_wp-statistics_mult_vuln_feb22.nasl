@@ -23,14 +23,14 @@ CPE = "cpe:/a:veronalabs:wp_statistics";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.147775");
-  script_version("2022-07-19T10:11:08+0000");
-  script_tag(name:"last_modification", value:"2022-07-19 10:11:08 +0000 (Tue, 19 Jul 2022)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-03-08 06:40:03 +0000 (Tue, 08 Mar 2022)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-03-03 03:02:00 +0000 (Thu, 03 Mar 2022)");
+  script_tag(name:"severity_date", value:"2023-09-05 17:15:00 +0000 (Tue, 05 Sep 2023)");
 
   script_cve_id("CVE-2022-0651", "CVE-2022-25148", "CVE-2022-25149", "CVE-2022-25305",
                 "CVE-2022-25306", "CVE-2022-25307");

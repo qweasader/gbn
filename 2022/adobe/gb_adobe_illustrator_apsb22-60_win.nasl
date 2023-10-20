@@ -23,12 +23,15 @@ CPE = "cpe:/a:adobe:illustrator";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.821328");
-  script_version("2022-12-30T10:12:19+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-44498", "CVE-2022-44499", "CVE-2022-44450", "CVE-2022-44502",
                 "CVE-2022-44500");
-  script_tag(name:"cvss_base", value:"7.2");
-  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-12-30 10:12:19 +0000 (Fri, 30 Dec 2022)");
+  script_tag(name:"cvss_base", value:"4.9");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:N/A:N");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-12-16 17:11:00 +0000 (Fri, 16 Dec 2022)");
   script_tag(name:"creation_date", value:"2022-12-15 11:46:15 +0530 (Thu, 15 Dec 2022)");
   script_name("Adobe Illustrator Multiple Vulnerabilities (APSB22-60) - Windows");
 

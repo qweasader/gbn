@@ -21,11 +21,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854897");
-  script_version("2022-08-17T10:11:15+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2020-36557", "CVE-2020-36558", "CVE-2021-33655", "CVE-2021-33656", "CVE-2022-1116", "CVE-2022-1462", "CVE-2022-20166", "CVE-2022-21505", "CVE-2022-2318", "CVE-2022-26365", "CVE-2022-29581", "CVE-2022-32250", "CVE-2022-33740", "CVE-2022-33741", "CVE-2022-33742", "CVE-2022-36946");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-08-17 10:11:15 +0000 (Wed, 17 Aug 2022)");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-05-26 00:38:00 +0000 (Thu, 26 May 2022)");
@@ -49,7 +49,7 @@ if(description)
      security bugfixes.
   The following security bugs were fixed:
 
-  - CVE-2022-36946: Fixed an incorrect packet trucation operation which
+  - CVE-2022-36946: Fixed an incorrect packet truncation operation which
        could lead to denial of service (bnc#1201940).
 
   - CVE-2022-29581: Fixed improper update of reference count in net/sched

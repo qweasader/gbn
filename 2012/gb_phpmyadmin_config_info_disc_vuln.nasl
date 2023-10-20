@@ -9,11 +9,11 @@ CPE = "cpe:/a:phpmyadmin:phpmyadmin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802430");
-  script_version("2023-05-16T09:08:27+0000");
+  script_version("2023-10-17T05:05:34+0000");
   script_cve_id("CVE-2012-1902");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-05-16 09:08:27 +0000 (Tue, 16 May 2023)");
+  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
   script_tag(name:"creation_date", value:"2012-04-17 12:56:58 +0530 (Tue, 17 Apr 2012)");
   script_name("phpMyAdmin Information Disclosure Vulnerability (PMASA-2012-2) - Active Check");
   script_xref(name:"URL", value:"http://english.securitylab.ru/nvd/422861.php");
@@ -26,7 +26,7 @@ if(description)
   script_tag(name:"qod_type", value:"remote_active");
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("secpod_phpmyadmin_detect_900129.nasl");
+  script_dependencies("gb_phpmyadmin_http_detect.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("phpMyAdmin/installed");
 

@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854900");
-  script_version("2022-08-17T10:11:15+0000");
+  script_version("2023-10-19T05:05:21+0000");
   script_cve_id("CVE-2020-36557", "CVE-2020-36558", "CVE-2021-33655", "CVE-2021-33656", "CVE-2022-1462", "CVE-2022-20166", "CVE-2022-36946");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-08-17 10:11:15 +0000 (Wed, 17 Aug 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-06-24 02:12:00 +0000 (Fri, 24 Jun 2022)");
+  script_tag(name:"severity_date", value:"2022-08-04 13:41:00 +0000 (Thu, 04 Aug 2022)");
   script_tag(name:"creation_date", value:"2022-08-17 01:04:09 +0000 (Wed, 17 Aug 2022)");
   script_name("openSUSE: Security Advisory for the (SUSE-SU-2022:2827-1)");
   script_category(ACT_GATHER_INFO);

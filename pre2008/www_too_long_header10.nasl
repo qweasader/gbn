@@ -1,43 +1,26 @@
-# OpenVAS Vulnerability Test
-# Description: HTTP 1.0 header overflow
+# SPDX-FileCopyrightText: 2005 Michel Arboi
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Michel Arboi <arboi@alussinan.org>
-#
-# Copyright:
-# Copyright (C) 2005 Michel Arboi
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11127");
-  script_version("2020-08-24T15:18:35+0000");
-  script_tag(name:"last_modification", value:"2020-08-24 15:18:35 +0000 (Mon, 24 Aug 2020)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_name("HTTP 1.0 header overflow");
+  script_name("HTTP 1.0 Header Overflow DoS Vulnerability");
   script_category(ACT_DENIAL);
-  script_tag(name:"qod_type", value:"remote_vul");
-# All the www_too_long_*.nasl scripts were first declared as
-# ACT_DESTRUCTIVE_ATTACK, but many web servers are vulnerable to them:
-# The web server might be killed by those generic tests before the scanner
-# has a chance to perform known attacks for which a patch exists
-# As ACT_DENIAL are performed one at a time (not in parallel), this reduces
-# the risk of false positives.
+  script_tag(name:"qod_type", value:"remote_analysis");
+  # All the www_too_long_*.nasl scripts were first declared as
+  # ACT_DESTRUCTIVE_ATTACK, but many web servers are vulnerable to them:
+  # The web server might be killed by those generic tests before the scanner
+  # has a chance to perform known attacks for which a patch exists
+  # As ACT_DENIAL are performed one at a time (not in parallel), this reduces
+  # the risk of false positives.
 
   script_copyright("Copyright (C) 2005 Michel Arboi");
   script_family("Gain a shell remotely");

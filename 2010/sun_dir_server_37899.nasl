@@ -1,33 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2010 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Sun Java System Directory Server LDAP Search Request Denial of Service Vulnerability
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2010 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100510");
-  script_version("2022-05-02T09:35:37+0000");
-  script_tag(name:"last_modification", value:"2022-05-02 09:35:37 +0000 (Mon, 02 May 2022)");
+  script_version("2023-07-06T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2023-07-06 05:05:36 +0000 (Thu, 06 Jul 2023)");
   script_tag(name:"creation_date", value:"2010-02-26 12:01:21 +0100 (Fri, 26 Feb 2010)");
   script_cve_id("CVE-2010-0708");
   script_tag(name:"cvss_base", value:"5.0");
@@ -35,7 +16,7 @@ if(description)
   script_name("Sun Java System Directory Server LDAP Search Request Denial of Service Vulnerability");
   script_category(ACT_GATHER_INFO);
   script_family("Denial of Service");
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_dependencies("sun_dir_server_detect.nasl");
   script_require_ports("Services/ldap", 389, 636);
   script_mandatory_keys("SunJavaDirServer/installed", "ldap/detected");
@@ -74,7 +55,6 @@ if(description)
 
 include("version_func.inc");
 include("ldap.inc");
-include("misc_func.inc");
 include("port_service_func.inc");
 
 port = ldap_get_port(default:389);

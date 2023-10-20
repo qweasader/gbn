@@ -1,31 +1,14 @@
-# OpenVAS Vulnerability Test
-# Description: Mercur Mailserver/Messaging version <= 5.0 IMAP Overflow Vulnerability
+# SPDX-FileCopyrightText: 2008 Ferdy Riphagen
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Ferdy Riphagen <f[dot]riphagen[at]nsec[dot]nl>
-#
-# Copyright:
-# Copyright (C) 2008 Ferdy Riphagen
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.200050");
-  script_version("2022-06-27T10:12:27+0000");
-  script_tag(name:"last_modification", value:"2022-06-27 10:12:27 +0000 (Mon, 27 Jun 2022)");
+  script_version("2023-07-13T05:06:09+0000");
+  script_tag(name:"last_modification", value:"2023-07-13 05:06:09 +0000 (Thu, 13 Jul 2023)");
   script_tag(name:"creation_date", value:"2008-08-22 16:09:14 +0200 (Fri, 22 Aug 2008)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -49,9 +32,10 @@ if(description)
   script_tag(name:"vuldetect", value:"Depending on the 'safe_checks' setting of the scan
   configuration:
 
-  - Checks if a vulnerable version is present on the target host
+  - Setting 'yes': Checks if a vulnerable version is present on the target host
 
-  - Sends crafted SMTP requests and checks if the system is still responding afterwards");
+  - Setting 'no': Sends crafted SMTP requests and checks if the system is still responding
+  afterwards");
 
   script_tag(name:"impact", value:"An attacker can use this to crash the service, possible execute
   arbitrary code and gain some access privileges on the system.");
@@ -62,7 +46,7 @@ if(description)
   replace the product by another one.");
 
   script_tag(name:"solution_type", value:"WillNotFix");
-  script_tag(name:"qod_type", value:"remote_banner");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   exit(0);
 }

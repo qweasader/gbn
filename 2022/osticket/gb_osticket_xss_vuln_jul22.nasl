@@ -23,11 +23,14 @@ CPE = "cpe:/a:osticket:osticket";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127272");
-  script_version("2022-12-07T10:11:17+0000");
-  script_tag(name:"last_modification", value:"2022-12-07 10:11:17 +0000 (Wed, 07 Dec 2022)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2022-12-05 08:30:46 +0000 (Mon, 05 Dec 2022)");
-  script_tag(name:"cvss_base", value:"4.3");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
+  script_tag(name:"cvss_base", value:"5.5");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-12-05 18:35:00 +0000 (Mon, 05 Dec 2022)");
 
   script_cve_id("CVE-2022-4271");
 

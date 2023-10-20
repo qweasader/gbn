@@ -1,52 +1,32 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# MemcacheDB Version Detection
-#
-# Authors:
-# Sujit Ghosal <sghosal@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2009 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 # Note: This product is supporting the same memcache protocol used by the
-# gb_memcached_detect* NVTs. However MemcacheDB had its last release in
+# gb_memcached_detect* VTs. However MemcacheDB had its last release in
 # 2008 so we're only checking the default 21201 port here and won't register
 # the service via service_register().
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800716");
-  script_version("2020-11-10T15:30:28+0000");
-  script_tag(name:"last_modification", value:"2020-11-10 15:30:28 +0000 (Tue, 10 Nov 2020)");
+  script_version("2023-06-22T10:34:15+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2009-05-18 09:37:31 +0200 (Mon, 18 May 2009)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
-  script_name("MemcacheDB Version Detection");
+  script_name("MemcacheDB Detection (TCP)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_dependencies("find_service.nasl");
   script_family("Product detection");
   script_require_ports(21201); # See comment above
 
   script_xref(name:"URL", value:"http://memcachedb.org/");
 
-  script_tag(name:"summary", value:"The script detects the installed version of MemcacheDB and sets
-  the result into KB.");
+  script_tag(name:"summary", value:"TCP based detection of MemcacheDB.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 

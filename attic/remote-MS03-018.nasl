@@ -1,6 +1,9 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 Christian Eric Edjenguele
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 # Microsoft Security Bulletin MS03-018
 # Cumulative Patch for Internet Information Service (811114)
 # Redirection Cross Site Scripting CAN-2003-0223
@@ -65,38 +68,19 @@
 #
 #
 # End User Bulletin: An end user version of this bulletin is available at: http://www.microsoft.com/athome/security/update/bulletins/default.mspx
-#
-# remote-MS03-018.nasl
-#
-# Author:
-# Christian Eric Edjenguele <christian.edjenguele@owasp.org>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2 or later,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.101017");
-  script_version("2020-04-02T11:36:28+0000");
-  script_tag(name:"last_modification", value:"2020-04-02 11:36:28 +0000 (Thu, 02 Apr 2020)");
+  script_version("2023-06-22T10:34:15+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2009-03-16 23:15:41 +0100 (Mon, 16 Mar 2009)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2003-0223", "CVE-2003-0224", "CVE-2003-0225", "CVE-2003-0226");
-  script_name("Microsoft MS03-018 security check");
+  script_name("Microsoft IIS MS03-018 Security Check");
   script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2009 Christian Eric Edjenguele <christian.edjenguele@owasp.org>");
+  script_copyright("Copyright (C) 2009 Christian Eric Edjenguele");
   script_family("Windows : Microsoft Bulletins");
 
   script_xref(name:"URL", value:"http://www.microsoft.com/downloads/details.aspx?FamilyId=1DBC1914-98E9-4DED-ADBF-E9B374A1F79D&displaylang=en");
@@ -132,6 +116,6 @@ if(description)
   exit(0);
 }
 
-# This NVT is broken in many ways, especially as it is using a md5 hash
+# This VT is broken in many ways, especially as it is using a md5 hash
 # on a response with dynamic data. This will never work against a live system...
 exit(66);

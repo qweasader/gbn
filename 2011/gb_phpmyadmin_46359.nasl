@@ -1,35 +1,16 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2011 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# phpMyAdmin Bookmark Security Bypass Vulnerability
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2011 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:phpmyadmin:phpmyadmin";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103076");
-  script_version("2022-04-28T13:38:57+0000");
-  script_tag(name:"last_modification", value:"2022-04-28 13:38:57 +0000 (Thu, 28 Apr 2022)");
+  script_version("2023-10-17T05:05:34+0000");
+  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
   script_tag(name:"creation_date", value:"2011-02-15 13:44:44 +0100 (Tue, 15 Feb 2011)");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
@@ -37,8 +18,8 @@ if(description)
   script_name("phpMyAdmin Bookmark Security Bypass Vulnerability");
   script_category(ACT_GATHER_INFO);
   script_family("Web application abuses");
-  script_copyright("Copyright (C) 2011 Greenbone Networks GmbH");
-  script_dependencies("secpod_phpmyadmin_detect_900129.nasl");
+  script_copyright("Copyright (C) 2011 Greenbone AG");
+  script_dependencies("gb_phpmyadmin_http_detect.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("phpMyAdmin/installed");
 

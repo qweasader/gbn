@@ -1,34 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2015 Eero Volotinen
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Gentoo Linux security check
-#
-# Authors:
-# Eero Volotinen <eero.volotinen@solinor.com>
-#
-# Copyright:
-# Copyright (C) 2015 Eero Volotinen, http://solinor.com
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.121270");
-  script_version("2020-11-12T10:09:08+0000");
+  script_version("2023-07-20T05:05:17+0000");
   script_tag(name:"creation_date", value:"2015-09-29 11:27:54 +0300 (Tue, 29 Sep 2015)");
-  script_tag(name:"last_modification", value:"2020-11-12 10:09:08 +0000 (Thu, 12 Nov 2020)");
+  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
   script_name("Gentoo Security Advisory GLSA 201409-07");
   script_tag(name:"insight", value:"c-icap contains a flaw in the parse_request() function of request.c
   that may allow a remote denial of service. The issue is triggered when the buffer fails to contain a ' ' or '?' symbol,

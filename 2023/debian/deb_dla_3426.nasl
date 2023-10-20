@@ -1,30 +1,16 @@
-# Copyright (C) 2023 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2023 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2023.3426");
   script_cve_id("CVE-2021-31439", "CVE-2022-0194", "CVE-2022-23121", "CVE-2022-23122", "CVE-2022-23123", "CVE-2022-23124", "CVE-2022-23125", "CVE-2022-43634", "CVE-2022-45188");
   script_tag(name:"creation_date", value:"2023-05-17 04:23:53 +0000 (Wed, 17 May 2023)");
-  script_version("2023-06-05T09:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-06-05 09:09:07 +0000 (Mon, 05 Jun 2023)");
+  script_version("2023-08-15T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2023-08-15 05:05:29 +0000 (Tue, 15 Aug 2023)");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
@@ -33,13 +19,13 @@ if(description)
 
   script_name("Debian: Security Advisory (DLA-3426)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2023 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB10");
 
   script_xref(name:"Advisory-ID", value:"DLA-3426");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/dla-3426-2");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/dla-3426-3");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/netatalk");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
@@ -47,9 +33,11 @@ if(description)
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The security update of netatalk, the Apple Filing Protocol service, announced as DLA-3426-1 caused a regression when the netatalk server was configured to use the AppleDouble v2 file system format.
+  script_tag(name:"insight", value:"Another regression was identified in Netatalk, the Apple Filing Protocol service, introduced with the patch for CVE-2022-23123. It is impacting a subset of users that have certain metadata in their shared files. The issue leads to an unavoidable crash and renders netatalk useless with their shared volumes.
 
-For Debian 10 buster, this problem has been fixed in version 3.1.12~ds-3+deb10u2.
+Separately, it also contains a fix for saving MS Office files onto an otherwise functioning shared volume.
+
+For Debian 10 buster, this problem has been fixed in version 3.1.12~ds-3+deb10u3.
 
 We recommend that you upgrade your netatalk packages.
 
@@ -79,11 +67,11 @@ report = "";
 
 if(release == "DEB10") {
 
-  if(!isnull(res = isdpkgvuln(pkg:"netatalk-dbg", ver:"3.1.12~ds-3+deb10u1", rls:"DEB10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"netatalk", ver:"3.1.12~ds-3+deb10u1", rls:"DEB10"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"netatalk", ver:"3.1.12~ds-3+deb10u1", rls:"DEB10"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"netatalk-dbg", ver:"3.1.12~ds-3+deb10u1", rls:"DEB10"))) {
     report += res;
   }
 

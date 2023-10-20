@@ -1,30 +1,16 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.2.2022.2566");
   script_cve_id("CVE-2020-24586", "CVE-2020-24587", "CVE-2020-24588", "CVE-2020-26139", "CVE-2020-26140", "CVE-2020-26141", "CVE-2020-26142", "CVE-2020-26143", "CVE-2020-26144", "CVE-2020-26145", "CVE-2020-26146", "CVE-2020-26147", "CVE-2021-0920", "CVE-2021-0938", "CVE-2021-0941", "CVE-2021-20321", "CVE-2021-29650", "CVE-2021-33098", "CVE-2021-34556", "CVE-2021-35477", "CVE-2021-3655", "CVE-2021-3744", "CVE-2021-3764", "CVE-2021-3772", "CVE-2021-38209", "CVE-2021-39633", "CVE-2021-39634", "CVE-2021-39698", "CVE-2021-39713", "CVE-2021-4002", "CVE-2021-4037", "CVE-2021-4083", "CVE-2021-4135", "CVE-2021-4157", "CVE-2021-4159", "CVE-2021-44733", "CVE-2021-45485", "CVE-2021-45486", "CVE-2021-45868", "CVE-2022-0001", "CVE-2022-0002", "CVE-2022-0492", "CVE-2022-0494", "CVE-2022-0617", "CVE-2022-1011", "CVE-2022-1012", "CVE-2022-1016", "CVE-2022-1353", "CVE-2022-1678", "CVE-2022-1729", "CVE-2022-20008", "CVE-2022-20132", "CVE-2022-20141", "CVE-2022-23960", "CVE-2022-24448", "CVE-2022-27666", "CVE-2022-28388", "CVE-2022-28390", "CVE-2022-29581", "CVE-2022-30594", "CVE-2022-32250", "CVE-2022-32296");
   script_tag(name:"creation_date", value:"2022-10-12 04:41:33 +0000 (Wed, 12 Oct 2022)");
-  script_version("2022-10-21T10:20:04+0000");
-  script_tag(name:"last_modification", value:"2022-10-21 10:20:04 +0000 (Fri, 21 Oct 2022)");
+  script_version("2023-06-20T05:05:24+0000");
+  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
   script_tag(name:"cvss_base", value:"7.4");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:M/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2022-2566)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Huawei EulerOS Local Security Checks");
   script_dependencies("gb_huawei_euleros_consolidation.nasl");
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.6\.0");

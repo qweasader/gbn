@@ -23,13 +23,16 @@ CPE = "cpe:/a:microsoft:edge_chromium_based";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.821298");
-  script_version("2022-08-22T10:11:10+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2022-2856");
-  script_tag(name:"cvss_base", value:"6.8");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-08-22 10:11:10 +0000 (Mon, 22 Aug 2022)");
+  script_tag(name:"cvss_base", value:"7.8");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:C/A:N");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-09-28 18:56:00 +0000 (Wed, 28 Sep 2022)");
   script_tag(name:"creation_date", value:"2022-08-19 11:38:20 +0530 (Fri, 19 Aug 2022)");
   script_name("Microsoft Edge (Chromium-Based) Input Validation Vulnerability (August 2022)");
 

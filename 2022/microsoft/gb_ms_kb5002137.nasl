@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.819983");
-  script_version("2022-03-07T03:03:52+0000");
+  script_version("2023-06-30T16:09:17+0000");
   script_cve_id("CVE-2022-22716");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-03-07 03:03:52 +0000 (Mon, 07 Mar 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N");
+  script_tag(name:"last_modification", value:"2023-06-30 16:09:17 +0000 (Fri, 30 Jun 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-03-04 21:31:00 +0000 (Fri, 04 Mar 2022)");
+  script_tag(name:"severity_date", value:"2023-06-29 05:15:00 +0000 (Thu, 29 Jun 2023)");
   script_tag(name:"creation_date", value:"2022-02-09 09:09:56 +0530 (Wed, 09 Feb 2022)");
   script_name("Microsoft Excel 2016 RCE Vulnerability (KB5002137)");
 

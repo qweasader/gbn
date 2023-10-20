@@ -9,11 +9,14 @@ CPE = "cpe:/a:mozilla:thunderbird";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832100");
-  script_version("2023-03-31T10:19:34+0000");
+  script_version("2023-10-13T05:06:10+0000");
   script_cve_id("CVE-2023-28427");
-  script_tag(name:"cvss_base", value:"9.3");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-03-31 10:19:34 +0000 (Fri, 31 Mar 2023)");
+  script_tag(name:"cvss_base", value:"8.5");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:C");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-04-07 12:37:00 +0000 (Fri, 07 Apr 2023)");
   script_tag(name:"creation_date", value:"2023-03-31 12:48:32 +0530 (Fri, 31 Mar 2023)");
   script_name("Mozilla Thunderbird Security Update(mfsa_2023-12)-Windows");
 

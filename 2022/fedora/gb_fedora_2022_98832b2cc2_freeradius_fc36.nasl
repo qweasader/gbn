@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.823008");
-  script_version("2022-12-19T10:12:02+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-41859", "CVE-2022-41860", "CVE-2022-41861");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-12-19 10:12:02 +0000 (Mon, 19 Dec 2022)");
+  script_tag(name:"cvss_base", value:"7.8");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-01-24 19:53:00 +0000 (Tue, 24 Jan 2023)");
   script_tag(name:"creation_date", value:"2022-12-16 02:20:39 +0000 (Fri, 16 Dec 2022)");
   script_name("Fedora: Security Advisory for freeradius (FEDORA-2022-98832b2cc2)");
   script_category(ACT_GATHER_INFO);

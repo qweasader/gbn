@@ -1,43 +1,16 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 Christian Eric Edjenguele
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Microsoft Security Bulletin MS04-017
-# Vulnerability in Crystal Reports Web Viewer Could Allow Information Disclosure and Denial of Service
-#
-# Affected Software
-# Visual Studio .NET 2003
-# Outlook 2003 with Business Contact Manager
-# Microsoft Business Solutions CRM 1.2
-#
-# Non-Affected Software:
-# All other supported versions of Visual Studio, Outlook, and Microsoft Business Solutions CRM.
-#
-# remote-detect-MS04-017.nasl
-#
-# Author:
-# Copyright (C) 2009 Christian Eric Edjenguele <christian.edjenguele@owasp.org>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2 or later,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 CPE = "cpe:/a:microsoft:internet_information_services";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.101004");
-  script_version("2022-12-05T10:11:03+0000");
-  script_tag(name:"last_modification", value:"2022-12-05 10:11:03 +0000 (Mon, 05 Dec 2022)");
+  script_version("2023-10-10T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2023-10-10 05:05:41 +0000 (Tue, 10 Oct 2023)");
   script_tag(name:"creation_date", value:"2009-03-15 20:59:49 +0100 (Sun, 15 Mar 2009)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -46,7 +19,7 @@ if(description)
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2009 Christian Eric Edjenguele");
   script_family("Windows : Microsoft Bulletins");
-  script_dependencies("secpod_ms_iis_detect.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl");
+  script_dependencies("gb_microsoft_iis_http_detect.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("IIS/installed");
 

@@ -9,11 +9,11 @@ CPE = "cpe:/a:apache:openoffice";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808653");
-  script_version("2023-04-21T10:20:09+0000");
+  script_version("2023-10-06T16:09:51+0000");
   script_cve_id("CVE-2016-1513");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-04-21 10:20:09 +0000 (Fri, 21 Apr 2023)");
+  script_tag(name:"last_modification", value:"2023-10-06 16:09:51 +0000 (Fri, 06 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-09-01 01:29:00 +0000 (Fri, 01 Sep 2017)");
@@ -62,7 +62,7 @@ if(!openoffcVer = get_app_version(cpe:CPE)){
   exit(0);
 }
 
-## Appache OpenOffice version 4.1.2 is equal to 4.12.9782
+## Apache OpenOffice version 4.1.2 is equal to 4.12.9782
 if(version_is_less_equal(version:openoffcVer, test_version:"4.12.9782"))
 {
   report = report_fixed_ver(installed_version:openoffcVer, fixed_version:"Apply the Workaround");

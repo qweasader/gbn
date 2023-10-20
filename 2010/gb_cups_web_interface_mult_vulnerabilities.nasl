@@ -1,68 +1,58 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2010 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# CUPS Web Interface Multiple Vulnerabilities
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2010 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apple:cups";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100687");
-  script_version("2022-05-02T09:35:37+0000");
-  script_tag(name:"last_modification", value:"2022-05-02 09:35:37 +0000 (Mon, 02 May 2022)");
+  script_version("2023-08-15T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2023-08-15 05:05:29 +0000 (Tue, 15 Aug 2023)");
   script_tag(name:"creation_date", value:"2010-06-22 12:10:21 +0200 (Tue, 22 Jun 2010)");
-  script_cve_id("CVE-2010-1748", "CVE-2010-0540");
   script_tag(name:"cvss_base", value:"6.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:P");
-  script_name("CUPS Web Interface Multiple Vulnerabilities");
+
+  script_cve_id("CVE-2010-1748", "CVE-2010-0540");
+
+  script_tag(name:"qod_type", value:"remote_banner_unreliable");
+
+  script_tag(name:"solution_type", value:"VendorFix");
+
+  script_name("CUPS < 1.4.4 Multiple Vulnerabilities");
+
   script_category(ACT_GATHER_INFO);
   script_family("General");
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
-  script_dependencies("secpod_cups_detect.nasl");
-  script_require_ports("Services/www", 631);
-  script_mandatory_keys("CUPS/installed");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
+  script_dependencies("gb_cups_http_detect.nasl");
+  script_mandatory_keys("cups/detected");
+
+  script_tag(name:"summary", value:"CUPS (Common UNIX Printing System) is prone to multiple
+  vulnerabilities.");
+
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+
+  script_tag(name:"insight", value:"The following vulnerabilities exist:
+
+  - CVE-2010-1748: The cgi_initialize_string function in cgi-bin/var.c in the web interface does not
+  properly handle parameter values containing a % (percent) character without two subsequent hex
+  characters, which allows context-dependent attackers to obtain sensitive information from cupsd
+  process memory via a crafted request.
+
+  - CVE-2010-0540: Cross-site request forgery (CSRF).");
+
+  script_tag(name:"affected", value:"CUPS prior to version 1.4.4.");
+
+  script_tag(name:"solution", value:"Updates to version 1.4.4 or later.");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/40897");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/40889");
   script_xref(name:"URL", value:"http://cups.org/articles.php?L596");
-
-  script_tag(name:"solution", value:"Updates are available. Please see the references for more information.");
-
-  script_tag(name:"summary", value:"CUPS Web Interface is prone to Multiple Vulnerabilities.
-
-  1. A remote information-disclosure vulnerability. This
-  issue affects the CUPS web interface component.
-
-  Remote attackers can exploit this issue to obtain sensitive
-  information that may lead to further attacks.
-
-  2. A cross-site request-forgery vulnerability.
-
-  Attackers can exploit this issue to perform certain administrative
-  actions and gain unauthorized access to the affected application.");
-
-  script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_banner_unreliable");
+  script_xref(name:"URL", value:"https://github.com/apple/cups/issues/3577");
+  script_xref(name:"URL", value:"https://github.com/apple/cups/issues/3498");
+  script_xref(name:"URL", value:"https://github.com/apple/cups/releases/tag/release-1.4.4");
 
   exit(0);
 }
@@ -82,7 +72,7 @@ if( vers !~ "[0-9]+\.[0-9]+\.[0-9]+")
 
 path = infos["location"];
 
-if(version_is_less( version:vers, test_version:"1.4.4" ) ) {
+if( version_is_less( version:vers, test_version:"1.4.4" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"1.4.4", install_path:path );
   security_message( port:port, data:report );
   exit( 0 );

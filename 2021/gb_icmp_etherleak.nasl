@@ -1,65 +1,90 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.146546");
-  script_version("2021-11-23T09:21:00+0000");
-  script_tag(name:"last_modification", value:"2021-11-23 09:21:00 +0000 (Tue, 23 Nov 2021)");
+  script_version("2023-07-25T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
   script_tag(name:"creation_date", value:"2021-08-23 14:16:29 +0000 (Mon, 23 Aug 2021)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 
-  script_cve_id("CVE-2003-0001", "CVE-2017-2304", "CVE-2021-3031");
+  script_cve_id("CVE-2003-0001", "CVE-2013-4690", "CVE-2017-2304", "CVE-2018-0014",
+                "CVE-2021-3031", "CVE-2022-22216");
 
   script_tag(name:"qod_type", value:"remote_probe");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("ICMP 'EtherLeak' Information Disclosure");
+  script_name("ICMP 'Etherleak' Information Disclosure");
 
   script_category(ACT_ATTACK);
 
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("General");
   script_dependencies("host_alive_detection.nasl", "os_fingerprint.nasl", "global_settings.nasl");
   script_mandatory_keys("keys/islocalnet");
   script_exclude_keys("keys/islocalhost", "keys/TARGET_IS_IPV6", "ICMPv4/EchoRequest/failed");
 
   script_tag(name:"summary", value:"The remote host is prone to an information disclosure
-  vulnerability over ICMP (EtherLeak).");
+  vulnerability over ICMP dubbed 'Etherleak'.");
 
   script_tag(name:"vuldetect", value:"Sends multiple crafted ICMP packets and checks the responses.");
 
   script_tag(name:"insight", value:"Multiple ethernet Network Interface Card (NIC) device drivers
   do not pad frames with null bytes, which allows remote attackers to obtain information from
-  previous packets or kernel memory by using malformed packets, as demonstrated by EtherLeak.");
+  previous packets or kernel memory by using malformed packets, as demonstrated by Etherleak.");
 
   script_tag(name:"impact", value:"An unauthenticated attacker might gather sensitive information.");
 
+  script_tag(name:"affected", value:"The following products / devices are known to be affected (Some
+  have vendor specific CVEs):
+
+  - Original CVE-2003-0001:
+
+  * Multiple unnamed ethernet Network Interface Card (NIC) device drivers
+
+  * The Linux Kernel on at least Debian
+
+  * FreeBSD and NetBSD
+
+  * Windows 2000
+
+  * Cisco Adaptive Security Appliance (ASA, CSCua88376)
+
+  * HP-UX network device drivers (HPSBUX0305-261)
+
+  - CVE-2013-4690, JSA10579: Juniper Networks Junos OS on SRX1400, SRX3400 and SRX3600 devices
+
+  - CVE-2017-2304, JSA10773: Juniper Networks Junos OS on QFX3500, QFX3600, QFX5100, QFX5200, EX4300
+  and EX4600 Series devices
+
+  - CVE-2018-0014, JSA10841: Juniper Networks ScreenOS devices
+
+  - CVE-2021-3031, PAN-124681: Palo Alto PAN-OS on PA-200, PA-220, PA-500, PA-800, PA-2000 Series,
+  PA-3000 Series, PA-3200 Series, PA-5200 Series, and PA-7000 Series firewalls
+
+  - CVE-2022-22216, JSA69720: Juniper Networks Junos OS on PTX and QFX10k Series devices
+
+  Other products / devices might be affected as well.");
+
   script_tag(name:"solution", value:"Contact the vendor of the network device driver for a solution.");
 
+  script_xref(name:"URL", value:"https://web.archive.org/web/20050924092427/http://www.atstake.com/research/advisories/2003/a010603-1.txt");
   script_xref(name:"URL", value:"http://www.kb.cert.org/vuls/id/412115");
   script_xref(name:"URL", value:"https://dl.packetstormsecurity.net/advisories/atstake/atstake_etherleak_report.pdf");
   script_xref(name:"URL", value:"https://www.exploit-db.com/exploits/3555");
+  script_xref(name:"URL", value:"https://quickview.cloudapps.cisco.com/quickview/bug/CSCua88376");
   script_xref(name:"URL", value:"https://www.ciscozine.com/cisco-asa-8-4-4-68-2-5-32-ethernet-information-leak/");
+  script_xref(name:"URL", value:"https://security.paloaltonetworks.com/CVE-2021-3031");
+  script_xref(name:"URL", value:"https://supportportal.juniper.net/s/article/2022-07-Security-Bulletin-Junos-OS-PTX-Series-and-QFX10000-Series-Etherleak-memory-disclosure-in-Ethernet-padding-data-CVE-2022-22216");
+  script_xref(name:"URL", value:"https://supportportal.juniper.net/s/article/2018-01-Security-Bulletin-ScreenOS-Etherleak-vulnerability-found-on-ScreenOS-device-CVE-2018-0014");
+  script_xref(name:"URL", value:"https://supportportal.juniper.net/s/article/2017-01-Security-Bulletin-QFX3500-QFX3600-QFX5100-QFX5200-EX4300-and-EX4600-Etherleak-memory-disclosure-in-Ethernet-padding-data-CVE-2017-2304");
+  script_xref(name:"URL", value:"https://supportportal.juniper.net/s/article/2013-07-Security-Bulletin-Junos-SRX1400-3400-3600-vulnerable-to-Etherleak-packet-fragment-disclosure-in-Ethernet-padding-data-CVE-2013-4690");
 
   exit(0);
 }

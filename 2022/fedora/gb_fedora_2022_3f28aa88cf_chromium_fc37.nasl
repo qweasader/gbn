@@ -21,13 +21,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.822586");
-  script_version("2022-10-26T10:12:44+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2022-2007", "CVE-2022-2008", "CVE-2022-2010", "CVE-2022-2011", "CVE-2022-2603", "CVE-2022-2604", "CVE-2022-2605", "CVE-2022-2606", "CVE-2022-2607", "CVE-2022-2608", "CVE-2022-2609", "CVE-2022-2610", "CVE-2022-2611", "CVE-2022-2612", "CVE-2022-2613", "CVE-2022-2614", "CVE-2022-2615", "CVE-2022-2616", "CVE-2022-2617", "CVE-2022-2618", "CVE-2022-2619", "CVE-2022-2620", "CVE-2022-2621", "CVE-2022-2622", "CVE-2022-2623", "CVE-2022-2624", "CVE-2022-2852", "CVE-2022-2854", "CVE-2022-2855", "CVE-2022-2857", "CVE-2022-2858", "CVE-2022-2853", "CVE-2022-2856", "CVE-2022-2859", "CVE-2022-2860", "CVE-2022-2861", "CVE-2022-3038", "CVE-2022-3039", "CVE-2022-3040", "CVE-2022-3041", "CVE-2022-3042", "CVE-2022-3043", "CVE-2022-3044", "CVE-2022-3045", "CVE-2022-3046", "CVE-2022-3071", "CVE-2022-3047", "CVE-2022-3048", "CVE-2022-3049", "CVE-2022-3050", "CVE-2022-3051", "CVE-2022-3052", "CVE-2022-3053", "CVE-2022-3054", "CVE-2022-3055", "CVE-2022-3056", "CVE-2022-3057", "CVE-2022-3058", "CVE-2022-3075", "CVE-2022-3195", "CVE-2022-3196", "CVE-2022-3197", "CVE-2022-3198", "CVE-2022-3199", "CVE-2022-3200", "CVE-2022-3201");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-10-26 10:12:44 +0000 (Wed, 26 Oct 2022)");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-09-30 18:47:00 +0000 (Fri, 30 Sep 2022)");
   script_tag(name:"creation_date", value:"2022-10-03 01:13:27 +0000 (Mon, 03 Oct 2022)");
   script_name("Fedora: Security Advisory for chromium (FEDORA-2022-3f28aa88cf)");
   script_category(ACT_GATHER_INFO);

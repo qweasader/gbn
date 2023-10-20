@@ -2,7 +2,7 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 # - General info:
 #   - https://www.ietf.org/rfc/rfc2608.html (Service Location Protocol, Version 2)
@@ -96,16 +96,19 @@ SLP_EXPECTED_RESPONSES[SLP_MESSAGES_RAW["SrvRqst"]] = make_list( SLP_MESSAGES_RA
 # @return An array containing the parsed data or NULL if not all required parameters are given or no
 #         valid SLP response / not response at all was received. The array indices are the following:
 #
-#         ret_array["version_raw"]    = The SLP version extracted from the data in raw format
-#         ret_array["version_string"] = The SLP version extracted from the data in human readable format
-#         ret_array["func_id_raw"]    = The Function-ID extracted from the data in raw format
-#         ret_array["func_id_string"] = The Function-ID extracted from the data in human readable format
-#         ret_array["xid"]            = The XID (unique value) extracted from the data as an int
+#         ret_array["version_raw"]       = The SLP version extracted from the data in raw format
+#         ret_array["version_string"]    = The SLP version extracted from the data in human readable format
+#         ret_array["func_id_raw"]       = The Function-ID extracted from the data in raw format
+#         ret_array["func_id_string"]    = The Function-ID extracted from the data in human readable format
+#         ret_array["xid"]               = The XID (unique value) extracted from the data as an int
+#         ret_array["error_code"]        = (Service Type Request specific) The error code
+#         ret_array["service_type_list"] = (Service Type Request specific) The returned service type list
 #
 function slp_parse_response( data, debug ) {
 
   local_var data, debug;
   local_var version, version_string, func_id, func_id_string, xid, ret_array;
+  local_var lang, error_code, service_type_list;
 
   if( ! data ) {
     set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#data#-#slp_parse_response" );
@@ -146,6 +149,17 @@ function slp_parse_response( data, debug ) {
 
   if( debug ) display( "---[ Data extracted from passed data ]---", "\n", "SLP version: ", version_string, "\n", "Function-ID: ", func_id_string, "\n", "XID:         ", xid );
 
+  # Extract Service Type Reply specific data
+  if( func_id_string == "SrvTypeRply (Service Type Reply)" ) {
+    lang = getword( blob:data, pos:12 );
+    error_code = getword( blob:data, pos:14 + lang );
+    service_type_list = substr( data, 18 + lang ); # Skip Service Type List length as we just want to have the rest of the data
+    ret_array["error_code"] = error_code;
+    ret_array["service_type_list"] = service_type_list;
+
+    if( debug ) display( "---[ Data extracted from Service Type Reply ]---", "\n", "Error Code: ", error_code, "\n", "Service Type List: ", service_type_list );
+  }
+
   return ret_array;
 }
 
@@ -153,6 +167,8 @@ function slp_parse_response( data, debug ) {
 #
 # @param func_id  The Function-ID to create a SLP message for. Currently supported:
 #                 SrvRqst (Service Request) with ID 0x01
+#                 AttrRqst (Attribute Request) with ID 0x06
+#                 SrvTypeRqst (Service Type Request) with ID 0x09
 # @param xid      The XID (unique value) to be included in the request. Length: 16 bit
 # @param msg_exts An array containing the extensions like e.g. Service Type, Scope List and similar
 #                 to be added to the request. If not given defaults for different Function-IDs are
@@ -171,7 +187,7 @@ function slp_create_message( func_id, xid, msg_exts, debug ) {
   local_var func_id, xid, msg_exts, debug;
   local_var xid_type, pkt, service_type_list, service_type_list_len, scope_list, scope_list_len;
   local_var service_url, service_url_len, tag_list, tag_list_len;
-  local_var data, lang_tag, lang_tag_len, pkt_len;
+  local_var data, naming_authority, naming_authority_len, lang_tag, lang_tag_len, pkt_len;
 
   if( ! func_id ) {
     set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#func_id#-#slp_create_message" );
@@ -179,8 +195,9 @@ function slp_create_message( func_id, xid, msg_exts, debug ) {
   }
 
   if( func_id != SLP_MESSAGES_RAW["SrvRqst"] &&
-      func_id != SLP_MESSAGES_RAW["AttrRqst"] ) {
-    if( debug ) display( "---[ Unsupported SLP Function-ID passed via 'func_id' parameter: '0x", hexstr( func_id ), "'. Currently supported: 0x01 (SrvRqst (Service Request)), 0x06 (AttrRqst (Attribute Request)) ]---" );
+      func_id != SLP_MESSAGES_RAW["AttrRqst"] &&
+      func_id != SLP_MESSAGES_RAW["SrvTypeRqst"] ) {
+    if( debug ) display( "---[ Unsupported SLP Function-ID passed via 'func_id' parameter: '0x", hexstr( func_id ), "'. Currently supported: 0x01 (SrvRqst (Service Request)), 0x06 (AttrRqst (Attribute Request)), 0x09 (SrvTypeRqst (Service Type Request)) ]---" );
     return NULL;
   }
 
@@ -241,10 +258,9 @@ function slp_create_message( func_id, xid, msg_exts, debug ) {
 
     if( msg_exts["tag_list"] )
       tag_list = msg_exts["tag_list"];
-    else {
-      set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#tag_list (Attribute Request)#-#slp_create_message" );
-      return NULL;
-    }
+    else
+      tag_list = ""; # Omitting the tag-list will return all attributes
+
     tag_list_len = strlen( tag_list );
 
     data = raw_string( 0x00, 0x00,                      # Previous Response List Length: 0
@@ -254,6 +270,35 @@ function slp_create_message( func_id, xid, msg_exts, debug ) {
                        scope_list,                      # Scope List
                        mkword( tag_list_len ),          # Tag List Length (16 bits)
                        tag_list,                        # Tag List
+                       0x00, 0x00 );                    # SLP SPI Length
+  }
+
+  else if( func_id == SLP_MESSAGES_RAW["SrvTypeRqst"] ) {
+    pkt += SLP_MESSAGES_RAW["SrvTypeRqst"]; # Function: Service Type Request
+
+    if( msg_exts["naming_authority"] ) {
+      naming_authority = msg_exts["naming_authority"];
+      naming_authority_len = strlen( naming_authority );
+    } else {
+      # Default return all service types. From https://www.ietf.org/rfc/rfc2608.html#section-10.1
+      #   "If the length of the Naming Authority is set to 0xFFFF, the Naming Authority string is"
+      #    omitted and ALL Service Types are returned, regardless of Naming Authority."
+      naming_authority = "";
+      naming_authority_len = raw_string( 0xff, 0xff );
+    }
+
+    if( msg_exts["scope_list"] )
+      scope_list = msg_exts["scope_list"];
+    else
+      scope_list = "default";
+    scope_list_len = strlen( scope_list );
+
+    data = raw_string( 0x00, 0x00,                      # Previous Response List Length: 0
+                       naming_authority_len,
+                       naming_authority,
+                       mkword( scope_list_len ),        # Scope List Length (16 bits)
+                       scope_list,                      # Scope List
+                       0x00, 0x00,                      # Predicate Length
                        0x00, 0x00 );                    # SLP SPI Length
   }
 

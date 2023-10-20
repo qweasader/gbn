@@ -23,8 +23,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.123635");
   script_cve_id("CVE-2013-0401", "CVE-2013-1488", "CVE-2013-1518", "CVE-2013-1537", "CVE-2013-1557", "CVE-2013-1558", "CVE-2013-1569", "CVE-2013-2383", "CVE-2013-2384", "CVE-2013-2415", "CVE-2013-2417", "CVE-2013-2419", "CVE-2013-2420", "CVE-2013-2421", "CVE-2013-2422", "CVE-2013-2424", "CVE-2013-2426", "CVE-2013-2429", "CVE-2013-2430", "CVE-2013-2431");
   script_tag(name:"creation_date", value:"2015-10-06 11:06:33 +0000 (Tue, 06 Oct 2015)");
-  script_version("2022-04-05T06:57:19+0000");
-  script_tag(name:"last_modification", value:"2022-04-05 06:57:19 +0000 (Tue, 05 Apr 2022)");
+  script_version("2023-10-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
@@ -54,7 +54,7 @@ if(description)
 - Resolves: rhbz#950386
 
 [1:1.6.0.0-1.59.1.11.11]
-- Updated to icedtea6 1.11.11 - fixed xalan/xerxes privledges
+- Updated to icedtea6 1.11.11 - fixed xalan/xerxes privileges
 - removed patch 8 - removingOfAarch64.patch.patch - fixed upstream
 - Resolves: rhbz#950386
 

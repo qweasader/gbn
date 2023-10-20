@@ -1,39 +1,14 @@
-# OpenVAS Vulnerability Test
-# Description: SysV /bin/login buffer overflow (telnet)
+# SPDX-FileCopyrightText: 2008 Renaud Deraison
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Renaud Deraison <deraison@nessus.org>
-#
-# Copyright:
-# Copyright (C) 2008 Renaud Deraison
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
-
-# Sun's patch makes /bin/login exits when it receives too many arguments,
-# hence making the detection of the flaw difficult. Our logic is the
-# following :
-#
-# Username: "vt" -> should not crash
-# Username: "vt A=B..... x 61"  -> should not crash
-# Username: "vt A=B..... x 100" -> should crash
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.80049");
-  script_version("2022-05-11T11:17:52+0000");
-  script_tag(name:"last_modification", value:"2022-05-11 11:17:52 +0000 (Wed, 11 May 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2008-10-24 23:33:44 +0200 (Fri, 24 Oct 2008)");
   script_xref(name:"IAVA", value:"2001-a-0014");
   script_cve_id("CVE-2001-0797");
@@ -42,7 +17,7 @@ if(description)
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_name("SysV /bin/login buffer overflow (telnet)");
   script_category(ACT_DESTRUCTIVE_ATTACK);
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_copyright("Copyright (C) 2008 Renaud Deraison");
   script_family("Gain a shell remotely");
   script_dependencies("telnetserver_detect_type_nd_version.nasl");
@@ -64,6 +39,14 @@ if(description)
 
   exit(0);
 }
+
+# Sun's patch makes /bin/login exits when it receives too many arguments,
+# hence making the detection of the flaw difficult. Our logic is the
+# following :
+#
+# Username: "vt" -> should not crash
+# Username: "vt A=B..... x 61"  -> should not crash
+# Username: "vt A=B..... x 100" -> should crash
 
 include("telnet_func.inc");
 include("misc_func.inc");

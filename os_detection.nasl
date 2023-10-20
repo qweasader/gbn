@@ -2,15 +2,15 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 include("plugin_feed_info.inc");
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105937");
-  script_version("2023-06-06T09:09:18+0000");
-  script_tag(name:"last_modification", value:"2023-06-06 09:09:18 +0000 (Tue, 06 Jun 2023)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2016-02-19 11:19:54 +0100 (Fri, 19 Feb 2016)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -49,12 +49,12 @@ if(description)
                       "gb_sophos_xg_consolidation.nasl",
                       "gb_mcafee_email_gateway_version.nasl", "gb_brocade_netiron_snmp_detect.nasl",
                       "gb_brocade_fabricos_consolidation.nasl",
-                      "gb_arubaos_detect.nasl", "gb_sophos_cyberoam_utm_ngfw_http_detect.nasl",
+                      "gb_aruba_arubaos_snmp_detect.nasl", "gb_sophos_cyberoam_utm_ngfw_http_detect.nasl",
                       "gb_aerohive_hiveos_detect.nasl", "gb_qnap_nas_http_detect.nasl",
                       "gb_synology_dsm_consolidation.nasl", "gb_synology_srm_consolidation.nasl",
                       "gb_drobo_nas_consolidation.nasl", "gb_buffalo_airstation_detect.nasl",
                       "gb_unraid_http_detect.nasl", "gb_seagate_blackarmor_nas_detect.nasl",
-                      "gb_terramaster_nas_http_detect.nasl",
+                      "gb_terramaster_nas_http_detect.nasl", "gb_buffalo_nas_http_detect.nasl",
                       "gb_seagate_central_http_detect.nasl", "gb_netsweeper_http_detect.nasl",
                       "gb_trendmicro_smart_protection_server_detect.nasl",
                       "gb_barracuda_load_balancer_detect.nasl", "gb_siemens_simatic_s7_consolidation.nasl",
@@ -67,7 +67,7 @@ if(description)
                       "gb_avm_fritz_box_detect.nasl", "gb_avm_fritz_wlanrepeater_consolidation.nasl",
                       "gb_digitalisierungsbox_consolidation.nasl", "gb_lancom_devices_consolidation.nasl",
                       "gb_draytek_vigor_consolidation.nasl", "gb_hp_onboard_administrator_detect.nasl",
-                      "gb_cisco_ata_consolidation.nasl", "gb_cisco_spa_voip_device_detect.nasl",
+                      "gb_cisco_ata_consolidation.nasl", "gb_cisco_spa_voip_device_sip_detect.nasl",
                       "gb_yealink_ip_phone_consolidation.nasl", "gb_dlink_dsr_http_detect.nasl",
                       "gb_dlink_dap_consolidation.nasl",
                       "gb_dlink_dsl_detect.nasl",
@@ -83,6 +83,7 @@ if(description)
                       "gb_xerox_printer_consolidation.nasl", "gb_sato_printer_consolidation.nasl",
                       "gb_epson_printer_consolidation.nasl", "gb_canon_printer_consolidation.nasl",
                       "gb_kyocera_printer_consolidation.nasl", "gb_hp_printer_consolidation.nasl",
+                      "gb_fujifilm_printer_consolidation.nasl", "gb_brother_printer_consolidation.nasl",
                       "gb_sharp_printer_consolidation.nasl", "gb_codesys_os_detection.nasl",
                       "gb_simatic_hmi_consolidation.nasl", "gb_wago_plc_consolidation.nasl",
                       "gb_rockwell_micrologix_consolidation.nasl", "gb_rockwell_powermonitor_http_detect.nasl",
@@ -99,7 +100,7 @@ if(description)
                       "gb_dell_sonicwall_tz_snmp_detect.nasl",
                       "gb_quest_kace_sma_http_detect.nasl", "gb_quest_kace_sda_http_detect.nasl",
                       "gb_grandstream_ucm_consolidation.nasl", "gb_grandstream_gxp_consolidation.nasl",
-                      "gb_moxa_edr_devices_web_detect.nasl", "gb_moxa_iologik_devices_consolidation.nasl",
+                      "gb_moxa_edr_devices_consolidation.nasl", "gb_moxa_iologik_devices_consolidation.nasl",
                       "gb_moxa_mgate_consolidation.nasl", "gb_moxa_nport_consolidation.nasl",
                       "gb_moxa_miineport_consolidation.nasl",
                       "gb_cambium_cnpilot_consolidation.nasl", "gb_westermo_weos_detect.nasl",
@@ -119,7 +120,7 @@ if(description)
                       "gb_accellion_fta_detect.nasl", "gb_proxmox_ve_consolidation.nasl",
                       "gb_cisco_smi_detect.nasl", "gb_pulse_connect_secure_consolidation.nasl",
                       "gb_trend_micro_interscan_web_security_virtual_appliance_consolidation.nasl",
-                      "gb_citrix_netscaler_version.nasl", "gb_intel_standard_manageability_detect.nasl",
+                      "gb_citrix_netscaler_consolidation.nasl", "gb_intel_standard_manageability_detect.nasl",
                       "gb_cisco_ucs_director_consolidation.nasl", "gb_trend_micro_interscan_messaging_security_virtual_appliance_consolidation.nasl",
                       "gb_huawei_vrp_network_device_consolidation.nasl", "gb_snmp_os_detection.nasl",
                       "gb_dns_os_detection.nasl", "gb_ftp_os_detection.nasl",
@@ -153,6 +154,7 @@ if(description)
                       "gb_manageengine_exchange_report_http_detect.nasl",
                       "gb_home_assistant_consolidation.nasl", "gb_op5_http_detect.nasl",
                       "gb_veritas_netbackup_appliance_http_detect.nasl",
+                      "gb_southrivertech_titan_ftp_server_consolidation.nasl",
                       "gb_emc_isilon_insightiq_detect.nasl", "gb_weborf_http_detect.nasl",
                       "gb_gitlab_consolidation.nasl", "gb_sitecore_http_detect.nasl",
                       "gb_cisco_small_business_devices_consolidation.nasl", "gb_lmtp_service_detect.nasl",
@@ -168,7 +170,11 @@ if(description)
                       "gb_timelive_http_detect.nasl", "gb_open-xchange_ox_app_suite_http_detect.nasl",
                       "gb_gunicorn_http_detect.nasl", "gb_sonesix_conference_manager_http_detect.nasl",
                       "gb_teamspeak_server_tcp_detect.nasl", "gb_mailenable_consolidation.nasl",
-                      "gb_ultidev_cassini_http_detect.nasl",
+                      "gb_ultidev_cassini_http_detect.nasl", "gb_aas_http_detect.nasl",
+                      "gb_progress_whatsup_http_detect.nasl", "gb_sogo_http_detect.nasl",
+                      "gb_apache_ambari_http_detect.nasl", "gb_docker_http_rest_api_detect.nasl",
+                      "gb_adobe_connect_http_detect.nasl", "gb_wsman_winrm_http_detect.nasl",
+                      "gb_microsoft_msmq_tcp_detect.nasl", "gb_redhat_openshift_http_detect.nasl",
                       "gb_android_adb_detect.nasl", "netbios_name_get.nasl",
                       "gb_nmap_os_detection.nasl", "os_fingerprint.nasl");
   if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
@@ -198,7 +204,7 @@ if(description)
                         "gsf/gb_auerswald_comfortel_http_detect.nasl",
                         "gsf/gb_beckhoff_ads_udp_detect.nasl",
                         "gsf/gb_apache_activemq_jms_detect.nasl",
-                        "gsf/gb_citrix_sharefile_storage_controller_http_detect.nasl",
+                        "gsf/gb_citrix_sharefile_storagezones_controller_consolidation.nasl",
                         "gsf/gb_konicaminolta_printer_consolidation.nasl",
                         "gsf/gb_ibm_spectrum_protect_plus_consolidation.nasl",
                         "gsf/gb_nimbus_os_detection.nasl",
@@ -207,7 +213,6 @@ if(description)
                         "gsf/gb_vxworks_consolidation.nasl",
                         "gsf/gb_spinetix_player_http_detect.nasl",
                         "gsf/gb_spinetix_fusion_http_detect.nasl",
-                        "gsf/gb_mobileiron_core_http_detect.nasl",
                         "gsf/gb_mobileiron_sentry_http_detect.nasl",
                         "gsf/gb_bigbluebutton_consolidation.nasl",
                         "gsf/gb_observium_http_detect.nasl",
@@ -239,7 +244,7 @@ if(description)
                         "gsf/gb_clickstudios_passwordstate_consolidation.nasl",
                         "gsf/gb_kemp_loadmaster_consolidation.nasl",
                         "gsf/gb_voipmonitor_http_detect.nasl",
-                        "gsf/gb_ivanti_avalanche_http_detect.nasl",
+                        "gsf/gb_ivanti_avalanche_consolidation.nasl",
                         "gsf/gb_blackberry_uem_http_detect.nasl",
                         "gsf/gb_flir_ax8_consolidation.nasl",
                         "gsf/gb_flir_a3xx_series_consolidation.nasl",
@@ -328,7 +333,21 @@ if(description)
                         "gsf/gb_phoenixcontact_plc_device_pcworx_detect.nasl",
                         "gsf/gb_moxa_mxsecurity_consolidation.nasl",
                         "gsf/gb_barracuda_email_security_gateway_consolidation.nasl",
-                        "gsf/gb_progress_moveit_transfer_consolidation.nasl");
+                        "gsf/gb_progress_moveit_transfer_consolidation.nasl",
+                        "gsf/gb_edgecore_device_http_detect.nasl",
+                        "gsf/gb_fortra_globalscape_eft_consolidation.nasl",
+                        "gsf/gb_microsoft_skype_for_business_server_http_detect.nasl",
+                        "gsf/gb_ubiquiti_edgerouter_consolidation.nasl",
+                        "gsf/gb_cloudpanel_http_detect.nasl",
+                        "gsf/gb_vmware_sdwan_edge_http_detect.nasl",
+                        "gsf/gb_rockwell_controllogix_consolidation.nasl",
+                        "gsf/gb_mitel_smb_controller_http_detect.nasl",
+                        "gsf/gb_ivanti_epm_consolidation.nasl",
+                        "gsf/gb_polycom_vvx_consolidation.nasl",
+                        "gsf/gb_siemens_logo_plc_http_detect.nasl",
+                        "gsf/gb_sangfor_ngaf_http_detect.nasl",
+                        "gsf/gb_honeywell_printer_consolidation.nasl",
+                        "gsf/gb_supermicro_bmc_consolidation.nasl");
 
   script_xref(name:"URL", value:"https://forum.greenbone.net/c/vulnerability-tests/7");
 

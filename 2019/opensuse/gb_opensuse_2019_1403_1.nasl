@@ -21,11 +21,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.852502");
-  script_version("2021-09-07T10:01:34+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2018-12126", "CVE-2018-12127", "CVE-2018-12130", "CVE-2019-11091");
   script_tag(name:"cvss_base", value:"4.7");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:N/A:N");
-  script_tag(name:"last_modification", value:"2021-09-07 10:01:34 +0000 (Tue, 07 Sep 2021)");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-06-11 16:29:00 +0000 (Tue, 11 Jun 2019)");
@@ -54,7 +54,7 @@ if(description)
 
   - CVE-2018-12127: Microarchitectural Fill Buffer Data Sampling (MFBDS)
 
-  - CVE-2018-12130: Microarchitectural Load Port Data Samling (MLPDS)
+  - CVE-2018-12130: Microarchitectural Load Port Data Sampling (MLPDS)
 
   - CVE-2019-11091: Microarchitectural Data Sampling Uncacheable Memory
   (MDSUM)

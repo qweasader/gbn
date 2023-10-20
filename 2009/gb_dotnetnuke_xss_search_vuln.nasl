@@ -9,15 +9,15 @@ CPE = "cpe:/a:dotnetnuke:dotnetnuke";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800152");
-  script_version("2023-04-27T12:17:38+0000");
-  script_tag(name:"last_modification", value:"2023-04-27 12:17:38 +0000 (Thu, 27 Apr 2023)");
+  script_version("2023-07-14T16:09:26+0000");
+  script_tag(name:"last_modification", value:"2023-07-14 16:09:26 +0000 (Fri, 14 Jul 2023)");
   script_tag(name:"creation_date", value:"2009-12-02 13:54:57 +0100 (Wed, 02 Dec 2009)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
   script_cve_id("CVE-2009-4110");
   script_name("DotNetNuke 4.8 - 5.1.4 XSS Vulnerability");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_dotnetnuke_http_detect.nasl");
   script_mandatory_keys("dotnetnuke/detected");

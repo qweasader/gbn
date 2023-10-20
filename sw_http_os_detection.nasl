@@ -1,28 +1,15 @@
-# Copyright (C) 2015 SCHUTZWERK GmbH
+# SPDX-FileCopyrightText: 2015 SCHUTZWERK GmbH
+# SPDX-FileCopyrightText: Reworked, improved and extended detection code and pattern since 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111067");
-  script_version("2023-06-02T09:09:16+0000");
-  script_tag(name:"last_modification", value:"2023-06-02 09:09:16 +0000 (Fri, 02 Jun 2023)");
+  script_version("2023-10-19T05:05:21+0000");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
   script_tag(name:"creation_date", value:"2015-12-10 16:00:00 +0100 (Thu, 10 Dec 2015)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -60,11 +47,12 @@ function check_http_banner( port, banner ) {
   if( ! banner )
     return;
 
-  # nb: More detailed OS detection in gsf/gb_spinetix_player_http_detect.nasl
-  # nb: This needs to be before the Server checks below because these devices
-  # are also exposing a banner like e.g. Server: Apache/2.2.31 (Unix)
+  # nb:
+  # - More detailed OS detection in gsf/gb_spinetix_player_http_detect.nasl
+  # - This needs to be before the Server checks below because these devices are also exposing a
+  #   banner like e.g. Server: Apache/2.2.31 (Unix)
   if( _banner = egrep( string:banner, pattern:"^X-spinetix-(firmware|serial|hw)\s*:", icase:TRUE ) ) {
-    os_register_and_report( os:"SpinetiX Digital Signage Unknown Model Player Firmware", cpe:"cpe:/o:spinetix:unknown_model_firmware", banner_type:banner_type, port:port, banner:chomp( _banner ), desc:SCRIPT_DESC, runs_key:"unixoide" );
+    os_register_and_report( os:"SpinetiX Digital Signage Unknown Model Player Firmware", cpe:"cpe:/o:spinetix:unknown_model_firmware", banner_type:"SpinetiX Digital Signage HTTP banner", port:port, banner:chomp( _banner ), desc:SCRIPT_DESC, runs_key:"unixoide" );
     return;
   }
 
@@ -286,6 +274,23 @@ function check_http_banner( port, banner ) {
     # Running on Windows, Linux and macOS according to https://docs.couchbase.com/server/current/install/install-platforms.html
     if( egrep( pattern:"^[Ss]erver\s*:\s*Couchbase Server$", string:banner, icase:FALSE ) ) return;
 
+    # Cross-platform (JSP engine), e.g.:
+    # Server: Resin/4.0.58
+    if( banner =~ "^Server\s*:\s*Resin(/[0-9.]+)?$" )
+      return;
+
+    # Cross-platform (Java), e.g.:
+    # Server: JRun Web Server
+    # Server: JRun Web Server/3.0
+    if( banner =~ "^Server\s*:\s*JRun Web Server" )
+      return;
+
+    # Cross-platform, e.g.:
+    # Server: ATS
+    # Server: ATS/9.1.10.57
+    if( egrep( pattern:"^Server\s*:\s*ATS(/[0-9.]+)?$", string:banner, icase:FALSE ) )
+      return;
+
     if( banner == "Server:" ||
         banner == "Server: " ||
         banner == "Server: none" || # Seen on WatchGuard devices but is too generic
@@ -301,7 +306,7 @@ function check_http_banner( port, banner ) {
         banner == "Server: Apache" ||
         banner == "Server: lighttpd" ||
         banner == "Server: sfcHttpd" ||
-        banner == "Server: Web" || # Seen on TrendMicro TippingPoint Security Management System (SMS) but might exist on other products as well...
+        banner == "Server: Web" || # Seen on Trend Micro TippingPoint Security Management System (SMS) but might exist on other products as well...
         banner == "Server: Allegro-Software-RomPager" || # Vendor: "Works with any OS vendor and will function without an OS if needed"
         banner == "Server: Apache-Coyote/1.0" ||
         banner == "Server: Apache-Coyote/1.1" ||
@@ -326,7 +331,7 @@ function check_http_banner( port, banner ) {
         egrep( pattern:"^Server: Themis [0-9.]+$", string:banner ) || # Currently unknown
         egrep( pattern:"^Server: Mordac/[0-9.]+$", string:banner ) || # Currently unknown
         egrep( pattern:"^Server: eHTTP v[0-9.]+$", string:banner ) || # Currently unknown, have seen this on HP ProCurves but also on some login pages without any info
-        egrep( pattern:"^Server: Agranat-EmWeb/[0-9_R]+$" ) || # Currently unknown, might be an Alcatel device...
+        egrep( pattern:"^Server: Agranat-EmWeb/[0-9_R]+$", string:banner ) || # Currently unknown, might be an Alcatel device...
         egrep( pattern:"^Server: gSOAP/[0-9.]+$", string:banner ) || # Cross-platform
         egrep( pattern:"^Server: squid/[0-9.]+$", string:banner ) ||
         egrep( pattern:"^Server: squid/[0-9.]+\.STABLE[0-9.]+$", string:banner ) || # e.g. Server: squid/2.7.STABLE5
@@ -934,6 +939,11 @@ function check_http_banner( port, banner ) {
 
       if( "Apache/2.4.52 (Debian)" >< banner || "Apache/2.4.54 (Debian)" >< banner || "Apache/2.4.56 (Debian)" >< banner ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"11", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+        return;
+      }
+
+      if( "Apache/2.4.57 (Debian)" >< banner ) {
+        os_register_and_report( os:"Debian GNU/Linux", version:"12", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
         return;
       }
     }
@@ -1556,10 +1566,25 @@ function check_http_banner( port, banner ) {
     # Server: SonicWALL SSL-VPN Web Server
     # or just:
     # Server: SonicWALL
+    # and maybe also:
+    # Server: SonicWall
     # Might run on SMA 100 series or similar so just use a generic CPE
     # More detailed OS detection in VTs like e.g. gb_dell_sonicwall_sma_sra_consolidation.nasl
     if( egrep( string:banner, pattern:"^Server\s*:\s*SonicWALL", icase:TRUE ) ) {
       os_register_and_report( os:"SonicWall SMA / SRA Firmware", cpe:"cpe:/o:sonicwall:unknown_device_firmware", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+      return;
+    }
+
+    # Server: SMA/12.4
+    # More detailed OS detection in VTs like e.g. gb_dell_sonicwall_sma_sra_consolidation.nasl
+    if( egrep( string:banner, pattern:"^[Ss]erver\s*:\s*SMA(/[0-9.]+)?$", icase:FALSE ) ) {
+      os_register_and_report( os:"SonicWall SMA Firmware", cpe:"cpe:/o:sonicwall:sma_firmware", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+      return;
+    }
+
+    # More detailed OS detection in VTs like e.g. gb_dell_sonicwall_sma_sra_consolidation.nasl
+    if( egrep( string:banner, pattern:"^[Ss]erver\s*:\s*SRA(/[0-9.]+)?$", icase:FALSE ) ) {
+      os_register_and_report( os:"SonicWall SRA Firmware", cpe:"cpe:/o:sonicwall:sra_firmware", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
 
@@ -1707,6 +1732,42 @@ function check_http_banner( port, banner ) {
     # Server: MailEnable-HTTP/5.0
     if( egrep( pattern:"^[Ss]erver\s*:\s*MailEnable-HTTP", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
+      return;
+    }
+
+    # e.g.:
+    # Server: AAS/<someversion>
+    if( egrep( pattern:"^[Ss]erver\s*:\s*AAS", string:banner, icase:FALSE ) ) {
+      os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
+      return;
+    }
+
+    # e.g.:
+    # Server: Titan FTP Server/<someversion>
+    if( egrep( pattern:"^[Ss]erver\s*:\s*Titan FTP Server", string:banner, icase:FALSE ) ) {
+      os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
+      return;
+    }
+
+    # e.g.:
+    # Server: Cornerstone MFT Server/<someversion>
+    if( egrep( pattern:"^[Ss]erver\s*:\s*Cornerstone MFT Server", string:banner, icase:FALSE ) ) {
+      os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
+      return;
+    }
+
+    # e.g.:
+    # Server: Polycom VVX Telephone HTTPd
+    # Server: Poly CCX Telephone HTTPd
+    if( egrep( pattern:"^[Ss]erver\s*:\s*Poly(com)? .*Telephone HTTPd", string:banner, icase:FALSE ) ) {
+      os_register_and_report( os:"Polycom Unified Communications Software", cpe:"cpe:/o:polycom:unified_communications_software", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+      return;
+    }
+
+    # e.g.:
+    # Server: CNIX HTTP Server 1.0
+    if( egrep( pattern:"^[Ss]erver\s*:\s*CNIX HTTP Server", string:banner, icase:FALSE ) ) {
+      os_register_and_report( os:"Siemens LOGO! Firmware", cpe:"cpe:/o:siemens:logo%21_8_bm_firmware", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
 

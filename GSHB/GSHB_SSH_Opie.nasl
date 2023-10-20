@@ -1,39 +1,20 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2010 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Check the System if Opie-Server and Opie-Client installed
-#
-# Authors:
-# Thomas Rotter <T.Rotter@dn-systems.de>
-#
-# Copyright:
-# Copyright (C) 2010 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.96097");
-  script_version("2020-08-24T08:40:10+0000");
-  script_tag(name:"last_modification", value:"2020-08-24 08:40:10 +0000 (Mon, 24 Aug 2020)");
+  script_version("2023-07-14T16:09:27+0000");
+  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
   script_tag(name:"creation_date", value:"2010-06-02 09:25:45 +0200 (Wed, 02 Jun 2010)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_name("Check the System if Opie-Server and Opie-Client installed");
+  script_name("Check the System if Opie-Server and Opie-Client are installed");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("IT-Grundschutz");
   script_dependencies("compliance_tests.nasl", "gather-package-list.nasl", "smb_nativelanman.nasl", "netbios_name_get.nasl");
   script_mandatory_keys("Compliance/Launch/GSHB");
@@ -59,18 +40,17 @@ if(!port)
 
 sock = ssh_login_or_reuse_connection();
 if(!sock) {
-    error = ssh_get_error();
-    if (!error) error = "No SSH Port or Connection!";
-    log_message(port:port, data:error);
-    set_kb_item(name: "GSHB/OPIE/SERVICES", value:"error");
-    set_kb_item(name: "GSHB/OPIE/PAM", value:"error");
-    set_kb_item(name: "GSHB/OPIE/SSH", value:"error");
-    set_kb_item(name: "GSHB/OPIE/SERVER", value:"error");
-    set_kb_item(name: "GSHB/OPIE/CLIENT", value:"error");
-    set_kb_item(name: "GSHB/OPIE/log", value:error);
-    exit(0);
+  error = ssh_get_error();
+  if (!error) error = "No SSH Port or Connection!";
+  log_message(port:port, data:error);
+  set_kb_item(name: "GSHB/OPIE/SERVICES", value:"error");
+  set_kb_item(name: "GSHB/OPIE/PAM", value:"error");
+  set_kb_item(name: "GSHB/OPIE/SSH", value:"error");
+  set_kb_item(name: "GSHB/OPIE/SERVER", value:"error");
+  set_kb_item(name: "GSHB/OPIE/CLIENT", value:"error");
+  set_kb_item(name: "GSHB/OPIE/log", value:error);
+  exit(0);
 }
-
 
 SAMBA = kb_smb_is_samba();
 SSHUNAME = get_kb_item("ssh/login/uname");
@@ -90,9 +70,9 @@ if (SAMBA || (SSHUNAME && ("command not found" >!< SSHUNAME && "CYGWIN" >!< SSHU
 
     rpms = get_kb_item("ssh/login/rpms");
 
-    tmp = split(rpms, keep:0);
+    tmp = split(rpms, keep:FALSE);
 
-    if (max_index(tmp) <= 1)rpms = ereg_replace(string:rpms, pattern:";", replace:'\n');
+    if (max_index(tmp) <= 1) rpms = ereg_replace(string:rpms, pattern:";", replace:'\n');
 
     pkg1 = "opie-server";
     pkg2 = "opie-client";
@@ -118,14 +98,14 @@ if (SAMBA || (SSHUNAME && ("command not found" >!< SSHUNAME && "CYGWIN" >!< SSHU
   else ssh_opie = "noopie";
 
   if ("cat: command not found" >< pam_opie) pam_opie = "nocat";
-  if (pam_opie =~ ".*Keine Berechtigung.*" ||  pam_opie =~ ".*Permission denied.*") pam_opie = "norights";
-  if ("cat: /etc/pam.d/opie" >< pam_opie)  pam_opie = "nopamopie";
+  if (pam_opie =~ ".*(Keine Berechtigung|Permission denied).*") pam_opie = "norights";
+  if ("cat: /etc/pam.d/opie" >< pam_opie) pam_opie = "nopamopie";
   if (pam_opie == "") pam_opie = "empty";
   if ("grep: command not found" >< services_opie) services_opie = "nogrep";
-  if (services_opie =~ ".*Keine Berechtigung.*" ||  services_opie =~ ".*Permission denied.*") services_opie = "norights";
+  if (services_opie =~ ".*(Keine Berechtigung|Permission denied).*") services_opie = "norights";
   if (services_opie == "") services_opie = "empty";
   if ("grep: command not found" >< ssh_opie) ssh_opie = "nogrep";
-  if (ssh_opie =~ ".*Keine Berechtigung.*" ||  ssh_opie =~ ".*Permission denied.*") ssh_opie = "norights";
+  if (ssh_opie =~ ".*(Keine Berechtigung|Permission denied).*") ssh_opie = "norights";
   if (ssh_opie == "") ssh_opie = "empty";
 }
 else{

@@ -2,15 +2,23 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108718");
-  script_version("2023-04-17T10:19:34+0000");
-  script_cve_id("CVE-1999-0501", "CVE-1999-0502", "CVE-1999-0507", "CVE-1999-0508",
-                "CVE-2018-19063", "CVE-2018-19064");
-  script_tag(name:"last_modification", value:"2023-04-17 10:19:34 +0000 (Mon, 17 Apr 2023)");
+  script_version("2023-07-06T05:05:36+0000");
+  # nb: Unlike other VTs we're using the CVEs line by line here for easier addition of new CVEs
+  # / to avoid too large diffs when adding a new CVE.
+  script_cve_id("CVE-1999-0501",
+                "CVE-1999-0502",
+                "CVE-1999-0507",
+                "CVE-1999-0508",
+                "CVE-2001-1594",
+                "CVE-2013-7404",
+                "CVE-2018-19063",
+                "CVE-2018-19064");
+  script_tag(name:"last_modification", value:"2023-07-06 05:05:36 +0000 (Thu, 06 Jul 2023)");
   script_tag(name:"creation_date", value:"2020-03-05 14:02:28 +0000 (Thu, 05 Mar 2020)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -31,9 +39,16 @@ if(description)
   script_tag(name:"vuldetect", value:"Reports weak/known credentials detected by the VT
   'FTP Brute Force Logins' (OID: 1.3.6.1.4.1.25623.1.0.108717).");
 
-  script_tag(name:"insight", value:"As the VT 'FTP Brute Force Logins'
-  (OID: 1.3.6.1.4.1.25623.1.0.108717) might run into a timeout the actual reporting of this
-  vulnerability takes place in this VT instead.");
+  script_tag(name:"insight", value:"The following devices are / software is known to be affected:
+
+  - CVE-2001-1594: Codonics printer FTP service as used in GE Healthcare eNTEGRA P&R
+
+  - CVE-2013-7404: GE Healthcare Discovery NM 750b
+
+  - CVE-2018-19063, CVE-2018-19064: Foscam C2 and Opticam i5 devices
+
+  Note: As the VT 'FTP Brute Force Logins' (OID: 1.3.6.1.4.1.25623.1.0.108717) might run into a
+  timeout the actual reporting of this vulnerability takes place in this VT instead.");
 
   script_tag(name:"impact", value:"This issue may be exploited by a remote attacker to e.g. gain
   access to sensitive information or modify system configuration.");

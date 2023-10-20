@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112827");
-  script_version("2023-05-04T09:51:03+0000");
-  script_tag(name:"last_modification", value:"2023-05-04 09:51:03 +0000 (Thu, 04 May 2023)");
+  script_version("2023-07-11T05:06:07+0000");
+  script_tag(name:"last_modification", value:"2023-07-11 05:06:07 +0000 (Tue, 11 Jul 2023)");
   script_tag(name:"creation_date", value:"2020-09-24 08:31:25 +0000 (Thu, 24 Sep 2020)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
@@ -29,7 +29,8 @@ if (description)
   script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl", "os_detection.nasl");
-  # nb: No more specific mandatory keys because there might be different vendors affected as well...
+  # nb: No "more" specific mandatory keys because there might be different (branded) devices/vendors
+  # affected as well...
   script_mandatory_keys("Host/runs_unixoide");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");

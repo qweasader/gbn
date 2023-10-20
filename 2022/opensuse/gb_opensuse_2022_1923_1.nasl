@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854728");
-  script_version("2022-06-15T14:04:03+0000");
+  script_version("2023-10-19T05:05:21+0000");
   script_cve_id("CVE-2021-26312", "CVE-2021-26339", "CVE-2021-26342", "CVE-2021-26347", "CVE-2021-26348", "CVE-2021-26349", "CVE-2021-26350", "CVE-2021-26364", "CVE-2021-26372", "CVE-2021-26373", "CVE-2021-26375", "CVE-2021-26376", "CVE-2021-26378", "CVE-2021-26388", "CVE-2021-33139", "CVE-2021-33155", "CVE-2021-46744");
   script_tag(name:"cvss_base", value:"4.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2022-06-15 14:04:03 +0000 (Wed, 15 Jun 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-05-23 16:49:00 +0000 (Mon, 23 May 2022)");
+  script_tag(name:"severity_date", value:"2022-06-01 16:56:00 +0000 (Wed, 01 Jun 2022)");
   script_tag(name:"creation_date", value:"2022-06-03 01:01:54 +0000 (Fri, 03 Jun 2022)");
   script_name("openSUSE: Security Advisory for kernel-firmware (SUSE-SU-2022:1923-1)");
   script_category(ACT_GATHER_INFO);

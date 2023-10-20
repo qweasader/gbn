@@ -1,34 +1,15 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Eero Volotinen
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Gentoo Linux security check
-#
-# Authors:
-# Eero Volotinen <eero.volotinen@solinor.fi>
-#
-# Copyright:
-# Copyright (C) 2016 Eero Volotinen, http://solinor.com
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.121462");
-  script_version("2021-10-12T11:02:25+0000");
+  script_version("2023-07-20T05:05:17+0000");
   script_tag(name:"creation_date", value:"2016-05-09 14:21:28 +0300 (Mon, 09 May 2016)");
-  script_tag(name:"last_modification", value:"2021-10-12 11:02:25 +0000 (Tue, 12 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
   script_name("Gentoo Security Advisory GLSA 201605-01");
   script_tag(name:"insight", value:"Git is vulnerable to the remote execution of arbitrary code by cloning repositories with large filenames or a large number of nested trees. Additionally, some protocols within Git, such as git-remote-ext, can execute arbitrary code found within URLs. These URLs that submodules use may come from arbitrary sources (e.g., .gitmodules files in a remote repository), and can effect those who enable recursive fetch. Restrict the allowed protocols to well known and safe ones.");
   script_tag(name:"solution", value:"Update the affected packages to the latest available version.");
@@ -37,9 +18,9 @@ if(description)
   script_cve_id("CVE-2015-7545", "CVE-2016-2315", "CVE-2016-2324");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-10-30 16:27:00 +0000 (Tue, 30 Oct 2018)");
+  script_tag(name:"severity_date", value:"2023-06-21 15:18:00 +0000 (Wed, 21 Jun 2023)");
   script_tag(name:"qod_type", value:"package");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/gentoo", "ssh/login/pkg");

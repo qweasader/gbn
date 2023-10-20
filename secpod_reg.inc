@@ -1,22 +1,8 @@
-# Copyright (C) 2008 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2008 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 #-----------------------------------------------------------------------------
 # hotfix_check_sp() : This function is to check whether the OS is installed
@@ -30,12 +16,14 @@
 
 function hotfix_check_sp( nt, win2k, xp, xpx64, win2003, win2003x64, winVista, winVistax64,
                           win7, win7x64, win2008, win2008x64, win2008r2, win8, win8x64, win2012,
-                          win2012R2, win8_1, win8_1x64, win10, win10x64, win2016, win2019 ) {
+                          win2012R2, win8_1, win8_1x64, win10, win10x64, win11, win2016, win2019, win2022 ) {
 
   local_var winVer, winName, arch, SvPk;
 
   winVer = get_kb_item( "SMB/WindowsVersion" );
   winName = get_kb_item( "SMB/WindowsName" );
+  winBuild = get_kb_item( "SMB/WindowsBuild" );
+
   arch = get_kb_item( "SMB/Windows/Arch" );
   if( ! winVer ) return -1;
 
@@ -362,7 +350,7 @@ function hotfix_check_sp( nt, win2k, xp, xpx64, win2003, win2003x64, winVista, w
     }
   }
 
-  else if(win10 && ( "6.3" >< winVer ) && ( "Windows 10" >< winName ) && ( arch == "x86" ) ) {
+  else if( win10 && "6.3" >< winVer && "Windows 10" >< winName && arch == "x86" && winBuild < "22000" ) {
 
     SvPk = get_kb_item( "SMB/Win10/ServicePack" );
 
@@ -379,7 +367,7 @@ function hotfix_check_sp( nt, win2k, xp, xpx64, win2003, win2003x64, winVista, w
     }
   }
 
-  else if( win10x64 && ( "6.3" >< winVer ) && ( "Windows 10" >< winName ) && ( arch == "x64" ) ) {
+  else if( win10x64 && "6.3" >< winVer && "Windows 10" >< winName && arch == "x64" && winBuild < "22000" ) {
 
     SvPk = get_kb_item( "SMB/Win10x64/ServicePack" );
 
@@ -390,6 +378,40 @@ function hotfix_check_sp( nt, win2k, xp, xpx64, win2003, win2003x64, winVista, w
     }
 
     if( SvPk < win10x64 ) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  else if( win11 && "6.3" >< winVer && "Windows 10" >< winName && arch == "x64" && winBuild >= "22000" ) {
+
+    SvPk = get_kb_item( "SMB/Win11/ServicePack" );
+
+    if( SvPk ) {
+      SvPk = int( ereg_replace( string:SvPk, replace:"\1", pattern:".*Service Pack ([0-9]).*" ) );
+    } else {
+      SvPk = 0;
+    }
+
+    if( SvPk < win11 ) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  else if( win2022 && ( "6.3" >< winVer ) && ( "Windows Server 2022" >< winName ) && ( arch == "x64" ) ) {
+
+    SvPk = get_kb_item( "SMB/Win2022/ServicePack" );
+
+    if( SvPk ) {
+      SvPk = int( ereg_replace( string:SvPk, replace:"\1", pattern:".*Service Pack ([0-9]).*" ) );
+    } else {
+      SvPk = 0;
+    }
+
+    if( SvPk < win2022 ) {
       return 1;
     } else {
       return 0;

@@ -1,35 +1,21 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117221");
-  script_version("2023-03-06T10:19:58+0000");
+  script_version("2023-06-16T05:06:18+0000");
   script_cve_id("CVE-2004-0281");
-  script_tag(name:"last_modification", value:"2023-03-06 10:19:58 +0000 (Mon, 06 Mar 2023)");
+  script_tag(name:"last_modification", value:"2023-06-16 05:06:18 +0000 (Fri, 16 Jun 2023)");
   script_tag(name:"creation_date", value:"2021-02-11 15:27:45 +0000 (Thu, 11 Feb 2021)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_tag(name:"cvss_base", value:"5.0");
   script_name("'/WEB-INF../' Information Disclosure Vulnerability (HTTP)");
   script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("Web Servers");
   script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 8080);
@@ -45,9 +31,9 @@ if(description)
 
   script_tag(name:"affected", value:"The following products are known to be affected:
 
-  - Apache 1.3.29 + Resin 2.1.12
+  - Caucho Resin version 2.1.12 on Apache HTTP server version 1.3.29
 
-  Other products might be affected as well.");
+  Other products and versions might be affected as well.");
 
   script_tag(name:"insight", value:"The servlet specification prohibits servlet containers from
   serving resources in the '/WEB-INF' and '/META-INF' directories of a web application archive
@@ -79,6 +65,8 @@ if(description)
 
   exit(0);
 }
+
+# nb: resin-web.xml for Caucho Resin is separately tested in common/2023/caucho/gb_resin_CVE-2004-0281_active.nasl
 
 include("http_func.inc");
 include("http_keepalive.inc");

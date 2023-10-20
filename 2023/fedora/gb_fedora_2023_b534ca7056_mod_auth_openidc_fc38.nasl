@@ -7,11 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.827778");
-  script_version("2023-06-02T09:09:16+0000");
+  script_version("2023-10-12T05:05:32+0000");
   script_cve_id("CVE-2023-28625");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-06-02 09:09:16 +0000 (Fri, 02 Jun 2023)");
+  script_tag(name:"cvss_base", value:"7.8");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-04-11 06:47:00 +0000 (Tue, 11 Apr 2023)");
   script_tag(name:"creation_date", value:"2023-06-01 01:09:10 +0000 (Thu, 01 Jun 2023)");
   script_name("Fedora: Security Advisory for mod_auth_openidc (FEDORA-2023-b534ca7056)");
   script_category(ACT_GATHER_INFO);

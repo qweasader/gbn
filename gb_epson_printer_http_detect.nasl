@@ -20,8 +20,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.146411");
-  script_version("2022-01-31T13:17:52+0000");
-  script_tag(name:"last_modification", value:"2022-01-31 13:17:52 +0000 (Mon, 31 Jan 2022)");
+  script_version("2023-08-17T05:05:20+0000");
+  script_tag(name:"last_modification", value:"2023-08-17 05:05:20 +0000 (Thu, 17 Aug 2023)");
   script_tag(name:"creation_date", value:"2021-08-02 05:20:20 +0000 (Mon, 02 Aug 2021)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -77,23 +77,53 @@ foreach url (keys(urls)) {
       set_kb_item(name: "epson/printer/http/" + port + "/modConcludedUrl",
                   value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
     }
+    # nb: /Istatus.htm
+    # <B>Software Version</B></TD>
+    # <TD width="60%">Ver. 02.11&nbsp;</TD>
+    if ("<B>Model Name</B></TD>\s*[^>]+>([^&<]+)" >< pattern) {
+      vers = eregmatch(pattern: "<B>Software Version</B></TD>\s*<TD[^>]+>Ver. ([0-9.]+)", string: res);
+      if (!isnull(vers[1])) {
+        fw_version = vers[1];
+        set_kb_item(name: "epson/printer/http/" + port + "/versConcluded", value: vers[0]);
+        set_kb_item(name: "epson/printer/http/" + port + "/versConcludedUrl",
+                    value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
+      }
+    }
 
-    url = "/PRESENTATION/ADVANCED/INFO_PRTINFO/TOP";
-    res = http_get_cache(port: port, item: url);
-
-    # >Firmware&nbsp;:</span></dt><dd class="value clearfix"><div class="preserve-white-space">07.57.LW26L2<
-    vers = eregmatch(pattern: "Firmware[^-]+[^>]+>([^<]+)<", string: res);
-    if (!isnull(vers[1])) {
-      fw_version = vers[1];
-      set_kb_item(name: "epson/printer/http/" + port + "/versConcluded", value: vers[0]);
-      set_kb_item(name: "epson/printer/http/" + port + "/versConcludedUrl",
-                  value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
-    } else {
-      url = "/iPrinterHome.cgi";
+    if (fw_version == "unknown") {
+      url = "/PRESENTATION/ADVANCED/INFO_PRTINFO/TOP";
       res = http_get_cache(port: port, item: url);
 
-      # Main Version</td> <td height="16">02.20</td>
-      vers = eregmatch(pattern: "Main Version</td>[^>]+>\s*([^<]+)<", string: res);
+      # >Firmware&nbsp;:</span></dt><dd class="value clearfix"><div class="preserve-white-space">07.57.LW26L2<
+      vers = eregmatch(pattern: "Firmware[^-]+[^>]+>([^<]+)<", string: res);
+      if (!isnull(vers[1])) {
+        fw_version = vers[1];
+        set_kb_item(name: "epson/printer/http/" + port + "/versConcluded", value: vers[0]);
+        set_kb_item(name: "epson/printer/http/" + port + "/versConcludedUrl",
+                    value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
+      } else {
+        url = "/iPrinterHome.cgi";
+        res = http_get_cache(port: port, item: url);
+
+        # Main Version</td> <td height="16">02.20</td>
+        vers = eregmatch(pattern: "Main Version</td>[^>]+>\s*([^<]+)<", string: res);
+        if (!isnull(vers[1])) {
+          fw_version = vers[1];
+          set_kb_item(name: "epson/printer/http/" + port + "/versConcluded", value: vers[0]);
+          set_kb_item(name: "epson/printer/http/" + port + "/versConcludedUrl",
+                      value: http_report_vuln_url(port: port, url: url, url_only: TRUE));
+        }
+      }
+    }
+    if (fw_version == "unknown") {
+      url = "/versioninformation.html?tab=Home&lmenu=VersionInformation";
+      res = http_get_cache(port: port, item: url);
+
+      # <span>Firmwareversion</span>
+      #    </th>
+      #    <td>
+      #      FW013J4
+      vers = eregmatch(pattern: "<span>Firmwareversion</span>\s*</th>\s*<td>\s*([A-Z0-9.]+)", string: res);
       if (!isnull(vers[1])) {
         fw_version = vers[1];
         set_kb_item(name: "epson/printer/http/" + port + "/versConcluded", value: vers[0]);

@@ -1,30 +1,8 @@
-###############################################################################
-# OpenVAS Include File
+# SPDX-FileCopyrightText: 2008 Vlatko Kosturjak
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Collection of functions to handle URLs
-#
-# Authors:
-# Vlatko Kosturjak <kost@linux.hr>
-# URL encode & decode functions: Chandan S(schandan@secpod.com)
-# clean_url, canonical_url, basename, check_recursion_candidates and
-# remove_cgi_arguments moved from webmirror.nasl and C to the respective authors.
-#
-# Copyright:
-# Copyright (C) 2008 Vlatko Kosturjak
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 global_var HEX_LOWERCASE, HEX_UPPERCASE;
 HEX_LOWERCASE = 1;

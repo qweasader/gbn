@@ -1,36 +1,14 @@
-###############################################################################
-# OpenVAS Vulnerability Test
-#
-# Auto-generated from advisory USN-698-3 (nagios2)
-#
-# Authors:
-# Thomas Reinke <reinke@securityspace.com>
-#
-# Copyright:
-# Copyright (C) 2009 E-Soft Inc.
+# SPDX-FileCopyrightText: 2009 E-Soft Inc.
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# or at your option, GNU General Public License version 3,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.64164");
-  script_version("2022-08-31T10:10:28+0000");
-  script_tag(name:"last_modification", value:"2022-08-31 10:10:28 +0000 (Wed, 31 Aug 2022)");
+  script_version("2023-07-20T05:05:18+0000");
+  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
   script_tag(name:"creation_date", value:"2009-06-05 18:04:08 +0200 (Fri, 05 Jun 2009)");
   script_cve_id("CVE-2008-5027", "CVE-2008-5028", "CVE-2007-2739", "CVE-2008-5033", "CVE-2008-4933", "CVE-2008-5025", "CVE-2007-2865", "CVE-2007-5728", "CVE-2008-5587", "CVE-2008-2383", "CVE-2008-3443", "CVE-2008-5029", "CVE-2009-0022", "CVE-2006-7236", "CVE-2008-2382");
   script_tag(name:"cvss_base", value:"9.3");

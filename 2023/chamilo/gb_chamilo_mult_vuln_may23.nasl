@@ -9,19 +9,23 @@ CPE = "cpe:/a:chamilo:chamilo_lms";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126364");
-  script_version("2023-05-12T10:50:26+0000");
-  script_tag(name:"last_modification", value:"2023-05-12 10:50:26 +0000 (Fri, 12 May 2023)");
+  script_version("2023-10-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-05-10 08:47:25 +0000 (Wed, 10 May 2023)");
-  script_tag(name:"cvss_base", value:"4.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:N");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-06-20 17:15:00 +0000 (Tue, 20 Jun 2023)");
 
   script_cve_id("CVE-2023-31799", "CVE-2023-31800", "CVE-2023-31801", "CVE-2023-31802",
                 "CVE-2023-31803", "CVE-2023-31804", "CVE-2023-31805", "CVE-2023-31806",
-                "CVE-2023-31807");
+                "CVE-2023-31807", "CVE-2023-34944", "CVE-2023-34958", "CVE-2023-34959",
+                "CVE-2023-34961", "CVE-2023-34962");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"VendorFix");
 
   script_name("Chamilo LMS 1.11.x <= 1.11.18 Multiple Vulnerabilities");
 
@@ -56,12 +60,25 @@ if (description)
   - CVE-2023-31806: A User could add XSS into its personal notes.
 
   - CVE-2023-31807: An attacker is able to enumerate the internal network and execute arbitrary
-  system commands via a crafted Phar file.");
+  system commands via a crafted Phar file.
+
+  - CVE-2023-34944: Cross-site scripting (XSS) through SVG.
+
+  - CVE-2023-34958: Incorrect access control allows a student subscribed to a given course to
+  download documents belonging to another student if they know the document's ID.
+
+  - CVE-2023-34959: An issue allows attackers to execute a Server-Side Request Forgery (SSRF) and
+  obtain information on the services running on the server via crafted requests in the social and
+  links tools.
+
+  - CVE-2023-34961: Cross-site scripting (XSS) vulnerability via the /feedback/comment field.
+
+  - CVE-2023-34962: Incorrect access control allows a student to arbitrarily access and modify
+  another student's personal notes.");
 
   script_tag(name:"affected", value:"Chamilo LMS version 1.11.x through 1.11.18.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 11th May, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"See the referenced vendor advisory for a solution.");
 
   script_xref(name:"URL", value:"https://support.chamilo.org/projects/chamilo-18/wiki/Security_issues#Issue-99-2023-04-11-Low-impact-Low-risk-XSS-in-system-announcements");
   script_xref(name:"URL", value:"https://support.chamilo.org/projects/chamilo-18/wiki/Security_issues#Issue-102-2023-04-11-Low-impact-Moderate-risk-XSS-in-forum-titles");
@@ -72,6 +89,11 @@ if (description)
   script_xref(name:"URL", value:"https://support.chamilo.org/projects/chamilo-18/wiki/Security_issues#Issue-98-2023-04-11-Low-impact-Low-risk-XSS-in-homepage-edition");
   script_xref(name:"URL", value:"https://support.chamilo.org/projects/chamilo-18/wiki/Security_issues#Issue-103-2023-04-11-Low-impact-Moderate-risk-XSS-in-My-progress-tab");
   script_xref(name:"URL", value:"https://support.chamilo.org/projects/chamilo-18/wiki/Security_issues#Issue-101-2023-04-11-Low-impact-Low-risk-XSS-in-personal-notes-and-teacher-notes");
+  script_xref(name:"URL", value:"https://support.chamilo.org/projects/1/wiki/Security_issues#Issue-109-2023-04-15-Moderate-impact-Moderate-risk-IDOR-in-workstudent-publication");
+  script_xref(name:"URL", value:"https://support.chamilo.org/projects/1/wiki/Security_issues#Issue-111-2023-04-20-Moderate-impact-Low-risk-Multiple-blind-SSRF-in-links-and-social-tools");
+  script_xref(name:"URL", value:"https://support.chamilo.org/projects/1/wiki/Security_issues#Issue-105-2023-04-15-Low-impact-Moderate-risk-XSS-in-student-work-comments");
+  script_xref(name:"URL", value:"https://support.chamilo.org/projects/1/wiki/Security_issues#Issue-106-2023-04-15-Moderate-impact-Moderate-risk-A-student-can-access-and-modify-another-students-personal-notes");
+  script_xref(name:"URL", value:"https://support.chamilo.org/projects/chamilo-18/wiki/Security_issues#Issue-113-2023-05-31-Low-impact-Low-risk-XSS-through-SVG");
 
   exit(0);
 }
@@ -89,9 +111,9 @@ version = infos["version"];
 location = infos["location"];
 
 if (version_in_range_exclusive(version: version, test_version_lo: "1.11.0", test_version_up: "1.11.18")) {
-    report = report_fixed_ver(installed_version: version, fixed_version: "None", install_path: location);
+    report = report_fixed_ver(installed_version: version, fixed_version: "See advisory", install_path: location);
     security_message(port: port, data: report);
     exit(0);
 }
 
-exit(0);
+exit(99);

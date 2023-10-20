@@ -1,40 +1,21 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2004 Tenable Network Security
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Information about the scan
-#
-# Authors:
-# Tenable Network Security
-#
-# Copyright:
-# Copyright (C) 2004 Tenable Network Security
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
-# TODO: This NVT is actually not relevant anymore because it is returning
+# TODO: This VT is actually not relevant anymore because it is returning
 # data that are available in the scanner client anyway. In the early days
-# such meta information were sent via NVT results because there was lack of
+# such meta information were sent via VT results because there was lack of
 # a management unit. Now there is GVMd and Host Details.
-# The NVT is now disabled by default. Eventually it needs to be decided
+# The VT is now disabled by default. Eventually it needs to be decided
 # whether to entirely remove it.
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.19506");
-  script_version("2022-07-27T10:11:28+0000");
-  script_tag(name:"last_modification", value:"2022-07-27 10:11:28 +0000 (Wed, 27 Jul 2022)");
+  script_version("2023-06-22T10:34:15+0000");
+  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
   script_tag(name:"creation_date", value:"2006-03-26 17:55:15 +0200 (Sun, 26 Mar 2006)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");

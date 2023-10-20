@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.822624");
-  script_version("2022-10-14T10:25:47+0000");
+  script_version("2023-10-18T05:05:17+0000");
   script_cve_id("CVE-2022-31197");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-10-14 10:25:47 +0000 (Fri, 14 Oct 2022)");
+  script_tag(name:"cvss_base", value:"9.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-08-09 17:12:00 +0000 (Tue, 09 Aug 2022)");
   script_tag(name:"creation_date", value:"2022-10-05 07:36:44 +0000 (Wed, 05 Oct 2022)");
   script_name("Fedora: Security Advisory for postgresql-jdbc (FEDORA-2022-d7d49b2fac)");
   script_category(ACT_GATHER_INFO);

@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854540");
-  script_version("2022-03-15T08:14:31+0000");
+  script_version("2023-10-19T05:05:21+0000");
   script_cve_id("CVE-2021-3995", "CVE-2021-3996");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-03-15 08:14:31 +0000 (Tue, 15 Mar 2022)");
+  script_tag(name:"cvss_base", value:"4.6");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:N/I:N/A:C");
+  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-08-29 18:13:00 +0000 (Mon, 29 Aug 2022)");
   script_tag(name:"creation_date", value:"2022-03-05 02:02:11 +0000 (Sat, 05 Mar 2022)");
   script_name("openSUSE: Security Advisory for libeconf, (openSUSE-SU-2022:0727-1)");
   script_category(ACT_GATHER_INFO);

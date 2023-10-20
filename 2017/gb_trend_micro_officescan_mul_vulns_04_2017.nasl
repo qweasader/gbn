@@ -1,36 +1,17 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2017 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Trend Micro OfficeScan Multiple Privilege Escalation and Cross Site Scripting Vulnerabilities
-#
-# Authors:
-# Tameem Eissa <tameem.eissa@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2017 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:trend_micro:office_scan";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107154");
-  script_version("2022-04-13T11:57:07+0000");
+  script_version("2023-07-25T05:05:58+0000");
   script_cve_id("CVE-2017-5481", "CVE-2017-8801");
-  script_tag(name:"last_modification", value:"2022-04-13 11:57:07 +0000 (Wed, 13 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
   script_tag(name:"creation_date", value:"2017-04-26 11:00:00 +0200 (Wed, 26 Apr 2017)");
 
   script_tag(name:"cvss_base", value:"4.3");
@@ -60,7 +41,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/98007");
   script_tag(name:"solution_type", value:"VendorFix");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
 
   script_family("General");
 

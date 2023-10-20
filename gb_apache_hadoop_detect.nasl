@@ -1,49 +1,28 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2016 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Apache Hadoop Version Detection
-#
-# Authors:
-# Tushar Khelge <ktushar@secpod.com>
-#
-# Copyright:
-# Copyright (C) 2016 Greenbone Networks GmbH, http://www.greenbone.net
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810317");
-  script_version("2020-08-24T15:18:35+0000");
+  script_version("2023-07-12T05:05:04+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2020-08-24 15:18:35 +0000 (Mon, 24 Aug 2020)");
+  script_tag(name:"last_modification", value:"2023-07-12 05:05:04 +0000 (Wed, 12 Jul 2023)");
   script_tag(name:"creation_date", value:"2016-12-23 11:51:30 +0530 (Fri, 23 Dec 2016)");
 
-  script_name("Apache Hadoop Version Detection");
+  script_name("Apache Hadoop Detection (HTTP)");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Product detection");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
-  script_require_ports("Services/www", 8088, 50070);
+  script_require_ports("Services/www", 50070);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
-  script_tag(name:"summary", value:"Detects the installed version of Apache Hadoop.
-
-  This script sends an HTTP GET request and tries to get the version from the response.");
+  script_tag(name:"summary", value:"HTTP based detection of Apache Hadoop.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -73,8 +52,7 @@ make_array( "/dfshealth.jsp", '> *Version:( |</td>)?<td> *([0-9\\.]+)([0-9a-z.\\
 
 foreach url( keys( urls ) ) {
 
-  req = http_get( item:url, port:port );
-  res = http_keepalive_send_recv( port:port, data:req, bodyonly:FALSE );
+  res = http_get_cache( item:url, port:port );
 
   if( res =~ "^HTTP/1\.[01] 200" &&
       ( ">Cluster Summary<" >< res && ( "Apache Hadoop<" >< res || ">Hadoop<" >< res ) ) || # dfshealth.jsp

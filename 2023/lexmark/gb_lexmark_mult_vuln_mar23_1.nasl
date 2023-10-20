@@ -9,11 +9,14 @@ CPE_PREFIX = "cpe:/o:lexmark:";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170366");
-  script_version("2023-03-24T10:19:42+0000");
-  script_tag(name:"last_modification", value:"2023-03-24 10:19:42 +0000 (Fri, 24 Mar 2023)");
+  script_version("2023-10-13T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-03-16 21:10:29 +0000 (Thu, 16 Mar 2023)");
-  script_tag(name:"cvss_base", value:"7.6");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:C");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-05-08 20:11:00 +0000 (Mon, 08 May 2023)");
 
   script_cve_id("CVE-2023-26063", "CVE-2023-26064", "CVE-2023-26065", "CVE-2023-26066");
 

@@ -1,31 +1,17 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.816598");
-  script_version("2021-08-12T03:01:00+0000");
+  script_version("2023-10-06T16:09:51+0000");
   script_cve_id("CVE-2020-0850", "CVE-2020-0892", "CVE-2020-0852");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-08-12 03:01:00 +0000 (Thu, 12 Aug 2021)");
+  script_tag(name:"last_modification", value:"2023-10-06 16:09:51 +0000 (Fri, 06 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-05-04 14:14:00 +0000 (Mon, 04 May 2020)");
@@ -52,11 +38,12 @@ if(description)
   script_tag(name:"qod_type", value:"executable_version");
   script_xref(name:"URL", value:"https://support.microsoft.com/en-us/help/4484277");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
   script_dependencies("gb_ms_sharepoint_sever_n_foundation_detect.nasl");
   script_mandatory_keys("MS/SharePoint/Server/Ver");
   script_require_ports(139, 445);
+
   exit(0);
 }
 
@@ -65,27 +52,27 @@ include("host_details.inc");
 include("version_func.inc");
 include("secpod_smb_func.inc");
 
+CPE = "cpe:/a:microsoft:sharepoint_server";
 
-if( ! infos = get_app_version_and_location( cpe:'cpe:/a:microsoft:sharepoint_server') ) exit( 0 );
-
-shareVer = infos['version'];
-if(shareVer !~ "^16\."){
+if(!infos = get_app_version_and_location(cpe:CPE, exit_no_version:TRUE))
   exit(0);
-}
 
-path = infos['location'];
+shareVer = infos["version"];
+if(shareVer !~ "^16\.")
+  exit(0);
+
+path = infos["location"];
 if(!path || "Could not find the install location" >< path)
 {
-  if(!os_arch = get_kb_item("SMB/Windows/Arch")){
+  if(!os_arch = get_kb_item("SMB/Windows/Arch"))
     exit(0);
-  }
 
   if("x86" >< os_arch){
     key_list = make_list("SOFTWARE\Microsoft\Windows\CurrentVersion");
   }
   else if("x64" >< os_arch){
-    key_list =  make_list("SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion",
-                          "SOFTWARE\Microsoft\Windows\CurrentVersion");
+    key_list = make_list("SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion",
+                         "SOFTWARE\Microsoft\Windows\CurrentVersion");
   }
 
   foreach key(key_list)
@@ -109,7 +96,8 @@ if(dllVer =~ "^16\.0\." && version_in_range(version:dllVer, test_version:"16.0.1
 {
   report = report_fixed_ver(file_checked:path + "\msoserverintl.dll",
                             file_version:dllVer, vulnerable_range:"16.0.10337.12109 - 16.0.10357.20003");
-  security_message(data:report);
+  security_message(port:0, data:report);
   exit(0);
 }
+
 exit(99);

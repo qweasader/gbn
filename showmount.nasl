@@ -1,45 +1,26 @@
-###################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2009 LSS
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# NFS export
-#
-# LSS-NVT-2009-014
-#
-# Developed by LSS Security Team <http://security.lss.hr>
-#
-# Copyright (C) 2009 LSS <http://www.lss.hr>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public
-# License along with this program. If not, see
-# <http://www.gnu.org/licenses/>.
-###################################################################
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # Tested on Ubuntu/Debian mountd
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.102014");
-  script_version("2022-12-09T10:11:04+0000");
+  script_version("2023-09-08T05:06:21+0000");
   script_cve_id("CVE-1999-0554", "CVE-1999-0548");
   script_name("NFS export");
-  script_tag(name:"last_modification", value:"2022-12-09 10:11:04 +0000 (Fri, 09 Dec 2022)");
+  script_tag(name:"last_modification", value:"2023-09-08 05:06:21 +0000 (Fri, 08 Sep 2023)");
   script_tag(name:"creation_date", value:"2009-10-06 18:45:43 +0200 (Tue, 06 Oct 2009)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2009 LSS");
   script_family("Remote file access");
-  script_dependencies("secpod_rpc_portmap_udp.nasl", "secpod_rpc_portmap_tcp.nasl");
-  script_mandatory_keys("rpc/portmap");
+  script_dependencies("gb_rpc_portmap_udp_detect.nasl", "gb_rpc_portmap_tcp_detect.nasl");
+  script_mandatory_keys("rpc/portmap/tcp_or_udp/detected");
 
   script_tag(name:"summary", value:"This plugin lists NFS exported shares, and warns if some of them
   are readable ('*' in the plugin output means the share is world readable).

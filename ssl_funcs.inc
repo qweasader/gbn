@@ -1,30 +1,9 @@
-###############################################################################
-# OpenVAS Include File
+# SPDX-FileCopyrightText: 2008 PenguinLabs.
+# SPDX-FileCopyrightText: New code since 2009 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Implementation of common ssl functions
-#
-# Authors:
-# Laban Mwangi <lmwangi@penguinlabs.co.ke>
-#
-# Copyright:
-# Copyright (c) 2008 PenguinLabs. http://www.penguinlabs.co.ke
-# TLS 1.3 specific code (C) 2021 Greenbone Networks GmbH
-# Text descriptions are largerly excerpted from the referenced
-# advisory, and are Copyright (c) the respective author(s)
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 # Enables debugging output for a few functions below
 global_var _ssl_funcs_debug;

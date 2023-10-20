@@ -1,49 +1,37 @@
-# Copyright (C) 2015 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2015 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:photocrati:photocrati-theme";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802089");
-  script_version("2022-04-14T06:42:08+0000");
+  script_version("2023-09-29T05:05:51+0000");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2022-04-14 06:42:08 +0000 (Thu, 14 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-09-29 05:05:51 +0000 (Fri, 29 Sep 2023)");
   script_tag(name:"creation_date", value:"2015-01-22 12:44:09 +0530 (Thu, 22 Jan 2015)");
 
   script_cve_id("CVE-2014-100016");
 
-  script_name("WordPress Photocrati Theme 'prod_id' Cross-Site Scripting Vulnerability");
+  script_name("WordPress Photocrati Theme 'prod_id' XSS Vulnerability");
 
   script_tag(name:"qod_type", value:"remote_vul");
   script_tag(name:"solution_type", value:"WillNotFix");
 
   script_category(ACT_ATTACK);
 
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_wordpress_theme_http_detect.nasl");
+  script_dependencies("gb_wordpress_themes_http_detect.nasl");
   script_mandatory_keys("wordpress/theme/photocrati-theme/detected");
   script_require_ports("Services/www", 80);
 
-  script_tag(name:"summary", value:"The WordPress theme Photocrati is prone to a cross-site scripting vulnerability.");
+  script_tag(name:"summary", value:"The WordPress theme Photocrati is prone to a cross-site scripting (XSS)
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is installed on the target host.");
 

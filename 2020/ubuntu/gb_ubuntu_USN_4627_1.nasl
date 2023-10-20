@@ -1,30 +1,16 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.844706");
   script_cve_id("CVE-2020-8694");
   script_tag(name:"creation_date", value:"2020-11-11 04:01:08 +0000 (Wed, 11 Nov 2020)");
-  script_version("2022-09-16T10:11:40+0000");
-  script_tag(name:"last_modification", value:"2022-09-16 10:11:40 +0000 (Fri, 16 Sep 2022)");
+  script_version("2023-07-05T05:06:17+0000");
+  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:N/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
@@ -33,7 +19,7 @@ if(description)
 
   script_name("Ubuntu: Security Advisory (USN-4627-1)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Ubuntu Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/ubuntu_linux", "ssh/login/packages", re:"ssh/login/release=UBUNTU(12\.04\ LTS|14\.04\ LTS|16\.04\ LTS|18\.04\ LTS|20\.04\ LTS)");
@@ -73,11 +59,11 @@ report = "";
 
 if(release == "UBUNTU12.04 LTS") {
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.13.0-183-generic-lpae", ver:"3.13.0-183.234~12.04.1", rls:"UBUNTU12.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.13.0-183-generic", ver:"3.13.0-183.234~12.04.1", rls:"UBUNTU12.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.13.0-183-generic", ver:"3.13.0-183.234~12.04.1", rls:"UBUNTU12.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.13.0-183-generic-lpae", ver:"3.13.0-183.234~12.04.1", rls:"UBUNTU12.04 LTS"))) {
     report += res;
   }
 
@@ -103,11 +89,11 @@ if(release == "UBUNTU12.04 LTS") {
 
 if(release == "UBUNTU14.04 LTS") {
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.13.0-183-generic-lpae", ver:"3.13.0-183.234", rls:"UBUNTU14.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.13.0-183-generic", ver:"3.13.0-183.234", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.13.0-183-generic", ver:"3.13.0-183.234", rls:"UBUNTU14.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-3.13.0-183-generic-lpae", ver:"3.13.0-183.234", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
 
@@ -135,11 +121,11 @@ if(release == "UBUNTU14.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.4.0-194-generic-lpae", ver:"4.4.0-194.226~14.04.1", rls:"UBUNTU14.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.4.0-194-generic", ver:"4.4.0-194.226~14.04.1", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.4.0-194-generic", ver:"4.4.0-194.226~14.04.1", rls:"UBUNTU14.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.4.0-194-generic-lpae", ver:"4.4.0-194.226~14.04.1", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
 
@@ -163,11 +149,15 @@ if(release == "UBUNTU14.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-lpae-lts-xenial", ver:"4.4.0.194.170", rls:"UBUNTU14.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic", ver:"3.13.0.183.192", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-lpae", ver:"3.13.0.183.192", rls:"UBUNTU14.04 LTS"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-lpae-lts-xenial", ver:"4.4.0.194.170", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
 
@@ -179,11 +169,11 @@ if(release == "UBUNTU14.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic", ver:"3.13.0.183.192", rls:"UBUNTU14.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-highbank", ver:"3.13.0.183.192", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-highbank", ver:"3.13.0.183.192", rls:"UBUNTU14.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-lowlatency", ver:"3.13.0.183.192", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
 
@@ -195,10 +185,6 @@ if(release == "UBUNTU14.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-lowlatency", ver:"3.13.0.183.192", rls:"UBUNTU14.04 LTS"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-omap", ver:"3.13.0.183.192", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
@@ -207,15 +193,11 @@ if(release == "UBUNTU14.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-powerpc-e500mc-lts-xenial", ver:"4.4.0.194.170", rls:"UBUNTU14.04 LTS"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-powerpc-e500mc", ver:"3.13.0.183.192", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-powerpc-smp-lts-xenial", ver:"4.4.0.194.170", rls:"UBUNTU14.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-powerpc-e500mc-lts-xenial", ver:"4.4.0.194.170", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
 
@@ -223,7 +205,7 @@ if(release == "UBUNTU14.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-powerpc64-emb-lts-xenial", ver:"4.4.0.194.170", rls:"UBUNTU14.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-powerpc-smp-lts-xenial", ver:"4.4.0.194.170", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
 
@@ -231,7 +213,7 @@ if(release == "UBUNTU14.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-powerpc64-smp-lts-xenial", ver:"4.4.0.194.170", rls:"UBUNTU14.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-powerpc64-emb-lts-xenial", ver:"4.4.0.194.170", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
 
@@ -239,15 +221,19 @@ if(release == "UBUNTU14.04 LTS") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-powerpc64-smp-lts-xenial", ver:"4.4.0.194.170", rls:"UBUNTU14.04 LTS"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-server", ver:"3.13.0.183.192", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual-lts-xenial", ver:"4.4.0.194.170", rls:"UBUNTU14.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual", ver:"3.13.0.183.192", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual", ver:"3.13.0.183.192", rls:"UBUNTU14.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual-lts-xenial", ver:"4.4.0.194.170", rls:"UBUNTU14.04 LTS"))) {
     report += res;
   }
 
@@ -269,11 +255,11 @@ if(release == "UBUNTU16.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.15.0-123-generic-lpae", ver:"4.15.0-123.126~16.04.1", rls:"UBUNTU16.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.15.0-123-generic", ver:"4.15.0-123.126~16.04.1", rls:"UBUNTU16.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.15.0-123-generic", ver:"4.15.0-123.126~16.04.1", rls:"UBUNTU16.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.15.0-123-generic-lpae", ver:"4.15.0-123.126~16.04.1", rls:"UBUNTU16.04 LTS"))) {
     report += res;
   }
 
@@ -281,11 +267,11 @@ if(release == "UBUNTU16.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.4.0-194-generic-lpae", ver:"4.4.0-194.226", rls:"UBUNTU16.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.4.0-194-generic", ver:"4.4.0-194.226", rls:"UBUNTU16.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.4.0-194-generic", ver:"4.4.0-194.226", rls:"UBUNTU16.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.4.0-194-generic-lpae", ver:"4.4.0-194.226", rls:"UBUNTU16.04 LTS"))) {
     report += res;
   }
 
@@ -313,11 +299,11 @@ if(release == "UBUNTU16.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-hwe-16.04", ver:"4.15.0.123.123", rls:"UBUNTU16.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic", ver:"4.4.0.194.200", rls:"UBUNTU16.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-lpae-hwe-16.04", ver:"4.15.0.123.123", rls:"UBUNTU16.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-hwe-16.04", ver:"4.15.0.123.123", rls:"UBUNTU16.04 LTS"))) {
     report += res;
   }
 
@@ -325,7 +311,7 @@ if(release == "UBUNTU16.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic", ver:"4.4.0.194.200", rls:"UBUNTU16.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-lpae-hwe-16.04", ver:"4.15.0.123.123", rls:"UBUNTU16.04 LTS"))) {
     report += res;
   }
 
@@ -333,11 +319,11 @@ if(release == "UBUNTU16.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-lowlatency-hwe-16.04", ver:"4.15.0.123.123", rls:"UBUNTU16.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-lowlatency", ver:"4.4.0.194.200", rls:"UBUNTU16.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-lowlatency", ver:"4.4.0.194.200", rls:"UBUNTU16.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-lowlatency-hwe-16.04", ver:"4.15.0.123.123", rls:"UBUNTU16.04 LTS"))) {
     report += res;
   }
 
@@ -365,11 +351,11 @@ if(release == "UBUNTU16.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual-hwe-16.04", ver:"4.15.0.123.123", rls:"UBUNTU16.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual", ver:"4.4.0.194.200", rls:"UBUNTU16.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual", ver:"4.4.0.194.200", rls:"UBUNTU16.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual-hwe-16.04", ver:"4.15.0.123.123", rls:"UBUNTU16.04 LTS"))) {
     report += res;
   }
 
@@ -399,11 +385,11 @@ if(release == "UBUNTU18.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.15.0-123-generic-lpae", ver:"4.15.0-123.126", rls:"UBUNTU18.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.15.0-123-generic", ver:"4.15.0-123.126", rls:"UBUNTU18.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.15.0-123-generic", ver:"4.15.0-123.126", rls:"UBUNTU18.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.15.0-123-generic-lpae", ver:"4.15.0-123.126", rls:"UBUNTU18.04 LTS"))) {
     report += res;
   }
 
@@ -435,15 +421,19 @@ if(release == "UBUNTU18.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-5.4.0-53-generic-lpae", ver:"5.4.0-53.59~18.04.1", rls:"UBUNTU18.04 LTS"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-5.4.0-53-generic", ver:"5.4.0-53.59~18.04.1", rls:"UBUNTU18.04 LTS"))) {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-5.4.0-53-generic-lpae", ver:"5.4.0-53.59~18.04.1", rls:"UBUNTU18.04 LTS"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-5.4.0-53-lowlatency", ver:"5.4.0-53.59~18.04.1", rls:"UBUNTU18.04 LTS"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-gcp", ver:"5.4.0.1029.17", rls:"UBUNTU18.04 LTS"))) {
     report += res;
   }
 
@@ -455,7 +445,7 @@ if(release == "UBUNTU18.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-gcp", ver:"5.4.0.1029.17", rls:"UBUNTU18.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic", ver:"4.15.0.123.110", rls:"UBUNTU18.04 LTS"))) {
     report += res;
   }
 
@@ -463,15 +453,15 @@ if(release == "UBUNTU18.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-lpae-hwe-18.04", ver:"5.4.0.53.59~18.04.47", rls:"UBUNTU18.04 LTS"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-lpae", ver:"4.15.0.123.110", rls:"UBUNTU18.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic", ver:"4.15.0.123.110", rls:"UBUNTU18.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-lpae-hwe-18.04", ver:"5.4.0.53.59~18.04.47", rls:"UBUNTU18.04 LTS"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-gke", ver:"4.15.0.1073.77", rls:"UBUNTU18.04 LTS"))) {
     report += res;
   }
 
@@ -483,15 +473,7 @@ if(release == "UBUNTU18.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-gke", ver:"4.15.0.1073.77", rls:"UBUNTU18.04 LTS"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-gkeop-5.3", ver:"5.3.0.69.126", rls:"UBUNTU18.04 LTS"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-lowlatency-hwe-18.04", ver:"5.4.0.53.59~18.04.47", rls:"UBUNTU18.04 LTS"))) {
     report += res;
   }
 
@@ -499,11 +481,19 @@ if(release == "UBUNTU18.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-oem-osp1", ver:"5.0.0.1071.69", rls:"UBUNTU18.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-lowlatency-hwe-18.04", ver:"5.4.0.53.59~18.04.47", rls:"UBUNTU18.04 LTS"))) {
     report += res;
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-oem", ver:"4.15.0.1101.105", rls:"UBUNTU18.04 LTS"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-oem-osp1", ver:"5.0.0.1071.69", rls:"UBUNTU18.04 LTS"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-oracle", ver:"5.4.0.1029.13", rls:"UBUNTU18.04 LTS"))) {
     report += res;
   }
 
@@ -515,19 +505,15 @@ if(release == "UBUNTU18.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-oracle", ver:"5.4.0.1029.13", rls:"UBUNTU18.04 LTS"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-snapdragon-hwe-18.04", ver:"5.4.0.53.59~18.04.47", rls:"UBUNTU18.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual-hwe-18.04", ver:"5.4.0.53.59~18.04.47", rls:"UBUNTU18.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual", ver:"4.15.0.123.110", rls:"UBUNTU18.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual", ver:"4.15.0.123.110", rls:"UBUNTU18.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual-hwe-18.04", ver:"5.4.0.53.59~18.04.47", rls:"UBUNTU18.04 LTS"))) {
     report += res;
   }
 
@@ -549,11 +535,11 @@ if(release == "UBUNTU20.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-5.4.0-53-generic-lpae", ver:"5.4.0-53.59", rls:"UBUNTU20.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-5.4.0-53-generic", ver:"5.4.0-53.59", rls:"UBUNTU20.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-5.4.0-53-generic", ver:"5.4.0-53.59", rls:"UBUNTU20.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-5.4.0-53-generic-lpae", ver:"5.4.0-53.59", rls:"UBUNTU20.04 LTS"))) {
     report += res;
   }
 
@@ -565,11 +551,11 @@ if(release == "UBUNTU20.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-hwe-20.04", ver:"5.4.0.53.56", rls:"UBUNTU20.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic", ver:"5.4.0.53.56", rls:"UBUNTU20.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-lpae-hwe-20.04", ver:"5.4.0.53.56", rls:"UBUNTU20.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-hwe-20.04", ver:"5.4.0.53.56", rls:"UBUNTU20.04 LTS"))) {
     report += res;
   }
 
@@ -577,7 +563,7 @@ if(release == "UBUNTU20.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic", ver:"5.4.0.53.56", rls:"UBUNTU20.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-generic-lpae-hwe-20.04", ver:"5.4.0.53.56", rls:"UBUNTU20.04 LTS"))) {
     report += res;
   }
 
@@ -585,15 +571,11 @@ if(release == "UBUNTU20.04 LTS") {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-lowlatency-hwe-20.04", ver:"5.4.0.53.56", rls:"UBUNTU20.04 LTS"))) {
-    report += res;
-  }
-
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-lowlatency", ver:"5.4.0.53.56", rls:"UBUNTU20.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-oem-osp1", ver:"5.4.0.53.56", rls:"UBUNTU20.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-lowlatency-hwe-20.04", ver:"5.4.0.53.56", rls:"UBUNTU20.04 LTS"))) {
     report += res;
   }
 
@@ -601,15 +583,19 @@ if(release == "UBUNTU20.04 LTS") {
     report += res;
   }
 
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-oem-osp1", ver:"5.4.0.53.56", rls:"UBUNTU20.04 LTS"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-oracle", ver:"5.4.0.1029.26", rls:"UBUNTU20.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual-hwe-20.04", ver:"5.4.0.53.56", rls:"UBUNTU20.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual", ver:"5.4.0.53.56", rls:"UBUNTU20.04 LTS"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual", ver:"5.4.0.53.56", rls:"UBUNTU20.04 LTS"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-virtual-hwe-20.04", ver:"5.4.0.53.56", rls:"UBUNTU20.04 LTS"))) {
     report += res;
   }
 

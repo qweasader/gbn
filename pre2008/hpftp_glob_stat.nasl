@@ -1,46 +1,14 @@
-# OpenVAS Vulnerability Test
-# Description: HP-UX ftpd glob() Expansion STAT Buffer Overflow
+# SPDX-FileCopyrightText: 2003 Xue Yong Zhi
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# Authors:
-# Xue Yong Zhi <xueyong@udel.edu>
-#
-# Copyright:
-# Copyright (C) 2003 Xue Yong Zhi
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2,
-# as published by the Free Software Foundation
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
-
-# TODO: have not observed enough HP-UX FTP banners, safecheck
-# is inaccurate and even wrong!
-#
-# TODO: do not check other FTPD
-#
-# From COVERT-2001-02:
-# "when an FTP daemon receives a request involving a
-# file that has a tilde as its first character, it typically runs the
-# entire filename string through globbing code in order to resolve the
-# specified home directory into a full path.  This has the side effect
-# of expanding other metacharacters in the pathname string, which can
-# lead to very large input strings being passed into the main command
-# processing routines. This can lead to exploitable buffer overflow
-# conditions, depending upon how these routines manipulate their input."
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11372");
-  script_version("2022-05-12T09:32:01+0000");
-  script_tag(name:"last_modification", value:"2022-05-12 09:32:01 +0000 (Thu, 12 May 2022)");
+  script_version("2023-07-21T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/2552");
   script_tag(name:"cvss_base", value:"10.0");
@@ -48,7 +16,7 @@ if(description)
   script_cve_id("CVE-2001-0248");
   script_name("HP-UX ftpd glob() Expansion STAT Buffer Overflow");
   script_category(ACT_MIXED_ATTACK);
-  script_tag(name:"qod_type", value:"remote_banner");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_family("FTP");
   script_copyright("Copyright (C) 2003 Xue Yong Zhi");
   script_dependencies("ftpserver_detect_type_nd_version.nasl", "ftp_writeable_directories.nasl");
@@ -67,6 +35,21 @@ if(description)
 
   exit(0);
 }
+
+# TODO: have not observed enough HP-UX FTP banners, safecheck
+# is inaccurate and even wrong!
+#
+# TODO: do not check other FTPD
+#
+# From COVERT-2001-02:
+# "when an FTP daemon receives a request involving a
+# file that has a tilde as its first character, it typically runs the
+# entire filename string through globbing code in order to resolve the
+# specified home directory into a full path.  This has the side effect
+# of expanding other metacharacters in the pathname string, which can
+# lead to very large input strings being passed into the main command
+# processing routines. This can lead to exploitable buffer overflow
+# conditions, depending upon how these routines manipulate their input."
 
 include("ftp_func.inc");
 include("misc_func.inc");

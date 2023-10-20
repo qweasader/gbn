@@ -1,61 +1,67 @@
-###############################################################################
-# OpenVAS Vulnerability Test
+# SPDX-FileCopyrightText: 2010 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# CUPS 'texttops' Filter NULL-pointer Dereference Vulnerability
-#
-# Authors:
-# Michael Meyer <michael.meyer@greenbone.net>
-#
-# Copyright:
-# Copyright (C) 2010 Greenbone Networks GmbH
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-###############################################################################
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apple:cups";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100685");
-  script_version("2022-05-02T09:35:37+0000");
-  script_tag(name:"last_modification", value:"2022-05-02 09:35:37 +0000 (Mon, 02 May 2022)");
+  script_version("2023-10-06T16:09:51+0000");
+  script_tag(name:"last_modification", value:"2023-10-06 16:09:51 +0000 (Fri, 06 Oct 2023)");
   script_tag(name:"creation_date", value:"2010-06-21 20:36:15 +0200 (Mon, 21 Jun 2010)");
-  script_cve_id("CVE-2010-0542", "CVE-2010-2431", "CVE-2010-2432");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_name("CUPS 'texttops' Filter NULL-pointer Dereference Vulnerability");
+
+  script_tag(name:"qod_type", value:"remote_banner_unreliable");
+
+  script_tag(name:"solution_type", value:"VendorFix");
+
+  script_cve_id("CVE-2010-0542", "CVE-2010-2431", "CVE-2010-2432");
+
+  script_name("CUPS < 1.4.4 Multiple DoS and Privilege Escalation Vulnerabilities");
+
   script_category(ACT_GATHER_INFO);
+
   script_family("General");
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
-  script_dependencies("secpod_cups_detect.nasl");
-  script_require_ports("Services/www", 631);
-  script_mandatory_keys("CUPS/installed");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
+  script_dependencies("gb_cups_http_detect.nasl");
+  script_mandatory_keys("cups/detected");
+
+  script_tag(name:"summary", value:"CUPS (Common UNIX Printing System) service is prone to multiple
+  vulnerabilities.");
+
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+
+  script_tag(name:"insight", value:"The following vulnerabilities exist:
+
+  - CVE-2010-0542: The _WriteProlog function in texttops.c in texttops in the Text Filter subsystem
+  does not check the return values of certain calloc calls.
+
+  - CVE-2010-2431: The cupsFileOpen function allows local users, with lp group membership, to
+  overwrite arbitrary files via a symlink attack.
+
+  - CVE-2010-2432: The cupsDoAuthentication function in auth.c in the client, when HAVE_GSSAPI is
+  omitted, does not properly handle a demand for authorization, which allows remote CUPS servers to
+  cause a denial of service (infinite loop) via HTTP_UNAUTHORIZED responses.");
+
+  script_tag(name:"impact", value:"Successful exploits may allow attackers to execute arbitrary code
+  with the privileges of a user running the application. Failed exploit attempts likely cause
+   denial of service conditions.");
+
+  script_tag(name:"affected", value:"CUPS versions prior to 1.4.4.");
+
+  script_tag(name:"solution", value:"Update to version 1.4.4 or later.");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/40943");
   script_xref(name:"URL", value:"http://cups.org/articles.php?L596");
-  script_xref(name:"URL", value:"http://www.cups.org");
   script_xref(name:"URL", value:"http://cups.org/str.php?L3516");
-
-  script_tag(name:"impact", value:"Successful exploits may allow attackers to execute arbitrary code with
-  the privileges of a user running the application. Failed exploit
-  attempts likely cause denial-of-service conditions.");
-  script_tag(name:"affected", value:"CUPS versions prior to 1.4.4 are affected.");
-  script_tag(name:"solution", value:"Updates are available. Please see the references for more information.");
-  script_tag(name:"summary", value:"CUPS is prone to a NULL-pointer dereference vulnerability.");
-
-  script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_banner_unreliable");
+  script_xref(name:"URL", value:"https://github.com/apple/cups/issues/3516");
+  script_xref(name:"URL", value:"https://github.com/apple/cups/issues/3510");
+  script_xref(name:"URL", value:"https://github.com/apple/cups/issues/3518");
+  script_xref(name:"URL", value:"https://github.com/apple/cups/releases/tag/release-1.4.4");
 
   exit(0);
 }
@@ -63,10 +69,14 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
 
-if( vers !~ "[0-9]+\.[0-9]+\.[0-9]+") exit( 0 ); # Version is not exact enough
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
+
+if( vers !~ "[0-9]+\.[0-9]+\.[0-9]+")
+  exit( 0 ); # Version is not exact enough
 
 if( version_is_less( version:vers, test_version:"1.4.4" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"1.4.4" );
