@@ -9,15 +9,15 @@ CPE = "cpe:/a:wordpress:wordpress";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809895");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-11-03T05:05:46+0000");
   script_cve_id("CVE-2017-6804", "CVE-2017-6815", "CVE-2017-6814", "CVE-2017-6816",
                 "CVE-2017-6818", "CVE-2017-6817", "CVE-2017-6819");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-03-19 12:43:00 +0000 (Tue, 19 Mar 2019)");
+  script_tag(name:"severity_date", value:"2019-03-19 12:54:00 +0000 (Tue, 19 Mar 2019)");
   script_tag(name:"creation_date", value:"2017-03-07 15:00:55 +0530 (Tue, 07 Mar 2017)");
   script_name("WordPress Multiple Vulnerabilities Mar17 (Windows)");
 

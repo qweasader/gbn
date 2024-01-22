@@ -9,7 +9,7 @@ CPE = "cpe:/a:zarafa:webapp";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105139");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2023-10-27T16:11:32+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
 
@@ -28,12 +28,12 @@ to exhaust the disk space of /tmp. Depending on the setup /tmp might be on / (e.
   script_tag(name:"solution", value:"Delete the file '/senddocument.php' (It's neither referenced nor used anywhere)
 or update to 2.0 beta 3 (SVN 46848).");
 
-  script_tag(name:"summary", value:"Zarafa WebApp is prone to a denial-of-service vulnerability.");
+  script_tag(name:"summary", value:"Zarafa WebApp is prone to a denial of service (DoS) vulnerability.");
   script_tag(name:"affected", value:"Zarafa WebApp < 2.0 beta 3 (SVN 46848)");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2014-12-08 13:27:31 +0100 (Mon, 08 Dec 2014)");
   script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"remote_vul");

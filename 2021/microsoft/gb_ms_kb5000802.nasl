@@ -21,7 +21,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.818016");
-  script_version("2022-08-09T10:11:17+0000");
+  script_version("2024-01-03T05:05:19+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2021-1640", "CVE-2021-1729", "CVE-2021-24090", "CVE-2021-24095",
@@ -39,10 +39,10 @@ if(description)
                 "CVE-2021-27085");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2024-01-03 05:05:19 +0000 (Wed, 03 Jan 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-03-12 21:07:00 +0000 (Fri, 12 Mar 2021)");
+  script_tag(name:"severity_date", value:"2023-12-29 20:15:00 +0000 (Fri, 29 Dec 2023)");
   script_tag(name:"creation_date", value:"2021-03-10 15:18:43 +0530 (Wed, 10 Mar 2021)");
   script_name("Microsoft Windows Multiple Vulnerabilities (KB5000802)");
 

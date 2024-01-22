@@ -24,9 +24,12 @@ if(description)
                 "CVE-2011-1495");
   script_tag(name:"cvss_base", value:"7.9");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:M/Au:N/C:C/I:C/A:C");
-  script_version("2023-05-18T09:08:59+0000");
+  script_version("2023-11-02T05:05:26+0000");
   script_name("VMware ESXi/ESX updates to third party libraries and ESX Service Console (VMSA-2011-0012.3)");
-  script_tag(name:"last_modification", value:"2023-05-18 09:08:59 +0000 (Thu, 18 May 2023)");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-08-10 16:09:00 +0000 (Mon, 10 Aug 2020)");
   script_tag(name:"creation_date", value:"2012-03-16 12:42:13 +0100 (Fri, 16 Mar 2012)");
   script_category(ACT_GATHER_INFO);
   script_family("VMware Local Security Checks");

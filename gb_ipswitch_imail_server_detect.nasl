@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811256");
-  script_version("2023-07-27T05:05:09+0000");
+  script_version("2023-10-31T05:06:37+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-31 05:06:37 +0000 (Tue, 31 Oct 2023)");
   script_tag(name:"creation_date", value:"2017-07-26 16:06:50 +0530 (Wed, 26 Jul 2017)");
   script_name("Ipswitch IMail Server Detection");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Product detection");
-  script_dependencies("smtpserver_detect.nasl", "popserver_detect.nasl", "imap4_banner.nasl", "httpver.nasl", "global_settings.nasl");
+  script_dependencies("smtpserver_detect.nasl", "check_smtp_helo.nasl", "popserver_detect.nasl", "imap4_banner.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/smtp", 25, 465, 587, "Services/pop3", 110, 995, "Services/imap", 143, 993, "Services/www", 80);
 
   script_tag(name:"summary", value:"Detection of installed version

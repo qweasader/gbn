@@ -9,26 +9,26 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.891771");
   script_cve_id("CVE-2018-1000026", "CVE-2018-14625", "CVE-2018-16884", "CVE-2018-19824", "CVE-2018-19985", "CVE-2018-20169", "CVE-2019-3459", "CVE-2019-3460", "CVE-2019-3701", "CVE-2019-3819", "CVE-2019-6974", "CVE-2019-7221", "CVE-2019-7222", "CVE-2019-8980", "CVE-2019-9213");
   script_tag(name:"creation_date", value:"2019-05-04 02:00:21 +0000 (Sat, 04 May 2019)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-04-05 20:40:00 +0000 (Tue, 05 Apr 2022)");
 
-  script_name("Debian: Security Advisory (DLA-1771)");
+  script_name("Debian: Security Advisory (DLA-1771-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB8");
 
-  script_xref(name:"Advisory-ID", value:"DLA-1771");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2019/dla-1771");
+  script_xref(name:"Advisory-ID", value:"DLA-1771-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2019/DLA-1771-1");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux-4.9' package(s) announced via the DLA-1771 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux-4.9' package(s) announced via the DLA-1771-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

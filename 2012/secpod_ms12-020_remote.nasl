@@ -1,35 +1,21 @@
-# Copyright (C) 2012 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2012 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902818");
-  script_version("2022-04-27T12:01:52+0000");
+  script_version("2024-01-09T05:06:46+0000");
   script_cve_id("CVE-2012-0002", "CVE-2012-0152");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-04-27 12:01:52 +0000 (Wed, 27 Apr 2022)");
+  script_tag(name:"last_modification", value:"2024-01-09 05:06:46 +0000 (Tue, 09 Jan 2024)");
   script_tag(name:"creation_date", value:"2012-03-16 16:21:31 +0100 (Fri, 16 Mar 2012)");
-  script_name("Microsoft Remote Desktop Protocol Remote Code Execution Vulnerabilities (2671387) (Remote Check)");
+  script_name("Microsoft Remote Desktop Protocol Remote Code Execution Vulnerabilities (2671387) - Active Check");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
   script_dependencies("ms_rdp_detect.nasl");
   script_require_ports("Services/ms-wbt-server", 3389);
@@ -42,8 +28,8 @@ if(description)
   script_xref(name:"URL", value:"http://www.securitytracker.com/id/1026790");
   script_xref(name:"URL", value:"https://docs.microsoft.com/en-us/security-updates/securitybulletins/2012/ms12-020");
 
-  script_tag(name:"impact", value:"Successful exploitation could allow remote attackers to execute arbitrary
-  code as the logged-on user or cause a denial of service condition.");
+  script_tag(name:"impact", value:"Successful exploitation could allow remote attackers to execute
+  arbitrary code as the logged-on user or cause a denial of service condition.");
 
   script_tag(name:"affected", value:"- Microsoft Windows 7 Service Pack 1 and prior
 
@@ -56,10 +42,11 @@ if(description)
   - Microsoft Windows Server 2008 Service Pack 2 and prior");
 
   script_tag(name:"insight", value:"The flaws are due to the way Remote Desktop Protocol accesses an
-  object in memory that has been improperly initialized or has been deleted
-  and the way RDP service processes the packets.");
+  object in memory that has been improperly initialized or has been deleted and the way RDP service
+  processes the packets.");
 
-  script_tag(name:"solution", value:"The vendor has released updates. Please see the references for more information.");
+  script_tag(name:"solution", value:"The vendor has released updates. Please see the references for
+  more information.");
 
   script_tag(name:"summary", value:"This host is missing a critical security update according to
   Microsoft Bulletin MS12-020.");

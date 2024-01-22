@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.853372");
-  script_version("2021-08-13T14:00:52+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2020-0305", "CVE-2020-10135", "CVE-2020-10781", "CVE-2020-14331", "CVE-2020-14356", "CVE-2020-15780", "CVE-2020-16166");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-08-13 14:00:52 +0000 (Fri, 13 Aug 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:P/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-01-13 14:35:00 +0000 (Wed, 13 Jan 2021)");
+  script_tag(name:"severity_date", value:"2020-11-02 21:15:00 +0000 (Mon, 02 Nov 2020)");
   script_tag(name:"creation_date", value:"2020-08-22 03:00:47 +0000 (Sat, 22 Aug 2020)");
   script_name("openSUSE: Security Advisory for the (openSUSE-SU-2020:1236-1)");
   script_category(ACT_GATHER_INFO);

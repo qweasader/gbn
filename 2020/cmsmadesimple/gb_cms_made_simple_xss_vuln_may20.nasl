@@ -9,14 +9,14 @@ CPE = "cpe:/a:cmsmadesimple:cms_made_simple";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.144021");
-  script_version("2023-05-12T10:50:26+0000");
-  script_tag(name:"last_modification", value:"2023-05-12 10:50:26 +0000 (Fri, 12 May 2023)");
+  script_version("2023-10-20T16:09:12+0000");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
   script_tag(name:"creation_date", value:"2020-06-03 03:39:07 +0000 (Wed, 03 Jun 2020)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:L/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-05-29 14:02:00 +0000 (Fri, 29 May 2020)");
+  script_tag(name:"severity_date", value:"2021-09-28 21:17:00 +0000 (Tue, 28 Sep 2021)");
 
   script_cve_id("CVE-2020-13660", "CVE-2020-27377", "CVE-2020-23481");
 

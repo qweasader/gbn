@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.819196");
-  script_version("2021-11-29T14:01:10+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2021-2478", "CVE-2021-2479", "CVE-2021-2481", "CVE-2021-35546", "CVE-2021-35575", "CVE-2021-35577", "CVE-2021-35591", "CVE-2021-35596", "CVE-2021-35597", "CVE-2021-35602", "CVE-2021-35604", "CVE-2021-35607", "CVE-2021-35608", "CVE-2021-35610");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:P");
-  script_tag(name:"last_modification", value:"2021-11-29 14:01:10 +0000 (Mon, 29 Nov 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:L/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-10-26 19:03:00 +0000 (Tue, 26 Oct 2021)");
+  script_tag(name:"severity_date", value:"2021-10-26 17:58:00 +0000 (Tue, 26 Oct 2021)");
   script_tag(name:"creation_date", value:"2021-11-14 02:25:38 +0000 (Sun, 14 Nov 2021)");
   script_name("Fedora: Security Advisory for community-mysql (FEDORA-2021-46dc82116b)");
   script_category(ACT_GATHER_INFO);

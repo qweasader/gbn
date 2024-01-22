@@ -9,11 +9,11 @@ CPE = "cpe:/a:owncloud:owncloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805281");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-12-01T16:11:30+0000");
   script_cve_id("CVE-2014-9045");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"creation_date", value:"2015-02-19 16:04:16 +0530 (Thu, 19 Feb 2015)");
   script_name("ownCloud FTP Backend 'user_external' Password Authentication Bypass Vulnerability");
 
@@ -43,43 +43,35 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_owncloud_detect.nasl");
-  script_mandatory_keys("owncloud/installed");
-  script_require_ports("Services/www", 80);
+  script_dependencies("gb_owncloud_http_detect.nasl");
+  script_mandatory_keys("owncloud/detected");
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-if(!ownPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!ownVer = get_app_version(cpe:CPE, port:ownPort)){
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-if(ownVer =~ "^(5|6)")
-{
-  if(version_in_range(version:ownVer, test_version:"5.0.0", test_version2:"5.0.17"))
-  {
+if(version =~ "^[56]") {
+
+  if(version_in_range(version:version, test_version:"5.0.0", test_version2:"5.0.17")) {
     fix = "5.0.18";
     VULN = TRUE;
   }
 
-  if(version_in_range(version:ownVer, test_version:"6.0.0", test_version2:"6.0.5"))
-  {
+  if(version_in_range(version:version, test_version:"6.0.0", test_version2:"6.0.5")) {
     fix = "6.0.6";
     VULN = TRUE;
   }
 
-  if(VULN)
-  {
-    report = 'Installed version: ' + ownVer + '\n' +
-             'Fixed version:     ' + fix + '\n';
-
-    security_message(port:ownPort, data:report);
+  if(VULN) {
+    report = report_fixed_ver(installed_version:version, fixed_version:fix);
+    security_message(port:port, data:report);
     exit(0);
   }
 }

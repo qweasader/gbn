@@ -9,11 +9,11 @@ CPE = "cpe:/a:symantec:web_gateway";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804406");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_cve_id("CVE-2013-5012", "CVE-2013-5013");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2014-03-10 17:35:07 +0530 (Mon, 10 Mar 2014)");
   script_name("Symantec Web Gateway Cross-Site Scripting and SQL Injection Vulnerabilities");
   script_category(ACT_ATTACK);
@@ -50,7 +50,7 @@ if(description)
 
   script_tag(name:"solution", value:"Upgrade to Symantec Web Gateway 5.2 or later.");
 
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"VendorFix");
 
   exit(0);

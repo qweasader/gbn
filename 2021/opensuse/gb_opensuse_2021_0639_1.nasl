@@ -21,12 +21,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.853788");
-  script_version("2021-08-26T09:01:14+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2020-14342", "CVE-2021-20208");
   script_tag(name:"cvss_base", value:"4.9");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2021-08-26 09:01:14 +0000 (Thu, 26 Aug 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:C/C:L/I:H/A:N");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-04-29 14:56:00 +0000 (Thu, 29 Apr 2021)");
   script_tag(name:"creation_date", value:"2021-05-01 03:02:15 +0000 (Sat, 01 May 2021)");

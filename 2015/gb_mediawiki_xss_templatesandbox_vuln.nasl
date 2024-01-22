@@ -9,11 +9,11 @@ CPE = "cpe:/a:mediawiki:mediawiki";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805328");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_cve_id("CVE-2014-9479");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2015-01-27 17:16:42 +0530 (Tue, 27 Jan 2015)");
   script_name("MediaWiki TemplateSandbox extension Cross-site scripting Vulnerability - Jan15");
 
@@ -39,7 +39,7 @@ if(description)
   script_xref(name:"URL", value:"https://phabricator.wikimedia.org/T77625");
   script_xref(name:"URL", value:"http://www.openwall.com/lists/oss-security/2015/01/03/13");
   script_category(ACT_ATTACK);
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("find_service.nasl", "secpod_mediawiki_detect.nasl");
@@ -128,7 +128,7 @@ if (reswiki =~">TemplateSandbox<") {
    sndReq = http_get(item:url, port:wikiPort);
    rcvRes = http_keepalive_send_recv(port:wikiPort, data:sndReq);
 
-   if (rcvRes =~ "HTTP/1\.. 200" && "javascript:alert(document.cookie)" >< rcvRes)
+   if (rcvRes =~ "^HTTP/1\.[01] 200" && "javascript:alert(document.cookie)" >< rcvRes)
    {
     security_message(wikiPort);
     exit(0);

@@ -9,23 +9,23 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.63059");
   script_cve_id("CVE-2004-0452", "CVE-2005-0448", "CVE-2008-5302", "CVE-2008-5303");
   script_tag(name:"creation_date", value:"2008-12-29 21:42:24 +0000 (Mon, 29 Dec 2008)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:10+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:10 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:C/A:C");
 
-  script_name("Debian: Security Advisory (DSA-1678)");
+  script_name("Debian: Security Advisory (DSA-1678-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB4");
 
-  script_xref(name:"Advisory-ID", value:"DSA-1678");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2008/dsa-1678");
+  script_xref(name:"Advisory-ID", value:"DSA-1678-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2008/DSA-1678-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-1678");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'perl' package(s) announced via the DSA-1678 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'perl' package(s) announced via the DSA-1678-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

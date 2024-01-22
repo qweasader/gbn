@@ -9,34 +9,32 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.890836");
   script_cve_id("CVE-2017-6188");
   script_tag(name:"creation_date", value:"2018-01-11 23:00:00 +0000 (Thu, 11 Jan 2018)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"1.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:N/I:P/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-05-27 14:20:00 +0000 (Wed, 27 May 2020)");
 
-  script_name("Debian: Security Advisory (DLA-836)");
+  script_name("Debian: Security Advisory (DLA-836-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB7");
 
-  script_xref(name:"Advisory-ID", value:"DLA-836");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2017/dla-836-2");
+  script_xref(name:"Advisory-ID", value:"DLA-836-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2017/DLA-836-1");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'munin' package(s) announced via the DLA-836 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'munin' package(s) announced via the DLA-836-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The update for munin issued as DLA-836-1 caused a regression in the zooming functionality in munin-cgi-graph. Updated packages are now available to correct this issue. For reference, the original advisory text follows.
+  script_tag(name:"insight", value:"Stevie Trujillo discovered a command injection vulnerability in munin, a network-wide graphing framework. The CGI script for drawing graphs allowed to pass arbitrary GET parameters to local shell command, allowing command execution as the user that runs the webserver.
 
-Stevie Trujillo discovered a command injection vulnerability in munin, a network-wide graphing framework. The CGI script for drawing graphs allowed to pass arbitrary GET parameters to local shell command, allowing command execution as the user that runs the webserver.
-
-For Debian 7 Wheezy, these problems have been fixed in version 2.0.6-4+deb7u4.
+For Debian 7 Wheezy, these problems have been fixed in version 2.0.6-4+deb7u3.
 
 We recommend that you upgrade your munin packages.
 

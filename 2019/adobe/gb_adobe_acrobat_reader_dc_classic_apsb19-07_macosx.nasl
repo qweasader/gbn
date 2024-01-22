@@ -23,7 +23,7 @@ CPE = "cpe:/a:adobe:acrobat_reader_dc_classic";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.814854");
-  script_version("2021-10-07T07:48:17+0000");
+  script_version("2023-10-27T16:11:32+0000");
   script_cve_id("CVE-2018-19725", "CVE-2019-7018", "CVE-2019-7019", "CVE-2019-7020",
                 "CVE-2019-7021", "CVE-2019-7022", "CVE-2019-7023", "CVE-2019-7024",
                 "CVE-2019-7025", "CVE-2019-7026", "CVE-2019-7027", "CVE-2019-7028",
@@ -44,10 +44,10 @@ if(description)
                 "CVE-2019-7086", "CVE-2019-7087", "CVE-2019-7089");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-10-07 07:48:17 +0000 (Thu, 07 Oct 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-10-10 20:15:00 +0000 (Thu, 10 Oct 2019)");
+  script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
   script_tag(name:"creation_date", value:"2019-02-14 11:55:38 +0530 (Thu, 14 Feb 2019)");
   script_name("Adobe Acrobat Reader DC (Classic Track) Security Updates (apsb19-07) - Mac OS X");
 

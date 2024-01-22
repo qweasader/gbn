@@ -9,8 +9,8 @@ CPE = "cpe:/a:znc:znc";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111033");
-  script_version("2023-07-26T05:05:09+0000");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_version("2023-10-27T16:11:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2015-08-29 12:00:00 +0200 (Sat, 29 Aug 2015)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
@@ -26,7 +26,7 @@ if(description)
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/66926");
 
-  script_tag(name:"summary", value:"ZNC is prone to a denial-of-service vulnerability.");
+  script_tag(name:"summary", value:"ZNC is prone to a denial of service (DoS) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

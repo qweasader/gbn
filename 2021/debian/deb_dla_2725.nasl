@@ -9,27 +9,27 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.892725");
   script_cve_id("CVE-2017-8842", "CVE-2017-8843", "CVE-2017-8844", "CVE-2017-8845", "CVE-2017-8846", "CVE-2017-8847", "CVE-2017-9928", "CVE-2017-9929", "CVE-2018-10685", "CVE-2018-11496", "CVE-2018-5650", "CVE-2018-5747", "CVE-2018-9058");
   script_tag(name:"creation_date", value:"2021-08-02 03:00:25 +0000 (Mon, 02 Aug 2021)");
-  script_version("2023-06-20T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:22 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-06-06 15:17:00 +0000 (Wed, 06 Jun 2018)");
 
-  script_name("Debian: Security Advisory (DLA-2725)");
+  script_name("Debian: Security Advisory (DLA-2725-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB9");
 
-  script_xref(name:"Advisory-ID", value:"DLA-2725");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2021/dla-2725");
+  script_xref(name:"Advisory-ID", value:"DLA-2725-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2021/DLA-2725-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/lrzip");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'lrzip' package(s) announced via the DLA-2725 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'lrzip' package(s) announced via the DLA-2725-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

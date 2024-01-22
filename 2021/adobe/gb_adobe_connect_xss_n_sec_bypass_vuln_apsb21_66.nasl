@@ -9,14 +9,14 @@ CPE = "cpe:/a:adobe:connect";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.818503");
-  script_version("2023-09-15T16:10:33+0000");
-  script_tag(name:"last_modification", value:"2023-09-15 16:10:33 +0000 (Fri, 15 Sep 2023)");
+  script_version("2023-11-09T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2023-11-09 05:05:33 +0000 (Thu, 09 Nov 2023)");
   script_tag(name:"creation_date", value:"2021-08-13 00:05:37 +0530 (Fri, 13 Aug 2021)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-10-26 02:23:00 +0000 (Tue, 26 Oct 2021)");
+  script_tag(name:"severity_date", value:"2023-11-07 03:38:00 +0000 (Tue, 07 Nov 2023)");
 
   script_cve_id("CVE-2021-36061", "CVE-2021-36062", "CVE-2021-36063", "CVE-2021-40719",
                 "CVE-2021-40721");

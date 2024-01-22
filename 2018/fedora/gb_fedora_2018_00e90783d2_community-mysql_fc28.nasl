@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.874489");
-  script_version("2023-06-28T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-28 05:05:21 +0000 (Wed, 28 Jun 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-05-16 05:57:41 +0200 (Wed, 16 May 2018)");
   script_cve_id("CVE-2018-2755", "CVE-2018-2758", "CVE-2018-2759", "CVE-2018-2761",
                 "CVE-2018-2762", "CVE-2018-2766", "CVE-2018-2769", "CVE-2018-2771",
@@ -20,9 +20,9 @@ if(description)
                 "CVE-2018-2846");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-07-19 16:40:00 +0000 (Tue, 19 Jul 2022)");
+  script_tag(name:"severity_date", value:"2022-07-19 17:02:00 +0000 (Tue, 19 Jul 2022)");
   script_tag(name:"qod_type", value:"package");
   script_name("Fedora Update for community-mysql FEDORA-2018-00e90783d2");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'community-mysql'

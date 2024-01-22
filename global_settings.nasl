@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.12288");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2023-11-21T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -64,8 +64,14 @@ if( opt == "yes" )
   set_kb_item( name:"global_settings/non-default_udp_service_discovery", value:TRUE );
 
 opt = script_get_preference( "Mark host as dead if going offline (failed ICMP ping) during scan", id:16 );
-if( opt == "yes" )
+if( opt == "yes" ) {
   set_kb_item( name:"global_settings/mark_host_dead_failed_icmp", value:TRUE );
+  report  = "IMPORTANT: The 'Mark host as dead if going offline (failed ICMP ping) during scan' setting is deprecated and will be removed soon. Please:";
+  report += '\n - Update the software on the scanner host to version 22.04 or later';
+  report += '\n - Configure the system to use Boreas (already configured if using the Greenbone Operating System 22.04+)';
+  report += '\n - Use / configure the "max_vts_timeouts" scanner preference accordingly';
+  log_message( port:0, data:report );
+}
 
 opt = script_get_preference( "Enable CGI scanning", id:2 );
 if( opt == "no" )

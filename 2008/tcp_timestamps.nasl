@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.80091");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2023-12-15T16:10:08+0000");
+  script_tag(name:"last_modification", value:"2023-12-15 16:10:08 +0000 (Fri, 15 Dec 2023)");
   script_tag(name:"creation_date", value:"2008-10-24 23:33:44 +0200 (Fri, 24 Oct 2008)");
   script_tag(name:"cvss_base", value:"2.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:P/I:N/A:N");
@@ -25,6 +25,7 @@ if(description)
   script_xref(name:"URL", value:"https://datatracker.ietf.org/doc/html/rfc1323");
   script_xref(name:"URL", value:"https://datatracker.ietf.org/doc/html/rfc7323");
   script_xref(name:"URL", value:"https://web.archive.org/web/20151213072445/http://www.microsoft.com/en-us/download/details.aspx?id=9152");
+  script_xref(name:"URL", value:"https://www.fortiguard.com/psirt/FG-IR-16-090");
 
   script_tag(name:"summary", value:"The remote host implements TCP timestamps and therefore allows
   to compute the uptime.");

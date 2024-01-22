@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.875625");
-  script_version("2022-08-31T10:10:28+0000");
+  script_version("2023-10-27T16:11:32+0000");
   script_cve_id("CVE-2019-3870", "CVE-2019-3880", "CVE-2018-14629", "CVE-2018-16841", "CVE-2018-16851", "CVE-2018-16852", "CVE-2018-16853", "CVE-2018-16857");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-08-31 10:10:28 +0000 (Wed, 31 Aug 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-08-29 20:02:00 +0000 (Mon, 29 Aug 2022)");
+  script_tag(name:"severity_date", value:"2022-08-29 20:03:00 +0000 (Mon, 29 Aug 2022)");
   script_tag(name:"creation_date", value:"2019-05-07 02:12:28 +0000 (Tue, 07 May 2019)");
   script_name("Fedora Update for samba FEDORA-2019-db21b5f1d2");
   script_category(ACT_GATHER_INFO);

@@ -2,21 +2,21 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809413");
-  script_version("2023-05-15T09:08:55+0000");
+  script_version("2023-12-13T05:05:23+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-05-15 09:08:55 +0000 (Mon, 15 May 2023)");
+  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
   script_tag(name:"creation_date", value:"2016-09-27 12:37:02 +0530 (Tue, 27 Sep 2016)");
   script_name("Nextcloud Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Product detection");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
@@ -121,7 +121,7 @@ foreach dir( make_list_unique( "/", "/nc", "/nextcloud", "/Nextcloud", "/cloud",
     if( ! isNC )
       continue;
 
-    set_kb_item( name:"nextcloud/install/" + host + "/" + port + "/" + install, value:TRUE ); # For gb_owncloud_detect.nasl to avoid double detection of Nextcloud and ownCloud
+    set_kb_item( name:"nextcloud/install/" + host + "/" + port + "/" + install, value:TRUE ); # For gb_owncloud_http_detect.nasl to avoid double detection of Nextcloud and ownCloud
     set_kb_item( name:"owncloud_or_nextcloud/installed", value:TRUE );
     set_kb_item( name:"nextcloud/installed", value:TRUE );
 

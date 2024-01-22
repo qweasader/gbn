@@ -9,11 +9,11 @@ CPE = "cpe:/a:postgresql:postgresql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804711");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_cve_id("CVE-2014-0067");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2014-07-07 15:34:21 +0530 (Mon, 07 Jul 2014)");
   script_name("PostgreSQL 'make check' Local Privilege Escalation Vulnerability July14 (Windows)");
 
@@ -63,7 +63,6 @@ if(vers !~ "^(8\.4|9\.[0-3])\.")
 
 if(version_in_range(version:vers, test_version:"8.4", test_version2:"9.3.3")) {
   report = report_fixed_ver(installed_version:vers, fixed_version:"See references", install_path:loc);
-  report = report_fixed_ver(installed_version:vers, vulnerable_range:"8.4 - 9.3.3");
   security_message(port:port, data:report);
   exit(0);
 }

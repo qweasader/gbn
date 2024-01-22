@@ -9,23 +9,23 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.703376");
   script_cve_id("CVE-2015-1303", "CVE-2015-1304", "CVE-2015-6755", "CVE-2015-6756", "CVE-2015-6757", "CVE-2015-6758", "CVE-2015-6759", "CVE-2015-6760", "CVE-2015-6761", "CVE-2015-6762", "CVE-2015-6763");
   script_tag(name:"creation_date", value:"2015-10-19 22:00:00 +0000 (Mon, 19 Oct 2015)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
-  script_name("Debian: Security Advisory (DSA-3376)");
+  script_name("Debian: Security Advisory (DSA-3376-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB8");
 
-  script_xref(name:"Advisory-ID", value:"DSA-3376");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2015/dsa-3376");
+  script_xref(name:"Advisory-ID", value:"DSA-3376-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2015/DSA-3376-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-3376");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'chromium-browser' package(s) announced via the DSA-3376 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'chromium-browser' package(s) announced via the DSA-3376-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

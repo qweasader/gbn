@@ -9,7 +9,7 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813802");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2023-11-09T05:05:33+0000");
   script_cve_id("CVE-2018-6153", "CVE-2018-6154", "CVE-2018-6155", "CVE-2018-6156",
                 "CVE-2018-6157", "CVE-2018-6158", "CVE-2018-6159", "CVE-2018-6160",
                 "CVE-2018-6161", "CVE-2018-6162", "CVE-2018-6163", "CVE-2018-6164",
@@ -18,13 +18,13 @@ if(description)
                 "CVE-2018-6173", "CVE-2018-6174", "CVE-2018-6175", "CVE-2018-6176",
                 "CVE-2018-6177", "CVE-2018-6178", "CVE-2018-6179", "CVE-2018-6044",
                 "CVE-2018-4117", "CVE-2018-6150", "CVE-2018-6151", "CVE-2018-6152",
-                "CVE-2018-17460", "CVE-2018-16064");
+                "CVE-2018-17460", "CVE-2018-16064", "CVE-2018-17461");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-11-09 05:05:33 +0000 (Thu, 09 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-01-14 18:23:00 +0000 (Mon, 14 Jan 2019)");
+  script_tag(name:"severity_date", value:"2019-02-05 20:39:00 +0000 (Tue, 05 Feb 2019)");
   script_tag(name:"creation_date", value:"2018-07-25 10:11:37 +0530 (Wed, 25 Jul 2018)");
   script_name("Google Chrome Security Updates (stable-channel-update-for-desktop-2018-07) - Linux");
 
@@ -41,6 +41,8 @@ if(description)
   - Multiple use after free errors in Blink, WebRTC and WebBluetooth.
 
   - An improper validation of URL and UI.
+
+  - Buffer overflow in PDFium.
 
   - Multiple type confusion errors in WebRTC and PDFium.
 

@@ -9,26 +9,26 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.703726");
   script_cve_id("CVE-2016-10059", "CVE-2016-10061", "CVE-2016-10063", "CVE-2016-10064", "CVE-2016-10065", "CVE-2016-10066", "CVE-2016-10067", "CVE-2016-10068", "CVE-2016-10069", "CVE-2016-10070", "CVE-2016-10071", "CVE-2016-7799", "CVE-2016-7906", "CVE-2016-8677", "CVE-2016-8862", "CVE-2016-9556", "CVE-2016-9559");
   script_tag(name:"creation_date", value:"2016-11-25 23:00:00 +0000 (Fri, 25 Nov 2016)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-04-26 15:32:00 +0000 (Mon, 26 Apr 2021)");
 
-  script_name("Debian: Security Advisory (DSA-3726)");
+  script_name("Debian: Security Advisory (DSA-3726-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB8");
 
-  script_xref(name:"Advisory-ID", value:"DSA-3726");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2016/dsa-3726");
+  script_xref(name:"Advisory-ID", value:"DSA-3726-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2016/DSA-3726-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-3726");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'imagemagick' package(s) announced via the DSA-3726 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'imagemagick' package(s) announced via the DSA-3726-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

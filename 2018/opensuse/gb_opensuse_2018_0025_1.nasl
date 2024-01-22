@@ -21,17 +21,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851675");
-  script_version("2021-06-25T02:00:34+0000");
-  script_tag(name:"last_modification", value:"2021-06-25 02:00:34 +0000 (Fri, 25 Jun 2021)");
+  script_version("2023-11-03T16:10:08+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-01-05 23:56:32 +0100 (Fri, 05 Jan 2018)");
   script_cve_id("CVE-2017-12563", "CVE-2017-12691", "CVE-2017-13061", "CVE-2017-13062",
                 "CVE-2017-14042", "CVE-2017-14174", "CVE-2017-14343", "CVE-2017-15277",
                 "CVE-2017-15281");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-09-08 00:15:00 +0000 (Tue, 08 Sep 2020)");
+  script_tag(name:"severity_date", value:"2020-10-23 18:16:00 +0000 (Fri, 23 Oct 2020)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for ImageMagick (openSUSE-SU-2018:0025-1)");
 

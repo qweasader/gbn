@@ -23,12 +23,12 @@ CPE = "cpe:/a:open-xchange:open-xchange_appsuite";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141949");
-  script_version("2022-12-12T10:22:32+0000");
-  script_tag(name:"last_modification", value:"2022-12-12 10:22:32 +0000 (Mon, 12 Dec 2022)");
+  script_version("2023-10-27T16:11:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2019-01-31 16:55:25 +0700 (Thu, 31 Jan 2019)");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-03-27 14:29:00 +0000 (Wed, 27 Mar 2019)");
 

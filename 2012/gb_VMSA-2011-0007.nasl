@@ -10,9 +10,12 @@ if(description)
   script_cve_id("CVE-2011-1785", "CVE-2011-1786", "CVE-2010-1324", "CVE-2010-1323", "CVE-2010-4020", "CVE-2010-4021", "CVE-2010-2240");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-11-02T05:05:26+0000");
   script_name("VMware ESXi/ESX Denial of Service and third party updates for Likewise components and ESX Service Console (VMSA-2011-0007)");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-01-21 15:46:00 +0000 (Tue, 21 Jan 2020)");
   script_tag(name:"creation_date", value:"2012-03-15 17:23:21 +0100 (Thu, 15 Mar 2012)");
   script_category(ACT_GATHER_INFO);
   script_family("VMware Local Security Checks");

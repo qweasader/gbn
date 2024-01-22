@@ -9,14 +9,14 @@ CPE = "cpe:/o:buffalo:wzr-1750dhp2_firmware";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140996");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-04-18 14:09:34 +0700 (Wed, 18 Apr 2018)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-05-16 12:52:00 +0000 (Wed, 16 May 2018)");
+  script_tag(name:"severity_date", value:"2018-05-16 12:53:00 +0000 (Wed, 16 May 2018)");
 
   script_cve_id("CVE-2018-0554", "CVE-2018-0555", "CVE-2018-0556");
 

@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100471");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2023-10-27T16:11:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2010-01-28 18:48:47 +0100 (Thu, 28 Jan 2010)");
   script_cve_id("CVE-2010-0300");
   script_tag(name:"cvss_base", value:"5.0");
@@ -31,7 +31,7 @@ if (description)
   script_tag(name:"solution", value:"Updates are available. Please see the references for
   details.");
 
-  script_tag(name:"summary", value:"The 'ircd-ratbox' daemon is prone to a denial-of-service
+  script_tag(name:"summary", value:"The 'ircd-ratbox' daemon is prone to a denial of service (DoS)
   vulnerability.");
 
   script_tag(name:"impact", value:"Attackers can exploit this issue to deny service to legitimate

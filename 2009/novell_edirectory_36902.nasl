@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100340");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2023-10-27T16:11:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2009-11-09 11:17:02 +0100 (Mon, 09 Nov 2009)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -26,7 +26,7 @@ if(description)
 
   script_tag(name:"solution", value:"Updates are available. Please see the references for details.");
 
-  script_tag(name:"summary", value:"Novell eDirectory is prone to a denial-of-service vulnerability.");
+  script_tag(name:"summary", value:"Novell eDirectory is prone to a denial of service (DoS) vulnerability.");
 
   script_tag(name:"impact", value:"Remote attackers can exploit this issue to cause the server to become
   unresponsive, denying service to legitimate users.");

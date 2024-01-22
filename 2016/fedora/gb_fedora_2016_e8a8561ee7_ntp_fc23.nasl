@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.872098");
-  script_version("2023-06-23T16:09:17+0000");
-  script_tag(name:"last_modification", value:"2023-06-23 16:09:17 +0000 (Fri, 23 Jun 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2016-12-08 09:36:56 +0100 (Thu, 08 Dec 2016)");
   script_cve_id("CVE-2016-7433", "CVE-2016-7426", "CVE-2016-7429", "CVE-2016-9310", "CVE-2016-9311");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-01-24 11:29:00 +0000 (Thu, 24 Jan 2019)");
+  script_tag(name:"severity_date", value:"2020-06-18 18:14:00 +0000 (Thu, 18 Jun 2020)");
   script_tag(name:"qod_type", value:"package");
   script_name("Fedora Update for ntp FEDORA-2016-e8a8561ee7");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'ntp'

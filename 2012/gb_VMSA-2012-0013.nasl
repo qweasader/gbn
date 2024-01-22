@@ -16,9 +16,12 @@ if(description)
                 "CVE-2012-1573", "CVE-2012-0060", "CVE-2012-0061", "CVE-2012-0815", "CVE-2012-0393", "CVE-2012-0507");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-11-02T05:05:26+0000");
   script_name("VMware ESXi/ESX updates to third party libraries (VMSA-2012-0013)");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-07-29 17:21:00 +0000 (Wed, 29 Jul 2020)");
   script_tag(name:"creation_date", value:"2012-08-31 11:02:01 +0100 (Fri, 31 Aug 2012)");
   script_category(ACT_GATHER_INFO);
   script_family("VMware Local Security Checks");

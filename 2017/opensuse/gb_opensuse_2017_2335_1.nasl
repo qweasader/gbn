@@ -21,15 +21,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851606");
-  script_version("2021-09-15T13:01:45+0000");
-  script_tag(name:"last_modification", value:"2021-09-15 13:01:45 +0000 (Wed, 15 Sep 2021)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2017-09-03 07:19:00 +0200 (Sun, 03 Sep 2017)");
   script_cve_id("CVE-2017-7435", "CVE-2017-7436", "CVE-2017-9269");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-10-09 23:29:00 +0000 (Wed, 09 Oct 2019)");
+  script_tag(name:"severity_date", value:"2019-10-09 23:30:00 +0000 (Wed, 09 Oct 2019)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for libzypp (openSUSE-SU-2017:2335-1)");
 

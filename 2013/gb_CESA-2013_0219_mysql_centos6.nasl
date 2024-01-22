@@ -8,14 +8,17 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.centos.org/pipermail/centos-announce/2013-February/019223.html");
   script_oid("1.3.6.1.4.1.25623.1.0.881586");
-  script_version("2023-07-10T08:07:43+0000");
-  script_tag(name:"last_modification", value:"2023-07-10 08:07:43 +0000 (Mon, 10 Jul 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2013-02-04 09:54:48 +0530 (Mon, 04 Feb 2013)");
   script_cve_id("CVE-2012-0572", "CVE-2012-0574", "CVE-2012-1702", "CVE-2012-1705",
                 "CVE-2013-0375", "CVE-2013-0383", "CVE-2013-0384", "CVE-2013-0385",
                 "CVE-2013-0389");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-07-19 16:22:00 +0000 (Tue, 19 Jul 2022)");
   script_xref(name:"CESA", value:"2013:0219");
   script_name("CentOS Update for mysql CESA-2013:0219 centos6");
 

@@ -11,8 +11,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.103604");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2023-10-27T05:05:28+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2012-11-06 13:03:17 +0100 (Tue, 06 Nov 2012)");
   script_name("Symphony Multiple Remote Security Vulnerabilities");
   script_category(ACT_ATTACK);
@@ -46,7 +46,7 @@ if(description)
 
   script_tag(name:"affected", value:"Symphony 2.3 is vulnerable, other versions may also be affected.");
 
-  script_tag(name:"qod_type", value:"remote_app");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"VendorFix");
 
   exit(0);

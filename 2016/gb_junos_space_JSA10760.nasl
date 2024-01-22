@@ -23,14 +23,14 @@ CPE = "cpe:/a:juniper:junos_space";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106348");
-  script_version("2022-10-14T10:25:47+0000");
-  script_tag(name:"last_modification", value:"2022-10-14 10:25:47 +0000 (Fri, 14 Oct 2022)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2016-10-13 09:18:34 +0700 (Thu, 13 Oct 2016)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2017-03-22 17:16:00 +0000 (Wed, 22 Mar 2017)");
+  script_tag(name:"severity_date", value:"2017-03-22 19:24:00 +0000 (Wed, 22 Mar 2017)");
 
   script_cve_id("CVE-2016-4926", "CVE-2016-4927", "CVE-2016-4928", "CVE-2016-4929", "CVE-2016-4930",
                 "CVE-2016-4931");

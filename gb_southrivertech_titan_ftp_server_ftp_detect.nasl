@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800236");
-  script_version("2023-08-25T05:06:04+0000");
-  script_tag(name:"last_modification", value:"2023-08-25 05:06:04 +0000 (Fri, 25 Aug 2023)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2009-02-11 16:51:00 +0100 (Wed, 11 Feb 2009)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -39,13 +39,13 @@ banner = ftp_get_banner( port:port );
 # 220 Titan FTP Server 19.00.3670 Ready.
 # 220 Titan FTP Server 3.30.186 Ready.
 # 220 TITAN FTP server ready.
-if ( banner && banner =~ "220 Titan FTP [Ss]erver " ) {
+if( banner && banner =~ "220 Titan FTP [Ss]erver " ) {
   version = "unknown";
   install = port + "/tcp";
   concl = banner;
 
   ver = eregmatch( pattern:"Titan FTP [Ss]erver ([0-9.]+)", string:banner );
-  if ( ! isnull( ver[1] ) )
+  if( ! isnull( ver[1] ) )
     version = ver[1];
 
   set_kb_item( name:"titan_ftp_server/detected", value:TRUE );
@@ -53,4 +53,4 @@ if ( banner && banner =~ "220 Titan FTP [Ss]erver " ) {
   set_kb_item( name:"titan_ftp_server/ftp/" + port + "/installs", value:port + "#---#" + install + "#---#" + version + "#---#" + concl );
 }
 
-exit(0);
+exit( 0 );

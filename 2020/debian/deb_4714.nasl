@@ -9,27 +9,27 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.704714");
   script_cve_id("CVE-2020-6423", "CVE-2020-6430", "CVE-2020-6431", "CVE-2020-6432", "CVE-2020-6433", "CVE-2020-6434", "CVE-2020-6435", "CVE-2020-6436", "CVE-2020-6437", "CVE-2020-6438", "CVE-2020-6439", "CVE-2020-6440", "CVE-2020-6441", "CVE-2020-6442", "CVE-2020-6443", "CVE-2020-6444", "CVE-2020-6445", "CVE-2020-6446", "CVE-2020-6447", "CVE-2020-6448", "CVE-2020-6454", "CVE-2020-6455", "CVE-2020-6456", "CVE-2020-6457", "CVE-2020-6458", "CVE-2020-6459", "CVE-2020-6460", "CVE-2020-6461", "CVE-2020-6462", "CVE-2020-6463", "CVE-2020-6464", "CVE-2020-6465", "CVE-2020-6466", "CVE-2020-6467", "CVE-2020-6468", "CVE-2020-6469", "CVE-2020-6470", "CVE-2020-6471", "CVE-2020-6472", "CVE-2020-6473", "CVE-2020-6474", "CVE-2020-6475", "CVE-2020-6476", "CVE-2020-6478", "CVE-2020-6479", "CVE-2020-6480", "CVE-2020-6481", "CVE-2020-6482", "CVE-2020-6483", "CVE-2020-6484", "CVE-2020-6485", "CVE-2020-6486", "CVE-2020-6487", "CVE-2020-6488", "CVE-2020-6489", "CVE-2020-6490", "CVE-2020-6491", "CVE-2020-6492", "CVE-2020-6493", "CVE-2020-6494", "CVE-2020-6495", "CVE-2020-6496", "CVE-2020-6497", "CVE-2020-6498", "CVE-2020-6505", "CVE-2020-6506", "CVE-2020-6507", "CVE-2020-6509", "CVE-2020-6831");
   script_tag(name:"creation_date", value:"2020-07-03 03:01:04 +0000 (Fri, 03 Jul 2020)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-07-23 19:37:00 +0000 (Thu, 23 Jul 2020)");
 
-  script_name("Debian: Security Advisory (DSA-4714)");
+  script_name("Debian: Security Advisory (DSA-4714-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB10");
 
-  script_xref(name:"Advisory-ID", value:"DSA-4714");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2020/dsa-4714");
+  script_xref(name:"Advisory-ID", value:"DSA-4714-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2020/DSA-4714-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-4714");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/chromium");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'chromium' package(s) announced via the DSA-4714 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'chromium' package(s) announced via the DSA-4714-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

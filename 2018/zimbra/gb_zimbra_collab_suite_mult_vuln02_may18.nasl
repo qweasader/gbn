@@ -23,14 +23,14 @@ CPE = "cpe:/a:zimbra:collaboration";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812894");
-  script_version("2022-08-18T10:11:39+0000");
-  script_tag(name:"last_modification", value:"2022-08-18 10:11:39 +0000 (Thu, 18 Aug 2022)");
+  script_version("2023-11-03T16:10:08+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-05-31 11:07:20 +0530 (Thu, 31 May 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
+  script_tag(name:"severity_date", value:"2020-06-04 12:32:00 +0000 (Thu, 04 Jun 2020)");
 
   script_cve_id("CVE-2018-10951", "CVE-2018-10949", "CVE-2018-10950");
 

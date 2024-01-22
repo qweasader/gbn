@@ -10,9 +10,9 @@ if(description)
   script_cve_id("CVE-2011-4788", "CVE-2012-0697");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_name("HP StorageWorks Default Accounts and Directory Traversal Vulnerabilities");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2012-02-21 13:19:06 +0100 (Tue, 21 Feb 2012)");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51399");
@@ -28,17 +28,20 @@ if(description)
   script_mandatory_keys("WindRiver-WebServer/banner");
   script_exclude_keys("default_credentials/disable_default_account_checks");
 
-  script_tag(name:"impact", value:"An attacker could exploit these issues to access arbitrary files on
-  the affected computer, or gain administrative access to the affected application. This may aid in
-  the compromise of the underlying computer.");
+  script_tag(name:"summary", value:"HP StorageWorks is prone to a security bypass vulnerability and
+  a directory traversal vulnerability.");
+
+  script_tag(name:"vuldetect", value:"Checks if it is possible to login via Telnet and SSH with
+  known default credentials.");
+
+  script_tag(name:"impact", value:"An attacker could exploit these issues to access arbitrary files
+  on the affected computer, or gain administrative access to the affected application. This may aid
+  in the compromise of the underlying computer.");
 
   script_tag(name:"affected", value:"HP StorageWorks P2000 G3 is affected.");
 
-  script_tag(name:"solution", value:"The vendor released an update to address this issue. Please see the
-  references for more information.");
-
-  script_tag(name:"summary", value:"HP StorageWorks is prone to a security-bypass vulnerability and a directory-
-  traversal vulnerability.");
+  script_tag(name:"solution", value:"The vendor released an update to address this issue. Please see
+  the references for more information.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_vul");
@@ -72,9 +75,9 @@ foreach port(ports) {
 
 if(found) {
 
-  credentials = make_array('monitor', '!monitor',
-                           'manage', '!manage',
-                           'ftp', '!ftp');
+  credentials = make_array("monitor", "!monitor",
+                           "manage", "!manage",
+                           "ftp", "!ftp");
 
   ports = telnet_get_ports(default:23);
   foreach port(ports) {
@@ -109,6 +112,14 @@ if(found) {
 
   port = ssh_get_port(default:22);
   if(ssh_dont_try_login(port:port))
+    exit(0);
+
+  # nb: No need to continue/start if we haven't received any banner...
+  if(!ssh_get_serverbanner(port:port))
+    exit(0);
+
+  # Exit if any random user/pass pair is accepted by the SSH service.
+  if(ssh_broken_random_login(port:port))
     exit(0);
 
   foreach credential(keys(credentials)) {

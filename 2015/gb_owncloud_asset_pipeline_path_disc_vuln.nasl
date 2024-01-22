@@ -9,11 +9,11 @@ CPE = "cpe:/a:owncloud:owncloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805282");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-12-01T16:11:30+0000");
   script_cve_id("CVE-2014-9044");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"creation_date", value:"2015-02-19 16:14:16 +0530 (Thu, 19 Feb 2015)");
   script_name("ownCloud Asset Pipeline Feature Remote Path Disclosure Vulnerability (oC-SA-2014-021)");
 
@@ -44,8 +44,8 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_owncloud_detect.nasl");
-  script_mandatory_keys("owncloud/installed");
+  script_dependencies("gb_owncloud_http_detect.nasl");
+  script_mandatory_keys("owncloud/detected");
 
   exit(0);
 }

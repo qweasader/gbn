@@ -23,15 +23,15 @@ CPE = "cpe:/a:open-xchange:open-xchange_appsuite";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809846");
-  script_version("2022-12-12T10:22:32+0000");
+  script_version("2023-11-03T05:05:46+0000");
   script_cve_id("CVE-2016-6847", "CVE-2016-6848", "CVE-2016-6850", "CVE-2016-6852",
                 "CVE-2016-6842", "CVE-2016-6843", "CVE-2016-6844", "CVE-2016-6845");
   script_tag(name:"cvss_base", value:"4.3");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2022-12-12 10:22:32 +0000 (Mon, 12 Dec 2022)");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2016-12-16 17:03:00 +0000 (Fri, 16 Dec 2016)");
+  script_tag(name:"severity_date", value:"2016-12-16 19:12:00 +0000 (Fri, 16 Dec 2016)");
   script_tag(name:"creation_date", value:"2017-01-02 13:58:15 +0530 (Mon, 02 Jan 2017)");
   script_tag(name:"qod_type", value:"remote_banner");
   script_name("Open-Xchange (OX) App Suite Multiple Vulnerabilities -01 Jan17");

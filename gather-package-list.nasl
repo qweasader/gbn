@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2008 E-Soft Inc.
 # SPDX-FileCopyrightText: 2008 Tim Brown
-# SPDX-FileCopyrightText: New code since 2009 Greenbone AG
+# SPDX-FileCopyrightText: New detection methods / pattern / code since 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -9,8 +9,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.50282");
-  script_version("2023-09-12T05:05:19+0000");
-  script_tag(name:"last_modification", value:"2023-09-12 05:05:19 +0000 (Tue, 12 Sep 2023)");
+  script_version("2024-01-10T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
   script_tag(name:"creation_date", value:"2008-01-17 22:05:49 +0100 (Thu, 17 Jan 2008)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -434,6 +434,53 @@ if( "Welcome to the Greenbone OS" >< uname ) {
     replace_kb_item( name:"ssh/send_extra_cmd", value:'shell\n' );
     uname = ssh_cmd( socket:sock, cmd:"uname -a", return_errors:FALSE, pty:TRUE, timeout:20, retry:10 );
   }
+
+  # This currently includes just "22.04.0" (e.g. also for 22.04.15) instead of the "real" Debian
+  # version and thus is only checked but not used further.
+  rls = ssh_cmd( socket:sock, cmd:"cat /etc/debian_version", return_errors:FALSE );
+  if( rls =~ "^[0-9]+[0-9.]+" ) {
+
+    cpe = "cpe:/o:debian:debian_linux";
+
+    set_kb_item( name:"ssh/login/debian_linux", value:TRUE );
+
+    # Since Debian 10 (Buster) / dpkg version 1.19.1, the dpkg -l only returns a few packages
+    # because the user needs to scroll. See https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=909754
+    # for more background info.
+    # Adding --no-pager option (available since dpkg 1.19.2 and in all supported GOS versions)
+    # solves this problem.
+    buf = ssh_cmd( socket:sock, cmd:"dpkg --no-pager -l" );
+    if( buf )
+      register_packages( buf:buf );
+
+    # nb: We don't add the "rls" string here for now as it doesn't contain the correct Debian version
+    # currently as mentioned previously...
+    log_message( port:port, data:create_lsc_os_detection_report( detect_text:"Debian GNU/Linux" ) );
+
+    # Gather package information for Debian in Notus
+    # dpkg-query is not available on Debian Woody and older.
+    # Also, use --showformat instead of -f to be backwards compatible with Debian Sarge.
+    buf = ssh_cmd( socket:sock, cmd:"dpkg-query -W --showformat=\$\{Package\}-\$\{Version\}##\$\{Status\}##'\n'" );
+
+    if( buf ) {
+      # Notus only expects actually installed packages, so remove packages in other status (e.g. "rc")
+      packages = "";
+      lines = split( buf, keep:FALSE );
+      foreach line( lines ) {
+        match = eregmatch( string:line, pattern:"(^.+)##.+ installed##$" );
+        if( match[1] )
+          packages += match[1] + '\n';
+      }
+      packages = chomp( packages );
+
+      if( packages )
+        set_kb_item( name:"ssh/login/package_list_notus", value:packages );
+    }
+
+    os_register_and_report( os:"Debian GNU/Linux", cpe:cpe, banner_type:"SSH login", desc:SCRIPT_DESC, runs_key:"unixoide", full_cpe:TRUE );
+
+    exit( 0 );
+  }
 }
 
 if( "HyperFlex-Installer" >< uname ) {
@@ -705,24 +752,45 @@ if( "Sourcefire Linux OS" >< uname )
   exit( 0 );
 }
 
-if( "Cisco Firepower Management Center" >< uname )
-{
-  set_kb_item( name:'cisco_fire_linux_os/detected', value:TRUE );
+# Last login: Tue Jan  9 16:27:57 2024 from <redacted>
+#
+# Copyright 2004-2020, Cisco and/or its affiliates. All rights reserved.
+# Cisco is a registered trademark of Cisco Systems, Inc.
+# All other trademarks are property of their respective owners.
+#
+# Cisco Fire Linux OS v6.6.1 (build 14)
+# Cisco Firepower Management Center for VMWare v6.6.1 (build 91)
+#
+if( "Cisco Firepower Management Center" >< uname ) {
+
+  set_kb_item( name:"cisco_fire_linux_os/detected", value:TRUE );
   set_kb_item( name:"cisco/detected", value:TRUE );
-  if( "Cisco Fire Linux OS" >< uname )
-  {
-    cpe = 'cpe:/o:cisco:fire_linux_os';
-    version = eregmatch( pattern:'Cisco Fire Linux OS v([^ ]+)', string:uname );
-    if( ! isnull( version[1] ) )
-    {
-      cpe += ':' + version[1];
+
+  if( "Cisco Fire Linux OS" >< uname ) {
+
+    cpe = "cpe:/o:cisco:fire_linux_os";
+    version = eregmatch( pattern:"Cisco Fire Linux OS v([^ ]+)", string:uname );
+    if( ! isnull( version[1] ) ) {
+      cpe += ":" + version[1];
       set_kb_item( name:"cisco/fire_linux_os/version", value:version[1] );
+      concluded = version[0];
     }
 
-    build = eregmatch( pattern:'\\(build ([^)]+)\\)', string: uname);
-    if( ! isnull( build[1] ) ) set_kb_item( name:"cisco/fire_linux_os/build", value:build[1] );
+    build = eregmatch( pattern:"\(build ([^)]+)\)", string:uname );
+    if( ! isnull( build[1] ) ) {
 
-    os_register_and_report( os:"Cisco Fire Linux OS", cpe:cpe, banner_type:"SSH login", desc:SCRIPT_DESC, runs_key:"unixoide" );
+      if( isnull( version[1] ) )
+        cpe += ":";
+
+      cpe += ":" + build[1];
+
+      set_kb_item( name:"cisco/fire_linux_os/build", value:build[1] );
+      if( concluded )
+        concluded += " ";
+      concluded += build[0];
+    }
+
+    os_register_and_report( os:"Cisco Fire Linux OS", version:version[1], patch:build[1], cpe:cpe, banner_type:"SSH login", desc:SCRIPT_DESC, runs_key:"unixoide", full_cpe:TRUE, banner:concluded );
 
     report = "Cisco Fire Linux OS";
     if( version[1] ) report += '\nVersion: ' + version[1];

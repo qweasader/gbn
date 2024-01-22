@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854131");
-  script_version("2023-10-12T05:05:32+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2021-0089", "CVE-2021-28690", "CVE-2021-28692", "CVE-2021-28693", "CVE-2021-28694", "CVE-2021-28695", "CVE-2021-28696", "CVE-2021-28697", "CVE-2021-28698", "CVE-2021-28699", "CVE-2021-28700");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-09-01 17:35:00 +0000 (Wed, 01 Sep 2021)");
+  script_tag(name:"severity_date", value:"2021-09-01 18:54:00 +0000 (Wed, 01 Sep 2021)");
   script_tag(name:"creation_date", value:"2021-09-03 01:02:28 +0000 (Fri, 03 Sep 2021)");
   script_name("openSUSE: Security Advisory for xen (openSUSE-SU-2021:2923-1)");
   script_category(ACT_GATHER_INFO);

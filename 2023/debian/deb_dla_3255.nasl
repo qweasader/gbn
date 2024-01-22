@@ -9,27 +9,27 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.893255");
   script_cve_id("CVE-2022-38850", "CVE-2022-38851", "CVE-2022-38855", "CVE-2022-38858", "CVE-2022-38860", "CVE-2022-38861", "CVE-2022-38863", "CVE-2022-38864", "CVE-2022-38865", "CVE-2022-38866");
   script_tag(name:"creation_date", value:"2023-01-01 02:00:40 +0000 (Sun, 01 Jan 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"4.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-09-19 18:01:00 +0000 (Mon, 19 Sep 2022)");
 
-  script_name("Debian: Security Advisory (DLA-3255)");
+  script_name("Debian: Security Advisory (DLA-3255-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB10");
 
-  script_xref(name:"Advisory-ID", value:"DLA-3255");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2022/dla-3255");
+  script_xref(name:"Advisory-ID", value:"DLA-3255-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2022/DLA-3255-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/mplayer");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mplayer' package(s) announced via the DLA-3255 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mplayer' package(s) announced via the DLA-3255-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

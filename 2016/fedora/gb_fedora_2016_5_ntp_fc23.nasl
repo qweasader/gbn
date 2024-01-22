@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808023");
-  script_version("2023-06-21T05:06:23+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:23 +0000 (Wed, 21 Jun 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2016-05-11 05:22:25 +0200 (Wed, 11 May 2016)");
   script_cve_id("CVE-2016-1548", "CVE-2016-2516", "CVE-2016-2518", "CVE-2016-1550");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:L/A:L");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2017-11-21 02:29:00 +0000 (Tue, 21 Nov 2017)");
+  script_tag(name:"severity_date", value:"2021-06-10 13:15:00 +0000 (Thu, 10 Jun 2021)");
   script_tag(name:"qod_type", value:"package");
   script_name("Fedora Update for ntp FEDORA-2016-5");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'ntp'

@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:digium:asterisk';
+CPE = "cpe:/a:digium:asterisk";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140791");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2018-02-22 11:18:04 +0700 (Thu, 22 Feb 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -29,8 +29,8 @@ if (description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("General");
-  script_dependencies("secpod_asterisk_detect.nasl");
-  script_mandatory_keys("Asterisk-PBX/Installed");
+  script_dependencies("gb_digium_asterisk_sip_detect.nasl");
+  script_mandatory_keys("digium/asterisk/detected");
 
   script_tag(name:"summary", value:"Asterisk is prone to multiple vulnerabilities.");
 
@@ -42,9 +42,9 @@ if (description)
 
   - WebSocket frames with 0 sized payload causes DoS (CVE-2018-7287)");
 
-  script_tag(name:"affected", value:"Asterisk Open Source 15.x.");
+  script_tag(name:"affected", value:"Asterisk Open Source versions 15.x.");
 
-  script_tag(name:"solution", value:"Upgrade to Version 15.2.2 or later.");
+  script_tag(name:"solution", value:"Update to version 15.2.2 or later.");
 
   script_xref(name:"URL", value:"http://downloads.asterisk.org/pub/security/AST-2018-001.html");
   script_xref(name:"URL", value:"http://downloads.asterisk.org/pub/security/AST-2018-006.html");
@@ -53,7 +53,6 @@ if (description)
 }
 
 include("host_details.inc");
-include("revisions-lib.inc");
 include("version_func.inc");
 
 if (!port = get_app_port(cpe: CPE))

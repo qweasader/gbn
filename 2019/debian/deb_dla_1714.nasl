@@ -9,32 +9,32 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.891714");
   script_cve_id("CVE-2017-2888", "CVE-2019-7572", "CVE-2019-7573", "CVE-2019-7574", "CVE-2019-7575", "CVE-2019-7576", "CVE-2019-7577", "CVE-2019-7578", "CVE-2019-7635", "CVE-2019-7636", "CVE-2019-7637", "CVE-2019-7638");
   script_tag(name:"creation_date", value:"2019-03-13 23:00:00 +0000 (Wed, 13 Mar 2019)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-02-24 18:51:00 +0000 (Wed, 24 Feb 2021)");
 
-  script_name("Debian: Security Advisory (DLA-1714)");
+  script_name("Debian: Security Advisory (DLA-1714-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB8");
 
-  script_xref(name:"Advisory-ID", value:"DLA-1714");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2019/dla-1714-2");
+  script_xref(name:"Advisory-ID", value:"DLA-1714-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2019/DLA-1714-1");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'libsdl2' package(s) announced via the DLA-1714 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'libsdl2' package(s) announced via the DLA-1714-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The update of libsdl2 released as DLA 1714-1 led to several regressions, as reported by Avital Ostromich. These regressions are caused by libsdl1.2 patches for CVE-2019-7637, CVE-2019-7635, CVE-2019-7638 and CVE-2019-7636 being applied to libsdl2 without adaptations.
+  script_tag(name:"insight", value:"Multiple buffer overflow security issues have been found in libsdl2, a library that allows low level access to a video frame buffer, audio output, mouse, and keyboard.
 
-For Debian 8 Jessie, this problem has been fixed in version 2.0.2+dfsg1-6+deb8u2.
+For Debian 8 Jessie, these problems have been fixed in version 2.0.2+dfsg1-6+deb8u1.
 
 We recommend that you upgrade your libsdl2 packages.
 

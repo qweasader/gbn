@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.15715");
-  script_version("2023-09-07T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-09-07 05:05:21 +0000 (Thu, 07 Sep 2023)");
+  script_version("2023-12-20T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
@@ -47,19 +47,26 @@ port = ssh_get_port( default:22 );
 if( ssh_dont_try_login( port:port ) )
   exit( 0 );
 
+# nb: No need to continue/start if we haven't received any banner...
+if( ! ssh_get_serverbanner( port:port ) )
+  exit( 0 );
+
 # Exit if any random user/pass pair is accepted by the SSH service.
 if( ssh_broken_random_login( port:port ) )
   exit( 0 );
 
 creds = make_array(
-"ro", "ro",
-"rwa", "rwa" );
+  "ro", "ro",
+  "rwa", "rwa"
+);
 
 report = 'The following default credentials were identified: (user:pass)\n';
 
 foreach cred( keys( creds ) ) {
-  soc = open_sock_tcp( port );
-  if ( ! soc ) exit( 0 );
+
+  if( ! soc = open_sock_tcp( port ) )
+    continue;
+
   ret = ssh_login( socket:soc, login:cred, password:creds[cred] );
   close( soc );
   if( ret == 0 ) {

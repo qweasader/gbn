@@ -9,11 +9,14 @@ CPE = "cpe:/a:oracle:mysql";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.151218");
-  script_version("2023-10-19T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_version("2023-10-27T16:11:33+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:33 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-10-18 05:07:15 +0000 (Wed, 18 Oct 2023)");
-  script_tag(name:"cvss_base", value:"7.6");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:C");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-10-25 13:24:00 +0000 (Wed, 25 Oct 2023)");
 
   script_cve_id("CVE-2023-38545", "CVE-2023-22084", "CVE-2023-38546");
 

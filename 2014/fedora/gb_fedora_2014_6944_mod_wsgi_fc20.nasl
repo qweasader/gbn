@@ -7,12 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.867916");
-  script_version("2023-06-23T16:09:17+0000");
-  script_tag(name:"last_modification", value:"2023-06-23 16:09:17 +0000 (Fri, 23 Jun 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2014-06-23 15:06:55 +0530 (Mon, 23 Jun 2014)");
   script_cve_id("CVE-2014-0240", "CVE-2014-0242");
   script_tag(name:"cvss_base", value:"6.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2019-12-17 17:22:00 +0000 (Tue, 17 Dec 2019)");
   script_name("Fedora Update for mod_wsgi FEDORA-2014-6944");
   script_tag(name:"affected", value:"mod_wsgi on Fedora 20");
   script_tag(name:"solution", value:"Please install the updated package(s).");

@@ -8,12 +8,12 @@ if(description)
 {
   script_xref(name:"URL", value:"https://www.redhat.com/archives/rhsa-announce/2012-February/msg00009.html");
   script_oid("1.3.6.1.4.1.25623.1.0.870540");
-  script_version("2023-07-14T05:06:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 05:06:08 +0000 (Fri, 14 Jul 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2012-02-03 11:24:17 +0530 (Fri, 03 Feb 2012)");
   script_cve_id("CVE-2011-4576", "CVE-2011-4619");
   script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_xref(name:"RHSA", value:"2012:0086-01");
   script_name("RedHat Update for openssl RHSA-2012:0086-01");
 

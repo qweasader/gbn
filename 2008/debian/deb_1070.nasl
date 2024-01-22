@@ -9,23 +9,23 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.56787");
   script_cve_id("CVE-2003-0984", "CVE-2004-0138", "CVE-2004-0394", "CVE-2004-0427", "CVE-2004-0447", "CVE-2004-0554", "CVE-2004-0565", "CVE-2004-0685", "CVE-2004-0883", "CVE-2004-0949", "CVE-2004-0997", "CVE-2004-1016", "CVE-2004-1017", "CVE-2004-1068", "CVE-2004-1070", "CVE-2004-1071", "CVE-2004-1072", "CVE-2004-1073", "CVE-2004-1074", "CVE-2004-1234", "CVE-2004-1235", "CVE-2004-1333", "CVE-2004-1335", "CVE-2005-0001", "CVE-2005-0003", "CVE-2005-0124", "CVE-2005-0135", "CVE-2005-0384", "CVE-2005-0489", "CVE-2005-0504");
   script_tag(name:"creation_date", value:"2008-01-17 22:09:45 +0000 (Thu, 17 Jan 2008)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:10+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:10 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
-  script_name("Debian: Security Advisory (DSA-1070)");
+  script_name("Debian: Security Advisory (DSA-1070-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB3\.0");
 
-  script_xref(name:"Advisory-ID", value:"DSA-1070");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2006/dsa-1070");
+  script_xref(name:"Advisory-ID", value:"DSA-1070-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2006/DSA-1070-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-1070");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'kernel-image-sparc-2.4, kernel-patch-2.4.19-mips, kernel-source-2.4.19' package(s) announced via the DSA-1070 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'kernel-image-sparc-2.4, kernel-patch-2.4.19-mips, kernel-source-2.4.19' package(s) announced via the DSA-1070-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

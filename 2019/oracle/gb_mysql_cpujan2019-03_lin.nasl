@@ -21,14 +21,14 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112492");
-  script_version("2023-02-02T10:09:00+0000");
-  script_tag(name:"last_modification", value:"2023-02-02 10:09:00 +0000 (Thu, 02 Feb 2023)");
+  script_version("2023-10-27T16:11:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2019-01-16 13:12:11 +0100 (Wed, 16 Jan 2019)");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:L/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-01-31 17:39:00 +0000 (Tue, 31 Jan 2023)");
+  script_tag(name:"severity_date", value:"2023-01-31 17:40:00 +0000 (Tue, 31 Jan 2023)");
 
   script_cve_id("CVE-2019-2533", "CVE-2019-2436", "CVE-2019-2536", "CVE-2019-2502", "CVE-2019-2539",
                 "CVE-2019-2494", "CVE-2019-2495", "CVE-2019-2530", "CVE-2019-2535", "CVE-2019-2513");

@@ -21,15 +21,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851885");
-  script_version("2022-08-19T10:10:35+0000");
-  script_tag(name:"last_modification", value:"2022-08-19 10:10:35 +0000 (Fri, 19 Aug 2022)");
+  script_version("2023-11-03T16:10:08+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-09-09 07:09:46 +0200 (Sun, 09 Sep 2018)");
   script_cve_id("CVE-2018-0732", "CVE-2018-12115");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-08-16 13:00:00 +0000 (Tue, 16 Aug 2022)");
+  script_tag(name:"severity_date", value:"2020-03-20 21:15:00 +0000 (Fri, 20 Mar 2020)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for nodejs4 (openSUSE-SU-2018:2667-1)");
 

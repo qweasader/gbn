@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902941");
-  script_version("2023-06-22T10:34:15+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_cve_id("CVE-2012-6272");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2013-01-30 15:21:55 +0530 (Wed, 30 Jan 2013)");
   script_name("Dell OpenManage Server Administrator Multiple XSS Vulnerabilities");
   script_xref(name:"URL", value:"http://secunia.com/advisories/51764");
@@ -50,7 +50,7 @@ if(description)
   script_tag(name:"affected", value:"Dell OpenManage Server Administrator version 6.5.0.1, 7.0.0.1
   and 7.1.0.1");
 
-  script_tag(name:"qod_type", value:"remote_app");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"WillNotFix");
 
   exit(0);

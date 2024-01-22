@@ -10,7 +10,7 @@ if(description)
   script_cve_id("CVE-2014-8370", "CVE-2015-1043", "CVE-2015-1044", "CVE-2014-3513", "CVE-2014-3567", "CVE-2014-3566", "CVE-2014-3568", "CVE-2014-3660");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:C");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-11-02T05:05:26+0000");
   script_name("VMware ESXi updates address security issues (VMSA-2015-0001)");
 
   script_xref(name:"URL", value:"http://www.vmware.com/security/advisories/VMSA-2015-0001.html");
@@ -46,7 +46,10 @@ if(description)
 
   ESXi 5.0 without patch ESXi500-201405101-SG");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:L/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2021-06-16 12:15:00 +0000 (Wed, 16 Jun 2021)");
   script_tag(name:"creation_date", value:"2015-01-30 12:05:44 +0100 (Fri, 30 Jan 2015)");
   script_tag(name:"qod_type", value:"package");
   script_tag(name:"solution_type", value:"VendorFix");

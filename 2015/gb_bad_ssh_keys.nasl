@@ -7,11 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105398");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_cve_id("CVE-2012-1493", "CVE-2013-0137", "CVE-2013-3619", "CVE-2014-8428", "CVE-2015-0936", "CVE-2016-1561");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2021-06-17 17:41:00 +0000 (Thu, 17 Jun 2021)");
   script_tag(name:"creation_date", value:"2015-10-14 11:48:40 +0200 (Wed, 14 Oct 2015)");
   script_name("Static SSH Key Used");
   script_category(ACT_ATTACK);
@@ -39,34 +42,38 @@ if(description)
   access to affected devices. Successfully exploiting this issue allows attackers to completely
   compromise the devices.");
 
-  script_tag(name:"vuldetect", value:"Try to login as a specific user using a known static SSH private key.");
+  script_tag(name:"vuldetect", value:"Tries to login as a specific user using a known static SSH
+  private key.");
 
   script_tag(name:"solution", value:"Remove the known SSH private key.");
 
   script_tag(name:"summary", value:"The remote host has a known private key installed.");
 
-  script_tag(name:"affected", value:"The following products / devices are currently checked / known to be vulnerable:
+  script_tag(name:"affected", value:"The following products / devices are currently checked / known
+  to be vulnerable:
 
-  - Array Networks vxAG 9.2.0.34 and vAPV 8.3.2.17 appliances
+  - No CVE: Array Networks vxAG 9.2.0.34 and vAPV 8.3.2.17 appliances
 
-  - Barracuda Load Balancer - firmware version 5.0.0.015 (CVE-2014-8428)
+  - CVE-2014-8428: Barracuda Load Balancer - firmware version 5.0.0.015
 
-  - Ceragon FibeAir IP-10 (CVE-2015-0936)
+  - CVE-2015-0936: Ceragon FibeAir IP-10
 
-  - ExaGrid storage devices running firmware prior to version 4.8 P26 (CVE-2016-1561)
+  - CVE-2016-1561: ExaGrid storage devices running firmware prior to version 4.8 P26
 
-  - F5 BIG-IP version 11.1.0 build 1943.0 (CVE-2012-1493)
+  - CVE-2012-1493: F5 BIG-IP version 11.1.0 build 1943.0
 
-  - Loadbalancer.org Enterprise VA 7.5.2 and below
+  - No CVE: Loadbalancer.org Enterprise VA 7.5.2 and below
 
-  - Digital Alert Systems DASDEC and Monroe Electronics One-Net E189 Emergency Alert System (EAS) devices (CVE-2013-0137)
+  - CVE-2013-0137: Digital Alert Systems DASDEC and Monroe Electronics One-Net E189 Emergency Alert
+  System (EAS) devices
 
-  - Quantum DXi V1000 2.2.1 and below
+  - No CVE: Quantum DXi V1000 2.2.1 and below
 
-  - Vagrant base boxes
+  - No CVE: Vagrant base boxes
 
-  - Intelligent Platform Management Interface (IPMI) with firmware for Supermicro X9 generation motherboards
-  before SMT_X9_317 and firmware for Supermicro X8 generation motherboards before SMT X8 312 (CVE-2013-3619)
+  - CVE-2013-3619: Intelligent Platform Management Interface (IPMI) with firmware for Supermicro X9
+  generation motherboards before SMT_X9_317 and firmware for Supermicro X8 generation motherboards
+  before SMT X8 312
 
   Other products / devices and firmware versions might be affected as well.");
 
@@ -87,6 +94,14 @@ include("port_service_func.inc");
 port = ssh_get_port( default:22 );
 
 if( ssh_dont_try_login( port:port ) )
+  exit( 0 );
+
+# nb: No need to continue/start if we haven't received any banner...
+if( ! ssh_get_serverbanner( port:port ) )
+  exit( 0 );
+
+# Exit if any random user/pass pair is accepted by the SSH service.
+if( ssh_broken_random_login( port:port ) )
   exit( 0 );
 
 if( ! soc = open_sock_tcp( port ) )

@@ -9,13 +9,13 @@ CPE = "cpe:/a:typo3:typo3";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804210");
-  script_version("2023-04-06T10:19:22+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_cve_id("CVE-2011-4626", "CVE-2011-4627", "CVE-2011-4628", "CVE-2011-4629",
                 "CVE-2011-4630", "CVE-2011-4631", "CVE-2011-4632", "CVE-2011-4901",
                 "CVE-2011-4902", "CVE-2011-4903");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-04-06 10:19:22 +0000 (Thu, 06 Apr 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-11-08 16:38:00 +0000 (Fri, 08 Nov 2019)");
@@ -24,7 +24,7 @@ if(description)
   script_category(ACT_ATTACK);
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2014 Greenbone AG");
-  script_dependencies("gb_typo3_http_detect.nasl");
+  script_dependencies("gb_typo3_http_detect.nasl", "logins.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("typo3/http/detected");
 

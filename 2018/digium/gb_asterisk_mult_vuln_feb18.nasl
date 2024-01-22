@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:digium:asterisk';
+CPE = "cpe:/a:digium:asterisk";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140792");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2018-02-22 11:26:42 +0700 (Thu, 22 Feb 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -29,8 +29,8 @@ if (description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("General");
-  script_dependencies("secpod_asterisk_detect.nasl");
-  script_mandatory_keys("Asterisk-PBX/Installed");
+  script_dependencies("gb_digium_asterisk_sip_detect.nasl");
+  script_mandatory_keys("digium/asterisk/detected");
 
   script_tag(name:"summary", value:"Asterisk is prone to multiple vulnerabilities.");
 
@@ -46,9 +46,11 @@ if (description)
 
   - Crash when large numbers of TCP connections are closed suddenly (CVE-2018-7286)");
 
-  script_tag(name:"affected", value:"Asterisk Open Source 13.x, 14.x, 15.x and Certified Asterisk 13.18.");
+  script_tag(name:"affected", value:"Asterisk Open Source versions 13.x, 14.x, 15.x and Certified
+  Asterisk 13.18.");
 
-  script_tag(name:"solution", value:"Upgrade to Version 13.19.2, 14.7.6, 15.2.2, 13.18-cert3 or later.");
+  script_tag(name:"solution", value:"Update to version 13.19.2, 14.7.6, 15.2.2, 13.18-cert3
+  or later.");
 
   script_xref(name:"URL", value:"http://downloads.asterisk.org/pub/security/AST-2018-002.html");
   script_xref(name:"URL", value:"http://downloads.asterisk.org/pub/security/AST-2018-003.html");

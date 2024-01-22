@@ -21,8 +21,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851199");
-  script_version("2022-07-05T11:37:00+0000");
-  script_tag(name:"last_modification", value:"2022-07-05 11:37:00 +0000 (Tue, 05 Jul 2022)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2016-02-08 06:17:33 +0100 (Mon, 08 Feb 2016)");
   script_cve_id("CVE-2015-5969", "CVE-2015-7744", "CVE-2016-0502", "CVE-2016-0503",
                 "CVE-2016-0504", "CVE-2016-0505", "CVE-2016-0546", "CVE-2016-0594",
@@ -31,6 +31,9 @@ if(description)
                 "CVE-2016-0608", "CVE-2016-0609", "CVE-2016-0610", "CVE-2016-0611");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-09-08 20:52:00 +0000 (Thu, 08 Sep 2022)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for MySQL (openSUSE-SU-2016:0367-1)");
 

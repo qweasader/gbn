@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.853762");
-  script_version("2021-08-26T12:01:05+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2019-19462", "CVE-2019-20810", "CVE-2019-20812", "CVE-2020-0110", "CVE-2020-0305", "CVE-2020-0404", "CVE-2020-0427", "CVE-2020-0431", "CVE-2020-0432", "CVE-2020-0444", "CVE-2020-0465", "CVE-2020-0466", "CVE-2020-0543", "CVE-2020-10135", "CVE-2020-10711", "CVE-2020-10732", "CVE-2020-10751", "CVE-2020-10757", "CVE-2020-10766", "CVE-2020-10767", "CVE-2020-10768", "CVE-2020-10773", "CVE-2020-10781", "CVE-2020-11668", "CVE-2020-12351", "CVE-2020-12352", "CVE-2020-12652", "CVE-2020-12656", "CVE-2020-12769", "CVE-2020-12771", "CVE-2020-12888", "CVE-2020-13143", "CVE-2020-13974", "CVE-2020-14314", "CVE-2020-14331", "CVE-2020-14351", "CVE-2020-14356", "CVE-2020-14385", "CVE-2020-14386", "CVE-2020-14390", "CVE-2020-14416", "CVE-2020-15393", "CVE-2020-15436", "CVE-2020-15437", "CVE-2020-15780", "CVE-2020-16120", "CVE-2020-16166", "CVE-2020-1749", "CVE-2020-24490", "CVE-2020-2521", "CVE-2020-25212", "CVE-2020-25284", "CVE-2020-25285", "CVE-2020-25641", "CVE-2020-25643", "CVE-2020-25645", "CVE-2020-25656", "CVE-2020-25668", "CVE-2020-25669", "CVE-2020-25704", "CVE-2020-25705", "CVE-2020-26088", "CVE-2020-27068", "CVE-2020-27777", "CVE-2020-27786", "CVE-2020-27825", "CVE-2020-27830", "CVE-2020-28915", "CVE-2020-28941", "CVE-2020-28974", "CVE-2020-29369", "CVE-2020-29370", "CVE-2020-29371", "CVE-2020-29373", "CVE-2020-29660", "CVE-2020-29661", "CVE-2020-36158", "CVE-2020-4788", "CVE-2020-8694");
   script_tag(name:"cvss_base", value:"7.5");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:C");
-  script_tag(name:"last_modification", value:"2021-08-26 12:01:05 +0000 (Thu, 26 Aug 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-11-03 13:15:00 +0000 (Tue, 03 Nov 2020)");
+  script_tag(name:"severity_date", value:"2023-02-09 02:12:00 +0000 (Thu, 09 Feb 2023)");
   script_tag(name:"creation_date", value:"2021-04-16 05:03:06 +0000 (Fri, 16 Apr 2021)");
   script_name("openSUSE: Security Advisory for RT (openSUSE-SU-2021:0242-1)");
   script_category(ACT_GATHER_INFO);

@@ -12,7 +12,7 @@ if (description)
   script_cve_id("CVE-2015-6310");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2023-10-27T16:11:32+0000");
 
   script_name("Cisco Unified Communications Manager IM and Presence Service EST API Denial of Service Vulnerability");
 
@@ -25,7 +25,7 @@ if (description)
 
   script_tag(name:"solution", value:"Ask the Vendor for an update.");
 
-  script_tag(name:"summary", value:"Cisco Unified Communications Manager IM and Presence Service is prone to a denial-of-service vulnerability.");
+  script_tag(name:"summary", value:"Cisco Unified Communications Manager IM and Presence Service is prone to a denial of service (DoS) vulnerability.");
 
   script_tag(name:"affected", value:"Versions 10.5 before 10.5(2.23000.1), 11.0 before 11.0(1.11000.1) and 9.1 before 9.1(1.81900.5).");
 
@@ -33,7 +33,7 @@ if (description)
 
   script_tag(name:"qod_type", value:"package");
 
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2016-02-15 12:13:16 +0100 (Mon, 15 Feb 2016)");
   script_category(ACT_GATHER_INFO);
   script_family("CISCO");

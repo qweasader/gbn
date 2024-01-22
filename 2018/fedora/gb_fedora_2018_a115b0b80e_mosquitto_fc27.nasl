@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.875217");
-  script_version("2023-06-28T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-06-28 05:05:22 +0000 (Wed, 28 Jun 2023)");
+  script_version("2023-11-03T16:10:08+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-10-23 12:15:51 +0200 (Tue, 23 Oct 2018)");
   script_cve_id("CVE-2018-12543", "CVE-2017-7651", "CVE-2017-7652");
   script_tag(name:"cvss_base", value:"6.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-10-09 23:29:00 +0000 (Wed, 09 Oct 2019)");
+  script_tag(name:"severity_date", value:"2019-10-09 23:34:00 +0000 (Wed, 09 Oct 2019)");
   script_tag(name:"qod_type", value:"package");
   script_name("Fedora Update for mosquitto FEDORA-2018-a115b0b80e");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'mosquitto'

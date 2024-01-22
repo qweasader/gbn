@@ -9,27 +9,27 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.893173");
   script_cve_id("CVE-2021-4037", "CVE-2022-0171", "CVE-2022-1184", "CVE-2022-1679", "CVE-2022-20421", "CVE-2022-20422", "CVE-2022-2153", "CVE-2022-2602", "CVE-2022-2663", "CVE-2022-2905", "CVE-2022-3028", "CVE-2022-3061", "CVE-2022-3176", "CVE-2022-3303", "CVE-2022-3586", "CVE-2022-3621", "CVE-2022-3625", "CVE-2022-3629", "CVE-2022-3633", "CVE-2022-3635", "CVE-2022-3646", "CVE-2022-3649", "CVE-2022-39188", "CVE-2022-39190", "CVE-2022-39842", "CVE-2022-40307", "CVE-2022-41222", "CVE-2022-41674", "CVE-2022-42719", "CVE-2022-42720", "CVE-2022-42721", "CVE-2022-42722", "CVE-2022-43750");
   script_tag(name:"creation_date", value:"2022-11-02 02:00:32 +0000 (Wed, 02 Nov 2022)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-10-18 14:06:00 +0000 (Tue, 18 Oct 2022)");
 
-  script_name("Debian: Security Advisory (DLA-3173)");
+  script_name("Debian: Security Advisory (DLA-3173-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB10");
 
-  script_xref(name:"Advisory-ID", value:"DLA-3173");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2022/dla-3173");
+  script_xref(name:"Advisory-ID", value:"DLA-3173-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2022/DLA-3173-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/linux-5.10");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux-5.10' package(s) announced via the DLA-3173 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux-5.10' package(s) announced via the DLA-3173-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

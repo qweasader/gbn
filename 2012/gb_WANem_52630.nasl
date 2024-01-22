@@ -7,12 +7,12 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103561");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-12-13T05:05:23+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_name("WAN Emulator Remote Command Execution Vulnerabilities");
   script_xref(name:"URL", value:"http://itsecuritysolutions.org/2012-08-12-WANem-v2.3-multiple-vulnerabilities/");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
   script_tag(name:"creation_date", value:"2012-09-10 09:49:21 +0200 (Mon, 10 Sep 2012)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");
@@ -20,7 +20,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"WillNotFix");
   script_copyright("Copyright (C) 2012 Greenbone AG");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 

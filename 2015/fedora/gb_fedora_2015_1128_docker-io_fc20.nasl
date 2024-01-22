@@ -7,12 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.868948");
-  script_version("2023-06-22T10:34:15+0000");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2015-01-26 05:31:07 +0100 (Mon, 26 Jan 2015)");
   script_cve_id("CVE-2014-9357", "CVE-2014-9358", "CVE-2014-9356", "CVE-2014-6407", "CVE-2014-6408");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:H/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2019-12-11 20:30:00 +0000 (Wed, 11 Dec 2019)");
   script_name("Fedora Update for docker-io FEDORA-2015-1128");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'docker-io'
   package(s) announced via the referenced advisory.");

@@ -9,8 +9,8 @@ include("plugin_feed_info.inc");
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170244");
-  script_version("2023-04-04T10:19:20+0000");
-  script_tag(name:"last_modification", value:"2023-04-04 10:19:20 +0000 (Tue, 04 Apr 2023)");
+  script_version("2023-11-21T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
   script_tag(name:"creation_date", value:"2022-11-23 15:15:18 +0000 (Wed, 23 Nov 2022)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -76,9 +76,9 @@ foreach source( make_list( "hnap", "http", "upnp", "mdns" ) ) {
 }
 
 os_app = "D-Link DIR";
-os_cpe = "cpe:/o:d-link:dir";
+os_cpe = "cpe:/o:dlink:dir";
 hw_app = "D-Link DIR";
-hw_cpe = "cpe:/h:d-link:dir";
+hw_cpe = "cpe:/h:dlink:dir";
 
 if( detected_model != "unknown" ) {
   cpe_model = tolower( detected_model );

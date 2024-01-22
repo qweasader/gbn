@@ -9,33 +9,31 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2015.261");
   script_cve_id("CVE-2015-1323");
   script_tag(name:"creation_date", value:"2023-03-08 12:56:44 +0000 (Wed, 08 Mar 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"4.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:N/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-07-25 17:14:00 +0000 (Tue, 25 Jul 2017)");
 
-  script_name("Debian: Security Advisory (DLA-261)");
+  script_name("Debian: Security Advisory (DLA-261-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB6");
 
-  script_xref(name:"Advisory-ID", value:"DLA-261");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2015/dla-261-2");
+  script_xref(name:"Advisory-ID", value:"DLA-261-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2015/DLA-261-1");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'aptdaemon' package(s) announced via the DLA-261 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'aptdaemon' package(s) announced via the DLA-261-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
   script_tag(name:"insight", value:"It was reported that version 0.31+bzr413-1.1+deb6u1 of aptdaemon (which fixed CVE-2015-1323) was not installable if you have Python 2.5 installed.
 
-This has been fixed in version 0.31+bzr413-1.1+deb6u2.
-
-For Debian 6 Squeeze, these issues have been fixed in aptdaemon version 0.31+bzr413-1.1+deb6u2");
+This has been fixed in version 0.31+bzr413-1.1+deb6u2.");
 
   script_tag(name:"affected", value:"'aptdaemon' package(s) on Debian 6.");
 

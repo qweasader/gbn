@@ -9,11 +9,11 @@ CPE = "cpe:/a:owncloud:owncloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809292");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2023-12-01T16:11:30+0000");
   script_cve_id("CVE-2015-4718", "CVE-2015-4717");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"creation_date", value:"2016-09-23 15:12:02 +0530 (Fri, 23 Sep 2016)");
   script_name("ownCloud Multiple Vulnerabilities Sep16 (Windows)");
 
@@ -48,48 +48,42 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_owncloud_detect.nasl", "os_detection.nasl");
-  script_mandatory_keys("owncloud/installed", "Host/runs_windows");
-  script_require_ports("Services/www", 80);
+  script_dependencies("gb_owncloud_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("owncloud/detected", "Host/runs_windows");
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-if(!ownPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!ownVer = get_app_version(cpe:CPE, port:ownPort)){
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-if(ownVer =~ "^(8|7|6)")
-{
-  if(version_is_less(version:ownVer, test_version:"6.0.8"))
-  {
+if(version =~ "^[6-8]") {
+
+  if(version_is_less(version:version, test_version:"6.0.8")) {
     fix = "6.0.8";
     VULN = TRUE;
   }
 
-  else if(version_in_range(version:ownVer, test_version:"7.0.0", test_version2:"7.0.5"))
-  {
+  else if(version_in_range(version:version, test_version:"7.0.0", test_version2:"7.0.5")) {
     fix = "7.0.6";
     VULN = TRUE;
   }
 
-  else if(version_in_range(version:ownVer, test_version:"8.0.0", test_version2:"8.0.3"))
-  {
+  else if(version_in_range(version:version, test_version:"8.0.0", test_version2:"8.0.3")) {
     fix = "8.0.4";
     VULN = TRUE;
   }
 
-  if(VULN)
-  {
-    report = report_fixed_ver(installed_version:ownVer, fixed_version:fix);
-    security_message(data:report, port:ownPort);
+  if(VULN) {
+    report = report_fixed_ver(installed_version:version, fixed_version:fix);
+    security_message(port:port, data:report);
     exit(0);
   }
 }
 
+exit(99);

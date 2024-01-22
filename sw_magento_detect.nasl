@@ -1,36 +1,22 @@
-# Copyright (C) 2015 SCHUTZWERK GmbH
+# SPDX-FileCopyrightText: 2015 SCHUTZWERK GmbH
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105227");
-  script_version("2023-04-18T10:19:20+0000");
+  script_version("2024-01-09T05:06:46+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-04-18 10:19:20 +0000 (Tue, 18 Apr 2023)");
+  script_tag(name:"last_modification", value:"2024-01-09 05:06:46 +0000 (Tue, 09 Jan 2024)");
   script_tag(name:"creation_date", value:"2015-02-09 12:00:00 +0100 (Mon, 09 Feb 2015)");
   script_name("Magento Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2015 SCHUTZWERK GmbH");
   script_family("Product detection");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
@@ -90,7 +76,7 @@ foreach dir( make_list_unique( "/", "/magento", "/shop", http_cgi_dirs( port:por
 
     ver = eregmatch( pattern:"==== ([0-9\.]+) ====", string:res3 );
 
-    #nb: The RELEASE_NOTES.txt is not updated between version 1.7.0.2 and 1.9.1.0
+    # nb: The RELEASE_NOTES.txt is not updated between version 1.7.0.2 and 1.9.1.0
     if( ver[1] && ( version_is_less_equal( version:ver[1], test_version:"1.7.0.2" ) &&
         "NOTE: Current Release Notes are maintained at:" >!< res3 ) ||
         version_is_greater_equal( version:ver[1], test_version:"1.9.1.0" ) ) {
@@ -109,7 +95,7 @@ foreach dir( make_list_unique( "/", "/magento", "/shop", http_cgi_dirs( port:por
       }
     }
 
-    #nb: First try to read from Release Notes
+    # nb: First try to read from Release Notes
     if( res3 && "magento" >< res3 && "=== Improvements ===" >< res3 ) {
       if( res3 =~ "(c|C)ommunity_(e|E)dition" ) {
         CE    = TRUE;
@@ -139,9 +125,9 @@ foreach dir( make_list_unique( "/", "/magento", "/shop", http_cgi_dirs( port:por
       }
     }
 
-    #nb: License opens up on accessing URL: /css/styles.css
+    # nb: License opens up on accessing URL: /css/styles.css
     if( ! EE || ! CE ) {
-      #nb: URL for Enterprise Edition
+      # nb: URL for Enterprise Edition
       url5 = dir + "/errors/enterprise/css/styles.css";
       res5 = http_get_cache( item:url5, port:port );
 
@@ -149,7 +135,7 @@ foreach dir( make_list_unique( "/", "/magento", "/shop", http_cgi_dirs( port:por
         EE    = TRUE;
         extra = '\nEdition gathered from:\n' + http_report_vuln_url( port:port, url:url5, url_only:TRUE );
       } else {
-        #nb: URL for Community Edition
+        # nb: URL for Community Edition
         url6 = dir + "/errors/default/css/styles.css";
         res6 = http_get_cache( item:url6, port:port );
 
@@ -171,6 +157,7 @@ foreach dir( make_list_unique( "/", "/magento", "/shop", http_cgi_dirs( port:por
     }
 
     set_kb_item( name:"magento/installed", value:TRUE );
+    set_kb_item( name:"magento/detected", value:TRUE );
     set_kb_item( name:"magento/http/detected", value:TRUE );
 
     cpe = build_cpe( value:version, exp:"([0-9a-z.]+)", base:"cpe:/a:magentocommerce:magento:" );

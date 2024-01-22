@@ -9,32 +9,37 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.890841");
   script_cve_id("CVE-2016-8743");
   script_tag(name:"creation_date", value:"2018-02-07 23:00:00 +0000 (Wed, 07 Feb 2018)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-09-07 17:39:00 +0000 (Wed, 07 Sep 2022)");
 
-  script_name("Debian: Security Advisory (DLA-841)");
+  script_name("Debian: Security Advisory (DLA-841-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB7");
 
-  script_xref(name:"Advisory-ID", value:"DLA-841");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2017/dla-841-2");
+  script_xref(name:"Advisory-ID", value:"DLA-841-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2017/DLA-841-1");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'apache2' package(s) announced via the DLA-841 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'apache2' package(s) announced via the DLA-841-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The fix for CVE-2016-8743 introduced a regression which would segfault apache workers under certain conditions (#858373), an issue similar to previously fixed CVE-2015-0253.
+  script_tag(name:"insight", value:"This upload fixes a security vulnerability in the header parsing code.
 
-The issue was introduced in DLA-841-1 and the associated 2.2.22-13+deb7u8 package version. For Debian 7 Wheezy, these problems have been fixed in version 2.2.22-13+deb7u11.
+David Dennerline, of IBM Security's X-Force Researchers, and Regis Leroy discovered problems in the way Apache handled a broad pattern of unusual whitespace patterns in HTTP requests. In some configurations, this could lead to response splitting or cache pollution vulnerabilities. To fix these issues, this update makes Apache httpd be more strict in what HTTP requests it accepts.
+
+If this causes problems with non-conforming clients, some checks can be relaxed by adding the new directive HttpProtocolOptions unsafe to the configuration. More information is available at
+
+
+For Debian 7 Wheezy, these problems have been fixed in version 2.2.22-13+deb7u8.
 
 We recommend that you upgrade your apache2 packages.
 

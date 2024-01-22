@@ -8,11 +8,14 @@ if(description)
 {
   script_xref(name:"URL", value:"https://www.redhat.com/archives/fedora-package-announce/2008-July/msg00458.html");
   script_oid("1.3.6.1.4.1.25623.1.0.860151");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2009-02-17 17:01:32 +0100 (Tue, 17 Feb 2009)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:H/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-03-24 18:19:00 +0000 (Tue, 24 Mar 2020)");
   script_xref(name:"FEDORA", value:"2008-6281");
   script_cve_id("CVE-2008-1447", "CVE-2008-0122", "CVE-2007-6283");
   script_name("Fedora Update for bind FEDORA-2008-6281");

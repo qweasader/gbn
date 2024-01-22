@@ -23,10 +23,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.123597");
   script_cve_id("CVE-2012-6548", "CVE-2013-0914", "CVE-2013-1848", "CVE-2013-2128", "CVE-2013-2634", "CVE-2013-2635", "CVE-2013-2852", "CVE-2013-3222", "CVE-2013-3224", "CVE-2013-3225", "CVE-2013-3301");
   script_tag(name:"creation_date", value:"2015-10-06 11:06:02 +0000 (Tue, 06 Oct 2015)");
-  script_version("2022-04-05T10:05:38+0000");
-  script_tag(name:"last_modification", value:"2022-04-05 10:05:38 +0000 (Tue, 05 Apr 2022)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-08-03 15:09:00 +0000 (Mon, 03 Aug 2020)");
 
   script_name("Oracle: Security Advisory (ELSA-2013-1051)");
   script_category(ACT_GATHER_INFO);

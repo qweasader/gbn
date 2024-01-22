@@ -7,7 +7,7 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103446");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-12-13T05:05:23+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_name("OSClass Directory Traversal and Arbitrary File Upload Vulnerabilities");
@@ -15,13 +15,13 @@ if (description)
   script_xref(name:"URL", value:"http://osclass.org/2012/03/05/osclass-2-3-6/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/archive/1/521902");
   script_xref(name:"URL", value:"http://www.codseq.it/advisories/osclass_directory_traversal_vulnerability");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
   script_tag(name:"creation_date", value:"2012-03-08 11:53:08 +0100 (Thu, 08 Mar 2012)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2012 Greenbone AG");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 

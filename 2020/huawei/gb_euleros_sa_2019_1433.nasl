@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.1433");
   script_cve_id("CVE-2014-0591", "CVE-2014-8500", "CVE-2015-1349", "CVE-2015-4620", "CVE-2015-5477", "CVE-2015-5722", "CVE-2015-8000", "CVE-2016-1285", "CVE-2016-1286", "CVE-2016-2775", "CVE-2016-2776", "CVE-2016-8864", "CVE-2016-9131", "CVE-2017-3136", "CVE-2017-3142", "CVE-2017-3143", "CVE-2017-3145", "CVE-2018-5740");
   script_tag(name:"creation_date", value:"2020-01-23 11:45:55 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2023-12-04T05:06:09+0000");
+  script_tag(name:"last_modification", value:"2023-12-04 05:06:09 +0000 (Mon, 04 Dec 2023)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-12-27 16:08:00 +0000 (Fri, 27 Dec 2019)");
+  script_tag(name:"severity_date", value:"2023-11-30 17:08:00 +0000 (Thu, 30 Nov 2023)");
 
   script_name("Huawei EulerOS: Security Advisory for bind (EulerOS-SA-2019-1433)");
   script_category(ACT_GATHER_INFO);

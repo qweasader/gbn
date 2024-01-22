@@ -7,29 +7,32 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111025");
-  script_version("2023-06-22T10:34:15+0000");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_version("2023-12-14T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-12-14 05:05:32 +0000 (Thu, 14 Dec 2023)");
   script_tag(name:"creation_date", value:"2015-07-27 16:00:00 +0200 (Mon, 27 Jul 2015)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_name("APC / APCu INFO page accessible");
+  script_name("APC / APCu INFO Page Accessible (HTTP)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2015 SCHUTZWERK GmbH");
   script_family("Web application abuses");
+  # nb: Don't add a dependency to "gb_php_http_detect.nasl" as this would cause a dependency cycle
+  # because that VT has a dependency to this one.
   script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
-  script_tag(name:"solution", value:"Delete them or restrict access to the listened files.");
+  script_tag(name:"summary", value:"HTTP based detection of an exposed APC / APCu INFO page.");
 
-  script_tag(name:"summary", value:"The APC / APCu INFO page is providing internal information
+  script_tag(name:"insight", value:"The APC / APCu INFO page is providing internal information
   about the system.");
 
   script_tag(name:"impact", value:"Some of the information that could be gathered from this file
   includes: The running APC/APCu version, the PHP version, the webserver version.");
 
-  script_tag(name:"solution_type", value:"Workaround");
+  script_tag(name:"solution", value:"Delete them or restrict access to the listened files.");
 
+  script_tag(name:"solution_type", value:"Workaround");
   script_tag(name:"qod_type", value:"remote_banner");
 
   exit(0);

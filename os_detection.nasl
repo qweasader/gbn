@@ -9,8 +9,8 @@ include("plugin_feed_info.inc");
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105937");
-  script_version("2023-10-19T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_version("2024-01-18T05:07:09+0000");
+  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
   script_tag(name:"creation_date", value:"2016-02-19 11:19:54 +0100 (Fri, 19 Feb 2016)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -29,7 +29,7 @@ if(description)
                       "gb_cisco_csma_version.nasl", "gb_cisco_ip_phone_detect.nasl",
                       "gb_cisco_ios_xr_consolidation.nasl", "gb_juniper_junos_consolidation.nasl",
                       "gb_paloalto_panos_consolidation.nasl", "gb_screenos_version.nasl",
-                      "gb_extremeos_snmp_detect.nasl", "gb_tippingpoint_sms_consolidation.nasl",
+                      "gb_extremeos_consolidation.nasl", "gb_tippingpoint_sms_consolidation.nasl",
                       "gb_cisco_asa_version_snmp.nasl", "gb_cisco_asa_version.nasl",
                       "gb_cisco_asa_http_detect.nasl", "gb_cisco_wlc_consolidation.nasl",
                       "gb_f5_big_iq_consolidation.nasl", "gb_riello_ups_netman_204_consolidation.nasl",
@@ -73,7 +73,7 @@ if(description)
                       "gb_dlink_dsl_detect.nasl",
                       "gb_dlink_dns_http_detect.nasl", "gb_dlink_dir_consolidation.nasl",
                       "gb_dlink_dwr_detect.nasl", "gb_dlink_dcs_http_detect.nasl",
-                      "gb_dgs_1500_detect.nasl",
+                      "gb_dgs_1500_detect.nasl", "gb_trendnet_router_http_detect.nasl",
                       "gb_linksys_devices_consolidation.nasl", "gb_arris_router_http_detect.nasl",
                       "gb_wd_mycloud_consolidation.nasl", "gb_sangoma_nsc_detect.nasl",
                       "gb_intelbras_ncloud_devices_http_detect.nasl", "gb_netapp_data_ontap_consolidation.nasl",
@@ -84,7 +84,8 @@ if(description)
                       "gb_epson_printer_consolidation.nasl", "gb_canon_printer_consolidation.nasl",
                       "gb_kyocera_printer_consolidation.nasl", "gb_hp_printer_consolidation.nasl",
                       "gb_fujifilm_printer_consolidation.nasl", "gb_brother_printer_consolidation.nasl",
-                      "gb_sharp_printer_consolidation.nasl", "gb_codesys_os_detection.nasl",
+                      "gb_sharp_printer_consolidation.nasl", "gb_dell_printer_consolidation.nasl",
+                      "gb_codesys_os_detection.nasl", "gb_sierrawireless_acemanager_http_detect.nasl",
                       "gb_simatic_hmi_consolidation.nasl", "gb_wago_plc_consolidation.nasl",
                       "gb_rockwell_micrologix_consolidation.nasl", "gb_rockwell_powermonitor_http_detect.nasl",
                       "gb_crestron_airmedia_consolidation.nasl",
@@ -102,13 +103,13 @@ if(description)
                       "gb_grandstream_ucm_consolidation.nasl", "gb_grandstream_gxp_consolidation.nasl",
                       "gb_moxa_edr_devices_consolidation.nasl", "gb_moxa_iologik_devices_consolidation.nasl",
                       "gb_moxa_mgate_consolidation.nasl", "gb_moxa_nport_consolidation.nasl",
-                      "gb_moxa_miineport_consolidation.nasl",
+                      "gb_moxa_miineport_consolidation.nasl", "gb_apc_ups_consolidation.nasl",
                       "gb_cambium_cnpilot_consolidation.nasl", "gb_westermo_weos_detect.nasl",
                       "gb_windows_cpe_detect.nasl", "gb_huawei_ibmc_consolidation.nasl",
                       "gb_huawei_VP9660_mcu_detect.nasl", "gb_huawei_home_gateway_http_detect.nasl",
                       "gb_avtech_avc7xx_dvr_device_detect.nasl", "gb_avtech_device_detect.nasl",
                       "gather-package-list.nasl", "gb_huawei_euleros_consolidation.nasl",
-                      "gb_cisco_pis_version.nasl",
+                      "gb_cisco_pis_version.nasl", "gb_cisco_firepower_management_center_consolidation.nasl",
                       "gb_checkpoint_fw_version.nasl", "gb_smb_windows_detect.nasl",
                       "gb_nec_communication_platforms_detect.nasl", "gb_inim_smartlan_consolidation.nasl",
                       "gb_dsx_comm_devices_detect.nasl", "gb_vmware_vrealize_operations_manager_http_detect.nasl",
@@ -125,9 +126,10 @@ if(description)
                       "gb_huawei_vrp_network_device_consolidation.nasl", "gb_snmp_os_detection.nasl",
                       "gb_dns_os_detection.nasl", "gb_ftp_os_detection.nasl",
                       "smb_nativelanman.nasl", "gb_ucs_detect.nasl", "gb_cwp_consolidation.nasl",
+                      "gb_microsoft_iis_http_detect.nasl",
                       "sw_http_os_detection.nasl", "sw_mail_os_detection.nasl",
                       "sw_telnet_os_detection.nasl", "gb_mysql_mariadb_os_detection.nasl",
-                      "apcnisd_detect.nasl", "gb_dahua_devices_http_detect.nasl",
+                      "gb_apcnisd_detect.nasl", "gb_dahua_devices_http_detect.nasl",
                       "gb_amcrest_ip_camera_http_detect.nasl", "gb_pptp_os_detection.nasl",
                       "gb_f5_enterprise_manager_http_detect.nasl", "gb_f5_enterprise_manager_ssh_login_detect.nasl",
                       "gb_ntp_os_detection.nasl", "mdns_service_detection.nasl",
@@ -175,6 +177,8 @@ if(description)
                       "gb_apache_ambari_http_detect.nasl", "gb_docker_http_rest_api_detect.nasl",
                       "gb_adobe_connect_http_detect.nasl", "gb_wsman_winrm_http_detect.nasl",
                       "gb_microsoft_msmq_tcp_detect.nasl", "gb_redhat_openshift_http_detect.nasl",
+                      "gb_tenable_nessus_consolidation.nasl", "gb_adobe_robohelp_server_http_detect.nasl",
+                      "gb_nagios_xi_http_detect.nasl", "gb_digium_asterisk_sip_detect.nasl",
                       "gb_android_adb_detect.nasl", "netbios_name_get.nasl",
                       "gb_nmap_os_detection.nasl", "os_fingerprint.nasl");
   if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
@@ -317,6 +321,7 @@ if(description)
                         "gsf/gb_ruckus_smartcell_http_detect.nasl",
                         "gsf/gb_fortinet_fortiadc_consolidation.nasl",
                         "gsf/gb_fortinet_fortinac_http_detect.nasl",
+                        "gsf/gb_fortinet_fortisiem_http_detect.nasl",
                         "gsf/gb_alcatel_omniswitch_consolidation.nasl",
                         "gsf/gb_connectwise_r1soft_sbm_http_detect.nasl",
                         "gsf/gb_dlink_generic_device_consolidation.nasl",
@@ -347,7 +352,18 @@ if(description)
                         "gsf/gb_siemens_logo_plc_http_detect.nasl",
                         "gsf/gb_sangfor_ngaf_http_detect.nasl",
                         "gsf/gb_honeywell_printer_consolidation.nasl",
-                        "gsf/gb_supermicro_bmc_consolidation.nasl");
+                        "gsf/gb_supermicro_bmc_consolidation.nasl",
+                        "gsf/gb_jumpserver_http_detect.nasl",
+                        "gsf/gb_viessmann_vitogate_http_detect.nasl",
+                        "gsf/gb_solarwinds_arm_http_detect.nasl",
+                        "gsf/gb_veeam_one_consolidation.nasl",
+                        "gsf/gb_qlik_sense_http_detect.nasl",
+                        "gsf/gb_manageengine_m365_security_plus_consolidation.nasl",
+                        "gsf/gb_manageengine_endpoint_central_server_consolidation.nasl",
+                        "gsf/gb_manageengine_endpoint_central_server_msp_consolidation.nasl",
+                        "gsf/gb_aveva_intouch_access_anywhere_http_detect.nasl",
+                        "gsf/gb_aveva_plant_scada_access_anywhere_http_detect.nasl",
+                        "gsf/gb_vinchin_backup_recovery_http_detect.nasl");
 
   script_xref(name:"URL", value:"https://forum.greenbone.net/c/vulnerability-tests/7");
 

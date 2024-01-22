@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.869857");
-  script_version("2023-06-22T10:34:15+0000");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2015-08-13 06:35:44 +0200 (Thu, 13 Aug 2015)");
   script_cve_id("CVE-2015-5697", "CVE-2015-3290", "CVE-2015-3291", "CVE-2015-1333",
                 "CVE-2015-1420", "CVE-2015-3636", "CVE-2015-3339", "CVE-2015-2150",
@@ -18,6 +18,9 @@ if(description)
                 "CVE-2014-8559", "CVE-2014-8133", "CVE-2014-8134", "CVE-2014-9090");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-08-13 17:42:00 +0000 (Thu, 13 Aug 2020)");
   script_tag(name:"qod_type", value:"package");
   script_name("Fedora Update for kernel FEDORA-2015-12917");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'kernel'

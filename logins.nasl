@@ -26,8 +26,8 @@ default_imap_password = "";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10870");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2023-11-21T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -36,6 +36,9 @@ if(description)
   script_copyright("Copyright (C) 2005 Georges Dagousset");
   script_family("Settings");
 
+  # nb: There was a preference "NTLMSSP" with id:1 used in the past which was deprecated and
+  # removed. If adding new preferences here make sure to not re-use this ID again and use a higher
+  # one instead.
   script_add_preference(name:"HTTP account :", type:"entry", value:default_http_login, id:2);
   script_add_preference(name:"HTTP password (sent in clear) :", type:"password", value:default_http_password, id:3);
 
@@ -58,15 +61,14 @@ if(description)
   script_add_preference(name:"Never send SMB credentials in clear text", type:"checkbox", value:"yes", id:15);
   script_add_preference(name:"Only use NTLMv2", type:"checkbox", value:"no", id:16);
 
-  script_add_preference(name:"This configuration (NTLMSSP) is deprecated as of 2022-09-23.", type:"checkbox", value:"yes", id:1);
+  script_tag(name:"summary", value:"Provide the username/password for the common services:
+  HTTP, FTP, NNTP, POP2, POP3, IMAP and SMB (NetBios).");
 
-  script_tag(name:"summary", value:"Provide the username/password for the common servers :
-  HTTP, FTP, NNTP, POP2, POP3, IMAP and SMB (NetBios).
+  script_tag(name:"insight", value:"- Some plugins will use those logins when needed
 
-  Some plugins will use those logins when needed.
-  If you do not fill some logins, those plugins will not be able run.
+  - If you do not fill some logins, those plugins will not be able run
 
-  This plugin does not do any security check.");
+  - This plugin does not do any security check");
 
   script_tag(name:"qod_type", value:"remote_banner");
 

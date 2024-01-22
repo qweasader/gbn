@@ -26,7 +26,7 @@ if(description)
   script_cve_id("CVE-2015-5177", "CVE-2015-2342", "CVE-2015-1047");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2021-09-28T06:32:28+0000");
+  script_version("2023-11-02T05:05:26+0000");
   script_name("VMware vCenter Server Multiple Vulnerabilities (VMSA-2015-0007)");
 
   script_xref(name:"URL", value:"http://www.vmware.com/security/advisories/VMSA-2015-0007.html");
@@ -61,7 +61,10 @@ if(description)
   script_tag(name:"qod_type", value:"remote_banner");
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_tag(name:"last_modification", value:"2021-09-28 06:32:28 +0000 (Tue, 28 Sep 2021)");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2018-08-12 01:29:00 +0000 (Sun, 12 Aug 2018)");
   script_tag(name:"creation_date", value:"2015-10-05 11:16:27 +0200 (Mon, 05 Oct 2015)");
   script_category(ACT_GATHER_INFO);
   script_family("General");

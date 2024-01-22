@@ -9,27 +9,27 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.705354");
   script_cve_id("CVE-2020-3299", "CVE-2020-3315", "CVE-2021-1223", "CVE-2021-1224", "CVE-2021-1236", "CVE-2021-1494", "CVE-2021-1495", "CVE-2021-34749", "CVE-2021-40114");
   script_tag(name:"creation_date", value:"2023-02-19 02:00:24 +0000 (Sun, 19 Feb 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-10-29 13:15:00 +0000 (Fri, 29 Oct 2021)");
 
-  script_name("Debian: Security Advisory (DSA-5354)");
+  script_name("Debian: Security Advisory (DSA-5354-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB11");
 
-  script_xref(name:"Advisory-ID", value:"DSA-5354");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2023/dsa-5354");
+  script_xref(name:"Advisory-ID", value:"DSA-5354-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2023/DSA-5354-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-5354");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/snort");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'snort' package(s) announced via the DSA-5354 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'snort' package(s) announced via the DSA-5354-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

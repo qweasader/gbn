@@ -9,8 +9,8 @@ CPE = "cpe:/a:mediawiki:mediawiki";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801877");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2023-10-27T05:05:28+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2011-05-11 15:50:14 +0200 (Wed, 11 May 2011)");
   script_cve_id("CVE-2010-2788");
   script_tag(name:"cvss_base", value:"2.6");
@@ -43,7 +43,7 @@ if(description)
   script_xref(name:"URL", value:"http://svn.wikimedia.org/viewvc/mediawiki?view=revision&revision=69952");
 
   script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_app");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   script_xref(name:"URL", value:"http://www.mediawiki.org/wiki/Download");
   exit(0);

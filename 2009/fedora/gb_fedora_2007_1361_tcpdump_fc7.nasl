@@ -8,11 +8,14 @@ if(description)
 {
   script_xref(name:"URL", value:"https://www.redhat.com/archives/fedora-package-announce/2007-July/msg00563.html");
   script_oid("1.3.6.1.4.1.25623.1.0.861211");
-  script_version("2023-07-04T05:05:35+0000");
-  script_tag(name:"last_modification", value:"2023-07-04 05:05:35 +0000 (Tue, 04 Jul 2023)");
+  script_version("2024-01-16T05:05:27+0000");
+  script_tag(name:"last_modification", value:"2024-01-16 05:05:27 +0000 (Tue, 16 Jan 2024)");
   script_tag(name:"creation_date", value:"2009-02-27 15:48:41 +0100 (Fri, 27 Feb 2009)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-01-12 22:06:00 +0000 (Fri, 12 Jan 2024)");
   script_xref(name:"FEDORA", value:"2007-1361");
   script_cve_id("CVE-2007-3798");
   script_name("Fedora Update for tcpdump FEDORA-2007-1361");

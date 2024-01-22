@@ -9,13 +9,13 @@ CPE = "cpe:/a:apple:cups";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105298");
-  script_version("2023-08-15T05:05:29+0000");
-  script_tag(name:"last_modification", value:"2023-08-15 05:05:29 +0000 (Tue, 15 Aug 2023)");
+  script_version("2023-10-27T05:05:28+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2015-06-15 15:24:12 +0200 (Mon, 15 Jun 2015)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
-  script_tag(name:"qod_type", value:"exploit");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   script_tag(name:"solution_type", value:"VendorFix");
 

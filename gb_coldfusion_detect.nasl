@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100773");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2023-12-06T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2023-12-06 05:06:11 +0000 (Wed, 06 Dec 2023)");
   script_tag(name:"creation_date", value:"2010-09-02 16:10:00 +0200 (Thu, 02 Sep 2010)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -56,6 +56,11 @@ pattern = "^\s*<(script|link|img).+/cf_scripts/scripts/((cfform|masks)\.js|asset
 
 url3 = "/";
 res3 = http_get_cache( port:port, item:url3, fetch404:TRUE );
+if( res3 =~ "^HTTP/1\.[01] 302" ) {
+  url5 = http_extract_location_from_redirect( port:port, data:res3, current_dir:url3 );
+  if( url5 )
+    res5 = http_get_cache( port:port, item:url5, fetch404:TRUE );
+}
 
 # And the last one based on some fingerprinting on a possible error page just to be sure that
 # we're detecting the product if everything else failed (e.g. for active checks)
@@ -87,6 +92,13 @@ if( ">ColdFusion documentation<" >< res4 ||
   if( concUrl )
     concUrl += '\n';
   concUrl += http_report_vuln_url( port:port, url:url4, url_only:TRUE );
+}
+
+if( egrep( string:res5, pattern:pattern, icase:FALSE ) ) {
+  found = TRUE;
+  if( concUrl )
+    concUrl += '\n';
+  concUrl += http_report_vuln_url( port:port, url:url5, url_only:TRUE );
 }
 
 if( found ) {

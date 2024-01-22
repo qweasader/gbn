@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.819957");
-  script_version("2022-02-09T09:37:31+0000");
+  script_version("2024-01-01T05:05:52+0000");
   script_cve_id("CVE-2021-34501", "CVE-2021-34469", "CVE-2021-34452");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-02-09 09:37:31 +0000 (Wed, 09 Feb 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2024-01-01 05:05:52 +0000 (Mon, 01 Jan 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-09-20 12:21:00 +0000 (Mon, 20 Sep 2021)");
+  script_tag(name:"severity_date", value:"2023-12-28 23:15:00 +0000 (Thu, 28 Dec 2023)");
   script_tag(name:"creation_date", value:"2022-01-17 11:59:22 +0530 (Mon, 17 Jan 2022)");
   script_name("Microsoft Office 365 (2016 Click-to-Run) Multiple RCE And Security Bypass Vulnerabilities (Jul 2021)");
 

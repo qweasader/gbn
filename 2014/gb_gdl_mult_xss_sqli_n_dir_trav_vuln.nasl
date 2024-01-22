@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804509");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2023-12-13T05:05:23+0000");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:N");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
   script_tag(name:"creation_date", value:"2014-03-05 14:58:48 +0530 (Wed, 05 Mar 2014)");
   script_name("Ganesha Digital Library Multiple Vulnerabilities");
 
@@ -34,14 +34,14 @@ Likely none will be provided anymore.
 General solution options are to upgrade to a newer release, disable respective features, remove the product or replace the product by another one.");
 
   script_tag(name:"solution_type", value:"WillNotFix");
-  script_tag(name:"qod_type", value:"remote_app");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_xref(name:"URL", value:"http://www.exploit-db.com/exploits/31961");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/65874");
   script_xref(name:"URL", value:"http://packetstormsecurity.com/files/125464");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 

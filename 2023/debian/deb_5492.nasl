@@ -9,27 +9,27 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.1.2023.5492");
   script_cve_id("CVE-2023-1206", "CVE-2023-1989", "CVE-2023-20588", "CVE-2023-2430", "CVE-2023-2898", "CVE-2023-34319", "CVE-2023-3611", "CVE-2023-3772", "CVE-2023-3773", "CVE-2023-3776", "CVE-2023-3777", "CVE-2023-3863", "CVE-2023-4004", "CVE-2023-4015", "CVE-2023-40283", "CVE-2023-4128", "CVE-2023-4132", "CVE-2023-4147", "CVE-2023-4155", "CVE-2023-4194", "CVE-2023-4206", "CVE-2023-4207", "CVE-2023-4208", "CVE-2023-4273", "CVE-2023-4569", "CVE-2023-4622");
   script_tag(name:"creation_date", value:"2023-09-11 04:19:40 +0000 (Mon, 11 Sep 2023)");
-  script_version("2023-09-13T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-09-13 05:05:22 +0000 (Wed, 13 Sep 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-09-11 18:12:00 +0000 (Mon, 11 Sep 2023)");
 
-  script_name("Debian: Security Advisory (DSA-5492)");
+  script_name("Debian: Security Advisory (DSA-5492-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB12");
 
-  script_xref(name:"Advisory-ID", value:"DSA-5492");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2023/dsa-5492");
+  script_xref(name:"Advisory-ID", value:"DSA-5492-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2023/DSA-5492-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-5492");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/linux");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux' package(s) announced via the DSA-5492 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux' package(s) announced via the DSA-5492-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
@@ -63,7 +63,7 @@ CVE-2023-3773
 
 Lin Ma discovered a flaw in the XFRM subsystem, which may result in denial of service for a user with the CAP_NET_ADMIN capability in any user or network namespace.
 
-CVE-2023-3776, CVE-2023-4128, CVE-2023-4206, CVE-2023-4207, CVE-2023-4208 It was discovered that a use-after-free in the cls_fw, cls_u32 and cls_route network classifiers may result in denial of service or potential local privilege escalation.
+CVE-2023-3776, CVE-2023-4206, CVE-2023-4207, CVE-2023-4208 It was discovered that a use-after-free in the cls_fw, cls_u32 and cls_route network classifiers may result in denial of service or potential local privilege escalation.
 
 CVE-2023-3777
 
@@ -87,7 +87,7 @@ A use-after-free in the driver for Siano SMS1xxx based MDTV receivers may result
 
 CVE-2023-4147
 
-Kevin Rich discovered a use-after-free in ... [Please see the references for more information on the vulnerabilities]");
+Kevin Rich discovered a use-after-free in Netfilter when ... [Please see the references for more information on the vulnerabilities]");
 
   script_tag(name:"affected", value:"'linux' package(s) on Debian 12.");
 

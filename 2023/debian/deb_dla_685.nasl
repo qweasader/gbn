@@ -9,32 +9,34 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2016.685");
   script_cve_id("CVE-2016-7945", "CVE-2016-7946");
   script_tag(name:"creation_date", value:"2023-03-08 12:56:44 +0000 (Wed, 08 Mar 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-07-01 01:30:00 +0000 (Sat, 01 Jul 2017)");
 
-  script_name("Debian: Security Advisory (DLA-685)");
+  script_name("Debian: Security Advisory (DLA-685-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB7");
 
-  script_xref(name:"Advisory-ID", value:"DLA-685");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2016/dla-685-2");
+  script_xref(name:"Advisory-ID", value:"DLA-685-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2016/DLA-685-1");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'libxi' package(s) announced via the DLA-685 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'libxi' package(s) announced via the DLA-685-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"A regression was found in the previous libxi update. An uninitialized pointer could be freed, causing crashes.
+  script_tag(name:"insight", value:"Tobias Stoeckmann from the OpenBSD project discovered the following vulnerability in libXi, the X11 input extension library:
 
-For Debian 7 Wheezy, these problems have been fixed in version 2:1.6.1-1+deb7u3.
+Insufficient validation of data from the X server can cause out of boundary memory access or endless loops (Denial of Service).
+
+For Debian 7 Wheezy, these problems have been fixed in version 2:1.6.1-1+deb7u2.
 
 We recommend that you upgrade your libxi packages.
 

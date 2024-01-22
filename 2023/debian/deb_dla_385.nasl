@@ -9,40 +9,31 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2016.385");
   script_cve_id("CVE-2015-8605");
   script_tag(name:"creation_date", value:"2023-03-08 12:56:44 +0000 (Wed, 08 Mar 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"5.7");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:M/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:A/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-04-01 13:59:00 +0000 (Wed, 01 Apr 2020)");
 
-  script_name("Debian: Security Advisory (DLA-385)");
+  script_name("Debian: Security Advisory (DLA-385-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB6");
 
-  script_xref(name:"Advisory-ID", value:"DLA-385");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2016/dla-385-2");
-  script_xref(name:"URL", value:"https://bugs.debian.org/811097");
-  script_xref(name:"URL", value:"https://bugs.debian.org/811397");
-  script_xref(name:"URL", value:"https://bugs.debian.org/811402");
+  script_xref(name:"Advisory-ID", value:"DLA-385-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2016/DLA-385-1");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'isc-dhcp' package(s) announced via the DLA-385 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'isc-dhcp' package(s) announced via the DLA-385-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"With the previous upload of the isc-dhcp package to Debian Squeeze LTS two issues got introduced into LTS that are resolved by this upload.
+  script_tag(name:"insight", value:"It was discovered that a maliciously crafted packet can crash any of the isc-dhcp applications. This includes the DHCP client, relay, and server application. Only IPv4 setups are affected.
 
-(1) CVE-2015-8605 had only been resolved for the LDAP variant of the DHCP server package built from the isc-dhcp source package. With upload of version 4.1.1-P1-15+squeeze10, now all DHCP server variants (LDAP and non-LDAP alike) include the fix for CVE-2015-8605. Thanks to Ben Hutchings for spotting this inaccuracy.
-
-(2) The amd64 binary build of the previously uploaded isc-dhcp version (4.1.1-P1-15+squeeze9) was flawed and searched for the dhcpd.conf configuration file at the wrong location [1,2,3]. This flaw in the amd64 build had been caused by a not-100%-pure-squeeze-lts build system on the maintainer's end. The amd64 build of version 4.1.1-P1-15+squeeze10 has been redone in a brand-new build environment and does not show the reported symptom(s) anymore. I deeply apologize for the experienced inconvenience to all who encountered this issue.
-
-[1] [link moved to references] [2] [link moved to references] [3] [link moved to references]
-
-For Debian 6 Squeeze, these issues have been fixed in isc-dhcp version 4.1.1-P1-15+squeeze10");
+We recommend that you upgrade your isc-dhcp packages to version 4.1.1-P1-15+squeeze9 (Debian squeeze LTS).");
 
   script_tag(name:"affected", value:"'isc-dhcp' package(s) on Debian 6.");
 

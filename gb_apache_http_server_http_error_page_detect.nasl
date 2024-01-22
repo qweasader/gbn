@@ -1,34 +1,20 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117544");
-  script_version("2021-07-19T12:32:02+0000");
-  script_tag(name:"last_modification", value:"2021-07-19 12:32:02 +0000 (Mon, 19 Jul 2021)");
+  script_version("2024-01-10T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
   script_tag(name:"creation_date", value:"2021-07-09 09:17:42 +0000 (Fri, 09 Jul 2021)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
   script_name("Apache HTTP Server Detection (HTTP Error Page)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("Product detection");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
@@ -66,23 +52,29 @@ foreach url( make_list( "/", "/vt-test-non-existent.html", "/vt-test/vt-test-non
 
   # If the banner was hidden or was changed by e.g. mod_security but the default error
   # page still exists. e.g.:
-  # <address>Apache/2.4.10 (Debian) Server at 192.168.9.217 Port 80</address>
+  #
+  # <address>Apache/2.4.10 (Debian) Server at <redacted> Port 80</address>
+  #
   # but also:
-  # <address>MyChangedBanner Server at 192.168.9.217 Port 80</address>
+  #
+  # <address>MyChangedBanner Server at <redacted> Port 80</address>
   #
   # nb: The above default error page was seen on Debian / Ubuntu but e.g SLES 15 has a
   # different one we need to cover as well:
+  #
   # <h2>Error 403</h2>
   # <address>
   #   <a href="/">127.0.0.1</a><br />
   #   <span>Apache</span>
   # </address>
+  #
   # or:
+  #
   # <address>
-  #   <a href="/">192.168.9.93</a><br />
+  #   <a href="/"><redacted></a><br />
   #   <span>Apache/2.4.43 (Linux/SUSE) OpenSSL/1.1.1d</span>
   # </address>
-
+  #
   if( concl = egrep( string:res, pattern:"^" + pattern1, icase:TRUE ) ) {
     error_page_found = TRUE;
     kb_banner = eregmatch( string:concl, pattern:pattern1, icase:TRUE );

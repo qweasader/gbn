@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802453");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_cve_id("CVE-2012-0307", "CVE-2012-0308", "CVE-2012-3579", "CVE-2012-3580",
                 "CVE-2012-3581");
   script_tag(name:"cvss_base", value:"7.9");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2012-09-04 17:27:04 +0530 (Tue, 04 Sep 2012)");
   script_name("Symantec Messaging Gateway < 10.0 Multiple Vulnerabilities");
   script_category(ACT_ATTACK);
@@ -77,6 +77,10 @@ include("port_service_func.inc");
 port = ssh_get_port(default:22);
 
 if(ssh_dont_try_login(port:port))
+  exit(0);
+
+# nb: No need to continue/start if we haven't received any banner...
+if(!ssh_get_serverbanner(port:port))
   exit(0);
 
 if(!soc = open_sock_tcp(port))

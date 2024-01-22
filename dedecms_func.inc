@@ -123,6 +123,10 @@ function dedecms_version_5_7_release_date_to_version( rel ) {
   if( "20230202" >< rel ) return "5.7.105";
   if( "20230223" >< rel ) return "5.7.106";
   if( "20230315" >< rel ) return "5.7.107";
+  if( "20230418" >< rel ) return "5.7.108";
+  if( "20230524" >< rel ) return "5.7.109";
+  if( "20230630" >< rel ) return "5.7.110";
+  if( "20230913" >< rel ) return "5.7.111";
 
   return "unknown";
 }
@@ -155,7 +159,9 @@ function dedecms_version_6_release_date_to_version( rel ) {
   if( "20220403" >< rel ) return "6.1.7";
   if( "20220417" >< rel ) return "6.1.8";
   if( "20220504" >< rel ) return "6.1.9";
-  if( "20230306" >< rel ) return "6.2.5";
+  # nb: It seems that the ver.txt file did not change between 6.2.5 and 6.2.6 so we can only assume which is the correct version
+  if( "20230306" >< rel ) return "6.2.6";
+  if( "20230630" >< rel ) return "6.2.10";
 
   return "unknown";
 }

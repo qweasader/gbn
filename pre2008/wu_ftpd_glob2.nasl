@@ -9,8 +9,8 @@ CPE = "cpe:/a:washington_university:wu-ftpd";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.17602");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2023-12-20T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_cve_id("CVE-2005-0256");
   script_tag(name:"cvss_base", value:"5.0");
@@ -19,7 +19,7 @@ if (description)
   script_category(ACT_MIXED_ATTACK);
   script_family("FTP");
   script_copyright("Copyright (C) 2005 Michel Arboi");
-  script_dependencies("gb_wu-ftpd_detect.nasl");
+  script_dependencies("gb_wu-ftpd_detect.nasl", "logins.nasl");
   script_require_ports("Services/ftp", 21);
   script_mandatory_keys("wu-ftpd/installed");
 

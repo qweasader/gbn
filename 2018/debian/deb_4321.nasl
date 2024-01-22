@@ -9,27 +9,27 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.704321");
   script_cve_id("CVE-2017-10794", "CVE-2017-10799", "CVE-2017-10800", "CVE-2017-11102", "CVE-2017-11139", "CVE-2017-11140", "CVE-2017-11403", "CVE-2017-11636", "CVE-2017-11637", "CVE-2017-11638", "CVE-2017-11641", "CVE-2017-11642", "CVE-2017-11643", "CVE-2017-11722", "CVE-2017-12935", "CVE-2017-12936", "CVE-2017-12937", "CVE-2017-13063", "CVE-2017-13064", "CVE-2017-13065", "CVE-2017-13134", "CVE-2017-13737", "CVE-2017-13775", "CVE-2017-13776", "CVE-2017-13777", "CVE-2017-14314", "CVE-2017-14504", "CVE-2017-14733", "CVE-2017-14994", "CVE-2017-14997", "CVE-2017-15238", "CVE-2017-15277", "CVE-2017-15930", "CVE-2017-16352", "CVE-2017-16353", "CVE-2017-16545", "CVE-2017-16547", "CVE-2017-16669", "CVE-2017-17498", "CVE-2017-17500", "CVE-2017-17501", "CVE-2017-17502", "CVE-2017-17503", "CVE-2017-17782", "CVE-2017-17783", "CVE-2017-17912", "CVE-2017-17913", "CVE-2017-17915", "CVE-2017-18219", "CVE-2017-18220", "CVE-2017-18229", "CVE-2017-18230", "CVE-2017-18231", "CVE-2018-5685", "CVE-2018-6799", "CVE-2018-9018");
   script_tag(name:"creation_date", value:"2018-10-15 22:00:00 +0000 (Mon, 15 Oct 2018)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-18 10:29:00 +0000 (Thu, 18 Oct 2018)");
 
-  script_name("Debian: Security Advisory (DSA-4321)");
+  script_name("Debian: Security Advisory (DSA-4321-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB9");
 
-  script_xref(name:"Advisory-ID", value:"DSA-4321");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2018/dsa-4321");
+  script_xref(name:"Advisory-ID", value:"DSA-4321-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2018/DSA-4321-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-4321");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/graphicsmagick");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'graphicsmagick' package(s) announced via the DSA-4321 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'graphicsmagick' package(s) announced via the DSA-4321-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

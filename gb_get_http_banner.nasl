@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140170");
-  script_version("2023-09-21T05:05:45+0000");
-  script_tag(name:"last_modification", value:"2023-09-21 05:05:45 +0000 (Thu, 21 Sep 2023)");
+  script_version("2024-01-17T06:33:34+0000");
+  script_tag(name:"last_modification", value:"2024-01-17 06:33:34 +0000 (Wed, 17 Jan 2024)");
   script_tag(name:"creation_date", value:"2017-02-21 11:53:19 +0100 (Tue, 21 Feb 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -204,7 +204,7 @@ set_mandatory_key( key:"LocalWEB2000", regex:"^Server\s*:\s*.*LocalWEB2000", ban
 set_mandatory_key( key:"LogitechMediaServer", regex:"^Server\s*:\s*Logitech Media Server", banner:banner );
 set_mandatory_key( key:"Lotus", regex:"Lotus", banner:banner );
 set_mandatory_key( key:"Loxone", regex:"^Server\s*:\s*Loxone", banner:banner );
-set_mandatory_key( key:"MLDonkey", regex:"MLDonkey", banner:banner );
+set_mandatory_key( key:"MLDonkey", regex:"ML[Dd]onkey", banner:banner );
 set_mandatory_key( key:"MPC-HC", regex:"^Server\s*:\s*MPC-HC WebServer", banner:banner );
 set_mandatory_key( key:"MagnoWare", regex:"^Server\s*:\s*MagnoWare", banner:banner );
 set_mandatory_key( key:"MailEnable", regex:"^Server\s*:\s*.*MailEnable", banner:banner );
@@ -342,7 +342,7 @@ set_mandatory_key( key:"Weborf", regex:"^Server\s*:\s*[Ww]eborf", banner:banner 
 set_mandatory_key( key:"WildFly", regex:"^Server\s*:\s*WildFly", banner:banner );
 set_mandatory_key( key:"WinGate", regex:"WinGate", banner:banner );
 set_mandatory_key( key:"WindRiver-WebServer", regex:"WindRiver-WebServer", banner:banner );
-set_mandatory_key( key:"Wing_FTP_Server", regex:"^Server\s*:\s*Wing FTP Server", banner:banner );
+set_mandatory_key( key:"Wing_FTP/Server", regex:"^Server\s*:\s*Wing FTP Server", banner:banner );
 set_mandatory_key( key:"X-Kazaa-Username", regex:"X-Kazaa-Username", banner:banner );
 set_mandatory_key( key:"X-Mag", regex:"^X-Mag\s*:", banner:banner );
 set_mandatory_key( key:"Xeneo", regex:"Xeneo", banner:banner );
@@ -457,6 +457,8 @@ set_mandatory_key( key:"sharepoint", regex:"sharepoint", banner:banner );
 set_mandatory_key( key:"shoutcast", regex:"shoutcast", banner:banner );
 set_mandatory_key( key:"spidercontrol-scada", regex:"^Server\s*:\s*SCADA.*\(powered by SpiderControl TM\)", banner:banner );
 set_mandatory_key( key:"squid", regex:"^Server\s*:.*Squid.*", banner:banner );
+# e.g. Set-Cookie: SoftPLC= for Tecomat Foxtrot
+set_mandatory_key( key:"softplc", regex:"SoftPLC", banner:banner );
 set_mandatory_key( key:"stronghold", regex:"^Server\s*:\s*Stronghold", banner:banner );
 set_mandatory_key( key:"stweb", regex:"^Server\s*:.*StWeb-MySql", banner:banner );
 set_mandatory_key( key:"sun_oracle/web_servers", regex:'^((Server|Proxy-agent)\\s*:\\s*(Oracle-iPlanet-Web-Server|Sun-Java-System-Web-Server|Sun-ONE-Web-Server)|Www-authenticate\\s*:\\s*Basic realm="Oracle iPlanet Web Server")', banner:banner );

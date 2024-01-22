@@ -9,11 +9,11 @@ CPE = "cpe:/a:wordpress:wordpress";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805763");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_cve_id("CVE-2015-7377");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2015-10-20 12:43:41 +0530 (Tue, 20 Oct 2015)");
   script_name("WordPress Pie Register Cross-Site Scripting Vulnerability");
   script_category(ACT_ATTACK);
@@ -47,7 +47,7 @@ if(description)
   script_tag(name:"solution", value:"Upgrade to Pie Register version 2.0.19 or
   later.");
 
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"VendorFix");
 
   exit(0);

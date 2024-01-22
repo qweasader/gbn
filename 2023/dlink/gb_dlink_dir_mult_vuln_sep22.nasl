@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170477");
-  script_version("2023-10-12T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_version("2023-11-21T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
   script_tag(name:"creation_date", value:"2023-05-23 09:03:02 +0000 (Tue, 23 May 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -62,26 +62,26 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-cpe_list = make_list( "cpe:/o:d-link:dir-300_firmware",
-                      "cpe:/o:d-link:dir-600_firmware",
-                      "cpe:/o:d-link:dir-601_firmware",
-                      "cpe:/o:d-link:dir-629_firmware",
-                      "cpe:/o:d-link:dir-645_firmware",
-                      "cpe:/o:d-link:dir-815_firmware",
-                      "cpe:/o:d-link:dir-816l_firmware",
-                      "cpe:/o:d-link:dir-817lw_firmware",
-                      "cpe:/o:d-link:dir-818lw_firmware",
-                      "cpe:/o:d-link:dir-820l_firmware",
-                      "cpe:/o:d-link:dir-820lw_firmware",
-                      "cpe:/o:d-link:dir-825_firmware",
-                      "cpe:/o:d-link:dir-850l_firmware",
-                      "cpe:/o:d-link:dir-860l_firmware",
-                      "cpe:/o:d-link:dir-865l_firmware",
-                      "cpe:/o:d-link:dir-868l_firmware",
-                      "cpe:/o:d-link:dir-880l_firmware",
-                      "cpe:/o:d-link:dir-885l%2fr_firmware",
-                      "cpe:/o:d-link:dir-890l%2fr_firmware",
-                      "cpe:/o:d-link:dir-895l%2fr_firmware");
+cpe_list = make_list( "cpe:/o:dlink:dir-300_firmware",
+                      "cpe:/o:dlink:dir-600_firmware",
+                      "cpe:/o:dlink:dir-601_firmware",
+                      "cpe:/o:dlink:dir-629_firmware",
+                      "cpe:/o:dlink:dir-645_firmware",
+                      "cpe:/o:dlink:dir-815_firmware",
+                      "cpe:/o:dlink:dir-816l_firmware",
+                      "cpe:/o:dlink:dir-817lw_firmware",
+                      "cpe:/o:dlink:dir-818lw_firmware",
+                      "cpe:/o:dlink:dir-820l_firmware",
+                      "cpe:/o:dlink:dir-820lw_firmware",
+                      "cpe:/o:dlink:dir-825_firmware",
+                      "cpe:/o:dlink:dir-850l_firmware",
+                      "cpe:/o:dlink:dir-860l_firmware",
+                      "cpe:/o:dlink:dir-865l_firmware",
+                      "cpe:/o:dlink:dir-868l_firmware",
+                      "cpe:/o:dlink:dir-880l_firmware",
+                      "cpe:/o:dlink:dir-885l%2fr_firmware",
+                      "cpe:/o:dlink:dir-890l%2fr_firmware",
+                      "cpe:/o:dlink:dir-895l%2fr_firmware");
 
 if ( ! infos = get_app_port_from_list( cpe_list:cpe_list ) )
   exit( 0 );

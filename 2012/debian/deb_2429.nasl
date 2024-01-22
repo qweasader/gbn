@@ -9,23 +9,23 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.71233");
   script_cve_id("CVE-2011-2262", "CVE-2012-0075", "CVE-2012-0087", "CVE-2012-0101", "CVE-2012-0102", "CVE-2012-0112", "CVE-2012-0113", "CVE-2012-0114", "CVE-2012-0115", "CVE-2012-0116", "CVE-2012-0118", "CVE-2012-0119", "CVE-2012-0120", "CVE-2012-0484", "CVE-2012-0485", "CVE-2012-0490", "CVE-2012-0492");
   script_tag(name:"creation_date", value:"2012-04-30 11:54:07 +0000 (Mon, 30 Apr 2012)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:10+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:10 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:P");
 
-  script_name("Debian: Security Advisory (DSA-2429)");
+  script_name("Debian: Security Advisory (DSA-2429-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB6");
 
-  script_xref(name:"Advisory-ID", value:"DSA-2429");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2012/dsa-2429");
+  script_xref(name:"Advisory-ID", value:"DSA-2429-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2012/DSA-2429-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-2429");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mysql-5.1' package(s) announced via the DSA-2429 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mysql-5.1' package(s) announced via the DSA-2429-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

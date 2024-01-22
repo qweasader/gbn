@@ -21,15 +21,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813310");
-  script_version("2022-05-19T11:50:09+0000");
+  script_version("2023-11-24T16:09:32+0000");
   script_cve_id("CVE-2018-2814", "CVE-2018-2798", "CVE-2018-2797", "CVE-2018-2795",
                 "CVE-2018-2790", "CVE-2018-2794", "CVE-2018-2815");
   script_tag(name:"cvss_base", value:"5.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-05-19 11:50:09 +0000 (Thu, 19 May 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-11-24 16:09:32 +0000 (Fri, 24 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-09-08 12:59:00 +0000 (Tue, 08 Sep 2020)");
+  script_tag(name:"severity_date", value:"2023-11-22 19:35:00 +0000 (Wed, 22 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-04-19 12:48:24 +0530 (Thu, 19 Apr 2018)");
   script_name("Oracle Java SE Security Updates (apr2018-3678067) 04 - Linux");
 

@@ -21,15 +21,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.852579");
-  script_version("2021-09-07T10:01:34+0000");
+  script_version("2023-10-27T16:11:32+0000");
   script_cve_id("CVE-2019-11470", "CVE-2019-11472", "CVE-2019-11505", "CVE-2019-11506",
                 "CVE-2019-11598");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2021-09-07 10:01:34 +0000 (Tue, 07 Sep 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-08-19 02:15:00 +0000 (Wed, 19 Aug 2020)");
+  script_tag(name:"severity_date", value:"2023-03-01 15:27:00 +0000 (Wed, 01 Mar 2023)");
   script_tag(name:"creation_date", value:"2019-06-25 02:00:54 +0000 (Tue, 25 Jun 2019)");
   script_name("openSUSE: Security Advisory for ImageMagick (openSUSE-SU-2019:1603-1)");
   script_category(ACT_GATHER_INFO);

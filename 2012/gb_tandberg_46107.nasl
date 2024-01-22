@@ -10,7 +10,7 @@ if(description)
   script_cve_id("CVE-2011-0354");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-12-20T05:05:58+0000");
 
   script_name("Cisco TANDBERG C Series and E/EX Series Default Credentials (SSH)");
 
@@ -20,7 +20,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/archive/1/516126");
   script_xref(name:"URL", value:"http://www.kb.cert.org/vuls/id/436854");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2012-11-14 11:19:49 +0100 (Wed, 14 Nov 2012)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");
@@ -56,20 +56,23 @@ port = ssh_get_port(default:22);
 if(ssh_dont_try_login(port:port))
   exit(0);
 
+# nb: No need to continue/start if we haven't received any banner...
+if(!ssh_get_serverbanner(port:port))
+  exit(0);
+
 if(!sock = open_sock_tcp(port))
   exit(0);
 
 login = ssh_login(socket:sock, login:"root", password:"");
 if(login == 0) {
 
-  cmd = ssh_cmd(socket:sock,cmd:"ls -l /apps/bin/tandberg");
+  cmd = ssh_cmd(socket:sock, cmd:"ls -l /apps/bin/tandberg");
   close(sock);
 
   if(eregmatch(pattern:"-rwx.*root.*/apps/bin/tandberg", string:cmd)) {
     security_message(port:port);
     exit(0);
   }
-
 }
 
 if(sock)close(sock);

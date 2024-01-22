@@ -8,8 +8,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11153");
-  script_version("2023-09-12T05:05:19+0000");
-  script_tag(name:"last_modification", value:"2023-09-12 05:05:19 +0000 (Tue, 12 Sep 2023)");
+  script_version("2023-11-21T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -1648,13 +1648,24 @@ if( "IODETTE FTP READY" >< r ) {
 # (Thread0): [     25.140583] SPDIF  (2): Timer fired at 0x017FA01F
 # (Thread2): [     49.340946] RSA    (2): fsRsaGenerateKeyTask: Key created. Time taken 49299ms
 #
-# or
+# or:
 #
 # (Thread0): [  11828.608232] I2S    (2): After waiting approx. 0.0 seconds...
 # (Thread0): [  11828.608552] I2S    (2): Timer fired at 0xC10A3F89
 # (Thread0): [  11828.608895] SPDIF  (2): Timer fired at 0xC10A4232
-# nb: The same is also checked in find_service1.nasl but sometimes the requests are
-# coming in late or not coming in at all and find_service1.nasl is missing the detection.
+#
+# or:
+#
+# (Thread2): [1630977.775666] WFSAPI (2): File not found
+#
+# or:
+#
+# (Thread2): [      0.608082] AUDSYN (2): audioSyncInit(serverCapable=1, clientCapable=1)
+#
+# nb: The same is also checked in find_service1.nasl and find_service_spontaneous.nasl but sometimes
+# the requests are coming in late or not coming in at all and these are missing the detection so it
+# is also checked here.
+#
 if( "(Thread" >< r && ( "Notify Wlan Link " >< r ||
     "Notify Eth Link " >< r ||
     "Received unknown command on socket" >< r ||
@@ -1663,6 +1674,7 @@ if( "(Thread" >< r && ( "Notify Wlan Link " >< r ||
     "After waiting approx. " >< r ||
     "Timer fired at " >< r ||
     "ControlSocketServerInstructClientToLeave" >< r ||
+    ( "AUDSYN" >< r && "audioSyncInit" >< r ) ||
     ( "WFSAPI" >< r && "File not found" >< r ) ) ) {
   service_register( port:port, proto:"wifiradio-setup", message:"A WiFi radio setup service seems to be running on this port." );
   log_message( port:port, data:"A WiFi radio setup service seems to be running on this port." );

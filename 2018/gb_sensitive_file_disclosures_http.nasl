@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107305");
-  script_version("2023-09-26T05:05:30+0000");
-  script_tag(name:"last_modification", value:"2023-09-26 05:05:30 +0000 (Tue, 26 Sep 2023)");
+  script_version("2023-11-09T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2023-11-09 05:05:33 +0000 (Thu, 09 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-04-20 16:04:01 +0200 (Fri, 20 Apr 2018)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_tag(name:"cvss_base", value:"5.0");
@@ -39,6 +39,8 @@ if(description)
   - Files containing API keys for services / providers
 
   - Database backup files
+
+  - Editor / history files
 
   - SSH or SSL/TLS Private Keys");
 
@@ -267,6 +269,12 @@ genericfiles = make_array(
 # https://docs.sendgrid.com/ui/account-and-settings/api-keys (includes the info on the length on the API key)
 # https://stackoverflow.com/questions/42030912/how-to-get-the-full-sendgrid-api-key (Example for an API key)
 "/sendgrid.env", "Twilio SendGrid API key, more info on https://sendgrid.com/blog/dont-let-your-credentials-get-stolen-on-github/#-#(SENDGRID_API_KEY.+|SG\.[a-zA-Z0-9_-]{22}\.[a-zA-Z0-9_-]{43})",
+# From:
+# - https://unix.stackexchange.com/a/246641 (Info on the syntax)
+# - https://unix.stackexchange.com/a/246631 (Info on the locations, see LESSHISTFILE on "man less" as well)
+"/.lesshst", "'less' history file#-#^\.less-history-file:\s*$",
+"/_lesshst", "'less' history file#-#^\.less-history-file:\s*$",
+"/lesshst.ini", "'less' history file#-#^\.less-history-file:\s*$",
 # From https://twitter.com/therceman/status/1704560089309257868
 # nb: Seems the `_wpeprivate` folder can exist on an arbitrary sub-folder so it was added here and
 # not to "rootdirfiles" or a specific WordPress check

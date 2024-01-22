@@ -8,10 +8,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10267");
-  script_version("2023-09-27T05:05:31+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-09-27 05:05:31 +0000 (Wed, 27 Sep 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2006-03-26 17:55:15 +0200 (Sun, 26 Mar 2006)");
   script_name("SSH Server type and version");
   script_category(ACT_GATHER_INFO);
@@ -94,6 +94,13 @@ if( server_banner =~ "SSH-.+OpenSSH" ) {
   set_kb_item( name:"ssh/openssh/detected", value:TRUE );
   set_kb_item( name:"ssh/openssh/" + port + "/detected", value:TRUE );
   set_kb_item( name:"ssh/openssh_or_dropbear/detected", value:TRUE );
+  set_kb_item( name:"ssh/openssh_or_dropbear/" + port + "/detected", value:TRUE );
+
+  # For gsf/2023/fortinet/gb_fortisiem_ssh_default_credentials.nasl but no reporting as this is
+  # too generic...
+  set_kb_item( name:"ssh/openssh_or_fortissh/detected", value:TRUE );
+  set_kb_item( name:"ssh/openssh_or_fortissh/detected/" + port + "/detected", value:TRUE );
+
   guess += '\n- OpenSSH';
 }
 
@@ -299,6 +306,22 @@ if( server_banner =~ "SSH-.+JSCAPE" ) {
   set_kb_item( name:"ssh/jscape/mft/detected", value:TRUE );
   set_kb_item( name:"ssh/jscape/mft/" + port + "/detected", value:TRUE );
   guess += '\n- JSCAPE MFT Server';
+}
+
+# SSH-2.0-FortiSSH_2.5
+if( server_banner =~ "SSH-.+FortiSSH" ) {
+  set_kb_item( name:"ssh/openssh_or_fortissh/detected", value:TRUE );
+  set_kb_item( name:"ssh/openssh_or_fortissh/detected/" + port + "/detected", value:TRUE );
+  guess += '\n- Fortinet Device';
+}
+
+# In addition it seems some (older?) Fortinet devices are also using random chars like e.g.:
+# SSH-2.0-wPfK8KZ9BAqqkX
+# SSH-2.0-OeDyjbv6FV
+# nb: No "guess" reporting is added here currently as this is too generic...
+if( egrep( string:server_banner, pattern:"SSH-2\.0-[a-zA-Z0-9]{5,15}$", icase:FALSE ) ) {
+  set_kb_item( name:"ssh/openssh_or_fortissh/detected", value:TRUE );
+  set_kb_item( name:"ssh/openssh_or_fortissh/detected/" + port + "/detected", value:TRUE );
 }
 
 if( login_banner ) {

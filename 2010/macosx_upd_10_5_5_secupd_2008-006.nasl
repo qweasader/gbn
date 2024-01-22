@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.102033");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2010-05-12 14:48:44 +0200 (Wed, 12 May 2010)");
   script_cve_id("CVE-2008-2305", "CVE-2008-1100", "CVE-2008-1387", "CVE-2008-0314", "CVE-2008-1833",
                 "CVE-2008-1835", "CVE-2008-1836", "CVE-2008-1837", "CVE-2008-2713", "CVE-2008-3215",
@@ -20,6 +20,9 @@ if(description)
   script_name("Mac OS X 10.5.5 Update / Security Update 2008-006");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:H/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-03-24 18:19:00 +0000 (Tue, 24 Mar 2020)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2010 LSS");
   script_family("Mac OS X Local Security Checks");

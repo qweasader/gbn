@@ -15,5 +15,7 @@ global_var prestashop_modules_info;
 #   egrep -o '^  "[^"]+",' prestashop_modules.inc | sort | uniq -d
 #
 prestashop_modules_info = make_array(
-  "dashproducts", "Dashboard Products#---#<displayName><!\[CDATA\[Dashboard Products#---#<version><!\[CDATA\[([0-9.]+)\]\]><\/version>#---#cpe:/a:prestashop:dashboard_products#---#15252-dashboard-products"
-);
+  "chronopost", "Chronopost official#---#<displayName><!\[CDATA\[Chronopost#---#<version><!\[CDATA\[([0-9.]+)\]\]><\/version>#---#cpe:/a:chronopost_official:chronopost_official#---#19561-chronopost-official",
+  "dashproducts", "Dashboard Products#---#<displayName><!\[CDATA\[Dashboard Products#---#<version><!\[CDATA\[([0-9.]+)\]\]><\/version>#---#cpe:/a:prestashop:dashboard_products#---#15252-dashboard-products",
+  "facebookconversiontrackingplus", "Pixel Plus: Events + CAPI + Pixel Catalog for Facebook#---#<displayName><!\[CDATA\[Facebook Conversion Tracking Pixel Plus#---#<version><!\[CDATA\[([0-9.]+)\]\]><\/version>#---#cpe:/a:smart_modules:pixel_plus_module#---#18739-pixel-plus-events-capi-pixel-catalog-for-facebook",
+  "blockreassurance", "Customer reassurance#---#<displayName><!\[CDATA\[Customer reassurance block#---#<version><!\[CDATA\[([0-9.]+)\]\]><\/version>#---#cpe:/a:prestashop:customer_reassurance#---#22312-customer-reassurance");

@@ -9,14 +9,14 @@ CPE = "cpe:/a:mozilla:firefox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812295");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2023-11-03T16:10:08+0000");
   script_cve_id("CVE-2017-5753", "CVE-2017-5715", "CVE-2017-5754");
   script_tag(name:"cvss_base", value:"4.7");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:N/A:N");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-06-24 17:43:00 +0000 (Thu, 24 Jun 2021)");
+  script_tag(name:"severity_date", value:"2020-05-05 11:31:00 +0000 (Tue, 05 May 2020)");
   script_tag(name:"creation_date", value:"2018-01-05 14:36:19 +0530 (Fri, 05 Jan 2018)");
   script_name("Mozilla Firefox Security Updates(mfsa_2018-01_2018-01)-Windows");
 

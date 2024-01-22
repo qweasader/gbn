@@ -1,35 +1,25 @@
-# Copyright (C) 2013 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2013 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103835");
-  script_version("2022-07-08T10:11:49+0000");
-  script_tag(name:"last_modification", value:"2022-07-08 10:11:49 +0000 (Fri, 08 Jul 2022)");
+  script_version("2023-12-14T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-12-14 05:05:32 +0000 (Thu, 14 Dec 2023)");
   script_tag(name:"creation_date", value:"2013-11-26 11:39:47 +0100 (Tue, 26 Nov 2013)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
+
+  script_tag(name:"qod_type", value:"remote_banner");
+
   script_name("Intelligent Platform Management Interface (IPMI) Detection");
+
   script_category(ACT_GATHER_INFO);
   script_family("Service detection");
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   script_require_udp_ports(623);
 
   script_tag(name:"summary", value:"Detection of services supporting the Intelligent Platform
@@ -38,8 +28,6 @@ if(description)
   script_tag(name:"insight", value:"The IPMI is a standardized computer system interface used by
   system administrators for out-of-band management of computer systems and monitoring of their
   operation.");
-
-  script_tag(name:"qod_type", value:"remote_banner");
 
   exit(0);
 }
@@ -93,14 +81,24 @@ foreach req(reqs) {
   }
 
   ipmi_version = dec2bin(dec:ord(recv[24]));
-  ipmi_vers_str = "v1.5";
 
+  # nb: Only available if IPMI v2.0 is supported
   if(ipmi_version) {
-    if(ipmi_version[6] == 1) {
+    if(ipmi_version[7] == 1) { # IPMI Connection Compatibility: 1.5 flag
+      set_kb_item(name:"ipmi/version/1.5", value:TRUE);
+      set_kb_item(name:"ipmi/" + port + "/version/1.5", value:TRUE);
+      ipmi_vers_str += "v1.5 ";
+    }
+
+    if(ipmi_version[6] == 1) { # IPMI Connection Compatibility: 2.0 flag
       set_kb_item(name:"ipmi/version/2.0", value:TRUE);
       set_kb_item(name:"ipmi/" + port + "/version/2.0", value:TRUE);
-      ipmi_vers_str += " v2.0";
+      ipmi_vers_str += "v2.0";
     }
+  } else {
+    set_kb_item(name:"ipmi/version/1.5", value:TRUE);
+    set_kb_item(name:"ipmi/" + port + "/version/1.5", value:TRUE);
+    ipmi_vers_str = "v1.5";
   }
 
   non_null = dec2bin(dec:ord(recv[23]));
@@ -118,11 +116,13 @@ foreach req(reqs) {
     }
   }
 
+  # nb: For gsf/2023/gb_ipmi_rakp_vuln_jul13_active.nasl
+  register_host_detail(name:"port", value:port + "/udp");
+
   service_register(port:port, ipproto:"udp", proto:"ipmi", message:"An IPMI service is running at this port. Supported IPMI version(s): " + ipmi_vers_str);
   log_message(data:"An IPMI service is running at this port. Supported IPMI version(s): " + ipmi_vers_str, port:port, proto:"udp");
 
   exit(0);
-
 }
 
 exit(0);

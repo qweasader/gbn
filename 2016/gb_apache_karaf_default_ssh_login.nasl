@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105593");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_name("Apache Karaf Default Credentials (SSH)");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2016-04-01 15:59:09 +0200 (Fri, 01 Apr 2016)");
   script_category(ACT_ATTACK);
   script_family("Default Accounts");
@@ -52,6 +52,10 @@ port = ssh_get_port( default:8101 );
 if( ssh_dont_try_login( port:port ) )
   exit( 0 );
 
+# nb: No need to continue/start if we haven't received any banner...
+if( ! ssh_get_serverbanner( port:port ) )
+  exit( 0 );
+
 if( ! soc = open_sock_tcp( port ) )
   exit( 0 );
 
@@ -59,10 +63,9 @@ user = "karaf";
 pass = "karaf";
 
 login = ssh_login( socket:soc, login:user, password:pass, priv:NULL, passphrase:NULL );
-if(login == 0)
-{
+if( login == 0 ) {
 
-  files = traversal_files("linux");
+  files = traversal_files( "linux" );
 
   foreach pattern( keys( files ) ) {
 
@@ -70,8 +73,7 @@ if(login == 0)
 
     cmd = ssh_cmd( socket:soc, cmd:"cat /" + file, nosh:TRUE );
 
-    if( egrep( string:cmd, pattern:pattern ) )
-    {
+    if( egrep( string:cmd, pattern:pattern ) ) {
       if( soc ) close( soc );
       report = 'It was possible to login as user `karaf` with password `karaf` and to execute `cat /' + file + '`. Result:\n\n' + cmd;
       security_message( port:port, data:report );

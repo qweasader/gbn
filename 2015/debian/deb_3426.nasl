@@ -9,36 +9,60 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.703426");
   script_cve_id("CVE-2013-7446", "CVE-2015-7799", "CVE-2015-7833", "CVE-2015-8104");
   script_tag(name:"creation_date", value:"2015-12-16 23:00:00 +0000 (Wed, 16 Dec 2015)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"5.4");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:N/I:P/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-08-13 21:47:00 +0000 (Mon, 13 Aug 2018)");
 
-  script_name("Debian: Security Advisory (DSA-3426)");
+  script_name("Debian: Security Advisory (DSA-3426-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB(7|8)");
 
-  script_xref(name:"Advisory-ID", value:"DSA-3426");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2016/dsa-3426");
+  script_xref(name:"Advisory-ID", value:"DSA-3426-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2015/DSA-3426-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-3426");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux' package(s) announced via the DSA-3426 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux' package(s) announced via the DSA-3426-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The update for linux issued as DSA-3426-1 and DSA-3434-1 to address CVE-2015-8543 uncovered a bug in ctdb, a clustered database to store temporary data, leading to broken clusters. Updated packages are now available to address this problem.
+  script_tag(name:"insight", value:"Several vulnerabilities have been discovered in the Linux kernel that may lead to a privilege escalation, denial of service, information leak or data loss.
 
-For the oldstable distribution (wheezy), this problem has been fixed in version 1.12+git20120201-5.
+CVE-2013-7446
 
-For the stable distribution (jessie), this problem has been fixed in version 2.5.4+debian0-4+deb8u1.
+Dmitry Vyukov discovered that a particular sequence of valid operations on local (AF_UNIX) sockets can result in a use-after-free. This may be used to cause a denial of service (crash) or possibly for privilege escalation.
 
-We recommend that you upgrade your ctdb packages.");
+CVE-2015-7799
+
+It was discovered that a user granted access to /dev/ppp can cause a denial of service (crash) by passing invalid parameters to the PPPIOCSMAXCID ioctl. This also applies to ISDN PPP device nodes.
+
+CVE-2015-7833
+
+Sergej Schumilo, Hendrik Schwartke and Ralf Spenneberg discovered a flaw in the processing of certain USB device descriptors in the usbvision driver. An attacker with physical access to the system can use this flaw to crash the system. This was partly fixed by the changes listed in DSA 3396-1.
+
+CVE-2015-8104
+
+Jan Beulich reported a guest to host denial-of-service flaw affecting the KVM hypervisor running on AMD processors. A malicious guest can trigger an infinite stream of debug (#DB) exceptions causing the processor microcode to enter an infinite loop where the core never receives another interrupt. This leads to a panic of the host kernel.
+
+CVE-2015-8374
+
+It was discovered that Btrfs did not correctly implement truncation of compressed inline extents. This could lead to an information leak, if a file is truncated and later made readable by other users. Additionally, it could cause data loss. This has been fixed for the stable distribution (jessie) only.
+
+CVE-2015-8543
+
+It was discovered that a local user permitted to create raw sockets could cause a denial-of-service by specifying an invalid protocol number for the socket. The attacker must have the CAP_NET_RAW capability in their user namespace. This has been fixed for the stable distribution (jessie) only.
+
+For the oldstable distribution (wheezy), these problems have been fixed in version 3.2.73-2+deb7u1. In addition, this update contains several changes originally targeted for the upcoming Wheezy point release.
+
+For the stable distribution (jessie), these problems have been fixed in version 3.16.7-ckt20-1+deb8u1. In addition, this update contains several changes originally targeted for the upcoming Jessie point release.
+
+We recommend that you upgrade your linux packages.");
 
   script_tag(name:"affected", value:"'linux' package(s) on Debian 7, Debian 8.");
 

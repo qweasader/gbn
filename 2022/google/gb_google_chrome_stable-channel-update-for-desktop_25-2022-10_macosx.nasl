@@ -9,13 +9,14 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826609");
-  script_version("2023-10-18T05:05:17+0000");
+  script_version("2023-11-14T05:06:15+0000");
   script_cve_id("CVE-2022-3652", "CVE-2022-3653", "CVE-2022-3654", "CVE-2022-3655",
                 "CVE-2022-3656", "CVE-2022-3657", "CVE-2022-3658", "CVE-2022-3659",
-                "CVE-2022-3660", "CVE-2022-3661");
+                "CVE-2022-3660", "CVE-2022-3661", "CVE-2022-4910", "CVE-2022-4909",
+                "CVE-2022-4908");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"last_modification", value:"2023-11-14 05:06:15 +0000 (Tue, 14 Nov 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-11-02 19:19:00 +0000 (Wed, 02 Nov 2022)");
@@ -48,7 +49,13 @@ if(description)
 
   - Inappropriate implementation in Full screen mode.
 
-  - Insufficient data validation in Extensions.");
+  - Insufficient data validation in Extensions.
+
+  - Inappropriate implementation in iFrame Sandbox.
+
+  - Inappropriate implementation in Autofill.
+
+  - Inappropriate implementation in XML.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow
   attackers to run arbitrary code and corrupt memory on affected system.");

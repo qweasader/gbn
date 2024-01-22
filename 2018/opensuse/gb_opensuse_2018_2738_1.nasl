@@ -21,17 +21,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851895");
-  script_version("2021-09-20T13:38:59+0000");
-  script_tag(name:"last_modification", value:"2021-09-20 13:38:59 +0000 (Mon, 20 Sep 2021)");
+  script_version("2023-11-03T16:10:08+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-09-17 08:04:12 +0200 (Mon, 17 Sep 2018)");
   script_cve_id("CVE-2018-10902", "CVE-2018-10938", "CVE-2018-10940", "CVE-2018-1128",
                 "CVE-2018-1129", "CVE-2018-12896", "CVE-2018-13093", "CVE-2018-13094", "CVE-2018-13095",
                 "CVE-2018-15572", "CVE-2018-16658", "CVE-2018-6554", "CVE-2018-6555", "CVE-2018-9363");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-10-09 23:41:00 +0000 (Wed, 09 Oct 2019)");
+  script_tag(name:"severity_date", value:"2023-01-19 16:01:00 +0000 (Thu, 19 Jan 2023)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for kernel (openSUSE-SU-2018:2738-1)");
 

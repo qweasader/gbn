@@ -21,7 +21,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.818117");
-  script_version("2021-08-25T14:01:09+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2020-24587", "CVE-2020-24588", "CVE-2020-26144", "CVE-2021-26419",
                 "CVE-2021-28455", "CVE-2021-28476", "CVE-2021-28479", "CVE-2021-31167",
                 "CVE-2021-31170", "CVE-2021-31182", "CVE-2021-31184", "CVE-2021-31186",
@@ -29,10 +29,10 @@ if(description)
                 "CVE-2021-31193", "CVE-2021-31194");
   script_tag(name:"cvss_base", value:"7.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-08-25 14:01:09 +0000 (Wed, 25 Aug 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-05-17 20:48:00 +0000 (Mon, 17 May 2021)");
+  script_tag(name:"severity_date", value:"2021-07-14 17:15:00 +0000 (Wed, 14 Jul 2021)");
   script_tag(name:"creation_date", value:"2021-05-12 11:26:06 +0530 (Wed, 12 May 2021)");
   script_name("Microsoft Windows Multiple Vulnerabilities (KB5003171)");
 

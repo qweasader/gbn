@@ -2,7 +2,7 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 # Global keys to avoid that we're repeatedly asking redis for something we already know
 global_var __kb_smb_ver, __kb_host_cpe;
@@ -441,7 +441,7 @@ function win32_useraccount(select, name) {
 function get_package_version(package, partial_match) {
 
   local_var package, partial_match;
-  local_var packages_string, packages_list, _pak, packages_split, name, version, _line, line_split;
+  local_var packages_string, packages_list, _pak, packages_split, name, version, _line, line_split, packages_info;
 
   if(!package) {
     set_kb_item(name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#package_version#-#package");
@@ -560,15 +560,15 @@ function linux_file_permissions(file, socket) {
     return;
   }
 
-  stat_cmd = 'stat ' + file;
+  stat_cmd = "stat " + file;
   stat = ssh_cmd_without_errors(socket:socket, cmd:stat_cmd);
-  if(stat && ('permission denied' >!< tolower(stat))) {
-    return_array = make_list();
-    return_array['gid'] = policy_chown_get_gid(stat:stat);
-    return_array['uid'] = policy_chown_get_uid(stat:stat);
-    return_array['permissions'] = policy_get_access_permissions(stat:stat);
+  if(stat && ("permission denied" >!< tolower(stat))) {
+    return_array = make_array();
+    return_array["gid"] = policy_chown_get_gid(stat:stat);
+    return_array["uid"] = policy_chown_get_uid(stat:stat);
+    return_array["permissions"] = policy_get_access_permissions(stat:stat);
 
-    return (return_array);
+    return(return_array);
   }
   return;
 }
@@ -858,7 +858,7 @@ function policy_report_empty_hku(){
 #
 function policy_match_exact_dword_profiles(key, item, default, sids){
   local_var key, item, default, sids;
-  local_var incomplete_sids, fail_sids, ret, _sid;
+  local_var incomplete_sids, fail_sids, ret, _sid, value;
 
   incomplete_sids = "";
   fail_sids = "";
@@ -912,7 +912,7 @@ function policy_match_exact_dword_profiles(key, item, default, sids){
 #
 function policy_compare_office_config(users, setting, pspath, default, notconfigpass){
   local_var users, setting, pspath, default, notconfigpass;
-  local_var ret;
+  local_var ret, u, value;
 
   ret["compliant"] = "yes";
   ret["value"] = default;
@@ -1503,7 +1503,7 @@ function policy_settings_list_in_value(value, set_points, sep){
 #
 function policy_settings_lists_match(value, set_points, sep){
   local_var value, set_points, sep;
-  local_var compliant, default_list, _setting, value_list;
+  local_var default_list, _setting, value_list;
 
   default_list = split(set_points, sep:sep, keep:FALSE);
   foreach _setting (default_list){
@@ -1572,6 +1572,9 @@ function policy_chown_get_gid(stat){
 #
 function policy_get_matching_blocks_linux(socket, file, string, prefix, suffix, grep, grep_exclude, inverse){
 
+  local_var socket, file, string, prefix, suffix, grep, grep_exclude, inverse;
+  local_var cmd, value, index, index_string, block_array, line;
+
   if(grep && !inverse){
     cmd = "perl -ne 'print if /^ *" + prefix + " */i .. /" + suffix + "/i' " + file + " | grep -i '" + grep + "'";
   }else if(inverse && !grep){
@@ -1593,13 +1596,13 @@ function policy_get_matching_blocks_linux(socket, file, string, prefix, suffix, 
     return value;
   }else{
     foreach line(split(value)){
-        index_string += line;
+      index_string += line;
 
-        if(suffix >< line){
-          block_array[index] = index_string;
-          index++;
-          index_string = "";
-        }
+      if(suffix >< line){
+        block_array[index] = index_string;
+        index++;
+        index_string = "";
+      }
     }
     return block_array;
   }
@@ -1614,6 +1617,10 @@ function policy_get_matching_blocks_linux(socket, file, string, prefix, suffix, 
 # @return compliance
 #
 function policy_audit_config_blocks_linux(array, match, must_include){
+
+  local_var array, match, must_include;
+  local_var x, compliant, comment;
+
   x=0;
   if(match){
     while(array[x]){
@@ -1880,7 +1887,8 @@ function policy_read_files_in_directory(socket, directory){
 # @return output from query
 #
 function zsql_command(socket, query){
-  local_var socket, query, cmd, output;
+  local_var socket, query;
+  local_var user, password, ip, port, cmd, output;
 
   if(!user = get_kb_item("Policy/gaussdb/user"))
     user = "SYS";
@@ -1912,7 +1920,8 @@ function zsql_command(socket, query){
 # @return output from query
 #
 function mysql_command(socket, query){
-  local_var socket, query, cmd, output;
+  local_var socket, query;
+  local_var user, password, ip, port, cmd, output;
 
   if(!user = get_kb_item("Policy/mysql/user"))
     user = "root";
@@ -1936,20 +1945,49 @@ function mysql_command(socket, query){
     return(output);
 }
 
-# @brief Run SQL query on Postgresql server
+# @brief Run a SQL query on a PostgreSQL server via SSH and a 'psql' command
 #
-# @param socket for the ssh command
-# @param query to run on server
+# @param socket The socket for the connection to the remote SSH service.
+# @param query  The query to run
 #
-# @return output from query
+# @note Please add a dependency to postgresql_compliance_options.nasl if you want to use this
+#       function in a VT.
+#
+# @return The output of the query or NULL if the query / command failed.
 #
 function psql_command(socket, query){
-  local_var socket, query, cmd, output;
+  local_var socket, query;
+  local_var port, username, password, database, cmd, output;
 
   if(!port = get_kb_item("Policy/PostgreSQL/port"))
     port = "5432";
 
-  cmd = 'psql -c "' + query + '"' + ' -p ' + port;
+  username = get_kb_item("Policy/PostgreSQL/username");
+  password = get_kb_item("Policy/PostgreSQL/password");
+  database = get_kb_item("Policy/PostgreSQL/database");
+
+  # nb: From "man psql":
+  # -c: "Specifies that psql is to execute the given command string, command."
+  # -p: "Specifies the TCP port or the local Unix-domain socket file extension on which the server is listening for connections."
+  # -U: "Connect to the database as the user username instead of the default. (You must have permission to do so, of course.)"
+  # -w: "Never issue a password prompt."
+  # -d: "Specifies the name of the database to connect to."
+  #
+  # and from https://www.postgresql.org/docs/current/libpq-envars.html:
+  # > PGPASSWORD behaves the same as the password connection parameter.
+
+  if(username && password)
+    cmd = "PGPASSWORD=" + password + ' psql -c "' + query + '"' + " -p " + port + " -U " + username;
+  else if(username)
+    cmd = 'psql -c "' + query + '"' + " -p " + port + " -U " + username + " -w";
+  else if(password)
+    cmd = "PGPASSWORD=" + password + ' psql -c "' + query + '"' + ' -p ' + port;
+  else
+    cmd = 'psql -c "' + query + '"' + ' -p ' + port;
+
+  if(database)
+    cmd += " -d " + database;
+
   output = ssh_cmd(socket:socket, cmd:cmd, return_errors:FALSE, nosh:TRUE);
 
   if(!output)
@@ -1986,7 +2024,8 @@ function policy_modprobe(module){
 # @return output from query
 #
 function policy_gsql_cmd(socket, query, db_type){
-  local_var socket, query, db_type, cmd, output;
+  local_var socket, query, db_type;
+  local_var database, port, use_su, su_user, cmd, output;
 
   if(db_type == "gaussdbkernel"){
 
@@ -2029,9 +2068,7 @@ function policy_gsql_cmd(socket, query, db_type){
     }else{
       cmd = 'gsql -d ' + database + ' -p ' + port + ' -t -c "' + query + '"';
     }
-
   }
-
 
   output = ssh_cmd(socket:socket, cmd:cmd, return_errors:TRUE, nosh:TRUE, nosu:TRUE);
 
@@ -2057,16 +2094,15 @@ function policy_access_permissions_string_to_numeric(perm){
     return;
   }
 
-
   filemode_to_octal = make_array("---","0","--x","1","-w-","2","-wx","3","r--","4","r-x","5","rw-","6","rwx","7",
     "--S","0","-wS","2","r-S","4","rwS","6", # suid / guid without access perm
     "--s","1","-ws","3","r-s","5","rws","7", # suid / guid with access perm
     "--T","0","-wT","2","r-T","4","rwT","6", # sticky bit without access perm
     "--t","1","-wt","3","r-t","5","rwt","7"); # sticky bit with access perm
 
-  owner = substr(perm,0,2);
-  group = substr(perm,3,5);
-  other = substr(perm,6,8);
+  owner = substr(perm, 0, 2);
+  group = substr(perm, 3, 5);
+  other = substr(perm, 6, 8);
 
   octal = strcat(filemode_to_octal[owner], filemode_to_octal[group], filemode_to_octal[other]);
 

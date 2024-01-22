@@ -9,8 +9,8 @@ include("plugin_feed_info.inc");
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11154");
-  script_version("2023-10-11T05:05:54+0000");
-  script_tag(name:"last_modification", value:"2023-10-11 05:05:54 +0000 (Wed, 11 Oct 2023)");
+  script_version("2023-12-13T05:05:23+0000");
+  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -21,7 +21,7 @@ if(description)
   # IMPORTANT: Don't add telnet.nasl or os_detection.nasl in here which have (indirect-)
   # dependencies to this VT. Adding this dependency would cause a dependency cycle...
   script_dependencies("apache_SSL_complain.nasl",
-                      "apcnisd_detect.nasl", "asip-status.nasl",
+                      "gb_apcnisd_detect.nasl", "asip-status.nasl",
                       "auth_enabled.nasl", "BigAnt_detect.nasl",
                       "bugbear.nasl", "check_point_fw1_secureremote_detect.nasl",
                       "cheopsNG_detect.nasl", "cifs445.nasl",
@@ -103,7 +103,8 @@ if(description)
                         "gsf/gb_rocket_unidata_universe_unirpc_detect.nasl",
                         "gsf/gb_apache_rocketmq_broker_detect.nasl",
                         "gsf/gb_apache_rocketmq_nameserver_detect.nasl",
-                        "gsf/gb_redlion_crimson_service_tcp_detect.nasl");
+                        "gsf/gb_redlion_crimson_service_tcp_detect.nasl",
+                        "gsf/gb_tacacs_tcp_detect.nasl");
 
   script_require_ports("Services/unknown");
 

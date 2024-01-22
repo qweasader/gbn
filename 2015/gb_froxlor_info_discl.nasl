@@ -9,8 +9,8 @@ CPE = "cpe:/a:froxlor:froxlor";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106036");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-01-10T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
   script_tag(name:"creation_date", value:"2015-08-03 13:44:55 +0700 (Mon, 03 Aug 2015)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -24,27 +24,28 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Froxlor Information Disclosure Vulnerability");
+  script_name("Froxlor Information Disclosure Vulnerability - Active Check");
 
   script_category(ACT_ATTACK);
 
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_froxlor_detect.nasl");
-  script_mandatory_keys("froxlor/installed");
+  script_dependencies("gb_froxlor_http_detect.nasl");
+  script_mandatory_keys("froxlor/http/detected");
+  script_require_ports("Services/www", 443);
 
   script_tag(name:"summary", value:"Froxlor is prone to an information disclosure vulnerability.");
 
   script_tag(name:"vuldetect", value:"Send a crafted GET request and check the response.");
 
   script_tag(name:"insight", value:"An unauthenticated remote attacker is able to get the database
-  password via webaccess due to wrong file permissions of the /logs/ folder. The plain SQL password and
-  username may be stored in the /logs/sql-error.log file.");
+  password via webaccess due to wrong file permissions of the /logs/ folder. The plain SQL password
+  and username may be stored in the /logs/sql-error.log file.");
 
   script_tag(name:"impact", value:"An unauthenticated remote attacker may be able to get the plain
   SQL password and username or other sensitive information.");
 
-  script_tag(name:"affected", value:"Froxlor version 0.9.33.1 and before.");
+  script_tag(name:"affected", value:"Froxlor version 0.9.33.1 and prior.");
 
   script_tag(name:"solution", value:"Update to version 0.9.33.2 or later.");
 
@@ -53,11 +54,11 @@ if (description)
   exit(0);
 }
 
+include("host_details.inc");
 include("http_func.inc");
 include("http_keepalive.inc");
-include("host_details.inc");
 
-if (!port = get_app_port(cpe: CPE))
+if (!port = get_app_port(cpe: CPE, service: "www"))
   exit(0);
 
 if (!dir = get_app_location(cpe: CPE, port: port))

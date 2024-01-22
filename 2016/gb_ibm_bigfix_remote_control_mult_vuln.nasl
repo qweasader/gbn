@@ -23,12 +23,12 @@ CPE = "cpe:/a:ibm:bigfix_remote_control";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106415");
-  script_version("2022-05-09T06:06:23+0000");
-  script_tag(name:"last_modification", value:"2022-05-09 06:06:23 +0000 (Mon, 09 May 2022)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2016-11-28 11:50:57 +0700 (Mon, 28 Nov 2016)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-11-30 03:05:00 +0000 (Wed, 30 Nov 2016)");
 

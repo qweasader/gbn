@@ -21,14 +21,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851138");
-  script_version("2022-07-05T11:37:00+0000");
-  script_tag(name:"last_modification", value:"2022-07-05 11:37:00 +0000 (Tue, 05 Jul 2022)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2015-12-05 08:43:02 +0100 (Sat, 05 Dec 2015)");
   script_cve_id("CVE-2015-0272", "CVE-2015-2925", "CVE-2015-5283", "CVE-2015-5307",
                 "CVE-2015-7799", "CVE-2015-7872", "CVE-2015-7990", "CVE-2015-8104",
                 "CVE-2015-8215");
   script_tag(name:"cvss_base", value:"6.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2018-10-17 01:29:00 +0000 (Wed, 17 Oct 2018)");
   script_tag(name:"qod_type", value:"package");
   script_name("SUSE: Security Advisory for kernel (SUSE-SU-2015:2194-1)");
 

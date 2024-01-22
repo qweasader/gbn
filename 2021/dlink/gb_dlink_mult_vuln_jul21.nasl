@@ -4,17 +4,17 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 
-CPE_PREFIX = "cpe:/o:d-link";
+CPE_PREFIX = "cpe:/o:dlink";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117609");
-  script_version("2023-04-18T10:19:20+0000");
-  script_tag(name:"last_modification", value:"2023-04-18 10:19:20 +0000 (Tue, 18 Apr 2023)");
+  script_version("2023-11-21T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
   script_tag(name:"creation_date", value:"2021-08-03 08:36:41 +0000 (Tue, 03 Aug 2021)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-07-29 14:52:00 +0000 (Fri, 29 Jul 2022)");
 

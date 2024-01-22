@@ -9,8 +9,8 @@ CPE = "cpe:/a:wordpress:wordpress";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802250");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2023-10-27T05:05:28+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2011-10-04 16:55:13 +0200 (Tue, 04 Oct 2011)");
   script_cve_id("CVE-2011-3850", "CVE-2011-3852", "CVE-2011-3854", "CVE-2011-3855",
                 "CVE-2011-3856", "CVE-2011-3857", "CVE-2011-3858", "CVE-2011-3860",
@@ -73,7 +73,7 @@ if(description)
   script_tag(name:"summary", value:"at least one Theme of WordPress is prone to a cross site scripting vulnerability.");
 
   script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   script_xref(name:"URL", value:"http://wordpress.org/extend/themes/");
   exit(0);

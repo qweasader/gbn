@@ -21,8 +21,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108307");
-  script_version("2022-03-28T10:48:38+0000");
-  script_tag(name:"last_modification", value:"2022-03-28 10:48:38 +0000 (Mon, 28 Mar 2022)");
+  script_version("2023-12-05T05:06:18+0000");
+  script_tag(name:"last_modification", value:"2023-12-05 05:06:18 +0000 (Tue, 05 Dec 2023)");
   script_tag(name:"creation_date", value:"2017-12-05 09:03:31 +0100 (Tue, 05 Dec 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -107,7 +107,7 @@ if( snmp_ports = get_kb_list( "netgear/prosafe/snmp/port" ) ) {
     concluded = get_kb_item( "netgear/prosafe/snmp/" + port + "/concluded" );
     extra += "SNMP on port " + port + '/udp\n';
     if( concluded ) {
-      extra += '  Concluded from SNMP sysDescr OID: ' + concluded + '\n';
+      extra += concluded;
     }
     register_product( cpe:hw_cpe, location:location, port:port, service:"snmp", proto:"udp" );
     register_product( cpe:os_cpe, location:location, port:port, service:"snmp", proto:"udp" );

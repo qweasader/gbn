@@ -9,8 +9,8 @@ CPE = "cpe:/a:digium:asterisk";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141496");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2018-09-21 11:47:14 +0700 (Fri, 21 Sep 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -30,20 +30,22 @@ if (description)
 
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Denial of Service");
-  script_dependencies("secpod_asterisk_detect.nasl");
-  script_mandatory_keys("Asterisk-PBX/Installed");
+  script_dependencies("gb_digium_asterisk_sip_detect.nasl");
+  script_mandatory_keys("digium/asterisk/detected");
 
-  script_tag(name:"summary", value:"Asterisk is prone to a denial of service vulnerability.");
+  script_tag(name:"summary", value:"Asterisk is prone to a denial of service (DoS) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"There is a stack overflow vulnerability in the res_http_websocket.so module
-  of Asterisk that allows an attacker to crash Asterisk via a specially crafted HTTP request to upgrade the
-  connection to a websocket. The attacker's request causes Asterisk to run out of stack space and crash.");
+  script_tag(name:"insight", value:"There is a stack overflow vulnerability in the
+  res_http_websocket.so module of Asterisk that allows an attacker to crash Asterisk via a specially
+  crafted HTTP request to upgrade the connection to a websocket. The attacker's request causes
+  Asterisk to run out of stack space and crash.");
 
-  script_tag(name:"affected", value:"Asterisk Open Source 13.x, 14.x, 15.x and Certified Asterisk 13.21.");
+  script_tag(name:"affected", value:"Asterisk Open Source versions 13.x, 14.x, 15.x and Certified
+  Asterisk version 13.21.");
 
-  script_tag(name:"solution", value:"Upgrade to Version 13.23.1, 14.7.8, 15.6.1, 13.21-cert3 or
+  script_tag(name:"solution", value:"Update to version 13.23.1, 14.7.8, 15.6.1, 13.21-cert3 or
   later.");
 
   script_xref(name:"URL", value:"https://downloads.asterisk.org/pub/security/AST-2018-009.html");

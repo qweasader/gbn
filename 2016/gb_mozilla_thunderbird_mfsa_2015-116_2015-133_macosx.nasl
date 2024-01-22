@@ -23,14 +23,17 @@ CPE = "cpe:/a:mozilla:thunderbird";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807636");
-  script_version("2022-04-13T13:17:10+0000");
+  script_version("2023-11-03T05:05:46+0000");
   script_cve_id("CVE-2015-7181", "CVE-2015-7182", "CVE-2015-7183", "CVE-2015-7197",
                 "CVE-2015-7198", "CVE-2015-7199", "CVE-2015-7200", "CVE-2015-7194",
                 "CVE-2015-7193", "CVE-2015-7189", "CVE-2015-7188", "CVE-2015-4513",
                 "CVE-2015-4514");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-04-13 13:17:10 +0000 (Wed, 13 Apr 2022)");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2017-11-04 01:29:00 +0000 (Sat, 04 Nov 2017)");
   script_tag(name:"creation_date", value:"2016-04-06 16:24:49 +0530 (Wed, 06 Apr 2016)");
   script_name("Mozilla Thunderbird Security Update (mfsa_2015-116_2015-133) - Mac OS X");
 

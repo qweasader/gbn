@@ -8,12 +8,12 @@ if(description)
 {
   script_xref(name:"URL", value:"https://www.redhat.com/archives/rhsa-announce/2011-December/msg00005.html");
   script_oid("1.3.6.1.4.1.25623.1.0.870695");
-  script_version("2023-07-14T05:06:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 05:06:08 +0000 (Fri, 14 Jul 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2012-07-09 10:49:44 +0530 (Mon, 09 Jul 2012)");
   script_cve_id("CVE-2011-1020", "CVE-2011-3347", "CVE-2011-3638", "CVE-2011-4110");
   script_tag(name:"cvss_base", value:"4.6");
-  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"cvss_base_vector", value:"AV:A/AC:H/Au:N/C:N/I:N/A:C");
   script_xref(name:"RHSA", value:"2011:1530-03");
   script_name("RedHat Update for Red Hat Enterprise Linux 6 kernel RHSA-2011:1530-03");
 

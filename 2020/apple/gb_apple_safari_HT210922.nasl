@@ -23,14 +23,14 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.816616");
-  script_version("2021-10-05T11:36:17+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2020-3833", "CVE-2020-3841");
   script_tag(name:"cvss_base", value:"4.3");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2021-10-05 11:36:17 +0000 (Tue, 05 Oct 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-03-02 19:10:00 +0000 (Mon, 02 Mar 2020)");
+  script_tag(name:"severity_date", value:"2020-03-02 19:37:00 +0000 (Mon, 02 Mar 2020)");
   script_tag(name:"creation_date", value:"2020-01-29 12:22:35 +0530 (Wed, 29 Jan 2020)");
   script_name("Apple Safari Security Update (HT210922)");
 

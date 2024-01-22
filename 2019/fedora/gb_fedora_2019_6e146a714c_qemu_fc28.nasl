@@ -21,15 +21,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.876390");
-  script_version("2021-09-01T11:01:35+0000");
+  script_version("2023-10-27T16:11:32+0000");
   script_cve_id("CVE-2018-12126", "CVE-2018-12127", "CVE-2018-12130", "CVE-2019-11091",
                 "CVE-2017-16845", "CVE-2018-11806", "CVE-2018-12617", "CVE-2018-3639");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-09-01 11:01:35 +0000 (Wed, 01 Sep 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-09-10 17:15:00 +0000 (Thu, 10 Sep 2020)");
+  script_tag(name:"severity_date", value:"2020-09-10 17:42:00 +0000 (Thu, 10 Sep 2020)");
   script_tag(name:"creation_date", value:"2019-05-21 02:10:44 +0000 (Tue, 21 May 2019)");
   script_name("Fedora Update for qemu FEDORA-2019-6e146a714c");
   script_category(ACT_GATHER_INFO);

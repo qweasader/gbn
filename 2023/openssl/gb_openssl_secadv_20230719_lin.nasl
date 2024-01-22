@@ -9,8 +9,8 @@ CPE = "cpe:/a:openssl:openssl";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.104867");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2023-10-26T05:07:17+0000");
+  script_tag(name:"last_modification", value:"2023-10-26 05:07:17 +0000 (Thu, 26 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-07-19 12:30:06 +0000 (Wed, 19 Jul 2023)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -22,7 +22,7 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"VendorFix");
 
   script_name("OpenSSL DoS Vulnerability (20230719) - Linux");
 
@@ -46,16 +46,13 @@ if(description)
 
   script_tag(name:"affected", value:"OpenSSL version 1.0.2, 1.1.1, 3.0 and 3.1.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 19th July, 2023.
-  Information regarding this issue will be updated once solution details are available.
-
-  Vendor info: Due to the low severity of this issue we are not issuing new releases of OpenSSL at
-  this time. The fix will be included in the next releases when they become available. The fix is
-  also available in commit fc9867c1 (for 3.1), commit 1fa20cf2 (for 3.0) and commit 8780a896
-  (for 1.1.1) in the OpenSSL git repository. It is available to premium support customer in commit
-  9a0a4d3c (for 1.0.2).");
+  script_tag(name:"solution", value:"Update to version 1.0.2zi, 1.1.1v, 3.0.10, 3.1.2 or later.");
 
   script_xref(name:"URL", value:"https://www.openssl.org/news/secadv/20230719.txt");
+  script_xref(name:"URL", value:"https://www.openssl.org/news/vulnerabilities-1.0.2.html#CVE-2023-3446");
+  script_xref(name:"URL", value:"https://www.openssl.org/news/vulnerabilities-1.1.1.html#CVE-2023-3446");
+  script_xref(name:"URL", value:"https://www.openssl.org/news/vulnerabilities-3.0.html#CVE-2023-3446");
+  script_xref(name:"URL", value:"https://www.openssl.org/news/vulnerabilities-3.1.html#CVE-2023-3446");
 
   exit(0);
 }
@@ -72,10 +69,28 @@ if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version:
 version = infos["version"];
 location = infos["location"];
 
-if (version =~ "^(1\.0\.2|1\.1\.1|3\.0|3\.1)") {
-  report = report_fixed_ver(installed_version: version, fixed_version: "None", install_path: location);
+if (version_in_range_exclusive(version: version, test_version_lo: "1.0.2", test_version_up: "1.0.2zi")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "1.0.2zi", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }
 
-exit(99); # nb: We can use exit(99); here since other versions like 0.9.8 are not affected
+if (version_in_range_exclusive(version: version, test_version_lo: "1.1.1", test_version_up: "1.1.1v")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "1.1.1v", install_path: location);
+  security_message(port: port, data: report);
+  exit(0);
+}
+
+if (version_in_range_exclusive(version: version, test_version_lo: "3.0.0", test_version_up: "3.0.10")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "3.0.10", install_path: location);
+  security_message(port: port, data: report);
+  exit(0);
+}
+
+if (version_in_range_exclusive(version: version, test_version_lo: "3.1.0", test_version_up: "3.1.2")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "3.1.2", install_path: location);
+  security_message(port: port, data: report);
+  exit(0);
+}
+
+exit(99);

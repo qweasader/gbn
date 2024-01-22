@@ -8,12 +8,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.15618");
-  script_version("2023-09-06T05:05:19+0000");
-  script_tag(name:"last_modification", value:"2023-09-06 05:05:19 +0000 (Wed, 06 Sep 2023)");
+  script_version("2023-11-14T05:06:15+0000");
+  script_tag(name:"last_modification", value:"2023-11-14 05:06:15 +0000 (Tue, 14 Nov 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_cve_id("CVE-2004-2171");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/9496");
-  script_xref(name:"OSVDB", value:3707);
+  script_xref(name:"OSVDB", value:"3707");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
   script_name("Cross-Site Scripting in Cherokee Error Pages");

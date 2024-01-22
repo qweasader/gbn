@@ -9,23 +9,26 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.56014");
   script_cve_id("CVE-2004-2302", "CVE-2005-0756", "CVE-2005-0757", "CVE-2005-1265", "CVE-2005-1761", "CVE-2005-1762", "CVE-2005-1763", "CVE-2005-1765", "CVE-2005-1767", "CVE-2005-2456", "CVE-2005-2458", "CVE-2005-2459", "CVE-2005-2548", "CVE-2005-2801", "CVE-2005-2872", "CVE-2005-3105", "CVE-2005-3106", "CVE-2005-3107", "CVE-2005-3108", "CVE-2005-3109", "CVE-2005-3110", "CVE-2005-3271", "CVE-2005-3272", "CVE-2005-3273", "CVE-2005-3274", "CVE-2005-3275", "CVE-2005-3276");
   script_tag(name:"creation_date", value:"2008-01-17 22:07:13 +0000 (Thu, 17 Jan 2008)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-22T05:07:31+0000");
+  script_tag(name:"last_modification", value:"2024-01-22 05:07:31 +0000 (Mon, 22 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-01-21 01:26:00 +0000 (Sun, 21 Jan 2024)");
 
-  script_name("Debian: Security Advisory (DSA-922)");
+  script_name("Debian: Security Advisory (DSA-922-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB3\.1");
 
-  script_xref(name:"Advisory-ID", value:"DSA-922");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2005/dsa-922");
+  script_xref(name:"Advisory-ID", value:"DSA-922-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2005/DSA-922-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-922");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'kernel-image-2.6.8-alpha, kernel-image-2.6.8-amd64, kernel-image-2.6.8-hppa, kernel-image-2.6.8-i386, kernel-image-2.6.8-ia64, kernel-image-2.6.8-m68k, kernel-image-2.6.8-s390, kernel-image-2.6.8-sparc, kernel-patch-powerpc-2.6.8, kernel-source-2.6.8' package(s) announced via the DSA-922 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'kernel-image-2.6.8-alpha, kernel-image-2.6.8-amd64, kernel-image-2.6.8-hppa, kernel-image-2.6.8-i386, kernel-image-2.6.8-ia64, kernel-image-2.6.8-m68k, kernel-image-2.6.8-s390, kernel-image-2.6.8-sparc, kernel-patch-powerpc-2.6.8, kernel-source-2.6.8' package(s) announced via the DSA-922-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

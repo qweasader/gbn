@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107252");
-  script_version("2023-08-10T05:05:53+0000");
-  script_tag(name:"last_modification", value:"2023-08-10 05:05:53 +0000 (Thu, 10 Aug 2023)");
+  script_version("2023-11-21T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
   script_tag(name:"creation_date", value:"2017-11-09 14:03:54 +0700 (Thu, 09 Nov 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -57,11 +57,11 @@ if ("DGS-1500" >< sysdesc)
   set_kb_item(name: "dgs/1500/detected", value: TRUE);
 
   cpe = build_cpe(value: firmware, exp: "^([0-9a-z.-]+)",
-                  base: "cpe:/o:d-link:" + tolower(model) + "_firmware:");
+                  base: "cpe:/o:dlink:" + tolower(model) + "_firmware:");
   if (!cpe)
-    cpe = "cpe:/o:d-link:" + tolower(model) + "_firmware";
+    cpe = "cpe:/o:dlink:" + tolower(model) + "_firmware";
 
-  hw_cpe = "cpe:/h:d-link:dgs-1500";
+  hw_cpe = "cpe:/h:dlink:dgs-1500";
 
   os_register_and_report(os: "D-Link DSG-1500 Firmware", cpe: cpe, desc: "D-Link DGS-1500 Detection (SNMP)",
                          runs_key: "unixoide");

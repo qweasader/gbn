@@ -9,12 +9,12 @@ CPE = "cpe:/a:kerio:control";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140068");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2016-11-17 12:58:24 +0100 (Thu, 17 Nov 2016)");
-  script_tag(name:"qod", value:"80");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_name("Kerio Control Multiple Vulnerabilities");
 
   script_tag(name:"summary", value:"Kerio Control is affected by multiple vulnerabilities.");

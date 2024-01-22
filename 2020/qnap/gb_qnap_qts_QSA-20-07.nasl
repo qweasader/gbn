@@ -9,14 +9,14 @@ CPE = "cpe:/o:qnap:qts";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.144825");
-  script_version("2023-09-27T05:05:31+0000");
-  script_tag(name:"last_modification", value:"2023-09-27 05:05:31 +0000 (Wed, 27 Sep 2023)");
+  script_version("2024-01-05T16:09:35+0000");
+  script_tag(name:"last_modification", value:"2024-01-05 16:09:35 +0000 (Fri, 05 Jan 2024)");
   script_tag(name:"creation_date", value:"2020-10-26 06:34:20 +0000 (Mon, 26 Oct 2020)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-06-14 18:15:00 +0000 (Mon, 14 Jun 2021)");
+  script_tag(name:"severity_date", value:"2024-01-04 02:15:00 +0000 (Thu, 04 Jan 2024)");
 
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");

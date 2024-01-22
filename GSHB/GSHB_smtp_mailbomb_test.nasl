@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.96054");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2023-10-31T05:06:37+0000");
+  script_tag(name:"last_modification", value:"2023-10-31 05:06:37 +0000 (Tue, 31 Oct 2023)");
   script_tag(name:"creation_date", value:"2010-04-27 10:02:59 +0200 (Tue, 27 Apr 2010)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -18,7 +18,7 @@ if(description)
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("IT-Grundschutz");
   script_mandatory_keys("Compliance/Launch/GSHB");
-  script_dependencies("compliance_tests.nasl", "smtpserver_detect.nasl", "smtp_settings.nasl");
+  script_dependencies("compliance_tests.nasl", "smtpserver_detect.nasl", "check_smtp_helo.nasl", "smtp_settings.nasl");
 
   script_tag(name:"summary", value:"This script sends the Universum.zip recursive archive to the
   mail server.");

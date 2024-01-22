@@ -9,8 +9,8 @@ CPE = "cpe:/a:puppet:enterprise";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106930");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2023-12-21T05:06:40+0000");
+  script_tag(name:"last_modification", value:"2023-12-21 05:06:40 +0000 (Thu, 21 Dec 2023)");
   script_tag(name:"creation_date", value:"2017-07-06 15:23:17 +0700 (Thu, 06 Jul 2017)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
@@ -30,15 +30,17 @@ if (description)
 
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Denial of Service");
-  script_dependencies("gb_puppet_enterprise_detect.nasl");
-  script_mandatory_keys("puppet_enterprise/installed");
+  script_dependencies("gb_puppet_enterprise_http_detect.nasl");
+  script_mandatory_keys("puppet_enterprise/detected");
 
-  script_tag(name:"summary", value:"Puppet Enterprise is prone to a denial of service vulnerability.");
+  script_tag(name:"summary", value:"Puppet Enterprise is prone to a denial of service (DoS)
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"Using specially formatted strings with certain formatting characters as
-  Classifier node group names or RBAC role display names causes errors, effectively causing a DOS to the service.");
+  script_tag(name:"insight", value:"Using specially formatted strings with certain formatting
+  characters as Classifier node group names or RBAC role display names causes errors, effectively
+  causing a DoS to the service.");
 
   script_tag(name:"affected", value:"Puppet Enterprise 2017.1.x and 2017.2.1.");
 
@@ -55,11 +57,14 @@ include("version_func.inc");
 if (!port = get_app_port(cpe: CPE))
   exit(0);
 
-if (!version = get_app_version(cpe: CPE, port: port))
+if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE))
   exit(0);
 
+version = infos["version"];
+location = infos["location"];
+
 if (version_in_range(version: version, test_version:"2017.1.0", test_version2: "2017.2.1")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "2017.2.2");
+  report = report_fixed_ver(installed_version: version, fixed_version: "2017.2.2", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }

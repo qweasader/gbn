@@ -9,49 +9,79 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.890993");
   script_cve_id("CVE-2017-1000364", "CVE-2017-7487", "CVE-2017-7645", "CVE-2017-7895", "CVE-2017-8890", "CVE-2017-8924", "CVE-2017-8925", "CVE-2017-9074", "CVE-2017-9075", "CVE-2017-9076", "CVE-2017-9077", "CVE-2017-9242");
   script_tag(name:"creation_date", value:"2018-01-28 23:00:00 +0000 (Sun, 28 Jan 2018)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-01-19 16:13:00 +0000 (Thu, 19 Jan 2023)");
 
-  script_name("Debian: Security Advisory (DLA-993)");
+  script_name("Debian: Security Advisory (DLA-993-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB7");
 
-  script_xref(name:"Advisory-ID", value:"DLA-993");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2017/dla-993-2");
+  script_xref(name:"Advisory-ID", value:"DLA-993-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2017/DLA-993-1");
   script_xref(name:"URL", value:"https://www.qualys.com/2017/06/19/stack-clash/stack-clash.txt");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux' package(s) announced via the DLA-993 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux' package(s) announced via the DLA-993-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The security update announced as DLA-993-1 caused regressions for some applications using Java - including jsvc, LibreOffice and Scilab - due to the fix for CVE-2017-1000364. Updated packages are now available to correct this issue. For reference, the relevant part of the original advisory text follows.
+  script_tag(name:"insight", value:"Several vulnerabilities have been discovered in the Linux kernel that may lead to a privilege escalation, denial of service or information leaks.
+
+CVE-2017-0605
+
+A buffer overflow flaw was discovered in the trace subsystem.
+
+CVE-2017-7487
+
+Li Qiang reported a reference counter leak in the ipxitf_ioctl function which may result into a use-after-free vulnerability, triggerable when a IPX interface is configured.
+
+CVE-2017-7645
+
+Tuomas Haanpaa and Matti Kamunen from Synopsys Ltd discovered that the NFSv2 and NFSv3 server implementations are vulnerable to an out-of-bounds memory access issue while processing arbitrarily long arguments sent by NFSv2/NFSv3 PRC clients, leading to a denial of service.
+
+CVE-2017-7895
+
+Ari Kauppi from Synopsys Ltd discovered that the NFSv2 and NFSv3 server implementations do not properly handle payload bounds checking of WRITE requests. A remote attacker with write access to a NFS mount can take advantage of this flaw to read chunks of arbitrary memory from both kernel-space and user-space.
+
+CVE-2017-8890
+
+It was discovered that the net_csk_clone_lock() function allows a remote attacker to cause a double free leading to a denial of service or potentially have other impact.
+
+CVE-2017-8924
+
+Johan Hovold found that the io_ti USB serial driver could leak sensitive information if a malicious USB device was connected.
+
+CVE-2017-8925
+
+Johan Hovold found a reference counter leak in the omninet USB serial driver, resulting in a use-after-free vulnerability. This can be triggered by a local user permitted to open tty devices.
+
+CVE-2017-9074
+
+Andrey Konovalov reported that the IPv6 fragmentation implementation could read beyond the end of a packet buffer. A local user or guest VM might be able to use this to leak sensitive information or to cause a denial of service (crash).
+
+CVE-2017-9075
+
+Andrey Konovalov reported that the SCTP/IPv6 implementation wrongly initialised address lists on connected sockets, resulting in a use-after-free vulnerability, a similar issue to CVE-2017-8890. This can be triggered by any local user.
+
+CVE-2017-9076 / CVE-2017-9077 Cong Wang found that the TCP/IPv6 and DCCP/IPv6 implementations wrongly initialised address lists on connected sockets, a similar issue to CVE-2017-9075.
+
+CVE-2017-9242
+
+Andrey Konovalov reported a packet buffer overrun in the IPv6 implementation. A local user could use this for denial of service (memory corruption, crash) and possibly for privilege escalation.
 
 CVE-2017-1000364
 
 The Qualys Research Labs discovered that the size of the stack guard page is not sufficiently large. The stack-pointer can jump over the guard-page and moving from the stack into another memory region without accessing the guard-page. In this case no page-fault exception is raised and the stack extends into the other memory region. An attacker can exploit this flaw for privilege escalation.
 
-The default stack gap protection is set to 256 pages and can be configured via the stack_guard_gap kernel parameter on the kernel command line.
-
-Further details can be found at [link moved to references]
-
-For Debian 7 Wheezy, this problem has been fixed in version 3.2.89-2.
-
-For Debian 8 Jessie, this problem has been fixed in version 3.16.43-2+deb8u2.
-
-For Debian 9 Stretch, this problem has been fixed in version 4.9.30-2+deb9u2.
-
-We recommend that you upgrade your linux packages.
-
-Further information about Debian LTS security advisories, how to apply these updates to your system and frequently asked questions can be found at: [link moved to references]");
+The default stack gap protection is set to ... [Please see the references for more information on the vulnerabilities]");
 
   script_tag(name:"affected", value:"'linux' package(s) on Debian 7.");
 

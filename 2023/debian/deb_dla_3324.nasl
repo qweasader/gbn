@@ -9,27 +9,27 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.893324");
   script_cve_id("CVE-2022-46871", "CVE-2022-46877", "CVE-2023-0430", "CVE-2023-0616", "CVE-2023-0767", "CVE-2023-23598", "CVE-2023-23601", "CVE-2023-23602", "CVE-2023-23603", "CVE-2023-23605", "CVE-2023-25728", "CVE-2023-25729", "CVE-2023-25730", "CVE-2023-25732", "CVE-2023-25735", "CVE-2023-25737", "CVE-2023-25739", "CVE-2023-25742", "CVE-2023-25744", "CVE-2023-25746");
   script_tag(name:"creation_date", value:"2023-02-21 02:00:17 +0000 (Tue, 21 Feb 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-06-08 17:11:00 +0000 (Thu, 08 Jun 2023)");
 
-  script_name("Debian: Security Advisory (DLA-3324)");
+  script_name("Debian: Security Advisory (DLA-3324-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB10");
 
-  script_xref(name:"Advisory-ID", value:"DLA-3324");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/dla-3324");
+  script_xref(name:"Advisory-ID", value:"DLA-3324-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/DLA-3324-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/thunderbird");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'thunderbird' package(s) announced via the DLA-3324 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'thunderbird' package(s) announced via the DLA-3324-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

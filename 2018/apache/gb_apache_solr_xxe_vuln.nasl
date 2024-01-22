@@ -9,8 +9,8 @@ CPE = "cpe:/a:apache:solr";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140954");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-01-18T05:07:09+0000");
+  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
   script_tag(name:"creation_date", value:"2018-04-09 13:39:11 +0700 (Mon, 09 Apr 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -30,7 +30,7 @@ if (description)
 
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("secpod_apache_solr_detect.nasl", "os_detection.nasl");
+  script_dependencies("gb_apache_solr_http_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("apache/solr/detected", "Host/runs_unixoide");
 
   script_tag(name:"summary", value:"Apache Solr is prone to a XXE vulnerability.");

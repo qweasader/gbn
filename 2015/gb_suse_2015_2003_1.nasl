@@ -21,8 +21,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851134");
-  script_version("2022-02-16T03:03:58+0000");
-  script_tag(name:"last_modification", value:"2022-02-16 03:03:58 +0000 (Wed, 16 Feb 2022)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2015-11-18 06:36:20 +0100 (Wed, 18 Nov 2015)");
   script_cve_id("CVE-2014-0222", "CVE-2015-3259", "CVE-2015-4037", "CVE-2015-5154",
                 "CVE-2015-5165", "CVE-2015-5166", "CVE-2015-5239", "CVE-2015-6815",
@@ -30,6 +30,9 @@ if(description)
                 "CVE-2015-7972");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-02-11 14:52:00 +0000 (Fri, 11 Feb 2022)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for xen (openSUSE-SU-2015:2003-1)");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'xen'

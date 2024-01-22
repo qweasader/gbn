@@ -9,7 +9,7 @@ CPE = "cpe:/a:oracle:vm_virtualbox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.814657");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2023-10-27T16:11:32+0000");
   script_cve_id("CVE-2019-2448", "CVE-2019-2508", "CVE-2019-2509", "CVE-2019-2548",
                 "CVE-2019-2505", "CVE-2019-2506", "CVE-2019-2500", "CVE-2019-2555",
                 "CVE-2019-2446", "CVE-2019-2526", "CVE-2019-2527", "CVE-2019-2524",
@@ -19,8 +19,8 @@ if(description)
                 "CVE-2019-2501", "CVE-2019-2511");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
   script_tag(name:"creation_date", value:"2019-01-16 15:28:28 +0530 (Wed, 16 Jan 2019)");

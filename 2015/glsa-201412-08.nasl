@@ -7,9 +7,9 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.121294");
-  script_version("2023-07-19T05:05:15+0000");
+  script_version("2023-11-02T05:05:26+0000");
   script_tag(name:"creation_date", value:"2015-09-29 11:28:04 +0300 (Tue, 29 Sep 2015)");
-  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_name("Gentoo Security Advisory GLSA 201412-08");
   script_tag(name:"insight", value:"Vulnerabilities have been discovered in the packages listed below. Please review the CVE identifiers in the references for details.");
   script_tag(name:"solution", value:"Update the affected packages to the latest available version.");
@@ -18,6 +18,9 @@ if(description)
   script_cve_id("CVE-2006-3005", "CVE-2007-2741", "CVE-2008-0553", "CVE-2008-1382", "CVE-2008-5907", "CVE-2008-6218", "CVE-2008-6661", "CVE-2009-0040", "CVE-2009-0360", "CVE-2009-0361", "CVE-2009-0946", "CVE-2009-2042", "CVE-2009-2624", "CVE-2009-3736", "CVE-2009-4029", "CVE-2009-4411", "CVE-2009-4896", "CVE-2010-0001", "CVE-2010-0436", "CVE-2010-0732", "CVE-2010-0829", "CVE-2010-1000", "CVE-2010-1205", "CVE-2010-1511", "CVE-2010-2056", "CVE-2010-2060", "CVE-2010-2192", "CVE-2010-2251", "CVE-2010-2529", "CVE-2010-2809", "CVE-2010-2945");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-08-14 15:50:00 +0000 (Fri, 14 Aug 2020)");
   script_tag(name:"qod_type", value:"package");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/gentoo", "ssh/login/pkg");

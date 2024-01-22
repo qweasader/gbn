@@ -9,32 +9,44 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.890613");
   script_cve_id("CVE-2014-9587", "CVE-2015-1433", "CVE-2016-4069");
   script_tag(name:"creation_date", value:"2018-02-07 23:00:00 +0000 (Wed, 07 Feb 2018)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-30 16:27:00 +0000 (Tue, 30 Oct 2018)");
 
-  script_name("Debian: Security Advisory (DLA-613)");
+  script_name("Debian: Security Advisory (DLA-613-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB7");
 
-  script_xref(name:"Advisory-ID", value:"DLA-613");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2017/dla-613-2");
+  script_xref(name:"Advisory-ID", value:"DLA-613-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2016/DLA-613-1");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'roundcube' package(s) announced via the DLA-613 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'roundcube' package(s) announced via the DLA-613-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The security update announced as DLA-613-1 caused a regression. A missing null parameter set the $task variable in the rcmail_url() function to a boolean value which led to service not available errors when viewing attached images. Updated packages are now available to correct this issue.
+  script_tag(name:"insight", value:"Multiple CSRF and XSS issues allow remote attackers to hijack the authentication and execute roundcube operations without the consent of the user. In some cases, this could result in data loss or data theft.
 
-For Debian 7 Wheezy, these problems have been fixed in version 0.7.2-9+deb7u8.
+CVE-2014-9587
+
+Multiple cross-site request forgery (CSRF) vulnerabilities in allow remote attackers to hijack the authentication of unspecified victims via unknown vectors, related to (1) address book operations or the (2) ACL or (3) Managesieve plugins.
+
+CVE-2015-1433
+
+Incorrect quotation logic during sanitization of style HTML attribute allows remote attackers to execute arbitrary javascript code on the user's browser.
+
+CVE-2016-4069
+
+Cross-site request forgery (CSRF) vulnerability allows remote attackers to hijack the authentication of users for requests that download attachments and cause a denial of service (disk consumption) via unspecified vectors.
+
+For Debian 7 Wheezy, these problems have been fixed in version 0.7.2-9+deb7u4.
 
 We recommend that you upgrade your roundcube packages.
 

@@ -23,14 +23,14 @@ CPE = "cpe:/a:oracle:mysql";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.142659");
-  script_version("2023-01-31T10:08:41+0000");
-  script_tag(name:"last_modification", value:"2023-01-31 10:08:41 +0000 (Tue, 31 Jan 2023)");
+  script_version("2023-10-27T16:11:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2019-07-24 02:18:35 +0000 (Wed, 24 Jul 2019)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-01-30 18:31:00 +0000 (Mon, 30 Jan 2023)");
+  script_tag(name:"severity_date", value:"2023-05-31 12:55:00 +0000 (Wed, 31 May 2023)");
 
   script_cve_id("CVE-2019-2822", "CVE-2019-2800", "CVE-2019-2795", "CVE-2019-2812", "CVE-2019-2834",
                 "CVE-2019-2785", "CVE-2019-2879", "CVE-2019-2780", "CVE-2019-2784", "CVE-2019-2801",

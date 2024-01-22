@@ -8,12 +8,12 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2012-May/079475.html");
   script_oid("1.3.6.1.4.1.25623.1.0.864194");
-  script_version("2023-06-23T16:09:17+0000");
-  script_tag(name:"last_modification", value:"2023-06-23 16:09:17 +0000 (Fri, 23 Jun 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2012-05-04 10:45:20 +0530 (Fri, 04 May 2012)");
   script_cve_id("CVE-2012-1190", "CVE-2012-1902");
   script_tag(name:"cvss_base", value:"4.3");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
   script_xref(name:"FEDORA", value:"2012-5624");
   script_name("Fedora Update for phpMyAdmin FEDORA-2012-5624");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'phpMyAdmin'

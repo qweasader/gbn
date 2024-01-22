@@ -7,17 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.873968");
-  script_version("2023-06-28T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-28 05:05:21 +0000 (Wed, 28 Jun 2023)");
+  script_version("2023-11-03T16:10:08+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-01-05 23:58:52 +0100 (Fri, 05 Jan 2018)");
   script_cve_id("CVE-2017-17857", "CVE-2017-17856", "CVE-2017-17855", "CVE-2017-17854",
                 "CVE-2017-17853", "CVE-2017-17852", "CVE-2017-17862", "CVE-2017-17863",
                 "CVE-2017-17864");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-02-07 22:17:00 +0000 (Tue, 07 Feb 2023)");
+  script_tag(name:"severity_date", value:"2018-03-16 01:29:00 +0000 (Fri, 16 Mar 2018)");
   script_tag(name:"qod_type", value:"package");
   script_name("Fedora Update for kernel FEDORA-2018-22d5fa8a90");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'kernel'

@@ -7,11 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117574");
-  script_version("2023-07-06T05:05:36+0000");
-  script_tag(name:"last_modification", value:"2023-07-06 05:05:36 +0000 (Thu, 06 Jul 2023)");
+  script_version("2024-01-19T05:06:18+0000");
+  script_tag(name:"last_modification", value:"2024-01-19 05:06:18 +0000 (Fri, 19 Jan 2024)");
   script_tag(name:"creation_date", value:"2021-07-22 12:59:06 +0000 (Thu, 22 Jul 2021)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2021-10-15 21:15:00 +0000 (Fri, 15 Oct 2021)");
 
   # nb: Unlike other VTs we're using the CVEs line by line here for easier addition of new CVEs
   # / to avoid too large diffs.
@@ -52,7 +55,8 @@ if(description)
                 "CVE-2022-23854",
                 "CVE-2022-24716",
                 "CVE-2022-31793",
-                "CVE-2023-34259");
+                "CVE-2023-34259",
+                "CVE-2023-6020");
 
   script_name("Generic HTTP Directory Traversal (Web Dirs) - Active Check");
   script_category(ACT_ATTACK);
@@ -128,7 +132,8 @@ if(description)
 
   - CVE-2021-43798: Grafana v8.x
 
-  - CVE-2022-23854: AVEVA InTouch Access Anywhere Secure Gateway
+  - CVE-2022-23854: Schneider Electric Wonderware / AVEVA InTouch Access Anywhere (Secure Gateway)
+  and AVEVA Plant SCADA Access Anywhere
 
   - CVE-2022-24716: Icinga Web 2
 
@@ -136,7 +141,11 @@ if(description)
 
   - CVE-2023-34259: Kyocera Printer TASKalfa 4053ci (bypass for CVE-2020-23575)
 
+  - CVE-2023-6020: Ray Framework
+
   - No CVE: Huawei HG255s
+
+  - No CVE: Unknown Huawei devices having a '/umweb' endpoint
 
   Other products might be affected as well.");
 
@@ -257,8 +266,10 @@ dirs = make_list_unique(
   "/static",
   # TP-Link
   "/login",
-  # AVEVA InTouch Access Anywhere Secure Gateway
+  # Schneider Electric Wonderware / AVEVA InTouch Access Anywhere (Secure Gateway)
   "/AccessAnywhere",
+  # AVEVA Plant SCADA Access Anywhere
+  "/PlantSCADAAccessAnywhere",
   # Odoo
   "/base_import/static",
   # Icinga Web 2
@@ -267,6 +278,12 @@ dirs = make_list_unique(
   "/icinga2/lib/icinga/icinga-php-thirdparty",
   "/icinga-web/lib/icinga/icinga-php-thirdparty",
   "/lib/icinga/icinga-php-thirdparty",
+  # Huawei Auth-Http Server / devices from:
+  # - https://github.com/Vme18000yuan/FreePOC/blob/master/poc/pocsuite/huawei-auth-http-readfile.py
+  # - https://github.com/projectdiscovery/nuclei-templates/blob/main/http/vulnerabilities/huawei/huawei-firewall-lfi.yaml
+  "/umweb",
+  # Ray Framework from https://huntr.com/bounties/83dd8619-6dc3-4c98-8f1b-e620fedcd1f6/
+  "/static/js",
   # nb: No need to add these three to the dir scanner as these seems to be random dirs:
   "/test/pathtraversal/master", # Spring Cloud Config
   "/a/b/", # Spring Cloud Config

@@ -9,8 +9,8 @@ CPE = "cpe:/a:oracle:openjdk";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.104691");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2023-10-20T05:06:03+0000");
+  script_tag(name:"last_modification", value:"2023-10-20 05:06:03 +0000 (Fri, 20 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-04-19 07:23:18 +0000 (Wed, 19 Apr 2023)");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:N");
@@ -54,7 +54,10 @@ if(description)
 
   See the referenced CVEs for more details on the flaws.");
 
-  script_tag(name:"affected", value:"Oracle OpenJDK versions 8, 11, 17 and 20.");
+  script_tag(name:"affected", value:"Oracle OpenJDK versions 8, 11, 17 and 20.
+
+  Note: The vendor is only evaluating the affected status of supported versions but EOL versions
+  like 9, 12 or 16 in between the affected versions are also assumed to be affected.");
 
   script_tag(name:"solution", value:"See the referenced vendor advisory for a solution.");
 
@@ -82,19 +85,19 @@ if (version_in_range(version: version, test_version: "1.8.0", test_version2: "1.
   exit(0);
 }
 
-if (version_in_range(version: version, test_version: "11.0.0", test_version2: "11.0.18")) {
+if (version_in_range(version: version, test_version: "9.0", test_version2: "11.0.18")) {
   report = report_fixed_ver(installed_version: version, fixed_version: "11.0.19", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }
 
-if (version_in_range(version: version, test_version: "17.0.0", test_version2: "17.0.6")) {
+if (version_in_range(version: version, test_version: "12.0", test_version2: "17.0.6")) {
   report = report_fixed_ver(installed_version: version, fixed_version: "17.0.7", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }
 
-if (version_is_equal(version: version, test_version: "20.0.0")) {
+if (version_in_range(version: version, test_version: "18.0", test_version2: "20.0.0")) {
   report = report_fixed_ver(installed_version: version, fixed_version: "20.0.1", install_path: location);
   security_message(port: port, data: report);
   exit(0);

@@ -9,14 +9,14 @@ CPE = "cpe:/a:owncloud:owncloud";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106579");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2023-12-01T16:11:30+0000");
+  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"creation_date", value:"2017-02-08 16:01:56 +0700 (Wed, 08 Feb 2017)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2017-03-08 01:50:00 +0000 (Wed, 08 Mar 2017)");
+  script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
 
   script_cve_id("CVE-2017-5865", "CVE-2017-5866", "CVE-2017-5867");
 
@@ -29,8 +29,8 @@ if (description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_owncloud_detect.nasl", "os_detection.nasl");
-  script_mandatory_keys("owncloud/installed", "Host/runs_unixoide");
+  script_dependencies("gb_owncloud_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("owncloud/detected", "Host/runs_unixoide");
 
   script_tag(name:"summary", value:"ownCloud is prone to multiple vulnerabilities.");
 
@@ -92,4 +92,4 @@ if (version =~ "^9\.1") {
   }
 }
 
-exit(0);
+exit(99);

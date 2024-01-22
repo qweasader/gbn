@@ -9,33 +9,69 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.893315");
   script_cve_id("CVE-2019-13590", "CVE-2021-23159", "CVE-2021-23172", "CVE-2021-23210", "CVE-2021-33844", "CVE-2021-3643", "CVE-2021-40426", "CVE-2022-31650", "CVE-2022-31651");
   script_tag(name:"creation_date", value:"2023-02-11 02:00:13 +0000 (Sat, 11 Feb 2023)");
-  script_version("2023-06-20T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:25 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-05-10 17:00:00 +0000 (Tue, 10 May 2022)");
 
-  script_name("Debian: Security Advisory (DLA-3315)");
+  script_name("Debian: Security Advisory (DLA-3315-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB10");
 
-  script_xref(name:"Advisory-ID", value:"DLA-3315");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/dla-3315-2");
+  script_xref(name:"Advisory-ID", value:"DLA-3315-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/DLA-3315-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/sox");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'sox' package(s) announced via the DLA-3315 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'sox' package(s) announced via the DLA-3315-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"One of the security fixes released as DLA 3315 introduced a regression in the processing of WAV files with variable bitrate encoding. Updated sox packages are available to correct this issue.
+  script_tag(name:"insight", value:"This update fixes multiple file format validation vulnerabilities that could result in memory access violations such as buffer overflows and floating point exceptions. It also fixes a regression in hcom parsing introduced when fixing CVE-2017-11358.
 
-For Debian 10 buster, this problem has been fixed in version 14.4.2+git20190427-1+deb10u2.
+CVE-2019-13590
+
+In sox-fmt.h (startread function), there is an integer overflow on the result of integer addition (wraparound to 0) fed into the lsx_calloc macro that wraps malloc. When a NULL pointer is returned, it is used without a prior check that it is a valid pointer, leading to a NULL pointer dereference on lsx_readbuf in formats_i.c.
+
+CVE-2021-3643
+
+The lsx_adpcm_init function within libsox leads to a global-buffer-overflow. This flaw allows an attacker to input a malicious file, leading to the disclosure of sensitive information.
+
+CVE-2021-23159
+
+A vulnerability was found in SoX, where a heap-buffer-overflow occurs in function lsx_read_w_buf() in formats_i.c file. The vulnerability is exploitable with a crafted file, that could cause an application to crash.
+
+CVE-2021-23172
+
+A vulnerability was found in SoX, where a heap-buffer-overflow occurs in function startread() in hcom.c file. The vulnerability is exploitable with a crafted hcomn file, that could cause an application to crash.
+
+CVE-2021-23210
+
+A floating point exception (divide-by-zero) issue was discovered in SoX in function read_samples() of voc.c file. An attacker with a crafted file, could cause an application to crash.
+
+CVE-2021-33844
+
+A floating point exception (divide-by-zero) issue was discovered in SoX in function startread() of wav.c file. An attacker with a crafted wav file, could cause an application to crash.
+
+CVE-2021-40426
+
+A heap-based buffer overflow vulnerability exists in the sphere.c start_read() functionality of Sound Exchange libsox. A specially-crafted file can lead to a heap buffer overflow. An attacker can provide a malicious file to trigger this vulnerability.
+
+CVE-2022-31650
+
+There is a floating-point exception in lsx_aiffstartwrite in aiff.c.
+
+CVE-2022-31651
+
+There is an assertion failure in rate_init in rate.c.
+
+For Debian 10 buster, these problems have been fixed in version 14.4.2+git20190427-1+deb10u1.
 
 We recommend that you upgrade your sox packages.
 

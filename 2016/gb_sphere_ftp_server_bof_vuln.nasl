@@ -9,10 +9,10 @@ CPE = "cpe:/a:menasoft:sphereftpserver";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807534");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2016-04-04 16:23:30 +0530 (Mon, 04 Apr 2016)");
   script_name("SphereFTP Server Buffer Overflow vulnerability");
 
@@ -44,7 +44,7 @@ if (description)
   script_category(ACT_DENIAL);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("FTP");
-  script_dependencies("gb_sphere_ftp_server_detect.nasl");
+  script_dependencies("gb_sphere_ftp_server_detect.nasl", "logins.nasl");
   script_mandatory_keys("SphereFTP Server/installed");
   script_require_ports("Services/ftp", 21);
 

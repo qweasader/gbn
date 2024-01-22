@@ -7,9 +7,9 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803073");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-12-13T05:05:23+0000");
   script_cve_id("CVE-2012-4932");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
   script_tag(name:"creation_date", value:"2012-12-11 13:59:06 +0530 (Tue, 11 Dec 2012)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -17,7 +17,7 @@ if(description)
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80, 8877);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
@@ -41,7 +41,7 @@ if(description)
   script_tag(name:"summary", value:"Simple Invoices is prone to multiple cross site scripting vulnerabilities.");
 
   script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_app");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   script_xref(name:"URL", value:"http://www.simpleinvoices.org/");
   exit(0);

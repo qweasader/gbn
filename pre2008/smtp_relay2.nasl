@@ -7,18 +7,21 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11852");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2023-11-03T16:10:08+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2019-07-30 20:58:00 +0000 (Tue, 30 Jul 2019)");
   script_cve_id("CVE-1999-0512", "CVE-2002-1278", "CVE-2003-0285", "CVE-2003-0316", "CVE-2005-0431",
                 "CVE-2005-2857", "CVE-2006-0977", "CVE-2019-14403");
   script_name("Mail relaying (thorough test)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2003 Michel Arboi");
   script_family("SMTP problems");
-  script_dependencies("smtpserver_detect.nasl", "smtp_relay.nasl", "smtp_settings.nasl", "global_settings.nasl");
+  script_dependencies("smtpserver_detect.nasl", "check_smtp_helo.nasl", "smtp_relay.nasl", "smtp_settings.nasl", "global_settings.nasl");
   script_require_ports("Services/smtp", 25, 465, 587);
   script_mandatory_keys("smtp/banner/available", "keys/is_public_addr");
 

@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100525");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2023-10-27T16:11:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2010-03-11 12:36:18 +0100 (Thu, 11 Mar 2010)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -16,7 +16,6 @@ if (description)
   script_name("httpdx PNG File Handling Remote Denial of Service Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/38638");
-  script_xref(name:"URL", value:"http://sourceforge.net/projects/httpdx/");
 
   script_category(ACT_MIXED_ATTACK);
   script_family("Denial of Service");
@@ -25,7 +24,7 @@ if (description)
   script_require_ports("Services/www", 80);
   script_mandatory_keys("httpdx/banner");
 
-  script_tag(name:"summary", value:"The 'httpdx' program is prone to a denial-of-service vulnerbaility.");
+  script_tag(name:"summary", value:"httpdx is prone to a denial of service (DoS) vulnerability.");
 
   script_tag(name:"impact", value:"Remote attackers can exploit this issue to cause the server to stop
   responding, denying service to legitimate users.");

@@ -1,59 +1,44 @@
-# Copyright (C) 2013 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2013 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.96171");
-  script_version("2022-07-27T10:11:28+0000");
+  script_version("2023-11-14T05:06:15+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-07-27 10:11:28 +0000 (Wed, 27 Jul 2022)");
+  script_tag(name:"last_modification", value:"2023-11-14 05:06:15 +0000 (Tue, 14 Nov 2023)");
   script_tag(name:"creation_date", value:"2013-03-03 10:37:58 +0100 (Sun, 03 Mar 2013)");
   script_name("Leave information on scanned Windows hosts");
   # nb: Needs to run at the end of the scan because of the required info only available in this phase...
   script_category(ACT_END);
   script_family("Windows");
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   script_dependencies("gb_wmi_access.nasl", "host_scan_end.nasl");
   script_mandatory_keys("WMI/access_successful");
 
   script_add_preference(name:"Enable", type:"checkbox", value:"no", id:1);
   script_add_preference(name:"Message", type:"entry", value:"Security Scan of ::HOSTNAME:: finished. Start: ::SCAN_START:: Stop: ::SCAN_STOP::", id:2);
 
-  script_tag(name:"summary", value:"This routine stores information about the scan on the scanned host,
-  provided it is a Windows system remote registry and wmi access.
+  script_tag(name:"summary", value:"This routine stores information about the scan on the scanned
+  host, provided it is a Windows system remote registry and WMI access.");
 
-  The information cover hostname, scan start time and scan end time.
-  No details about the actual scan results are stored on the scanned host.
+  script_tag(name:"insight", value:"The information cover hostname, scan start time and scan end
+  time. No details about the actual scan results are stored on the scanned host.
 
-  By default, this routine is disabled even it is selected to run. To activate
-  it, it needs to be explicitly enabled with its corresponding preference switch.
+  By default, this routine is disabled even it is selected to run. To activate it, it needs to be
+  explicitly enabled with its corresponding preference switch.
 
-  The preference 'Message' may contain 3 placeholder where respective content
-  will be inserted into the message when the message is finally created on the
-  target system:
+  The preference 'Message' may contain 3 placeholder where respective content will be inserted into
+  the message when the message is finally created on the target system:
 
   '::HOSTNAME::', '::SCAN_START::' and '::SCAN_STOP::'.
 
-  At the end of the scan, the message will be written into the registry
-  key 'SOFTWARE\VulScanInfo'.");
+  At the end of the scan, the message will be written into the registry key
+  'SOFTWARE\VulScanInfo'.");
 
   script_tag(name:"qod_type", value:"registry");
 
@@ -64,28 +49,32 @@ include("wmi_os.inc");
 include("smb_nt.inc");
 
 enabled = script_get_preference("Enable", id:1);
-if("yes" >!< enabled) exit(0);
+if("yes" >!< enabled)
+  exit(0);
 
-infos = kb_smb_wmi_connectinfo();
-if(!infos) exit(0);
+if(!infos = kb_smb_wmi_connectinfo())
+  exit(0);
 
-handlereg = wmi_connect_reg(host:infos["host"], username:infos["username_wmi_smb"], password:infos["password"]);
-if(!handlereg) exit(0);
+if(!handlereg = wmi_connect_reg(host:infos["host"], username:infos["username_wmi_smb"], password:infos["password"]))
+  exit(0);
 
 key = "SOFTWARE\VulScanInfo";
-
 ex_str = "Scanstate";
 
 function fancy_date() {
   local_var datestr;
 
   datestr = _FCT_ANON_ARGS[0];
-  if(int(datestr) < 10) return string("0", datestr);
+  if(int(datestr) < 10)
+    return string("0", datestr);
 
   return datestr;
 }
 
 function make_date_str(date) {
+
+  local_var date;
+  local_var time, month, day, hour, minute, sec;
 
   time = localtime(date);
 
@@ -101,6 +90,7 @@ function make_date_str(date) {
 function replace_placeholders(message) {
 
   local_var message;
+  local_var start, scan_start, stop, scan_stop;
 
   if("::HOSTNAME::" >< message)
     message = str_replace(string:message, find:"::HOSTNAME::", replace:get_host_name());
@@ -112,7 +102,7 @@ function replace_placeholders(message) {
     if(start) {
       scan_start = make_date_str(date:start);
     } else {
-      scan_start = 'Scan start unknown (host_alive_detection.nasl not launched?)';
+      scan_start = "Scan start unknown (Ping Host, OID: 1.3.6.1.4.1.25623.1.0.100315 not launched?)";
     }
 
     message = str_replace(string:message, find:"::SCAN_START::", replace:scan_start);
@@ -124,7 +114,7 @@ function replace_placeholders(message) {
 
     if(stop) {
       scan_stop = make_date_str(date:stop);
-    } else { # if there is no stop time in kb, create it.
+    } else { # nb: If there is no stop time in the KB, create it.
       scan_stop = make_date_str(date:unixtime());
     }
 
@@ -137,7 +127,7 @@ message = script_get_preference("Message", id:2);
 if(strlen(message) < 1) {
   wmi_close(wmi_handle:handlereg);
   # Empty files are not possible. To simply create a file, the user needs to apply a dummy character like a white space.
-  log_message(port:0, data:"No Message was given. Can not execute this test without a message.");
+  log_message(port:0, data:"No Message was given via the script preference. Can not execute this test without a message.");
   exit(0);
 }
 
@@ -146,17 +136,17 @@ message = replace_placeholders(message:message);
 checkkey = wmi_reg_create_key(wmi_handle:handlereg, key:key);
 if(!checkkey){
   wmi_close(wmi_handle:handlereg);
-  log_message(port:0, data:"Error, can't set the Registry Key.");
+  log_message(port:0, data:"Error: Failed to set/create '" + key + "' registry key via wmi_reg_create_key().");
   exit(0);
 }
 
 checkstring = wmi_reg_set_ex_string_val(wmi_handle:handlereg, key:key, val_name:ex_str, val:message);
 if(!checkstring){
   wmi_close(wmi_handle:handlereg);
-  log_message(port:0, data:"Error, can't set the Registry String");
+  log_message(port:0, data:"Error: Failed to set string value '" + ex_str + "' to '" + key + "' registry key via wmi_reg_set_ex_string_val().");
   exit(0);
 }
 
 wmi_close(wmi_handle:handlereg);
-log_message(port:0, data:"Registry Key '" + key + "' with Message '" + message + "' successfully created.");
+log_message(port:0, data:"Success: Registry key '" + key + "' with message '" + message + "' successfully created.");
 exit(0);

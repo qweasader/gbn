@@ -9,29 +9,29 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2023.3508");
   script_cve_id("CVE-2023-1380", "CVE-2023-2002", "CVE-2023-2007", "CVE-2023-20593", "CVE-2023-2269", "CVE-2023-3090", "CVE-2023-31084", "CVE-2023-3111", "CVE-2023-3141", "CVE-2023-32233", "CVE-2023-3268", "CVE-2023-3338", "CVE-2023-34256", "CVE-2023-35788", "CVE-2023-35823", "CVE-2023-35824", "CVE-2023-35828");
   script_tag(name:"creation_date", value:"2023-07-31 04:22:04 +0000 (Mon, 31 Jul 2023)");
-  script_version("2023-08-18T05:05:27+0000");
-  script_tag(name:"last_modification", value:"2023-08-18 05:05:27 +0000 (Fri, 18 Aug 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-06-23 21:19:00 +0000 (Fri, 23 Jun 2023)");
 
-  script_name("Debian: Security Advisory (DLA-3508)");
+  script_name("Debian: Security Advisory (DLA-3508-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB10");
 
-  script_xref(name:"Advisory-ID", value:"DLA-3508");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/dla-3508");
+  script_xref(name:"Advisory-ID", value:"DLA-3508-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/DLA-3508-1");
   script_xref(name:"URL", value:"https://lock.cmpxchg8b.com/zenbleed.html");
   script_xref(name:"URL", value:"https://github.com/google/security-research/security/advisories/GHSA-v6wh-rxpg-cmm8");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/linux");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux' package(s) announced via the DLA-3508 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux' package(s) announced via the DLA-3508-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

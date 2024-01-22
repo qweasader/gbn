@@ -9,8 +9,8 @@ CPE = "cpe:/a:tenable:nessus_agent";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170473");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2023-11-03T16:10:08+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2023-05-17 09:49:53 +0000 (Wed, 17 May 2023)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
@@ -21,7 +21,7 @@ if(description)
   script_cve_id("CVE-2022-4203", "CVE-2022-4304", "CVE-2022-4450", "CVE-2023-0215",
                 "CVE-2023-0216", "CVE-2023-0217", "CVE-2023-0401");
 
-  script_tag(name:"qod_type", value:"remote_banner");
+  script_tag(name:"qod_type", value:"registry");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
@@ -56,10 +56,7 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if (!port = get_app_port(cpe: CPE))
-  exit(0);
-
-if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE))
+if (!infos = get_app_version_and_location(cpe: CPE, exit_no_version: TRUE))
   exit(0);
 
 version = infos["version"];
@@ -67,7 +64,7 @@ location = infos["location"];
 
 if (version_in_range(version: version, test_version: "10.2.1", test_version2: "10.3.1")) {
   report = report_fixed_ver(installed_version: version, fixed_version: "10.3.2", install_path: location);
-  security_message(port: port, data: report);
+  security_message(port: 0, data: report);
   exit(0);
 }
 

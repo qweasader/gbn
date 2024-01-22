@@ -9,28 +9,28 @@ CPE = "cpe:/a:cybozu:mailwise";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807422");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-01-10T05:05:17+0000");
   script_cve_id("CVE-2014-5314");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
   script_tag(name:"creation_date", value:"2016-03-03 18:24:00 +0530 (Thu, 03 Mar 2016)");
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("Cybozu Mailwise Buffer Overflow Vulnerability Feb16");
+  script_name("Cybozu Mailwise < 5.1.4 Buffer Overflow Vulnerability");
 
   script_tag(name:"summary", value:"Cybozu Mailwise is prone to a buffer overflow vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"The flaw exists due to an unspecified
-  Buffer Overflow vulnerability.");
+  script_tag(name:"insight", value:"The flaw exists due to an unspecified buffer overflow
+  vulnerability.");
 
-  script_tag(name:"impact", value:"Successful exploitation will allow remote
-  attackers to cause denial-of-service, or execute arbitrary code.");
+  script_tag(name:"impact", value:"Successful exploitation will allow remote attackers to cause a
+  denial-of-service, or execute arbitrary code.");
 
-  script_tag(name:"affected", value:"Cybozu Mailwise version 5.1.3 and earlier.");
-  script_tag(name:"solution", value:"Upgrade to Cybozu Mailwise version 5.1.4
-  or later.");
+  script_tag(name:"affected", value:"Cybozu Mailwise version 5.1.3 and prior.");
+
+  script_tag(name:"solution", value:"Update to version 5.1.4 or later.");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
@@ -40,28 +40,27 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("secpod_cybozu_products_detect.nasl");
-  script_mandatory_keys("CybozuMailWise/Installed");
-  script_require_ports("Services/www", 80);
-  script_xref(name:"URL", value:"http://products.cybozu.co.jp/");
+  script_dependencies("gb_cybozu_products_http_detect.nasl");
+  script_mandatory_keys("cybozu/mailwise/detected");
+
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-if(!cybPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!cybVer = get_app_version(port:cybPort, cpe:CPE)){
+if(!infos = get_app_version_and_location(cpe:CPE, port:port, exit_no_version:TRUE))
   exit(0);
-}
 
-if(version_is_less(version:cybVer, test_version:"5.1.4"))
-{
-  report = report_fixed_ver(installed_version:cybVer, fixed_version:"5.1.4");
-  security_message(port:cybPort, data:report);
+version = infos["version"];
+location = infos["location"];
+
+if(version_is_less(version:version, test_version:"5.1.4")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"5.1.4", install_path:location);
+  security_message(port:port, data:report);
   exit(0);
 }
 

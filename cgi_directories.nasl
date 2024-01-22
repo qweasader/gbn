@@ -9,8 +9,8 @@ include("plugin_feed_info.inc");
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111038");
-  script_version("2023-06-22T10:34:15+0000");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_version("2023-12-13T05:05:23+0000");
+  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
   script_tag(name:"creation_date", value:"2015-09-14 07:00:00 +0200 (Mon, 14 Sep 2015)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -20,9 +20,9 @@ if(description)
   script_family("Web application abuses");
   # nb: The gb_* dependencies below are additional dependencies setting content/auth_required
   script_dependencies("webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl",
-                      "gb_twonky_server_detect.nasl", "gb_owncloud_detect.nasl", "gb_adobe_aem_http_detect.nasl",
+                      "gb_twonky_server_detect.nasl", "gb_owncloud_http_detect.nasl", "gb_adobe_aem_http_detect.nasl",
                       "gb_collabora_libreoffice_online_http_detect.nasl", "gb_apache_activemq_http_detect.nasl",
-                      "gb_orientdb_server_detect.nasl", "gb_carel_pcoweb_devices_http_detect.nasl");
+                      "gb_orientdb_server_detect.nasl", "gb_carel_pcoweb_devices_http_detect.nasl", "gb_php_http_detect.nasl");
   if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
     script_dependencies("gsf/gb_meinberg_lantime_http_detect.nasl");
   script_require_ports("Services/www", 80);
@@ -321,7 +321,7 @@ if( ! isnull( phpinfoList ) ) {
 
   currentItems = 0;
 
-  tmpreport = 'Extraneous phpinfo() script found at:\n\n';
+  tmpreport = 'Extraneous phpinfo() output found at:\n\n';
 
   # Sort to not report changes on delta reports if just the order is different
   phpinfoList = sort( phpinfoList );
@@ -515,5 +515,5 @@ if( ! isnull( excludedCgiList ) ) {
   report += tmpreport;
 }
 
-log_message( data:report, port:port );
+log_message( data:chomp( report ), port:port );
 exit( 0 );

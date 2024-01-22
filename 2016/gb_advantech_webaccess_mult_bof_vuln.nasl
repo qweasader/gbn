@@ -8,11 +8,11 @@ CPE = "cpe:/a:advantech:advantech_webaccess";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807041");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_cve_id("CVE-2014-9202", "CVE-2014-9208");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2016-01-25 12:23:44 +0530 (Mon, 25 Jan 2016)");
   script_name("Advantech WebAccess Multiple Buffer Overflow Vulnerabilities Jan16");
 
@@ -53,7 +53,7 @@ include( "host_details.inc" );
 if( isnull( port = get_app_port( cpe: CPE ) ) )
   exit( 0 );
 
-if( ! infos = get_app_version_and_location( cpe: CPE, port: port ) )
+if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) )
   exit( 0 );
 
 path = infos["location"];
@@ -64,4 +64,5 @@ if( version_is_less( version: vers, test_version: "8.0.2015.08.16" ) ) {
   security_message( data: report, port: port );
   exit( 0 );
 }
+
 exit( 99 );

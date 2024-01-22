@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100298");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2023-10-27T16:11:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2009-10-10 11:30:08 +0200 (Sat, 10 Oct 2009)");
   script_cve_id("CVE-2009-3445");
   script_tag(name:"cvss_base", value:"5.0");
@@ -31,7 +31,7 @@ if(description)
 
   script_tag(name:"solution", value:"Updates are available. Please see the references for details.");
 
-  script_tag(name:"summary", value:"Ability Mail Server is prone to a denial-of-service vulnerability
+  script_tag(name:"summary", value:"Ability Mail Server is prone to a denial of service (DoS) vulnerability
   because it fails to adequately handle IMAP requests.");
 
   script_tag(name:"qod_type", value:"remote_banner");

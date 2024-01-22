@@ -43,12 +43,12 @@ if(description)
   script_xref(name:"URL", value:"https://bugzilla.novell.com/show_bug.cgi?id=534202");
   script_xref(name:"URL", value:"https://bugzilla.novell.com/show_bug.cgi?id=534214");
   script_oid("1.3.6.1.4.1.25623.1.0.66227");
-  script_version("2023-07-18T05:05:36+0000");
-  script_tag(name:"last_modification", value:"2023-07-18 05:05:36 +0000 (Tue, 18 Jul 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2009-11-11 15:56:44 +0100 (Wed, 11 Nov 2009)");
   script_cve_id("CVE-2009-2909", "CVE-2009-3002", "CVE-2009-2910");
   script_tag(name:"cvss_base", value:"4.9");
-  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:C");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:N/A:N");
   script_name("SLES11: Security update for Linux kernel");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2009 E-Soft Inc.");

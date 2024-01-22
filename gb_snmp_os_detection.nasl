@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103429");
-  script_version("2023-10-19T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_version("2024-01-17T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-01-17 05:05:33 +0000 (Wed, 17 Jan 2024)");
   script_tag(name:"creation_date", value:"2012-02-17 10:17:12 +0100 (Fri, 17 Feb 2012)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -716,6 +716,12 @@ if( sysdesc =~ "^(FUJI XEROX|FUJIFILM|FX DocuPrint) " ) {
   exit( 0 );
 }
 
+# More detailed OS Detection covered in gb_dell_printer_consolidation.nasl
+if( sysdesc =~ "^Dell .*(Laser|Printer|MFP)" ) {
+  os_register_and_report( os:"Dell Printer Firmware", cpe:"cpe:/o:dell:printer_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
 # More detailed OS Detection covered in gsf/gb_watchguard_firebox_snmp_detect.nasl
 if( sysdesc =~ "^(XTM([0-9]+(-[AFPRW])?)|T[0-9]{2}(-W)?|M[0-9]+|Firebox(V|Cloud)?(-[A-Z]+)?)$" ) {
   os_register_and_report( os:"WatchGuard Fireware Firmware", cpe:"cpe:/o:watchguard:fireware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
@@ -961,6 +967,26 @@ if( sysdesc =~ "Rockwell Automation 175[0-9]\-[A-Z0-9]{4}" ) {
 #   models
 if( sysdesc =~ "^Honeywell P[CMXD][0-9]+" ) {
   os_register_and_report( os:"Honeywell Printer Unknown Model Firmware", cpe:"cpe:/o:honeywell:printer_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
+# Extreme Networks EXOS Switches
+# nb: More detailed detection covered in gb_extremeos_snmp_detect.nasl
+if( "ExtremeXOS" >< sysdesc ) {
+  os_register_and_report( os:"Extreme ExtremeXOS (EXOS)", cpe:"cpe:/o:extremenetworks:exos", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
+# Pulse Secure, LLC,Pulse Connect Secure,SA-2500,8.1R11 (build 52981)
+# Pulse Secure,LLC,Pulse Connect Secure,MAG-SM160,8.1R7 (build 41041)
+# Pulse Secure, LLC,Ivanti Connect Secure,PSA-3000,9.1R18.2 (build 24467)
+#
+# nb:
+# - Please keep the pattern used here in sync with the one used in gb_pulse_connect_secure_snmp_detect.nasl
+# - The appliance/server runs only on Linux based systems
+#
+if( sysdesc =~ "(Ivanti|Pulse) Connect Secure" && "Pulse Secure" >< sysdesc ) {
+  os_register_and_report( os:"Linux", cpe:"cpe:/o:linux:kernel", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
   exit( 0 );
 }
 

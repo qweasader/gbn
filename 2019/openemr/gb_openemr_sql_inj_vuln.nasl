@@ -21,14 +21,14 @@ CPE = "cpe:/a:open-emr:openemr";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.142700");
-  script_version("2021-09-06T14:01:33+0000");
-  script_tag(name:"last_modification", value:"2021-09-06 14:01:33 +0000 (Mon, 06 Sep 2021)");
+  script_version("2023-10-27T16:11:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2019-08-06 09:13:00 +0000 (Tue, 06 Aug 2019)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
+  script_tag(name:"severity_date", value:"2023-03-03 18:38:00 +0000 (Fri, 03 Mar 2023)");
 
   script_cve_id("CVE-2019-14529", "CVE-2019-14530", "CVE-2019-3963", "CVE-2019-3964", "CVE-2019-3965",
                 "CVE-2019-3966", "CVE-2019-3967", "CVE-2019-3968", "CVE-2019-8368", "CVE-2019-8371");

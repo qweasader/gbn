@@ -9,13 +9,10 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2021.2212");
   script_cve_id("CVE-2021-3487");
   script_tag(name:"creation_date", value:"2021-07-19 05:21:54 +0000 (Mon, 19 Jul 2021)");
-  script_version("2023-06-20T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:22 +0000 (Tue, 20 Jun 2023)");
-  script_tag(name:"cvss_base", value:"7.1");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
-  script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-05-04 12:55:00 +0000 (Tue, 04 May 2021)");
+  script_version("2023-11-21T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_tag(name:"cvss_base", value:"5.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 
   script_name("Huawei EulerOS: Security Advisory for binutils (EulerOS-SA-2021-2212)");
   script_category(ACT_GATHER_INFO);

@@ -9,8 +9,8 @@ CPE = "cpe:/a:cybozu:office";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107149");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-01-10T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
   script_tag(name:"creation_date", value:"2017-04-19 14:53:28 +0200 (Wed, 19 Apr 2017)");
   script_cve_id("CVE-2017-2114", "CVE-2017-2115", "CVE-2017-2116", "CVE-2016-4449");
 
@@ -21,17 +21,18 @@ if(description)
   script_tag(name:"severity_date", value:"2018-01-18 18:18:00 +0000 (Thu, 18 Jan 2018)");
 
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("Cybozu Office Multiple Security Vulnerabilities");
+  script_name("Cybozu Office 10.0.0 - 10.5.0 Multiple Security Vulnerabilities");
+
   script_tag(name:"summary", value:"Cybozu Office is prone to multiple security vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"impact", value:"An attacker can exploit these issues to execute arbitrary script
-  code in the browser of an unsuspecting user in the context of the affected site, steal cookie-based
-  authentication credentials, access or modify data, bypass security restrictions and perform unauthorized
-  actions in the context of the affected application.");
+  code in the browser of an unsuspecting user in the context of the affected site, steal
+  cookie-based authentication credentials, access or modify data, bypass security restrictions and
+  perform unauthorized actions in the context of the affected application.");
 
-  script_tag(name:"affected", value:"Cybozu Office 10.0.0 through 10.5.0 are vulnerable");
+  script_tag(name:"affected", value:"Cybozu Office versions 10.0.0 through 10.5.0.");
 
   script_tag(name:"solution", value:"Update to version 10.6.0.");
 
@@ -42,31 +43,28 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("secpod_cybozu_products_detect.nasl");
-  script_mandatory_keys("CybozuOffice/Installed");
-  script_require_ports("Services/www", 80);
+  script_dependencies("gb_cybozu_products_http_detect.nasl");
+  script_mandatory_keys("cybozu/office/detected");
+
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-if(!Port = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!Ver = get_app_version(port: Port, cpe:CPE)){
+if(!infos = get_app_version_and_location(cpe:CPE, port:port, exit_no_version:TRUE))
   exit(0);
-}
 
-if(Ver =~ "^10\.")
-{
-  if(version_is_less_equal(version: Ver, test_version: "10.5.0"))
-  {
-    report = report_fixed_ver(installed_version:Ver, fixed_version:"10.6.0");
-    security_message(port: Port, data:report);
-    exit(0);
-  }
+version = infos["version"];
+location = infos["location"];
+
+if(version =~ "^10\." && version_is_less_equal(version:version, test_version:"10.5.0")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"10.6.0", install_path:location);
+  security_message(port:port, data:report);
+  exit(0);
 }
 
 exit(99);

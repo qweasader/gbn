@@ -1,34 +1,20 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117074");
-  script_version("2023-03-07T10:19:54+0000");
+  script_version("2023-11-21T05:05:52+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-03-07 10:19:54 +0000 (Tue, 07 Mar 2023)");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
   script_tag(name:"creation_date", value:"2020-12-11 12:52:04 +0000 (Fri, 11 Dec 2020)");
   script_name("D-Link DSR Devices Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Product detection");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 443);
@@ -80,10 +66,10 @@ if( buf =~ "<title>D-Link\s*:\s*Unified Services Router\s*</title>" && "DSR-" ><
   conclUrl   = http_report_vuln_url( port:port, url:url, url_only:TRUE );
   fw_version = "unknown";
   os_app     = "D-Link DSR";
-  os_cpe     = "cpe:/o:d-link:dsr";
+  os_cpe     = "cpe:/o:dlink:dsr";
   hw_version = "unknown";
   hw_app     = "D-Link DSR";
-  hw_cpe     = "cpe:/h:d-link:dsr";
+  hw_cpe     = "cpe:/h:dlink:dsr";
   model      = "unknown";
   install    = "/";
 

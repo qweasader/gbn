@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.12.2023.5958.1");
   script_cve_id("CVE-2022-3109", "CVE-2022-3341", "CVE-2022-3964", "CVE-2022-3965");
   script_tag(name:"creation_date", value:"2023-03-16 04:11:27 +0000 (Thu, 16 Mar 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2023-11-17T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2023-11-17 05:05:29 +0000 (Fri, 17 Nov 2023)");
   script_tag(name:"cvss_base", value:"9.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:H");
@@ -41,7 +41,7 @@ LTS. (CVE-2022-3109, CVE-2022-3341)
 It was discovered that FFmpeg could be made to access an out-of-bounds
 frame by the Apple RPZA encoder. An attacker could possibly use this
 to cause a denial of service via application crash or access sensitive
-information. This issue only affected Ubuntu 20.04 LTS and Ubuntu
+information. This issue only affected Ubuntu 22.04 LTS and Ubuntu
 22.10. (CVE-2022-3964)
 
 It was discovered that FFmpeg could be made to access an out-of-bounds

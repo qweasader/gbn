@@ -1,28 +1,14 @@
-# Copyright (C) 2017 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2017 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106587");
-  script_version("2023-01-27T10:09:24+0000");
-  script_tag(name:"last_modification", value:"2023-01-27 10:09:24 +0000 (Fri, 27 Jan 2023)");
+  script_version("2023-11-21T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
   script_tag(name:"creation_date", value:"2017-02-14 13:49:17 +0700 (Tue, 14 Feb 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -40,7 +26,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_dlink_dir_consolidation.nasl");
   script_mandatory_keys("d-link/dir/detected", "d-link/dir/hw_version");
@@ -68,17 +54,17 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-cpe_list = make_list("cpe:/o:d-link:dir-895l_firmware",
-"cpe:/o:d-link:dir-890l_firmware",
-"cpe:/o:d-link:dir-885l_firmware",
-"cpe:/o:d-link:dir-880l_firmware",
-"cpe:/o:d-link:dir-879_firmware",
-"cpe:/o:d-link:dir-869_firmware",
-"cpe:/o:d-link:dir-868l_firmware",
-"cpe:/o:d-link:dir-859_firmware",
-"cpe:/o:d-link:dir-823_firmware",
-"cpe:/o:d-link:dir-822_firmware",
-"cpe:/o:d-link:dir-818l_firmware");
+cpe_list = make_list("cpe:/o:dlink:dir-895l_firmware",
+"cpe:/o:dlink:dir-890l_firmware",
+"cpe:/o:dlink:dir-885l_firmware",
+"cpe:/o:dlink:dir-880l_firmware",
+"cpe:/o:dlink:dir-879_firmware",
+"cpe:/o:dlink:dir-869_firmware",
+"cpe:/o:dlink:dir-868l_firmware",
+"cpe:/o:dlink:dir-859_firmware",
+"cpe:/o:dlink:dir-823_firmware",
+"cpe:/o:dlink:dir-822_firmware",
+"cpe:/o:dlink:dir-818l_firmware");
 
 if (!infos = get_app_port_from_list(cpe_list: cpe_list))
   exit(0);
@@ -93,7 +79,7 @@ hw_version = get_kb_item("d-link/dir/hw_version");
 if (!hw_version)
   exit(0);
 
-if (cpe == "cpe:/o:d-link:dir-885l_firmware" || cpe == "cpe:/o:d-link:dir-895l_firmware") {
+if (cpe == "cpe:/o:dlink:dir-885l_firmware" || cpe == "cpe:/o:dlink:dir-895l_firmware") {
   if (hw_version == "A1" && version_is_less(version: version, test_version: "1.12")) {
     report = report_fixed_ver(installed_version: version, fixed_version: "1.12", extra: "Hardware revision: " + hw_version);
     security_message(port: port, data: report);
@@ -101,7 +87,7 @@ if (cpe == "cpe:/o:d-link:dir-885l_firmware" || cpe == "cpe:/o:d-link:dir-895l_f
   exit(0);
 }
 
-if (cpe == "cpe:/o:d-link:dir-890l_firmware") {
+if (cpe == "cpe:/o:dlink:dir-890l_firmware") {
   if (hw_version == "A1" && version_is_less(version: version, test_version: "1.11b01")) {
     report = report_fixed_ver(installed_version: version, fixed_version: "1.11b01_beta01_g97i", extra: "Hardware revision: " + hw_version);
     security_message(port: port, data: report);
@@ -109,7 +95,7 @@ if (cpe == "cpe:/o:d-link:dir-890l_firmware") {
   exit(0);
 }
 
-if (cpe == "cpe:/o:d-link:dir-880l_firmware") {
+if (cpe == "cpe:/o:dlink:dir-880l_firmware") {
   if (hw_version == "A1" && version_is_less(version: version, test_version: "1.08WWb04")) {
     report = report_fixed_ver(installed_version: version, fixed_version: "1.08WWb04", extra: "Hardware revision: " + hw_version);
     security_message(port: port, data: report);
@@ -117,7 +103,7 @@ if (cpe == "cpe:/o:d-link:dir-880l_firmware") {
   exit(0);
 }
 
-if (cpe == "cpe:/o:d-link:dir-879_firmware") {
+if (cpe == "cpe:/o:dlink:dir-879_firmware") {
   if (hw_version == "A1" && version_is_less(version: version, test_version: "1.04")) {
     report = report_fixed_ver(installed_version: version, fixed_version: "1.04", extra: "Hardware revision: " + hw_version);
     security_message(port: port, data: report);
@@ -125,7 +111,7 @@ if (cpe == "cpe:/o:d-link:dir-879_firmware") {
   exit(0);
 }
 
-if (cpe == "cpe:/o:d-link:dir-869_firmware") {
+if (cpe == "cpe:/o:dlink:dir-869_firmware") {
   if (hw_version == "A1" && version_is_less(version: version, test_version: "1.03")) {
     report = report_fixed_ver(installed_version: version, fixed_version: "1.03", extra: "Hardware revision: " + hw_version);
     security_message(port: port, data: report);
@@ -133,7 +119,7 @@ if (cpe == "cpe:/o:d-link:dir-869_firmware") {
   exit(0);
 }
 
-if (cpe == "cpe:/o:d-link:dir-868l_firmware") {
+if (cpe == "cpe:/o:dlink:dir-868l_firmware") {
   if (hw_version == "B1" && version_is_less(version: version, test_version: "2.05b01")) {
     report = report_fixed_ver(installed_version: version, fixed_version: "2.05b01", extra: "Hardware revision: " + hw_version);
     security_message(port: port, data: report);
@@ -145,7 +131,7 @@ if (cpe == "cpe:/o:d-link:dir-868l_firmware") {
   exit(0);
 }
 
-if (cpe == "cpe:/o:d-link:dir-859_firmware") {
+if (cpe == "cpe:/o:dlink:dir-859_firmware") {
   if (hw_version == "A1" && version_is_less(version: version, test_version: "1.06")) {
     report = report_fixed_ver(installed_version: version, fixed_version: "1.06", extra: "Hardware revision: " + hw_version);
     security_message(port: port, data: report);
@@ -153,7 +139,7 @@ if (cpe == "cpe:/o:d-link:dir-859_firmware") {
   exit(0);
 }
 
-if (cpe == "cpe:/o:d-link:dir-823_firmware") {
+if (cpe == "cpe:/o:dlink:dir-823_firmware") {
   if (hw_version == "A1" && version_is_less(version: version, test_version: "1.00WWb06")) {
     report = report_fixed_ver(installed_version: version, fixed_version: "1.00WWb06", extra: "Hardware revision: " + hw_version);
     security_message(port: port, data: report);
@@ -161,7 +147,7 @@ if (cpe == "cpe:/o:d-link:dir-823_firmware") {
   exit(0);
 }
 
-if (cpe == "cpe:/o:d-link:dir-822_firmware") {
+if (cpe == "cpe:/o:dlink:dir-822_firmware") {
   if (hw_version == "B1" && version_is_less(version: version, test_version: "2.03WWb01")) {
     report = report_fixed_ver(installed_version: version, fixed_version: "2.03WWb01", extra: "Hardware revision: " + hw_version);
     security_message(port: port, data: report);
@@ -169,7 +155,7 @@ if (cpe == "cpe:/o:d-link:dir-822_firmware") {
   exit(0);
 }
 
-if (cpe == "cpe:/o:d-link:dir-818l_firmware") {
+if (cpe == "cpe:/o:dlink:dir-818l_firmware") {
   if (hw_version == "B1" && version_is_less(version: version, test_version: "2.05")) {
     report = report_fixed_ver(installed_version: version, fixed_version: "2.05 beta 08", extra: "Hardware revision: " + hw_version);
     security_message(port: port, data: report);

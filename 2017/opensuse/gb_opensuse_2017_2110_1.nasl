@@ -21,15 +21,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851586");
-  script_version("2023-01-18T10:11:02+0000");
-  script_tag(name:"last_modification", value:"2023-01-18 10:11:02 +0000 (Wed, 18 Jan 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2017-08-10 07:29:40 +0200 (Thu, 10 Aug 2017)");
   script_cve_id("CVE-2017-10810", "CVE-2017-11473", "CVE-2017-7533", "CVE-2017-7541", "CVE-2017-7542");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-01-17 21:35:00 +0000 (Tue, 17 Jan 2023)");
+  script_tag(name:"severity_date", value:"2023-02-14 21:37:00 +0000 (Tue, 14 Feb 2023)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for kernel (openSUSE-SU-2017:2110-1)");
 

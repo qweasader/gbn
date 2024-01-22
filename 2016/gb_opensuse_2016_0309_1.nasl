@@ -21,8 +21,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851177");
-  script_version("2021-10-08T12:01:22+0000");
-  script_tag(name:"last_modification", value:"2021-10-08 12:01:22 +0000 (Fri, 08 Oct 2021)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2016-02-02 06:17:50 +0100 (Tue, 02 Feb 2016)");
   script_cve_id("CVE-2015-7208", "CVE-2016-1930", "CVE-2016-1931", "CVE-2016-1933",
                 "CVE-2016-1935", "CVE-2016-1937", "CVE-2016-1938", "CVE-2016-1939",
@@ -30,9 +30,9 @@ if(description)
                 "CVE-2016-1946", "CVE-2016-1947");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-12-27 16:08:00 +0000 (Fri, 27 Dec 2019)");
+  script_tag(name:"severity_date", value:"2018-10-30 16:27:00 +0000 (Tue, 30 Oct 2018)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for MozillaFirefox (openSUSE-SU-2016:0309-1)");
 

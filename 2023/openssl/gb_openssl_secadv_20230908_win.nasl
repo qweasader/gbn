@@ -9,8 +9,8 @@ CPE = "cpe:/a:openssl:openssl";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.104902");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2023-10-26T05:07:17+0000");
+  script_tag(name:"last_modification", value:"2023-10-26 05:07:17 +0000 (Thu, 26 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-09-08 13:21:45 +0000 (Fri, 08 Sep 2023)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:C/I:C/A:C");
@@ -23,7 +23,7 @@ if(description)
   # nb: Only specific environments are affected, see the affected tag.
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"VendorFix");
 
   script_name("OpenSSL Security Vulnerability (20230908) - Windows");
 
@@ -58,15 +58,12 @@ if(description)
   - This flaw only affects the Windows 64 platform and only when running on newer X86_64 processors
   supporting the AVX512-IFMA instructions.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 08th September, 2023.
-  Information regarding this issue will be updated once solution details are available.
-
-  Vendor info: Due to the low severity of this issue we are not issuing new releases of OpenSSL at
-  this time. The fix will be included in the next releases when they become available. The fix is
-  also available in commit 4bfac447 (for 3.1), commit 6754de4a (for 3.0), and commit a632d534 (for
-  1.1.1) in the OpenSSL git repository.");
+  script_tag(name:"solution", value:"Update to version 1.1.1w, 3.0.11, 3.1.3 or later.");
 
   script_xref(name:"URL", value:"https://www.openssl.org/news/secadv/20230908.txt");
+  script_xref(name:"URL", value:"https://www.openssl.org/news/vulnerabilities-1.1.1.html#CVE-2023-4807");
+  script_xref(name:"URL", value:"https://www.openssl.org/news/vulnerabilities-3.0.html#CVE-2023-4807");
+  script_xref(name:"URL", value:"https://www.openssl.org/news/vulnerabilities-3.1.html#CVE-2023-4807");
 
   exit(0);
 }
@@ -84,21 +81,21 @@ version = infos["version"];
 location = infos["location"];
 
 if (version_in_range(version: version, test_version: "1.1.1", test_version2: "1.1.1v")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "None", install_path: location);
+  report = report_fixed_ver(installed_version: version, fixed_version: "1.1.1w", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }
 
 if (version_in_range(version: version, test_version: "3.0.0", test_version2: "3.0.10")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "None", install_path: location);
+  report = report_fixed_ver(installed_version: version, fixed_version: "3.0.11", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }
 
 if (version_in_range(version: version, test_version: "3.1.0", test_version2: "3.1.2")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "None", install_path: location);
+  report = report_fixed_ver(installed_version: version, fixed_version: "3.1.3", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }
 
-exit(99); # nb: We can use exit(99); here since other versions like 1.0.2 are not affected
+exit(99);

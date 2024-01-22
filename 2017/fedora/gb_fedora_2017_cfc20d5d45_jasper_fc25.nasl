@@ -7,17 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.872683");
-  script_version("2023-06-29T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-06-29 05:05:23 +0000 (Thu, 29 Jun 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2017-05-18 06:58:34 +0200 (Thu, 18 May 2017)");
   script_cve_id("CVE-2016-9387", "CVE-2016-9388", "CVE-2016-9389", "CVE-2016-9390",
                 "CVE-2016-9391", "CVE-2016-9392", "CVE-2016-9393", "CVE-2016-9394",
                 "CVE-2016-9560", "CVE-2016-9591", "CVE-2016-9600", "CVE-2016-10251");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-06-29 01:29:00 +0000 (Fri, 29 Jun 2018)");
+  script_tag(name:"severity_date", value:"2021-03-15 22:08:00 +0000 (Mon, 15 Mar 2021)");
   script_tag(name:"qod_type", value:"package");
   script_name("Fedora Update for jasper FEDORA-2017-cfc20d5d45");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'jasper'

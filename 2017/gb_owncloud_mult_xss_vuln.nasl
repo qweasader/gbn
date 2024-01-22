@@ -9,8 +9,8 @@ CPE = "cpe:/a:owncloud:owncloud";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106966");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2023-12-01T16:11:30+0000");
+  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"creation_date", value:"2017-07-19 13:10:50 +0700 (Wed, 19 Jul 2017)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -29,8 +29,8 @@ if (description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_owncloud_detect.nasl");
-  script_mandatory_keys("owncloud/installed");
+  script_dependencies("gb_owncloud_http_detect.nasl");
+  script_mandatory_keys("owncloud/detected");
 
   script_tag(name:"summary", value:"ownCloud is prone to multiple cross-site scripting vulnerabilities.");
 
@@ -90,4 +90,4 @@ if (version =~ "^10\.0") {
   }
 }
 
-exit(0);
+exit(99);

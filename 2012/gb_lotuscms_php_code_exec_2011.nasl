@@ -7,13 +7,13 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103444");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-12-13T05:05:23+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_name("LotusCMS PHP Code Execution Vulnerabilities");
   script_xref(name:"URL", value:"http://secunia.com/secunia_research/2011-21/");
   script_xref(name:"URL", value:"http://www.lotuscms.org/");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
   script_tag(name:"creation_date", value:"2012-03-07 11:02:50 +0100 (Wed, 07 Mar 2012)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");
@@ -21,7 +21,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"WillNotFix");
   script_copyright("Copyright (C) 2012 Greenbone AG");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 

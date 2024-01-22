@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812347");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2023-11-03T05:05:46+0000");
   script_cve_id("CVE-2012-0075", "CVE-2012-0484", "CVE-2012-0114", "CVE-2012-0490");
   script_tag(name:"cvss_base", value:"4.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2017-12-14 15:23:39 +0530 (Thu, 14 Dec 2017)");
   script_name("Oracle Mysql Security Updates (jan2012-366304) 03 - Linux");
 

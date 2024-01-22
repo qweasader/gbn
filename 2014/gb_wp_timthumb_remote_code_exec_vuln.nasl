@@ -9,30 +9,29 @@ CPE = "cpe:/a:wordpress:wordpress";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805116");
-  script_version("2023-07-27T05:05:09+0000");
+  script_version("2024-01-09T05:06:46+0000");
   script_cve_id("CVE-2014-4663");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-01-09 05:06:46 +0000 (Tue, 09 Jan 2024)");
   script_tag(name:"creation_date", value:"2014-12-23 11:22:48 +0530 (Tue, 23 Dec 2014)");
-  script_name("Binary Moon TimThumb < 2.8.14 Remote Code Execution Vulnerability");
+  script_name("Binary Moon TimThumb < 2.8.14 RCE Vulnerability - Active Check");
 
-  script_tag(name:"summary", value:"Binary Moon TimThumb is prone to a remote code execution (RCE) vulnerability.");
+  script_tag(name:"summary", value:"Binary Moon TimThumb is prone to a remote code execution (RCE)
+  vulnerability.");
 
-  script_tag(name:"vuldetect", value:"Send a crafted request via HTTP GET and
-  check whether it is able to execute system command or not.");
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks the response.");
 
-  script_tag(name:"insight", value:"Flaw is in the timthumb.php script related
-  to the WebShot feature that is triggered as input passed via the 'src'
-  parameter is not properly sanitized.");
+  script_tag(name:"insight", value:"Flaw is in the timthumb.php script related to the WebShot
+  feature that is triggered as input passed via the 'src' parameter is not properly sanitized.");
 
-  script_tag(name:"impact", value:"Successful exploitation will allow remote
-  attackers to execute arbitrary commands.");
+  script_tag(name:"impact", value:"Successful exploitation will allow remote attackers to execute
+  arbitrary commands.");
 
-  script_tag(name:"affected", value:"Binary Moon TimThumb version 2.8.13,
-  prior versions may also be affected.");
+  script_tag(name:"affected", value:"Binary Moon TimThumb version 2.8.13. Prior versions may also be
+  affected.");
 
-  script_tag(name:"solution", value:"Upgrade to version 2.8.14 or later.");
+  script_tag(name:"solution", value:"Update to version 2.8.14 or later.");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
@@ -240,7 +239,7 @@ foreach eachVulnPath(vulnPath) {
 
   vulnUrl = dir + eachVulnPath;
 
-  if(http_vuln_check(port:port, url:vulnUrl, check_header:FALSE,
+  if(http_vuln_check(port:port, url:vulnUrl, check_header:FALSE, usecache:TRUE,
      pattern:">TimThumb version", extra_check:">No image specified<")) {
 
     randFile = rand_str(length:8, charset:"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") + ".php";

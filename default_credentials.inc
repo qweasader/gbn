@@ -163,7 +163,7 @@ credentials = make_list(
 "IntraStack:Asante:asante:all",
 "MGR:INTX3:hp:all",
 "Root:none:3com,ambit:all",
-"admin:1234:edimax:all,ftp",
+"admin:1234:edimax,tplink:all,ftp",
 "root:tini:dallas semiconductors:all",
 "FIELD:MGR:hp:all",
 "anonymous:any@:datawizard.net:all",
@@ -225,7 +225,10 @@ credentials = make_list(
 #   hand on
 "root:awind5885:crestron,awind:ssh,telnet",
 # From CVE-2020-9473
-"ftp:none:siedle:ssh"
+"ftp:none:siedle:ssh",
+# Both from CVE-2017-8218
+"guest:guest:tplink:ftp",
+"test:test:tplink:ftp"
 );
 
 uploaded_credentials = get_kb_list( "default_credentials/credentials" );

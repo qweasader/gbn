@@ -1,30 +1,16 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
-CPE = "cpe:/a:pi-hole:web";
+CPE = "cpe:/a:pi-hole:web_interface";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.143881");
-  script_version("2022-09-16T10:11:41+0000");
-  script_tag(name:"last_modification", value:"2022-09-16 10:11:41 +0000 (Fri, 16 Sep 2022)");
+  script_version("2023-12-01T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2023-12-01 05:05:39 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"creation_date", value:"2020-05-12 04:23:02 +0000 (Tue, 12 May 2020)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -38,15 +24,18 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Pi-hole Ad-Blocker < 5.0 Multiple Vulnerabilities");
+  script_name("Pi-hole Web Interface < 5.0 Multiple Vulnerabilities");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_pi-hole_http_detect.nasl");
   script_mandatory_keys("pi-hole/detected");
 
-  script_tag(name:"summary", value:"The Pi-hole Ad-Blocker is prone to multiple vulnerabilities.");
+  script_tag(name:"summary", value:"The Pi-hole Web Interface (previously AdminLTE) is prone to
+  multiple vulnerabilities.");
+
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"The following flaws exist:
 
@@ -63,9 +52,8 @@ if(description)
 
   - CVE-2020-12620: Privilege escalation vulnerability through command injection");
 
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
-
-  script_tag(name:"affected", value:"Pi-hole Ad-Blocker version 4.4 and prior.");
+  script_tag(name:"affected", value:"Pi-hole Web Interface (previously AdminLTE) version 4.4 and
+  prior.");
 
   script_tag(name:"solution", value:"Update to version 5.0 or later.");
 

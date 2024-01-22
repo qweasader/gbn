@@ -7,13 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801473");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2010-10-28 11:50:37 +0200 (Thu, 28 Oct 2010)");
   script_cve_id("CVE-2010-4033", "CVE-2010-4035", "CVE-2010-4034", "CVE-2010-4036",
                 "CVE-2010-4037", "CVE-2010-4038", "CVE-2010-4040", "CVE-2010-4042");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-07-31 19:37:00 +0000 (Fri, 31 Jul 2020)");
   script_name("Google Chrome multiple vulnerabilities - October 10(Windows)");
   script_xref(name:"URL", value:"http://secunia.com/advisories/41888");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/44241");

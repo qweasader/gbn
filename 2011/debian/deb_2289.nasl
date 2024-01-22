@@ -9,26 +9,26 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.70225");
   script_cve_id("CVE-2011-4626", "CVE-2011-4627", "CVE-2011-4628", "CVE-2011-4629", "CVE-2011-4630", "CVE-2011-4631", "CVE-2011-4632", "CVE-2011-4900", "CVE-2011-4901", "CVE-2011-4902", "CVE-2011-4903", "CVE-2011-4904");
   script_tag(name:"creation_date", value:"2011-09-21 03:47:11 +0000 (Wed, 21 Sep 2011)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:10+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:10 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-11-08 16:38:00 +0000 (Fri, 08 Nov 2019)");
 
-  script_name("Debian: Security Advisory (DSA-2289)");
+  script_name("Debian: Security Advisory (DSA-2289-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB(5|6)");
 
-  script_xref(name:"Advisory-ID", value:"DSA-2289");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2011/dsa-2289");
+  script_xref(name:"Advisory-ID", value:"DSA-2289-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2011/DSA-2289-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-2289");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'typo3-src' package(s) announced via the DSA-2289 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'typo3-src' package(s) announced via the DSA-2289-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

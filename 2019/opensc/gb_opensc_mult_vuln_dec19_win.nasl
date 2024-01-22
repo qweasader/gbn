@@ -21,14 +21,14 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.815861");
-  script_version("2021-09-30T14:27:31+0000");
-  script_tag(name:"last_modification", value:"2021-09-30 14:27:31 +0000 (Thu, 30 Sep 2021)");
+  script_version("2023-10-27T16:11:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2019-12-06 12:34:34 +0530 (Fri, 06 Dec 2019)");
   script_tag(name:"cvss_base", value:"2.1");
-  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:N/A:N");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-12-26 03:15:00 +0000 (Thu, 26 Dec 2019)");
+  script_tag(name:"severity_date", value:"2020-01-24 19:15:00 +0000 (Fri, 24 Jan 2020)");
   script_cve_id("CVE-2019-19479", "CVE-2019-19480", "CVE-2019-19481");
   script_tag(name:"qod_type", value:"registry");
   script_tag(name:"solution_type", value:"VendorFix");

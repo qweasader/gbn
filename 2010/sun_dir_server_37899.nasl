@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100510");
-  script_version("2023-07-06T05:05:36+0000");
-  script_tag(name:"last_modification", value:"2023-07-06 05:05:36 +0000 (Thu, 06 Jul 2023)");
+  script_version("2023-10-27T16:11:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2010-02-26 12:01:21 +0100 (Fri, 26 Feb 2010)");
   script_cve_id("CVE-2010-0708");
   script_tag(name:"cvss_base", value:"5.0");
@@ -25,7 +25,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.sun.com/software/products/directory_srvr/home_directory.xml");
   script_xref(name:"URL", value:"http://sunsolve.sun.com/search/document.do?assetkey=1-66-275711-1");
 
-  script_tag(name:"summary", value:"Sun Java System Directory Server is prone to a denial-of-service
+  script_tag(name:"summary", value:"Sun Java System Directory Server is prone to a denial of service (DoS)
   vulnerability.");
 
   script_tag(name:"impact", value:"An attacker can exploit this issue to crash the effected application,

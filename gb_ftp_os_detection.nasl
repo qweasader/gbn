@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105355");
-  script_version("2023-10-19T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2015-09-15 15:57:03 +0200 (Tue, 15 Sep 2015)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -389,6 +389,11 @@ if( banner =~ "220 SHARP .*FTP Server" ) {
   exit( 0 );
 }
 
+if( banner =~ "220 Dell " && banner =~ "(Laser|MFP|Printer)" ) {
+  os_register_and_report( os:"Dell Printer Firmware", cpe:"cpe:/o:dell:printer_firmware", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
 # 220 FTP Server (ATP800) [::ffff:1.1.1.1]
 if( egrep( string:banner, pattern:"220 FTP Server \(ATP[0-9]+\)", icase:FALSE ) ) {
   os_register_and_report( os:"Zyxel ATP Firewall Firmware", cpe:"cpe:/o:zyxel:atp_firewall_firmware", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
@@ -432,6 +437,14 @@ if( banner =~ "^220 (JD )?FTP Server Ready" ) {
     exit( 0 );
   }
 }
+
+# Corss-platform, e.g.
+# 220 Wing FTP Server 5.0.6 ready...
+# 220 Wing FTP Server ready...
+# 220 Wing FTP Server ready... (Wing FTP Server Free Edition)
+# 220 Wing FTP Server 7.2.8 ready...
+if( "220 Wing FTP Server " >< banner )
+  exit( 0 );
 
 os_register_unknown_banner( banner:banner, banner_type_name:BANNER_TYPE, banner_type_short:"ftp_banner", port:port );
 

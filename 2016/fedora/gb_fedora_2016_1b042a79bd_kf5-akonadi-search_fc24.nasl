@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809999");
-  script_version("2023-06-21T05:06:23+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:23 +0000 (Wed, 21 Jun 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2016-11-14 18:00:22 +0530 (Mon, 14 Nov 2016)");
   script_cve_id("CVE-2016-7967", "CVE-2016-7966", "CVE-2016-7968");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2016-12-27 18:42:00 +0000 (Tue, 27 Dec 2016)");
+  script_tag(name:"severity_date", value:"2016-12-27 18:50:00 +0000 (Tue, 27 Dec 2016)");
   script_tag(name:"qod_type", value:"package");
   script_name("Fedora Update for kf5-akonadi-search FEDORA-2016-1b042a79bd");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'kf5-akonadi-search'

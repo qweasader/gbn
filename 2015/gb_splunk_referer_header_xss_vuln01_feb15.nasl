@@ -9,11 +9,11 @@ CPE = "cpe:/a:splunk:splunk";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805332");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_cve_id("CVE-2014-8380");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2015-02-05 12:04:16 +0530 (Thu, 05 Feb 2015)");
 
   script_name("Splunk 'Referer' Header 404 Error Cross-Site Scripting Vulnerability - Feb15");
@@ -39,7 +39,7 @@ a newer release, disable respective features, remove the product or replace the 
 
   script_tag(name:"solution_type", value:"WillNotFix");
 
-  script_tag(name:"qod_type", value:"exploit");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   script_xref(name:"URL", value:"http://packetstormsecurity.com/files/126813");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/67655");

@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:exim:exim';
+CPE = "cpe:/a:exim:exim";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106485");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-01-10T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
   script_tag(name:"creation_date", value:"2016-12-23 10:52:32 +0700 (Fri, 23 Dec 2016)");
   script_tag(name:"cvss_base", value:"2.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:P/I:N/A:N");
@@ -24,27 +24,27 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Exim Information Disclosure Vulnerability");
+  script_name("Exim 4.69 - 4.87 Information Disclosure Vulnerability");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("SMTP problems");
-  script_dependencies("gb_exim_detect.nasl");
+  script_dependencies("gb_exim_smtp_detect.nasl");
   script_require_ports("Services/smtp", 25);
-  script_mandatory_keys("exim/installed");
+  script_mandatory_keys("exim/detected");
 
   script_tag(name:"summary", value:"Exim is prone to an information disclosure vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"If several conditions are met, Exim leaks private information to a remote
-attacker.");
+  script_tag(name:"insight", value:"If several conditions are met, Exim leaks private information to
+  a remote attacker.");
 
   script_tag(name:"impact", value:"A remote attacker may obtain private information.");
 
-  script_tag(name:"affected", value:"Exim 4.69 until 4.87.");
+  script_tag(name:"affected", value:"Exim versions 4.69 through 4.87.");
 
-  script_tag(name:"solution", value:"Update to Exim 4.87.1 or later.");
+  script_tag(name:"solution", value:"Update to version 4.87.1 or later.");
 
   script_xref(name:"URL", value:"https://bugs.exim.org/show_bug.cgi?id=1996");
 
@@ -66,4 +66,4 @@ if (version_in_range(version: version, test_version: "4.69", test_version2: "4.8
   exit(0);
 }
 
-exit(0);
+exit(99);

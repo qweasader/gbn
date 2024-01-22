@@ -9,7 +9,7 @@ CPE = "cpe:/a:adobe:acrobat_reader";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807694");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2023-11-03T05:05:46+0000");
   script_cve_id("CVE-2016-1037", "CVE-2016-1038", "CVE-2016-1039", "CVE-2016-1040",
                 "CVE-2016-1041", "CVE-2016-1042", "CVE-2016-1043", "CVE-2016-1044",
                 "CVE-2016-1045", "CVE-2016-1046", "CVE-2016-1047", "CVE-2016-1048",
@@ -35,10 +35,10 @@ if(description)
                 "CVE-2016-4104", "CVE-2016-4105", "CVE-2016-4106", "CVE-2016-4107");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2016-12-01 03:03:00 +0000 (Thu, 01 Dec 2016)");
+  script_tag(name:"severity_date", value:"2016-12-01 20:21:00 +0000 (Thu, 01 Dec 2016)");
   script_tag(name:"creation_date", value:"2016-05-12 10:27:43 +0530 (Thu, 12 May 2016)");
   script_name("Adobe Reader Security Updates(apsb16-14)-Windows");
 

@@ -8,11 +8,11 @@ if(description)
 {
   script_xref(name:"URL", value:"https://www.redhat.com/archives/fedora-package-announce/2008-March/msg00180.html");
   script_oid("1.3.6.1.4.1.25623.1.0.860246");
-  script_version("2023-07-04T05:05:35+0000");
-  script_tag(name:"last_modification", value:"2023-07-04 05:05:35 +0000 (Tue, 04 Jul 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2009-02-16 16:22:52 +0100 (Mon, 16 Feb 2009)");
   script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_xref(name:"FEDORA", value:"2008-2278");
   script_cve_id("CVE-2008-0983", "CVE-2008-1111");
   script_name("Fedora Update for lighttpd FEDORA-2008-2278");

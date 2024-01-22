@@ -9,8 +9,8 @@ CPE = "cpe:/a:ilias:ilias";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.148428");
-  script_version("2023-07-14T05:06:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 05:06:08 +0000 (Fri, 14 Jul 2023)");
+  script_version("2023-11-15T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-11-15 05:05:25 +0000 (Wed, 15 Nov 2023)");
   script_tag(name:"creation_date", value:"2022-07-12 06:40:36 +0000 (Tue, 12 Jul 2022)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -30,8 +30,8 @@ if (description)
 
   script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_ilias_detect.nasl");
-  script_mandatory_keys("ilias/installed");
+  script_dependencies("gb_ilias_http_detect.nasl");
+  script_mandatory_keys("ilias/detected");
 
   script_tag(name:"summary", value:"ILIAS is prone to an account takeover vulnerability.");
 

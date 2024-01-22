@@ -9,36 +9,80 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.891500");
   script_cve_id("CVE-2015-5352", "CVE-2015-5600", "CVE-2015-6563", "CVE-2015-6564", "CVE-2016-10009", "CVE-2016-10011", "CVE-2016-10012", "CVE-2016-10708", "CVE-2016-1908", "CVE-2016-3115", "CVE-2016-6515", "CVE-2017-15906");
   script_tag(name:"creation_date", value:"2018-09-09 22:00:00 +0000 (Sun, 09 Sep 2018)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-08-18 13:51:00 +0000 (Thu, 18 Aug 2022)");
 
-  script_name("Debian: Security Advisory (DLA-1500)");
+  script_name("Debian: Security Advisory (DLA-1500-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB8");
 
-  script_xref(name:"Advisory-ID", value:"DLA-1500");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2018/dla-1500-2");
+  script_xref(name:"Advisory-ID", value:"DLA-1500-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2018/DLA-1500-1");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'openssh' package(s) announced via the DLA-1500 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'openssh' package(s) announced via the DLA-1500-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The security update of OpenSSH announced as DLA 1500-1 introduced a bug in openssh-client: when X11 forwarding is enabled (via system-wide configuration in ssh_config or via -X command line switch), but no DISPLAY is set, the client produces a 'DISPLAY '(null)' invalid, disabling X11 forwarding' warning. These bug was introduced by the patch set to fix the CVE-2016-1908 issue. For reference, the following is the relevant section of the original announcement:
+  script_tag(name:"insight", value:"Several vulnerabilities have been found in OpenSSH, a free implementation of the SSH protocol suite:
+
+CVE-2015-5352
+
+OpenSSH incorrectly verified time window deadlines for X connections. Remote attackers could take advantage of this flaw to bypass intended access restrictions. Reported by Jann Horn.
+
+CVE-2015-5600
+
+OpenSSH improperly restricted the processing of keyboard-interactive devices within a single connection, which could allow remote attackers to perform brute-force attacks or cause a denial of service, in a non-default configuration.
+
+CVE-2015-6563
+
+OpenSSH incorrectly handled usernames during PAM authentication. In conjunction with an additional flaw in the OpenSSH unprivileged child process, remote attackers could make use if this issue to perform user impersonation. Discovered by Moritz Jodeit.
+
+CVE-2015-6564
+
+Moritz Jodeit discovered a use-after-free flaw in PAM support in OpenSSH, that could be used by remote attackers to bypass authentication or possibly execute arbitrary code.
 
 CVE-2016-1908
 
 OpenSSH mishandled untrusted X11 forwarding when the X server disables the SECURITY extension. Untrusted connections could obtain trusted X11 forwarding privileges. Reported by Thomas Hoger.
 
-For Debian 8 Jessie, this problem has been fixed in version 1:6.7p1-5+deb8u7.
+CVE-2016-3115
+
+OpenSSH improperly handled X11 forwarding data related to authentication credentials. Remote authenticated users could make use of this flaw to bypass intended shell-command restrictions. Identified by github.com/tintinweb.
+
+CVE-2016-6515
+
+OpenSSH did not limit password lengths for password authentication. Remote attackers could make use of this flaw to cause a denial of service via long strings.
+
+CVE-2016-10009
+
+Jann Horn discovered an untrusted search path vulnerability in ssh-agent allowing remote attackers to execute arbitrary local PKCS#11 modules by leveraging control over a forwarded agent-socket.
+
+CVE-2016-10011
+
+Jann Horn discovered that OpenSSH did not properly consider the effects of realloc on buffer contents. This may allow local users to obtain sensitive private-key information by leveraging access to a privilege-separated child process.
+
+CVE-2016-10012
+
+Guido Vranken discovered that the OpenSSH shared memory manager did not ensure that a bounds check was enforced by all compilers, which could allow local users to gain privileges by leveraging access to a sandboxed privilege-separation process.
+
+CVE-2016-10708
+
+NULL pointer dereference and daemon crash via an out-of-sequence NEWKEYS message.
+
+CVE-2017-15906
+
+Michal Zalewski reported that OpenSSH improperly prevent write operations in readonly mode, allowing attackers to create zero-length files.
+
+For Debian 8 Jessie, these problems have been fixed in version 1:6.7p1-5+deb8u6.
 
 We recommend that you upgrade your openssh packages.
 

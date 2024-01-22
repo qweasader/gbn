@@ -9,17 +9,17 @@ CPE = "cpe:/a:konicaminolta:ftp_utility";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805750");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2015-09-28 13:43:21 +0530 (Mon, 28 Sep 2015)");
   script_cve_id("CVE-2015-7603", "CVE-2015-7767", "CVE-2015-7768");
   script_name("Konica Minolta FTP Utility Multiple vulnerabilities");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("FTP");
-  script_dependencies("gb_konica_minolta_ftp_utility_detect.nasl");
+  script_dependencies("gb_konica_minolta_ftp_utility_detect.nasl", "logins.nasl");
   script_mandatory_keys("KonicaMinolta/Ftp/Installed");
   script_require_ports("Services/ftp", 21);
 

@@ -9,8 +9,8 @@ include("plugin_feed_info.inc");
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105659");
-  script_version("2023-10-18T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_version("2023-10-24T14:40:27+0000");
+  script_tag(name:"last_modification", value:"2023-10-24 14:40:27 +0000 (Tue, 24 Oct 2023)");
   script_tag(name:"creation_date", value:"2016-05-09 15:46:47 +0200 (Mon, 09 May 2016)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -115,7 +115,7 @@ if (http_ports = get_kb_list("cisco/ios_xe/http/port")) {
   extra += 'Remote Detection over HTTP:\n';
 
   foreach port (http_ports) {
-    extra += "  Port:                " + port + '/udp\n';
+    extra += "  Port:                " + port + '/tcp\n';
 
     concludedUrl = get_kb_item("cisco/ios_xe/http/" + port + "/concludedUrl");
     if (concludedUrl)

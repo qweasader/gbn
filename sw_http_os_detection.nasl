@@ -8,8 +8,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111067");
-  script_version("2023-10-19T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2015-12-10 16:00:00 +0100 (Thu, 10 Dec 2015)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -288,7 +288,19 @@ function check_http_banner( port, banner ) {
     # Cross-platform, e.g.:
     # Server: ATS
     # Server: ATS/9.1.10.57
-    if( egrep( pattern:"^Server\s*:\s*ATS(/[0-9.]+)?$", string:banner, icase:FALSE ) )
+    if( egrep( pattern:"^[Ss]erver\s*:\s*ATS(/[0-9.]+)?$", string:banner, icase:FALSE ) )
+      return;
+
+    # Cross-platform, usually just:
+    # Server: CrushFTP HTTP Server
+    if( egrep( pattern:"^[Ss]erver\s*:\s*CrushFTP HTTP Server$", string:banner, icase:FALSE ) )
+      return;
+
+    # Cross-platform, e.g.:
+    # Server: Wing FTP Server
+    # Server: Wing FTP Server(Free Edition)
+    # Server: Wing FTP Server(<companyname_the_product_is_using>)
+    if( egrep( pattern:"^[Ss]erver\s*:\s*Wing FTP Server", string:banner, icase:FALSE ) )
       return;
 
     if( banner == "Server:" ||
@@ -323,6 +335,7 @@ function check_http_banner( port, banner ) {
         banner == "Server: com.novell.zenworks.httpserver" || # Cross-platform
         banner == "Server: Tableau" || # Runs at least on Linux and Windows
         banner == "Server: PAM360" || # ManageEngine PAM360. Runs at least on Linux and Windows
+        banner == "Server: Security Console" || # Rapid7 InsightVM or Nexpose can run on Linux and Windows
         "erver: BBC " >< banner || # OV Communication Broker runs on various different OS variants
         "Server: PanWeb Server/" >< banner || # Already covered by gb_paloalto_panos_http_detect.nasl
         egrep( pattern:"^Server: com.novell.zenworks.httpserver/[0-9.]+$", string:banner ) || # Cross-platform, e.g. Server: com.novell.zenworks.httpserver/1.0
@@ -787,78 +800,11 @@ function check_http_banner( port, banner ) {
       return;
     }
 
-    # https://en.wikipedia.org/wiki/Internet_Information_Services#History
-    # Some IIS versions are shipped with two or more OS variants so registering all here.
-    # IMPORTANT: Before registering two or more OS make sure that all OS variants have reached
-    # their EOL as we currently can't control / prioritize which of the registered OS is chosen
-    # for the "BestOS" and we would e.g. report a Server 2012 as EOL if Windows 8 was chosen.
+    # nb: More detailed OS detection in gb_microsoft_iis_http_detect.nasl which is e.g. also
+    # following redirects or using additional 404 page fingerprinting to detect the product in more
+    # detail.
     if( "Microsoft-IIS" >< banner ) {
-      version = eregmatch( pattern:"Microsoft-IIS/([0-9.]+)", string:banner );
-      if( ! isnull( version[1] ) ) {
-        if( version[1] == "10.0" ) {
-          # keep: os_register_and_report( os:"Microsoft Windows Server 2016", cpe:"cpe:/o:microsoft:windows_server_2016", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          # keep: os_register_and_report( os:"Microsoft Windows 10", cpe:"cpe:/o:microsoft:windows_10", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          os_register_and_report( os:"Microsoft Windows Server 2016 or Microsoft Windows 10", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          return;
-        }
-        if( version[1] == "8.5" ) {
-          # keep: os_register_and_report( os:"Microsoft Windows Server 2012 R2", cpe:"cpe:/o:microsoft:windows_server_2012:r2", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          # keep: os_register_and_report( os:"Microsoft Windows 8.1", cpe:"cpe:/o:microsoft:windows_8.1", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          os_register_and_report( os:"Microsoft Windows Server 2012 R2 or Microsoft Windows 8.1", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          return;
-        }
-        if( version[1] == "8.0" ) {
-          # keep: os_register_and_report( os:"Microsoft Windows Server 2012", cpe:"cpe:/o:microsoft:windows_server_2012", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          # keep: os_register_and_report( os:"Microsoft Windows 8", cpe:"cpe:/o:microsoft:windows_8", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          os_register_and_report( os:"Microsoft Windows Server 2012 or Microsoft Windows 8", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          return;
-        }
-        if( version[1] == "7.5" ) {
-          # keep: os_register_and_report( os:"Microsoft Windows Server 2008 R2", cpe:"cpe:/o:microsoft:windows_server_2008:r2", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          # keep: os_register_and_report( os:"Microsoft Windows 7", cpe:"cpe:/o:microsoft:windows_7", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          os_register_and_report( os:"Microsoft Windows Server 2008 R2 or Microsoft Windows 7", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          return;
-        }
-        if( version[1] == "7.0" ) {
-          # keep: os_register_and_report( os:"Microsoft Windows Server 2008", cpe:"cpe:/o:microsoft:windows_server_2008", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          # keep: os_register_and_report( os:"Microsoft Windows Vista", cpe:"cpe:/o:microsoft:windows_vista", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          os_register_and_report( os:"Microsoft Windows Server 2008 or Microsoft Windows Vista", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          return;
-        }
-        if( version[1] == "6.0" ) {
-          os_register_and_report( os:"Microsoft Windows Server 2003 R2", cpe:"cpe:/o:microsoft:windows_server_2003:r2", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          os_register_and_report( os:"Microsoft Windows Server 2003", cpe:"cpe:/o:microsoft:windows_server_2003", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          os_register_and_report( os:"Microsoft Windows XP Professional x64", cpe:"cpe:/o:microsoft:windows_xp:-:-:x64", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          return;
-        }
-        if( version[1] == "5.1" ) {
-          os_register_and_report( os:"Microsoft Windows XP Professional", cpe:"cpe:/o:microsoft:windows_xp", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          return;
-        }
-        if( version[1] == "5.0" ) {
-          os_register_and_report( os:"Microsoft Windows 2000", cpe:"cpe:/o:microsoft:windows_2000", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          return;
-        }
-        if( version[1] == "4.0" ) {
-          os_register_and_report( os:"Microsoft Windows NT 4.0 Option Pack", cpe:"cpe:/o:microsoft:windows_nt:4.0", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          return;
-        }
-        if( version[1] == "3.0" ) {
-          os_register_and_report( os:"Microsoft Windows NT 4.0 SP2", cpe:"cpe:/o:microsoft:windows_nt:4.0:sp2", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          return;
-        }
-        if( version[1] == "2.0" ) {
-          os_register_and_report( os:"Microsoft Windows NT", version:"4.0", cpe:"cpe:/o:microsoft:windows_nt", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          return;
-        }
-        if( version[1] == "1.0" ) {
-          os_register_and_report( os:"Microsoft Windows NT", version:"3.51", cpe:"cpe:/o:microsoft:windows_nt", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-          return;
-        }
-      }
       os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
-      # nb: We also want to report an unknown OS if none of the above patterns for Windows is matching
-      os_register_unknown_banner( banner:banner, banner_type_name:banner_type, banner_type_short:"http_banner", port:port );
       return;
     }
 
@@ -2359,40 +2305,52 @@ function check_default_page( port ) {
 
 function check_x_powered_by_banner( port, banner ) {
 
-  local_var port, banner, banner_type;
+  local_var port, banner;
+  local_var banner_type;
 
-  if( banner && banner = egrep( pattern:"^X-Powered-By\s*:.*$", string:banner, icase:TRUE ) ) {
+  if( ! banner )
+    return;
+
+  if( banner = egrep( pattern:"^X-Powered-By\s*:.*$", string:banner, icase:TRUE ) ) {
 
     banner = chomp( banner );
 
-    if( banner =~ "^X-Powered-By\s*:\s*$" ) return;
+    if( banner =~ "^X-Powered-By\s*:\s*$" )
+      return;
 
     # Both covered by check_php_banner()
     # e.g. X-Powered-By: PHP/7.0.19 or X-Powered-By: PHP/7.0.19-1
-    if( " PHP" >< banner || egrep( pattern:"^X-Powered-By\s*:\s*PHP/[0-9.]+(-[0-9]+)?$", string:banner, icase:TRUE ) ) return;
+    if( " PHP" >< banner || egrep( pattern:"^X-Powered-By\s*:\s*PHP/[0-9.]+(-[0-9]+)?$", string:banner, icase:TRUE ) )
+      return;
 
     # Express Framework is supported on Windows, Linux/Unix etc.
-    if( banner == "X-Powered-By: Express" ) return;
+    if( banner == "X-Powered-By: Express" )
+      return;
 
     # Java based application, cross-platform.
     # e.g. X-Powered-By: Servlet/3.0
-    if( egrep( pattern:"^X-Powered-By\s*:\s*Servlet/([0-9.]+)$", string:banner, icase:TRUE ) ) return;
+    if( egrep( pattern:"^X-Powered-By\s*:\s*Servlet/([0-9.]+)$", string:banner, icase:TRUE ) )
+      return;
 
     # Cross-platform (Java), e.g.:
     # X-Powered-By: Undertow/1
-    if( egrep( pattern:"^X-Powered-By\s*:\s*Undertow(/[0-9.]+)?$", string:banner, icase:TRUE ) ) return;
+    if( egrep( pattern:"^X-Powered-By\s*:\s*Undertow(/[0-9.]+)?$", string:banner, icase:TRUE ) )
+      return;
 
     # Cross-platform (at least Windows, Linux and Mac OS X), e.g.:
     # X-Powered-By: ASP.NET
-    if( banner == "X-Powered-By: ASP.NET" ) return;
+    if( banner == "X-Powered-By: ASP.NET" )
+      return;
 
     banner_type = "X-Powered-By Server banner";
 
+    # X-Powered-By: PleskWin
     if( "PleskWin" >< banner ) {
       os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
       return;
     }
 
+    # X-Powered-By: PleskLin
     if( "PleskLin" >< banner ) {
       os_register_and_report( os:"Linux/Unix", cpe:"cpe:/o:linux:kernel", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
@@ -2407,6 +2365,46 @@ function check_x_powered_by_banner( port, banner ) {
     }
     os_register_unknown_banner( banner:banner, banner_type_name:banner_type, banner_type_short:"http_x_powered_by_banner", port:port );
   }
+
+  return;
+}
+
+# nb: Separate function as there are systems which had e.g.:
+# X-Powered-By: ASP.NET
+# X-Powered-By-Plesk: PleskWin
+# and the check_x_powered_by_banner() had "returned" in that case
+function check_x_powered_by_plesk_banner( port, banner ) {
+
+  local_var port, banner;
+  local_var banner_type;
+
+  if( ! banner )
+    return;
+
+  if( banner = egrep( pattern:"^X-Powered-By-Plesk\s*:.*$", string:banner, icase:TRUE ) ) {
+
+    banner = chomp( banner );
+
+    # X-Powered-By-Plesk:
+    # X-Powered-By-Plesk: PleskWin
+    # nb: Only seen the "PleskWin" so far but the PleskLin was also added just to be sure...
+    if( banner =~ "^X-Powered-By-Plesk\s*:\s*$" )
+      return;
+
+    banner_type = "X-Powered-By-Plesk Server banner";
+
+    if( "PleskWin" >< banner ) {
+      os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
+      return;
+    }
+
+    if( "PleskLin" >< banner ) {
+      os_register_and_report( os:"Linux/Unix", cpe:"cpe:/o:linux:kernel", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+      return;
+    }
+    os_register_unknown_banner( banner:banner, banner_type_name:banner_type, banner_type_short:"http_x_powered_by_plesk_banner", port:port );
+  }
+
   return;
 }
 
@@ -2502,10 +2500,10 @@ check_default_page( port:port );
 check_x_powered_by_banner( port:port, banner:banner );
 check_user_agent_banner( port:port, banner:banner );
 check_daap_banner( port:port, banner:banner );
+check_x_powered_by_plesk_banner( port:port, banner:banner );
 
 # Outlook Web App (OWA) of Exchange < 15.x
-# nb: This was placed down here because none of the functions above are matching
-# and at least the HTTP banner one might detect the OS in greater detail via the IIS banner.
+# nb: This was placed down here because none of the functions above are matching.
 if( concl = egrep( string:banner, pattern:"^X-OWA-Version\s*:.+", icase:TRUE ) ) {
   concl = chomp( concl );
   os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:"X-OWA-Version banner", port:port, banner:concl, desc:SCRIPT_DESC, runs_key:"windows" );

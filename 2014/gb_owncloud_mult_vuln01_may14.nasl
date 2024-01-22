@@ -9,12 +9,12 @@ CPE = "cpe:/a:owncloud:owncloud";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804288");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2023-12-01T16:11:30+0000");
   script_cve_id("CVE-2013-2041", "CVE-2013-2086", "CVE-2013-2044", "CVE-2013-2047",
                 "CVE-2013-2048", "CVE-2013-2085", "CVE-2013-2089");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"creation_date", value:"2014-05-06 19:11:33 +0530 (Tue, 06 May 2014)");
   script_name("ownCloud Multiple Vulnerabilities - 01 May14");
 
@@ -47,7 +47,7 @@ phishing attacks, obtain sensitive information and execute arbitrary
 script code in a user's browser within the trust relationship between their
 browser and the server.");
   script_tag(name:"affected", value:"ownCloud Server 5.0.x before version 5.0.6");
-  script_tag(name:"solution", value:"Upgrade to ownCloud version 5.0.6 or later.");
+  script_tag(name:"solution", value:"Update to version 5.0.6 or later.");
   script_tag(name:"solution_type", value:"VendorFix");
 
   script_xref(name:"URL", value:"http://owncloud.org/about/security/advisories/oC-SA-2013-026");
@@ -68,26 +68,24 @@ browser and the server.");
   script_tag(name:"qod_type", value:"remote_banner");
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_owncloud_detect.nasl");
-  script_mandatory_keys("owncloud/installed");
-  script_require_ports("Services/www", 80);
+  script_dependencies("gb_owncloud_http_detect.nasl");
+  script_mandatory_keys("owncloud/detected");
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-if(!ownPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_in_range(version:version, test_version:"5.0.0", test_version2:"5.0.6")) {
+  report = report_fixed_ver(installed_version:version, vulnerable_range:"5.0.0 - 5.0.6");
+  security_message(port:port, data:report);
   exit(0);
 }
 
-if(!ownVer = get_app_version(cpe:CPE, port:ownPort)){
-  exit(0);
-}
-
-if(version_in_range(version:ownVer, test_version:"5.0.0", test_version2:"5.0.6"))
-{
-  report = report_fixed_ver(installed_version:ownVer, vulnerable_range:"5.0.0 - 5.0.6");
-  security_message(port:ownPort, data:report);
-  exit(0);
-}
+exit(99);

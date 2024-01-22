@@ -9,37 +9,32 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2015.288");
   script_cve_id("CVE-2015-5352", "CVE-2015-5600");
   script_tag(name:"creation_date", value:"2023-03-08 12:56:44 +0000 (Wed, 08 Mar 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:C");
 
-  script_name("Debian: Security Advisory (DLA-288)");
+  script_name("Debian: Security Advisory (DLA-288-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB6");
 
-  script_xref(name:"Advisory-ID", value:"DLA-288");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2015/dla-288-2");
-  script_xref(name:"URL", value:"https://lists.debian.org/debian-lts-announce/2015/08/msg00001.html");
+  script_xref(name:"Advisory-ID", value:"DLA-288-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2015/DLA-288-1");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'openssh' package(s) announced via the DLA-288 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'openssh' package(s) announced via the DLA-288-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"In Debian LTS (squeeze), the fix for CVE-2015-5600[1] in openssh 1:5.5p1-6+squeeze7 breaks authentication mechanisms that rely on the keyboard-interactive method. Thanks to Colin Watson for making aware of that.
+  script_tag(name:"insight", value:"In Debian LTS (squeeze), the fix for CVE-2015-5600 in openssh 1:5.5p1-6+squeeze7 breaks authentication mechanisms that rely on the keyboard-interactive method. Thanks to Colin Watson for making aware of that.
 
 The patch fixing CVE-2015-5600 introduces the field devices_done to the KbdintAuthctxt struct, but does not initialize the field in the kbdint_alloc() function. On Linux, this ends up filling that field with junk data. The result of this are random login failures when keyboard-interactive authentication is used.
 
 This upload of openssh 1:5.5p1-6+squeeze7 to Debian LTS (squeeze) adds that initialization of the `devices_done` field alongside the existing initialization code.
 
-People relying on keyboard-interactive based authentication mechanisms with OpenSSH on Debian squeeze(-lts) systems are recommended to upgrade OpenSSH to 1:5.5p1-6+squeeze7.
-
-[1] [link moved to references]
-
-For Debian 6 Squeeze, these issues have been fixed in openssh version 1:5.5p1-6+squeeze7");
+People relying on keyboard-interactive based authentication mechanisms with OpenSSH on Debian squeeze(-lts) systems are recommended to upgrade OpenSSH to 1:5.5p1-6+squeeze7.");
 
   script_tag(name:"affected", value:"'openssh' package(s) on Debian 6.");
 

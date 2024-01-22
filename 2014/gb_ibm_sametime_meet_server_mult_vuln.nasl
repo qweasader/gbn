@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804825");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_cve_id("CVE-2014-4747", "CVE-2014-4748");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2014-08-27 17:35:20 +0530 (Wed, 27 Aug 2014)");
   script_name("IBM Sametime Classic Meeting Server Multiple Vulnerabilities");
 
@@ -41,7 +41,7 @@ if(description)
   script_xref(name:"URL", value:"http://www-01.ibm.com/support/docview.wss?uid=swg21679221");
   script_xref(name:"URL", value:"http://www-01.ibm.com/support/docview.wss?uid=swg21679454");
   script_category(ACT_ATTACK);
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
@@ -61,7 +61,7 @@ http_port = http_get_port(default:80);
 
 url = "/stcenter.nsf";
 
-sndReq = http_get(item: url,  port:http_port);
+sndReq = http_get(item: url, port:http_port);
 rcvRes = http_keepalive_send_recv(port:http_port, data:sndReq);
 
 if (rcvRes && ">Welcome to IBM Lotus Sametime<" >< rcvRes)

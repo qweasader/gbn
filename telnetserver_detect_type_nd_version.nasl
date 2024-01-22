@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10281");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2023-12-15T16:10:08+0000");
+  script_tag(name:"last_modification", value:"2023-12-15 16:10:08 +0000 (Fri, 15 Dec 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -420,6 +420,16 @@ if( strlen( banner ) ) {
   if( banner =~ "FortiADC" ) {
     set_kb_item( name:"telnet/fortinet/fortiadc/detected", value:TRUE );
     guess += '\n- Fortinet FortiADC';
+  }
+
+  if( banner =~ "telnet session telnet[0-9]+ on /dev/ptyb[0-9]+" ) {
+    set_kb_item( name:"telnet/extreme/exos/detected", value:TRUE );
+    guess += '\n- Extreme Networks EXOS Switch';
+  }
+
+  if( banner =~ "Welcome on mldonkey command-line" ) {
+    set_kb_item( name:"telnet/mldonkey/detected", value:TRUE );
+    guess += '\n- MLDonkey';
   }
 
   report = 'Remote Telnet banner:\n\n' + banner;

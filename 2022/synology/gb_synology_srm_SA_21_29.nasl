@@ -1,30 +1,16 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:synology:router_manager";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170262");
-  script_version("2022-12-21T10:12:09+0000");
-  script_tag(name:"last_modification", value:"2022-12-21 10:12:09 +0000 (Wed, 21 Dec 2022)");
+  script_version("2023-12-07T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2023-12-07 05:05:41 +0000 (Thu, 07 Dec 2023)");
   script_tag(name:"creation_date", value:"2022-12-05 14:15:32 +0000 (Mon, 05 Dec 2022)");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:N");
@@ -34,15 +20,16 @@ if(description)
 
   script_cve_id("CVE-2016-2124", "CVE-2020-25717");
 
-  script_tag(name:"qod_type", value:"remote_banner");
+  # nb: Seems that the affected component needs to be update separately
+  script_tag(name:"qod_type", value:"remote_banner_unreliable");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"VendorFix");
 
   script_name("Synology Router Manager Multiple Samba Vulnerabilities (Synology-SA-21:29)");
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("General");
   script_dependencies("gb_synology_srm_consolidation.nasl");
   script_mandatory_keys("synology/srm/detected");
@@ -61,8 +48,11 @@ if(description)
 
   script_tag(name:"affected", value:"Synology Router Manager version 1.2.x.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 20th December, 2022.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"- Update SMB Service to version 4.15.13-0781 or later
+
+  - Update Synology Directory Server to version 4.15.13-0615 or later
+
+  Please see the referenced vendor advisory for further information.");
 
   script_xref(name:"URL", value:"https://www.synology.com/en-global/security/advisory/Synology_SA_21_29");
 
@@ -72,11 +62,12 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if ( ! version = get_app_version( cpe:CPE, nofork:TRUE ) )
+if( ! version = get_app_version( cpe:CPE, nofork:TRUE ) )
   exit( 0 );
+
 # nb: Advisory only marks SRM 1.2 as affected
-if ( version =~ "^1\.2" ) {
-  report = report_fixed_ver( installed_version:version, fixed_version:"None" );
+if( version =~ "^1\.2" ) {
+  report = report_fixed_ver( installed_version:version, fixed_version:"See advisory" );
   security_message( port:0, data:report );
   exit( 0 );
 }

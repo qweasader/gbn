@@ -7,9 +7,9 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.121155");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2023-11-02T05:05:26+0000");
   script_tag(name:"creation_date", value:"2015-09-29 11:26:56 +0300 (Tue, 29 Sep 2015)");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_name("Gentoo Security Advisory GLSA 201402-24");
   script_tag(name:"insight", value:"Multiple vulnerabilities have been discovered in GnuPG and Libgcrypt. Please review the CVE identifiers referenced below for details.");
   script_tag(name:"solution", value:"Update the affected packages to the latest available version.");
@@ -17,7 +17,7 @@ if(description)
   script_xref(name:"URL", value:"https://security.gentoo.org/glsa/201402-24");
   script_cve_id("CVE-2012-6085", "CVE-2013-4242", "CVE-2013-4351", "CVE-2013-4402");
   script_tag(name:"cvss_base", value:"5.8");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:P");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
   script_tag(name:"qod_type", value:"package");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/gentoo", "ssh/login/pkg");

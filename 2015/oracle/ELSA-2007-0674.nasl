@@ -23,10 +23,10 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.122675");
   script_cve_id("CVE-2007-3377", "CVE-2007-3409");
   script_tag(name:"creation_date", value:"2015-10-08 11:50:53 +0000 (Thu, 08 Oct 2015)");
-  script_version("2022-04-05T08:49:18+0000");
-  script_tag(name:"last_modification", value:"2022-04-05 08:49:18 +0000 (Tue, 05 Apr 2022)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"cvss_base", value:"4.3");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
 
   script_name("Oracle: Security Advisory (ELSA-2007-0674)");
   script_category(ACT_GATHER_INFO);

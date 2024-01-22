@@ -1,38 +1,36 @@
-# Copyright (C) 2014 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2014 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105923");
-  script_version("2022-07-08T10:11:49+0000");
+  script_version("2023-12-20T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
+  script_tag(name:"creation_date", value:"2014-10-29 11:12:02 +0700 (Wed, 29 Oct 2014)");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:C/A:N");
-  script_tag(name:"last_modification", value:"2022-07-08 10:11:49 +0000 (Fri, 08 Jul 2022)");
-  script_tag(name:"creation_date", value:"2014-10-29 11:12:02 +0700 (Wed, 29 Oct 2014)");
+
+  script_tag(name:"qod_type", value:"remote_vul");
+
+  script_tag(name:"solution_type", value:"Mitigation");
+
   script_name("IPMI Default Password Vulnerability");
 
-  script_tag(name:"summary", value:"It was possible to find default password/username
-  combinations for the IPMI protocol.");
+  script_category(ACT_ATTACK);
 
-  script_tag(name:"vuldetect", value:"Tries to get a RAKP Message 2 (IPMI v2.0) to check the password hash
-  or activate a session (IPMI v1.5).");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
+  script_family("Default Accounts");
+  script_dependencies("gb_ipmi_detect.nasl");
+  script_require_udp_ports("Services/udp/ipmi", 623);
+
+  script_tag(name:"summary", value:"It was possible to find default password/username combinations
+  for the IPMI protocol.");
+
+  script_tag(name:"vuldetect", value:"Tries to get a RAKP Message 2 (IPMI v2.0) to check the
+  password hash or activate a session (IPMI v1.5).");
 
   script_tag(name:"insight", value:"Many IPMI enabled devices have set default username/password
   combinations. If these are not changed or disabled if opens up an easy exploitable vulnerability.");
@@ -45,30 +43,36 @@ if(description)
 
   script_xref(name:"URL", value:"http://packetstormsecurity.com/files/105730/Supermicro-IPMI-Default-Accounts.html");
 
-  script_category(ACT_ATTACK);
-  script_tag(name:"qod_type", value:"remote_vul");
-  script_tag(name:"solution_type", value:"Mitigation");
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
-  script_family("General");
-  script_dependencies("gb_ipmi_detect.nasl");
-  script_require_udp_ports("Services/udp/ipmi", 623);
   exit(0);
 }
 
+include("dump.inc");
 include("misc_func.inc");
 include("byte_func.inc");
+include("ipmi_func.inc");
+
+debug = FALSE;
 
 function verify_sha1_hash(password, salt, sha1) {
+  local_var password, salt, sha1;
+  local_var hmac;
+
   hmac = HMAC_SHA1(data:salt, key:password);
   return (hmac == sha1);
 }
 
 function create_rakp_salt(sid, bmcsid, randid, bmcrandid, bmcguid, username) {
-  salt = raw_string(sid, bmcsid, randid, bmcrandid, bmcguid, 0x14, strlen(username), username);
+  local_var sid, bmcsid, randid, bmcrandid, bmcguid, username;
+  local_var salt;
+
+  salt = raw_string(mkdword(sid), mkdword(bmcsid), randid, bmcrandid, bmcguid, 0x14, strlen(username), username);
   return salt;
 }
 
 function checksum(data) {
+  local_var data;
+  local_var checksum, i;
+
   checksum = 0;
   for (i=0; i<strlen(data); i++) {
      checksum = (checksum + ord(data[i])) % 256;
@@ -77,6 +81,8 @@ function checksum(data) {
 }
 
 function createHash(alg, password, sessionid, data, seqnr) {
+  local_var alg, password, sessionid, data, seqnr;
+
   if (alg == "MD5") {
     return MD5(password + sessionid + data + seqnr + password);
   } else {
@@ -89,97 +95,66 @@ if (!get_udp_port_state(port))
   exit(0);
 
 usernames = make_list("", "ADMIN", "admin", "root", "USERID", "Administrator");
-passwords = make_list("admin", "calvin", "PASSW0RD", "ADMIN", "changeme", "password");
+passwords = make_list("admin", "calvin", "PASSW0RD", "ADMIN", "changeme", "password", "superuser");
 
-if(!soc = open_sock_udp(port))
+if (!soc = open_sock_udp(port))
   exit(0);
-
-report = ""; # nb: To make openvas-nasl-lint happy...
 
 # IPMI v2.0
 if (get_kb_item("ipmi/" + port + "/version/2.0")) {
   foreach username (usernames) {
     # Open Session Request
-    sessionid = rand_str(length:4, charset:"0123456789");
-    open_req = raw_string(# Header
-                          0x06, 0x00, 0xff, 0x07,  # RMCP Header
-                          0x06,                    # RMCP+ Authentication Type
-                          0x10,                    # RMCP+ Open Session Request
-                          0x00, 0x00, 0x00, 0x00,  # Session ID
-                          0x00, 0x00, 0x00, 0x00,  # Sequence Number
-                          0x20, 0x00,              # payload length
-                          # Payload
-                          0x00, 0x00,              # Request max privilege level
-                          0x00, 0x00,              # Reserved
-                          sessionid,               # Remote Console Session ID
-                          # Authentication Payload
-                          0x00, 0x00, 0x00, 0x08,  # payload type and length
-                          0x01, 0x00, 0x00, 0x00,  # Auth Type (SHA1)
-                          # Integrity Payload
-                          0x01, 0x00, 0x00, 0x08,  # payload type and length
-                          0x01, 0x00, 0x00, 0x00,  # Integrity algorithm (HMAC-SHA1-96)
-                          # Confidentiality Payload
-                          0x02, 0x00, 0x00, 0x08,  # payload type and length
-                          0x01, 0x00, 0x00, 0x00   # confidentiality algorithm (AES-CBC-128)
-                         );
+    console_session_id = rand();
 
-    send(socket:soc, data:open_req);
+    open_req = ipmi_v2_create_open_session_request(console_session_id: console_session_id, debug: debug);
+    if (isnull(open_req))
+      continue;
+
+    send(socket: soc, data: open_req);
     recv = recv(socket:soc, length:1024);
 
     # Error Checking
     if (!recv || hexstr(recv) !~ "0600ff070611") {
       exit(0);                          # Not the right response, so exit
     }
+
     if (hexstr(recv[17]) == "01") {     # Try to handle "Insufficient Resources"
       sleep(3);
       continue;
     }
 
-    # RAKP Message 1
-    bmc_session_id = substr(recv, 24, 27);
-    console_random_id = rand_str(length:16, charset:"0123456789");
-    rakp_1 = raw_string(# Header
-                        0x06, 0x00, 0xff, 0x07,    # RMCP Header
-                        0x06,                      # RMCP+ Authentication Type
-                        0x12,                      # Payload type (RAKP Message 1)
-                        0x00, 0x00, 0x00, 0x00,    # Session ID
-                        0x00, 0x00, 0x00, 0x00,    # Sequence Number
-                        0x21, 0x00,                # payload length
-                        # Payload
-                        0x00, 0x00, 0x00, 0x00,    # Message tag and 3 bytes reserved
-                        bmc_session_id[0],         # Managed System Session ID
-                        bmc_session_id[1],
-                        bmc_session_id[2],
-                        bmc_session_id[3],
-                        console_random_id,         # Remote Console Random Number
-                        0x14,                      # Requested Max Privilege
-                        0x00, 0x00,                # reserved
-                        strlen(username),          # username length
-                        username
-                       );
+    bmc_session_id = ipmi_v2_parse_open_session_reply(data: recv, debug: debug);
+    if (isnull(bmc_session_id))
+      continue;
 
-    send(socket:soc, data:rakp_1);
-    recv = recv(socket:soc, length:1024);
+    console_random_id = rand_str(length:16, charset:"0123456789");
+
+    # RAKP Message 1
+    rakp_1 = ipmi_v2_create_rakp_message_1(bmc_session_id: bmc_session_id, console_id: console_random_id,
+                                           username: username, debug: debug);
+    if (isnull(rakp_1))
+      continue;
+
+    send(socket: soc, data: rakp_1);
+    recv = recv(socket: soc, length: 1024);
 
     # Error Checking
     if (!recv || hexstr(recv[16]) !~ "00" || hexstr(recv[17]) !~ "00") {
       continue;
     }
     else {
-      # HMAC hash
-      sha1_hash = substr(recv, 56);
-      if (hexstr(sha1_hash) == "0000000000000000000000000000000000000000") {
+      if (!infos = ipmi_v2_parse_rakp_message_reply(data: recv, debug: debug))
         continue;
-      }
 
-      bmc_random_id = substr(recv, 24, 39);
-      bmc_guid = substr(recv, 40, 55);
+      sha1_hash = infos["hash"];
+      bmc_random_id = infos["rand_bmc_id"];
+      bmc_guid = infos["bmc_guid"];
 
       foreach password (passwords) {
-        salt = create_rakp_salt(sid:sessionid, bmcsid:bmc_session_id, randid:console_random_id,
-                                bmcrandid:bmc_random_id, bmcguid:bmc_guid, username:username);
+        salt = create_rakp_salt(sid: console_session_id, bmcsid: bmc_session_id, randid: console_random_id,
+                                bmcrandid: bmc_random_id, bmcguid: bmc_guid, username: username);
 
-        if (verify_sha1_hash(password:password, salt:salt, sha1:sha1_hash)) {
+        if (verify_sha1_hash(password: password, salt: salt, sha1: sha1_hash)) {
           set_kb_item(name:"ipmi/credentials", value:TRUE);
           set_kb_item(name:"ipmi/" + port + "/credentials", value:username + "/" + password);
           if (username == "") {
@@ -322,7 +297,7 @@ else {
 
 close(soc);
 
-if (report != "") {
-  report = string("Found the following default Username/Password combination:\n", report);
-  security_message(port:port, proto:"udp", data:report);
+if (report) {
+  report = string('Found the following default Username/Password combination:\n\n', report);
+  security_message(port: port, proto: "udp", data: chomp(report));
 }

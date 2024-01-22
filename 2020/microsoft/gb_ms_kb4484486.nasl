@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.817407");
-  script_version("2021-08-11T08:56:08+0000");
+  script_version("2024-01-05T16:09:35+0000");
   script_cve_id("CVE-2020-1493", "CVE-2020-1483");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-08-11 08:56:08 +0000 (Wed, 11 Aug 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2024-01-05 16:09:35 +0000 (Fri, 05 Jan 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-08-24 15:33:00 +0000 (Mon, 24 Aug 2020)");
+  script_tag(name:"severity_date", value:"2024-01-04 02:15:00 +0000 (Thu, 04 Jan 2024)");
   script_tag(name:"creation_date", value:"2020-08-12 11:18:48 +0530 (Wed, 12 Aug 2020)");
   script_name("Microsoft Outlook 2013 Service Pack 1 Memory Corruption and Information Disclosure Vulnerabilities (KB4484486)");
 

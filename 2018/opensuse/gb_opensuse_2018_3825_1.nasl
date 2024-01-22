@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.852138");
-  script_version("2021-06-29T02:00:29+0000");
+  script_version("2023-11-03T16:10:08+0000");
   script_cve_id("CVE-2018-19131", "CVE-2018-19132");
   script_tag(name:"cvss_base", value:"4.3");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2021-06-29 02:00:29 +0000 (Tue, 29 Jun 2021)");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-12-11 20:54:00 +0000 (Tue, 11 Dec 2018)");
+  script_tag(name:"severity_date", value:"2020-07-11 00:15:00 +0000 (Sat, 11 Jul 2020)");
   script_tag(name:"creation_date", value:"2018-11-21 06:03:51 +0100 (Wed, 21 Nov 2018)");
   script_name("openSUSE: Security Advisory for squid (openSUSE-SU-2018:3825-1)");
   script_category(ACT_GATHER_INFO);

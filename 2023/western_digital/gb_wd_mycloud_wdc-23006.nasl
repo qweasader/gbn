@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.149702");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2023-10-24T05:06:28+0000");
+  script_tag(name:"last_modification", value:"2023-10-24 05:06:28 +0000 (Tue, 24 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-05-19 07:45:46 +0000 (Fri, 19 May 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -23,7 +23,7 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Western Digital My Cloud Multiple Products 5.x < 5.26.202 Multiple Vulnerabilities (WDC-23006)");
+  script_name("Western Digital My Cloud Multiple Products 5.x < 5.26.202 Multiple Vulnerabilities (WDC-23006, WDC-23009)");
 
   script_category(ACT_GATHER_INFO);
 
@@ -65,6 +65,7 @@ if(description)
 
   script_xref(name:"URL", value:"https://os5releasenotes.mycloud.com/#5.26.202");
   script_xref(name:"URL", value:"https://www.westerndigital.com/support/product-security/wdc-23006-my-cloud-firmware-version-5-26-202");
+  script_xref(name:"URL", value:"https://www.westerndigital.com/support/product-security/wdc-23009-western-digital-my-cloud-os-5-my-cloud-home-and-sandisk-ibi-firmware-update");
 
   exit(0);
 }

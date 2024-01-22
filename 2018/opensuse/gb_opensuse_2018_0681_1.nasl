@@ -21,16 +21,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851715");
-  script_version("2021-06-29T02:00:29+0000");
-  script_tag(name:"last_modification", value:"2021-06-29 02:00:29 +0000 (Tue, 29 Jun 2021)");
+  script_version("2023-11-03T16:10:08+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-03-17 08:44:24 +0100 (Sat, 17 Mar 2018)");
   script_cve_id("CVE-2018-5125", "CVE-2018-5127", "CVE-2018-5129", "CVE-2018-5130",
                 "CVE-2018-5131", "CVE-2018-5144", "CVE-2018-5145");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-03-08 14:21:00 +0000 (Fri, 08 Mar 2019)");
+  script_tag(name:"severity_date", value:"2019-03-13 13:44:00 +0000 (Wed, 13 Mar 2019)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for MozillaFirefox (openSUSE-SU-2018:0681-1)");
 

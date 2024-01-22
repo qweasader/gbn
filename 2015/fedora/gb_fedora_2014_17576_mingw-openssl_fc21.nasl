@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.868855");
-  script_version("2023-07-14T16:09:26+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:26 +0000 (Fri, 14 Jul 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2015-01-05 15:04:44 +0100 (Mon, 05 Jan 2015)");
   script_cve_id("CVE-2014-3566", "CVE-2014-3505", "CVE-2014-3506", "CVE-2014-3507",
                 "CVE-2014-3511", "CVE-2014-3510", "CVE-2014-3508", "CVE-2014-3509",
@@ -16,6 +16,9 @@ if(description)
                 "CVE-2010-5298", "CVE-2014-3470");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-07-28 16:40:00 +0000 (Tue, 28 Jul 2020)");
   script_name("Fedora Update for mingw-openssl FEDORA-2014-17576");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'mingw-openssl'
   package(s) announced via the referenced advisory.");

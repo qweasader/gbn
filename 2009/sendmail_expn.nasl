@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100072");
-  script_version("2023-07-12T05:05:04+0000");
-  script_tag(name:"last_modification", value:"2023-07-12 05:05:04 +0000 (Wed, 12 Jul 2023)");
+  script_version("2023-10-31T05:06:37+0000");
+  script_tag(name:"last_modification", value:"2023-10-31 05:06:37 +0000 (Tue, 31 Oct 2023)");
   script_tag(name:"creation_date", value:"2009-03-23 19:32:33 +0100 (Mon, 23 Mar 2009)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -16,7 +16,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_family("SMTP problems");
   script_copyright("Copyright (C) 2009 Greenbone AG");
-  script_dependencies("smtpserver_detect.nasl", "smtp_settings.nasl");
+  script_dependencies("smtpserver_detect.nasl", "check_smtp_helo.nasl", "smtp_settings.nasl");
   script_require_ports("Services/smtp", 25);
   script_mandatory_keys("smtp/banner/available");
 

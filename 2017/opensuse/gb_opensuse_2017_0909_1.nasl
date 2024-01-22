@@ -21,16 +21,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851528");
-  script_version("2021-09-15T14:07:14+0000");
-  script_tag(name:"last_modification", value:"2021-09-15 14:07:14 +0000 (Wed, 15 Sep 2021)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2017-04-02 06:31:24 +0200 (Sun, 02 Apr 2017)");
   script_cve_id("CVE-2017-5052", "CVE-2017-5053", "CVE-2017-5054", "CVE-2017-5055",
                 "CVE-2017-5056");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-01-05 02:31:00 +0000 (Fri, 05 Jan 2018)");
+  script_tag(name:"severity_date", value:"2022-04-11 19:17:00 +0000 (Mon, 11 Apr 2022)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for Chromium (openSUSE-SU-2017:0909-1)");
 

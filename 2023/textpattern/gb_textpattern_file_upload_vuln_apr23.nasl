@@ -9,8 +9,8 @@ CPE = "cpe:/a:textpattern:textpattern";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170417");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-01-09T05:06:46+0000");
+  script_tag(name:"last_modification", value:"2024-01-09 05:06:46 +0000 (Tue, 09 Jan 2024)");
   script_tag(name:"creation_date", value:"2023-04-17 12:57:35 +0000 (Mon, 17 Apr 2023)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -18,13 +18,13 @@ if(description)
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-05-08 18:00:00 +0000 (Mon, 08 May 2023)");
 
-  script_cve_id("CVE-2023-26852", "CVE-2023-24269");
+  script_cve_id("CVE-2023-24269", "CVE-2023-26852", "CVE-2023-50038");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
   script_tag(name:"solution_type", value:"NoneAvailable");
 
-  script_name("Textpattern CMS <= 4.8.8 Arbitrary File Upload Vulnerability");
+  script_name("Textpattern CMS <= 4.8.8 Multiple Arbitrary File Upload Vulnerabilities");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
@@ -32,21 +32,27 @@ if(description)
   script_dependencies("gb_textpattern_cms_http_detect.nasl");
   script_mandatory_keys("textpattern_cms/detected");
 
-  script_tag(name:"summary", value:"Textpattern CMS is prone to an arbitrary file upload
-  vulnerability.");
+  script_tag(name:"summary", value:"Textpattern CMS is prone to multiple arbitrary file upload
+  vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"Textpattern CMS allows privileged users such as admin to upload
-  a .php or .zip file via upload and install plugins.");
+  script_tag(name:"insight", value:"The following vulnerabilities exist:
+
+  - CVE-2023-24269 / CVE-2023-26852: Textpattern CMS allows privileged users such as admin to
+  upload a .php or .zip file via upload and install plugins.
+
+  - CVE-2023-50038: Arbitrary file upload in the background of textpattern which leads to the
+  loss of server permissions.");
 
   script_tag(name:"affected", value:"Textpattern CMS version 4.8.8 and prior.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 03rd May, 2023.
+  script_tag(name:"solution", value:"No known solution is available as of 29th December, 2023.
   Information regarding this issue will be updated once solution details are available.");
 
   script_xref(name:"URL", value:"https://github.com/leekenghwa/CVE-2023-26852-Textpattern-v4.8.8-and-");
   script_xref(name:"URL", value:"https://github.com/s4n-h4xor/CVE-Publications/blob/main/CVE-2023-24269/CVE-2023-24269.md");
+  script_xref(name:"URL", value:"https://gist.github.com/LeopoldSkell/7e18bf09005c327a045abbfe39b1e676");
 
   exit(0);
 }
@@ -63,7 +69,7 @@ if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version:
 version = infos["version"];
 location = infos["location"];
 
-if (version_is_less(version: version, test_version: "4.8.8")) {
+if (version_is_less_equal(version: version, test_version: "4.8.8")) {
   report = report_fixed_ver(installed_version: version, fixed_version: "None", install_path: location);
   security_message(port: port, data: report);
   exit(0);

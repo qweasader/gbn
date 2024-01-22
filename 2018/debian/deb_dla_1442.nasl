@@ -9,32 +9,40 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.891442");
   script_cve_id("CVE-2018-0618", "CVE-2018-13796");
   script_tag(name:"creation_date", value:"2018-07-24 22:00:00 +0000 (Tue, 24 Jul 2018)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-05-06 20:15:00 +0000 (Wed, 06 May 2020)");
 
-  script_name("Debian: Security Advisory (DLA-1442)");
+  script_name("Debian: Security Advisory (DLA-1442-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB8");
 
-  script_xref(name:"Advisory-ID", value:"DLA-1442");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2018/dla-1442-2");
+  script_xref(name:"Advisory-ID", value:"DLA-1442-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2018/DLA-1442-1");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mailman' package(s) announced via the DLA-1442 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mailman' package(s) announced via the DLA-1442-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The security update of mailman announced as DLA-1442-1 introduced a regression due to an incomplete fix for CVE-2018-13796 that broke the admin and listinfo overview pages.
+  script_tag(name:"insight", value:"Two flaws were discovered in mailman, a web-based mailing list manager.
 
-For Debian 8 Jessie, this problem has been fixed in version 1:2.1.18-2+deb8u4.
+CVE-2018-0618
+
+Toshitsugu Yoneyama of Mitsui Bussan Secure Directions, Inc. discovered that mailman is prone to a cross-site scripting flaw allowing a malicious listowner to inject scripts into the listinfo page, due to not validated input in the host_name field.
+
+CVE-2018-13796
+
+Hammad Qureshi discovered a content spoofing vulnerability with invalid list name messages in the web UI.
+
+For Debian 8 Jessie, these problems have been fixed in version 1:2.1.18-2+deb8u3.
 
 We recommend that you upgrade your mailman packages.
 

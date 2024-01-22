@@ -8,16 +8,16 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103833");
   script_cve_id("CVE-2013-6796");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2023-10-31T05:06:37+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-31 05:06:37 +0000 (Tue, 31 Oct 2023)");
   script_tag(name:"creation_date", value:"2013-11-19 15:05:15 +0100 (Tue, 19 Nov 2013)");
   script_name("DeepOfix SMTP Authentication Bypass");
   script_category(ACT_ATTACK);
   script_family("SMTP problems");
   script_copyright("Copyright (C) 2013 Greenbone AG");
-  script_dependencies("smtpserver_detect.nasl");
+  script_dependencies("smtpserver_detect.nasl", "check_smtp_helo.nasl");
   script_require_ports("Services/smtp", 25);
   script_mandatory_keys("smtp/deepofix/detected");
 

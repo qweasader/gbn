@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100284");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2023-10-27T16:11:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2009-10-02 19:48:14 +0200 (Fri, 02 Oct 2009)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -26,7 +26,7 @@ if(description)
   script_require_ports("Services/ftp", 21);
   script_mandatory_keys("ftp/cerberus/detected");
 
-  script_tag(name:"summary", value:"Cerberus FTP Server is prone to a denial-of-service vulnerability.");
+  script_tag(name:"summary", value:"Cerberus FTP Server is prone to a denial of service (DoS) vulnerability.");
 
   script_tag(name:"impact", value:"An attacker can exploit this issue to terminate the affected
   application, denying service to legitimate users.");

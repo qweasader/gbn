@@ -12,14 +12,13 @@ if(description)
   script_cve_id("CVE-2012-3501");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-10-27T16:11:32+0000");
 
   script_name("SquidClamav URL Parsing Denial of Service Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/54663");
-  script_xref(name:"URL", value:"http://squidclamav.darold.net/news.html");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2012-09-17 12:15:00 +0200 (Mon, 17 Sep 2012)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");
@@ -31,7 +30,7 @@ if(description)
   script_mandatory_keys("SquidClamAv/installed");
   script_tag(name:"solution", value:"Vendor updates are available. Please see the references for more
 information.");
-  script_tag(name:"summary", value:"SquidClamav is prone to a denial-of-service vulnerability.");
+  script_tag(name:"summary", value:"SquidClamav is prone to a denial of service (DoS) vulnerability.");
 
   script_tag(name:"impact", value:"An attacker can exploit this issue to cause the daemon to crash,
 denying service to legitimate users.");
@@ -44,18 +43,20 @@ include("http_func.inc");
 include("host_details.inc");
 include("http_keepalive.inc");
 
-if(!port = get_app_port(cpe:CPE))exit(0);
-if(!dir = get_app_location(cpe:CPE, port:port))exit(0);
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
 
-url = dir + '/clwarn.cgi?url=<vuln-test>'; # Patch (https://github.com/darold/squidclamav/commit/5806d10a31183a0b0d18eccc3a3e04e536e2315b) -> my $url = CGI::escapeHTML($cgi->param('url')) || '';
-                                              # CGI.pm -> The "<" character becomes "&lt;", ">" becomes "&gt;", "&" becomes "&amp;", and the quote character becomes "&quot;".
-                                              # That means that if we found an unescape > or < in the response, host is vulnerable.
+if(!dir = get_app_location(cpe:CPE, port:port))
+  exit(0);
+
+url = dir + "/clwarn.cgi?url=<vuln-test>"; # Patch (https://github.com/darold/squidclamav/commit/5806d10a31183a0b0d18eccc3a3e04e536e2315b) -> my $url = CGI::escapeHTML($cgi->param('url')) || '';
+                                           # CGI.pm -> The "<" character becomes "&lt;", ">" becomes "&gt;", "&" becomes "&amp;", and the quote character becomes "&quot;".
+                                           # That means that if we found an unescape > or < in the response, host is vulnerable.
 
 if(http_vuln_check(port:port, url:url, pattern:"The requested URL <vuln-test>", extra_check:"contains the virus")) {
-
-    security_message(port:port);
-    exit(0);
-
+  report = http_report_vuln_url(port:port, url:url);
+  security_message(port:port, data:report);
+  exit(0);
 }
 
-exit(0);
+exit(99);

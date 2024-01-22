@@ -415,6 +415,9 @@ function imap_verify_banner( data ) {
 # @brief Returns an array containing the username/password credentials pair for a IMAP login.
 #        To avoid querying the KB for the same info again it will be cached within an internal variable.
 #
+# @note Add a dependency to logins.nasl so that user configured credentials from the relevant
+#       settings of that VT are getting taken into account.
+#
 # @return An array containing the following array indices:
 #
 #         ret_array["login"] = The login defined via the "IMAP account" preference of logins.nasl,
@@ -423,9 +426,6 @@ function imap_verify_banner( data ) {
 #         ret_array["pass"]  = The password defined via the "IMAP password (sent in clear)" preference of
 #                              logins.nasl, an empty string in the case the VT wasn't included in the
 #                              scan config or the preference has been cleared.
-#
-# @note Please include logins.nasl (or any VT pulling this dependency in) into your
-#       script_dependencies so that a user configured user account is taken into account.
 #
 function imap_get_kb_creds() {
 

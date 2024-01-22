@@ -10,9 +10,12 @@ if(description)
   script_cve_id("CVE-2012-1515", "CVE-2011-2482", "CVE-2011-3191", "CVE-2011-4348", "CVE-2011-4862");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-11-02T05:05:26+0000");
   script_name("VMware ESXi/ESX address several security issues (VMSA-2012-0006)");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2021-02-09 14:48:00 +0000 (Tue, 09 Feb 2021)");
   script_tag(name:"creation_date", value:"2012-04-02 10:53:01 +0100 (Mon, 02 Apr 2012)");
   script_category(ACT_GATHER_INFO);
   script_family("VMware Local Security Checks");

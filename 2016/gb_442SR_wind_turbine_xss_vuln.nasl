@@ -9,11 +9,11 @@ CPE = "cpe:/h:xzeres:442sr";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807021");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_cve_id("CVE-2015-0985");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2016-01-04 13:19:12 +0530 (Mon, 04 Jan 2016)");
   script_name("XZERES 442SR Wind Turbine Web Interface Cross Site Scripting Vulnerability");
 
@@ -37,7 +37,7 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   script_xref(name:"URL", value:"http://seclists.org/fulldisclosure/2015/Dec/116");
   script_xref(name:"URL", value:"https://ics-cert.us-cert.gov/advisories/ICSA-15-342-01");

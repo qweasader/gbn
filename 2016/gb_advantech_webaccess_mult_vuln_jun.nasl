@@ -9,14 +9,14 @@ CPE = "cpe:/a:advantech:advantech_webaccess";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106108");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2023-12-20T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2016-06-24 11:38:08 +0700 (Fri, 24 Jun 2016)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:R/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2016-06-27 17:14:00 +0000 (Mon, 27 Jun 2016)");
+  script_tag(name:"severity_date", value:"2016-06-28 14:21:00 +0000 (Tue, 28 Jun 2016)");
 
   script_cve_id("CVE-2016-4525", "CVE-2016-4528", "CVE-2016-5810");
 
@@ -60,10 +60,10 @@ system. A authenticated administrator may view passwords from other administrato
 include( "version_func.inc" );
 include( "host_details.inc" );
 
-if( isnull( port = get_app_port(cpe: CPE ) ) )
+if( isnull( port = get_app_port( cpe: CPE ) ) )
   exit( 0 );
 
-if( ! infos = get_app_version_and_location(cpe: CPE, port: port ) )
+if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) )
   exit( 0 );
 
 path = infos["location"];
@@ -74,4 +74,5 @@ if( version_is_less( version: vers, test_version: "8.1.2016.05.19" ) ) {
   security_message( data: report, port: port );
   exit( 0 );
 }
+
 exit( 99 );

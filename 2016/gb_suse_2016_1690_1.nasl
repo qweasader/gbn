@@ -21,8 +21,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851358");
-  script_version("2021-09-20T12:38:59+0000");
-  script_tag(name:"last_modification", value:"2021-09-20 12:38:59 +0000 (Mon, 20 Sep 2021)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2016-06-28 05:27:13 +0200 (Tue, 28 Jun 2016)");
   script_cve_id("CVE-2014-9717", "CVE-2015-8816", "CVE-2015-8845", "CVE-2016-0758",
                 "CVE-2016-2053", "CVE-2016-2143", "CVE-2016-2184", "CVE-2016-2185",
@@ -34,9 +34,9 @@ if(description)
                 "CVE-2016-5244");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:P/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2016-12-03 03:14:00 +0000 (Sat, 03 Dec 2016)");
+  script_tag(name:"severity_date", value:"2023-01-17 21:18:00 +0000 (Tue, 17 Jan 2023)");
   script_tag(name:"qod_type", value:"package");
   script_name("SUSE: Security Advisory for kernel (SUSE-SU-2016:1690-1)");
 

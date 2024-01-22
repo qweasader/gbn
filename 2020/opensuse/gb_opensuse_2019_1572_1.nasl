@@ -21,17 +21,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.852967");
-  script_version("2021-08-12T14:00:53+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2018-19935", "CVE-2018-20783", "CVE-2019-11034", "CVE-2019-11035",
                 "CVE-2019-11036", "CVE-2019-9020", "CVE-2019-9021", "CVE-2019-9022",
                 "CVE-2019-9023", "CVE-2019-9024", "CVE-2019-9637", "CVE-2019-9638",
                 "CVE-2019-9639", "CVE-2019-9640", "CVE-2019-9641", "CVE-2019-9675");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2021-08-12 14:00:53 +0000 (Thu, 12 Aug 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-06-18 18:15:00 +0000 (Tue, 18 Jun 2019)");
+  script_tag(name:"severity_date", value:"2022-04-05 20:49:00 +0000 (Tue, 05 Apr 2022)");
   script_tag(name:"creation_date", value:"2020-01-09 09:49:24 +0000 (Thu, 09 Jan 2020)");
   script_name("openSUSE: Security Advisory for php7 (openSUSE-SU-2019:1572-1)");
   script_category(ACT_GATHER_INFO);

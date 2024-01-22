@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.818163");
-  script_version("2021-11-16T12:59:37+0000");
+  script_version("2024-01-01T05:05:52+0000");
   script_cve_id("CVE-2021-34501");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2021-11-16 12:59:37 +0000 (Tue, 16 Nov 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2024-01-01 05:05:52 +0000 (Mon, 01 Jan 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-09-20 12:21:00 +0000 (Mon, 20 Sep 2021)");
+  script_tag(name:"severity_date", value:"2023-12-28 23:15:00 +0000 (Thu, 28 Dec 2023)");
   script_tag(name:"creation_date", value:"2021-07-14 19:53:52 +0530 (Wed, 14 Jul 2021)");
   script_tag(name:"qod_type", value:"executable_version");
   script_name("Microsoft Office Remote Code Execution Vulnerability Jul21 (Mac OS X)");

@@ -9,27 +9,27 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.893117");
   script_cve_id("CVE-2021-44856", "CVE-2022-28201", "CVE-2022-28202", "CVE-2022-28203", "CVE-2022-34911", "CVE-2022-34912");
   script_tag(name:"creation_date", value:"2022-09-23 01:00:13 +0000 (Fri, 23 Sep 2022)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-09-21 18:09:00 +0000 (Wed, 21 Sep 2022)");
 
-  script_name("Debian: Security Advisory (DLA-3117)");
+  script_name("Debian: Security Advisory (DLA-3117-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB10");
 
-  script_xref(name:"Advisory-ID", value:"DLA-3117");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2022/dla-3117");
+  script_xref(name:"Advisory-ID", value:"DLA-3117-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2022/DLA-3117-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/mediawiki");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mediawiki' package(s) announced via the DLA-3117 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mediawiki' package(s) announced via the DLA-3117-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

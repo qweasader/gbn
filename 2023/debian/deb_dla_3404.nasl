@@ -9,27 +9,27 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2023.3404");
   script_cve_id("CVE-2022-2196", "CVE-2022-3424", "CVE-2022-3707", "CVE-2022-4129", "CVE-2022-4379", "CVE-2023-0045", "CVE-2023-0458", "CVE-2023-0459", "CVE-2023-0461", "CVE-2023-1073", "CVE-2023-1074", "CVE-2023-1076", "CVE-2023-1077", "CVE-2023-1078", "CVE-2023-1079", "CVE-2023-1118", "CVE-2023-1281", "CVE-2023-1513", "CVE-2023-1611", "CVE-2023-1670", "CVE-2023-1829", "CVE-2023-1855", "CVE-2023-1859", "CVE-2023-1872", "CVE-2023-1989", "CVE-2023-1990", "CVE-2023-1998", "CVE-2023-2162", "CVE-2023-2194", "CVE-2023-22998", "CVE-2023-23004", "CVE-2023-23559", "CVE-2023-25012", "CVE-2023-26545", "CVE-2023-28328", "CVE-2023-28466", "CVE-2023-30456");
   script_tag(name:"creation_date", value:"2023-05-17 04:23:53 +0000 (Wed, 17 May 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-01-13 14:12:00 +0000 (Fri, 13 Jan 2023)");
 
-  script_name("Debian: Security Advisory (DLA-3404)");
+  script_name("Debian: Security Advisory (DLA-3404-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB10");
 
-  script_xref(name:"Advisory-ID", value:"DLA-3404");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/dla-3404");
+  script_xref(name:"Advisory-ID", value:"DLA-3404-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/DLA-3404-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/linux-5.10");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux-5.10' package(s) announced via the DLA-3404 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux-5.10' package(s) announced via the DLA-3404-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

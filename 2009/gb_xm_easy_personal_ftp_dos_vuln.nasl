@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801120");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2023-12-20T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2009-10-22 15:34:45 +0200 (Thu, 22 Oct 2009)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -25,7 +25,7 @@ if(description)
   script_category(ACT_MIXED_ATTACK);
   script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("FTP");
-  script_dependencies("gb_xm_easy_personal_ftp_detect.nasl");
+  script_dependencies("gb_xm_easy_personal_ftp_detect.nasl", "logins.nasl");
   script_mandatory_keys("XM-Easy-Personal-FTP/Ver");
   script_require_ports("Services/ftp", 21);
 

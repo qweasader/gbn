@@ -276,8 +276,10 @@ function get_version_from_build( string, win_name ) {
     if( "19045" >< string ) return "22H2";
   }
   else if( win_name == "win11" ) {
+    # https://en.wikipedia.org/wiki/Windows_11_version_history for the version <> build mapping
     if( "22000" >< string ) return "21H2";
     if( "22621" >< string ) return "22H2";
+    if( "22631" >< string ) return "23H2";
   }
   return;
 }

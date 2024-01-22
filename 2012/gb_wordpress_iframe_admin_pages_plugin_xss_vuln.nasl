@@ -9,10 +9,10 @@ CPE = "cpe:/a:wordpress:wordpress";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802855");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2012-05-16 15:26:57 +0530 (Wed, 16 May 2012)");
   script_name("WordPress iFrame Admin Pages Plugin 'url' Parameter XSS Vulnerability");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/53522");
@@ -20,7 +20,7 @@ if(description)
   script_xref(name:"URL", value:"http://packetstormsecurity.org/files/112701/wpiframeadminpages-xss.txt");
 
   script_category(ACT_ATTACK);
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_wordpress_http_detect.nasl");

@@ -9,14 +9,14 @@ CPE = "cpe:/a:asustor:adm";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112365");
-  script_version("2023-08-22T05:06:00+0000");
-  script_tag(name:"last_modification", value:"2023-08-22 05:06:00 +0000 (Tue, 22 Aug 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-08-28 10:11:00 +0200 (Tue, 28 Aug 2018)");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-10-30 13:56:00 +0000 (Tue, 30 Oct 2018)");
+  script_tag(name:"severity_date", value:"2018-10-30 14:50:00 +0000 (Tue, 30 Oct 2018)");
 
   script_cve_id("CVE-2018-15694", "CVE-2018-15695", "CVE-2018-15696", "CVE-2018-15697",
                 "CVE-2018-15698", "CVE-2018-15699");

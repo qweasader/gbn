@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809750");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2023-11-03T05:05:46+0000");
   script_cve_id("CVE-2016-7268", "CVE-2016-7276", "CVE-2016-7298", "CVE-2016-7275",
                 "CVE-2016-7290", "CVE-2016-7291", "CVE-2016-7277");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-12 22:14:00 +0000 (Fri, 12 Oct 2018)");
   script_tag(name:"creation_date", value:"2016-12-14 09:10:01 +0530 (Wed, 14 Dec 2016)");

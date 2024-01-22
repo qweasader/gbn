@@ -21,16 +21,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.853932");
-  script_version("2022-08-09T10:11:17+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2020-16044", "CVE-2021-21118", "CVE-2021-21119", "CVE-2021-21120", "CVE-2021-21121", "CVE-2021-21122", "CVE-2021-21123", "CVE-2021-21125", "CVE-2021-21126", "CVE-2021-21127", "CVE-2021-21128", "CVE-2021-21129", "CVE-2021-21130", "CVE-2021-21131", "CVE-2021-21132", "CVE-2021-21135", "CVE-2021-21137", "CVE-2021-21140", "CVE-2021-21141", "CVE-2021-21145", "CVE-2021-21146", "CVE-2021-21147", "CVE-2021-21148", "CVE-2021-21149", "CVE-2021-21150", "CVE-2021-21152", "CVE-2021-21153", "CVE-2021-21156", "CVE-2021-21157");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-02-11 21:09:00 +0000 (Thu, 11 Feb 2021)");
+  script_tag(name:"severity_date", value:"2021-05-01 02:15:00 +0000 (Sat, 01 May 2021)");
   script_tag(name:"creation_date", value:"2021-07-13 03:03:44 +0000 (Tue, 13 Jul 2021)");
   script_name("openSUSE: Security Advisory for libqt5-qtwebengine (openSUSE-SU-2021:0973-1)");
   script_category(ACT_GATHER_INFO);

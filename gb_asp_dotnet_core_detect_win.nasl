@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812949");
-  script_version("2023-06-06T09:09:18+0000");
+  script_version("2023-11-22T05:05:24+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-06-06 09:09:18 +0000 (Tue, 06 Jun 2023)");
+  script_tag(name:"last_modification", value:"2023-11-22 05:05:24 +0000 (Wed, 22 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-02-26 16:34:26 +0530 (Mon, 26 Feb 2018)");
   script_tag(name:"qod_type", value:"registry");
   script_name("ASP.NET Core/.NET Core SDK Detection (Windows)");
@@ -175,17 +175,19 @@ foreach key (key_list)
       }
     }
 
-    if(psName =~ "Microsoft .NET Core.*Runtime")
+    if(psName =~ "Microsoft .NET (Core)?.*Runtime")
     {
-      runVer = eregmatch(pattern:"Microsoft .NET Core Runtime - ([0-9.]+)", string:psName);
-      if(!runVer){
-        runVer = eregmatch(pattern:"Microsoft .NET Core ([0-9.]+) - Runtime", string:psName);
+      # Microsoft .NET Core 7.0.113 - Runtime
+      # Microsoft .NET Runtime - 8.0.0 RC 2
+      runVer = eregmatch(pattern:"Microsoft \.NET (Core )?Runtime - ([0-9.]+( RC | Preview )?[0-9]+)", string:psName);
+      if(!runVer[2]){
+        runVer = eregmatch(pattern:"Microsoft \.NET (Core )?([0-9.]+( RC | Preview )?[0-9]+) - Runtime", string:psName);
       }
-      if(runVer)
+      if(runVer[2])
       {
-        set_kb_item(name:".NET/Core/Runtime/Ver", value:runVer[1]);
+        set_kb_item(name:".NET/Core/Runtime/Ver", value:runVer[2]);
         if("64" >< os_arch && "Wow6432Node" >!< key){
-          set_kb_item(name:".NET64/Core/Runtime/Ver", value:runVer[1]);
+          set_kb_item(name:".NET64/Core/Runtime/Ver", value:runVer[2]);
         }
       }
     }

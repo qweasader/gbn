@@ -7,7 +7,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802794");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-11-02T05:05:26+0000");
   script_cve_id("CVE-2011-3389", "CVE-2012-0651", "CVE-2011-0241", "CVE-2011-2692",
                 "CVE-2011-1167", "CVE-2011-1777", "CVE-2011-1778", "CVE-2012-0654",
                 "CVE-2012-0655", "CVE-2011-1944", "CVE-2011-2821", "CVE-2011-2834",
@@ -19,7 +19,10 @@ if(description)
                 "CVE-2012-0661", "CVE-2012-0675", "CVE-2011-2895", "CVE-2011-3328");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-08-06 15:53:00 +0000 (Thu, 06 Aug 2020)");
   script_tag(name:"creation_date", value:"2012-05-18 12:26:01 +0530 (Fri, 18 May 2012)");
   script_name("Mac OS X Multiple Vulnerabilities (2012-002)");
   script_xref(name:"URL", value:"http://support.apple.com/kb/HT1222");

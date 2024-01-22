@@ -9,11 +9,14 @@ CPE = "cpe:/a:owncloud:owncloud";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804361");
-  script_version("2023-07-27T05:05:09+0000");
+  script_version("2023-12-01T16:11:30+0000");
   script_cve_id("CVE-2013-0201", "CVE-2013-0202", "CVE-2013-0203");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2019-12-18 19:39:00 +0000 (Wed, 18 Dec 2019)");
   script_tag(name:"creation_date", value:"2014-04-04 14:54:56 +0530 (Fri, 04 Apr 2014)");
   script_name("ownCloud Multiple XSS Vulnerabilities-01 Apr14");
 
@@ -42,7 +45,7 @@ if (description)
 code in a user's browser within the trust relationship between their browser
 and the server.");
   script_tag(name:"affected", value:"ownCloud Server version 4.5.x before 4.5.6 and 4.0.x before 4.0.11");
-  script_tag(name:"solution", value:"Upgrade to ownCloud version 4.5.6 or 4.0.11 or later.");
+  script_tag(name:"solution", value:"Update to version 4.5.6 or 4.0.11 or later.");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/51872");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/57497");
@@ -52,9 +55,8 @@ and the server.");
   script_tag(name:"qod_type", value:"remote_banner");
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_owncloud_detect.nasl");
-  script_mandatory_keys("owncloud/installed");
-  script_require_ports("Services/www", 80);
+  script_dependencies("gb_owncloud_http_detect.nasl");
+  script_mandatory_keys("owncloud/detected");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
@@ -64,17 +66,16 @@ and the server.");
 include("host_details.inc");
 include("version_func.inc");
 
-if(!ownPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_in_range(version:version, test_version:"4.5.0", test_version2:"4.5.5")||
+   version_in_range(version:version, test_version:"4.0.0", test_version2:"4.0.10")) {
+  security_message(port:port);
   exit(0);
 }
 
-if(!ownVer = get_app_version(cpe:CPE, port:ownPort)){
-  exit(0);
-}
-
-if(version_in_range(version:ownVer, test_version:"4.5.0", test_version2:"4.5.5")||
-   version_in_range(version:ownVer, test_version:"4.0.0", test_version2:"4.0.10"))
-{
-  security_message(port:ownPort);
-  exit(0);
-}
+exit(99);

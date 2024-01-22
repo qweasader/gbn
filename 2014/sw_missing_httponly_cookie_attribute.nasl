@@ -1,28 +1,14 @@
-# Copyright (C) 2014 SCHUTZWERK GmbH
+# SPDX-FileCopyrightText: 2014 SCHUTZWERK GmbH
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105925");
-  script_version("2023-01-11T10:12:37+0000");
-  script_tag(name:"last_modification", value:"2023-01-11 10:12:37 +0000 (Wed, 11 Jan 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"creation_date", value:"2014-09-01 16:00:00 +0100 (Mon, 01 Sep 2014)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -52,10 +38,13 @@ if(description)
 
   script_tag(name:"affected", value:"Any web application with session handling in cookies.");
 
-  script_tag(name:"solution", value:"Set the 'HttpOnly' attribute for any session cookie.");
+  script_tag(name:"solution", value:"- Set the 'HttpOnly' cookie attribute for any session cookie
+
+  - Evaluate / do an own assessment of the security impact on the web server / application and create
+  an override for this result if there is none (this can't be checked automatically by this VT)");
 
   script_tag(name:"solution_type", value:"Mitigation");
-  script_tag(name:"qod_type", value:"remote_banner");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   exit(0);
 }
@@ -66,11 +55,11 @@ include("port_service_func.inc");
 
 port = http_get_port( default:80 );
 
-buf = http_get_cache( item:"/", port:port );
+res = http_get_cache( item:"/", port:port );
 
-if( buf && "Set-Cookie:" >< buf ) {
+if( res && res =~ "Set-Cookie\s*:.+" ) {
 
-  cookies = egrep( string:buf, pattern:"Set-Cookie:.*" );
+  cookies = egrep( string:res, pattern:"^Set-Cookie\s*:.+", icase:TRUE );
 
   if( cookies ) {
 
@@ -81,7 +70,7 @@ if( buf && "Set-Cookie:" >< buf ) {
 
       if( cookie !~ ";[ ]?[H|h]ttp[O|o]nly?[^a-zA-Z0-9_-]?" ) {
         # Clean-up cookies from dynamic data so we don't report differences on the delta report
-        pattern = "(Set-Cookie:.*=)([a-zA-Z0-9]+)(;.*)";
+        pattern = "([Ss]et-[Cc]ookie\s*:.*=)([a-zA-Z0-9]+)(;.*)";
         if( eregmatch( pattern:pattern, string:cookie ) ) {
           cookie = ereg_replace( string:cookie, pattern:pattern, replace:"\1***replaced***\3" );
         }
@@ -91,8 +80,8 @@ if( buf && "Set-Cookie:" >< buf ) {
     }
 
     if( vuln ) {
-      report = 'The cookies:\n\n' + vulnCookies + '\nare missing the "HttpOnly" attribute.';
-      security_message( port:port, data:report );
+      report = 'The cookie(s):\n\n' + vulnCookies + '\nis/are missing the "HttpOnly" cookie attribute.';
+      security_message( port:port, data:chomp( report ) );
       exit( 0 );
     }
   }

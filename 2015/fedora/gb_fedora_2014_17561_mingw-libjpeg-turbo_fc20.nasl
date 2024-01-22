@@ -7,12 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.868655");
-  script_version("2023-06-22T10:34:15+0000");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2015-01-05 14:39:18 +0100 (Mon, 05 Jan 2015)");
   script_cve_id("CVE-2014-9092", "CVE-2013-6629", "CVE-2013-6630");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2018-07-12 01:29:00 +0000 (Thu, 12 Jul 2018)");
   script_name("Fedora Update for mingw-libjpeg-turbo FEDORA-2014-17561");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'mingw-libjpeg-turbo'
   package(s) announced via the referenced advisory.");

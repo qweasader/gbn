@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108306");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2017-11-30 14:22:43 +0100 (Thu, 30 Nov 2017)");
   script_name("iProtect Server Default Credentials (SSH)");
   script_category(ACT_ATTACK);
@@ -50,6 +50,10 @@ include("port_service_func.inc");
 port = ssh_get_port( default:22 );
 
 if( ssh_dont_try_login( port:port ) )
+  exit( 0 );
+
+# nb: No need to continue/start if we haven't received any banner...
+if( ! ssh_get_serverbanner( port:port ) )
   exit( 0 );
 
 if( ! soc = open_sock_tcp( port ) )

@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804268");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_cve_id("CVE-2013-4722", "CVE-2013-4723", "CVE-2013-4724", "CVE-2013-4725",
                 "CVE-2013-4726", "CVE-2013-4727", "CVE-2013-4728");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2014-04-29 11:10:25 +0530 (Tue, 29 Apr 2014)");
   script_name("CM3 AcoraCMS Multiple XSS, CSRF and Open Redirect Vulnerabilities");
   script_category(ACT_ATTACK);
@@ -62,7 +62,7 @@ if(description)
   replace the product by another one.");
 
   script_tag(name:"solution_type", value:"WillNotFix");
-  script_tag(name:"qod_type", value:"remote_app");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   exit(0);
 }

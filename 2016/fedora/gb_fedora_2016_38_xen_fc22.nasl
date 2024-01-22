@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807717");
-  script_version("2023-06-22T10:34:15+0000");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2016-03-20 06:17:30 +0100 (Sun, 20 Mar 2016)");
   script_cve_id("CVE-2016-1714", "CVE-2016-1922", "CVE-2015-8613", "CVE-2016-1981",
                 "CVE-2016-2198", "CVE-2016-2841", "CVE-2016-2538", "CVE-2016-2392",
@@ -16,9 +16,9 @@ if(description)
                 "CVE-2016-2858");
   script_tag(name:"cvss_base", value:"6.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-12-27 16:08:00 +0000 (Fri, 27 Dec 2019)");
+  script_tag(name:"severity_date", value:"2020-10-15 14:45:00 +0000 (Thu, 15 Oct 2020)");
   script_tag(name:"qod_type", value:"package");
   script_name("Fedora Update for xen FEDORA-2016-38");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'xen'

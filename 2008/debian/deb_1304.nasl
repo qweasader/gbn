@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.58357");
   script_cve_id("CVE-2005-4811", "CVE-2006-4623", "CVE-2006-4814", "CVE-2006-5753", "CVE-2006-5754", "CVE-2006-5757", "CVE-2006-6053", "CVE-2006-6056", "CVE-2006-6060", "CVE-2006-6106", "CVE-2006-6535", "CVE-2007-0958", "CVE-2007-1357", "CVE-2007-1592");
   script_tag(name:"creation_date", value:"2008-01-17 22:19:52 +0000 (Thu, 17 Jan 2008)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-01-12T16:12:10+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:10 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"9.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:C/A:C");
 
@@ -22,7 +22,7 @@ if(description)
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB3\.1");
 
   script_xref(name:"Advisory-ID", value:"DSA-1304");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2007/dsa-1304");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2007/DSA-1304");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-1304");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'kernel-source-2.6.8' package(s) announced via the DSA-1304 advisory.");

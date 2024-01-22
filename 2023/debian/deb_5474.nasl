@@ -9,29 +9,29 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.1.2023.5474");
   script_cve_id("CVE-2022-40982", "CVE-2022-41804", "CVE-2023-23908");
   script_tag(name:"creation_date", value:"2023-08-14 04:29:44 +0000 (Mon, 14 Aug 2023)");
-  script_version("2023-08-22T05:06:00+0000");
-  script_tag(name:"last_modification", value:"2023-08-22 05:06:00 +0000 (Tue, 22 Aug 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:M/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-08-18 03:15:00 +0000 (Fri, 18 Aug 2023)");
 
-  script_name("Debian: Security Advisory (DSA-5474)");
+  script_name("Debian: Security Advisory (DSA-5474-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB(11|12)");
 
-  script_xref(name:"Advisory-ID", value:"DSA-5474");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2023/dsa-5474");
+  script_xref(name:"Advisory-ID", value:"DSA-5474-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2023/DSA-5474-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-5474");
   script_xref(name:"URL", value:"https://downfall.page");
   script_xref(name:"URL", value:"https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/technical-documentation/gather-data-sampling.html");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/intel-microcode");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'intel-microcode' package(s) announced via the DSA-5474 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'intel-microcode' package(s) announced via the DSA-5474-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

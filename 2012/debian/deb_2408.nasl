@@ -9,23 +9,23 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.71135");
   script_cve_id("CVE-2010-4697", "CVE-2011-1072", "CVE-2011-1092", "CVE-2011-1148", "CVE-2011-1464", "CVE-2011-1467", "CVE-2011-1468", "CVE-2011-1469", "CVE-2011-1470", "CVE-2011-1657", "CVE-2011-3182", "CVE-2011-3267", "CVE-2011-4153", "CVE-2012-0781", "CVE-2012-0788", "CVE-2012-0831");
   script_tag(name:"creation_date", value:"2012-03-12 15:30:50 +0000 (Mon, 12 Mar 2012)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:10+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:10 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
-  script_name("Debian: Security Advisory (DSA-2408)");
+  script_name("Debian: Security Advisory (DSA-2408-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB6");
 
-  script_xref(name:"Advisory-ID", value:"DSA-2408");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2012/dsa-2408");
+  script_xref(name:"Advisory-ID", value:"DSA-2408-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2012/DSA-2408-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-2408");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'php5' package(s) announced via the DSA-2408 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'php5' package(s) announced via the DSA-2408-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

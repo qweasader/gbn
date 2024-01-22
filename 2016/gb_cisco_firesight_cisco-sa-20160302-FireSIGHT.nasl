@@ -12,7 +12,7 @@ if(description)
   script_cve_id("CVE-2016-1356", "CVE-2016-1355");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2023-11-03T05:05:46+0000");
 
   script_name("Cisco FireSIGHT System Software Multiple Vulnerabilities");
 
@@ -38,8 +38,8 @@ if(description)
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
 
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-12-03 03:20:00 +0000 (Sat, 03 Dec 2016)");
   script_tag(name:"creation_date", value:"2016-03-21 13:46:30 +0100 (Mon, 21 Mar 2016)");

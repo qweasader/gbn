@@ -9,34 +9,32 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.891087");
   script_cve_id("CVE-2017-7753", "CVE-2017-7779", "CVE-2017-7784", "CVE-2017-7785", "CVE-2017-7786", "CVE-2017-7787", "CVE-2017-7791", "CVE-2017-7792", "CVE-2017-7800", "CVE-2017-7801", "CVE-2017-7802", "CVE-2017-7803", "CVE-2017-7807", "CVE-2017-7809");
   script_tag(name:"creation_date", value:"2018-02-06 23:00:00 +0000 (Tue, 06 Feb 2018)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-08-03 15:26:00 +0000 (Fri, 03 Aug 2018)");
 
-  script_name("Debian: Security Advisory (DLA-1087)");
+  script_name("Debian: Security Advisory (DLA-1087-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB7");
 
-  script_xref(name:"Advisory-ID", value:"DLA-1087");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2017/dla-1087-2");
+  script_xref(name:"Advisory-ID", value:"DLA-1087-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2017/DLA-1087-1");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'icedove' package(s) announced via the DLA-1087 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'icedove' package(s) announced via the DLA-1087-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The update for icedove/thunderbird issued as DLA-1087-1 did not build on i386. This update corrects this. For reference, the original advisory text follows.
+  script_tag(name:"insight", value:"Multiple security issues have been found in the Mozilla Thunderbird mail client: Multiple memory safety errors, buffer overflows and other implementation errors may lead to the execution of arbitrary code or spoofing.
 
-Multiple security issues have been found in the Mozilla Thunderbird mail client: Multiple memory safety errors, buffer overflows and other implementation errors may lead to the execution of arbitrary code or spoofing.
-
-For Debian 7 Wheezy, these problems have been fixed in version 1:52.3.0-4~deb7u2.
+For Debian 7 Wheezy, these problems have been fixed in version 1:52.3.0-4~deb7u1.
 
 We recommend that you upgrade your icedove packages.
 

@@ -8,11 +8,14 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2011-March/056579.html");
   script_oid("1.3.6.1.4.1.25623.1.0.862935");
-  script_version("2023-06-30T16:09:17+0000");
-  script_tag(name:"last_modification", value:"2023-06-30 16:09:17 +0000 (Fri, 30 Jun 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2011-03-25 15:26:27 +0100 (Fri, 25 Mar 2011)");
   script_tag(name:"cvss_base", value:"7.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-01-21 15:46:00 +0000 (Tue, 21 Jan 2020)");
   script_xref(name:"FEDORA", value:"2011-3462");
   script_cve_id("CVE-2011-0284", "CVE-2010-4022", "CVE-2011-0281", "CVE-2011-0282", "CVE-2010-1323", "CVE-2010-1324", "CVE-2010-4020");
   script_name("Fedora Update for krb5 FEDORA-2011-3462");

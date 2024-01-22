@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:digium:asterisk';
+CPE = "cpe:/a:digium:asterisk";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141685");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2018-11-15 08:43:23 +0700 (Thu, 15 Nov 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -29,19 +29,20 @@ if (description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Denial of Service");
-  script_dependencies("secpod_asterisk_detect.nasl");
-  script_mandatory_keys("Asterisk-PBX/Installed");
+  script_dependencies("gb_digium_asterisk_sip_detect.nasl");
+  script_mandatory_keys("digium/asterisk/detected");
 
-  script_tag(name:"summary", value:"Buffer overflow in DNS SRV and NAPTR lookups in Digium Asterisk allows remote
-attackers to crash Asterisk via a specially crafted DNS SRV or NAPTR response, because a buffer size is supposed
-to match an expanded length but actually matches a compressed length.");
+  script_tag(name:"summary", value:"Asterisk is prone to a denial of service (DoS) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
+  script_tag(name:"insight", value:"Buffer overflow in DNS SRV and NAPTR lookups in Digium Asterisk
+  allows remote attackers to crash Asterisk via a specially crafted DNS SRV or NAPTR response, because
+  a buffer size is supposed to match an expanded length but actually matches a compressed length.");
+
   script_tag(name:"affected", value:"Asterisk Open Source 15.x and 16.x.");
 
-  script_tag(name:"solution", value:"Upgrade to Version 15.6.2, 16.0.1 or
-later.");
+  script_tag(name:"solution", value:"Update to version 15.6.2, 16.0.1 or later.");
 
   script_xref(name:"URL", value:"https://downloads.asterisk.org/pub/security/AST-2018-010.html");
 
@@ -49,7 +50,6 @@ later.");
 }
 
 include("host_details.inc");
-include("revisions-lib.inc");
 include("version_func.inc");
 
 if (!port = get_app_port(cpe: CPE))

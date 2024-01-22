@@ -9,11 +9,16 @@ CPE = "cpe:/a:wordpress:wordpress";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.104986");
-  script_version("2023-10-17T05:05:34+0000");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_version("2023-11-09T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2023-11-09 05:05:33 +0000 (Thu, 09 Nov 2023)");
   script_tag(name:"creation_date", value:"2023-10-13 09:35:24 +0000 (Fri, 13 Oct 2023)");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
+  script_tag(name:"cvss_base", value:"5.5");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-10-16 17:04:00 +0000 (Mon, 16 Oct 2023)");
+
+  script_cve_id("CVE-2023-38000", "CVE-2023-39999", "CVE-2023-5561");
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
 
@@ -34,21 +39,21 @@ if(description)
 
   script_tag(name:"insight", value:"The following flaws exist:
 
-  - Potential disclosure of user email addresses
+  - CVE-2023-5561: Potential disclosure of user email addresses
 
-  - Remote code execution (RCE) POP Chains vulnerability
+  - No CVE: Remote code execution (RCE) POP Chains vulnerability
 
-  - Cross-site scripting (XSS) issue in the post link navigation block
+  - CVE-2023-38000: Cross-site scripting (XSS) issue in the post link navigation block
 
-  - Comments on private posts could be leaked to other users
+  - CVE-2023-39999: Comments on private posts could be leaked to other users
 
-  - A way for logged-in users to execute any shortcode
+  - No CVE: A way for logged-in users to execute any shortcode
 
-  - XSS vulnerability in the application password screen
+  - No CVE: XSS vulnerability in the application password screen
 
-  - XSS vulnerability in the footnotes block
+  - No CVE: XSS vulnerability in the footnotes block
 
-  - Cache poisoning denial of service (DoS) vulnerability");
+  - No CVE: Cache poisoning denial of service (DoS) vulnerability");
 
   script_tag(name:"affected", value:"WordPress version 6.3.1 and prior.");
 
@@ -58,6 +63,11 @@ if(description)
 
   script_xref(name:"URL", value:"https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/");
   script_xref(name:"URL", value:"https://www.wordfence.com/blog/2023/10/wordpress-6-3-2-security-release-what-you-need-to-know/");
+  script_xref(name:"URL", value:"https://patchstack.com/articles/wordpress-core-6-3-2-security-update-technical-advisory");
+  script_xref(name:"URL", value:"https://patchstack.com/database/vulnerability/wordpress/wordpress-core-6-3-2-contributor-stored-xss-in-navigation-links-block-vulnerability");
+  script_xref(name:"URL", value:"https://patchstack.com/database/vulnerability/wordpress/wordpress-wordpress-core-core-6-3-2-contributor-comment-read-on-private-and-password-protected-post-vulnerability");
+  script_xref(name:"URL", value:"https://wpscan.com/blog/email-leak-oracle-vulnerability-addressed-in-wordpress-6-3-2/");
+  script_xref(name:"URL", value:"https://wpscan.com/vulnerability/19380917-4c27-4095-abf1-eba6f913b441");
 
   exit(0);
 }

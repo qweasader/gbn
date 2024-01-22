@@ -21,8 +21,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111069");
-  script_version("2023-05-18T09:08:59+0000");
-  script_tag(name:"last_modification", value:"2023-05-18 09:08:59 +0000 (Thu, 18 May 2023)");
+  script_version("2023-10-24T14:40:27+0000");
+  script_tag(name:"last_modification", value:"2023-10-24 14:40:27 +0000 (Tue, 24 Oct 2023)");
   script_tag(name:"creation_date", value:"2015-12-13 13:00:00 +0100 (Sun, 13 Dec 2015)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -336,6 +336,11 @@ if( banner =~ "FortiADC[^ ]* login:" ) {
 # nb: More detailed detection covered in gb_moxa_miineport_telnet_detect.nasl
 if( banner =~ "Model name\s*:\s*MiiNePort " ) {
   os_register_and_report( os:"Moxa MiiNePort Firmware", cpe:"cpe:/o:moxa:miineport_firmware", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
+if( banner =~ "telnet session telnet[0-9]+ on /dev/ptyb[0-9]+" ) {
+  os_register_and_report( os:"Extreme ExtremeXOS (EXOS)", cpe:"cpe:/o:extremenetworks:exos", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
   exit( 0 );
 }
 

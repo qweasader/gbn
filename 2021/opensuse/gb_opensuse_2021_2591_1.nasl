@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854030");
-  script_version("2022-03-07T03:03:52+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2020-25085", "CVE-2021-3582", "CVE-2021-3592", "CVE-2021-3593", "CVE-2021-3594", "CVE-2021-3595", "CVE-2021-3607", "CVE-2021-3608", "CVE-2021-3611");
   script_tag(name:"cvss_base", value:"4.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2022-03-07 03:03:52 +0000 (Mon, 07 Mar 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:N/I:N/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-03-04 19:46:00 +0000 (Fri, 04 Mar 2022)");
+  script_tag(name:"severity_date", value:"2022-05-19 16:14:00 +0000 (Thu, 19 May 2022)");
   script_tag(name:"creation_date", value:"2021-08-03 03:01:40 +0000 (Tue, 03 Aug 2021)");
   script_name("openSUSE: Security Advisory for qemu (openSUSE-SU-2021:2591-1)");
   script_category(ACT_GATHER_INFO);

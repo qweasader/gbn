@@ -9,11 +9,11 @@ CPE = "cpe:/a:owncloud:owncloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807402");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2023-12-01T16:11:30+0000");
   script_cve_id("CVE-2016-1500", "CVE-2016-1498");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-01-12 02:50:00 +0000 (Tue, 12 Jan 2016)");
@@ -53,53 +53,47 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_owncloud_detect.nasl", "os_detection.nasl");
-  script_mandatory_keys("owncloud/installed", "Host/runs_unixoide");
-  script_require_ports("Services/www", 80);
+  script_dependencies("gb_owncloud_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("owncloud/detected", "Host/runs_unixoide");
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-if(!ownPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!ownVer = get_app_version(cpe:CPE, port:ownPort)){
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-if(ownVer =~ "^(8|7)")
-{
-  if(version_in_range(version:ownVer, test_version:"8.2.0", test_version2:"8.2.1"))
-  {
+if(version =~ "^[87]") {
+
+  if(version_in_range(version:version, test_version:"8.2.0", test_version2:"8.2.1")) {
     fix = "8.2.2";
     VULN = TRUE;
   }
 
-  else if(version_in_range(version:ownVer, test_version:"8.1.0", test_version2:"8.1.4"))
-  {
+  else if(version_in_range(version:version, test_version:"8.1.0", test_version2:"8.1.4")) {
     fix = "8.1.5";
     VULN = TRUE;
   }
 
-  else if(version_in_range(version:ownVer, test_version:"8.0.0", test_version2:"8.0.9"))
-  {
+  else if(version_in_range(version:version, test_version:"8.0.0", test_version2:"8.0.9")) {
     fix = "8.0.10";
     VULN = TRUE;
   }
 
-  else if(version_in_range(version:ownVer, test_version:"7.0.0", test_version2:"7.0.11"))
-  {
+  else if(version_in_range(version:version, test_version:"7.0.0", test_version2:"7.0.11")) {
     fix = "7.0.12";
     VULN = TRUE;
   }
 
-  if(VULN)
-  {
-    report = report_fixed_ver(installed_version:ownVer, fixed_version:fix);
-    security_message(data:report, port:ownPort);
+  if(VULN) {
+    report = report_fixed_ver(installed_version:version, fixed_version:fix);
+    security_message(port:port, data:report);
     exit(0);
   }
 }
+
+exit(99);

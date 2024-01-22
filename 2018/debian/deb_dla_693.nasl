@@ -9,34 +9,62 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.890693");
   script_cve_id("CVE-2014-8128", "CVE-2015-7554", "CVE-2015-8668", "CVE-2016-3186", "CVE-2016-3619", "CVE-2016-3620", "CVE-2016-3621", "CVE-2016-3631", "CVE-2016-3632", "CVE-2016-3633", "CVE-2016-3634", "CVE-2016-5102", "CVE-2016-5318", "CVE-2016-5319", "CVE-2016-5652", "CVE-2016-6223", "CVE-2016-8331");
   script_tag(name:"creation_date", value:"2018-01-04 23:00:00 +0000 (Thu, 04 Jan 2018)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-10-30 16:27:00 +0000 (Tue, 30 Oct 2018)");
+  script_tag(name:"severity_date", value:"2023-12-20 18:28:00 +0000 (Wed, 20 Dec 2023)");
 
-  script_name("Debian: Security Advisory (DLA-693)");
+  script_name("Debian: Security Advisory (DLA-693-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB7");
 
-  script_xref(name:"Advisory-ID", value:"DLA-693");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2017/dla-693-2");
+  script_xref(name:"Advisory-ID", value:"DLA-693-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2016/DLA-693-1");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'tiff' package(s) announced via the DLA-693 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'tiff' package(s) announced via the DLA-693-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"Version 4.0.2-6+deb7u7 introduced changes that resulted in libtiff being unable to write out tiff files when the compression scheme in use relies on codec-specific TIFF tags embedded in the image.
+  script_tag(name:"insight", value:"The libtiff library and associated tools provided in libtiff-tools are vulnerable to many security problems.
 
-This problem manifested itself with errors like those: $ tiffcp -r 16 -c jpeg sample.tif out.tif _TIFFVGetField: out.tif: Invalid tag Predictor (not supported by codec). _TIFFVGetField: out.tif: Invalid tag BadFaxLines (not supported by codec). tiffcp: tif_dirwrite.c:687: TIFFWriteDirectorySec: Assertion `0' failed.
+This update drops many tools which are no longer supported upstream and which are affected by multiple memory corruption issues:
 
-For Debian 7 Wheezy, these problems have been fixed in version 4.0.2-6+deb7u10.
+bmp2tiff (CVE-2016-3619, CVE-2016-3620, CVE-2016-3621, CVE-2016-5319, CVE-2015-8668)
+
+gif2tiff (CVE-2016-3186, CVE-2016-5102)
+
+ras2tiff
+
+sgi2tiff
+
+sgisv
+
+ycbcr
+
+rgb2ycbcr (CVE-2016-3623, CVE-2016-3624)
+
+thumbnail (CVE-2016-3631, CVE-2016-3632, CVE-2016-3633, CVE-2016-3634, CVE-2016-8331)
+
+This update also fixes the following issues:
+
+CVE-2014-8128 / CVE-2015-7554, CVE-2016-5318 Multiple buffer overflows triggered through TIFFGetField() on unknown tags. Lacking an upstream fix, the list of known tags has been extended to cover all those that are in use by the TIFF tools.
+
+CVE-2016-5652
+
+Heap based buffer overflow in tiff2pdf.
+
+CVE-2016-6223
+
+Information leak in libtiff/tif_read.c. Fix out-of-bounds read on memory-mapped files in TIFFReadRawStrip1() and TIFFReadRawTile1() when stripoffset is beyond tmsize_t max value (reported by Mathias Svensson).
+
+For Debian 7 Wheezy, these problems have been fixed in version 4.0.2-6+deb7u7.
 
 We recommend that you upgrade your tiff packages.
 

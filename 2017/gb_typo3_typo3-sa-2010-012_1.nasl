@@ -12,12 +12,12 @@ if(description)
   script_cve_id("CVE-2010-3659", "CVE-2010-3660", "CVE-2010-3661", "CVE-2010-3662",
                 "CVE-2010-3663", "CVE-2010-3664", "CVE-2010-3665", "CVE-2010-3666",
                 "CVE-2010-3667", "CVE-2010-3668", "CVE-2010-3671");
-  script_version("2023-04-06T10:19:22+0000");
-  script_tag(name:"last_modification", value:"2023-04-06 10:19:22 +0000 (Thu, 06 Apr 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2017-11-08 13:15:49 +0100 (Wed, 08 Nov 2017)");
   script_tag(name:"cvss_base", value:"9.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-11-08 17:57:00 +0000 (Fri, 08 Nov 2019)");
   script_name("TYPO3 < 4.1.14, 4.2.x < 4.2.13, 4.3.x < 4.3.4, 4.4.0 Multiple Vulnerabilities (TYPO3-SA-2010-012)");

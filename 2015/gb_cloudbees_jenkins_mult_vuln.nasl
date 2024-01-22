@@ -9,7 +9,7 @@ CPE = "cpe:/a:jenkins:jenkins";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807001");
-  script_version("2023-05-18T09:08:59+0000");
+  script_version("2024-01-11T05:05:45+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2015-5317", "CVE-2015-5318", "CVE-2015-5319", "CVE-2015-5320",
@@ -18,10 +18,10 @@ if(description)
                 "CVE-2015-7537", "CVE-2015-7538", "CVE-2015-7539");
   script_tag(name:"cvss_base", value:"7.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-05-18 09:08:59 +0000 (Thu, 18 May 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2024-01-11 05:05:45 +0000 (Thu, 11 Jan 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-12-17 17:41:00 +0000 (Tue, 17 Dec 2019)");
+  script_tag(name:"severity_date", value:"2024-01-09 02:16:00 +0000 (Tue, 09 Jan 2024)");
   script_tag(name:"creation_date", value:"2015-12-15 17:52:00 +0530 (Tue, 15 Dec 2015)");
 
   script_name("Jenkins Multiple Vulnerabilities (Nov 2015) - Windows");

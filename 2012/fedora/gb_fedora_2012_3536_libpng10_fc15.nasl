@@ -8,13 +8,16 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2012-March/075987.html");
   script_oid("1.3.6.1.4.1.25623.1.0.863981");
-  script_version("2023-06-23T16:09:17+0000");
-  script_tag(name:"last_modification", value:"2023-06-23 16:09:17 +0000 (Fri, 23 Jun 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2012-04-02 12:42:28 +0530 (Mon, 02 Apr 2012)");
   script_cve_id("CVE-2011-3045", "CVE-2011-3026", "CVE-2011-2501", "CVE-2004-0421",
                 "CVE-2011-2691", "CVE-2011-2690", "CVE-2011-2692");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-08-06 15:53:00 +0000 (Thu, 06 Aug 2020)");
   script_xref(name:"FEDORA", value:"2012-3536");
   script_name("Fedora Update for libpng10 FEDORA-2012-3536");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'libpng10'

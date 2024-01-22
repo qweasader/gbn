@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2022.1537");
   script_cve_id("CVE-2021-3669", "CVE-2021-4197", "CVE-2022-0617", "CVE-2022-22942", "CVE-2022-24448");
   script_tag(name:"creation_date", value:"2022-04-25 04:12:45 +0000 (Mon, 25 Apr 2022)");
-  script_version("2023-06-20T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:23 +0000 (Tue, 20 Jun 2023)");
+  script_version("2023-12-20T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-03-30 20:10:00 +0000 (Wed, 30 Mar 2022)");
+  script_tag(name:"severity_date", value:"2023-12-18 17:27:00 +0000 (Mon, 18 Dec 2023)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2022-1537)");
   script_category(ACT_GATHER_INFO);

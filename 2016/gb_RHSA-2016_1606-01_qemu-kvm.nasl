@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.871651");
-  script_version("2023-07-14T05:06:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 05:06:08 +0000 (Fri, 14 Jul 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2016-08-12 05:47:07 +0200 (Fri, 12 Aug 2016)");
   script_cve_id("CVE-2016-5126", "CVE-2016-5403");
   script_tag(name:"cvss_base", value:"4.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-05-14 14:05:00 +0000 (Thu, 14 May 2020)");
+  script_tag(name:"severity_date", value:"2020-10-15 18:50:00 +0000 (Thu, 15 Oct 2020)");
   script_tag(name:"qod_type", value:"package");
   script_name("RedHat Update for qemu-kvm RHSA-2016:1606-01");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'qemu-kvm'

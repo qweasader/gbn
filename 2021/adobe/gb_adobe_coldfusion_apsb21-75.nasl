@@ -23,11 +23,14 @@ CPE = "cpe:/a:adobe:coldfusion";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.818534");
-  script_version("2021-09-24T05:06:20+0000");
-  script_tag(name:"last_modification", value:"2021-09-24 05:06:20 +0000 (Fri, 24 Sep 2021)");
+  script_version("2023-10-20T16:09:12+0000");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
   script_tag(name:"creation_date", value:"2021-09-16 13:01:06 +0530 (Thu, 16 Sep 2021)");
-  script_tag(name:"cvss_base", value:"4.4");
-  script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:P/I:P/A:P");
+  script_tag(name:"cvss_base", value:"6.5");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:L");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-09-07 13:42:00 +0000 (Thu, 07 Sep 2023)");
 
   script_cve_id("CVE-2021-40699", "CVE-2021-40698");
 

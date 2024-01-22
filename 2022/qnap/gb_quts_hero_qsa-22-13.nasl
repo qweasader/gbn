@@ -9,8 +9,8 @@ CPE = "cpe:/o:qnap:quts_hero";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170124");
-  script_version("2023-09-27T05:05:31+0000");
-  script_tag(name:"last_modification", value:"2023-09-27 05:05:31 +0000 (Wed, 27 Sep 2023)");
+  script_version("2024-01-19T16:09:33+0000");
+  script_tag(name:"last_modification", value:"2024-01-19 16:09:33 +0000 (Fri, 19 Jan 2024)");
   script_tag(name:"creation_date", value:"2022-05-30 09:06:24 +0000 (Mon, 30 May 2022)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -49,14 +49,13 @@ if(description)
   script_xref(name:"URL", value:"https://www.qnap.com/en/security-advisory/qsa-22-13");
 
   exit(0);
-
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
 if ( ! version = get_app_version( cpe:CPE, nofork:TRUE ) )
-  exit(0);
+  exit( 0 );
 
 build = get_kb_item( "qnap/nas/quts_hero/build" );
 

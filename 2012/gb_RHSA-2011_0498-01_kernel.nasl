@@ -8,8 +8,8 @@ if(description)
 {
   script_xref(name:"URL", value:"https://www.redhat.com/archives/rhsa-announce/2011-May/msg00008.html");
   script_oid("1.3.6.1.4.1.25623.1.0.870632");
-  script_version("2023-07-14T05:06:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 05:06:08 +0000 (Fri, 14 Jul 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2012-06-06 10:37:21 +0530 (Wed, 06 Jun 2012)");
   script_cve_id("CVE-2010-4250", "CVE-2010-4565", "CVE-2010-4649", "CVE-2011-0006",
                 "CVE-2011-0711", "CVE-2011-0712", "CVE-2011-0726", "CVE-2011-1013",
@@ -17,6 +17,9 @@ if(description)
                 "CVE-2011-1080", "CVE-2011-1093", "CVE-2011-1573");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-08-04 17:50:00 +0000 (Tue, 04 Aug 2020)");
   script_xref(name:"RHSA", value:"2011:0498-01");
   script_name("RedHat Update for kernel RHSA-2011:0498-01");
 

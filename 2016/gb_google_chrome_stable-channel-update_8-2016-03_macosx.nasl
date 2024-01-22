@@ -23,14 +23,14 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807617");
-  script_version("2021-10-14T12:01:33+0000");
+  script_version("2023-11-03T05:05:46+0000");
   script_cve_id("CVE-2016-1643", "CVE-2016-1644", "CVE-2016-1645");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-10-14 12:01:33 +0000 (Thu, 14 Oct 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2016-12-03 03:21:00 +0000 (Sat, 03 Dec 2016)");
+  script_tag(name:"severity_date", value:"2019-09-27 16:43:00 +0000 (Fri, 27 Sep 2019)");
   script_tag(name:"creation_date", value:"2016-03-16 16:14:01 +0530 (Wed, 16 Mar 2016)");
   script_name("Google Chrome Security Update (stable-channel-update_8-2016-03) - Mac OS X");
 

@@ -9,14 +9,17 @@ CPE = "cpe:/a:mit:kerberos";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.90016");
-  script_version("2023-06-27T05:05:30+0000");
-  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
+  script_version("2024-01-01T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2024-01-01 05:05:52 +0000 (Mon, 01 Jan 2024)");
   script_tag(name:"creation_date", value:"2008-06-17 20:22:38 +0200 (Tue, 17 Jun 2008)");
   script_cve_id("CVE-2008-0948", "CVE-2008-0947", "CVE-2008-0063", "CVE-2008-0062");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/28302");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/28303");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-12-28 15:34:00 +0000 (Thu, 28 Dec 2023)");
   script_name("MIT Kerberos5 < 1.6.4 Multiple Vulnerabilities");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 Greenbone AG");

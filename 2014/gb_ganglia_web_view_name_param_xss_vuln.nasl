@@ -9,11 +9,11 @@ CPE = "cpe:/a:ganglia:ganglia-web";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804557");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_cve_id("CVE-2013-1770", "CVE-2013-0275");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2014-04-25 19:23:38 +0530 (Fri, 25 Apr 2014)");
   script_name("Ganglia Web 'view_name' Cross-Site Scripting Vulnerability");
   script_category(ACT_ATTACK);
@@ -40,7 +40,7 @@ if(description)
   script_tag(name:"solution", value:"Update to version 3.5.8 or later.");
 
   script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   script_xref(name:"URL", value:"http://ganglia.info");
   exit(0);

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103118");
-  script_version("2023-07-12T05:05:04+0000");
-  script_tag(name:"last_modification", value:"2023-07-12 05:05:04 +0000 (Wed, 12 Jul 2023)");
+  script_version("2023-10-31T05:06:37+0000");
+  script_tag(name:"last_modification", value:"2023-10-31 05:06:37 +0000 (Tue, 31 Oct 2023)");
   script_tag(name:"creation_date", value:"2011-03-11 13:29:22 +0100 (Fri, 11 Mar 2011)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -16,7 +16,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_family("SSL and TLS");
   script_copyright("Copyright (C) 2011 Greenbone AG");
-  script_dependencies("smtpserver_detect.nasl");
+  script_dependencies("smtpserver_detect.nasl", "check_smtp_helo.nasl");
   script_require_ports("Services/smtp", 25);
   script_mandatory_keys("smtp/banner/available");
 

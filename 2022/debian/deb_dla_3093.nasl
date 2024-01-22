@@ -9,33 +9,53 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.893093");
   script_cve_id("CVE-2022-21831", "CVE-2022-22577", "CVE-2022-23633", "CVE-2022-27777");
   script_tag(name:"creation_date", value:"2022-09-04 01:00:09 +0000 (Sun, 04 Sep 2022)");
-  script_version("2023-06-20T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:23 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-06-07 14:57:00 +0000 (Tue, 07 Jun 2022)");
 
-  script_name("Debian: Security Advisory (DLA-3093)");
+  script_name("Debian: Security Advisory (DLA-3093-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB10");
 
-  script_xref(name:"Advisory-ID", value:"DLA-3093");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2022/dla-3093-2");
+  script_xref(name:"Advisory-ID", value:"DLA-3093-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2022/DLA-3093-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/rails");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'rails' package(s) announced via the DLA-3093 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'rails' package(s) announced via the DLA-3093-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The security update announced as DLA 3093-1 which included fix for CVE-2022-32224 caused a regression due to incompatibility with ruby 2.5 version. We have dropped aforementioned fix. Updated rails packages are now available.
+  script_tag(name:"insight", value:"The following vulnerabilities have been discovered in rails, a ruby based MVC frame work for web development.
 
-For Debian 10 buster, this problem has been fixed in version 2:5.2.2.1+dfsg-1+deb10u5.
+CVE-2022-21831
+
+A code injection vulnerability exists in the Active Storage that could allow an attacker to execute code via image_processing arguments.
+
+CVE-2022-22577
+
+An XSS Vulnerability in Action Pack that could allow an attacker to bypass CSP for non HTML like responses.
+
+CVE-2022-23633
+
+Action Pack is a framework for handling and responding to web requests. Under certain circumstances response bodies will not be closed. In the event a response is *not* notified of a `close`, `ActionDispatch::Executor` will not know to reset thread local state for the next request. This can lead to data being leaked to subsequent requests.
+
+CVE-2022-27777
+
+A XSS Vulnerability in Action View tag helpers which would allow an attacker to inject content if able to control input into specific attributes.
+
+CVE-2022-32224
+
+When serialized columns that use YAML (the default) are deserialized, Rails uses YAML.unsafe_load to convert the YAML data in to Ruby objects. If an attacker can manipulate data in the database (via means like SQL injection), then it may be possible for the attacker to escalate to an RCE.
+
+For Debian 10 buster, these problems have been fixed in version 2:5.2.2.1+dfsg-1+deb10u4.
 
 We recommend that you upgrade your rails packages.
 

@@ -11,10 +11,13 @@ if(description)
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2010-2492", "CVE-2010-2803", "CVE-2010-2955", "CVE-2010-2962", "CVE-2010-3067", "CVE-2010-3078", "CVE-2010-3079", "CVE-2010-3080", "CVE-2010-3081", "CVE-2010-3084", "CVE-2010-3298", "CVE-2010-3301", "CVE-2010-3432", "CVE-2010-3437", "CVE-2010-3442", "CVE-2010-3477", "CVE-2010-3698", "CVE-2010-3705", "CVE-2010-3861", "CVE-2010-3865", "CVE-2010-3874", "CVE-2010-3876", "CVE-2010-3880", "CVE-2010-3904", "CVE-2010-4072", "CVE-2010-4073", "CVE-2010-4074", "CVE-2010-4075", "CVE-2010-4077", "CVE-2010-4079", "CVE-2010-4080", "CVE-2010-4081", "CVE-2010-4082", "CVE-2010-4083", "CVE-2010-4158", "CVE-2010-4160", "CVE-2010-4162", "CVE-2010-4163", "CVE-2010-4242", "CVE-2010-4248", "CVE-2010-4249", "CVE-2010-4263", "CVE-2010-4525", "CVE-2010-4668");
   script_tag(name:"creation_date", value:"2015-10-06 11:15:22 +0000 (Tue, 06 Oct 2015)");
-  script_version("2023-05-18T09:08:59+0000");
-  script_tag(name:"last_modification", value:"2023-05-18 09:08:59 +0000 (Thu, 18 May 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-08-11 14:43:00 +0000 (Tue, 11 Aug 2020)");
 
   script_name("Oracle: Security Advisory (ELSA-2011-0007)");
   script_category(ACT_GATHER_INFO);

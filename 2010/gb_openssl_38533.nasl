@@ -9,8 +9,8 @@ CPE = "cpe:/a:openssl:openssl";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100588");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2023-10-27T16:11:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2010-04-20 13:41:39 +0200 (Tue, 20 Apr 2010)");
   script_cve_id("CVE-2010-0433");
 
@@ -33,8 +33,8 @@ if(description)
 
   script_tag(name:"solution", value:"Updates are available. Please see the references for more information.");
 
-  script_tag(name:"summary", value:"OpenSSL is prone to a denial-of-service vulnerability caused
-  by a NULL-pointer dereference.");
+  script_tag(name:"summary", value:"OpenSSL is prone to a denial of service (DoS) vulnerability
+  caused by a NULL-pointer dereference.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

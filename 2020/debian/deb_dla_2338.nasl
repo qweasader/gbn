@@ -8,30 +8,32 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.892338");
   script_tag(name:"creation_date", value:"2020-08-23 03:00:12 +0000 (Sun, 23 Aug 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 
-  script_name("Debian: Security Advisory (DLA-2338)");
+  script_name("Debian: Security Advisory (DLA-2338-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB9");
 
-  script_xref(name:"Advisory-ID", value:"DLA-2338");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2020/dla-2338-2");
+  script_xref(name:"Advisory-ID", value:"DLA-2338-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2020/DLA-2338-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/proftpd-dfsg");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'proftpd-dfsg' package(s) announced via the DLA-2338 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'proftpd-dfsg' package(s) announced via the DLA-2338-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The update of proftpd-dfsg released as DLA-2338-1 incorrectly destroyed the memory pool in function sftp_kex_handle in contrib/mod_sftp/kex.c which may cause a segmentation fault and thus prevent sftp connections.
+  script_tag(name:"insight", value:"Several memory leaks were discovered in proftpd-dfsg, a versatile, virtual-hosting FTP daemon, when mod_facl or mod_sftp is used which could lead to memory exhaustion and a denial-of-service.
 
-For Debian 9 stretch, this problem has been fixed in version 1.3.5e+r1.3.5b-4+deb9u2.
+The update also makes automatic upgrades of proftpd-dfsg from Debian 8 to Debian 9 possible again.
+
+For Debian 9 stretch, this problem has been fixed in version 1.3.5e+r1.3.5b-4+deb9u1.
 
 We recommend that you upgrade your proftpd-dfsg packages.
 

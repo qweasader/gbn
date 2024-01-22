@@ -8,11 +8,14 @@ if(description)
 {
   script_xref(name:"URL", value:"http://www11.itrc.hp.com/service/cki/docDisplay.do?docId=emr_na-c02515878");
   script_oid("1.3.6.1.4.1.25623.1.0.835243");
-  script_version("2023-07-14T16:09:26+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:26 +0000 (Fri, 14 Jul 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2011-01-04 15:48:51 +0100 (Tue, 04 Jan 2011)");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:L/A:L");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2019-10-09 22:58:00 +0000 (Wed, 09 Oct 2019)");
   script_xref(name:"HPSBUX", value:"02579");
   script_cve_id("CVE-2010-2227", "CVE-2010-1157", "CVE-2009-0783", "CVE-2009-0781", "CVE-2009-0580", "CVE-2009-0033", "CVE-2008-5515");
   script_name("HP-UX Update for Apache Running Tomcat Servlet Engine HPSBUX02579");

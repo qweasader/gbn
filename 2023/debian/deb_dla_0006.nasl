@@ -9,25 +9,25 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2014.0006");
   script_cve_id("CVE-2014-4150");
   script_tag(name:"creation_date", value:"2023-03-08 12:56:44 +0000 (Wed, 08 Mar 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"3.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-09-18 12:02:00 +0000 (Tue, 18 Sep 2018)");
 
-  script_name("Debian: Security Advisory (DLA-0006)");
+  script_name("Debian: Security Advisory (DLA-0006-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB6");
 
-  script_xref(name:"Advisory-ID", value:"DLA-0006");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2014/dla-0006");
+  script_xref(name:"Advisory-ID", value:"DLA-0006-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2014/DLA-0006-1");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'scheme48' package(s) announced via the DLA-0006 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'scheme48' package(s) announced via the DLA-0006-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

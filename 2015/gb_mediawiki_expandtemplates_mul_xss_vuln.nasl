@@ -9,11 +9,11 @@ CPE = "cpe:/a:mediawiki:mediawiki";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805327");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_cve_id("CVE-2014-9276", "CVE-2014-9478");
   script_tag(name:"cvss_base", value:"5.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2015-01-23 12:37:41 +0530 (Fri, 23 Jan 2015)");
   script_name("MediaWiki ExpandTemplates extension Multiple Vulnerabilities - Jan15");
 
@@ -41,7 +41,7 @@ if(description)
   script_xref(name:"URL", value:"https://phabricator.wikimedia.org/T773111");
   script_xref(name:"URL", value:"http://www.openwall.com/lists/oss-security/2015/01/03/13");
   script_category(ACT_ATTACK);
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("find_service.nasl", "secpod_mediawiki_detect.nasl");

@@ -23,14 +23,14 @@ CPE = "cpe:/a:oracle:mysql";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.146355");
-  script_version("2021-08-26T13:01:12+0000");
-  script_tag(name:"last_modification", value:"2021-08-26 13:01:12 +0000 (Thu, 26 Aug 2021)");
+  script_version("2023-10-20T16:09:12+0000");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
   script_tag(name:"creation_date", value:"2021-07-22 07:49:30 +0000 (Thu, 22 Jul 2021)");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-07-26 16:30:00 +0000 (Mon, 26 Jul 2021)");
+  script_tag(name:"severity_date", value:"2021-07-26 16:28:00 +0000 (Mon, 26 Jul 2021)");
 
   # nb: From the vendor advisory: The patch for CVE-2021-22901 also addresses CVE-2021-22897 and CVE-2021-22898.
   script_cve_id("CVE-2021-22901", "CVE-2019-17543", "CVE-2021-2389", "CVE-2021-2390", "CVE-2021-2356",

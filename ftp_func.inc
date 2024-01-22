@@ -615,6 +615,12 @@ function ftp_get_ports( default_port_list, ignore_broken, ignore_unscanned ) {
 # @param default_pass  The (optional) default password which should be used if no valid credentials where
 #                      found in the KB.
 #
+# @note Add a dependency to logins.nasl so that user configured credentials from the relevant
+#       settings of that VT are getting taken into account.
+#
+# @note Add a dependency to secpod_ftp_anonymous.nasl so that a detected anonymous account is taken
+#       into account.
+#
 # @return An array containing the following array indices:
 #
 #         ret_array["login"] = The login defined via the "FTP account" preference of logins.nasl,
@@ -623,9 +629,6 @@ function ftp_get_ports( default_port_list, ignore_broken, ignore_unscanned ) {
 #         ret_array["pass"]  = The password defined via the "FTP password (sent in clear)" preference of
 #                              logins.nasl, "anonymous@example.com" in the case the VT wasn't included in
 #                              the scan config or the preference has been cleared.
-#
-# @note Please include secpod_ftp_anonymous.nasl (or any VT pulling this dependency in) into your
-#       script_dependencies so that a detected anonymous account is taken into account.
 #
 function ftp_get_kb_creds( default_login, default_pass ) {
 

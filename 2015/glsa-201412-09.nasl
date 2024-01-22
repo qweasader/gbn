@@ -7,9 +7,9 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.121295");
-  script_version("2023-07-19T05:05:15+0000");
+  script_version("2023-11-02T05:05:26+0000");
   script_tag(name:"creation_date", value:"2015-09-29 11:28:05 +0300 (Tue, 29 Sep 2015)");
-  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_name("Gentoo Security Advisory GLSA 201412-09");
   script_tag(name:"insight", value:"Vulnerabilities have been discovered in the packages listed below. Please review the CVE identifiers in the references for details.");
   script_tag(name:"solution", value:"Update the affected packages to the latest available version.");
@@ -18,6 +18,9 @@ if(description)
   script_cve_id("CVE-2007-4370", "CVE-2009-4023", "CVE-2009-4111", "CVE-2010-0778", "CVE-2010-1780", "CVE-2010-1782", "CVE-2010-1783", "CVE-2010-1784", "CVE-2010-1785", "CVE-2010-1786", "CVE-2010-1787", "CVE-2010-1788", "CVE-2010-1790", "CVE-2010-1791", "CVE-2010-1792", "CVE-2010-1793", "CVE-2010-1807", "CVE-2010-1812", "CVE-2010-1814", "CVE-2010-1815", "CVE-2010-2526", "CVE-2010-2901", "CVE-2010-3255", "CVE-2010-3257", "CVE-2010-3259", "CVE-2010-3362", "CVE-2010-3374", "CVE-2010-3389", "CVE-2010-3812", "CVE-2010-3813", "CVE-2010-3999", "CVE-2010-4042", "CVE-2010-4197", "CVE-2010-4198", "CVE-2010-4204", "CVE-2010-4206", "CVE-2010-4492", "CVE-2010-4493", "CVE-2010-4577", "CVE-2010-4578", "CVE-2011-0007", "CVE-2011-0465", "CVE-2011-0482", "CVE-2011-0721", "CVE-2011-0727", "CVE-2011-0904", "CVE-2011-0905", "CVE-2011-1072", "CVE-2011-1097", "CVE-2011-1144", "CVE-2011-1425", "CVE-2011-1572", "CVE-2011-1760", "CVE-2011-1951", "CVE-2011-2471", "CVE-2011-2472", "CVE-2011-2473", "CVE-2011-2524", "CVE-2011-3365", "CVE-2011-3366", "CVE-2011-3367");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-08-04 19:21:00 +0000 (Tue, 04 Aug 2020)");
   script_tag(name:"qod_type", value:"package");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/gentoo", "ssh/login/pkg");

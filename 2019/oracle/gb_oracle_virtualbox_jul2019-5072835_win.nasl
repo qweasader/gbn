@@ -23,17 +23,17 @@ CPE = "cpe:/a:oracle:vm_virtualbox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.815420");
-  script_version("2021-10-07T07:48:17+0000");
+  script_version("2023-10-27T16:11:32+0000");
   script_cve_id("CVE-2019-2863", "CVE-2019-1543", "CVE-2019-2867", "CVE-2019-2866",
                 "CVE-2019-2865", "CVE-2019-2864", "CVE-2019-2848", "CVE-2019-2859",
                 "CVE-2019-2850", "CVE-2019-2874", "CVE-2019-2875", "CVE-2019-2876",
                 "CVE-2019-2877", "CVE-2019-2873");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2021-10-07 07:48:17 +0000 (Thu, 07 Oct 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-06-03 20:29:00 +0000 (Mon, 03 Jun 2019)");
+  script_tag(name:"severity_date", value:"2021-02-16 23:48:00 +0000 (Tue, 16 Feb 2021)");
   script_tag(name:"creation_date", value:"2019-07-17 12:52:56 +0530 (Wed, 17 Jul 2019)");
   script_name("Oracle VirtualBox Security Updates (jul2019-5072835) - Windows");
 

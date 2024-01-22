@@ -9,11 +9,11 @@ CPE = "cpe:/a:owncloud:owncloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805283");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-12-01T16:11:30+0000");
   script_cve_id("CVE-2014-5341");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"creation_date", value:"2015-02-19 17:25:47 +0530 (Thu, 19 Feb 2015)");
   script_name("ownCloud 'files_external' RSA Key Validation Information Disclosure Vulnerability");
 
@@ -43,31 +43,24 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_owncloud_detect.nasl");
-  script_mandatory_keys("owncloud/installed");
-  script_require_ports("Services/www", 80);
+  script_dependencies("gb_owncloud_http_detect.nasl");
+  script_mandatory_keys("owncloud/detected");
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-if(!ownPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!ownVer = get_app_version(cpe:CPE, port:ownPort)){
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-if(ownVer =~ "^6")
-{
-  if(version_in_range(version:ownVer, test_version:"6.0.0", test_version2:"6.0.4"))
-  {
-    report = 'Installed version: ' + ownVer + '\n' +
-           'Fixed version:     ' + "6.0.5" + '\n';
-
-    security_message(port:ownPort, data:report);
+if(version =~ "^6") {
+  if(version_in_range(version:version, test_version:"6.0.0", test_version2:"6.0.4")) {
+    report = report_fixed_ver(installed_version:version, fixed_version:"6.0.5");
+    security_message(port:port, data:report);
     exit(0);
   }
 }

@@ -9,8 +9,8 @@ CPE = "cpe:/a:exim:exim";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.151090");
-  script_version("2023-10-17T05:05:34+0000");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_version("2024-01-10T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
   # nb: This was initially a single VT but got split later into multiple due to different affected /
   # fixed versions. To avoid wrong stats about CVE coverage the "creation_date" of the original VT
   # has been kept here because all CVEs had been covered at this time.
@@ -30,8 +30,8 @@ if (description)
 
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("General");
-  script_dependencies("gb_exim_detect.nasl");
-  script_mandatory_keys("exim/installed");
+  script_dependencies("gb_exim_smtp_detect.nasl");
+  script_mandatory_keys("exim/detected");
 
   script_tag(name:"summary", value:"Exim is prone to multiple vulnerabilities.");
 

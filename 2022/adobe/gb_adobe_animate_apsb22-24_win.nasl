@@ -23,14 +23,11 @@ CPE = "cpe:/a:adobe:animate";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.821128");
-  script_version("2022-06-29T10:11:11+0000");
+  script_version("2023-11-09T05:05:33+0000");
   script_cve_id("CVE-2022-30664");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-06-29 10:11:11 +0000 (Wed, 29 Jun 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
-  script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-06-27 18:39:00 +0000 (Mon, 27 Jun 2022)");
+  script_tag(name:"last_modification", value:"2023-11-09 05:05:33 +0000 (Thu, 09 Nov 2023)");
   script_tag(name:"creation_date", value:"2022-06-16 22:28:22 +0530 (Thu, 16 Jun 2022)");
   script_name("Adobe Animate Multiple Vulnerabilities (APSB22-24) - Windows");
 

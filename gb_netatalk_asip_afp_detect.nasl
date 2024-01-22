@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108527");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2023-11-16T05:05:14+0000");
+  script_tag(name:"last_modification", value:"2023-11-16 05:05:14 +0000 (Thu, 16 Nov 2023)");
   script_tag(name:"creation_date", value:"2019-01-08 09:37:20 +0100 (Tue, 08 Jan 2019)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -52,6 +52,6 @@ if( vers[1] )
 
 set_kb_item( name:"netatalk/detected", value:TRUE );
 
-register_and_report_cpe( app:"Netatalk", ver:version, concluded:banner, base:"cpe:/a:netatalk_project:netatalk:", expr:"([0-9.p]+)", insloc:install, regPort:port, regService:"appleshare" );
+register_and_report_cpe( app:"Netatalk", ver:version, concluded:banner, base:"cpe:/a:netatalk:netatalk:", expr:"([0-9.p]+)", insloc:install, regPort:port, regService:"appleshare" );
 
 exit( 0 );

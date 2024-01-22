@@ -167,6 +167,13 @@ eol_cpes[ "cpe:/a:ftpdmin:ftpdmin" ] = make_array(
   "version_regex", "^([0-9]\.[0-9]+)"
 );
 
+# https://docs.github.com/en/enterprise-server@latest/admin/all-releases
+# Aged 11.10 hasn't been added here to not interfere with possible "new" 11.x releases in the future
+eol_cpes[ "cpe:/a:github:github_enterprise" ] = make_array(
+  "versions",      "3.10:2024-08-29;3.9:2024-06-29;3.8:2024-03-07;3.7:2023-11-08;3.6:2023-09-25;3.5:2023-06-29;3.4:2023-03-23;3.3:2023-01-18;3.2:2022-10-12;3.1:2022-06-30;3.0:2022-02-16;2.22:2021-09-23;2.21:2021-06-09;2.20:2021-03-02;2.19:2020-11-12;2.18:2020-08-20;2.17:2020-05-23;2.16:2020-01-22;2.15:2019-10-16;2.14:2019-07-12;2.13:2019-03-27;2.12:2018-12-12;2.11:2018-09-13;2.10:2018-06-05;2.9:2018-03-01;2.8:2017-11-09;2.7:2017-08-03;2.6:2017-04-26;2.5:2017-03-14;2.4:2017-02-09;2.3:2016-11-01;2.2:2016-08-03;2.1:2016-04-26;2.0:2016-02-09;",
+  "version_regex", "^([0-9]+\.[0-9]+)"
+);
+
 # Mapping between the older GVM and GOS releases and also includes a few EOL dates:
 # https://greenbone.github.io/docs/latest/faq.html#which-release-contains-which-component
 #
@@ -228,8 +235,10 @@ eol_cpes[ "cpe:/a:ibm:lotus_domino" ] = make_array(
 # https://www.ilias.de/docu/goto.php?target=wiki_1357&client_id=docu#ilPageTocA115
 # https://www.ilias.de/docu/ilias.php?ref_id=1719&obj_id=6543&cmd=layout&cmdClass=illmpresentationgui&cmdNode=wc&baseClass=ilLMPresentationGUI
 # nb: The EOL dates for the older releases where no such date is available the date of the last release of the branch was taken from the second link
+# nb: Starting with version 6 ILIAS changed versioning scheme to 6.x instead of previous 5.x.y.
+#     Thus, from 6.x onwards the branches reaching EOL will be 6, 7 etc. and will be handled in the VT itself, as they do not match the version_regex anymore.
 eol_cpes[ "cpe:/a:ilias:ilias" ] = make_array(
-  "versions",      "5.2:2019-06-06;5.1:2018-08-01;5.0:2017-07-31;4.4:2016-07-31;4.3:2015-07-28;4.2:2014-07-31;4.1:2013-02-03;4.0:2012-02-03;3.10:2010-10-06;3.9:2010-02-01;3.8:2008-02-04;3.7:2007-07-26;3.6:2007-07-26;3.5:2006-10-23;3.4:2006-09-05;3.3:2005-03-09;3.2:2005-02-04;3.1:2004-07-11;3.0:2004-06-21;2.4:2004-06-21",
+  "versions",      "5.4:2021-12-31;5.3:2020-08-21;5.2:2019-06-06;5.1:2018-08-01;5.0:2017-07-31;4.4:2016-07-31;4.3:2015-07-28;4.2:2014-07-31;4.1:2013-02-03;4.0:2012-02-03;3.10:2010-10-06;3.9:2010-02-01;3.8:2008-02-04;3.7:2007-07-26;3.6:2007-07-26;3.5:2006-10-23;3.4:2006-09-05;3.3:2005-03-09;3.2:2005-02-04;3.1:2004-07-11;3.0:2004-06-21;2.4:2004-06-21",
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
@@ -384,6 +393,28 @@ eol_cpes[ "cpe:/a:microsoft:sql_server" ] = make_array(
 # - Skype for Business Server 2019 and 2015 have both the same EOL date
 eol_cpes[ "cpe:/a:microsoft:skype_for_business" ] = make_array(
   "versions", "all:2025-10-14"
+);
+
+# From https://support.nagios.com/forum/viewtopic.php?f=16&t=64655:
+# > We only support versions of XI that are less than twenty four months from their release date.
+#
+# The relevant versions can be found here:
+# - https://www.nagios.com/changelog/#nagios-xi (only starting from 2011)
+# - https://assets.nagios.com/downloads/nagiosxi/versions.php
+#
+# nb:
+# - For the EOL date the release date of the last version of the relevant branch (e.g. 5.2.9 for
+#   5.2.x) has been taken and then 2 years have been added
+# - Only the ones which have already reached their EOL have been added (e.g. 5.9.3 was released on
+#   02/1/23 so it wasn't added here)
+# - There was e.g. no 2013 or 2010 version according to the changelog but we still have added it
+#   here (with an "unknown" date) just to be sure if these are just not mentioned on the changelogs
+eol_cpes[ "cpe:/a:nagios:nagios_xi" ] = make_array(
+  "versions",      "5.7:2022-12-08;5.6:2022-04-21;5.5:2021-02-28;5.4:2020-03-13;5.3:2018-12-14;5.2:2018-06-10;2014:2017-04-23;2013:unknown;2012:2016-02-11;2011:2014-08-22;2010:unknown;2009:2013-02-02",
+  # nb: Regex is used to either only extract:
+  # - 2012 from e.g. 2012r2.9
+  # - 5.9 from e.g. 5.9.3
+  "version_regex", "^(([0-9]+\.[0-9]+|20[0-9]{2}))"
 );
 
 # https://endoflife.date/nginx
@@ -573,12 +604,18 @@ eol_cpes[ "cpe:/a:proxmox:virtual_environment" ] = make_array(
   "version_regex", "^([0-9]+)"
 );
 
-# https://support.pulsesecure.net/product-service-policies/eol/software/pulse-connect-secure-software-dates-milestones/
-# nb: A note on the last available security update is available in https://support.pulsesecure.net/web/wp-content/uploads/2019/02/PulseSecure_EOL_v2.pdf:
-# - End of Engineering for Software (EOE) - Critical must-fix security patches are provided, for an approximate period of 12 months, after this date.
+# - https://forums.ivanti.com/s/article/Pulse-Connect-Secure-Software-Dates-Milestones
+# - https://web.archive.org/web/20230201133412/https://support.pulsesecure.net/product-service-policies/eol/software/pulse-connect-secure-software-dates-milestones/ (latest version from Pulse Secure before the docs got moved to ivanti.com)
+# - https://forums.ivanti.com/s/article/Granular-Software-Release-EOL-Timelines-and-Support-Matrix
+#
+# nb: A note on the last available security update is available in https://web.archive.org/web/20220529190704/https://support.pulsesecure.net/web/wp-content/uploads/2019/02/PulseSecure_EOL_v2.pdf:
+#
+# > End of Engineering for Software (EOE) - Critical must-fix security patches are provided, for an approximate period of 12 months, after this date.
+#
 # Based on this version an EOE date + 12 months is used in the versions part of the array below.
-eol_cpes[ "cpe:/a:pulsesecure:pulse_connect_secure" ] = make_array(
-  "versions",      "9.1:2023-12-31;9.0:2020-10-30;8.3:2019-10-11;8.2:2018-07-11;8.1:2017-12-18;8.0:2016-09-30",
+#
+eol_cpes[ "cpe:/a:ivanti:connect_secure" ] = make_array(
+  "versions",      "9.1:2025-06-30;9.0:2020-10-30;8.3:2019-10-11;8.2:2018-07-11;8.1:2017-12-18;8.0:2016-09-30",
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
@@ -636,6 +673,15 @@ eol_cpes[ "cpe:/a:solarwinds:database_performance_analyzer" ] = make_array(
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
+# https://support.solarwinds.com/SuccessCenter/s/article/Currently-supported-software-versions?language=en_US#NCM
+# Currently (as of 12/2023) the following is stated so these haven't been added here
+# - Latest Version: 2023.4.2
+# - Earliest Supported Version: 2020.2.5
+eol_cpes[ "cpe:/a:solarwinds:network_configuration_manager" ] = make_array(
+  "versions",      "2019.4:2023-08-26;8.0:2023-08-26;7.9:2022-07-15;7.8:2022-07-15;7.7:2020-09-06;7.6:2020-03-04;7.5:2018-12-14;2018;7.4:2018-06-15;7.3:2018-06-15;7.2:2018-06-15;7.1:2016-09-022;7.0:2015-08-31;6.0:2014-11-13;5.5:2014-01-01",
+  "version_regex", "^([0-9]+\.[0-9]+)"
+);
+
 # https://support.solarwinds.com/SuccessCenter/s/article/Currently-supported-software-versions?language=en_US#SEM
 eol_cpes[ "cpe:/a:solarwinds:security_event_manager" ] = make_array(
   "versions",      "2020.4:2023-10-19;2020.2:2023-10-19;2019.4:2023-10-19;6.7:2022-08-18;6.6:2021-09-06;6.5:2021-09-06;6.4:2021-09-04;6.3:2020-08-21;6.2:2019-12-12;6.1:2019-09-12;6.0:2017-11-16;5.7:2016-05-03;5.6:2015-09-10;5.5:2014-12-10;5.3:2014-06-11",
@@ -656,6 +702,13 @@ eol_cpes[ "cpe:/a:synology:diskstation_manager" ] = make_array(
 # https://kb.synology.com/en-us/WP/Synology_Security_White_Paper/3
 eol_cpes[ "cpe:/a:synology:router_manager" ] = make_array(
   "versions",      "1.1:2018-12-31;1.0:2017-12-31",
+  "version_regex", "^([0-9]+\.[0-9]+)"
+);
+
+# https://docs.tenable.com/PDFs/product-lifecycle-management/tenable-software-release-lifecycle-matrix.pdf
+# nb: The "End of Life Achieved/Last Day of Support" dates is used here
+eol_cpes[ "cpe:/a:tenable:nessus" ] = make_array(
+  "versions",      "10.6:2025-08-31;10.5:2025-03-31;10.4:2024-10-31;10.3:2024-07-31;10.2:2024-05-31;10.1:2024-01-31;10.0:2023-11-30;8.15:unknown;8.14:unknown",
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
 

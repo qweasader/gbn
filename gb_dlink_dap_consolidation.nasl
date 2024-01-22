@@ -9,8 +9,8 @@ include("plugin_feed_info.inc");
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170325");
-  script_version("2023-04-18T10:19:20+0000");
-  script_tag(name:"last_modification", value:"2023-04-18 10:19:20 +0000 (Tue, 18 Apr 2023)");
+  script_version("2023-11-21T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
   script_tag(name:"creation_date", value:"2023-02-27 21:15:15 +0000 (Mon, 27 Feb 2023)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -74,9 +74,9 @@ foreach source( make_list( "http", "hnap", "upnp", "mdns" ) ) {
 }
 
 os_app = "D-Link ";
-os_cpe = "cpe:/o:d-link:";
+os_cpe = "cpe:/o:dlink:";
 hw_app = "D-Link ";
-hw_cpe = "cpe:/h:d-link:";
+hw_cpe = "cpe:/h:dlink:";
 
 if( detected_model != "unknown" ) {
   os_app += detected_model + " Firmware";

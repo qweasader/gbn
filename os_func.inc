@@ -74,14 +74,15 @@ function os_host_runs() {
                 'cloudgate.+firmware|sato(:| ).+(_| )firmware|konicaminolta(:| ).+(_| )firmware|gpon(:| ).+(_| )firmware|teltonika(:| ).+(_| )firmware|axis(:| ).+(_| )firmware|znid(_| ).*(_| )firmware|' +
                 'yealink(:| )(vo)?ip(_| )phone|officeconnect.*firewall(_| )software|phoenix(_| )contact(:| ).+firmware|honeywell(:| ).*controller|buffalo(:| ).+firmware|linksys(:| ).+firmware|' +
                 'intel(:| )standard(_| )manageability|mobileiron(:| )(core|sentry)|edgecore(:| )es3526xa|spinetix(:| ).+firmware|ruckus.*(:| )iot(_| )controller|westermo(:| )weos|netgear(:| )|contiki(-| )os|' +
-                'nut(/|_)os|ui(:| ).*(_| )firmware|zyxel(:| ).*firmware|loxone(:| )miniserver|abb(:| ).*firmware|schneider(-| )electric(:| )powerlogic|tp-link(:| ).*firmware|photon(_| )os|avtech|' +
+                'nut(/|_)os|ui(:| ).*(_| )firmware|zyxel(:| ).*firmware|loxone(:| )miniserver|abb(:| ).*firmware|schneider(-| )electric(:| )powerlogic|tp-link|ups(:| ).*firmware|photon(_| )os|avtech|' +
                 'garrettcom(:| )|siemens(:| ).*firmware|flir(:| )(ax8|neco(_| )platform)(_| )firmware|maipu(:| ).*firmware|ibm(:| )global(_| )console|easyio(:| )|(sma_solar_technology_ag|sma solar sunny)|' +
                 'western(_| )digital(:| )my(_| )book(_| )live(_| )firmware|seagate(:| ).*firmware|epson(:| ).+firmware|ruijie(_| )networks(:| ).*firmware|canon(:| ).+firmware|kyocera(:| ).+firmware|' +
                 'hp(:| ).+firmware|watchguard(:| )fireware|sony(:| )network.+camera.+firmware|turck(:| ).+firmware|franklinfueling(:| ).+firmware|quest(:| )kace|3com(:| ).+firmware|contec(:| )sv-cpt.+firmware' +
                 'arris(:| ).+firmware|hikvision(:| )ip(_| )camera(_| )firmware)|barracuda(:| )cloudgen.+firmware|cradlepoint.+firmware|octopi|technicolor(:| )tc7200|sharp(:| ).+firmware|' +
                 'hpe(:| )officeconnect.+firmware|cyberoam(_| )os|optilink(:| )switch(_| )firmware|rocky(:| )(rocky|linux)|alma ?linux|barox(:| ).+firmware|meinberg.*(:| )lantime(_| )firmware|terramaster(:| ).+firmware|' +
                 'axis( |_)os|alcatel-lucent(:| ).+firmware|riello(:| )netman(_| )204(_| )firmware|home-assistant:home-assistant|home assistant os|arrayos|apsystems(:| )energy(_| )communication(_| )unit(_| )firmware|' +
-                '(brocade|broadcom).+fabric|barracuda(:| )email_security_gateway|edge-?core.+firmware|fujifilm(:| ).+(_| )firmware|vmware(:| ).+firmware|rockwell ?automation(:| ).+firmware|mitel(:| ).+firmware|brother(:| ).+firmware|polycom( |:)unified( |_)communications( |_)software|supermicro(:| ).+firmware|sangfor.+ngaf.+firmware|honeywell.+firmware)';
+                '(brocade|broadcom).+fabric|barracuda(:| )email_security_gateway|edge-?core.+firmware|fujifilm(:| ).+(_| )firmware|vmware(:| ).+firmware|rockwell ?automation(:| ).+firmware|mitel(:| ).+firmware|brother(:| ).+firmware|polycom( |:)unified( |_)communications( |_)software|supermicro(:| ).+firmware|sangfor.+ngaf.+firmware|honeywell.+firmware|' +
+                'extreme ?networks(:| ).+exos|trendnet(:| ).+( |_)firmware|viessmann(:| )vitogate.+( |_)firmware|dell(:| ).+firmware|sierra ?wireless(:| )aleos)';
 
   if( eregmatch( pattern:ospattern, string:best_os, icase:TRUE ) )
     return "yes";
@@ -370,7 +371,7 @@ function os_get_cpe_src_list() {
     "1.3.6.1.4.1.25623.1.0.105263", # gb_paloalto_panos_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.142605", # gsf/gb_paloalto_globalprotect_portal_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.105266", # gb_screenos_version.nasl
-    "1.3.6.1.4.1.25623.1.0.106413", # gb_extremeos_snmp_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.151229", # gb_extremeos_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.108566", # gb_tippingpoint_sms_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.106513", # gb_cisco_asa_version_snmp.nasl
     "1.3.6.1.4.1.25623.1.0.105222", # gb_cisco_asa_version.nasl
@@ -493,6 +494,7 @@ function os_get_cpe_src_list() {
     "1.3.6.1.4.1.25623.1.0.170280", # gsf/gb_dlink_dnh_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.170349", # gsf/gb_dlink_generic_device_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.107252", # gb_dgs_1500_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.107300", # gb_trendnet_router_http_detect.nasl
     # nb: Needs to be after all D-Link detections above because this *might* only register an
     # unknown model while the others above could be more detailed...
     "1.3.6.1.4.1.25623.1.0.170206", # gsf/gb_dlink_devices_hnap_detect.nasl
@@ -520,7 +522,9 @@ function os_get_cpe_src_list() {
     "1.3.6.1.4.1.25623.1.0.147610", # gb_hp_printer_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.149040", # gb_sharp_printer_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.170550", # gb_brother_printer_consolidation.nasl
+    "1.3.6.1.4.1.25623.1.0.151376", # gb_dell_printer_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.108494", # gb_codesys_os_detection.nasl
+    "1.3.6.1.4.1.25623.1.0.106075", # gb_sierrawireless_acemanager_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.144306", # gsf/gb_nimbus_os_detection.nasl
     "1.3.6.1.4.1.25623.1.0.141684", # gb_simatic_hmi_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.141766", # gb_wago_plc_consolidation.nasl
@@ -561,6 +565,7 @@ function os_get_cpe_src_list() {
     "1.3.6.1.4.1.25623.1.0.143598", # gb_moxa_mgate_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.145968", # gb_moxa_nport_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.149646", # gb_moxa_miineport_consolidation.nasl
+    "1.3.6.1.4.1.25623.1.0.151362", # gb_apc_ups_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.146507", # gsf/gb_ruijie_devices_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.150893", # gsf/gb_mitel_smb_controller_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.140631", # gb_cambium_cnpilot_consolidation.nasl
@@ -593,6 +598,8 @@ function os_get_cpe_src_list() {
     "1.3.6.1.4.1.25623.1.0.50282",  # gather-package-list.nasl
     "1.3.6.1.4.1.25623.1.0.143355", # gb_huawei_euleros_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.105614", # gb_cisco_pis_version.nasl
+    # nb: This needs to be after gather-package-list.nasl as that is registering the OS in more detail
+    "1.3.6.1.4.1.25623.1.0.105522", # gb_cisco_firepower_management_center_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.146019", # gsf/gb_cisco_hyperflex_data_platform_installer_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.140454", # gb_checkpoint_fw_version.nasl
     "1.3.6.1.4.1.25623.1.0.103621", # gb_smb_windows_detect.nasl
@@ -650,20 +657,25 @@ function os_get_cpe_src_list() {
     "1.3.6.1.4.1.25623.1.0.149618", # gsf/gb_oracle_opera_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.149660", # gsf/gb_sophos_mobile_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.151108", # gsf/gb_supermicro_bmc_consolidation.nasl
+    "1.3.6.1.4.1.25623.1.0.151265", # gsf/gb_veeam_one_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.103429", # gb_snmp_os_detection.nasl
     "1.3.6.1.4.1.25623.1.0.108014", # gb_dns_os_detection.nasl
     "1.3.6.1.4.1.25623.1.0.105355", # gb_ftp_os_detection.nasl
     "1.3.6.1.4.1.25623.1.0.102011", # smb_nativelanman.nasl
     "1.3.6.1.4.1.25623.1.0.103979", # gb_ucs_detect.nasl
     "1.3.6.1.4.1.25623.1.0.104498", # gb_cwp_consolidation.nasl
-    # nb: Should be before sw_http_os_detection.nasl as the devices are emulating a IIS banner which
-    # could cause false OS reporting
+    # nb: Should be before sw_http_os_detection.nasl and gb_microsoft_iis_http_detect.nasl as the
+    # devices are emulating an IIS banner which could cause false OS reporting.
     "1.3.6.1.4.1.25623.1.0.104949", # gsf/gb_sangfor_ngaf_http_detect.nasl
+    # nb: Should be before sw_http_os_detection.nasl as it detects the Windows OS version in more
+    # detail.
+    "1.3.6.1.4.1.25623.1.0.900710", # gb_microsoft_iis_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.111067", # sw_http_os_detection.nasl
+    "1.3.6.1.4.1.25623.1.0.100970", # gsf/gb_viessmann_vitogate_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.111068", # sw_mail_os_detection.nasl
     "1.3.6.1.4.1.25623.1.0.111069", # sw_telnet_os_detection.nasl
     "1.3.6.1.4.1.25623.1.0.108192", # gb_mysql_mariadb_os_detection.nasl
-    "1.3.6.1.4.1.25623.1.0.100292", # apcnisd_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.100292", # gb_apcnisd_detect.nasl
     "1.3.6.1.4.1.25623.1.0.140184", # gb_dahua_devices_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.114084", # gb_amcrest_ip_camera_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.108682", # gb_pptp_os_detection.nasl
@@ -696,6 +708,7 @@ function os_get_cpe_src_list() {
     "1.3.6.1.4.1.25623.1.0.140337", # gb_netapp_storagegrid_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.105964", # gb_solarwinds_sam_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.148959", # gsf/gb_solarwinds_sem_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.151242", # gsf/gb_solarwinds_arm_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.108455", # gb_nntp_os_detection.nasl
     "1.3.6.1.4.1.25623.1.0.106220", # gb_siemens_sinema_server_detect.nasl
     "1.3.6.1.4.1.25623.1.0.143411", # gsf/gb_siemens_sppa-t3000_app_server_http_detect.nasl
@@ -811,6 +824,21 @@ function os_get_cpe_src_list() {
     "1.3.6.1.4.1.25623.1.0.103923", # gb_wsman_winrm_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.104703", # gb_microsoft_msmq_tcp_detect.nasl
     "1.3.6.1.4.1.25623.1.0.141450", # gb_redhat_openshift_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.104927", # gsf/gb_jumpserver_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.170668", # gb_tenable_nessus_consolidation.nasl
+    "1.3.6.1.4.1.25623.1.0.801102", # gb_adobe_robohelp_server_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.151330", # gsf/gb_qlik_sense_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.124508", # gsf/gb_manageengine_m365_security_plus_consolidation.nasl
+    "1.3.6.1.4.1.25623.1.0.170743", # gsf/gb_manageengine_endpoint_central_server_consolidation.nasl
+    "1.3.6.1.4.1.25623.1.0.170747", # gsf/gb_manageengine_endpoint_central_server_msp_consolidation.nasl
+    "1.3.6.1.4.1.25623.1.0.100752", # gb_nagios_xi_http_detect.nasl
+    # nb: FortiSIEM has been placed down below because it is currently not fully clear if this is
+    # actually running FortiOS.
+    "1.3.6.1.4.1.25623.1.0.114223", # gsf/gb_fortinet_fortisiem_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.900811", # gb_digium_asterisk_sip_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.114269", # gsf/gb_aveva_intouch_access_anywhere_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.114281", # gsf/gb_aveva_plant_scada_access_anywhere_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.151486", # gsf/gb_vinchin_backup_recovery_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.108447", # gb_android_adb_detect.nasl nb: Down here because an ADB service could be run on an Android emulator as well...
     "1.3.6.1.4.1.25623.1.0.10150",  # netbios_name_get.nasl
     # nb: The only difference to os_get_txt_txt_list() is that the list here is missing gb_nmap_os_detection.nasl as this VT is (currently) not registering a CPE...
@@ -861,7 +889,7 @@ function os_get_txt_src_list() {
     "1.3.6.1.4.1.25623.1.0.105263", # gb_paloalto_panos_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.142605", # gsf/gb_paloalto_globalprotect_portal_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.105266", # gb_screenos_version.nasl
-    "1.3.6.1.4.1.25623.1.0.106413", # gb_extremeos_snmp_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.151229", # gb_extremeos_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.108566", # gb_tippingpoint_sms_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.106513", # gb_cisco_asa_version_snmp.nasl
     "1.3.6.1.4.1.25623.1.0.105222", # gb_cisco_asa_version.nasl
@@ -984,6 +1012,7 @@ function os_get_txt_src_list() {
     "1.3.6.1.4.1.25623.1.0.170280", # gsf/gb_dlink_dnh_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.170349", # gsf/gb_dlink_generic_device_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.107252", # gb_dgs_1500_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.107300", # gb_trendnet_router_http_detect.nasl
     # nb: Needs to be after all D-Link detections above because this *might* only register an
     # unknown model while the others above could be more detailed...
     "1.3.6.1.4.1.25623.1.0.170206", # gsf/gb_dlink_devices_hnap_detect.nasl
@@ -1011,7 +1040,9 @@ function os_get_txt_src_list() {
     "1.3.6.1.4.1.25623.1.0.147610", # gb_hp_printer_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.149040", # gb_sharp_printer_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.170550", # gb_brother_printer_consolidation.nasl
+    "1.3.6.1.4.1.25623.1.0.151376", # gb_dell_printer_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.108494", # gb_codesys_os_detection.nasl
+    "1.3.6.1.4.1.25623.1.0.106075", # gb_sierrawireless_acemanager_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.144306", # gsf/gb_nimbus_os_detection.nasl
     "1.3.6.1.4.1.25623.1.0.141684", # gb_simatic_hmi_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.141766", # gb_wago_plc_consolidation.nasl
@@ -1052,6 +1083,7 @@ function os_get_txt_src_list() {
     "1.3.6.1.4.1.25623.1.0.143598", # gb_moxa_mgate_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.145968", # gb_moxa_nport_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.149646", # gb_moxa_miineport_consolidation.nasl
+    "1.3.6.1.4.1.25623.1.0.151362", # gb_apc_ups_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.146507", # gsf/gb_ruijie_devices_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.150893", # gsf/gb_mitel_smb_controller_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.140631", # gb_cambium_cnpilot_consolidation.nasl
@@ -1084,6 +1116,8 @@ function os_get_txt_src_list() {
     "1.3.6.1.4.1.25623.1.0.50282",  # gather-package-list.nasl
     "1.3.6.1.4.1.25623.1.0.143355", # gb_huawei_euleros_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.105614", # gb_cisco_pis_version.nasl
+    # nb: This needs to be after gather-package-list.nasl as that is registering the OS in more detail
+    "1.3.6.1.4.1.25623.1.0.105522", # gb_cisco_firepower_management_center_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.146019", # gsf/gb_cisco_hyperflex_data_platform_installer_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.140454", # gb_checkpoint_fw_version.nasl
     "1.3.6.1.4.1.25623.1.0.103621", # gb_smb_windows_detect.nasl
@@ -1141,20 +1175,25 @@ function os_get_txt_src_list() {
     "1.3.6.1.4.1.25623.1.0.149618", # gsf/gb_oracle_opera_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.149660", # gsf/gb_sophos_mobile_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.151108", # gsf/gb_supermicro_bmc_consolidation.nasl
+    "1.3.6.1.4.1.25623.1.0.151265", # gsf/gb_veeam_one_consolidation.nasl
     "1.3.6.1.4.1.25623.1.0.103429", # gb_snmp_os_detection.nasl
     "1.3.6.1.4.1.25623.1.0.108014", # gb_dns_os_detection.nasl
     "1.3.6.1.4.1.25623.1.0.105355", # gb_ftp_os_detection.nasl
     "1.3.6.1.4.1.25623.1.0.102011", # smb_nativelanman.nasl
     "1.3.6.1.4.1.25623.1.0.103979", # gb_ucs_detect.nasl
     "1.3.6.1.4.1.25623.1.0.104498", # gb_cwp_consolidation.nasl
-    # nb: Should be before sw_http_os_detection.nasl as the devices are emulating a IIS banner which
-    # could cause false OS reporting
+    # nb: Should be before sw_http_os_detection.nasl and gb_microsoft_iis_http_detect.nasl as the
+    # devices are emulating an IIS banner which could cause false OS reporting.
     "1.3.6.1.4.1.25623.1.0.104949", # gsf/gb_sangfor_ngaf_http_detect.nasl
+    # nb: Should be before sw_http_os_detection.nasl as it detects the Windows OS version in more
+    # detail.
+    "1.3.6.1.4.1.25623.1.0.900710", # gb_microsoft_iis_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.111067", # sw_http_os_detection.nasl
+    "1.3.6.1.4.1.25623.1.0.100970", # gsf/gb_viessmann_vitogate_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.111068", # sw_mail_os_detection.nasl
     "1.3.6.1.4.1.25623.1.0.111069", # sw_telnet_os_detection.nasl
     "1.3.6.1.4.1.25623.1.0.108192", # gb_mysql_mariadb_os_detection.nasl
-    "1.3.6.1.4.1.25623.1.0.100292", # apcnisd_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.100292", # gb_apcnisd_detect.nasl
     "1.3.6.1.4.1.25623.1.0.140184", # gb_dahua_devices_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.114084", # gb_amcrest_ip_camera_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.108682", # gb_pptp_os_detection.nasl
@@ -1187,6 +1226,7 @@ function os_get_txt_src_list() {
     "1.3.6.1.4.1.25623.1.0.140337", # gb_netapp_storagegrid_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.105964", # gb_solarwinds_sam_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.148959", # gsf/gb_solarwinds_sem_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.151242", # gsf/gb_solarwinds_arm_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.108455", # gb_nntp_os_detection.nasl
     "1.3.6.1.4.1.25623.1.0.106220", # gb_siemens_sinema_server_detect.nasl
     "1.3.6.1.4.1.25623.1.0.143411", # gsf/gb_siemens_sppa-t3000_app_server_http_detect.nasl
@@ -1302,6 +1342,21 @@ function os_get_txt_src_list() {
     "1.3.6.1.4.1.25623.1.0.103923", # gb_wsman_winrm_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.104703", # gb_microsoft_msmq_tcp_detect.nasl
     "1.3.6.1.4.1.25623.1.0.141450", # gb_redhat_openshift_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.104927", # gsf/gb_jumpserver_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.170668", # gb_tenable_nessus_consolidation.nasl
+    "1.3.6.1.4.1.25623.1.0.801102", # gb_adobe_robohelp_server_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.151330", # gsf/gb_qlik_sense_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.124508", # gsf/gb_manageengine_m365_security_plus_consolidation.nasl
+    "1.3.6.1.4.1.25623.1.0.170743", # gsf/gb_manageengine_endpoint_central_server_consolidation.nasl
+    "1.3.6.1.4.1.25623.1.0.170747", # gsf/gb_manageengine_endpoint_central_server_msp_consolidation.nasl
+    "1.3.6.1.4.1.25623.1.0.100752", # gb_nagios_xi_http_detect.nasl
+    # nb: FortiSIEM has been placed down below because it is currently not fully clear if this is
+    # actually running FortiOS.
+    "1.3.6.1.4.1.25623.1.0.114223", # gsf/gb_fortinet_fortisiem_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.900811", # gb_digium_asterisk_sip_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.114269", # gsf/gb_aveva_intouch_access_anywhere_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.114281", # gsf/gb_aveva_plant_scada_access_anywhere_http_detect.nasl
+    "1.3.6.1.4.1.25623.1.0.151486", # gsf/gb_vinchin_backup_recovery_http_detect.nasl
     "1.3.6.1.4.1.25623.1.0.108447", # gb_android_adb_detect.nasl nb: Down here because an ADB service could be run on an Android emulator as well...
     "1.3.6.1.4.1.25623.1.0.10150",  # netbios_name_get.nasl
     "1.3.6.1.4.1.25623.1.0.108021", # gb_nmap_os_detection.nasl nb: This should be the only difference to os_get_txt_cpe_list() as this VT is (currently) not registering a CPE...

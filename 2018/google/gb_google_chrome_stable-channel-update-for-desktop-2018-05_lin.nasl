@@ -9,14 +9,14 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813355");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2023-11-03T16:10:08+0000");
   script_cve_id("CVE-2018-6121", "CVE-2018-6122", "CVE-2018-6120");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-07-01 14:03:00 +0000 (Mon, 01 Jul 2019)");
+  script_tag(name:"severity_date", value:"2021-11-04 15:38:00 +0000 (Thu, 04 Nov 2021)");
   script_tag(name:"creation_date", value:"2018-05-11 11:12:21 +0530 (Fri, 11 May 2018)");
   script_name("Google Chrome Security Updates(stable-channel-update-for-desktop-2018-05)-Linux");
 

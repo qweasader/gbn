@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112288");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2023-11-15T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-11-15 05:05:25 +0000 (Wed, 15 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-05-18 09:30:08 +0200 (Fri, 18 May 2018)");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
@@ -27,26 +27,30 @@ if (description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_ilias_detect.nasl");
-  script_mandatory_keys("ilias/installed");
+  script_dependencies("gb_ilias_http_detect.nasl");
+  script_mandatory_keys("ilias/detected");
 
   script_tag(name:"summary", value:"ILIAS eLearning is prone to multiple vulnerabilities.");
 
   script_tag(name:"insight", value:"The following vulnerabilities exist:
 
-  - Services/Feeds/classes/class.ilExternalFeedItem.php in ILIAS has XSS via a link attribute. (CVE-2018-11117)
+  - CVE-2018-11117: Services/Feeds/classes/class.ilExternalFeedItem.php in ILIAS has XSS via a link
+  attribute.
 
-  - The RSS subsystem in ILIAS has XSS via a URI to Services/Feeds/classes/class.ilExternalFeedItem.php. (CVE-2018-11118)
+  - CVE-2018-11118: The RSS subsystem in ILIAS has XSS via a URI to
+  Services/Feeds/classes/class.ilExternalFeedItem.php.
 
-  - ILIAS redirects a logged-in user to a third-party site via the return_to_url parameter. (CVE-2018-11119)
+  - CVE-2018-11119: ILIAS redirects a logged-in user to a third-party site via the return_to_url
+  parameter.
 
-  - Services/COPage/classes/class.ilPCSourceCode.php in ILIAS has XSS. (CVE-2018-11120)");
+  - CVE-2018-11120: Services/COPage/classes/class.ilPCSourceCode.php in ILIAS has XSS.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"affected", value:"ILIAS 5.1.x up to 5.1.26, 5.2.x up to 5.2.15, 5.3.x up to 5.3.4");
+  script_tag(name:"affected", value:"ILIAS version 5.1.x prior to 5.1.26, 5.2.x prior to 5.2.15 and
+  5.3.x prior to 5.3.4");
 
-  script_tag(name:"solution", value:"Update to version 5.1.27, 5.2.16 or 5.3.5 respectively.");
+  script_tag(name:"solution", value:"Update to version 5.1.27, 5.2.16, 5.3.5 or later.");
 
   script_xref(name:"URL", value:"https://www.ilias.de/docu/goto.php?target=st_229");
 

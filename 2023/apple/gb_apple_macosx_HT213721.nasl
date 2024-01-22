@@ -8,20 +8,20 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826968");
-  script_version("2023-10-12T05:05:32+0000");
+  script_version("2023-12-15T16:10:08+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2023-28206", "CVE-2023-28205");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"last_modification", value:"2023-12-15 16:10:08 +0000 (Fri, 15 Dec 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-04-11 14:36:00 +0000 (Tue, 11 Apr 2023)");
   script_tag(name:"creation_date", value:"2023-04-14 15:30:20 +0530 (Fri, 14 Apr 2023)");
   script_name("Apple MacOSX Security Update (HT213721)");
 
-  script_tag(name:"summary", value:"Apple Mac OS X is prone to miltiple
+  script_tag(name:"summary", value:"Apple Mac OS X is prone to multiple
   vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");

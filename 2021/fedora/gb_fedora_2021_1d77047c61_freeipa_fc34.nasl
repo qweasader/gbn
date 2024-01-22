@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.819308");
-  script_version("2022-03-02T03:04:15+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2020-25717", "CVE-2016-2124", "CVE-2021-23192", "CVE-2020-25718", "CVE-2020-25719", "CVE-2020-25722", "CVE-2021-3738", "CVE-2020-25721");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-03-02 03:04:15 +0000 (Wed, 02 Mar 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-02-28 19:20:00 +0000 (Mon, 28 Feb 2022)");
+  script_tag(name:"severity_date", value:"2022-03-10 14:59:00 +0000 (Thu, 10 Mar 2022)");
   script_tag(name:"creation_date", value:"2021-12-04 02:23:22 +0000 (Sat, 04 Dec 2021)");
   script_name("Fedora: Security Advisory for freeipa (FEDORA-2021-1d77047c61)");
   script_category(ACT_GATHER_INFO);

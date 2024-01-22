@@ -9,27 +9,27 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2023.3551");
   script_cve_id("CVE-2019-11358", "CVE-2019-12248", "CVE-2019-12497", "CVE-2019-12746", "CVE-2019-13458", "CVE-2019-16375", "CVE-2019-18179", "CVE-2019-18180", "CVE-2020-11022", "CVE-2020-11023", "CVE-2020-1765", "CVE-2020-1766", "CVE-2020-1767", "CVE-2020-1769", "CVE-2020-1770", "CVE-2020-1771", "CVE-2020-1772", "CVE-2020-1773", "CVE-2020-1774", "CVE-2020-1776", "CVE-2021-21252", "CVE-2021-21439", "CVE-2021-21440", "CVE-2021-21441", "CVE-2021-21443", "CVE-2021-36091", "CVE-2021-36100", "CVE-2021-41182", "CVE-2021-41183", "CVE-2021-41184", "CVE-2022-4427", "CVE-2023-38060");
   script_tag(name:"creation_date", value:"2023-08-31 04:20:48 +0000 (Thu, 31 Aug 2023)");
-  script_version("2023-08-31T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-08-31 05:05:25 +0000 (Thu, 31 Aug 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-12-28 19:27:00 +0000 (Wed, 28 Dec 2022)");
 
-  script_name("Debian: Security Advisory (DLA-3551)");
+  script_name("Debian: Security Advisory (DLA-3551-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB10");
 
-  script_xref(name:"Advisory-ID", value:"DLA-3551");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/dla-3551");
+  script_xref(name:"Advisory-ID", value:"DLA-3551-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/DLA-3551-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/otrs2");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'otrs2' package(s) announced via the DLA-3551 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'otrs2' package(s) announced via the DLA-3551-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

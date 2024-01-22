@@ -9,33 +9,37 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.893114");
   script_cve_id("CVE-2021-46669", "CVE-2022-21427", "CVE-2022-27376", "CVE-2022-27377", "CVE-2022-27378", "CVE-2022-27379", "CVE-2022-27380", "CVE-2022-27381", "CVE-2022-27383", "CVE-2022-27384", "CVE-2022-27386", "CVE-2022-27387", "CVE-2022-27445", "CVE-2022-27447", "CVE-2022-27448", "CVE-2022-27449", "CVE-2022-27452", "CVE-2022-27456", "CVE-2022-27458", "CVE-2022-32083", "CVE-2022-32084", "CVE-2022-32085", "CVE-2022-32087", "CVE-2022-32088", "CVE-2022-32091", "CVE-2022-38791");
   script_tag(name:"creation_date", value:"2022-09-17 01:00:37 +0000 (Sat, 17 Sep 2022)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-08-25 19:19:00 +0000 (Thu, 25 Aug 2022)");
 
-  script_name("Debian: Security Advisory (DLA-3114)");
+  script_name("Debian: Security Advisory (DLA-3114-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB10");
 
-  script_xref(name:"Advisory-ID", value:"DLA-3114");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2022/dla-3114-2");
+  script_xref(name:"Advisory-ID", value:"DLA-3114-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2022/DLA-3114-1");
+  script_xref(name:"URL", value:"https://mariadb.com/kb/en/mariadb-10335-release-notes/");
+  script_xref(name:"URL", value:"https://mariadb.com/kb/en/mariadb-10336-release-notes/");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/mariadb-10.3");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mariadb-10.3' package(s) announced via the DLA-3114 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mariadb-10.3' package(s) announced via the DLA-3114-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The update for mariadb-10.3 released as DLA-3114 introduced a bug in the mariadb-server-10.3 package, that could cause installation failures when installing or updating plugin packages.
+  script_tag(name:"insight", value:"Several issues have been discovered in the MariaDB database server. The vulnerabilities are addressed by upgrading MariaDB to the new upstream version 10.3.36. Please see the MariaDB 10.3 Release Notes for further details:
 
-For Debian 10 buster, this problem has been fixed in version 1:10.3.36-0+deb10u2.
+[link moved to references] [link moved to references]
+
+For Debian 10 buster, these problems have been fixed in version 1:10.3.36-0+deb10u1.
 
 We recommend that you upgrade your mariadb-10.3 packages.
 

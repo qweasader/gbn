@@ -23,8 +23,8 @@ CPE = "cpe:/a:digium:asterisk";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.9999993");
-  script_version("2022-06-03T08:34:33+0000");
-  script_tag(name:"last_modification", value:"2022-06-03 08:34:33 +0000 (Fri, 03 Jun 2022)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2008-08-22 16:09:14 +0200 (Fri, 22 Aug 2008)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
@@ -39,8 +39,8 @@ if(description)
 
   script_copyright("Copyright (C) 2008 Ferdy Riphagen");
   script_family("General");
-  script_dependencies("secpod_asterisk_detect.nasl", "global_settings.nasl");
-  script_mandatory_keys("Asterisk-PBX/Installed");
+  script_dependencies("gb_digium_asterisk_sip_detect.nasl", "global_settings.nasl");
+  script_mandatory_keys("digium/asterisk/detected");
   script_exclude_keys("keys/islocalhost");
 
   script_tag(name:"summary", value:"Asterisk PBX SIP service guest access is enabled.");

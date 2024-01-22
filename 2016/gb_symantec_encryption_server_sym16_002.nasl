@@ -12,7 +12,7 @@ if(description)
   script_cve_id("CVE-2015-8151", "CVE-2015-8150", "CVE-2015-8149", "CVE-2015-8148");
   script_tag(name:"cvss_base", value:"6.3");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:M/C:C/I:C/A:C");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2023-11-03T05:05:46+0000");
 
   script_name("Symantec Encryption Management Server Server Multiple Security Issues");
 
@@ -50,8 +50,8 @@ if(description)
 
   script_tag(name:"qod_type", value:"package");
 
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-12-06 03:03:00 +0000 (Tue, 06 Dec 2016)");
   script_tag(name:"creation_date", value:"2016-02-22 13:40:03 +0100 (Mon, 22 Feb 2016)");

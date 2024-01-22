@@ -23,14 +23,14 @@ CPE = "cpe:/a:jenkins:jenkins";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.148325");
-  script_version("2022-07-01T10:11:09+0000");
-  script_tag(name:"last_modification", value:"2022-07-01 10:11:09 +0000 (Fri, 01 Jul 2022)");
+  script_version("2023-11-07T05:06:14+0000");
+  script_tag(name:"last_modification", value:"2023-11-07 05:06:14 +0000 (Tue, 07 Nov 2023)");
   script_tag(name:"creation_date", value:"2022-06-24 05:47:34 +0000 (Fri, 24 Jun 2022)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-06-30 06:15:00 +0000 (Thu, 30 Jun 2022)");
+  script_tag(name:"severity_date", value:"2023-11-03 02:44:00 +0000 (Fri, 03 Nov 2023)");
 
   script_cve_id("CVE-2022-34171");
 

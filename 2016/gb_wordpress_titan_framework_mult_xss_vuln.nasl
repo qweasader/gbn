@@ -9,16 +9,16 @@ CPE = "cpe:/a:wordpress:wordpress";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807057");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_cve_id("CVE-2014-6444");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-01-12 01:21:00 +0000 (Tue, 12 Jan 2016)");
   script_tag(name:"creation_date", value:"2016-02-05 09:30:21 +0530 (Fri, 05 Feb 2016)");
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_name("WordPress Titan Framework < 1.6 Multiple XSS Vulnerabilities");
 
   script_tag(name:"summary", value:"The WordPress plugin 'Titan Framework' is prone to multiple cross-site scripting (XSS) vulnerabilities.");

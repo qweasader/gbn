@@ -9,16 +9,16 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826720");
-  script_version("2023-10-18T05:05:17+0000");
+  script_version("2023-11-14T05:06:15+0000");
   script_cve_id("CVE-2022-4174", "CVE-2022-4175", "CVE-2022-4176", "CVE-2022-4177",
                 "CVE-2022-4178", "CVE-2022-4179", "CVE-2022-4180", "CVE-2022-4181",
                 "CVE-2022-4182", "CVE-2022-4183", "CVE-2022-4184", "CVE-2022-4185",
                 "CVE-2022-4186", "CVE-2022-4187", "CVE-2022-4188", "CVE-2022-4189",
                 "CVE-2022-4190", "CVE-2022-4191", "CVE-2022-4192", "CVE-2022-4193",
-                "CVE-2022-4194", "CVE-2022-4195");
+                "CVE-2022-4194", "CVE-2022-4195", "CVE-2022-4955");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"last_modification", value:"2023-11-14 05:06:15 +0000 (Tue, 14 Nov 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-12-01 23:27:00 +0000 (Thu, 01 Dec 2022)");

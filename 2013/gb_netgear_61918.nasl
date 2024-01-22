@@ -9,13 +9,13 @@ if (description)
   script_oid("1.3.6.1.4.1.25623.1.0.103773");
   script_cve_id("CVE-2013-4775", "CVE-2013-4776");
   script_tag(name:"cvss_base", value:"7.8");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
-  script_version("2023-07-27T05:05:08+0000");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
+  script_version("2023-11-02T05:05:26+0000");
 
   script_name("Multiple NetGear ProSafe Switches Information Disclosure Vulnerability");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/61918");
 
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2013-08-22 12:52:30 +0200 (Thu, 22 Aug 2013)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");

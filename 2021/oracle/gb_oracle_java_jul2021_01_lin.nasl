@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.818171");
-  script_version("2021-12-21T05:52:49+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2021-2341", "CVE-2021-2369");
   script_tag(name:"cvss_base", value:"4.3");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2021-12-21 05:52:49 +0000 (Tue, 21 Dec 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-07-23 19:26:00 +0000 (Fri, 23 Jul 2021)");
+  script_tag(name:"severity_date", value:"2021-07-23 19:10:00 +0000 (Fri, 23 Jul 2021)");
   script_tag(name:"creation_date", value:"2021-07-28 23:46:17 +0530 (Wed, 28 Jul 2021)");
   script_name("Oracle Java SE Security Update (jul2021) 01 - Linux");
 

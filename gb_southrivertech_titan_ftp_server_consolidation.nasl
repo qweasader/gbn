@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170553");
-  script_version("2023-08-29T05:06:28+0000");
-  script_tag(name:"last_modification", value:"2023-08-29 05:06:28 +0000 (Tue, 29 Aug 2023)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2023-08-23 17:18:00 +0000 (Wed, 23 Aug 2023)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -60,14 +60,14 @@ foreach source( make_list( "ftp", "http" ) ) {
     concl    = infos[3];
     conclUrl = infos[4]; # nb: Optional and only used by the HTTP detection
 
-    cpe = build_cpe(value:version, exp:"^([0-9.]+)", base:"cpe:/a:southrivertech:titan_ftp_server:");
-    if (!cpe)
+    cpe = build_cpe( value:version, exp:"^([0-9.]+)", base:"cpe:/a:southrivertech:titan_ftp_server:" );
+    if( ! cpe )
       cpe = "cpe:/a:southrivertech:titan_ftp_server";
 
-    if (source == "http")
+    if( source == "http" )
       source = "www";
 
-    register_product(cpe:cpe, location:install, port:port, service:source);
+    register_product( cpe:cpe, location:install, port:port, service:source );
 
     # nb: Titan FTP Server runs only on Windows
     os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", port:port, runs_key:"windows",

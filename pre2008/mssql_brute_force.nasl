@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2005 HD Moore
+# SPDX-FileCopyrightText: New / improved code since 2023 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -9,8 +10,8 @@ DEFAULT_ACCOUNT_TEST_THRESHOLD = 2;
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10862");
-  script_version("2023-07-11T05:06:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-11 05:06:07 +0000 (Tue, 11 Jul 2023)");
+  script_version("2023-12-20T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -225,8 +226,10 @@ foreach cred(creds) {
 
   cred_split = split(cred, sep:":", keep:FALSE);
   # nb: Shouldn't happen but we're checking it anyway...
-  if(!cred_split || max_index(cred_split) != 2)
+  if(!cred_split || max_index(cred_split) != 2) {
+    close(soc);
     continue;
+  }
 
   username = cred_split[0];
   password = cred_split[1];
@@ -247,6 +250,7 @@ foreach cred(creds) {
       if(!in_array(search:username, array:skipped_accounts_list, part_match:FALSE, icase:FALSE))
         skipped_accounts_list = make_list(username, skipped_accounts_list);
       has_skipped_account = TRUE;
+      close(soc);
       continue;
     } else {
       current_tested_accounts_numbers++;

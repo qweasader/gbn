@@ -4,18 +4,18 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = "cpe:/a:nagios:nagiosxi";
+CPE = "cpe:/a:pacifictimesheet:pacific_timesheet";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800181");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2023-11-24T16:09:32+0000");
+  script_tag(name:"last_modification", value:"2023-11-24 16:09:32 +0000 (Fri, 24 Nov 2023)");
   script_tag(name:"creation_date", value:"2010-06-09 08:34:53 +0200 (Wed, 09 Jun 2010)");
   script_cve_id("CVE-2010-2111");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_name("Pacific Timesheet Cross-Site Request Forgery Vulnerability");
+  script_name("Pacific Timesheet < 6.75 CSRF Vulnerability");
   script_xref(name:"URL", value:"http://secunia.com/advisories/39951");
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/58934");
   script_xref(name:"URL", value:"http://cross-site-scripting.blogspot.com/2010/05/pacific-timesheet-674-cross-site.html");
@@ -41,7 +41,8 @@ if(description)
 
   script_tag(name:"solution", value:"Update to version 6.75 or later.");
 
-  script_tag(name:"summary", value:"Pacific Timesheet is prone to a cross-site request forgery (CSRF) vulnerability.");
+  script_tag(name:"summary", value:"Pacific Timesheet is prone to a cross-site request forgery (CSRF)
+  vulnerability.");
 
   exit(0);
 }
@@ -59,7 +60,7 @@ version = infos["version"];
 location = infos["location"];
 
 if(version_is_less_equal(version:version, test_version:"6.74.363")) {
-  report = report_fixed_ver(installed_version:version, vulnerable_range:"Less or equal to 6.74.363", install_path:location);
+  report = report_fixed_ver(installed_version:version, fixed_version:"6.75", install_path:location);
   security_message(port:port, data:report);
   exit(0);
 }

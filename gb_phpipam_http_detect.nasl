@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107046");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2023-12-01T16:11:30+0000");
+  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"creation_date", value:"2016-09-12 13:18:59 +0200 (Mon, 12 Sep 2016)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -17,8 +17,6 @@ if (description)
 
   script_name("phpIPAM Detection (HTTP)");
 
-  script_tag(name:"summary", value:"HTTP based detection of phpIPAM.");
-
   script_category(ACT_GATHER_INFO);
 
   script_family("Product detection");
@@ -26,6 +24,8 @@ if (description)
   script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
+
+  script_tag(name:"summary", value:"HTTP based detection of phpIPAM.");
 
   script_xref(name:"URL", value:"https://phpipam.net/");
 
@@ -41,12 +41,7 @@ include("cpe.inc");
 
 port = http_get_port( default:80 );
 
-rootInstalled = FALSE;
-
 foreach dir( make_list_unique( "/", "/phpipam", http_cgi_dirs( port:port ) ) ) {
-
-  if( rootInstalled )
-    break;
 
   install = dir;
   if( dir == "/" )
@@ -60,36 +55,38 @@ foreach dir( make_list_unique( "/", "/phpipam", http_cgi_dirs( port:port ) ) ) {
 
   if( buf =~ "^HTTP/1\.[01] 200" && "phpIPAM IP address management" >< buf ) {
 
-    if( dir == "" )
-      rootInstalled = TRUE;
+    version = "unknown";
 
-    vers = "unknown";
+    conclurl = http_report_vuln_url( port:port, url:url, url_only:TRUE );
 
     #<a href="http://phpipam.net">phpIPAM IP address management [v1.3]</a>
     #</span>
     #phpIPAM IP address management [v1.1] rev010
     #<span
-    version = eregmatch( pattern:"phpIPAM IP address management \[v([0-9.]+)\]( rev([0-9]+))?", string:buf );
+    vers = eregmatch( pattern:"phpIPAM IP address management \[v([0-9.]+)\]( rev([0-9]+))?", string:buf );
 
-    if( version[1] && version[3] )
-      vers = version[1] + "." + version[3];
-    else if( version[1] )
-      vers = version[1];
+    if( vers[1] && vers[3] )
+      version = vers[1] + "." + vers[3];
+    else if( vers[1] )
+      version = vers[1];
 
-    set_kb_item( name:"phpipam/" + port + "/version", value:vers );
+    set_kb_item( name:"phpipam/" + port + "/version", value:version );
     set_kb_item( name:"phpipam/detected", value:TRUE );
 
-    cpe = build_cpe( value:vers, exp:"^([0-9.]+)", base:"cpe:/a:phpipam:phpipam:" );
+    cpe = build_cpe( value:version, exp:"^([0-9.]+)", base:"cpe:/a:phpipam:phpipam:" );
     if( isnull( cpe ) )
       cpe = "cpe:/a:phpipam:phpipam";
 
     register_product( cpe:cpe, location:install, port:port, service:"www" );
     log_message( data:build_detection_report( app:"phpIPAM",
-                                              version:vers,
+                                              version:version,
                                               install:install,
                                               cpe:cpe,
-                                              concluded:version[0] ),
+                                              concluded:vers[0],
+                                              concludedUrl:conclurl ),
                                               port:port );
+
+    exit( 0 );
   }
 }
 

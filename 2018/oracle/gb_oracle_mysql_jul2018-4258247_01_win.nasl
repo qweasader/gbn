@@ -9,16 +9,16 @@ CPE = "cpe:/a:oracle:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813704");
-  script_version("2023-06-02T09:09:16+0000");
+  script_version("2023-11-03T16:10:08+0000");
   script_cve_id("CVE-2018-3078", "CVE-2018-3079", "CVE-2018-3073", "CVE-2018-3074",
                 "CVE-2018-3075", "CVE-2018-3084", "CVE-2018-3080", "CVE-2018-3082",
                 "CVE-2018-3067");
   script_tag(name:"cvss_base", value:"4.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-06-02 09:09:16 +0000 (Fri, 02 Jun 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-05-31 13:40:00 +0000 (Wed, 31 May 2023)");
+  script_tag(name:"severity_date", value:"2023-05-31 13:38:00 +0000 (Wed, 31 May 2023)");
   script_tag(name:"creation_date", value:"2018-07-18 12:31:05 +0530 (Wed, 18 Jul 2018)");
   script_name("Oracle MySQL Security Update (cpujul2018 - 01) - Windows");
 

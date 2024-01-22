@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105278");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_name("Citrix NetScaler Default Credentials (SSH)");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2015-05-12 18:01:07 +0200 (Tue, 12 May 2015)");
   script_category(ACT_ATTACK);
   script_family("Default Accounts");
@@ -50,6 +50,10 @@ port = ssh_get_port( default:22 );
 if( ssh_dont_try_login( port:port ) )
   exit( 0 );
 
+# nb: No need to continue/start if we haven't received any banner...
+if( ! ssh_get_serverbanner( port:port ) )
+  exit( 0 );
+
 if( ! soc = open_sock_tcp( port ) )
   exit( 0 );
 
@@ -57,13 +61,12 @@ user = "nsroot";
 pass = "nsroot";
 
 login = ssh_login( socket:soc, login:user, password:pass, priv:NULL, passphrase:NULL );
-if(login == 0)
-{
+if( login == 0 ) {
+
   cmd = ssh_cmd( socket:soc, cmd:'show ns version', nosh:TRUE );
   close( soc );
 
-  if( "NetScaler" >< cmd )
-  {
+  if( "NetScaler" >< cmd ) {
     security_message( port:port, data:'It was possible to login via ssh into the Citrix NetScaler with username "nsroot" and password "nsroot"' );
     exit( 0 );
   }

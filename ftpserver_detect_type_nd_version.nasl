@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2005 SecuriTeam
+# SPDX-FileCopyrightText: New detection methods / pattern / code since 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -7,8 +8,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10092");
-  script_version("2023-10-19T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -23,7 +24,7 @@ if(description)
                       "ftpd_no_cmd.nasl", "secpod_ftp_anonymous.nasl");
   script_require_ports("Services/ftp", 21, 990);
 
-  script_tag(name:"summary", value:"This Plugin detects and reports a FTP Server Banner.");
+  script_tag(name:"summary", value:"This script detects and reports a FTP Server Banner.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -445,8 +446,8 @@ foreach port( ports ) {
   }
 
   if( "220 Wing FTP Server" >< banner ) {
-    set_kb_item( name:"ftp/wing/ftp/detected", value:TRUE );
-    guess += '\n- Wing FTP';
+    set_kb_item( name:"ftp/wing_ftp/server/detected", value:TRUE );
+    guess += '\n- Wing FTP Server';
   }
 
   if( "220-Complete FTP server" >< banner ) {
@@ -593,6 +594,11 @@ foreach port( ports ) {
     guess += '\n- Kyocera Printer';
   }
 
+  if( banner =~ "220 Dell .*(Laser|MFP|Printer)" ) {
+    set_kb_item( name:"ftp/dell/printer/detected", value:TRUE );
+    guess += '\n- Dell Printer';
+  }
+
   if( banner =~ "220\-Security Notice" &&
       banner =~ "220\-You are about to access a secured resource." ) {
     set_kb_item( name:"ftp/progress_moveit_transfer/detected", value:TRUE );
@@ -628,6 +634,18 @@ foreach port( ports ) {
   if( "Welcome to Honeywell Printer" >< banner ) {
     set_kb_item( name:"ftp/honeywell/printer/detected", value:TRUE );
     guess += '\n- Honeywell Printer';
+  }
+
+  # 220 CrushFTP Server Ready!
+  if( "CrushFTP Server Ready" >< banner ) {
+    set_kb_item( name:"ftp/crushftp/detected", value:TRUE );
+    guess += '\n- CrushFTP';
+  }
+
+  # 220 AP7900 Network Management Card AOS v3.9.2 FTP server ready.
+  if( banner =~ "AP[0-9A-Z]+ Network Management Card AOS" ) {
+    set_kb_item( name:"ftp/apc/ups/detected", value:TRUE );
+    guess += '\n- APC UPS / Network Management Card';
   }
 
   report = 'Remote FTP server banner:\n\n' + banner;

@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.853664");
-  script_version("2021-08-26T10:01:08+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2020-6816", "CVE-2020-6817", "CVE-2021-23980");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2021-08-26 10:01:08 +0000 (Thu, 26 Aug 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-03-30 23:15:00 +0000 (Tue, 30 Mar 2021)");
+  script_tag(name:"severity_date", value:"2023-02-28 14:46:00 +0000 (Tue, 28 Feb 2023)");
   script_tag(name:"creation_date", value:"2021-04-16 04:59:16 +0000 (Fri, 16 Apr 2021)");
   script_name("openSUSE: Security Advisory for python-bleach (openSUSE-SU-2021:0552-1)");
   script_category(ACT_GATHER_INFO);

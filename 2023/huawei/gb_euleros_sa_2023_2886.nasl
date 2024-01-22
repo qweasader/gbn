@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2023.2886");
   script_cve_id("CVE-2023-4016");
   script_tag(name:"creation_date", value:"2023-10-09 09:58:45 +0000 (Mon, 09 Oct 2023)");
-  script_version("2023-10-10T05:05:41+0000");
-  script_tag(name:"last_modification", value:"2023-10-10 05:05:41 +0000 (Tue, 10 Oct 2023)");
-  script_tag(name:"cvss_base", value:"4.6");
-  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:N/I:N/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_version("2023-12-18T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2023-12-18 05:05:29 +0000 (Mon, 18 Dec 2023)");
+  script_tag(name:"cvss_base", value:"1.7");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:N/I:N/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-08-07 19:21:00 +0000 (Mon, 07 Aug 2023)");
+  script_tag(name:"severity_date", value:"2023-12-15 18:19:00 +0000 (Fri, 15 Dec 2023)");
 
   script_name("Huawei EulerOS: Security Advisory for procps-ng (EulerOS-SA-2023-2886)");
   script_category(ACT_GATHER_INFO);

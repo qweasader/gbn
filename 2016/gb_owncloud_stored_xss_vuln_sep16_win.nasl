@@ -1,33 +1,19 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:owncloud:owncloud";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809290");
-  script_version("2021-10-08T13:47:48+0000");
+  script_version("2023-12-01T16:11:30+0000");
   script_cve_id("CVE-2015-5953");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2021-10-08 13:47:48 +0000 (Fri, 08 Oct 2021)");
+  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"creation_date", value:"2016-09-23 14:44:28 +0530 (Fri, 23 Sep 2016)");
   script_name("ownCloud Stored XSS Vulnerability (oC-SA-2015-010) - Windows");
 
@@ -53,10 +39,10 @@ if(description)
   script_xref(name:"URL", value:"https://owncloud.org/security/advisory/?id=oc-sa-2015-010");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_owncloud_detect.nasl", "os_detection.nasl");
-  script_mandatory_keys("owncloud/installed", "Host/runs_windows");
+  script_dependencies("gb_owncloud_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("owncloud/detected", "Host/runs_windows");
 
   exit(0);
 }
@@ -71,6 +57,7 @@ if(!vers = get_app_version(cpe:CPE, port:port))
   exit(0);
 
 if(vers =~ "^[78]\.") {
+
   if(version_is_less(version:vers, test_version:"7.0.5")) {
     fix = "7.0.5";
     VULN = TRUE;
@@ -83,7 +70,7 @@ if(vers =~ "^[78]\.") {
 
   if(VULN) {
     report = report_fixed_ver(installed_version:vers, fixed_version:fix);
-    security_message(data:report, port:port);
+    security_message(port:port, data:report);
     exit(0);
   }
 }

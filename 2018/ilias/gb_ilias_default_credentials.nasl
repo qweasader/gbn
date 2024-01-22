@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107313");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2023-11-22T05:05:24+0000");
+  script_tag(name:"last_modification", value:"2023-11-22 05:05:24 +0000 (Wed, 22 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-05-29 14:54:24 +0200 (Tue, 29 May 2018)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -23,17 +23,20 @@ if(description)
 
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Default Accounts");
-  script_dependencies("gb_ilias_detect.nasl", "gb_default_credentials_options.nasl");
-  script_mandatory_keys("ilias/installed");
+  script_dependencies("gb_ilias_http_detect.nasl", "gb_default_credentials_options.nasl");
+  script_require_ports("Services/www", 443);
+  script_mandatory_keys("ilias/http/detected");
   script_exclude_keys("default_credentials/disable_default_account_checks");
 
   script_tag(name:"summary", value:"ILIAS is using default administrative credentials.");
 
   script_tag(name:"vuldetect", value:"The script tries to log in using the default credentials.");
 
-  script_tag(name:"insight", value:"ILIAS has a default administrative account called 'root' with the password 'homer'.");
+  script_tag(name:"insight", value:"ILIAS has a default administrative account called 'root' with the
+  password 'homer'.");
 
-  script_tag(name:"impact", value:"If unchanged, an attacker can use the default credentials to log in and gain administrative privileges.");
+  script_tag(name:"impact", value:"If unchanged, an attacker can use the default credentials to log in
+  and gain administrative privileges.");
 
   script_tag(name:"affected", value:"All ILIAS versions.");
 
@@ -173,9 +176,14 @@ function check_v44( port, dir ) {
   }
 }
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! dir = get_app_location( cpe:CPE, port:port ) ) exit( 0 );
-if( dir == "/" ) dir = "";
+if( ! port = get_app_port( cpe:CPE, service:"www" ) )
+  exit( 0 );
+
+if( ! dir = get_app_location( cpe:CPE, port:port ) )
+  exit( 0 );
+
+if( dir == "/" )
+  dir = "";
 
 check_v53( port:port, dir:dir );
 check_v50( port:port, dir:dir );

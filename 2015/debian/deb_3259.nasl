@@ -9,26 +9,26 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.703259");
   script_cve_id("CVE-2014-9718", "CVE-2015-1779", "CVE-2015-2756", "CVE-2015-3456");
   script_tag(name:"creation_date", value:"2015-05-12 22:00:00 +0000 (Tue, 12 May 2015)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-10-05 11:40:00 +0000 (Mon, 05 Oct 2020)");
 
-  script_name("Debian: Security Advisory (DSA-3259)");
+  script_name("Debian: Security Advisory (DSA-3259-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB8");
 
-  script_xref(name:"Advisory-ID", value:"DSA-3259");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2015/dsa-3259");
+  script_xref(name:"Advisory-ID", value:"DSA-3259-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2015/DSA-3259-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-3259");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'qemu' package(s) announced via the DSA-3259 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'qemu' package(s) announced via the DSA-3259-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

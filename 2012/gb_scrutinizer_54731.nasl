@@ -12,37 +12,44 @@ if (description)
   script_cve_id("CVE-2012-3951");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-01-17T06:33:34+0000");
 
-  script_name("Scrutinizer Default Password Security Bypass Vulnerability");
+  script_name("Plixer Scrutinizer Default Credentials (MySQL Protocol)");
 
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/54731");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210213215151/https://www.securityfocus.com/bid/54731/");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-01-17 06:33:34 +0000 (Wed, 17 Jan 2024)");
   script_tag(name:"creation_date", value:"2012-08-08 12:18:06 +0200 (Wed, 08 Aug 2012)");
   script_category(ACT_ATTACK);
-  script_tag(name:"qod_type", value:"remote_vul");
   script_family("Databases");
   script_copyright("Copyright (C) 2012 Greenbone AG");
-  script_dependencies("mysql_version.nasl", "gb_scrutinizer_detect.nasl");
+  script_dependencies("mysql_version.nasl", "gb_scrutinizer_detect.nasl", "gb_default_credentials_options.nasl");
   script_require_ports("Services/www", 80, "Services/mysql", 3306);
   script_mandatory_keys("scrutinizer/installed");
+  script_exclude_keys("default_credentials/disable_default_account_checks");
 
-  script_tag(name:"summary", value:"The MySQL component in Plixer Scrutinize is prone to a
-  security-bypass vulnerability.");
+  script_tag(name:"summary", value:"Plixer Scrutinizer is using known default credentials in the
+  MySQL component.");
+
+  script_tag(name:"vuldetect", value:"Tries to login via MySQL using known default credentials.");
 
   script_tag(name:"impact", value:"Successful attacks can allow an attacker to gain access to the
   affected application using the default authentication credentials scrutremote:admin.");
 
-  script_tag(name:"affected", value:"Scrutinizer 9.5.0 is vulnerable. Other versions may also be affected.");
+  script_tag(name:"affected", value:"Plixer Scrutinizer 9.5.0 is known to be vulnerable. Other
+  versions may also be affected.");
 
   script_tag(name:"solution", value:"Vendor updates are available. Please see the references for
   more information.");
 
+  script_tag(name:"qod_type", value:"remote_vul");
   script_tag(name:"solution_type", value:"VendorFix");
 
   exit(0);
 }
+
+if(get_kb_item("default_credentials/disable_default_account_checks"))
+  exit(0);
 
 include("http_func.inc");
 include("host_details.inc");

@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.814914");
-  script_version("2022-05-19T11:50:09+0000");
+  script_version("2023-10-27T16:11:32+0000");
   script_cve_id("CVE-2018-11212", "CVE-2019-2426", "CVE-2019-2422");
   script_tag(name:"cvss_base", value:"4.3");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2022-05-19 11:50:09 +0000 (Thu, 19 May 2022)");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-01-07 20:15:00 +0000 (Thu, 07 Jan 2021)");
+  script_tag(name:"severity_date", value:"2022-10-06 17:55:00 +0000 (Thu, 06 Oct 2022)");
   script_tag(name:"creation_date", value:"2019-01-16 12:38:57 +0530 (Wed, 16 Jan 2019)");
   script_name("Oracle Java SE Multiple Vulnerabilities(Jan2019-5072801)-Linux");
 

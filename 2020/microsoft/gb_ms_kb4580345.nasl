@@ -21,7 +21,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.817511");
-  script_version("2021-08-11T12:01:46+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2020-16863", "CVE-2020-16887", "CVE-2020-16889", "CVE-2020-16891",
                 "CVE-2020-16897", "CVE-2020-16900", "CVE-2020-16902", "CVE-2020-16912",
                 "CVE-2020-16914", "CVE-2020-16916", "CVE-2020-16920", "CVE-2020-16922",
@@ -30,10 +30,10 @@ if(description)
                 "CVE-2020-16974", "CVE-2020-16975", "CVE-2020-16976");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-08-11 12:01:46 +0000 (Wed, 11 Aug 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-10-22 19:32:00 +0000 (Thu, 22 Oct 2020)");
+  script_tag(name:"severity_date", value:"2020-10-23 12:55:00 +0000 (Fri, 23 Oct 2020)");
   script_tag(name:"creation_date", value:"2020-10-14 12:37:49 +0530 (Wed, 14 Oct 2020)");
   script_name("Microsoft Windows Multiple Vulnerabilities (KB4580345)");
 

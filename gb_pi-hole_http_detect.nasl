@@ -1,35 +1,21 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108342");
-  script_version("2022-09-23T10:10:45+0000");
+  script_version("2024-01-19T16:09:33+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-09-23 10:10:45 +0000 (Fri, 23 Sep 2022)");
+  script_tag(name:"last_modification", value:"2024-01-19 16:09:33 +0000 (Fri, 19 Jan 2024)");
   script_tag(name:"creation_date", value:"2018-02-17 15:43:37 +0100 (Sat, 17 Feb 2018)");
   script_name("Pi-hole Ad-Blocker Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
@@ -53,8 +39,8 @@ include("os_func.inc");
 port = http_get_port( default:80 );
 
 # nb:
-# - "/admin/" is/was the default one in AdminLTE < 5.14
-# - "/admin/login.php" is used since AdminLTE 5.14
+# - "/admin/" is/was the default one in Web Interface (Previously AdminLTE) < 5.14
+# - "/admin/login.php" is used since Web Interface (Previously AdminLTE) 5.14
 # - a few have been seen on the top-level as well
 # - Keep the /admin/ ones first as installs having the "/admin/" subfolder might be detected twice
 #   otherwise because a few of the patterns below are matching as well (on purpose).
@@ -66,7 +52,7 @@ foreach url( urls ) {
 
   if( res =~ "^HTTP/1\.[01] 200" &&
       ( "<title>Pi-hole Admin Console</title>" >< res || # nb: Only in older versions
-        egrep( string:res, pattern:"<title>Pi-hole - [^<]+</title>", icase:FALSE ) || # AdminLTE 5.3.1+ has <title>Pi-hole - $hostname</title>
+        egrep( string:res, pattern:"<title>Pi-hole - [^<]+</title>", icase:FALSE ) || # Web Interface (Previously AdminLTE) 5.3.1+ has <title>Pi-hole - $hostname</title>
         '<a href="http://pi-hole.net" class="logo"' >< res ||
         '<script src="scripts/pi-hole/js/footer.js"></script>' >< res ||
         "<!-- Pi-hole: A black hole for Internet advertisements" >< res ||
@@ -142,16 +128,22 @@ if( found ) {
   if( ! pihole_cpe )
     pihole_cpe = "cpe:/a:pi-hole:pi-hole";
 
-  web_cpe = build_cpe( value:web_version, exp:"^([0-9.]+)", base:"cpe:/a:pi-hole:web:" );
-  if( ! web_cpe )
-    web_cpe = "cpe:/a:pi-hole:web";
+  # nb: The product was called "AdminLTE" previously and both are currently used in the NVD so we
+  # are registering both but only use the newer name in the reporting
+  web_cpe = build_cpe( value:web_version, exp:"^([0-9.]+)", base:"cpe:/a:pi-hole:web_interface:" );
+  adminlte_cpe = build_cpe( value:web_version, exp:"^([0-9.]+)", base:"cpe:/a:pi-hole:adminlte:" );
+  if( ! web_cpe ) {
+    web_cpe = "cpe:/a:pi-hole:web_interface";
+    adminlte_cpe = "cpe:/a:pi-hole:adminlte";
+  }
 
-  ftl_cpe = build_cpe( value:ftl_version, exp:"^([0-9.]+)", base:"cpe:/a:pi-hole:ftl:" );
+  ftl_cpe = build_cpe( value:ftl_version, exp:"^([0-9.]+)", base:"cpe:/a:pi-hole:ftldns:" );
   if( ! ftl_cpe )
-    ftl_cpe = "cpe:/a:pi-hole:ftl";
+    ftl_cpe = "cpe:/a:pi-hole:ftldns";
 
   register_product( cpe:pihole_cpe, location:install, port:port, service:"www" );
   register_product( cpe:web_cpe, location:install, port:port, service:"www" );
+  register_product( cpe:adminlte_cpe, location:install, port:port, service:"www" );
   register_product( cpe:ftl_cpe, location:install, port:port, service:"www" );
 
   # Runs only on Linux based OS like Debian, Ubuntu, Fedora etc.
@@ -163,13 +155,13 @@ if( found ) {
                                     cpe:pihole_cpe,
                                     concluded:pihole_concluded );
   report += '\n\n';
-  report += build_detection_report( app:"Pi-hole Web Interface",
+  report += build_detection_report( app:"Pi-hole Web Interface (Previously AdminLTE)",
                                     version:web_version,
                                     install:install,
                                     cpe:web_cpe,
                                     concluded:web_concluded );
   report += '\n\n';
-  report += build_detection_report( app:"Pi-hole FTL",
+  report += build_detection_report( app:"Pi-hole FTL DNS",
                                     version:ftl_version,
                                     install:install,
                                     cpe:ftl_cpe,

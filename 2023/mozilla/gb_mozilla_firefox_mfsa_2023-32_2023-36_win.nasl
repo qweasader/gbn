@@ -9,13 +9,14 @@ CPE = "cpe:/a:mozilla:firefox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832260");
-  script_version("2023-10-13T05:06:10+0000");
+  script_version("2023-10-27T16:11:33+0000");
   script_cve_id("CVE-2023-4573", "CVE-2023-4574", "CVE-2023-4575", "CVE-2023-4576",
                 "CVE-2023-4577", "CVE-2023-4578", "CVE-2023-4579", "CVE-2023-4580",
-                "CVE-2023-4581", "CVE-2023-4585", "CVE-2023-4583", "CVE-2023-4584");
+                "CVE-2023-4581", "CVE-2023-4585", "CVE-2023-4583", "CVE-2023-4584",
+                "CVE-2023-5732");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:33 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-09-14 03:45:00 +0000 (Thu, 14 Sep 2023)");
@@ -38,6 +39,8 @@ if(description)
   - Integer Overflow in RecordedSourceSurfaceCreation.
 
   - Memory corruption in JIT UpdateRegExpStatics.
+
+  - Address bar spoofing via bidirectional characters.
 
   - Error reporting methods in SpiderMonkey could have triggered an Out of Memory Exception.
 

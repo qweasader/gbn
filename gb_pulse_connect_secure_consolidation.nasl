@@ -1,49 +1,35 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 include("plugin_feed_info.inc");
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.144350");
-  script_version("2022-10-20T10:12:23+0000");
-  script_tag(name:"last_modification", value:"2022-10-20 10:12:23 +0000 (Thu, 20 Oct 2022)");
+  script_version("2024-01-18T05:07:09+0000");
+  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
   script_tag(name:"creation_date", value:"2020-08-04 05:14:24 +0000 (Tue, 04 Aug 2020)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_name("Ivanti Connect Secure Detection Consolidation");
-
-  script_tag(name:"summary", value:"Consolidation of Ivanti Connect Secure detections,
-  formerly known as Pulse Connect Secure.");
+  script_name("Pulse Secure / Ivanti Connect Secure Detection Consolidation");
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_pulse_connect_secure_snmp_detect.nasl");
   if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
     script_dependencies("gsf/gb_pulse_connect_secure_http_detect.nasl");
   script_mandatory_keys("pulsesecure/detected");
+
+  script_tag(name:"summary", value:"Consolidation of Ivanti Connect Secure (formerly Pulse Secure
+  Connect Secure) detections.");
 
   script_xref(name:"URL", value:"https://www.ivanti.com/products/connect-secure-vpn");
 
@@ -80,28 +66,41 @@ foreach source (make_list("snmp", "http")) {
   }
 }
 
-name = "Ivanti Secure Connect";
+name = "Pulse Secure / Ivanti Connect Secure";
 if (detected_model != "unknown")
   name += " on " + detected_model;
 
-# Although the product now belongs to Ivanti, the CPE has not changed
-cpe1 = build_cpe(value: tolower(detected_version), exp: "^([0-9R.]+)", base: "cpe:/a:pulsesecure:pulse_connect_secure:");
+# The most recent vendor is Ivanti
+cpe1 = build_cpe(value: tolower(detected_version), exp: "^([0-9R.]+)", base: "cpe:/a:ivanti:connect_secure:");
+# After Juniper the second vendor was Pulse Secure:
+# https://www.juniper.net/documentation/en_US/release-independent/junos-pulse/information-products/pathway-pages/junos-pulse/index.html
+cpe2 = build_cpe(value: tolower(detected_version), exp: "^([0-9R.]+)", base: "cpe:/a:pulsesecure:pulse_connect_secure:");
 # Earlier Juniper Product, formerly Juniper Junos Pulse, cpe:/a:juniper:pulse_connect_secure
-cpe2 = build_cpe(value: tolower(detected_version), exp: "^([0-9R.]+)", base: "cpe:/a:juniper:pulse_connect_secure:");
+cpe3 = build_cpe(value: tolower(detected_version), exp: "^([0-9R.]+)", base: "cpe:/a:juniper:pulse_connect_secure:");
 if (!cpe1) {
-  cpe1 = "cpe:/a:pulsesecure:pulse_connect_secure";
-  cpe2 = "cpe:/a:juniper:pulse_connect_secure";
+  cpe1 = "cpe:/a:ivanti:connect_secure";
+  cpe2 = "cpe:/a:pulsesecure:pulse_connect_secure";
+  cpe3 = "cpe:/a:juniper:pulse_connect_secure";
 }
 
 # The appliance/server runs only on Linux based systems.
-os_register_and_report(os: "Linux", cpe: "cpe:/o:linux:kernel", desc: "Ivanti Connect Secure Detection Consolidation", runs_key: "unixoide");
+os_register_and_report(os: "Linux", cpe: "cpe:/o:linux:kernel", desc: "Pulse Secure / Ivanti Connect Secure Detection Consolidation", runs_key: "unixoide");
 
 if (http_ports = get_kb_list("pulsesecure/http/port")) {
   foreach port (http_ports) {
-    extra += 'HTTP(s) on port ' + port + '/tcp\n';
+    extra += "HTTP(s) on port " + port + '/tcp\n';
+
+    conclUrl = get_kb_item("pulsesecure/http/" + port + "/concludedUrl");
+    if (conclUrl)
+      extra += '  Concluded from version/product identification location:\n' + conclUrl + '\n';
+
+    concluded = get_kb_item("pulsesecure/http/" + port + "/concluded");
+    if (concluded)
+      extra += '  Concluded from version/product identification result:\n' + concluded + '\n';
 
     register_product(cpe: cpe1, location: location, port: port, service: "www");
     register_product(cpe: cpe2, location: location, port: port, service: "www");
+    register_product(cpe: cpe3, location: location, port: port, service: "www");
   }
 }
 
@@ -114,6 +113,7 @@ if (snmp_ports = get_kb_list("pulsesecure/snmp/port")) {
 
     register_product(cpe: cpe1, location: location, port: port, service: "snmp", proto: "udp");
     register_product(cpe: cpe2, location: location, port: port, service: "snmp", proto: "udp");
+    register_product(cpe: cpe3, location: location, port: port, service: "snmp", proto: "udp");
   }
 }
 
@@ -124,6 +124,6 @@ if (extra) {
   report += '\n' + extra;
 }
 
-log_message(port: 0, data: report);
+log_message(port: 0, data: chomp(report));
 
 exit(0);

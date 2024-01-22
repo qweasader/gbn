@@ -8,12 +8,12 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2012-April/077221.html");
   script_oid("1.3.6.1.4.1.25623.1.0.864153");
-  script_version("2023-06-21T05:06:22+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:22 +0000 (Wed, 21 Jun 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2012-04-13 10:31:53 +0530 (Fri, 13 Apr 2012)");
   script_cve_id("CVE-2012-0884", "CVE-2012-1165", "CVE-2012-0050", "CVE-2011-3207");
   script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_xref(name:"FEDORA", value:"2012-4659");
   script_name("Fedora Update for openssl FEDORA-2012-4659");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'openssl'

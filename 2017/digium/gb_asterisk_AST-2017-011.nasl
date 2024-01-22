@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:digium:asterisk';
+CPE = "cpe:/a:digium:asterisk";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140495");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2017-11-09 10:52:58 +0700 (Thu, 09 Nov 2017)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
@@ -29,20 +29,24 @@ if (description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("General");
-  script_dependencies("secpod_asterisk_detect.nasl");
-  script_mandatory_keys("Asterisk-PBX/Installed");
+  script_dependencies("gb_digium_asterisk_sip_detect.nasl");
+  script_mandatory_keys("digium/asterisk/detected");
 
-  script_tag(name:"summary", value:"Asterisk is prone to a memory/RTP/file descriptor leak vulnerability.");
+  script_tag(name:"summary", value:"Asterisk is prone to a memory/RTP/file descriptor leak
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"A memory leak occurs when an Asterisk pjsip session object is created and
-that call gets rejected before the session itself is fully established. When this happens the session object
-never gets destroyed. This then leads to file descriptors and RTP ports being leaked as well.");
+  script_tag(name:"insight", value:"A memory leak occurs when an Asterisk pjsip session object is
+  created and that call gets rejected before the session itself is fully established. When this
+  happens the session object never gets destroyed. This then leads to file descriptors and RTP ports
+  being leaked as well.");
 
-  script_tag(name:"affected", value:"Asterisk Open Source 13.x, 14.x, 15.x and Certified Asterisk 13.13.");
+  script_tag(name:"affected", value:"Asterisk Open Source 13.x, 14.x, 15.x and Certified Asterisk
+  13.13.");
 
-  script_tag(name:"solution", value:"Upgrade to Version 13.18.1, 14.7.1, 15.1.1, 13.13-cert7 or later.");
+  script_tag(name:"solution", value:"Update to version 13.18.1, 14.7.1, 15.1.1, 13.13-cert7 or
+  later.");
 
   script_xref(name:"URL", value:"http://downloads.asterisk.org/pub/security/AST-2017-011.html");
 

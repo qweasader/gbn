@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107151");
-  script_version("2023-06-27T05:05:30+0000");
-  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
+  script_version("2023-10-27T16:11:33+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:33 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2017-04-24 08:56:53 +0200 (Mon, 24 Apr 2017)");
   script_cve_id("CVE-2016-4871");
 
@@ -20,10 +20,11 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
   script_name("Cybozu Office CVE-2016-4871 Denial of Service Vulnerability");
-  script_tag(name:"summary", value:"DEPRECATED since this check is already covered in
-  'Cybozu Office CVE-2016-4871 Denial of Service Vulnerability' (OID: 1.3.6.1.4.1.25623.1.0.107150)
+  script_tag(name:"summary", value:"Cybozu Office is prone to a denial of service (DoS)
+  vulnerability.
 
-  Cybozu Office is prone to a denial-of-service vulnerability.");
+  This VT has been deprecated as a duplicate of the VT 'Cybozu Office CVE-2016-4871 Denial of
+  Service Vulnerability' (OID: 1.3.6.1.4.1.25623.1.0.107150).");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

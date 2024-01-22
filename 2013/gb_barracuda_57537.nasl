@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103646");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_name("Multiple Barracuda Products Security Bypass and Backdoor Unauthorized Access Vulnerabilities (SSH)");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2013-01-29 10:48:20 +0100 (Tue, 29 Jan 2013)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");
@@ -66,7 +66,14 @@ port = ssh_get_port(default:22);
 if(ssh_dont_try_login(port:port))
   exit(0);
 
-credentials = make_list("product:pickle99", "emailswitch:pickle99");
+# nb: No need to continue/start if we haven't received any banner...
+if(!ssh_get_serverbanner(port:port))
+  exit(0);
+
+credentials = make_list(
+  "product:pickle99",
+  "emailswitch:pickle99"
+);
 
 foreach credential (credentials) {
 
@@ -81,9 +88,10 @@ foreach credential (credentials) {
   pass = chomp(user_pass[1]);
 
   login = ssh_login(socket:soc, login:user, password:pass, priv:NULL, passphrase:NULL);
-
   if(login == 0) {
+
     cmd = ssh_cmd(socket:soc, cmd:"id");
+
     if ("uid=" >< cmd) {
       msg = 'It was possible to login into the remote barracuda device with\nusername "' + user  + '" and password "' + pass  + '".';
       security_message(port:port,data:msg);

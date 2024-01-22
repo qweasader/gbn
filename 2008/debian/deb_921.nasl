@@ -9,23 +9,23 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.56013");
   script_cve_id("CVE-2005-0756", "CVE-2005-0757", "CVE-2005-1762", "CVE-2005-1767", "CVE-2005-1768", "CVE-2005-2456", "CVE-2005-2458", "CVE-2005-2459", "CVE-2005-2553", "CVE-2005-2801", "CVE-2005-2872", "CVE-2005-3275");
   script_tag(name:"creation_date", value:"2008-01-17 22:07:13 +0000 (Thu, 17 Jan 2008)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:10+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:10 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
 
-  script_name("Debian: Security Advisory (DSA-921)");
+  script_name("Debian: Security Advisory (DSA-921-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB3\.1");
 
-  script_xref(name:"Advisory-ID", value:"DSA-921");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2005/dsa-921");
+  script_xref(name:"Advisory-ID", value:"DSA-921-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2005/DSA-921-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-921");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'kernel-image-2.4.27-alpha, kernel-image-2.4.27-arm, kernel-image-2.4.27-i386, kernel-image-2.4.27-ia64, kernel-image-2.4.27-m68k, kernel-image-2.4.27-s390, kernel-image-2.4.27-sparc, kernel-patch-2.4.27-arm, kernel-patch-2.4.27-mips, kernel-patch-powerpc-2.4.27, kernel-source-2.4.27' package(s) announced via the DSA-921 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'kernel-image-2.4.27-alpha, kernel-image-2.4.27-arm, kernel-image-2.4.27-i386, kernel-image-2.4.27-ia64, kernel-image-2.4.27-m68k, kernel-image-2.4.27-s390, kernel-image-2.4.27-sparc, kernel-patch-2.4.27-arm, kernel-patch-2.4.27-mips, kernel-patch-powerpc-2.4.27, kernel-source-2.4.27' package(s) announced via the DSA-921-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

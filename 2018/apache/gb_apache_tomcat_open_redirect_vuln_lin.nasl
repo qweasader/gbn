@@ -9,8 +9,8 @@ CPE = "cpe:/a:apache:tomcat";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141568");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2023-12-20T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2018-10-05 10:53:03 +0700 (Fri, 05 Oct 2018)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -61,25 +61,25 @@ if (isnull(port = get_app_port(cpe: CPE)))
 if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE))
   exit(0);
 
-version = infos['version'];
-path = infos['location'];
+version = infos["version"];
+path = infos["location"];
 
 if (version_in_range(version: version, test_version: "7.0.23", test_version2: "7.0.90")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "7.0.91");
+  report = report_fixed_ver(installed_version: version, fixed_version: "7.0.91", install_path: path);
   security_message(port: port, data: report);
   exit(0);
 }
 
 if (version_in_range(version: version, test_version: "8.0.0", test_version2: "8.5.33")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "8.5.34");
+  report = report_fixed_ver(installed_version: version, fixed_version: "8.5.34", install_path: path);
   security_message(port: port, data: report);
   exit(0);
 }
 
 if ((revcomp(a: version, b: "9.0.0.M1") >= 0) && (revcomp(a: version, b: "9.0.12") < 0)) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "9.0.12", install_path:path);
+  report = report_fixed_ver(installed_version: version, fixed_version: "9.0.12", install_path: path);
   security_message(port: port, data: report);
   exit(0);
 }
 
-exit(0);
+exit(99);

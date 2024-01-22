@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.884651");
-  script_version("2023-10-13T05:06:10+0000");
+  script_version("2023-11-16T05:05:14+0000");
   script_cve_id("CVE-2023-4155", "CVE-2023-4273", "CVE-2023-4128", "CVE-2023-4194");
-  script_tag(name:"cvss_base", value:"6.8");
-  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"cvss_base", value:"6.5");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:M/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-11-16 05:05:14 +0000 (Thu, 16 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-08-16 20:32:00 +0000 (Wed, 16 Aug 2023)");
+  script_tag(name:"severity_date", value:"2023-08-17 01:47:00 +0000 (Thu, 17 Aug 2023)");
   script_tag(name:"creation_date", value:"2023-08-15 01:10:17 +0000 (Tue, 15 Aug 2023)");
   script_name("Fedora: Security Advisory for kernel (FEDORA-2023-ee241dcf80)");
   script_category(ACT_GATHER_INFO);

@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2009 Renaud Deraison
+# SPDX-FileCopyrightText: New/Improved/Extended code since 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -7,8 +8,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10662");
-  script_version("2023-07-07T05:05:26+0000");
-  script_tag(name:"last_modification", value:"2023-07-07 05:05:26 +0000 (Fri, 07 Jul 2023)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2009-10-02 19:48:14 +0200 (Fri, 02 Oct 2009)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -56,16 +57,16 @@ include("misc_func.inc");
 include("url_func.inc");
 
 # Keep this in sync with the preferences in the description part
-start_page = script_get_preference( "Start page : " );
+start_page = script_get_preference( "Start page : ", id:2 );
 if( isnull( start_page ) || start_page == "" )
   start_page = "/";
 
-max_pages = int( script_get_preference( "Number of pages to mirror : " ) );
+max_pages = int( script_get_preference( "Number of pages to mirror : ", id:1 ) );
 if( max_pages <= 0 )
   max_pages = 200;
 replace_kb_item( name:"webmirror/max_pages_to_mirror", value:max_pages );
 
-max_cgi_dirs = int( script_get_preference( "Number of cgi directories to save into KB : " ) );
+max_cgi_dirs = int( script_get_preference( "Number of cgi directories to save into KB : ", id:3 ) );
 if( max_cgi_dirs <= 0 )
   max_cgi_dirs = 128;
 replace_kb_item( name:"webmirror/max_dirs_in_kb", value:max_cgi_dirs );
@@ -75,12 +76,12 @@ use_cgi_dirs_exclude_pattern = get_kb_item( "global_settings/use_cgi_dirs_exclud
 cgi_dirs_exclude_servermanual = get_kb_item( "global_settings/cgi_dirs_exclude_servermanual" );
 
 # Skip .js and .css files by default as their parameters are just cache busters
-cgi_scripts_exclude_pattern = script_get_preference( "Regex pattern to exclude cgi scripts : " );
+cgi_scripts_exclude_pattern = script_get_preference( "Regex pattern to exclude cgi scripts : ", id:4 );
 if( ! cgi_scripts_exclude_pattern )
   cgi_scripts_exclude_pattern = "\.(js|css)$";
 replace_kb_item( name:"webmirror/cgi_scripts_exclude_pattern", value:cgi_scripts_exclude_pattern );
 
-use_cgi_scripts_exclude_pattern = script_get_preference( "Use regex pattern to exclude cgi scripts : " );
+use_cgi_scripts_exclude_pattern = script_get_preference( "Use regex pattern to exclude cgi scripts : ", id:5 );
 
 # counter for current failed requests
 failedReqs = 0;
@@ -228,8 +229,10 @@ function add_url( url, port, host ) {
         set_kb_item( name:"www/action_jsp_do", value:TRUE );
 
       # nb: For JavaServer Faces VTs
-      if( ext == "xhtml" || ext == "jsf" || ext == "faces" )
+      if( ext == "xhtml" || ext == "jsf" || ext == "faces" ) {
         set_kb_item( name:"www/javaserver_faces/detected", value:TRUE );
+        set_kb_item( name:"www/javaserver_faces/" + port + "/detected", value:TRUE );
+      }
 
     }
     add_cgi_dir( dir:url, append_pattern:TRUE, port:port, host:host ); # Append the "/?PageServices and" "/?D=A"
@@ -736,7 +739,12 @@ function parse_form( elements, current, port, host ) {
 function pre_parse( src_page, data, port, host ) {
 
   local_var src_page, data, port, host;
-  local_var js_data, js_src, data2, php_path, fp_save;
+  local_var js_data, js_src, concl, data2, php_path, fp_save;
+
+  # nb: If no data has been passed (e.g. the retr() call in the parent while() loop might have
+  # returned no data) there is no need to call all the functions below.
+  if( ! data )
+    return;
 
   # TODO: Maybe merge with the js_src below and make a generic regex which is matching any of the following variants (nb: * is no regex but just a placeholder for an arbitrary code within those tags)
   # <script type=*>*</script>
@@ -797,11 +805,12 @@ function pre_parse( src_page, data, port, host ) {
     set_kb_item( name:"www/" + host + "/" + port + "/content/dir_index", value:http_report_vuln_url( port:port, url:src_page, url_only:TRUE ) );
   }
 
-  if( "<title>phpinfo()</title>" >< data ) {
+  if( concl = http_check_for_phpinfo_output( data:data, webmirror_called:TRUE ) ) {
     set_kb_item( name:"php/phpinfo/detected", value:TRUE );
+    set_kb_item( name:"php/phpinfo/http/detected", value:TRUE );
     set_kb_item( name:"php/phpinfo/" + host + "/" + port + "/detected", value:TRUE );
     set_kb_item( name:"www/" + host + "/" + port + "/content/phpinfo_script/plain", value:src_page );
-    set_kb_item( name:"www/" + host + "/" + port + "/content/phpinfo_script/reporting", value:http_report_vuln_url( port:port, url:src_page, url_only:TRUE ) );
+    set_kb_item( name:"www/" + host + "/" + port + "/content/phpinfo_script/reporting", value:http_report_vuln_url( port:port, url:src_page, url_only:TRUE ) + '\nConcluded from:\n' + concl );
   }
 
   if( "Fatal" >< data || "Warning" >< data ) {
@@ -838,6 +847,7 @@ function pre_parse( src_page, data, port, host ) {
   # nb: For JavaServer Faces VTs
   if( "javax.faces.resource" >< data ) {
     set_kb_item( name:"www/javaserver_faces/detected", value:TRUE );
+    set_kb_item( name:"www/javaserver_faces/" + port + "/detected", value:TRUE );
   }
 }
 

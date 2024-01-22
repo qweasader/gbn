@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.12241");
-  script_version("2023-10-19T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-10-19 05:05:21 +0000 (Thu, 19 Oct 2023)");
+  script_version("2023-12-28T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-28 05:05:25 +0000 (Thu, 28 Dec 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -58,6 +58,7 @@ include("ipp.inc");
 include("port_service_func.inc");
 include("misc_func.inc");
 include("honeywell_printers.inc");
+include("dell_printers.inc");
 
 pjl_ports_list = make_list();
 
@@ -272,6 +273,10 @@ if( model ) {
   if( model =~ "^Fiery " ) {
     is_printer = TRUE;
   }
+
+  if( model =~ "^Dell " && model =~ "(Laser|Printer|MFP)" ) {
+    is_printer = TRUE;
+  }
 }
 
 if( is_printer ) register_and_report( data:"Detected from SNMP OID '" + mod_oid + "' on port " + port + '/udp:\n\n' + model );
@@ -375,6 +380,8 @@ if( get_port_state( port ) ) {
   } else if( banner =~ "220 SHARP .*FTP Server" ) {
     is_printer = TRUE;
   } else if( banner =~ "220 Welcome to Honeywell Printer" ) {
+    is_printer = TRUE;
+  } else if( banner =~ "220 Dell " && banner =~ "(Laser|MFP|Printer)" ) {
     is_printer = TRUE;
   }
 }
@@ -495,6 +502,8 @@ foreach port( ports ) {
     }
   }
 
+  if( is_printer ) break;
+
   # Brother printer, see also gb_brother_printer_http_detect.nasl
   urls = get_brother_detect_urls();
   foreach url( keys( urls ) ) {
@@ -512,6 +521,8 @@ foreach port( ports ) {
       break;
     }
   }
+
+  if( is_printer ) break;
 
   # SATO, see also gb_sato_printer_http_detect.nasl
   # If updating here please also update the check in gb_sato_printers_http_detect.nasl
@@ -641,6 +652,8 @@ foreach port( ports ) {
     }
   }
 
+  if( is_printer ) break;
+
   # Fuji Xerox / Fujifilm, see also gb_fujifilm_printer_http_detect.nasl
   urls = get_fujifilm_detect_urls();
   foreach url( keys( urls ) ) {
@@ -701,6 +714,8 @@ foreach port( ports ) {
     }
   }
 
+  if( is_printer ) break;
+
   # EFI Fiery, see also gb_efi_fiery_http_detect.nasl
   url = "/wt4/home";
   res = http_get_cache( port:port, item:url );
@@ -751,6 +766,8 @@ foreach port( ports ) {
     }
   }
 
+  if( is_printer ) break;
+
   # Canon, see also gb_canon_printer_http_detect.nasl
   # e.g.:
   # Server: KS_HTTP/1.0
@@ -780,6 +797,8 @@ foreach port( ports ) {
     }
   }
 
+  if( is_printer ) break;
+
   # Honeywell printer, see also gsf/gb_honeywell_printer_http_detect.nasl
   urls = get_honeywell_detect_urls();
   foreach url( keys( urls ) ) {
@@ -797,6 +816,28 @@ foreach port( ports ) {
       break;
     }
   }
+
+  if( is_printer ) break;
+
+  # Dell printer, see also gb_dell_printer_http_detect.nasl
+  urls = get_dell_detect_urls();
+  foreach url( keys( urls ) ) {
+
+    pattern = urls[url];
+    url = ereg_replace( string:url, pattern:"(#--avoid-dup[0-9]+--#)", replace:"" );
+
+    buf = http_get_cache( item:url, port:port );
+    if( ! buf || buf !~ "^HTTP/1\.[01] 200" )
+      continue;
+
+    if( eregmatch( pattern:pattern, string:buf, icase:FALSE ) ) {
+      is_printer = TRUE;
+      reason     = "Found pattern: " + pattern + " on URL: " + http_report_vuln_url( port:port, url:url, url_only:TRUE );
+      break;
+    }
+  }
+
+  if( is_printer ) break;
 
   # TODO: Re-verify these URLs and the banners below
   foreach url( make_list( "/", "/main.asp", "/index.asp",
@@ -828,6 +869,7 @@ foreach port( ports ) {
       break;
     }
   }
+
   if( is_printer ) break;
 }
 

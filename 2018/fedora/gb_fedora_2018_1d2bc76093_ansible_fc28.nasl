@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.874804");
-  script_version("2023-06-28T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-28 05:05:21 +0000 (Wed, 28 Jun 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-07-15 06:02:35 +0200 (Sun, 15 Jul 2018)");
   script_cve_id("CVE-2018-10874", "CVE-2018-10875", "CVE-2018-10855");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-07-25 02:15:00 +0000 (Thu, 25 Jul 2019)");
+  script_tag(name:"severity_date", value:"2020-05-29 18:20:00 +0000 (Fri, 29 May 2020)");
   script_tag(name:"qod_type", value:"package");
   script_name("Fedora Update for ansible FEDORA-2018-1d2bc76093");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'ansible'

@@ -7,7 +7,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108718");
-  script_version("2023-07-06T05:05:36+0000");
+  script_version("2023-12-06T05:06:11+0000");
   # nb: Unlike other VTs we're using the CVEs line by line here for easier addition of new CVEs
   # / to avoid too large diffs when adding a new CVE.
   script_cve_id("CVE-1999-0501",
@@ -16,9 +16,10 @@ if(description)
                 "CVE-1999-0508",
                 "CVE-2001-1594",
                 "CVE-2013-7404",
+                "CVE-2017-8218",
                 "CVE-2018-19063",
                 "CVE-2018-19064");
-  script_tag(name:"last_modification", value:"2023-07-06 05:05:36 +0000 (Thu, 06 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-06 05:06:11 +0000 (Wed, 06 Dec 2023)");
   script_tag(name:"creation_date", value:"2020-03-05 14:02:28 +0000 (Thu, 05 Mar 2020)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -44,6 +45,8 @@ if(description)
   - CVE-2001-1594: Codonics printer FTP service as used in GE Healthcare eNTEGRA P&R
 
   - CVE-2013-7404: GE Healthcare Discovery NM 750b
+
+  - CVE-2017-8218: vsftpd on TP-Link C2 and C20i devices
 
   - CVE-2018-19063, CVE-2018-19064: Foscam C2 and Opticam i5 devices
 

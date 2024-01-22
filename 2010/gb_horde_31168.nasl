@@ -9,8 +9,8 @@ CPE = "cpe:/a:horde:imp";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100724");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2023-10-27T05:05:28+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2010-07-27 20:48:46 +0200 (Tue, 27 Jul 2010)");
   script_cve_id("CVE-2008-4182");
   script_name("Horde Turba Contact Manager '/imp/test.php' Cross Site Scripting Vulnerability");
@@ -39,7 +39,7 @@ if(description)
   Note that this issue also affects Turba on Horde IMP.");
 
   script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_app");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   exit(0);
 }

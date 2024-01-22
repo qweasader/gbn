@@ -1,30 +1,16 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mariadb:mariadb";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.148641");
-  script_version("2023-10-18T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_version("2023-12-01T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2023-12-01 05:05:39 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"creation_date", value:"2022-08-29 03:48:34 +0000 (Mon, 29 Aug 2022)");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:N/I:N/A:C");
@@ -42,7 +28,7 @@ if (description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Databases");
   script_dependencies("mysql_version.nasl", "os_detection.nasl");
   script_mandatory_keys("MariaDB/installed", "Host/runs_unixoide");
@@ -58,7 +44,6 @@ if (description)
   10.5.x prior to 10.5.17, 10.6.x prior to 10.6.9, 10.7.x prior to 10.7.5, 10.8.x prior to 10.8.4
   and 10.9.x prior to 10.9.2.");
 
-  # TODO: Re-check the versions once the CVE is listed on https://mariadb.com/kb/en/security/#full-list-of-cves-fixed-in-mariadb
   script_tag(name:"solution", value:"Update to version 10.3.36, 10.4.26, 10.5.17, 10.6.9, 10.7.5,
   10.8.4, 10.9.2 or later.");
 

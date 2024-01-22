@@ -9,8 +9,8 @@ CPE = "cpe:/a:bftpd:bftpd";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.146592");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2023-12-20T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2021-08-30 14:04:58 +0000 (Mon, 30 Aug 2021)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -29,7 +29,7 @@ if(description)
   script_family("FTP");
   # nb: Don't add a script_mandatory_keys(), this should run against every Telnet service as
   # requested by a customer.
-  script_dependencies("ftpserver_detect_type_nd_version.nasl");
+  script_dependencies("ftpserver_detect_type_nd_version.nasl", "logins.nasl");
   script_require_ports("Services/ftp", 21);
 
   script_tag(name:"summary", value:"Bftpd is prone to multiple vulnerabilities.");

@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.876635");
-  script_version("2022-07-04T10:18:32+0000");
+  script_version("2023-10-27T16:11:32+0000");
   script_cve_id("CVE-2019-9948", "CVE-2019-10160", "CVE-2019-9636", "CVE-2019-5010");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2022-07-04 10:18:32 +0000 (Mon, 04 Jul 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-06-30 17:14:00 +0000 (Thu, 30 Jun 2022)");
+  script_tag(name:"severity_date", value:"2022-07-05 18:53:00 +0000 (Tue, 05 Jul 2022)");
   script_tag(name:"creation_date", value:"2019-08-05 02:17:45 +0000 (Mon, 05 Aug 2019)");
   script_name("Fedora Update for python3 FEDORA-2019-60a1defcd1");
   script_category(ACT_GATHER_INFO);

@@ -21,8 +21,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851529");
-  script_version("2023-02-13T10:19:38+0000");
-  script_tag(name:"last_modification", value:"2023-02-13 10:19:38 +0000 (Mon, 13 Feb 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2017-04-02 06:31:35 +0200 (Sun, 02 Apr 2017)");
   script_cve_id("CVE-2016-10200", "CVE-2016-10208", "CVE-2016-2117", "CVE-2017-2583",
                 "CVE-2017-2584", "CVE-2017-2596", "CVE-2017-2636", "CVE-2017-5669",
@@ -30,7 +30,7 @@ if(description)
                 "CVE-2017-6348", "CVE-2017-6353", "CVE-2017-7184", "CVE-2017-5986");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-02-10 00:53:00 +0000 (Fri, 10 Feb 2023)");
   script_tag(name:"qod_type", value:"package");

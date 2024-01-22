@@ -9,8 +9,8 @@ CPE = "cpe:/a:openssl:openssl";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.104839");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2023-10-26T05:07:17+0000");
+  script_tag(name:"last_modification", value:"2023-10-26 05:07:17 +0000 (Thu, 26 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-07-17 06:30:34 +0000 (Mon, 17 Jul 2023)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
@@ -22,7 +22,7 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"VendorFix");
 
   script_name("OpenSSL Information Disclosure Vulnerability (20230714) - Windows");
 
@@ -47,15 +47,11 @@ if(description)
 
   script_tag(name:"affected", value:"OpenSSL version 3.0 and 3.1.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 19th July, 2023.
-  Information regarding this issue will be updated once solution details are available.
-
-  Vendor info: Due to the low severity of this issue we are not issuing new releases of OpenSSL at
-  this time. The fix will be included in the next releases when they become available. The fix is
-  also available in commit 6a83f0c9 (for 3.1) and commit 00e2f5ee (for 3.0) in the OpenSSL git
-  repository.");
+  script_tag(name:"solution", value:"Update to version 3.0.10, 3.1.2 or later.");
 
   script_xref(name:"URL", value:"https://www.openssl.org/news/secadv/20230714.txt");
+  script_xref(name:"URL", value:"https://www.openssl.org/news/vulnerabilities-3.0.html#CVE-2023-2975");
+  script_xref(name:"URL", value:"https://www.openssl.org/news/vulnerabilities-3.1.html#CVE-2023-2975");
 
   exit(0);
 }
@@ -73,15 +69,15 @@ version = infos["version"];
 location = infos["location"];
 
 if (version_in_range(version: version, test_version: "3.0.0", test_version2: "3.0.9")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "None", install_path: location);
+  report = report_fixed_ver(installed_version: version, fixed_version: "3.0.10", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }
 
 if (version_in_range(version: version, test_version: "3.1.0", test_version2: "3.1.1")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "None", install_path: location);
+  report = report_fixed_ver(installed_version: version, fixed_version: "3.1.2", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }
 
-exit(99); # nb: We can use exit(99); here since other versions like 0.9.8 are not affected
+exit(99);

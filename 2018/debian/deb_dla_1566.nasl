@@ -9,29 +9,29 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.891566");
   script_cve_id("CVE-2018-2767", "CVE-2018-3058", "CVE-2018-3063", "CVE-2018-3066", "CVE-2018-3070", "CVE-2018-3081", "CVE-2018-3133", "CVE-2018-3174", "CVE-2018-3282");
   script_tag(name:"creation_date", value:"2018-11-05 23:00:00 +0000 (Mon, 05 Nov 2018)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"4.9");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-08-04 19:58:00 +0000 (Thu, 04 Aug 2022)");
 
-  script_name("Debian: Security Advisory (DLA-1566)");
+  script_name("Debian: Security Advisory (DLA-1566-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB8");
 
-  script_xref(name:"Advisory-ID", value:"DLA-1566");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2018/dla-1566");
+  script_xref(name:"Advisory-ID", value:"DLA-1566-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2018/DLA-1566-1");
   script_xref(name:"URL", value:"https://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html");
   script_xref(name:"URL", value:"https://dev.mysql.com/doc/relnotes/mysql/5.5/en/news-5-5-62.html");
   script_xref(name:"URL", value:"https://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mysql-5.5' package(s) announced via the DLA-1566 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mysql-5.5' package(s) announced via the DLA-1566-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

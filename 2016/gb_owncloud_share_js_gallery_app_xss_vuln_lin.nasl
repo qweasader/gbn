@@ -9,11 +9,11 @@ CPE = "cpe:/a:owncloud:owncloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809298");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2023-12-01T16:11:30+0000");
   script_cve_id("CVE-2016-7419");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-04-07 19:38:00 +0000 (Fri, 07 Apr 2017)");
@@ -44,27 +44,24 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_owncloud_detect.nasl", "os_detection.nasl");
-  script_mandatory_keys("owncloud/installed", "Host/runs_unixoide");
-  script_require_ports("Services/www", 80);
+  script_dependencies("gb_owncloud_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("owncloud/detected", "Host/runs_unixoide");
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-if(!ownPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_is_less(version:version, test_version:"9.0.4")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"9.0.4");
+  security_message(data:report, port:port);
   exit(0);
 }
 
-if(!ownVer = get_app_version(cpe:CPE, port:ownPort)){
-  exit(0);
-}
-
-if(version_is_less(version:ownVer, test_version:"9.0.4"))
-{
-  report = report_fixed_ver(installed_version:ownVer, fixed_version:"9.0.4");
-  security_message(data:report, port:ownPort);
-  exit(0);
-}
-exit(0);
+exit(99);

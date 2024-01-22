@@ -7,11 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.884725");
-  script_version("2023-09-08T05:06:21+0000");
+  script_version("2023-11-10T16:09:31+0000");
   script_cve_id("CVE-2023-3955", "CVE-2023-3676");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-09-08 05:06:21 +0000 (Fri, 08 Sep 2023)");
+  script_tag(name:"cvss_base", value:"9.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2023-11-10 16:09:31 +0000 (Fri, 10 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-11-08 18:29:00 +0000 (Wed, 08 Nov 2023)");
   script_tag(name:"creation_date", value:"2023-09-03 01:16:40 +0000 (Sun, 03 Sep 2023)");
   script_name("Fedora: Security Advisory for kubernetes (FEDORA-2023-a3fcc0751f)");
   script_category(ACT_GATHER_INFO);

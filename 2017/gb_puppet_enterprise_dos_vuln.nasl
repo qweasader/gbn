@@ -9,8 +9,8 @@ CPE = "cpe:/a:puppet:enterprise";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106582");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2023-12-21T05:06:40+0000");
+  script_tag(name:"last_modification", value:"2023-12-21 05:06:40 +0000 (Thu, 21 Dec 2023)");
   script_tag(name:"creation_date", value:"2017-02-09 13:27:28 +0700 (Thu, 09 Feb 2017)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -30,16 +30,17 @@ if (description)
 
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Denial of Service");
-  script_dependencies("gb_puppet_enterprise_detect.nasl");
-  script_mandatory_keys("puppet_enterprise/installed");
+  script_dependencies("gb_puppet_enterprise_http_detect.nasl");
+  script_mandatory_keys("puppet_enterprise/detected");
 
-  script_tag(name:"summary", value:"Puppet Enterprise is prone to a denial of service vulnerability.");
+  script_tag(name:"summary", value:"Puppet Enterprise is prone to a denial of service (DoS)
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"The Puppet Communications Protocol (PCP) broker incorrectly validates
-  message header sizes. An attacker could use this vulnerability to crash the PCP broker, preventing commands from
-  being sent to agents.");
+  script_tag(name:"insight", value:"The Puppet Communications Protocol (PCP) broker incorrectly
+  validates message header sizes. An attacker could use this vulnerability to crash the PCP broker,
+  preventing commands from being sent to agents.");
 
   script_tag(name:"affected", value:"Puppet Enterprise 2015.3.x and 2016.x.");
 
@@ -56,18 +57,21 @@ include("version_func.inc");
 if (!port = get_app_port(cpe: CPE))
   exit(0);
 
-if (!version = get_app_version(cpe: CPE, port: port))
+if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE))
   exit(0);
 
+version = infos["version"];
+location = infos["location"];
+
 if (version_is_less(version: version, test_version: "2016.4.3")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "2016.4.3");
+  report = report_fixed_ver(installed_version: version, fixed_version: "2016.4.3", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }
 
 if (version =~ "^2016\.5") {
   if (version_is_less(version: version, test_version:"2016.5.2")) {
-    report = report_fixed_ver(installed_version: version, fixed_version: "2016.5.2");
+    report = report_fixed_ver(installed_version: version, fixed_version: "2016.5.2", install_path: location);
     security_message(port: port, data: report);
     exit(0);
   }

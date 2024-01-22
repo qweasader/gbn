@@ -9,37 +9,83 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.705257");
   script_cve_id("CVE-2021-4037", "CVE-2022-0171", "CVE-2022-1184", "CVE-2022-20421", "CVE-2022-2602", "CVE-2022-2663", "CVE-2022-3061", "CVE-2022-3176", "CVE-2022-3303", "CVE-2022-39188", "CVE-2022-39842", "CVE-2022-40307", "CVE-2022-41674", "CVE-2022-42719", "CVE-2022-42720", "CVE-2022-42721", "CVE-2022-42722");
   script_tag(name:"creation_date", value:"2022-10-20 01:00:18 +0000 (Thu, 20 Oct 2022)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-10-18 14:06:00 +0000 (Tue, 18 Oct 2022)");
 
-  script_name("Debian: Security Advisory (DSA-5257)");
+  script_name("Debian: Security Advisory (DSA-5257-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB11");
 
-  script_xref(name:"Advisory-ID", value:"DSA-5257");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2022/dsa-5257-2");
+  script_xref(name:"Advisory-ID", value:"DSA-5257-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2022/DSA-5257-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-5257");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/linux");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux' package(s) announced via the DSA-5257 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux' package(s) announced via the DSA-5257-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The security update announced as DSA 5257-1 caused regressions on certain systems using the amdgpu driver. Updated packages are now available to correct this issue.
+  script_tag(name:"insight", value:"Several vulnerabilities have been discovered in the Linux kernel that may lead to a privilege escalation, denial of service or information leaks.
 
-For the stable distribution (bullseye), this problem has been fixed in version 5.10.149-2.
+CVE-2021-4037
 
-We recommend that you upgrade your linux packages.
+Christian Brauner reported that the inode_init_owner function for the XFS filesystem in the Linux kernel allows local users to create files with an unintended group ownership allowing attackers to escalate privileges by making a plain file executable and SGID.
 
-For the detailed security status of linux please refer to its security tracker page at: [link moved to references]");
+CVE-2022-0171
+
+Mingwei Zhang reported that a cache incoherence issue in the SEV API in the KVM subsystem may result in denial of service.
+
+CVE-2022-1184
+
+A flaw was discovered in the ext4 filesystem driver which can lead to a use-after-free. A local user permitted to mount arbitrary filesystems could exploit this to cause a denial of service (crash or memory corruption) or possibly for privilege escalation.
+
+CVE-2022-2602
+
+A race between handling an io_uring request and the Unix socket garbage collector was discovered. An attacker can take advantage of this flaw for local privilege escalation.
+
+CVE-2022-2663
+
+David Leadbeater reported flaws in the nf_conntrack_irc connection-tracking protocol module. When this module is enabled on a firewall, an external user on the same IRC network as an internal user could exploit its lax parsing to open arbitrary TCP ports in the firewall, to reveal their public IP address, or to block their IRC connection at the firewall.
+
+CVE-2022-3061
+
+A flaw was discovered in the i740 driver which may result in denial of service.
+
+This driver is not enabled in Debian's official kernel configurations.
+
+CVE-2022-3176
+
+A use-after-free flaw was discovered in the io_uring subsystem which may result in local privilege escalation to root.
+
+CVE-2022-3303
+
+A race condition in the snd_pcm_oss_sync function in the sound subsystem in the Linux kernel due to improper locking may result in denial of service.
+
+CVE-2022-20421
+
+A use-after-free vulnerability was discovered in the binder_inc_ref_for_node function in the Android binder driver. On systems where the binder driver is loaded, a local user could exploit this for privilege escalation.
+
+CVE-2022-39188
+
+Jann Horn reported a race condition in the kernel's handling of unmapping of certain memory ranges. When a driver created a memory mapping with the VM_PFNMAP flag, which many GPU drivers do, the memory mapping could be removed and freed before it was flushed from the CPU TLBs. This could result in a page use-after-free. A local user with access to such a device could exploit this to cause a denial of service (crash or memory corruption) or possibly for privilege escalation.
+
+CVE-2022-39842
+
+An integer overflow was discovered in the pxa3xx-gcu video driver which could lead to a heap out-of-bounds write.
+
+This driver is not enabled in Debian's official kernel configurations.
+
+CVE-2022-40307
+
+A race condition was discovered in the EFI capsule-loader driver, which could lead to use-after-free. A ... [Please see the references for more information on the vulnerabilities]");
 
   script_tag(name:"affected", value:"'linux' package(s) on Debian 11.");
 

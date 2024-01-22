@@ -9,8 +9,8 @@ CPE = "cpe:/a:gitlab:gitlab";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170067");
-  script_version("2023-06-19T05:05:07+0000");
-  script_tag(name:"last_modification", value:"2023-06-19 05:05:07 +0000 (Mon, 19 Jun 2023)");
+  script_version("2023-12-06T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2023-12-06 05:06:11 +0000 (Wed, 06 Dec 2023)");
   script_tag(name:"creation_date", value:"2022-03-28 08:06:32 +0000 (Mon, 28 Mar 2022)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -20,7 +20,7 @@ if (description)
 
   script_cve_id("CVE-2018-16049", "CVE-2018-16051");
 
-  script_tag(name:"qod_type", value:"executable_version_unreliable");
+  script_tag(name:"qod_type", value:"remote_banner");
 
   script_tag(name:"solution_type", value:"VendorFix");
 

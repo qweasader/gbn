@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902819");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2012-03-21 16:16:16 +0530 (Wed, 21 Mar 2012)");
   script_name("Telnet-FTP Server 'RETR' Command Remote Denial of Service Vulnerability");
   script_category(ACT_DENIAL);
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("FTP");
-  script_dependencies("ftpserver_detect_type_nd_version.nasl");
+  script_dependencies("ftpserver_detect_type_nd_version.nasl", "logins.nasl");
   script_require_ports("Services/ftp", 21);
   script_mandatory_keys("ftp/telnet_ftp/detected");
 

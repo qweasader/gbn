@@ -8,11 +8,11 @@ if(description)
 {
   script_xref(name:"URL", value:"https://www.redhat.com/archives/fedora-package-announce/2007-November/msg00987.html");
   script_oid("1.3.6.1.4.1.25623.1.0.861200");
-  script_version("2023-07-04T05:05:35+0000");
-  script_tag(name:"last_modification", value:"2023-07-04 05:05:35 +0000 (Tue, 04 Jul 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2009-02-27 16:23:18 +0100 (Fri, 27 Feb 2009)");
   script_tag(name:"cvss_base", value:"2.1");
-  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:P/A:N");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:N/A:N");
   script_xref(name:"FEDORA", value:"2007-3701");
   script_cve_id("CVE-2005-4791", "CVE-2006-4791", "CVE-2007-5751");
   script_name("Fedora Update for liferea FEDORA-2007-3701");

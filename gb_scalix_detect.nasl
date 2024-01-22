@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105102");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2023-10-31T05:06:37+0000");
+  script_tag(name:"last_modification", value:"2023-10-31 05:06:37 +0000 (Tue, 31 Oct 2023)");
   script_tag(name:"creation_date", value:"2014-11-03 13:25:47 +0100 (Mon, 03 Nov 2014)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -16,7 +16,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
   script_copyright("Copyright (C) 2014 Greenbone AG");
-  script_dependencies("find_service.nasl", "httpver.nasl", "smtpserver_detect.nasl", "imap4_banner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "httpver.nasl", "smtpserver_detect.nasl", "check_smtp_helo.nasl", "imap4_banner.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80, "Services/smtp", 25, 465, 587, "Services/imap", 143, 993);
 
   script_tag(name:"summary", value:"The script sends a connection request to the server and

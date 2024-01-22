@@ -1,38 +1,27 @@
-# Copyright (C) 2023 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2023 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
+
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826921");
-  script_version("2023-10-12T05:05:32+0000");
-  script_cve_id("CVE-2023-23514", "CVE-2023-23522");
-  script_tag(name:"cvss_base", value:"7.2");
-  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_version("2024-01-22T05:07:31+0000");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
+  script_cve_id("CVE-2023-23514", "CVE-2023-23522", "CVE-2023-23524", "CVE-2023-23529");
+  script_tag(name:"cvss_base", value:"10.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"last_modification", value:"2024-01-22 05:07:31 +0000 (Mon, 22 Jan 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-03-08 16:31:00 +0000 (Wed, 08 Mar 2023)");
+  script_tag(name:"severity_date", value:"2023-03-08 15:55:00 +0000 (Wed, 08 Mar 2023)");
   script_tag(name:"creation_date", value:"2023-02-16 12:12:21 +0530 (Thu, 16 Feb 2023)");
   script_name("Apple MacOSX Security Update (HT213633)");
 
-  script_tag(name:"summary", value:"Apple Mac OS X is prone to miltiple
+  script_tag(name:"summary", value:"Apple Mac OS X is prone to multiple
   vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
@@ -43,11 +32,13 @@ if(description)
 
   - A privacy issue was addressed with improved handling of temporary files.
 
-  - A type confusion issue was addressed with improved checks.");
+  - A type confusion issue was addressed with improved checks.
+
+  - A denial-of-service issue was addressed with improved input validation.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attackers
-  to conduct arbitrary code execution and disclose sensitive information on an
-  affected system.");
+  to conduct arbitrary code execution, cause denial of service and disclose
+  sensitive information on an affected system.");
 
   script_tag(name:"affected", value:"Apple Mac OS X Ventura prior to
   version 13.2.1.");
@@ -58,7 +49,7 @@ if(description)
   script_tag(name:"qod_type", value:"package");
   script_xref(name:"URL", value:"https://support.apple.com/en-us/HT213633");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2023 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Mac OS X Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/osx_name", "ssh/login/osx_version", re:"ssh/login/osx_version=^13\.");

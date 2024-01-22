@@ -23,11 +23,14 @@ CPE = "cpe:/a:mozilla:firefox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900743");
-  script_version("2021-11-22T14:21:24+0000");
-  script_tag(name:"last_modification", value:"2021-11-22 14:21:24 +0000 (Mon, 22 Nov 2021)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2010-02-22 13:34:53 +0100 (Mon, 22 Feb 2010)");
   script_tag(name:"cvss_base", value:"4.3");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-01-23 22:23:00 +0000 (Thu, 23 Jan 2020)");
   script_cve_id("CVE-2010-0648", "CVE-2010-0654", "CVE-2011-2669", "CVE-2011-2670");
   script_name("Firefox < 3.6 Multiple Vulnerabilities - Linux");
   script_xref(name:"URL", value:"http://code.google.com/p/chromium/issues/detail?id=9877");

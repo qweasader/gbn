@@ -9,13 +9,13 @@ CPE = "cpe:/a:cubecart:cubecart";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.19945");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-01-09T05:06:46+0000");
   script_cve_id("CVE-2005-3152");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-01-09 05:06:46 +0000 (Tue, 09 Jan 2024)");
   script_tag(name:"creation_date", value:"2006-03-26 17:55:15 +0200 (Sun, 26 Mar 2006)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_name("Multiple CubeCart Multiple XSS Vulnerabilities");
+  script_name("CubeCart < 3.0.4 Multiple XSS Vulnerabilities");
   script_category(ACT_MIXED_ATTACK);
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2005 Josh Zlatin-Amishav");
@@ -26,11 +26,11 @@ if(description)
   script_xref(name:"URL", value:"http://lostmon.blogspot.com/2005/09/cubecart-303-multiple-variable-cross.html");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/14962");
 
-  script_tag(name:"solution", value:"Upgrade to CubeCart version 3.0.4 or later.");
+  script_tag(name:"summary", value:"CubeCart is prone to multiple cross-site scripting (XSS)
+  vulnerabilities due to its failure to properly sanitize user-supplied input of certain variables
+  to the 'index.php' and 'cart.php' scripts.");
 
-  script_tag(name:"summary", value:"The remote version of CubeCart contains several cross-site scripting
-  vulnerabilities due to its failure to properly sanitize user-supplied input of certain variables to
-  the 'index.php' and 'cart.php' scripts.");
+  script_tag(name:"solution", value:"Update to version 3.0.4 or later.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_analysis");

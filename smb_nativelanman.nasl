@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2009 LSS
+# SPDX-FileCopyrightText: New detection methods / pattern / code since 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -7,10 +8,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.102011");
-  script_version("2023-07-12T05:05:05+0000");
+  script_version("2024-01-09T05:06:46+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-12 05:05:05 +0000 (Wed, 12 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-01-09 05:06:46 +0000 (Tue, 09 Jan 2024)");
   script_tag(name:"creation_date", value:"2009-09-18 16:06:42 +0200 (Fri, 18 Sep 2009)");
   script_name("SMB NativeLanMan");
   script_category(ACT_GATHER_INFO);
@@ -124,7 +125,7 @@ for( x = l-3; x > 0 && c < 3; x = x - 2 ) {
         # nb: Used together with gb_samba_detect.nasl if the VT needs an exposed version.
         set_kb_item( name:"samba/smb_or_ssh/detected", value:TRUE );
 
-        # nb: Used if a VT should do an active remote check.
+        # nb: Used if a VT should do an active check.
         set_kb_item( name:"samba/smb/detected", value:TRUE );
 
         cpe = build_cpe( value:version, exp:"([0-9.]+)(a|b|c|d|p[0-9]|rc[0-9])?", base:"cpe:/a:samba:samba:" );

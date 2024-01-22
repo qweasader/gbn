@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2002 Michel Arboi
+# SPDX-FileCopyrightText: New code since 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -208,6 +209,9 @@ function smtp_send_socket( socket, from, to, body ) {
 # @param The "to" field used in the e-mail.
 # @param The body to send in the e-mail.
 #
+# @note Add a dependency to check_smtp_helo.nasl if you want to use this function because it is
+#       internally using @ref smtp_get_helo_from_kb().
+#
 # @return The received response of the SMTP server or NULL if it was not possible
 #         to open a connection, not all required parameters were passed, the remote
 #         SMTP server doesn't accept us or is no SMTP server at all.
@@ -282,6 +286,9 @@ function smtp_to_header() {
 #        to the KB for later use in the fingerprinting of the remote SMTP server by other VTs.
 #
 # @param port The port of the remote SMTP server.
+#
+# @note Add a dependency to check_smtp_helo.nasl if you want to use this function because it is
+#       internally using @ref smtp_get_helo_from_kb().
 #
 # @return The banner of the remote host, NULL if no response was received or the remote port wasn't scanned
 #         and FALSE if no port parameter was passed.
@@ -795,7 +802,10 @@ function get_3rdparty_domain() {
 #
 # @param port The port of the remote SMTP server to get the HELO from.
 #
-# @note Add a dependency to check_smtp_helo.nasl if you want to use this function.
+# @note Add a dependency to check_smtp_helo.nasl if you want to use this function or any of the
+#       following functions calling it internally:
+#       - @ref smtp_send_port()
+#       - @ref smtp_get_banner()
 #
 # @return The SMTP HELO domain or NULL in the case where the port parameter wasn't passed.
 #

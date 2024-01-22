@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805291");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_cve_id("CVE-2014-9468");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/72660");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2015-02-26 11:32:25 +0530 (Thu, 26 Feb 2015)");
   script_name("InstantASP InstantForum.NET Multiple Cross-Site Scripting Vulnerabilities");
 
@@ -39,7 +39,7 @@ General solution options are to upgrade to a newer release, disable respective f
 
   script_tag(name:"solution_type", value:"WillNotFix");
 
-  script_tag(name:"qod_type", value:"exploit");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");

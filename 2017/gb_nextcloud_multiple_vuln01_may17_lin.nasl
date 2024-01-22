@@ -9,14 +9,14 @@ CPE = "cpe:/a:nextcloud:nextcloud_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811133");
-  script_version("2023-05-15T09:08:55+0000");
+  script_version("2023-11-03T05:05:46+0000");
   script_cve_id("CVE-2017-0890", "CVE-2017-0892", "CVE-2017-0894");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-05-15 09:08:55 +0000 (Mon, 15 May 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:N/A:N");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-09-27 16:13:00 +0000 (Tue, 27 Sep 2022)");
+  script_tag(name:"severity_date", value:"2022-09-27 16:04:00 +0000 (Tue, 27 Sep 2022)");
   script_tag(name:"creation_date", value:"2017-05-30 16:55:47 +0530 (Tue, 30 May 2017)");
   script_name("Nextcloud Multiple Vulnerabilities-01 May17 (Linux)");
 

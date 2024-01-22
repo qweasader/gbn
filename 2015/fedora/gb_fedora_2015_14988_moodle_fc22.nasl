@@ -7,14 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.869944");
-  script_version("2023-06-22T10:34:15+0000");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2015-09-16 07:38:54 +0200 (Wed, 16 Sep 2015)");
   script_cve_id("CVE-2015-3181", "CVE-2015-3180", "CVE-2015-3178", "CVE-2015-3179",
                 "CVE-2015-3176", "CVE-2015-3177", "CVE-2015-3174", "CVE-2015-3175",
                 "CVE-2015-3273", "CVE-2015-3272", "CVE-2015-3275", "CVE-2015-3274");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:N/I:H/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-12-01 14:54:00 +0000 (Tue, 01 Dec 2020)");
   script_tag(name:"qod_type", value:"package");
   script_name("Fedora Update for moodle FEDORA-2015-14988");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'moodle'

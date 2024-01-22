@@ -9,8 +9,8 @@ CPE = "cpe:/a:exim:exim";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.151116");
-  script_version("2023-10-17T05:05:34+0000");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_version("2024-01-10T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
   # nb: This was initially a single VT but got split later into multiple due to different affected /
   # fixed versions. To avoid wrong stats about CVE coverage the "creation_date" of the original VT
   # has been kept here because all CVEs had been covered at this time.
@@ -20,7 +20,7 @@ if (description)
 
   script_cve_id("CVE-2023-42118");
 
-  script_tag(name:"qod_type", value:"remote_banner"); # TODO: needs to be adjusted once a fix is available
+  script_tag(name:"qod_type", value:"remote_banner"); # TODO: needs to be adjusted once a fix is available, see also note below.
 
   script_tag(name:"solution_type", value:"NoneAvailable");
 
@@ -30,8 +30,8 @@ if (description)
 
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("General");
-  script_dependencies("gb_exim_detect.nasl");
-  script_mandatory_keys("exim/installed");
+  script_dependencies("gb_exim_smtp_detect.nasl");
+  script_mandatory_keys("exim/detected");
 
   script_tag(name:"summary", value:"Exim is prone to a remote code execution (RCE) vulnerability
   in libspf2.");
@@ -43,11 +43,14 @@ if (description)
   in an integer underflow before writing to memory. An attacker can leverage this vulnerability to
   execute code in the context of the service account.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 16th October, 2023.
+  script_tag(name:"solution", value:"No known solution is available as of 09th January, 2024.
   Information regarding this issue will be updated once solution details are available.");
 
   script_xref(name:"URL", value:"https://www.exim.org/static/doc/security/CVE-2023-zdi.txt");
   script_xref(name:"URL", value:"https://www.zerodayinitiative.com/advisories/ZDI-23-1472/");
+  # nb: This mention that it is not even clear if this is an issue in Exim, should be cross-checked
+  # when raising the "No known solution" date above:
+  script_xref(name:"URL", value:"https://github.com/shevek/libspf2/issues/45");
 
   exit(0);
 }

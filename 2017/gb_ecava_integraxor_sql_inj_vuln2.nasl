@@ -9,8 +9,8 @@ CPE = "cpe:/a:ecava:integraxor";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106888");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-01-09T05:06:46+0000");
+  script_tag(name:"last_modification", value:"2024-01-09 05:06:46 +0000 (Tue, 09 Jan 2024)");
   script_tag(name:"creation_date", value:"2017-06-21 11:05:39 +0700 (Wed, 21 Jun 2017)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -24,24 +24,26 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("ECAVA IntegraXor SQL Injection Vulnerability");
+  script_name("ECAVA IntegraXor <= 5.2.1231.0 SQLi Vulnerability");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_ecava_integraxor_detect.nasl");
-  script_mandatory_keys("EcavaIntegraXor/Installed");
+  script_dependencies("gb_ecava_integraxor_http_detect.nasl");
+  script_mandatory_keys("ecava/integraxor/detected");
 
-  script_tag(name:"summary", value:"ECAVA IntegraXor is prone to multiple SQL injection vulnerabilities.");
+  script_tag(name:"summary", value:"ECAVA IntegraXor is prone to a SQL injection (SQLi)
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"The application fails to properly validate user input, which may allow for
-an unauthenticated attacker to remotely execute arbitrary code in the form of SQL queries.");
+  script_tag(name:"insight", value:"The application fails to properly validate user input, which may
+  allow for an unauthenticated attacker to remotely execute arbitrary code in the form of SQL
+  queries.");
 
-  script_tag(name:"affected", value:"IntegraXor Versions 5.2.1231.0 and prior.");
+  script_tag(name:"affected", value:"ECAVA IntegraXor version 5.2.1231.0 and prior.");
 
-  script_tag(name:"solution", value:"Update to 6.0.522.1 or later versions.");
+  script_tag(name:"solution", value:"Update to version 6.0.522.1 or later.");
 
   script_xref(name:"URL", value:"https://ics-cert.us-cert.gov/advisories/ICSA-17-171-01");
 
@@ -63,4 +65,4 @@ if (version_is_less_equal(version: version, test_version: "5.2.1231.0")) {
   exit(0);
 }
 
-exit(0);
+exit(99);

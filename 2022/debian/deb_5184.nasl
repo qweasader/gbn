@@ -9,29 +9,29 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.705184");
   script_cve_id("CVE-2022-21123", "CVE-2022-21125", "CVE-2022-21166", "CVE-2022-23825", "CVE-2022-26362", "CVE-2022-26363", "CVE-2022-26364", "CVE-2022-29900");
   script_tag(name:"creation_date", value:"2022-07-17 01:00:16 +0000 (Sun, 17 Jul 2022)");
-  script_version("2023-06-20T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:23 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-07-06 19:15:00 +0000 (Wed, 06 Jul 2022)");
 
-  script_name("Debian: Security Advisory (DSA-5184)");
+  script_name("Debian: Security Advisory (DSA-5184-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB11");
 
-  script_xref(name:"Advisory-ID", value:"DSA-5184");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2022/dsa-5184");
+  script_xref(name:"Advisory-ID", value:"DSA-5184-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2022/DSA-5184-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-5184");
   script_xref(name:"URL", value:"https://xenbits.xen.org/xsa/advisory-404.html");
   script_xref(name:"URL", value:"https://xenbits.xen.org/xsa/advisory-407.html");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/xen");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'xen' package(s) announced via the DSA-5184 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'xen' package(s) announced via the DSA-5184-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

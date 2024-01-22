@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.109297");
-  script_version("2023-08-22T05:06:00+0000");
-  script_tag(name:"last_modification", value:"2023-08-22 05:06:00 +0000 (Tue, 22 Aug 2023)");
+  script_version("2023-12-22T05:05:24+0000");
+  script_tag(name:"last_modification", value:"2023-12-22 05:05:24 +0000 (Fri, 22 Dec 2023)");
   script_tag(name:"creation_date", value:"2018-06-15 09:30:22 +0200 (Fri, 15 Jun 2018)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:S/C:N/I:N/A:N");
@@ -24,6 +24,7 @@ if(description)
 
   script_add_preference(name:"Value", type:"radio", value:"0;1", id:1);
 
+  script_xref(name:"Policy", value:"CIS Microsoft Windows 11 Enterprise Benchmark v2.0.0: 18.1.2.2 (L1) Ensure 'Allow users to enable online speech recognition services' is set to 'Disabled'");
   script_xref(name:"Policy", value:"CIS Microsoft Windows 10 Enterprise (Release 2004) Benchmark v1.9.1: 18.1.2.2 (L1) Ensure 'Allow users to enable online speech recognition services' is set to 'Disabled'");
   script_xref(name:"Policy", value:"CIS Microsoft Windows Server 2019 RTM (Release 1809) Benchmark v1.1.0: 18.1.2.2 (L1) Ensure 'Allow users to enable online speech recognition services' is set to 'Disabled'");
   script_xref(name:"Policy", value:"CIS Controls Version 7: 5.1 Establish Secure Configurations");

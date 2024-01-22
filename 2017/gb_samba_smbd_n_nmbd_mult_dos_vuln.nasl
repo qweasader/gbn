@@ -9,11 +9,11 @@ CPE = "cpe:/a:samba:samba";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811219");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2023-10-27T16:11:32+0000");
   script_cve_id("CVE-2014-0244", "CVE-2014-3493");
   script_tag(name:"cvss_base", value:"3.3");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2017-06-22 12:27:14 +0530 (Thu, 22 Jun 2017)");
   script_name("Samba 'smbd and nmbd' Multiple Denial-of-Service Vulnerabilities");
   script_category(ACT_GATHER_INFO);
@@ -28,7 +28,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.samba.org/samba/security/CVE-2014-3493");
   script_xref(name:"URL", value:"http://www.samba.org/samba/security/CVE-2014-0244");
 
-  script_tag(name:"summary", value:"Samba is prone to multiple denial-of-service vulnerabilities.");
+  script_tag(name:"summary", value:"Samba is prone to multiple denial of service (DoS) vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

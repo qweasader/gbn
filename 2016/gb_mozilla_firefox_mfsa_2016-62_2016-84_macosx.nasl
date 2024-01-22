@@ -23,7 +23,7 @@ CPE = "cpe:/a:mozilla:firefox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808641");
-  script_version("2021-10-08T10:01:23+0000");
+  script_version("2023-11-03T05:05:46+0000");
   script_cve_id("CVE-2016-5250", "CVE-2016-5268", "CVE-2016-5266", "CVE-2016-2835",
                 "CVE-2016-5265", "CVE-2016-5264", "CVE-2016-5263", "CVE-2016-2837",
                 "CVE-2016-5262", "CVE-2016-5261", "CVE-2016-5260", "CVE-2016-5259",
@@ -32,10 +32,10 @@ if(description)
                 "CVE-2016-2830", "CVE-2016-2836");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2021-10-08 10:01:23 +0000 (Fri, 08 Oct 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-06-12 01:29:00 +0000 (Tue, 12 Jun 2018)");
+  script_tag(name:"severity_date", value:"2019-12-27 16:08:00 +0000 (Fri, 27 Dec 2019)");
   script_tag(name:"creation_date", value:"2016-08-08 14:54:29 +0530 (Mon, 08 Aug 2016)");
   script_name("Mozilla Firefox Security Update (mfsa_2016-62_2016-84) - Mac OS X");
 

@@ -9,33 +9,57 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.892710");
   script_cve_id("CVE-2017-4965", "CVE-2017-4966", "CVE-2017-4967", "CVE-2019-11281", "CVE-2019-11287", "CVE-2021-22116");
   script_tag(name:"creation_date", value:"2021-07-20 03:00:19 +0000 (Tue, 20 Jul 2021)");
-  script_version("2023-06-20T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:22 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-05-15 14:13:00 +0000 (Sun, 15 May 2022)");
 
-  script_name("Debian: Security Advisory (DLA-2710)");
+  script_name("Debian: Security Advisory (DLA-2710-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB9");
 
-  script_xref(name:"Advisory-ID", value:"DLA-2710");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2021/dla-2710-2");
+  script_xref(name:"Advisory-ID", value:"DLA-2710-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2021/DLA-2710-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/rabbitmq-server");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'rabbitmq-server' package(s) announced via the DLA-2710 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'rabbitmq-server' package(s) announced via the DLA-2710-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"It was discovered that the previous upload of the package rabbitmq-server versioned 3.6.6-1+deb9u1 introduced a regression in function fmt_strip_tags. Big thanks to Christoph Haas for the reporting an issue and for testing the update.
+  script_tag(name:"insight", value:"Several vulnerabilities were discovered in rabbitmq-server, a message-broker software.
 
-For Debian 9 stretch, this problem has been fixed in version 3.6.6-1+deb9u2.
+CVE-2017-4965
+
+Several forms in the RabbitMQ management UI are vulnerable to XSS attacks.
+
+CVE-2017-4966
+
+RabbitMQ management UI stores signed-in user credentials in a browser's local storage without expiration, making it possible to retrieve them using a chained attack
+
+CVE-2017-4967
+
+Several forms in the RabbitMQ management UI are vulnerable to XSS attacks.
+
+CVE-2019-11281
+
+The virtual host limits page, and the federation management UI, which do not properly sanitize user input. A remote authenticated malicious user with administrative access could craft a cross site scripting attack that would gain access to virtual hosts and policy management information
+
+CVE-2019-11287
+
+The 'X-Reason' HTTP Header can be leveraged to insert a malicious Erlang format string that will expand and consume the heap, resulting in the server crashing.
+
+CVE-2021-22116
+
+A malicious user can exploit the vulnerability by sending malicious AMQP messages to the target RabbitMQ instance.
+
+For Debian 9 stretch, these problems have been fixed in version 3.6.6-1+deb9u1.
 
 We recommend that you upgrade your rabbitmq-server packages.
 

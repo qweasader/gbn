@@ -9,29 +9,27 @@ CPE = "cpe:/a:digium:asterisk";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.9999991");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2008-08-22 16:09:14 +0200 (Fri, 22 Aug 2008)");
-  script_cve_id("CVE-2007-1306");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
+
+  script_cve_id("CVE-2007-1306");
+
+  script_tag(name:"qod_type", value:"remote_analysis");
+
+  script_tag(name:"solution_type", value:"VendorFix");
+
   script_name("Asterisk PBX NULL Pointer Dereference Overflow");
+
   script_category(ACT_DENIAL);
   script_family("Denial of Service");
   script_copyright("Copyright (C) 2008 Ferdy Riphagen");
-  script_dependencies("secpod_asterisk_detect.nasl");
-  script_mandatory_keys("Asterisk-PBX/Installed");
+  script_dependencies("gb_digium_asterisk_sip_detect.nasl");
+  script_mandatory_keys("digium/asterisk/detected");
 
-  script_xref(name:"URL", value:"http://labs.musecurity.com/advisories/MU-200703-01.txt");
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/22838");
-  script_xref(name:"URL", value:"http://asterisk.org/node/48320");
-  script_xref(name:"URL", value:"http://asterisk.org/node/48319");
-  script_xref(name:"URL", value:"http://www.kb.cert.org/vuls/id/228032");
-
-  script_tag(name:"solution", value:"Upgrade to Asterisk PBX release 1.4.1 or 1.2.16.");
-
-  script_tag(name:"summary", value:"The host host appears to be running Asterisk PBX which
-  is prone to a remote buffer overflow.");
+  script_tag(name:"summary", value:"Asterisk PBX is prone to a remote buffer overflow vulnerability.");
 
   script_tag(name:"insight", value:"The application suffers from a null pointer dereference overflow in
   the SIP service.");
@@ -40,8 +38,13 @@ if(description)
   request an attacker can trigger a Denial of Service and shutdown the application resulting in a loss
   of availability.");
 
-  script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_analysis");
+  script_tag(name:"solution", value:"Upgrade to Asterisk PBX release 1.4.1 or 1.2.16.");
+
+  script_xref(name:"URL", value:"http://labs.musecurity.com/advisories/MU-200703-01.txt");
+  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/22838");
+  script_xref(name:"URL", value:"http://asterisk.org/node/48320");
+  script_xref(name:"URL", value:"http://asterisk.org/node/48319");
+  script_xref(name:"URL", value:"http://www.kb.cert.org/vuls/id/228032");
 
   exit(0);
 }

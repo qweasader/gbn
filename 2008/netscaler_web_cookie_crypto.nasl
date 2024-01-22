@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.80022");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2023-12-20T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2008-10-24 20:15:31 +0200 (Fri, 24 Oct 2008)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
@@ -20,7 +20,7 @@ if (description)
   script_tag(name:"qod_type", value:"remote_vul");
   script_cve_id("CVE-2007-6192");
   script_copyright("Copyright (C) 2008 nnposter");
-  script_dependencies("netscaler_web_login.nasl");
+  script_dependencies("netscaler_web_login.nasl", "logins.nasl");
   script_mandatory_keys("citrix/netscaler/http/detected");
   script_require_keys("http/password");
   script_require_ports("Services/www", 80);

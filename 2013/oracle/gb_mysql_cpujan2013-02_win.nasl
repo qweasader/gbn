@@ -23,11 +23,14 @@ CPE = "cpe:/a:oracle:mysql";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117203");
-  script_version("2021-02-12T11:09:59+0000");
-  script_tag(name:"last_modification", value:"2021-02-12 11:09:59 +0000 (Fri, 12 Feb 2021)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2021-02-09 06:15:31 +0000 (Tue, 09 Feb 2021)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2022-07-19 16:22:00 +0000 (Tue, 19 Jul 2022)");
 
   script_cve_id("CVE-2012-5611", "CVE-2013-0384", "CVE-2013-0389", "CVE-2013-0385", "CVE-2013-0375",
                 "CVE-2012-1702", "CVE-2013-0383", "CVE-2012-0572", "CVE-2012-0574", "CVE-2012-1705",

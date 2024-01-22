@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804651");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2023-12-13T05:05:23+0000");
   script_cve_id("CVE-2014-4032");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
   script_tag(name:"creation_date", value:"2014-06-23 12:46:23 +0530 (Mon, 23 Jun 2014)");
   script_name("Fiyo CMS 'Name' POST Parameter Cross-Site Scripting Vulnerability");
 
@@ -34,14 +34,14 @@ if(description)
   replace the product by another one.");
 
   script_tag(name:"solution_type", value:"WillNotFix");
-  script_tag(name:"qod_type", value:"remote_app");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_xref(name:"URL", value:"http://secunia.com/advisories/58833");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/67729");
   script_xref(name:"URL", value:"http://packetstormsecurity.com/files/126856");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 

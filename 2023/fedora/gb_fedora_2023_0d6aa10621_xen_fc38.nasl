@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.884618");
-  script_version("2023-10-12T05:05:32+0000");
+  script_version("2023-12-15T16:10:08+0000");
   script_cve_id("CVE-2023-34320", "CVE-2023-20593");
   script_tag(name:"cvss_base", value:"4.6");
-  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:C/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:N/I:N/A:C");
+  script_tag(name:"last_modification", value:"2023-12-15 16:10:08 +0000 (Fri, 15 Dec 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-08-01 19:29:00 +0000 (Tue, 01 Aug 2023)");
+  script_tag(name:"severity_date", value:"2023-12-13 18:46:00 +0000 (Wed, 13 Dec 2023)");
   script_tag(name:"creation_date", value:"2023-08-06 01:13:13 +0000 (Sun, 06 Aug 2023)");
   script_name("Fedora: Security Advisory for xen (FEDORA-2023-0d6aa10621)");
   script_category(ACT_GATHER_INFO);

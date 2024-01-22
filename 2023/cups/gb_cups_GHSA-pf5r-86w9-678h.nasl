@@ -9,14 +9,14 @@ CPE = "cpe:/a:openprinting:cups";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.151040");
-  script_version("2023-10-12T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_version("2023-11-10T16:09:31+0000");
+  script_tag(name:"last_modification", value:"2023-11-10 16:09:31 +0000 (Fri, 10 Nov 2023)");
   script_tag(name:"creation_date", value:"2023-09-25 04:47:50 +0000 (Mon, 25 Sep 2023)");
-  script_tag(name:"cvss_base", value:"7.2");
-  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"cvss_base", value:"6.2");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-09-26 14:16:00 +0000 (Tue, 26 Sep 2023)");
+  script_tag(name:"severity_date", value:"2023-11-09 20:58:00 +0000 (Thu, 09 Nov 2023)");
 
   script_cve_id("CVE-2023-4504");
 

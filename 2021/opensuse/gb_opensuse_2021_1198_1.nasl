@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854115");
-  script_version("2022-03-18T03:03:41+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2021-20298", "CVE-2021-20299", "CVE-2021-20300", "CVE-2021-20302", "CVE-2021-20303", "CVE-2021-20304", "CVE-2021-3476");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2022-03-18 03:03:41 +0000 (Fri, 18 Mar 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-03-17 01:05:00 +0000 (Thu, 17 Mar 2022)");
+  script_tag(name:"severity_date", value:"2022-08-26 16:10:00 +0000 (Fri, 26 Aug 2022)");
   script_tag(name:"creation_date", value:"2021-08-26 03:02:20 +0000 (Thu, 26 Aug 2021)");
   script_name("openSUSE: Security Advisory for openexr (openSUSE-SU-2021:1198-1)");
   script_category(ACT_GATHER_INFO);

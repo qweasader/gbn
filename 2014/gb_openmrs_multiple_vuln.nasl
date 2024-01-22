@@ -9,11 +9,11 @@ CPE = "cpe:/a:openmrs:openmrs";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805009");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_cve_id("CVE-2014-8071", "CVE-2014-8072", "CVE-2014-8073");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2014-10-29 16:11:01 +0530 (Wed, 29 Oct 2014)");
   script_name("OpenMRS Multiple Security Vulnerabilities");
   script_category(ACT_ATTACK);
@@ -73,7 +73,7 @@ if(description)
   product or replace the product by another one.");
 
   script_tag(name:"solution_type", value:"WillNotFix");
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   exit(0);
 }

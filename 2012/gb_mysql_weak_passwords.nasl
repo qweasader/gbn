@@ -7,14 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103551");
-  script_version("2023-04-17T10:19:34+0000");
+  script_version("2023-11-02T05:05:26+0000");
   script_cve_id("CVE-2001-0645", "CVE-2004-2357", "CVE-2006-1451", "CVE-2007-2554",
                 "CVE-2007-6081", "CVE-2009-0919", "CVE-2014-3419", "CVE-2015-4669",
                 "CVE-2016-6531", "CVE-2018-15719");
-  script_tag(name:"last_modification", value:"2023-04-17 10:19:34 +0000 (Mon, 17 Apr 2023)");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2012-08-23 10:38:09 +0200 (Thu, 23 Aug 2012)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:C/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2019-10-09 23:35:00 +0000 (Wed, 09 Oct 2019)");
   script_name("MySQL / MariaDB Default Credentials (MySQL Protocol)");
   script_category(ACT_ATTACK);
   script_family("Default Accounts");

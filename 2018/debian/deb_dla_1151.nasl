@@ -9,34 +9,70 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.891151");
   script_cve_id("CVE-2016-9263", "CVE-2017-14718", "CVE-2017-14719", "CVE-2017-14720", "CVE-2017-14721", "CVE-2017-14722", "CVE-2017-14723", "CVE-2017-14725");
   script_tag(name:"creation_date", value:"2018-02-06 23:00:00 +0000 (Tue, 06 Feb 2018)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-11-10 02:29:00 +0000 (Fri, 10 Nov 2017)");
 
-  script_name("Debian: Security Advisory (DLA-1151)");
+  script_name("Debian: Security Advisory (DLA-1151-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB7");
 
-  script_xref(name:"Advisory-ID", value:"DLA-1151");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2017/dla-1151-2");
+  script_xref(name:"Advisory-ID", value:"DLA-1151-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2017/DLA-1151-1");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'wordpress' package(s) announced via the DLA-1151 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'wordpress' package(s) announced via the DLA-1151-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The fix for CVE-2017-14990 issued as DLA-1151-1 was incomplete and caused a regression. It was discovered that an additional database upgrade and further code changes would be necessary. At the moment these changes are deemed as too intrusive and thus the initial patch for CVE-2017-14990 has been removed again. For reference, the original advisory text follows.
+  script_tag(name:"insight", value:"Several vulnerabilities were discovered in wordpress, a web blogging tool. The Common Vulnerabilities and Exposures project identifies the following issues.
+
+CVE-2016-9263
+
+When domain-based flashmediaelement.swf sandboxing is not used, allows remote attackers to conduct cross-domain Flash injection (XSF) attacks by leveraging code contained within the wp-includes/js/mediaelement/flashmediaelement.swf file.
+
+This issue was resolved by completely removing flashmediaelement.swf.
+
+CVE-2017-14718
+
+WordPress was susceptible to a Cross-Site Scripting attack in the link modal via a javascript: or data: URL.
+
+CVE-2017-14719
+
+WordPress was vulnerable to a directory traversal attack during unzip operations in the ZipArchive and PclZip components.
+
+CVE-2017-14720
+
+WordPress allowed a Cross-Site scripting attack in the template list view via a crafted template name.
+
+CVE-2017-14721
+
+WordPress allowed Cross-Site scripting in the plugin editor via a crafted plugin name.
+
+CVE-2017-14722
+
+WordPress allowed a Directory Traversal attack in the Customizer component via a crafted theme filename.
+
+CVE-2017-14723
+
+WordPress mishandled % characters and additional placeholder values in $wpdb->prepare, and thus did not properly address the possibility of plugins and themes enabling SQL injection attacks.
+
+CVE-2017-14725
+
+WordPress was susceptible to an open redirect attack in wp-admin/user-edit.php.
+
+CVE-2017-14990
 
 WordPress stores cleartext wp_signups.activation_key values (but stores the analogous wp_users.user_activation_key values as hashes), which might make it easier for remote attackers to hijack unactivated user accounts by leveraging database read access (such as access gained through an unspecified SQL injection vulnerability).
 
-For Debian 7 Wheezy, these problems have been fixed in version 3.6.1+dfsg-1~deb7u19.
+For Debian 7 Wheezy, these problems have been fixed in version 3.6.1+dfsg-1~deb7u17.
 
 We recommend that you upgrade your wordpress packages.
 

@@ -9,25 +9,25 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2015.246");
   script_cve_id("CVE-2011-5321", "CVE-2012-6689", "CVE-2014-3184", "CVE-2014-8159", "CVE-2014-9683", "CVE-2014-9728", "CVE-2014-9729", "CVE-2014-9730", "CVE-2014-9731", "CVE-2015-1805", "CVE-2015-2041", "CVE-2015-2042", "CVE-2015-2830", "CVE-2015-2922", "CVE-2015-3339", "CVE-2015-4167");
   script_tag(name:"creation_date", value:"2023-03-08 12:56:44 +0000 (Wed, 08 Mar 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-01-20 14:30:00 +0000 (Fri, 20 Jan 2023)");
 
-  script_name("Debian: Security Advisory (DLA-246)");
+  script_name("Debian: Security Advisory (DLA-246-2)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB6");
 
-  script_xref(name:"Advisory-ID", value:"DLA-246");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2015/dla-246-2");
+  script_xref(name:"Advisory-ID", value:"DLA-246-2");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2015/DLA-246-2");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux-2.6' package(s) announced via the DLA-246 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux-2.6' package(s) announced via the DLA-246-2 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

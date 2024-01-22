@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.874288");
-  script_version("2023-06-28T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-06-28 05:05:22 +0000 (Wed, 28 Jun 2023)");
+  script_version("2023-11-03T16:10:08+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-03-28 08:58:33 +0200 (Wed, 28 Mar 2018)");
   script_cve_id("CVE-2018-7419", "CVE-2018-7418", "CVE-2018-7417", "CVE-2018-7420",
                 "CVE-2018-7320", "CVE-2018-7336", "CVE-2018-7337", "CVE-2018-7334",
@@ -17,9 +17,9 @@ if(description)
                 "CVE-2017-17997");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
+  script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
   script_tag(name:"qod_type", value:"package");
   script_name("Fedora Update for wireshark FEDORA-2018-cdf3f8e8b0");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'wireshark'

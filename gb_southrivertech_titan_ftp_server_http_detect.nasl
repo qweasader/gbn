@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170552");
-  script_version("2023-08-25T05:06:04+0000");
-  script_tag(name:"last_modification", value:"2023-08-25 05:06:04 +0000 (Fri, 25 Aug 2023)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2023-08-23 17:18:00 +0000 (Wed, 23 Aug 2023)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -45,7 +45,7 @@ res = http_get_cache( port:port, item:url );
 
 # Server: Titan FTP Server/19.0
 # Server: Titan FTP Server/16.0
-if ( res =~ "Server\s*:\s*Titan FTP Server" && res =~ 'Object moved to <a href="/Logon.aspx"' ) {
+if( res =~ "Server\s*:\s*Titan FTP Server" && res =~ 'Object moved to <a href="/Logon\\.aspx"' ) {
 
   version = "unknown";
 
@@ -54,7 +54,7 @@ if ( res =~ "Server\s*:\s*Titan FTP Server" && res =~ 'Object moved to <a href="
   conclUrl = http_report_vuln_url( port:port, url:url, url_only:TRUE );
 
   vers = eregmatch( string:res, pattern:"Server\s*:\s*Titan FTP Server/([0-9.]+)" );
-  if ( ! isnull( vers[1] ) ) {
+  if( ! isnull( vers[1] ) ) {
     version = vers[1];
     concl = vers[0];
   }

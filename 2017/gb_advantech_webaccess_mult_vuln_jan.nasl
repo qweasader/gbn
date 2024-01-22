@@ -9,8 +9,8 @@ CPE = "cpe:/a:advantech:advantech_webaccess";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106514");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2023-12-20T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2017-01-13 14:10:12 +0700 (Fri, 13 Jan 2017)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -43,12 +43,12 @@ if (description)
 
   - DLL Hijacking (CVE-2017-5175)");
 
-  script_tag(name:"impact", value:"A remote attacker may gain administrative access to the application and its
-data files.");
+  script_tag(name:"impact", value:"A remote attacker may gain administrative access to the
+  application and its data files.");
 
-  script_tag(name:"affected", value:"WebAccess versions prior to 8.2");
+  script_tag(name:"affected", value:"WebAccess versions prior to 8.2.");
 
-  script_tag(name:"solution", value:"Upgrade to Version 8.2 or later");
+  script_tag(name:"solution", value:"Update to version 8.2 or later.");
 
   script_xref(name:"URL", value:"https://ics-cert.us-cert.gov/advisories/ICSA-17-012-01");
   script_xref(name:"URL", value:"https://ics-cert.us-cert.gov/advisories/ICSA-17-045-01");
@@ -60,10 +60,10 @@ data files.");
 include( "version_func.inc" );
 include( "host_details.inc" );
 
-if( isnull( port = get_app_port(cpe: CPE ) ) )
+if( isnull( port = get_app_port( cpe: CPE ) ) )
   exit( 0 );
 
-if( ! infos = get_app_version_and_location(cpe: CPE, port: port ) )
+if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) )
   exit( 0 );
 
 path = infos["location"];
@@ -74,4 +74,5 @@ if( version_is_less( version: vers, test_version: "8.2" ) ) {
   security_message( data: report, port: port );
   exit( 0 );
 }
+
 exit( 99 );

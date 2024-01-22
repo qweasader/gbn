@@ -21,17 +21,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851607");
-  script_version("2021-09-15T13:01:45+0000");
-  script_tag(name:"last_modification", value:"2021-09-15 13:01:45 +0000 (Wed, 15 Sep 2021)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2017-09-05 07:21:01 +0200 (Tue, 05 Sep 2017)");
   script_cve_id("CVE-2016-10397", "CVE-2016-5766", "CVE-2017-11142", "CVE-2017-11144",
                 "CVE-2017-11145", "CVE-2017-11146", "CVE-2017-11147", "CVE-2017-11628",
                 "CVE-2017-7890");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-01-14 02:29:00 +0000 (Sun, 14 Jan 2018)");
+  script_tag(name:"severity_date", value:"2022-07-20 17:56:00 +0000 (Wed, 20 Jul 2022)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for php7 (openSUSE-SU-2017:2337-1)");
 

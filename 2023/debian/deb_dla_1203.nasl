@@ -9,32 +9,32 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2017.1203");
   script_cve_id("CVE-2017-16927");
   script_tag(name:"creation_date", value:"2023-03-08 12:56:44 +0000 (Wed, 08 Mar 2023)");
-  script_version("2023-06-20T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:25 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-07-08 15:50:00 +0000 (Wed, 08 Jul 2020)");
 
-  script_name("Debian: Security Advisory (DLA-1203)");
+  script_name("Debian: Security Advisory (DLA-1203-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB7");
 
-  script_xref(name:"Advisory-ID", value:"DLA-1203");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2017/dla-1203-2");
+  script_xref(name:"Advisory-ID", value:"DLA-1203-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2017/DLA-1203-1");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'xrdp' package(s) announced via the DLA-1203 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'xrdp' package(s) announced via the DLA-1203-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"A regression was added by the patch introduced in version 0.5.0-2+deb7u2 to fix CVE-2017-16927: xrdp-sesman started to segfault in libscp.
+  script_tag(name:"insight", value:"The scp_v0s_accept function in sesman/libscp/libscp_v0.c in the session manager in xrdp uses an untrusted integer as a write length, which allows local users to cause a denial of service (buffer overflow and application crash) or possibly have unspecified other impact via a crafted input stream.
 
-For Debian 7 Wheezy, these problems have been fixed in version 0.5.0-2+deb7u3.
+For Debian 7 Wheezy, these problems have been fixed in version 0.5.0-2+deb7u2.
 
 We recommend that you upgrade your xrdp packages.
 

@@ -9,14 +9,14 @@ CPE = "cpe:/a:typo3:typo3";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.146338");
-  script_version("2023-04-05T10:19:45+0000");
-  script_tag(name:"last_modification", value:"2023-04-05 10:19:45 +0000 (Wed, 05 Apr 2023)");
+  script_version("2023-10-20T16:09:12+0000");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
   script_tag(name:"creation_date", value:"2021-07-21 05:01:30 +0000 (Wed, 21 Jul 2021)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:L/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-07-29 17:39:00 +0000 (Thu, 29 Jul 2021)");
+  script_tag(name:"severity_date", value:"2021-07-29 16:29:00 +0000 (Thu, 29 Jul 2021)");
 
   script_cve_id("CVE-2021-32668", "CVE-2021-32669");
 

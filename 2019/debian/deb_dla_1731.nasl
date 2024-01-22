@@ -9,32 +9,30 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.891731");
   script_cve_id("CVE-2016-10741", "CVE-2017-13305", "CVE-2017-5753", "CVE-2018-12896", "CVE-2018-13053", "CVE-2018-16862", "CVE-2018-16884", "CVE-2018-17972", "CVE-2018-18281", "CVE-2018-18690", "CVE-2018-18710", "CVE-2018-19824", "CVE-2018-19985", "CVE-2018-20169", "CVE-2018-20511", "CVE-2018-3639", "CVE-2018-5848", "CVE-2018-5953", "CVE-2019-3701", "CVE-2019-3819", "CVE-2019-6974", "CVE-2019-7221", "CVE-2019-7222", "CVE-2019-9213");
   script_tag(name:"creation_date", value:"2019-03-27 22:00:00 +0000 (Wed, 27 Mar 2019)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-04-05 20:40:00 +0000 (Tue, 05 Apr 2022)");
 
-  script_name("Debian: Security Advisory (DLA-1731)");
+  script_name("Debian: Security Advisory (DLA-1731-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB8");
 
-  script_xref(name:"Advisory-ID", value:"DLA-1731");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2019/dla-1731-2");
+  script_xref(name:"Advisory-ID", value:"DLA-1731-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2019/DLA-1731-1");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux' package(s) announced via the DLA-1731 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'linux' package(s) announced via the DLA-1731-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The linux update issued as DLA-1731-1 caused a regression in the vmxnet3 (VMware virtual network adapter) driver. This update corrects that regression, and an earlier regression in the CIFS network filesystem implementation introduced in DLA-1422-1. For reference the original advisory text follows.
-
-Several vulnerabilities have been discovered in the Linux kernel that may lead to a privilege escalation, denial of service or information leaks.
+  script_tag(name:"insight", value:"Several vulnerabilities have been discovered in the Linux kernel that may lead to a privilege escalation, denial of service or information leaks.
 
 CVE-2016-10741
 
@@ -72,7 +70,11 @@ This can be mitigated by disabling unprivileged users from creating user namespa
 
 CVE-2018-17972
 
-Jann Horn reported that the /proc/*/stack files in procfs leaked sensitive data from the kernel. These files are now only ... [Please see the references for more information on the vulnerabilities]");
+Jann Horn reported that the /proc/*/stack files in procfs leaked sensitive data from the kernel. These files are now only readable by users with the CAP_SYS_ADMIN capability (usually only root)
+
+CVE-2018-18281
+
+Jann Horn reported a race condition in the virtual memory manager that can result in a process briefly having access to memory after it is freed and reallocated. A local user permitted to create containers could ... [Please see the references for more information on the vulnerabilities]");
 
   script_tag(name:"affected", value:"'linux' package(s) on Debian 8.");
 

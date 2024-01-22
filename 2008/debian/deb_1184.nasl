@@ -9,23 +9,23 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.57477");
   script_cve_id("CVE-2004-2660", "CVE-2005-4798", "CVE-2006-1052", "CVE-2006-1343", "CVE-2006-1528", "CVE-2006-1855", "CVE-2006-1856", "CVE-2006-2444", "CVE-2006-2446", "CVE-2006-2935", "CVE-2006-2936", "CVE-2006-3468", "CVE-2006-3745", "CVE-2006-4093", "CVE-2006-4145", "CVE-2006-4535");
   script_tag(name:"creation_date", value:"2008-01-17 22:13:11 +0000 (Thu, 17 Jan 2008)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-01-12T16:12:10+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:10 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
 
-  script_name("Debian: Security Advisory (DSA-1184)");
+  script_name("Debian: Security Advisory (DSA-1184-2)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB3\.1");
 
-  script_xref(name:"Advisory-ID", value:"DSA-1184");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2006/dsa-1184");
+  script_xref(name:"Advisory-ID", value:"DSA-1184-2");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2006/DSA-1184-2");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-1184");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'fai-kernels, kernel-source-2.6.8' package(s) announced via the DSA-1184 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'fai-kernels, kernel-source-2.6.8' package(s) announced via the DSA-1184-2 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

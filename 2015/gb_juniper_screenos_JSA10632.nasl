@@ -12,7 +12,7 @@ if (description)
   script_cve_id("CVE-2014-3814");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-10-27T16:11:32+0000");
 
   script_name("Juniper NetScreen Firewall DNS lookup/Malformed IPv6 packet Denial of Service Vulnerability");
 
@@ -36,7 +36,7 @@ if (description)
   script_tag(name:"solution", value:"Updates are available. Please see the references or
   vendor advisory for more information.");
 
-  script_tag(name:"summary", value:"Juniper NetScreen Firewall is prone to a denial-of-service vulnerability.");
+  script_tag(name:"summary", value:"Juniper NetScreen Firewall is prone to a denial of service (DoS) vulnerability.");
 
   script_tag(name:"affected", value:"ScreenOS 6.3 prior to 6.3.0r17.");
 
@@ -44,7 +44,7 @@ if (description)
 
   script_tag(name:"qod_type", value:"package");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2015-05-08 15:40:14 +0200 (Fri, 08 May 2015)");
   script_category(ACT_GATHER_INFO);
   script_family("Denial of Service");

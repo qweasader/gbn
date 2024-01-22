@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.871387");
-  script_version("2023-07-12T05:05:04+0000");
+  script_version("2023-11-02T05:05:26+0000");
   script_cve_id("CVE-2015-1869", "CVE-2015-1870", "CVE-2015-3142",
                 "CVE-2015-3147", "CVE-2015-3159", "CVE-2015-3315");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-12 05:05:04 +0000 (Wed, 12 Jul 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-01-21 15:38:00 +0000 (Tue, 21 Jan 2020)");
+  script_tag(name:"severity_date", value:"2018-02-19 02:29:00 +0000 (Mon, 19 Feb 2018)");
   script_tag(name:"creation_date", value:"2015-07-08 06:31:19 +0200 (Wed, 08 Jul 2015)");
   script_tag(name:"qod_type", value:"package");
   script_name("RedHat Update for abrt RHSA-2015:1210-01");

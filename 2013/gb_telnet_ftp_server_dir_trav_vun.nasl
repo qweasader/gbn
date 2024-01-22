@@ -7,17 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803736");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_cve_id("CVE-2006-6240", "CVE-2006-6241");
   script_tag(name:"cvss_base", value:"4.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2013-08-19 10:32:03 +0530 (Mon, 19 Aug 2013)");
   script_name("Telnet-Ftp Server Directory Traversal Vulnerability");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2013 Greenbone AG");
   script_family("FTP");
-  script_dependencies("ftpserver_detect_type_nd_version.nasl", "os_detection.nasl");
+  script_dependencies("ftpserver_detect_type_nd_version.nasl", "os_detection.nasl", "logins.nasl");
   script_require_ports("Services/ftp", 21);
   script_mandatory_keys("ftp/telnet_ftp/detected", "Host/runs_windows");
 

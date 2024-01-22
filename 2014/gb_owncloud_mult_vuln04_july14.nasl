@@ -9,11 +9,11 @@ CPE = "cpe:/a:owncloud:owncloud";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804662");
-  script_version("2023-07-27T05:05:09+0000");
+  script_version("2023-12-01T16:11:30+0000");
   script_cve_id("CVE-2014-3833", "CVE-2014-3835", "CVE-2014-3838");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"creation_date", value:"2014-07-03 16:47:48 +0530 (Thu, 03 Jul 2014)");
   script_name("ownCloud Multiple Vulnerabilities-04 July14");
 
@@ -34,7 +34,7 @@ storage without permission, access the file names of other users and execute
 arbitrary script code in a user's browser session within the trust relationship
 between their browser and the server.");
   script_tag(name:"affected", value:"ownCloud Server 5.0.x before 5.0.16 and 6.0.x before 6.0.3");
-  script_tag(name:"solution", value:"Upgrade to ownCloud version 5.0.16 or 6.0.3 or later.");
+  script_tag(name:"solution", value:"Update to version 5.0.16 or 6.0.3 or later.");
 
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/93687");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/67451");
@@ -45,26 +45,24 @@ between their browser and the server.");
   script_tag(name:"solution_type", value:"VendorFix");
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_owncloud_detect.nasl");
-  script_mandatory_keys("owncloud/installed");
-  script_require_ports("Services/www", 80);
+  script_dependencies("gb_owncloud_http_detect.nasl");
+  script_mandatory_keys("owncloud/detected");
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-if(!ownPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_in_range(version:version, test_version:"5.0.0", test_version2:"5.0.15")||
+   version_in_range(version:version, test_version:"6.0.0", test_version2:"6.0.2")) {
+  security_message(port:port);
   exit(0);
 }
 
-if(!ownVer = get_app_version(cpe:CPE, port:ownPort)){
-  exit(0);
-}
-
-if(version_in_range(version:ownVer, test_version:"5.0.0", test_version2:"5.0.15")||
-   version_in_range(version:ownVer, test_version:"6.0.0", test_version2:"6.0.2"))
-{
-  security_message(port:ownPort);
-  exit(0);
-}
+exit(99);

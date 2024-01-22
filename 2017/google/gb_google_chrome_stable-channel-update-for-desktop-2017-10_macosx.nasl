@@ -9,15 +9,16 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811874");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2023-11-08T05:05:52+0000");
   script_cve_id("CVE-2017-5124", "CVE-2017-5125", "CVE-2017-5126", "CVE-2017-5127",
                 "CVE-2017-5128", "CVE-2017-5129", "CVE-2017-5132", "CVE-2017-5130",
                 "CVE-2017-5131", "CVE-2017-5133", "CVE-2017-15386", "CVE-2017-15387",
                 "CVE-2017-15388", "CVE-2017-15389", "CVE-2017-15390", "CVE-2017-15391",
-                "CVE-2017-15392", "CVE-2017-15393", "CVE-2017-15394", "CVE-2017-15395");
+                "CVE-2017-15392", "CVE-2017-15393", "CVE-2017-15394", "CVE-2017-15395",
+                "CVE-2017-15401");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2023-11-08 05:05:52 +0000 (Wed, 08 Nov 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-02-23 15:55:00 +0000 (Fri, 23 Feb 2018)");
@@ -49,6 +50,8 @@ if(description)
   - An extension limitation bypass in Extensions.
 
   - An incorrect registry key handling in PlatformIntegration.
+
+  - A memory corruption bug in WebAssembly.
 
   - Referrer leak in Devtools.
 

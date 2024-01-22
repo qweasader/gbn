@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113293");
-  script_version("2023-07-10T08:07:43+0000");
-  script_tag(name:"last_modification", value:"2023-07-10 08:07:43 +0000 (Mon, 10 Jul 2023)");
+  script_version("2023-11-21T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-11-08 16:44:00 +0100 (Thu, 08 Nov 2018)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -122,10 +122,10 @@ if( detected ) {
 
   fw_version = "unknown";
   os_app     = "D-Link DWR";
-  os_cpe     = "cpe:/o:d-link:dwr";
+  os_cpe     = "cpe:/o:dlink:dwr";
   hw_version = "unknown";
   hw_app     = "D-Link DWR";
-  hw_cpe     = "cpe:/h:d-link:dwr";
+  hw_cpe     = "cpe:/h:dlink:dwr";
   model      = "unknown";
   install    = "/";
 

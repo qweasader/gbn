@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112137");
-  script_version("2023-07-12T05:05:04+0000");
-  script_tag(name:"last_modification", value:"2023-07-12 05:05:04 +0000 (Wed, 12 Jul 2023)");
+  script_version("2023-12-14T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-12-14 05:05:32 +0000 (Thu, 14 Dec 2023)");
   script_tag(name:"creation_date", value:"2017-11-23 10:50:05 +0100 (Thu, 23 Nov 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -54,7 +54,7 @@ if( buf =~ "^HTTP/1\.[01] 200" &&
   set_kb_item( name:"greenbone/gos/http/port", value:port );
   set_kb_item( name:"greenbone/gos/http/" + port + "/detected", value:TRUE );
 
-  # nb: To tell http_can_host_asp and http_can_host_php from http_func.inc that the service doesn't support these
+  # nb: To tell http_can_host_asp and http_can_host_php from http_func.inc that the service is not supporting these.
   replace_kb_item( name:"www/" + port + "/can_host_php", value:"no" );
   replace_kb_item( name:"www/" + port + "/can_host_asp", value:"no" );
 

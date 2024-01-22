@@ -9,42 +9,38 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2016.546");
   script_cve_id("CVE-2016-1371", "CVE-2016-1372");
   script_tag(name:"creation_date", value:"2023-03-08 12:56:44 +0000 (Wed, 08 Mar 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-10-04 14:50:00 +0000 (Tue, 04 Oct 2016)");
 
-  script_name("Debian: Security Advisory (DLA-546)");
+  script_name("Debian: Security Advisory (DLA-546-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB7");
 
-  script_xref(name:"Advisory-ID", value:"DLA-546");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2016/dla-546-2");
+  script_xref(name:"Advisory-ID", value:"DLA-546-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2016/DLA-546-1");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'clamav' package(s) announced via the DLA-546 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'clamav' package(s) announced via the DLA-546-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"DLA 546-1 was incorrectly released before updated clamav packages were available and there were subsequent issues with the acceptance of the package (which have since been corrected). Updates are now available for all supported LTS architectures.
-
-We recommend that you upgrade your clamav packages.
+  script_tag(name:"insight", value:"We recommend that you upgrade your clamav packages.
 
 Upstream published version 0.99.2. This update updates wheezy-lts to the latest upstream release in line with the approach used for other Debian releases.
 
 The changes are not strictly required for operation, but users of the previous version in Wheezy may not be able to make use of all current virus signatures and might get warnings.
 
-For Debian 7 Wheezy, this has been addressed in version 0.99.2+dfsg-0+deb7u2.
+For Debian 7 Wheezy, this has been addressed in version 0.99.2+dfsg-0+deb7u1.
 
-Further information about Debian LTS security advisories, how to apply these updates to your system and frequently asked questions can be found at: [link moved to references]
-
-For Debian 7 Wheezy, these issues have been fixed in clamav version 0.99.2+dfsg-0+deb7u2");
+Further information about Debian LTS security advisories, how to apply these updates to your system and frequently asked questions can be found at: [link moved to references]");
 
   script_tag(name:"affected", value:"'clamav' package(s) on Debian 7.");
 

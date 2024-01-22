@@ -21,8 +21,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851157");
-  script_version("2022-06-01T08:09:05+0000");
-  script_tag(name:"last_modification", value:"2022-06-01 08:09:05 +0000 (Wed, 01 Jun 2022)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2016-01-15 06:15:23 +0100 (Fri, 15 Jan 2016)");
   script_cve_id("CVE-2015-5307", "CVE-2015-7311", "CVE-2015-7504", "CVE-2015-7549",
                 "CVE-2015-7970", "CVE-2015-8104", "CVE-2015-8339", "CVE-2015-8340",
@@ -30,6 +30,9 @@ if(description)
                 "CVE-2015-8554", "CVE-2015-8555", "CVE-2015-8558");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-11-16 20:21:00 +0000 (Mon, 16 Nov 2020)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for xen (openSUSE-SU-2016:0124-1)");
 

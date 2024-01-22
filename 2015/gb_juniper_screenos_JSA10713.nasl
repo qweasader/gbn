@@ -12,7 +12,7 @@ if (description)
   script_cve_id("CVE-2015-7755", "CVE-2015-7754", "CVE-2015-7756");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-11-02T05:05:26+0000");
 
   script_name("Multiple Security issues with ScreenOS (JSA10713)");
 
@@ -38,7 +38,10 @@ in a system crash could lead to remote code execution. This issue can affect any
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2016-12-07 18:25:00 +0000 (Wed, 07 Dec 2016)");
   script_tag(name:"creation_date", value:"2015-12-18 09:58:55 +0100 (Fri, 18 Dec 2015)");
   script_category(ACT_GATHER_INFO);
   script_family("General");

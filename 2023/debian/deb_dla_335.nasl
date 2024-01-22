@@ -9,25 +9,25 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2015.335");
   script_cve_id("CVE-2015-5146", "CVE-2015-5194", "CVE-2015-5195", "CVE-2015-5219", "CVE-2015-5300", "CVE-2015-7691", "CVE-2015-7692", "CVE-2015-7701", "CVE-2015-7702", "CVE-2015-7703", "CVE-2015-7704", "CVE-2015-7850", "CVE-2015-7851", "CVE-2015-7852", "CVE-2015-7855", "CVE-2015-7871");
   script_tag(name:"creation_date", value:"2023-03-08 12:56:44 +0000 (Wed, 08 Mar 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-04-13 12:15:00 +0000 (Tue, 13 Apr 2021)");
 
-  script_name("Debian: Security Advisory (DLA-335)");
+  script_name("Debian: Security Advisory (DLA-335-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB6");
 
-  script_xref(name:"Advisory-ID", value:"DLA-335");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2015/dla-335");
+  script_xref(name:"Advisory-ID", value:"DLA-335-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2015/DLA-335-1");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'ntp' package(s) announced via the DLA-335 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'ntp' package(s) announced via the DLA-335-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

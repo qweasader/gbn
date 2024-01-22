@@ -1,34 +1,20 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117117");
-  script_version("2023-02-22T10:19:34+0000");
-  script_tag(name:"last_modification", value:"2023-02-22 10:19:34 +0000 (Wed, 22 Feb 2023)");
+  script_version("2023-11-21T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
   script_tag(name:"creation_date", value:"2020-12-22 07:20:28 +0000 (Tue, 22 Dec 2020)");
   script_tag(name:"cvss_base", value:"7.7");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:S/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-12-23 02:41:00 +0000 (Wed, 23 Dec 2020)");
+  script_tag(name:"severity_date", value:"2020-12-23 02:48:00 +0000 (Wed, 23 Dec 2020)");
 
   script_cve_id("CVE-2020-24577", "CVE-2020-24578", "CVE-2020-24579", "CVE-2020-24580", "CVE-2020-24581");
 
@@ -41,7 +27,7 @@ if(description)
   script_category(ACT_ATTACK);
 
   script_family("Web application abuses");
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_dependencies("gb_dlink_dsl_detect.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("d-link/dsl/http/detected");
@@ -66,7 +52,7 @@ if(description)
 }
 
 # nb: We're testing all DSL devices as experiences have shown that other models might be affected as well.
-CPE_PREFIX = "cpe:/o:d-link";
+CPE_PREFIX = "cpe:/o:dlink";
 
 include("host_details.inc");
 include("http_func.inc");

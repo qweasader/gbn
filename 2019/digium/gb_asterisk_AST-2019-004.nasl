@@ -1,30 +1,16 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:digium:asterisk';
+CPE = "cpe:/a:digium:asterisk";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.142856");
-  script_version("2021-09-08T10:01:41+0000");
-  script_tag(name:"last_modification", value:"2021-09-08 10:01:41 +0000 (Wed, 08 Sep 2021)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2019-09-06 05:00:46 +0000 (Fri, 06 Sep 2019)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
@@ -41,22 +27,22 @@ if (description)
   script_name("Asterisk T.38 DoS Vulnerability (AST-2019-004)");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("Denial of Service");
-  script_dependencies("secpod_asterisk_detect.nasl");
-  script_mandatory_keys("Asterisk-PBX/Installed");
+  script_dependencies("gb_digium_asterisk_sip_detect.nasl");
+  script_mandatory_keys("digium/asterisk/detected");
 
-  script_tag(name:"summary", value:"Asterisk is prone to a denial of service vulnerability when negotiating for
-  T.38 with a declined stream.");
+  script_tag(name:"summary", value:"Asterisk is prone to a denial of service vulnerability when
+  negotiating for T.38 with a declined stream.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"When Asterisk sends a re-invite initiating T.38 faxing, and the endpoint
-  responds with a declined media stream a crash will then occur in Asterisk.");
+  script_tag(name:"insight", value:"When Asterisk sends a re-invite initiating T.38 faxing, and the
+  endpoint responds with a declined media stream a crash will then occur in Asterisk.");
 
   script_tag(name:"affected", value:"Asterisk Open Source 15.x and 16.x.");
 
-  script_tag(name:"solution", value:"Upgrade to Version 15.7.4, 16.5.1 or later.");
+  script_tag(name:"solution", value:"Update to version 15.7.4, 16.5.1 or later.");
 
   script_xref(name:"URL", value:"https://downloads.asterisk.org/pub/security/AST-2019-004.html");
 
@@ -64,7 +50,6 @@ if (description)
 }
 
 include("host_details.inc");
-include("revisions-lib.inc");
 include("version_func.inc");
 
 if (!port = get_app_port(cpe: CPE))

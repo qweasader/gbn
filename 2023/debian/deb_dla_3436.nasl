@@ -9,35 +9,55 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2023.3436");
   script_cve_id("CVE-2018-16838", "CVE-2019-3811", "CVE-2021-3621", "CVE-2022-4254");
   script_tag(name:"creation_date", value:"2023-05-30 04:22:27 +0000 (Tue, 30 May 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-02-09 13:41:00 +0000 (Thu, 09 Feb 2023)");
 
-  script_name("Debian: Security Advisory (DLA-3436)");
+  script_name("Debian: Security Advisory (DLA-3436-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB10");
 
-  script_xref(name:"Advisory-ID", value:"DLA-3436");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/dla-3436-2");
+  script_xref(name:"Advisory-ID", value:"DLA-3436-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/DLA-3436-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/sssd");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'sssd' package(s) announced via the DLA-3436 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'sssd' package(s) announced via the DLA-3436-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"sssd 1.16.3-3.2+deb10u1 (DLA 3436-1) had a broken upgrade path from version 1.16.3-3.2.
+  script_tag(name:"insight", value:"Multiple vulnerabilities were found in sssd, a set of daemons to manage access to remote directories and authentication mechanisms, which could lead to privilege escalation.
 
-One could upgrade sssd-common to 1.16.3-3.2+deb10u1 while leaving libsss-certmap0 at 1.16.3-3.2, the version mismatch broke SSSD as the the fix for CVE-2022-4254 introduces new symbols which are used in sssd-common's sssd_pam.
+CVE-2018-16838
 
-For Debian 10 buster, this problem has been fixed in version 1.16.3-3.2+deb10u2. This version differs from 1.16.3-3.2+deb10u1 only in package metadata. (Bumping the minimum version for libsss-certmap0 in sssd-common's Depends: field ensures a safe upgrade path.)
+It was discovered that when the Group Policy Objects (GPO) are not readable by SSSD due to a too strict permission settings on the server side, SSSD allows all authenticated users to login instead of denying access.
+
+A new boolean setting ad_gpo_ignore_unreadable (defaulting to False) is introduced for environments where attributes in the groupPolicyContainer are not readable and changing the permissions on the GPO objects is not possible or desirable. See sssd-ad(5).
+
+CVE-2019-3811
+
+It was discovered that if a user was configured with no home directory set, then sssd(8) returns / (i.e., the root directory) instead of the empty string (meaning no home directory). This could impact services that restrict the user's filesystem access to within their home directory through chroot() or similar.
+
+CVE-2021-3621
+
+It was discovered that the sssctl(8) command was vulnerable to shell command injection via the logs-fetch and cache-expire subcommands.
+
+This flaw could allows an attacker to trick the root user into running a specially crafted sssctl(8) command, such as via sudo, in order to gain root privileges.
+
+CVE-2022-4254
+
+It was discovered that libsss_certmap failed to sanitize certificate data used in LDAP filters.
+
+PKINIT enables a client to authenticate to the KDC using an X.509 certificate and the corresponding private key, rather than a passphrase or keytab. Mapping rules are used in order to map the certificate presented during a PKINIT authentication request to the corresponding principal. However the mapping filter was found to be vulnerable to LDAP filter injection. As the search result is be influenced by values in the certificate, which may be attacker controlled, this flaw could allow an attacker to gain control of the admin account, leading to full domain takeover.
+
+For Debian 10 buster, these problems have been fixed in version 1.16.3-3.2+deb10u1.
 
 We recommend that you upgrade your sssd packages.
 

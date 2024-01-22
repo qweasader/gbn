@@ -9,11 +9,11 @@ CPE = "cpe:/a:phpmyadmin:phpmyadmin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902802");
-  script_version("2023-10-17T05:05:34+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_cve_id("CVE-2011-4780", "CVE-2011-4782");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2011-12-23 12:12:12 +0530 (Fri, 23 Dec 2011)");
   script_name("phpMyAdmin Setup '$host' Variable Cross Site Scripting Vulnerability");
   script_xref(name:"URL", value:"http://secunia.com/advisories/47338");
@@ -23,7 +23,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.phpmyadmin.net/home_page/security/PMASA-2011-20.php");
   script_xref(name:"URL", value:"https://www.trustwave.com/spiderlabs/advisories/TWSL2011-019.txt");
 
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Web application abuses");

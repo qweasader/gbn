@@ -9,8 +9,8 @@ CPE = "cpe:/a:microsoft:ftp_service";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900944");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2023-12-20T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2009-09-18 08:01:03 +0200 (Fri, 18 Sep 2009)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -25,7 +25,7 @@ if(description)
   script_category(ACT_DENIAL);
   script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Denial of Service");
-  script_dependencies("secpod_ms_iis_ftpd_detect.nasl");
+  script_dependencies("secpod_ms_iis_ftpd_detect.nasl", "logins.nasl");
   script_require_ports("Services/ftp", 21);
   script_mandatory_keys("MS/IIS-FTP/Installed");
 

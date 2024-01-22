@@ -9,8 +9,8 @@ CPE = "cpe:/a:emby:emby.releases";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126267");
-  script_version("2023-10-18T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_version("2023-12-22T05:05:24+0000");
+  script_tag(name:"last_modification", value:"2023-12-22 05:05:24 +0000 (Fri, 22 Dec 2023)");
   script_tag(name:"creation_date", value:"2022-12-21 10:51:56 +0000 (Wed, 21 Dec 2022)");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
@@ -22,9 +22,9 @@ if (description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"WillNotFix");
 
-  script_name("Emby Server <= 4.6.7.0 XSS Vulnerability");
+  script_name("Emby Server <= 4.7.11 XSS Vulnerability");
 
   script_category(ACT_GATHER_INFO);
 
@@ -43,8 +43,10 @@ if (description)
 
   script_tag(name:"affected", value:"Emby Server version 4.6.7.0 and prior.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 21th December, 2022.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.");
 
   script_xref(name:"URL", value:"https://medium.com/@cupc4k3/administrator-account-takeover-in-emby-media-server-616fc2a6704f");
 
@@ -63,7 +65,8 @@ if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version:
 version = infos["version"];
 location = infos["location"];
 
-if (version_is_less_equal(version: version, test_version: "4.6.7.0")) {
+# nb: Checked the release notes for all versions between 4.6.7 and 4.7.11 and there is no reference for a fix
+if (version_is_less_equal(version: version, test_version: "4.7.11")) {
   report = report_fixed_ver(installed_version: version, fixed_version: "None", install_path: location);
   security_message(port: port, data: report);
   exit(0);

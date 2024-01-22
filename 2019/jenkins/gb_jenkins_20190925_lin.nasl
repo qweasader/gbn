@@ -23,17 +23,17 @@ CPE = "cpe:/a:jenkins:jenkins";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.114139");
-  script_version("2023-02-23T10:19:58+0000");
+  script_version("2023-10-27T16:11:32+0000");
 
   script_cve_id("CVE-2019-10401", "CVE-2019-10402", "CVE-2019-10403",
                 "CVE-2019-10404", "CVE-2019-10405", "CVE-2019-10406");
 
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-02-23 10:19:58 +0000 (Thu, 23 Feb 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-10-09 23:44:00 +0000 (Wed, 09 Oct 2019)");
+  script_tag(name:"severity_date", value:"2023-02-23 01:54:00 +0000 (Thu, 23 Feb 2023)");
   script_tag(name:"creation_date", value:"2019-10-07 14:57:22 +0200 (Mon, 07 Oct 2019)");
 
   script_name("Jenkins < 2.197 and < 2.176.4 LTS Multiple Vulnerabilities - Linux");

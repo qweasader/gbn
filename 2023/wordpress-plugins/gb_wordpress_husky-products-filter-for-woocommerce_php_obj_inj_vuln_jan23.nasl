@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = "cpe:/a:pluginus:woocommerce_products_filter";
+CPE = "cpe:/a:pluginus:husky_-_products_filter_professional_for_woocommerce";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127438");
-  script_version("2023-10-13T16:09:03+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_version("2023-12-28T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-28 05:05:25 +0000 (Thu, 28 Dec 2023)");
   script_tag(name:"creation_date", value:"2023-05-23 07:42:09 +0000 (Tue, 23 May 2023)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:M/C:C/I:C/A:C");

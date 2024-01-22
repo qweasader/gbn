@@ -9,27 +9,27 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.705054");
   script_cve_id("CVE-2022-0289", "CVE-2022-0290", "CVE-2022-0291", "CVE-2022-0292", "CVE-2022-0293", "CVE-2022-0294", "CVE-2022-0295", "CVE-2022-0296", "CVE-2022-0297", "CVE-2022-0298", "CVE-2022-0300", "CVE-2022-0301", "CVE-2022-0302", "CVE-2022-0303", "CVE-2022-0304", "CVE-2022-0305", "CVE-2022-0306", "CVE-2022-0307", "CVE-2022-0308", "CVE-2022-0309", "CVE-2022-0310", "CVE-2022-0311");
   script_tag(name:"creation_date", value:"2022-01-26 02:00:49 +0000 (Wed, 26 Jan 2022)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-02-22 22:06:00 +0000 (Tue, 22 Feb 2022)");
 
-  script_name("Debian: Security Advisory (DSA-5054)");
+  script_name("Debian: Security Advisory (DSA-5054-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB11");
 
-  script_xref(name:"Advisory-ID", value:"DSA-5054");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2022/dsa-5054");
+  script_xref(name:"Advisory-ID", value:"DSA-5054-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2022/DSA-5054-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-5054");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/chromium");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'chromium' package(s) announced via the DSA-5054 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'chromium' package(s) announced via the DSA-5054-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

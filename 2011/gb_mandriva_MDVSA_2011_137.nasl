@@ -8,11 +8,11 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.mandriva.com/security-announce/2011-09/msg00022.php");
   script_oid("1.3.6.1.4.1.25623.1.0.831454");
-  script_version("2023-07-14T16:09:26+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:26 +0000 (Fri, 14 Jul 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2011-09-30 16:02:57 +0200 (Fri, 30 Sep 2011)");
   script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_xref(name:"MDVSA", value:"2011:137");
   script_cve_id("CVE-2011-1945", "CVE-2011-3207", "CVE-2011-3210");
   script_name("Mandriva Update for openssl MDVSA-2011:137 (openssl)");

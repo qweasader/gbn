@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107253");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2023-11-21T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
   script_tag(name:"creation_date", value:"2017-11-09 14:03:54 +0700 (Thu, 09 Nov 2017)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -54,7 +54,7 @@ if (description)
 include("host_details.inc");
 include("version_func.inc");
 
-cpe_list = make_list( "cpe:/o:d-link:dgs-1500-20_firmware", "cpe:/o:d-link:dgs-1500-28_firmware", "cpe:/o:d-link:dgs-1500-28p_firmware", "cpe:/o:d-link:dgs-1500-52_firmware");
+cpe_list = make_list( "cpe:/o:dlink:dgs-1500-20_firmware", "cpe:/o:dlink:dgs-1500-28_firmware", "cpe:/o:dlink:dgs-1500-28p_firmware", "cpe:/o:dlink:dgs-1500-52_firmware");
 
 if( ! infos = get_app_port_from_list( cpe_list:cpe_list ) )
   exit( 0 );

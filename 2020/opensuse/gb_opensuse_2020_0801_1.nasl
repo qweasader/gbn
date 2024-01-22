@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.853206");
-  script_version("2021-08-16T06:00:52+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2018-1000199", "CVE-2019-19462", "CVE-2019-20806", "CVE-2019-20812", "CVE-2019-9455", "CVE-2020-0543", "CVE-2020-10690", "CVE-2020-10711", "CVE-2020-10720", "CVE-2020-10732", "CVE-2020-10751", "CVE-2020-10757", "CVE-2020-11608", "CVE-2020-11609", "CVE-2020-12114", "CVE-2020-12464", "CVE-2020-12652", "CVE-2020-12653", "CVE-2020-12654", "CVE-2020-12655", "CVE-2020-12656", "CVE-2020-12657", "CVE-2020-12659", "CVE-2020-12769", "CVE-2020-13143");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-08-16 06:00:52 +0000 (Mon, 16 Aug 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-06-22 22:15:00 +0000 (Mon, 22 Jun 2020)");
+  script_tag(name:"severity_date", value:"2020-06-17 18:15:00 +0000 (Wed, 17 Jun 2020)");
   script_tag(name:"creation_date", value:"2020-06-14 03:00:56 +0000 (Sun, 14 Jun 2020)");
   script_name("openSUSE: Security Advisory for the (openSUSE-SU-2020:0801-1)");
   script_category(ACT_GATHER_INFO);

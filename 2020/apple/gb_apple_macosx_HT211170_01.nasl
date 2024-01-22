@@ -21,7 +21,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.817130");
-  script_version("2021-10-05T11:36:17+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2020-9815", "CVE-2020-9788", "CVE-2020-9831", "CVE-2020-9852",
                 "CVE-2020-9856", "CVE-2020-9855", "CVE-2020-3882", "CVE-2020-9793",
                 "CVE-2020-9844", "CVE-2020-9804", "CVE-2020-9791", "CVE-2020-9792",
@@ -29,10 +29,10 @@ if(description)
                 "CVE-2020-9851", "CVE-2020-3878");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-10-05 11:36:17 +0000 (Tue, 05 Oct 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-10-16 17:15:00 +0000 (Fri, 16 Oct 2020)");
+  script_tag(name:"severity_date", value:"2021-03-09 16:00:00 +0000 (Tue, 09 Mar 2021)");
   script_tag(name:"creation_date", value:"2020-05-27 12:16:54 +0530 (Wed, 27 May 2020)");
   script_name("Apple Mac OS X Security Update (HT211170) - 01");
 

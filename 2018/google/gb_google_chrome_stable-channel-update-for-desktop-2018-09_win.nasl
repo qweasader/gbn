@@ -9,16 +9,17 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813884");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2023-11-08T05:05:52+0000");
   script_cve_id("CVE-2018-16066", "CVE-2018-16067", "CVE-2018-16068", "CVE-2018-16065",
                 "CVE-2018-16069", "CVE-2018-16070", "CVE-2018-16071", "CVE-2018-16085",
                 "CVE-2018-16073", "CVE-2018-16074", "CVE-2018-16075", "CVE-2018-16076",
                 "CVE-2018-16077", "CVE-2018-16078", "CVE-2018-16079", "CVE-2018-16080",
                 "CVE-2018-16081", "CVE-2018-16082", "CVE-2018-16083", "CVE-2018-16084",
-                "CVE-2018-16086");
+                "CVE-2018-16086", "CVE-2018-16072", "CVE-2018-16087", "CVE-2018-16088",
+                "CVE-2018-17457");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-11-08 05:05:52 +0000 (Wed, 08 Nov 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-01-15 14:35:00 +0000 (Tue, 15 Jan 2019)");
@@ -33,6 +34,10 @@ if(description)
   script_tag(name:"insight", value:"Multiple flaws are due to:
 
   - Multiple out of bounds write errors in V8 and Mojo.
+
+  - A missing check for JS-simulated input events in Blink.
+
+  - A missing origin check related to HLS manifests in Blink.
 
   - Multiple out of bounds read errors in Blink, WebAudio, SwiftShader, Little-CMS,
     PDFium and WebRTC.

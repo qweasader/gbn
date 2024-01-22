@@ -23,10 +23,10 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.123529");
   script_cve_id("CVE-2006-7243", "CVE-2013-1643", "CVE-2013-4248");
   script_tag(name:"creation_date", value:"2015-10-06 11:05:07 +0000 (Tue, 06 Oct 2015)");
-  script_version("2022-04-05T09:12:43+0000");
-  script_tag(name:"last_modification", value:"2022-04-05 09:12:43 +0000 (Tue, 05 Apr 2022)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 
   script_name("Oracle: Security Advisory (ELSA-2013-1615)");
   script_category(ACT_GATHER_INFO);

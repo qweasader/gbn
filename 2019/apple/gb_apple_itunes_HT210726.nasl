@@ -23,17 +23,17 @@ CPE = "cpe:/a:apple:itunes";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.815828");
-  script_version("2021-10-07T07:48:17+0000");
+  script_version("2023-10-27T16:11:32+0000");
   script_cve_id("CVE-2019-8784", "CVE-2019-8801", "CVE-2019-8813", "CVE-2019-8782",
                 "CVE-2019-8783", "CVE-2019-8808", "CVE-2019-8811", "CVE-2019-8812",
                 "CVE-2019-8814", "CVE-2019-8816", "CVE-2019-8819", "CVE-2019-8820",
                 "CVE-2019-8821", "CVE-2019-8822", "CVE-2019-8823", "CVE-2019-8815");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-10-07 07:48:17 +0000 (Thu, 07 Oct 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-12-23 17:17:00 +0000 (Mon, 23 Dec 2019)");
+  script_tag(name:"severity_date", value:"2021-05-18 13:16:00 +0000 (Tue, 18 May 2021)");
   script_tag(name:"creation_date", value:"2019-11-05 15:24:05 +0530 (Tue, 05 Nov 2019)");
   script_name("Apple iTunes Security Updates(HT210726)");
 

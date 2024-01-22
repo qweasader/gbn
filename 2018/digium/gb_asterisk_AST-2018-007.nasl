@@ -9,8 +9,8 @@ CPE = "cpe:/a:digium:asterisk";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141177");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2023-12-19T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
   script_tag(name:"creation_date", value:"2018-06-13 10:10:33 +0700 (Wed, 13 Jun 2018)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:C");
@@ -30,20 +30,20 @@ if (description)
 
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Denial of Service");
-  script_dependencies("secpod_asterisk_detect.nasl");
-  script_mandatory_keys("Asterisk-PBX/Installed");
+  script_dependencies("gb_digium_asterisk_sip_detect.nasl");
+  script_mandatory_keys("digium/asterisk/detected");
 
   script_tag(name:"summary", value:"Asterisk is prone to a denial of service vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"When connected to Asterisk via TCP/TLS if the client abruptly disconnects,
-  or sends a specially crafted message then Asterisk gets caught in an infinite loop while trying to read the data
-  stream. Thus rendering the system as unusable.");
+  script_tag(name:"insight", value:"When connected to Asterisk via TCP/TLS if the client abruptly
+  disconnects, or sends a specially crafted message then Asterisk gets caught in an infinite loop
+  while trying to read the data stream. Thus rendering the system as unusable.");
 
-  script_tag(name:"affected", value:"Asterisk Open Source 15.x.");
+  script_tag(name:"affected", value:"Asterisk Open Source versions 15.x.");
 
-  script_tag(name:"solution", value:"Upgrade to Version 15.4.1 or later.");
+  script_tag(name:"solution", value:"Update to version 15.4.1 or later.");
 
   script_xref(name:"URL", value:"http://downloads.asterisk.org/pub/security/AST-2018-007.html");
   script_xref(name:"URL", value:"https://issues.asterisk.org/jira/browse/ASTERISK-27807");
@@ -52,7 +52,6 @@ if (description)
 }
 
 include("host_details.inc");
-include("revisions-lib.inc");
 include("version_func.inc");
 
 if (!port = get_app_port(cpe: CPE))

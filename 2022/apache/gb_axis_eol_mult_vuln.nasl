@@ -9,8 +9,8 @@ CPE = "cpe:/a:apache:axis";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.148543");
-  script_version("2023-10-18T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_version("2024-01-09T05:06:46+0000");
+  script_tag(name:"last_modification", value:"2024-01-09 05:06:46 +0000 (Tue, 09 Jan 2024)");
   script_tag(name:"creation_date", value:"2022-07-29 04:51:49 +0000 (Fri, 29 Jul 2022)");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
@@ -18,7 +18,8 @@ if (description)
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-09-11 17:16:00 +0000 (Mon, 11 Sep 2023)");
 
-  script_cve_id("CVE-2012-5784", "CVE-2014-3596", "CVE-2018-8032", "CVE-2019-0227", "CVE-2023-40743");
+  script_cve_id("CVE-2012-5784", "CVE-2014-3596", "CVE-2018-8032", "CVE-2019-0227",
+                "CVE-2023-40743", "CVE-2023-51441");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -47,13 +48,16 @@ if (description)
 
   - CVE-2019-0227: Server-side request forgery (SSRF)
 
-  - CVE-2023-40743: Remote code execution (RCE)");
+  - CVE-2023-40743: Remote code execution (RCE)
+
+  - CVE-2023-51441: SSRF");
 
   script_tag(name:"affected", value:"Apache Axis version 1.4 and prior.
 
-  Note: The vulnerability announcement for CVE-2023-40743 from September 2023 mentions 'Apache Axis
-  through 1.3' as being affected. But as the vendor states that no fix is available it is assumed
-  that the latest available version 1.4 (released on April 22, 2006) is affected as well.");
+  Note: The vulnerability announcement for CVE-2023-40743 from September 2023 and for CVE-2023-51441
+  from January 2024 mentions 'Apache Axis through 1.3' as being affected. But as the vendor states
+  that no fix is available it is assumed that the latest available version 1.4 (released on
+  April 22, 2006) is affected as well.");
 
   script_tag(name:"solution", value:"No solution was made available by the vendor. General solution
   options are to upgrade to a newer release, disable respective features, remove the product or
@@ -72,6 +76,7 @@ if (description)
   - If the remote installation has been build from the SVN sources or is covered via 'backports' of
   a Linux distribution please create an override for this result");
 
+  script_xref(name:"URL", value:"https://lists.apache.org/thread/8nrm5thop8f82pglx4o0jg8wmvy6d9yd");
   script_xref(name:"URL", value:"https://lists.apache.org/thread/gs0qgk2mgss7zfhzdd6ftfjvm4kp7v82");
   script_xref(name:"URL", value:"https://issues.apache.org/jira/browse/AXIS-2905");
   script_xref(name:"URL", value:"https://issues.apache.org/jira/browse/AXIS-2924");

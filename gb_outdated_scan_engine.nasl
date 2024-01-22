@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108560");
-  script_version("2023-07-19T05:05:15+0000");
-  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
+  script_version("2023-11-17T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2023-11-17 05:05:29 +0000 (Fri, 17 Nov 2023)");
   script_tag(name:"creation_date", value:"2019-03-16 08:57:17 +0100 (Sat, 16 Mar 2019)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -80,7 +80,7 @@ include("version_func.inc");
 include("misc_func.inc");
 
 # nb: Different version scheme (with / without leading 0) is expected.
-expected_gsm_trial_ver = "22.04.11";
+expected_gsm_trial_ver = "22.04.15";
 # nb: OPENVAS_VERSION returns the version of the scanner since GVM-10
 expected_scanner_ver1 = "22.7.3";
 

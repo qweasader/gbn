@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = "cpe:/a:strangerstudios:paid_memberships_pro";
+CPE = "cpe:/a:paidmembershipspro:paid_memberships_pro";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127339");
-  script_version("2023-10-13T16:09:03+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2023-02-14 07:14:43 +0000 (Tue, 14 Feb 2023)");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:N");

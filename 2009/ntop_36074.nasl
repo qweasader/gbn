@@ -9,8 +9,8 @@ CPE = "cpe:/a:ntop:ntop";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100255");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2023-10-27T16:11:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2009-08-23 12:14:46 +0200 (Sun, 23 Aug 2009)");
   script_cve_id("CVE-2009-2732");
   script_tag(name:"cvss_base", value:"5.0");
@@ -26,13 +26,12 @@ if(description)
   script_require_ports("Services/www", 3000);
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/36074");
-  script_xref(name:"URL", value:"http://www.ntop.org/ntop.html");
   script_xref(name:"URL", value:"http://www.securityfocus.com/archive/1/505876");
   script_xref(name:"URL", value:"http://www.securityfocus.com/archive/1/505862");
 
-  script_tag(name:"summary", value:"The 'ntop' tool is prone to a denial-of-service vulnerability because
-  of a NULL-pointer dereference that occurs when crafted HTTP Basic Authentication credentials are
-  received by the embedded webserver.");
+  script_tag(name:"summary", value:"The 'ntop' tool is prone to a denial of service (DoS)
+  vulnerability because of a NULL-pointer dereference that occurs when crafted HTTP Basic
+  Authentication credentials are received by the embedded webserver.");
 
   script_tag(name:"impact", value:"An attacker can exploit this issue to crash the affected application,
   denying service to legitimate users.");

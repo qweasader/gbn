@@ -9,20 +9,24 @@ CPE = "cpe:/a:adobe:bridge_cc";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.818846");
-  script_version("2023-09-21T05:05:45+0000");
+  script_version("2023-11-24T05:05:36+0000");
+  # nb: A few of the CVEs used below are not mentioned on APSB21-94 but their Mitre CVE entries are
+  # actually linking to that advisory. Seems Adobe had missed to add the CVEs to this advisory in
+  # the past but these are still added here.
   script_cve_id("CVE-2021-40750", "CVE-2021-42533", "CVE-2021-42719", "CVE-2021-42720",
                 "CVE-2021-42722", "CVE-2021-42724", "CVE-2021-42728", "CVE-2021-42729",
-                "CVE-2021-42730", "CVE-2021-42721", "CVE-2021-42723", "CVE-2021-42726");
+                "CVE-2021-42730", "CVE-2021-42721", "CVE-2021-42723", "CVE-2021-42726",
+                "CVE-2021-42725", "CVE-2021-42727");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-09-21 05:05:45 +0000 (Thu, 21 Sep 2023)");
+  script_tag(name:"last_modification", value:"2023-11-24 05:05:36 +0000 (Fri, 24 Nov 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-11-17 18:33:00 +0000 (Wed, 17 Nov 2021)");
   script_tag(name:"creation_date", value:"2021-10-28 19:41:37 +0530 (Thu, 28 Oct 2021)");
-  script_name("Adobe Bridge Multiple Vulnerabilities (apsb21-94) - Windows");
+  script_name("Adobe Bridge Multiple Vulnerabilities (APSB21-94) - Windows");
 
-  script_tag(name:"summary", value:"Adobe Bridge is prone to multiple vulnerabilities");
+  script_tag(name:"summary", value:"Adobe Bridge is prone to multiple vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present
   on the target host.");

@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832240");
-  script_version("2023-10-13T05:06:10+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_cve_id("CVE-2023-36873", "CVE-2023-36899");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-08-11 17:56:00 +0000 (Fri, 11 Aug 2023)");
@@ -87,9 +87,9 @@ foreach key(key_list) {
               vulnerable_range = "2.0.50727.5700 - 2.0.50727.9173";
               break;
             }
-            else if(version_in_range(version:dllVer, test_version:"4.8", test_version2:"4.8.9175.0")) {
+            else if(version_in_range(version:dllVer, test_version:"4.8", test_version2:"4.8.4653.0")) {
               VULN = TRUE ;
-              vulnerable_range = "4.8 - 4.8.9175.0" ;
+              vulnerable_range = "4.8 - 4.8.4653.0" ;
               break;
             }
 
@@ -120,9 +120,9 @@ foreach key(key_list) {
             vulnerable_range = "2.0.50727.5700 - 2.0.50727.9173";
             break;
           }
-          else if(dllVer && version_in_range(version:dllVer, test_version:"4.8", test_version2:"4.8.9175.0")) {
+          else if(dllVer && version_in_range(version:dllVer, test_version:"4.8", test_version2:"4.8.4653.0")) {
             VULN = TRUE ;
-            vulnerable_range = "4.8 - 4.8.9175.0" ;
+            vulnerable_range = "4.8 - 4.8.4653.0" ;
             break;
           }
           else if(version_in_range(version:dllVer, test_version:"4.8.9000", test_version2:"4.8.9175")) {
@@ -147,9 +147,9 @@ foreach key(key_list) {
           vulnerable_range = "2.0.50727.5700 - 2.0.50727.9173";
           break;
         }
-        else if(dllVer && version_in_range(version:dllVer, test_version:"4.8", test_version2:"4.8.9175.0")) {
+        else if(dllVer && version_in_range(version:dllVer, test_version:"4.8", test_version2:"4.8.4653.0")) {
           VULN = TRUE ;
-          vulnerable_range = "4.8 - 4.8.9175.0" ;
+          vulnerable_range = "4.8 - 4.8.4653.0" ;
           break;
         }
 

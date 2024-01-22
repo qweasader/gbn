@@ -8,12 +8,12 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2012-July/083728.html");
   script_oid("1.3.6.1.4.1.25623.1.0.864545");
-  script_version("2023-06-21T05:06:22+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:22 +0000 (Wed, 21 Jun 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2012-08-30 11:52:03 +0530 (Thu, 30 Aug 2012)");
   script_cve_id("CVE-2012-3356", "CVE-2012-3357");
   script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_xref(name:"FEDORA", value:"2012-9433");
   script_name("Fedora Update for viewvc FEDORA-2012-9433");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'viewvc'

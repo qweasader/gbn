@@ -9,8 +9,8 @@ CPE = "cpe:/a:apache:axis2";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111004");
-  script_version("2023-09-08T16:09:14+0000");
-  script_tag(name:"last_modification", value:"2023-09-08 16:09:14 +0000 (Fri, 08 Sep 2023)");
+  script_version("2023-12-20T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2015-03-17 08:00:00 +0100 (Tue, 17 Mar 2015)");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
@@ -71,7 +71,7 @@ include("host_details.inc");
 if( ! port = get_app_port( cpe:CPE ) )
   exit( 0 );
 
-if( ! infos = get_app_version_and_location( cpe:CPE, port:port ) )
+if( ! infos = get_app_version_and_location( cpe:CPE, port:port, exit_no_version:TRUE ) )
   exit( 0 );
 
 path = infos["location"];

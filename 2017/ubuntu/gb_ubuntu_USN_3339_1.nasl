@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.843225");
-  script_cve_id("CVE-2016-6329", "CVE-2017-7479", "CVE-2017-7508", "CVE-2017-7512", "CVE-2017-7520", "CVE-2017-7521");
+  script_cve_id("CVE-2016-6329", "CVE-2017-7479", "CVE-2017-7508", "CVE-2017-7520", "CVE-2017-7521");
   script_tag(name:"creation_date", value:"2017-06-23 05:17:19 +0000 (Fri, 23 Jun 2017)");
-  script_version("2023-06-21T05:06:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:21 +0000 (Wed, 21 Jun 2023)");
-  script_tag(name:"cvss_base", value:"7.5");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_version("2023-11-15T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2023-11-15 05:05:25 +0000 (Wed, 15 Nov 2023)");
+  script_tag(name:"cvss_base", value:"5.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
 
@@ -47,10 +47,6 @@ crash, resulting in a denial of service. This issue only affected Ubuntu
 Guido Vranken discovered that OpenVPN incorrectly handled certain malformed
 IPv6 packets. A remote attacker could use this issue to cause OpenVPN to
 crash, resulting in a denial of service. (CVE-2017-7508)
-
-Guido Vranken discovered that OpenVPN incorrectly handled memory. A remote
-attacker could use this issue to cause OpenVPN to crash, resulting in a
-denial of service. (CVE-2017-7512)
 
 Guido Vranken discovered that OpenVPN incorrectly handled an HTTP proxy
 with NTLM authentication. A remote attacker could use this issue to cause

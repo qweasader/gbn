@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:extreme:extremexos';
+CPE = "cpe:/o:extremenetworks:exos";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106428");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2023-12-13T05:05:23+0000");
+  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
   script_tag(name:"creation_date", value:"2016-11-29 08:20:28 +0700 (Tue, 29 Nov 2016)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
@@ -24,30 +24,34 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Extreme ExtremeXOS DROWN Vulnerability");
+  script_name("Extreme ExtremeXOS DROWN Vulnerability (VN-2016-004)");
 
   script_category(ACT_GATHER_INFO);
+
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("General");
-  script_dependencies("gb_extremeos_snmp_detect.nasl");
-  script_mandatory_keys("extremexos/detected");
+  script_dependencies("gb_extremeos_consolidation.nasl");
+  script_mandatory_keys("extreme/exos/detected");
 
-  script_tag(name:"summary", value:"Extreme ExtremeXOS is prone to the OpenSSL 'DROWN' vulnerability.");
+  script_tag(name:"summary", value:"Extreme ExtremeXOS is prone to the OpenSSL 'DROWN'
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"The SSLv2 protocol requires a server to send a ServerVerify message before
-establishing that a client possesses certain plaintext RSA data, which makes it easier for remote attackers to
-decrypt TLS ciphertext data by leveraging a Bleichenbacher RSA padding oracle, aka a 'DROWN' attack.
+  script_tag(name:"insight", value:"The SSLv2 protocol requires a server to send a ServerVerify
+  message before establishing that a client possesses certain plaintext RSA data, which makes it
+  easier for remote attackers to decrypt TLS ciphertext data by leveraging a Bleichenbacher RSA
+  padding oracle, aka a 'DROWN' attack.
 
-All SSLv2 ciphers are disabled, but SSLv2 protocol is enabled on EXOS. Since EXOS is vulnerable to CVE-2015-3197,
-SSLv2 ciphers can still be negotiated, which renders the switch vulnerable.");
+  All SSLv2 ciphers are disabled, but SSLv2 protocol is enabled on EXOS. Since EXOS is vulnerable
+  to CVE-2015-3197, SSLv2 ciphers can still be negotiated, which renders the switch vulnerable.");
 
-  script_tag(name:"impact", value:"Cross-protocol attack that could lead to decryption of TLS sessions.");
+  script_tag(name:"impact", value:"Cross-protocol attack that could lead to decryption of TLS
+  sessions.");
 
-  script_tag(name:"affected", value:"Versions before 16.2.1 and 21.1.2.");
+  script_tag(name:"affected", value:"Extreme ExtremeXOS prior to version 16.2.1 or 21.1.2.");
 
-  script_tag(name:"solution", value:"Upgrade to 16.2.1, 21.1.2, 22.1.1 or later.");
+  script_tag(name:"solution", value:"Update to version 16.2.1, 21.1.2, 22.1.1 or later.");
 
   script_xref(name:"URL", value:"https://gtacknowledge.extremenetworks.com/articles/Vulnerability_Notice/VN-2016-004");
 
@@ -57,7 +61,7 @@ SSLv2 ciphers can still be negotiated, which renders the switch vulnerable.");
 include("host_details.inc");
 include("version_func.inc");
 
-if (!version = get_app_version(cpe: CPE))
+if (!version = get_app_version(cpe: CPE, nofork: TRUE))
   exit(0);
 
 if (version_is_less(version: version, test_version: "16.2.1")) {
@@ -72,4 +76,4 @@ if (version =~ "^21\.1\.1") {
   exit(0);
 }
 
-exit(0);
+exit(99);

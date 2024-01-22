@@ -7,11 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106756");
-  script_version("2023-05-26T09:09:36+0000");
-  script_tag(name:"last_modification", value:"2023-05-26 09:09:36 +0000 (Fri, 26 May 2023)");
+  script_version("2024-01-19T16:09:33+0000");
+  script_tag(name:"last_modification", value:"2024-01-19 16:09:33 +0000 (Fri, 19 Jan 2024)");
   script_tag(name:"creation_date", value:"2017-04-18 14:50:27 +0200 (Tue, 18 Apr 2017)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2023-02-24 17:56:00 +0000 (Fri, 24 Feb 2023)");
 
   # nb: Unlike other VTs we're using the CVEs line by line here for easier addition of new CVEs
   # / to avoid too large diffs.
@@ -46,7 +49,8 @@ if(description)
                 "CVE-2021-42013",
                 "CVE-2022-26233",
                 "CVE-2022-38794",
-                "CVE-2023-22855"); # nb: See info on the traversal at https://hesec.de/posts/cve-2023-22855/
+                "CVE-2023-22855", # nb: See info on the traversal at https://hesec.de/posts/cve-2023-22855/
+                "CVE-2023-46307"); # nb: See info on the traversal at https://seclists.org/fulldisclosure/2023/Nov/9
 
   script_name("Generic HTTP Directory Traversal (Web Root) - Active Check");
   script_category(ACT_ATTACK);
@@ -131,6 +135,8 @@ if(description)
   - CVE-2023-22855: Kardex Mlog. Note: The CVE is about a remote code execution (RCE) vulnerability
   but the product is also affected by a directory traversal vulnerability and thus the CVE was added
   here.
+
+  - CVE-2023-46307: etc-browser
 
   Other products might be affected as well.");
 

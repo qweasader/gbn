@@ -9,8 +9,8 @@ CPE = "cpe:/a:tenable:nessus";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170471");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2023-11-17T16:10:13+0000");
+  script_tag(name:"last_modification", value:"2023-11-17 16:10:13 +0000 (Fri, 17 Nov 2023)");
   script_tag(name:"creation_date", value:"2023-05-17 09:49:53 +0000 (Wed, 17 May 2023)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
@@ -31,14 +31,14 @@ if(description)
 
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("General");
-  script_dependencies("gb_nessus_web_server_detect.nasl");
-  script_mandatory_keys("nessus/installed");
+  script_dependencies("gb_tenable_nessus_consolidation.nasl");
+  script_mandatory_keys("tenable/nessus/detected");
 
   script_tag(name:"summary", value:"Tenable Nessus is prone to multiple vulnerabilities in OpenSSL.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"Nessus leverages third-party software to help provide underlying
+  script_tag(name:"insight", value:"Tenable Nessus leverages third-party software to help provide underlying
   functionality. One third-party component (OpenSSL) was found to contain vulnerabilities, and updated
   versions have been made available by the providers.
 
@@ -56,7 +56,7 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if (!port = get_app_port(cpe: CPE))
+if (isnull(port = get_app_port(cpe: CPE)))
   exit(0);
 
 if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE))

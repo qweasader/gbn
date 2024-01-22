@@ -8,8 +8,8 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2012-December/094872.html");
   script_oid("1.3.6.1.4.1.25623.1.0.864947");
-  script_version("2023-06-23T16:09:17+0000");
-  script_tag(name:"last_modification", value:"2023-06-23 16:09:17 +0000 (Fri, 23 Jun 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2012-12-18 09:58:23 +0530 (Tue, 18 Dec 2012)");
   script_cve_id("CVE-2012-4530", "CVE-2012-4461", "CVE-2012-4565", "CVE-2012-4508",
                 "CVE-2012-0957", "CVE-2012-3520", "CVE-2012-3412", "CVE-2012-2390",
@@ -20,6 +20,9 @@ if(description)
                 "CVE-2011-4132");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-07-27 20:14:00 +0000 (Mon, 27 Jul 2020)");
   script_xref(name:"FEDORA", value:"2012-20240");
   script_name("Fedora Update for kernel FEDORA-2012-20240");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'kernel'

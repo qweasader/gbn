@@ -8,17 +8,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832338");
-  script_version("2023-10-12T05:05:32+0000");
+  script_version("2023-10-31T05:06:37+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2023-35983", "CVE-2023-28319", "CVE-2023-28320", "CVE-2023-28321",
                 "CVE-2023-28322", "CVE-2023-36854", "CVE-2023-32418", "CVE-2023-32381",
                 "CVE-2023-32433", "CVE-2023-35993", "CVE-2023-38606", "CVE-2023-32441",
                 "CVE-2023-38565", "CVE-2023-38593", "CVE-2023-2953", "CVE-2023-38259",
-                "CVE-2023-38602", "CVE-2023-32443");
+                "CVE-2023-38602", "CVE-2023-32443", "CVE-2023-40442", "CVE-2023-41990");
   script_tag(name:"cvss_base", value:"9.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"last_modification", value:"2023-10-31 05:06:37 +0000 (Tue, 31 Oct 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-08-03 18:16:00 +0000 (Thu, 03 Aug 2023)");
@@ -33,7 +33,9 @@ if(description)
 
   script_tag(name:"insight", value:"Multiple flaws exist due to,
 
-  - An improper usage and handling of curl.
+  - An improper usage and handling of curl, caches.
+
+  - An improper private data redaction for log entries,
 
   - An improper processing of files.
 
@@ -42,7 +44,8 @@ if(description)
   - An improper bounds checking and input validation.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attackers to
-  execute arbitrary code with kernel privileges on an affected system.");
+  execute arbitrary code with kernel privileges and disclose sensitive information
+  on an affected system.");
 
   script_tag(name:"affected", value:"Apple Mac OS X Big Sur versions 11.x before
   11.7.9.");

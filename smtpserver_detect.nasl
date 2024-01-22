@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10263");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2023-12-07T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2023-12-07 05:05:41 +0000 (Thu, 07 Dec 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -250,6 +250,14 @@ foreach port( ports ) {
     set_kb_item( name:"smtp/barracuda/email_security_gateway/detected", value:TRUE );
     set_kb_item( name:"smtp/" + port + "/barracuda/email_security_gateway/detected", value:TRUE );
     guess += '\n- Barracuda Email Security Gateway';
+  }
+
+  # 220 mail.example.com ESMTP Sophos Email Appliance v4.5.3.6
+  # 220 mail.example.com ESMTP Example Sophos Email Appliance v4.4.1.1
+  if( banner =~ "220.* Sophos Email Appliance" ) {
+    set_kb_item( name:"smtp/sophos/email_appliance/detected", value:TRUE );
+    set_kb_item( name:"smtp/" + port + "/sophos/email_appliance/detected", value:TRUE );
+    guess += '\n- Sophos Email Appliance';
   }
 
   report = 'Remote SMTP server banner:\n\n' + banner;

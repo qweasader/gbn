@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108447");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2023-10-25T11:49:00+0000");
+  script_tag(name:"last_modification", value:"2023-10-25 11:49:00 +0000 (Wed, 25 Oct 2023)");
   script_tag(name:"creation_date", value:"2018-07-03 15:09:21 +0200 (Tue, 03 Jul 2018)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -55,7 +55,7 @@ close( soc );
 if( strlen( res ) < 33 ) exit( 0 );
 
 hexres = hexstr( res );
-strres = bin2string( ddata:res, noprint_replacement:' ' ); #nb: eregmatch isn't binary save...
+strres = bin2string( ddata:res, noprint_replacement:' ' ); # nb: eregmatch isn't binary safe...
 
 # Example responses if authentication is required:
 # 0x00:  41 55 54 48 01 00 00 00 00 00 00 00 14 00 00 00    AUTH............

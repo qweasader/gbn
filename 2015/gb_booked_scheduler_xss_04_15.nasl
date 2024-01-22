@@ -9,15 +9,15 @@ CPE = "cpe:/a:twinkle_toes:booked_scheduler";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105260");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:S/C:P/I:P/A:P");
   script_name("Booked Scheduler Cross Site Scripting Vulnerability");
 
-  script_tag(name:"qod_type", value:"remote_active");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"WillNotFix");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2015-04-20 14:32:41 +0200 (Mon, 20 Apr 2015)");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");

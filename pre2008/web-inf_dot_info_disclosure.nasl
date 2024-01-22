@@ -22,13 +22,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11037");
-  script_version("2023-03-06T10:19:58+0000");
-  script_tag(name:"last_modification", value:"2023-03-06 10:19:58 +0000 (Mon, 06 Mar 2023)");
+  script_version("2023-11-03T16:10:08+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_cve_id("CVE-2002-1855", "CVE-2002-1856", "CVE-2002-1857", "CVE-2002-1858",
                 "CVE-2002-1859", "CVE-2002-1860", "CVE-2002-1861", "CVE-2016-0793");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2018-05-10 01:29:00 +0000 (Thu, 10 May 2018)");
   script_name("'/WEB-INF./' Information Disclosure Vulnerability (HTTP)");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2002 Matt Moore / 2021 Greenbone Networks GmbH");

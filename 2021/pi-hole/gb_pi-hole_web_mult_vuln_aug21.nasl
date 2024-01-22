@@ -1,30 +1,16 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
-CPE = "cpe:/a:pi-hole:web";
+CPE = "cpe:/a:pi-hole:web_interface";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.146441");
-  script_version("2022-09-16T10:11:41+0000");
-  script_tag(name:"last_modification", value:"2022-09-16 10:11:41 +0000 (Fri, 16 Sep 2022)");
+  script_version("2023-12-01T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2023-12-01 05:05:39 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"creation_date", value:"2021-08-05 08:52:37 +0000 (Thu, 05 Aug 2021)");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
@@ -38,17 +24,17 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Pi-hole Ad-Blocker Web (AdminLTE) < 5.5.1 Multiple Vulnerabilities");
+  script_name("Pi-hole Web Interface < 5.5.1 Multiple Vulnerabilities");
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_pi-hole_http_detect.nasl");
   script_mandatory_keys("pi-hole/detected");
 
-  script_tag(name:"summary", value:"Pi-hole Ad-Blocker Web (AdminLTE) is prone to multiple
-  vulnerabilities.");
+  script_tag(name:"summary", value:"The Pi-hole Web Interface (previously AdminLTE) is prone to
+  multiple vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
@@ -58,7 +44,8 @@ if(description)
 
   - CVE-2021-32793: Stored cross-site scripting (XSS)");
 
-  script_tag(name:"affected", value:"Pi-hole Ad-Blocker Web (AdminLTE) version 5.5 and prior.");
+  script_tag(name:"affected", value:"Pi-hole Web Interface (previously AdminLTE) version 5.5 and
+  prior.");
 
   script_tag(name:"solution", value:"Update to version 5.5.1 or later.");
 

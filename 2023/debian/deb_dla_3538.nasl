@@ -9,27 +9,27 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2023.3538");
   script_cve_id("CVE-2013-7484", "CVE-2019-17382", "CVE-2022-35229", "CVE-2022-43515", "CVE-2023-29450", "CVE-2023-29451", "CVE-2023-29454", "CVE-2023-29455", "CVE-2023-29456", "CVE-2023-29457");
   script_tag(name:"creation_date", value:"2023-08-22 14:10:57 +0000 (Tue, 22 Aug 2023)");
-  script_version("2023-08-23T05:05:12+0000");
-  script_tag(name:"last_modification", value:"2023-08-23 05:05:12 +0000 (Wed, 23 Aug 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-12-07 15:16:00 +0000 (Wed, 07 Dec 2022)");
 
-  script_name("Debian: Security Advisory (DLA-3538)");
+  script_name("Debian: Security Advisory (DLA-3538-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB10");
 
-  script_xref(name:"Advisory-ID", value:"DLA-3538");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/dla-3538");
+  script_xref(name:"Advisory-ID", value:"DLA-3538-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/DLA-3538-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/zabbix");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'zabbix' package(s) announced via the DLA-3538 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'zabbix' package(s) announced via the DLA-3538-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

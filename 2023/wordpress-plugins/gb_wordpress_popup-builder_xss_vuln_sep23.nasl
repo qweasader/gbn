@@ -9,8 +9,8 @@ CPE = "cpe:/a:sygnoos:popup_builder";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126493");
-  script_version("2023-10-13T16:09:03+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"creation_date", value:"2023-09-26 09:29:45 +0000 (Tue, 26 Sep 2023)");
   script_tag(name:"cvss_base", value:"4.7");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:M/C:P/I:P/A:N");
@@ -22,9 +22,9 @@ if (description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("WordPress Popup Builder Plugin <= 4.1.15 XSS Vulnerability");
+  script_name("WordPress Popup Builder Plugin < 4.2.0 XSS Vulnerability");
 
   script_category(ACT_GATHER_INFO);
 
@@ -39,13 +39,12 @@ if (description)
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"The plugin does not sanitise and escape some of its settings,
-  which could allow high privilege users such as admin to perform Stored Cross-Site Scripting
+  which could allow high privilege users such as admin to perform stored cross-site scripting
   attacks even when the unfiltered_html capability is disallowed.");
 
-  script_tag(name:"affected", value:"WordPress Popup Builder version 4.1.15 and prior.");
+  script_tag(name:"affected", value:"WordPress Popup Builder prior to version 4.2.0.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 26th September, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"Update to version 4.2.0 or later.");
 
   script_xref(name:"URL", value:"https://wpscan.com/vulnerability/941a9aa7-f4b2-474a-84d9-9a74c99079e2");
 
@@ -64,8 +63,8 @@ if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version:
 version = infos["version"];
 location = infos["location"];
 
-if (version_is_less_equal(version: version, test_version: "4.1.15")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "None", install_path: location);
+if (version_is_less(version: version, test_version: "4.2.0")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "4.2.0", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }

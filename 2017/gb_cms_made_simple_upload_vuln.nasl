@@ -2,15 +2,15 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:cmsmadesimple:cms_made_simple";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140299");
-  script_version("2023-05-12T10:50:26+0000");
-  script_tag(name:"last_modification", value:"2023-05-12 10:50:26 +0000 (Fri, 12 May 2023)");
+  script_version("2023-12-07T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2023-12-07 05:05:41 +0000 (Thu, 07 Dec 2023)");
   script_tag(name:"creation_date", value:"2017-08-15 14:22:16 +0700 (Tue, 15 Aug 2017)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:N");
@@ -24,7 +24,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("CMS Made Simple <= 2.2.2 Upload Vulnerabililty");
+  script_name("CMS Made Simple <= 2.2.2 Upload Vulnerability");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
@@ -66,4 +66,4 @@ if (version_is_less_equal(version: version, test_version: "2.2.2")) {
   exit(0);
 }
 
-exit(0);
+exit(99);

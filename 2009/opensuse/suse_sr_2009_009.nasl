@@ -21,14 +21,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.63891");
-  script_version("2022-08-09T10:11:17+0000");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2009-04-28 20:40:12 +0200 (Tue, 28 Apr 2009)");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2008-4311", "CVE-2008-4989", "CVE-2009-0193", "CVE-2009-0196", "CVE-2009-0365", "CVE-2009-0578", "CVE-2009-0586", "CVE-2009-0658", "CVE-2009-0698", "CVE-2009-0790", "CVE-2009-0792", "CVE-2009-0922", "CVE-2009-0927", "CVE-2009-0928", "CVE-2009-1061", "CVE-2009-1062", "CVE-2009-1171", "CVE-2009-1241");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2019-09-27 16:48:00 +0000 (Fri, 27 Sep 2019)");
   script_name("SUSE: Security Summary (SUSE-SR:2009:009)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2009 E-Soft Inc.");

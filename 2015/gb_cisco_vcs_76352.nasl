@@ -12,7 +12,7 @@ if (description)
   script_cve_id("CVE-2015-4315");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:P");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2023-10-27T16:11:32+0000");
 
   script_name("Cisco TelePresence Video Communication Server Expressway Denial of Service Vulnerability");
 
@@ -27,12 +27,12 @@ vulnerability by supplying a specially crafted XML file to the targeted system. 
 This issue is being tracked by Cisco bug ID CSCuv31853");
   script_tag(name:"solution", value:"No known solution was made available for at least one year since the disclosure of this vulnerability. Likely none will be provided anymore. General solution options are to upgrade to a newer release, disable respective features, remove the product or replace the product by another one.");
   script_tag(name:"solution_type", value:"WillNotFix");
-  script_tag(name:"summary", value:"Cisco TelePresence Video Communication Server Expressway is prone to a denial-of-service vulnerability.");
+  script_tag(name:"summary", value:"Cisco TelePresence Video Communication Server Expressway is prone to a denial of service (DoS) vulnerability.");
   script_tag(name:"affected", value:"Cisco TelePresence Video Communication Server Expressway X8.5.3");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2015-08-27 15:43:02 +0200 (Thu, 27 Aug 2015)");
   script_category(ACT_GATHER_INFO);
   script_family("CISCO");

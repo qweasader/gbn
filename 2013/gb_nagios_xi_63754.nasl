@@ -1,33 +1,19 @@
-# Copyright (C) 2013 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2013 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
-CPE = "cpe:/a:nagios:nagiosxi";
+CPE = "cpe:/a:nagios:nagios_xi";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103842");
-  script_tag(name:"last_modification", value:"2022-06-03 08:34:33 +0000 (Fri, 03 Jun 2022)");
+  script_tag(name:"last_modification", value:"2023-11-24 16:09:32 +0000 (Fri, 24 Nov 2023)");
   script_tag(name:"creation_date", value:"2013-12-02 10:28:47 +0100 (Mon, 02 Dec 2013)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_version("2022-06-03T08:34:33+0000");
+  script_version("2023-11-24T16:09:32+0000");
 
   script_cve_id("CVE-2013-6875");
 
@@ -35,15 +21,15 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Nagios XI SQLi Vulnerability (Dez 2013) - Active Check");
+  script_name("Nagios XI SQLi Vulnerability (Dec 2013) - Active Check");
 
   script_category(ACT_ATTACK);
 
   script_family("Web application abuses");
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
-  script_dependencies("gb_nagios_XI_detect.nasl");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
+  script_dependencies("gb_nagios_xi_http_detect.nasl");
   script_require_ports("Services/www", 80);
-  script_mandatory_keys("nagiosxi/installed");
+  script_mandatory_keys("nagios/nagios_xi/http/detected");
 
   script_tag(name:"summary", value:"Nagios XI is prone to an SQL injection (SQLi) vulnerability
   because it fails to sufficiently sanitize user-supplied data before using it in an SQL query.");
@@ -71,10 +57,13 @@ include("http_func.inc");
 include("http_keepalive.inc");
 include("misc_func.inc");
 
-if (!port = get_app_port(cpe:CPE))
+if (!port = get_app_port(cpe:CPE, service:"www"))
   exit(0);
 
-dir = "/nagiosql"; # always?
+if (!get_app_location(cpe:CPE, port:port, nofork:TRUE))
+  exit(0);
+
+dir = "/nagiosql"; # nb: Use the location from above?
 
 url = dir + "/index.php";
 req = http_get(item:url, port:port);

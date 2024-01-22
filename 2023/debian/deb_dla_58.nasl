@@ -9,32 +9,40 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2014.58");
   script_cve_id("CVE-2014-6273");
   script_tag(name:"creation_date", value:"2023-03-08 12:56:44 +0000 (Wed, 08 Mar 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
 
-  script_name("Debian: Security Advisory (DLA-58)");
+  script_name("Debian: Security Advisory (DLA-58-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB6");
 
-  script_xref(name:"Advisory-ID", value:"DLA-58");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2014/dla-58-3");
-  script_xref(name:"URL", value:"https://bugs.debian.org/cgi-bin/bugreport.cgi?bugq0924");
-  script_xref(name:"URL", value:"http://anonscm.debian.org/cgit/apt/apt.git/commit/?id31e8396ee5a4f2e7d276eddc54749b2a13dd789");
+  script_xref(name:"Advisory-ID", value:"DLA-58-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2014/DLA-58-1");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'apt' package(s) announced via the DLA-58 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'apt' package(s) announced via the DLA-58-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The recent security updates to apt make apt bug #710924 [1] much easier to trigger. Affected users see 416 Requested Range Not Satisfiable errors during a apt-get update operation. With the 0.8.10.3+squeeze7 upload the fix for this error that was originally introduced in version 0.9.12 [2] is now backported.
+  script_tag(name:"insight", value:"This update fixes a regression introduced in 0.8.10.3+squeeze5 where apt would send invalid HTTP requests when sending If-Range queries.
 
-[1] [link moved to references] [2] [link moved to references]
+For reference, the original advisory text follows.
 
-For Debian 6 Squeeze, these issues have been fixed in apt version 0.8.10.3+squeeze7");
+The Google Security Team discovered a buffer overflow vulnerability in the HTTP transport code in apt-get. An attacker able to man-in-the-middle a HTTP request to an apt repository can trigger the buffer overflow, leading to a crash of the http apt method binary, or potentially to arbitrary code execution.
+
+The following regression fixes were included in this update:
+
+Fix regression from the previous update in DLA-53-1 when the custom apt configuration option for Dir::state::lists is set to a relative path (#762160).
+
+Fix regression in the reverificaiton handling of cdrom: sources that may lead to incorrect hashsum warnings. Affected users need to run 'apt-cdrom add' again after the update was applied.
+
+Fix regression from the previous update in DLA-53-1 when file:/// sources are used and those are on a different partition than the apt state directory.
+
+For Debian 6 Squeeze, these issues have been fixed in apt version 0.8.10.3+squeeze6");
 
   script_tag(name:"affected", value:"'apt' package(s) on Debian 6.");
 

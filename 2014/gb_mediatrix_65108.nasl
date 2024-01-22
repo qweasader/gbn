@@ -10,16 +10,16 @@ if (description)
   script_cve_id("CVE-2014-1612");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2023-10-27T05:05:28+0000");
 
   script_name("Mediatrix 4402 Web Management Interface 'login' Page Cross Site Scripting Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/65108");
 
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2014-02-04 14:02:25 +0100 (Tue, 04 Feb 2014)");
   script_category(ACT_ATTACK);
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_dependencies("gb_get_http_banner.nasl");

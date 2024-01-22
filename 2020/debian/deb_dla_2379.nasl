@@ -9,33 +9,33 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.892379");
   script_cve_id("CVE-2020-25813", "CVE-2020-25814", "CVE-2020-25827", "CVE-2020-25828");
   script_tag(name:"creation_date", value:"2020-09-26 03:00:12 +0000 (Sat, 26 Sep 2020)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-12-14 03:15:00 +0000 (Mon, 14 Dec 2020)");
 
-  script_name("Debian: Security Advisory (DLA-2379)");
+  script_name("Debian: Security Advisory (DLA-2379-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB9");
 
-  script_xref(name:"Advisory-ID", value:"DLA-2379");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2020/dla-2379-3");
+  script_xref(name:"Advisory-ID", value:"DLA-2379-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2020/DLA-2379-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/mediawiki");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mediawiki' package(s) announced via the DLA-2379 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mediawiki' package(s) announced via the DLA-2379-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"The update of mediawiki released as DLA-2379-2 contained a defect in the patch for CVE-2020-25827 which resulted from a possible use of an uninitialized variable. Updated mediawiki packages are now available to correct this issue.
+  script_tag(name:"insight", value:"Multiple security issues were discovered in MediaWiki, a website engine for collaborative work: SpecialUserRights could leak whether a user existed or not, multiple code paths lacked HTML sanitisation allowing for cross-site scripting and TOTP validation applied insufficient rate limiting against brute force attempts.
 
-For Debian 9 stretch, this problem has been fixed in version 1:1.27.7-1~deb9u6.
+For Debian 9 stretch, these problems have been fixed in version 1:1.27.7-1~deb9u4.
 
 We recommend that you upgrade your mediawiki packages.
 

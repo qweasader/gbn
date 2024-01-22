@@ -1,44 +1,28 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108439");
-  script_version("2023-03-01T10:20:05+0000");
-  script_tag(name:"last_modification", value:"2023-03-01 10:20:05 +0000 (Wed, 01 Mar 2023)");
+  script_version("2024-01-03T05:05:19+0000");
+  script_tag(name:"last_modification", value:"2024-01-03 05:05:19 +0000 (Wed, 03 Jan 2024)");
   script_tag(name:"creation_date", value:"2018-04-14 15:29:22 +0200 (Sat, 14 Apr 2018)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-01-14 16:39:00 +0000 (Tue, 14 Jan 2020)");
-  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
-  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2017-9841");
-  script_name("PHPUnit 'CVE-2017-9841' Remote Code Execution Vulnerability (HTTP)");
+  script_name("PHPUnit 'CVE-2017-9841' RCE Vulnerability (HTTP) - Active Check");
   script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_wordpress_http_detect.nasl", "gb_drupal_http_detect.nasl", "gb_prestashop_http_detect.nasl",
-                      "secpod_mediawiki_detect.nasl", "gb_moodle_cms_detect.nasl", "gb_owncloud_detect.nasl",
-                      "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+                      "secpod_mediawiki_detect.nasl", "gb_moodle_cms_detect.nasl", "gb_owncloud_http_detect.nasl",
+                      "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
@@ -51,11 +35,14 @@ if(description)
   script_xref(name:"URL", value:"https://lists.wikimedia.org/pipermail/mediawiki-announce/2017-November/000216.html");
   script_xref(name:"URL", value:"https://www.drupal.org/psa-2019-09-04");
   script_xref(name:"URL", value:"https://www.drupal.org/project/mailchimp/issues/2946280");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
 
   script_tag(name:"summary", value:"PHPUnit is prone to a remote code execution (RCE)
   vulnerability.");
 
-  script_tag(name:"vuldetect", value:"Send a crafted HTTP POST request and check the response.");
+  script_tag(name:"vuldetect", value:"Sends multiple crafted HTTP POST requests and checks the
+  responses.");
 
   script_tag(name:"impact", value:"Attackers can exploit this issue to execute arbitrary code in the
   context of the user running the affected applications.");
@@ -111,6 +98,8 @@ if( ! http_can_host_php( port:port ) )
   exit( 0 );
 
 urls = make_list();
+
+# nb: When adding new URLs here make sure to add the relevant dirs to DDI_Directory_Scanner.nasl
 
 # First fill the known location of a few CMS and CMS plugins shipping these files.
 wpdirs = get_app_location( port:port, cpe:"cpe:/a:wordpress:wordpress", nofork:TRUE );
@@ -216,8 +205,10 @@ foreach dir( make_list_unique( "/", http_cgi_dirs( port:port ) ) ) {
   }
 }
 
-# Additional files seen in log files during current (04/2020, 07/2020 and 11/2020) attacks
+# Additional files seen in log files during current (04/2020, 07/2020, 11/2020, 05/2021 and 12/2023) attacks
 urls = make_list( urls,
+# 12/2023:
+"/laravel_web/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
 # 05/2021:
 "/mailgun-php/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
 # 11/2020:

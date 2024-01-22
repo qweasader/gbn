@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103037");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2023-10-27T16:11:32+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2011-01-20 13:02:23 +0100 (Thu, 20 Jan 2011)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -24,7 +24,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/45924");
   script_xref(name:"URL", value:"http://www.mediafire.com/?jej19gc93zjbiyu");
 
-  script_tag(name:"summary", value:"Golden FTP Server is prone to a denial-of-service vulnerability.");
+  script_tag(name:"summary", value:"Golden FTP Server is prone to a denial of service (DoS) vulnerability.");
 
   script_tag(name:"impact", value:"Exploits will cause the application to crash, denying service to
   legitimate users.");

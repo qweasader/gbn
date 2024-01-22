@@ -21,17 +21,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851786");
-  script_version("2021-06-28T02:00:39+0000");
-  script_tag(name:"last_modification", value:"2021-06-28 02:00:39 +0000 (Mon, 28 Jun 2021)");
+  script_version("2023-11-24T16:09:32+0000");
+  script_tag(name:"last_modification", value:"2023-11-24 16:09:32 +0000 (Fri, 24 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-06-16 05:50:00 +0200 (Sat, 16 Jun 2018)");
   script_cve_id("CVE-2018-2790", "CVE-2018-2794", "CVE-2018-2795", "CVE-2018-2796",
                 "CVE-2018-2797", "CVE-2018-2798", "CVE-2018-2799", "CVE-2018-2800",
                 "CVE-2018-2814", "CVE-2018-2815");
   script_tag(name:"cvss_base", value:"5.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:P/I:P/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-09-08 12:59:00 +0000 (Tue, 08 Sep 2020)");
+  script_tag(name:"severity_date", value:"2023-11-22 19:35:00 +0000 (Wed, 22 Nov 2023)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for java-1_7_0-openjdk (openSUSE-SU-2018:1710-1)");
 

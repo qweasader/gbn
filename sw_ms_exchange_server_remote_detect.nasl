@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111085");
-  script_version("2023-07-26T05:05:09+0000");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_version("2023-11-10T05:05:18+0000");
+  script_tag(name:"last_modification", value:"2023-11-10 05:05:18 +0000 (Fri, 10 Nov 2023)");
   script_tag(name:"creation_date", value:"2016-02-04 15:00:00 +0100 (Thu, 04 Feb 2016)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
-  script_name("Microsoft Exchange Server Remote Detection");
+  script_name("Microsoft Exchange Server Detection (SMTP/POP3/IMAP)");
   script_copyright("Copyright (C) 2016 SCHUTZWERK GmbH");
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
-  script_dependencies("smtpserver_detect.nasl", "popserver_detect.nasl", "imap4_banner.nasl");
+  script_dependencies("smtpserver_detect.nasl", "check_smtp_helo.nasl", "popserver_detect.nasl", "imap4_banner.nasl");
   script_require_ports("Services/smtp", 25, 465, 587, "Services/pop3", 110, 995, "Services/imap", 143, 993);
   script_mandatory_keys("pop3_imap_or_smtp/banner/available");
 
@@ -73,6 +73,7 @@ foreach port( ports ) {
     set_kb_item( name:"microsoft/exchange_server/smtp/detected", value:TRUE );
     set_kb_item( name:"microsoft/exchange_server/smtp/" + port + "/detected", value:TRUE );
     set_kb_item( name:"microsoft/exchange_server/detected", value:TRUE );
+    set_kb_item( name:"microsoft/exchange_server/remote/detected", value:TRUE );
 
     #cpe = build_cpe( value:version, exp:"^([0-9.]+)", base:"cpe:/a:microsoft:exchange_server:" );
     #if( isnull( cpe ) )
@@ -113,6 +114,7 @@ foreach port( ports ) {
     set_kb_item( name:"microsoft/exchange_server/imap/detected", value:TRUE );
     set_kb_item( name:"microsoft/exchange_server/imap/" + port + "/detected", value:TRUE );
     set_kb_item( name:"microsoft/exchange_server/detected", value:TRUE );
+    set_kb_item( name:"microsoft/exchange_server/remote/detected", value:TRUE );
 
     #cpe = build_cpe( value:version, exp:"^([0-9.]+)", base:"cpe:/a:microsoft:exchange_server:" );
     #if( isnull( cpe ) )
@@ -153,6 +155,7 @@ if( "Microsoft Windows POP3 Service Version" >< banner ||
   set_kb_item( name:"microsoft/exchange_server/pop3/detected", value:TRUE );
   set_kb_item( name:"microsoft/exchange_server/pop3/" + port + "/detected", value:TRUE );
   set_kb_item( name:"microsoft/exchange_server/detected", value:TRUE );
+  set_kb_item( name:"microsoft/exchange_server/remote/detected", value:TRUE );
 
   #cpe = build_cpe( value:version, exp:"^([0-9.]+)", base:"cpe:/a:microsoft:exchange_server:" );
   #if( isnull( cpe ) )

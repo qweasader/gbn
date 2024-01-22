@@ -9,8 +9,8 @@ CPE = "cpe:/a:puppet:enterprise";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106929");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2023-12-21T05:06:40+0000");
+  script_tag(name:"last_modification", value:"2023-12-21 05:06:40 +0000 (Thu, 21 Dec 2023)");
   script_tag(name:"creation_date", value:"2017-07-06 15:23:17 +0700 (Thu, 06 Jul 2017)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -24,13 +24,13 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Puppet Enterprise < 2016.4.5 / < 2017.2.1 Multiple Vulnerabilities");
+  script_name("Puppet Enterprise < 2016.4.5, 2016.5.x < 2017.2.1 Multiple Vulnerabilities");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("General");
-  script_dependencies("gb_puppet_enterprise_detect.nasl");
-  script_mandatory_keys("puppet_enterprise/installed");
+  script_dependencies("gb_puppet_enterprise_http_detect.nasl");
+  script_mandatory_keys("puppet_enterprise/detected");
 
   script_tag(name:"summary", value:"Puppet Enterprise is prone to multiple vulnerabilities.");
 
@@ -38,17 +38,18 @@ if (description)
 
   script_tag(name:"insight", value:"Puppet Enterprise is prone to multiple vulnerabilities:
 
-  - MCollective Remote Code Execution Via YAML Deserialization (CVE-2017-2292)
+  - CVE-2017-2292: MCollective remote code execution via YAML deserialization
 
-  - MCollective Server Allows Installing Arbitrary Packages On Agents (CVE-2017-2293)
+  - CVE-2017-2293: MCollective Server allows installing arbitrary packages on agents
 
-  - MCollective Private Keys Visible In PuppetDB (CVE-2017-2294)
+  - CVE-2017-2294: MCollective private keys visible in PuppetDB
 
-  - Puppet Server Remote Code Execution Via YAML Deserialization (CVE-2017-2295)
+  - CVE-2017-2295: Puppet Server remote code execution via YAML deserialization
 
-  - Incorrect Credential Management with RBAC Tokens (CVE-2017-2297)");
+  - CVE-2017-2297: Incorrect credential management with RBAC tokens");
 
-  script_tag(name:"affected", value:"Puppet Enterprise prior to 2016.4.5, 2016.5.x, 2017.1.x.");
+  script_tag(name:"affected", value:"Puppet Enterprise prior to 2016.4.5 and 2016.5.x prior to
+  2017.2.1.");
 
   script_tag(name:"solution", value:"Update to version 2016.4.5, 2017.2.1 or later.");
 
@@ -67,17 +68,20 @@ include("version_func.inc");
 if (!port = get_app_port(cpe: CPE))
   exit(0);
 
-if (!version = get_app_version(cpe: CPE, port: port))
+if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE))
   exit(0);
 
+version = infos["version"];
+location = infos["location"];
+
 if (version_is_less(version: version, test_version: "2016.4.5")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "2016.4.5");
+  report = report_fixed_ver(installed_version: version, fixed_version: "2016.4.5", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }
 
 if (version_in_range(version: version, test_version:"2016.5.0", test_version2: "2017.2.0")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "2017.2.1");
+  report = report_fixed_ver(installed_version: version, fixed_version: "2017.2.1", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }

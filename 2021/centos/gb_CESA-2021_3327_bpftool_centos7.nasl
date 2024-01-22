@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.883377");
-  script_version("2021-09-03T10:01:28+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2020-27777", "CVE-2021-22555", "CVE-2021-29154", "CVE-2021-29650", "CVE-2021-32399");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-09-03 10:01:28 +0000 (Fri, 03 Sep 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-12-22 17:18:00 +0000 (Tue, 22 Dec 2020)");
+  script_tag(name:"severity_date", value:"2021-06-23 02:15:00 +0000 (Wed, 23 Jun 2021)");
   script_tag(name:"creation_date", value:"2021-09-02 01:01:07 +0000 (Thu, 02 Sep 2021)");
   script_name("CentOS: Security Advisory for bpftool (CESA-2021:3327)");
   script_category(ACT_GATHER_INFO);

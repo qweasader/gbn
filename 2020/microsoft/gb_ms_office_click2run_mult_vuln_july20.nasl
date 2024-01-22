@@ -22,15 +22,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.817313");
-  script_version("2021-08-11T08:56:08+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2020-1449", "CVE-2020-1445", "CVE-2020-1342", "CVE-2020-1447",
                 "CVE-2020-1446", "CVE-2020-1458", "CVE-2020-1240", "CVE-2020-1349");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-08-11 08:56:08 +0000 (Wed, 11 Aug 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-07-24 13:44:00 +0000 (Fri, 24 Jul 2020)");
+  script_tag(name:"severity_date", value:"2020-07-22 16:05:00 +0000 (Wed, 22 Jul 2020)");
   script_tag(name:"creation_date", value:"2020-07-27 11:50:35 +0530 (Mon, 27 Jul 2020)");
   script_name("Microsoft Office 365 (2016 Click-to-Run) Multiple Vulnerabilities-July20");
 

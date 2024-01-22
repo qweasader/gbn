@@ -9,34 +9,50 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2015.145");
   script_cve_id("CVE-2014-0237", "CVE-2014-0238", "CVE-2014-2270", "CVE-2014-8117", "CVE-2014-9652");
   script_tag(name:"creation_date", value:"2023-03-08 12:56:44 +0000 (Wed, 08 Mar 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
 
-  script_name("Debian: Security Advisory (DLA-145)");
+  script_name("Debian: Security Advisory (DLA-145-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB6");
 
-  script_xref(name:"Advisory-ID", value:"DLA-145");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2015/dla-145-2");
+  script_xref(name:"Advisory-ID", value:"DLA-145-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2015/DLA-145-1");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'php5' package(s) announced via the DLA-145 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'php5' package(s) announced via the DLA-145-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
   script_tag(name:"insight", value:"Brief introduction
 
-The DLA-145-1 security update included a fix for PHP bug 68739 which was a null pointer dereference.
+CVE-2014-0237
 
-Unfortunately this fix broke cookie handling. For more details see the email.
+The cdf_unpack_summary_info function in cdf.c in the Fileinfo component in PHP before 5.4.29 and 5.5.x before 5.5.13 allows remote attackers to cause a denial of service (performance degradation) by triggering many file_printf calls.
 
-This patch has been removed to restore functionality.
+CVE-2014-0238
 
-For Debian 6 Squeeze, these issues have been fixed in php5 version 5.3.3-7+squeeze25");
+The cdf_read_property_info function in cdf.c in the Fileinfo component in PHP before 5.4.29 and 5.5.x before 5.5.13 allows remote attackers to cause a denial of service (infinite loop or out-of-bounds memory access) via a vector that (1) has zero length or (2) is too long.
+
+CVE-2014-2270
+
+softmagic.c in file before 5.17 and libmagic allows context dependent attackers to cause a denial of service (out-of-bounds memory access and crash) via crafted offsets in the softmagic of a PE executable.
+
+CVE-2014-8117
+
+Stop reporting bad capabilities after the first few.
+
+limit the number of program and section header number of sections
+
+limit recursion level
+
+CVE-2015-TEMP (no official CVE number available yet) null pointer deference (PHP bugs: 68739 68740) out-of-bounds memory access (file bug: 398) additional patches from CVE-2014-3478 added
+
+For Debian 6 Squeeze, these issues have been fixed in php5 version 5.3.3-7+squeeze24");
 
   script_tag(name:"affected", value:"'php5' package(s) on Debian 6.");
 

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.871858");
-  script_version("2023-07-14T05:06:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 05:06:08 +0000 (Fri, 14 Jul 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2017-08-04 12:48:01 +0530 (Fri, 04 Aug 2017)");
   script_cve_id("CVE-2016-10198", "CVE-2016-10199", "CVE-2016-9446", "CVE-2016-9810",
                 "CVE-2016-9811", "CVE-2017-5837", "CVE-2017-5838", "CVE-2017-5839",
@@ -16,9 +16,9 @@ if(description)
                 "CVE-2017-5844", "CVE-2017-5845", "CVE-2017-5848");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-01-05 02:30:00 +0000 (Fri, 05 Jan 2018)");
+  script_tag(name:"severity_date", value:"2020-11-20 18:59:00 +0000 (Fri, 20 Nov 2020)");
   script_tag(name:"qod_type", value:"package");
   script_name("RedHat Update for GStreamer RHSA-2017:2060-01");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'GStreamer'

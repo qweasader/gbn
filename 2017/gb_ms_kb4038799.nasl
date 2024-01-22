@@ -7,7 +7,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811823");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2023-11-03T05:05:46+0000");
   script_cve_id("CVE-2017-0161", "CVE-2017-8719", "CVE-2017-8720", "CVE-2017-8728",
                 "CVE-2017-8733", "CVE-2017-8675", "CVE-2017-8676", "CVE-2017-8737",
                 "CVE-2017-8741", "CVE-2017-8678", "CVE-2017-8679", "CVE-2017-8680",
@@ -18,10 +18,10 @@ if(description)
                 "CVE-2017-8677", "CVE-2017-8747");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-05-10 19:58:00 +0000 (Fri, 10 May 2019)");
+  script_tag(name:"severity_date", value:"2017-09-21 18:17:00 +0000 (Thu, 21 Sep 2017)");
   script_tag(name:"creation_date", value:"2017-09-13 12:55:59 +0530 (Wed, 13 Sep 2017)");
   script_name("Microsoft Windows Server 2012 Multiple Vulnerabilities (KB4038799)");
 

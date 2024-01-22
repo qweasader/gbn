@@ -8,7 +8,7 @@ CPE = "cpe:/a:oracle:database_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807034");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2023-11-03T05:05:46+0000");
   script_cve_id("CVE-2016-0472", "CVE-2016-0467", "CVE-2016-0461", "CVE-2016-0499",
                 "CVE-2015-4923", "CVE-2015-4921", "CVE-2015-4900", "CVE-2015-4888",
                 "CVE-2015-4873", "CVE-2015-4863", "CVE-2015-4796", "CVE-2015-4794",
@@ -16,7 +16,10 @@ if(description)
                 "CVE-2016-3609", "CVE-2016-3506", "CVE-2016-3489", "CVE-2016-3484");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2017-09-01 01:29:00 +0000 (Fri, 01 Sep 2017)");
   script_tag(name:"creation_date", value:"2016-01-22 13:02:26 +0530 (Fri, 22 Jan 2016)");
   script_name("Oracle Database Server Multiple Unspecified Vulnerabilities -01 Jan16");
 

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100532");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2023-12-20T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2010-03-15 19:33:39 +0100 (Mon, 15 Mar 2010)");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:C");
@@ -22,12 +22,12 @@ if(description)
   script_category(ACT_DENIAL);
   script_family("FTP");
   script_copyright("Copyright (C) 2010 Greenbone AG");
-  script_dependencies("ftpserver_detect_type_nd_version.nasl", "os_detection.nasl");
+  script_dependencies("ftpserver_detect_type_nd_version.nasl", "os_detection.nasl", "logins.nasl");
   script_require_ports("Services/ftp", 21);
   script_mandatory_keys("Host/runs_unixoide", "ftp/banner/available");
 
-  script_tag(name:"summary", value:"The FreeBSD and OpenBSD 'ftpd' service is prone to a denial-of-service
-  vulnerability because of a NULL-pointer dereference.");
+  script_tag(name:"summary", value:"The FreeBSD and OpenBSD 'ftpd' service is prone to a denial of
+  service (DoS) vulnerability because of a NULL-pointer dereference.");
 
   script_tag(name:"impact", value:"Successful exploits may allow remote attackers to cause denial-of-
   service conditions. Given the nature of this issue, attackers may also

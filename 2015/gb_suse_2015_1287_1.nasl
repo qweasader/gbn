@@ -21,7 +21,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.850665");
-  script_version("2022-07-05T11:37:00+0000");
+  script_version("2023-11-02T05:05:26+0000");
   script_cve_id("CVE-2015-1270", "CVE-2015-1271", "CVE-2015-1272", "CVE-2015-1273",
                 "CVE-2015-1274", "CVE-2015-1275", "CVE-2015-1276", "CVE-2015-1277",
                 "CVE-2015-1278", "CVE-2015-1279", "CVE-2015-1280", "CVE-2015-1281",
@@ -30,7 +30,10 @@ if(description)
                 "CVE-2015-5605");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-07-05 11:37:00 +0000 (Tue, 05 Jul 2022)");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2018-10-30 16:27:00 +0000 (Tue, 30 Oct 2018)");
   script_tag(name:"creation_date", value:"2015-08-11 11:55:23 +0530 (Tue, 11 Aug 2015)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for Chromium (openSUSE-SU-2015:1287-1)");

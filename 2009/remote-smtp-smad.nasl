@@ -9,34 +9,38 @@ CPE = "cpe:/a:sendmail:sendmail";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.80102");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-01-10T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
   script_tag(name:"creation_date", value:"2009-03-14 11:48:12 +0100 (Sat, 14 Mar 2009)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_copyright("Copyright (C) 2009 Vlatko Kosturjak");
-  script_name("Sendmail smad Vulnerability");
+  script_name("Sendmail 'smad' Vulnerability");
   script_category(ACT_DENIAL);
   script_family("Denial of Service");
-  script_dependencies("gb_sendmail_detect.nasl", "global_settings.nasl", "os_detection.nasl");
-  script_mandatory_keys("sendmail/detected", "Host/runs_unixoide");
+  script_dependencies("gb_sendmail_smtp_detect.nasl", "global_settings.nasl", "os_detection.nasl");
+  script_mandatory_keys("sendmail/smtp/detected", "Host/runs_unixoide");
   script_require_ports("Services/smtp", 25, 465, 587);
   script_exclude_keys("keys/TARGET_IS_IPV6");
 
   script_xref(name:"URL", value:"https://seclists.org/bugtraq/1998/Nov/28");
   script_xref(name:"URL", value:"https://www.exploit-db.com/exploits/19282");
 
+  script_tag(name:"summary", value:"The remote host is subject to the 'smad' (sendmail accept dos)
+  attack.");
+
+  script_tag(name:"vuldetect", value:"Sends multiple crafted TCP packets and checks if the service
+  is still reachable afterwards.");
+
+  script_tag(name:"insight", value:"Smad prevents Sendmail from accepting legitimate connections.
+
+  An attacker may use this flaw to prevent you from receiving any email, thus lowering the interest
+  of being connected to internet. This attack is specific to some versions of the Linux kernel.
+  There are various security bugs in the implementation of this service which can be used by an
+  intruder to gain a root account rather easily.");
+
   script_tag(name:"solution", value:"Upgrade your Linux kernel to a newer version
   or filter incoming traffic to this port.");
-
-  script_tag(name:"summary", value:"The remote host is subject to the
-  'smad' attack(sendmail accept dos).");
-
-  script_tag(name:"insight", value:"Smad prevents sendmail from accepting legitimate connections.
-  An attacker may use this flaw to prevent you from receiving any email, thus lowering the
-  interest of being connected to internet. This attack is specific to some versions of the
-  Linux kernel. There are various security bugs in the implementation of this service
-  which can be used by an intruder to gain a root account rather easily.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_analysis");

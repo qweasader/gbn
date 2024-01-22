@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 
-CPE_PREFIX = "cpe:/o:d-link";
+CPE_PREFIX = "cpe:/o:dlink";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.143216");
-  script_version("2023-04-18T10:19:20+0000");
-  script_tag(name:"last_modification", value:"2023-04-18 10:19:20 +0000 (Tue, 18 Apr 2023)");
+  script_version("2023-11-21T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
   script_tag(name:"creation_date", value:"2019-12-03 07:30:17 +0000 (Tue, 03 Dec 2019)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");

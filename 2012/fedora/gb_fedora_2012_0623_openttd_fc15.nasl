@@ -8,12 +8,15 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2012-January/072515.html");
   script_oid("1.3.6.1.4.1.25623.1.0.863711");
-  script_version("2023-06-23T16:09:17+0000");
-  script_tag(name:"last_modification", value:"2023-06-23 16:09:17 +0000 (Fri, 23 Jun 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2012-02-01 11:34:29 +0530 (Wed, 01 Feb 2012)");
   script_cve_id("CVE-2012-0049", "CVE-2011-3341", "CVE-2011-3342", "CVE-2011-3343");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2019-11-09 22:15:00 +0000 (Sat, 09 Nov 2019)");
   script_xref(name:"FEDORA", value:"2012-0623");
   script_name("Fedora Update for openttd FEDORA-2012-0623");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'openttd'

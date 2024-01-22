@@ -9,27 +9,27 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2023.3513");
   script_cve_id("CVE-2023-25433", "CVE-2023-26965", "CVE-2023-26966", "CVE-2023-2908", "CVE-2023-3316", "CVE-2023-3618", "CVE-2023-38288", "CVE-2023-38289", "CVE-2023-40745", "CVE-2023-41175");
   script_tag(name:"creation_date", value:"2023-08-01 04:25:26 +0000 (Tue, 01 Aug 2023)");
-  script_version("2023-10-12T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_version("2024-01-12T16:12:12+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-10-10 14:52:00 +0000 (Tue, 10 Oct 2023)");
 
-  script_name("Debian: Security Advisory (DLA-3513)");
+  script_name("Debian: Security Advisory (DLA-3513-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB10");
 
-  script_xref(name:"Advisory-ID", value:"DLA-3513");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/dla-3513");
+  script_xref(name:"Advisory-ID", value:"DLA-3513-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2023/DLA-3513-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/tiff");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'tiff' package(s) announced via the DLA-3513 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'tiff' package(s) announced via the DLA-3513-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

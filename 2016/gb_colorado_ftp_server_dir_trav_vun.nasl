@@ -9,10 +9,10 @@ CPE = "cpe:/a:colorado:coloradoftpserver";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807877");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2016-08-17 16:19:22 +0530 (Wed, 17 Aug 2016)");
   script_name("ColoradoFTP Server Directory Traversal Vulnerability");
 
@@ -43,10 +43,10 @@ if(description)
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("FTP");
-  script_dependencies("gb_colorado_ftp_server_detect.nasl");
+  script_dependencies("gb_colorado_ftp_server_detect.nasl", "logins.nasl");
   script_mandatory_keys("ColoradoFTP/Server/installed");
   script_require_ports("Services/ftp", 21);
-  script_xref(name:"URL", value:"http://cftp.coldcore.com");
+
   exit(0);
 }
 

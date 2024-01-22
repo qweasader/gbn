@@ -9,7 +9,7 @@ CPE = "cpe:/a:adobe:acrobat_dc_classic";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.817930");
-  script_version("2023-09-20T05:05:13+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2021-21046", "CVE-2021-21017", "CVE-2021-21037", "CVE-2021-21036",
@@ -22,10 +22,10 @@ if(description)
                 "CVE-2021-21088");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-09-20 05:05:13 +0000 (Wed, 20 Sep 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:C/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-02-14 00:59:00 +0000 (Sun, 14 Feb 2021)");
+  script_tag(name:"severity_date", value:"2021-06-11 18:15:00 +0000 (Fri, 11 Jun 2021)");
   script_tag(name:"creation_date", value:"2021-02-11 10:38:28 +0530 (Thu, 11 Feb 2021)");
   script_name("Adobe Acrobat Classic 2020 Security Update (APSB21-09) - Windows");
 

@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108682");
-  script_version("2023-06-22T10:34:15+0000");
+  script_version("2023-11-21T05:05:52+0000");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
   script_tag(name:"creation_date", value:"2019-10-22 08:02:28 +0000 (Tue, 22 Oct 2019)");
   script_name("Operating System (OS) Detection (PPTP)");
   script_category(ACT_GATHER_INFO);
@@ -101,7 +101,7 @@ else if( "ZyXEL" >< vendor ) {
 
 # Vendor: D-Link
 else if( "D-Link" >< vendor ) {
-  os_register_and_report( os:"D-Link Unknown Router Firmware", cpe:"cpe:/o:d-link:unknown_router_firmware", banner_type:BANNER_TYPE, banner:vendor, port:port, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  os_register_and_report( os:"D-Link Unknown Router Firmware", cpe:"cpe:/o:dlink:unknown_router_firmware", banner_type:BANNER_TYPE, banner:vendor, port:port, desc:SCRIPT_DESC, runs_key:"unixoide" );
 }
 
 # Vendor: Aruba

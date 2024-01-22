@@ -7,13 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.871775");
-  script_version("2023-07-14T05:06:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 05:06:08 +0000 (Fri, 14 Jul 2023)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2017-03-20 05:48:30 +0100 (Mon, 20 Mar 2017)");
   script_cve_id("CVE-2016-5139", "CVE-2016-5158", "CVE-2016-5159", "CVE-2016-7163",
                 "CVE-2016-9675", "CVE-2013-6045");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-09-09 19:56:00 +0000 (Wed, 09 Sep 2020)");
   script_tag(name:"qod_type", value:"package");
   script_name("RedHat Update for openjpeg RHSA-2017:0559-01");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'openjpeg'

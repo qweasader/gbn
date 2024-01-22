@@ -21,7 +21,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.814887");
-  script_version("2022-10-04T10:10:56+0000");
+  script_version("2023-10-27T16:11:32+0000");
   script_cve_id("CVE-2019-8635", "CVE-2019-8640", "CVE-2019-2102", "CVE-2019-8585",
                 "CVE-2019-8582", "CVE-2019-8589", "CVE-2019-8634", "CVE-2019-8616",
                 "CVE-2019-8576", "CVE-2019-8573", "CVE-2019-8631", "CVE-2018-12126",
@@ -35,10 +35,10 @@ if(description)
                 "CVE-2019-8623", "CVE-2019-8628");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-10-04 10:10:56 +0000 (Tue, 04 Oct 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-09-12 04:15:00 +0000 (Thu, 12 Sep 2019)");
+  script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
   script_tag(name:"creation_date", value:"2019-05-14 10:43:07 +0530 (Tue, 14 May 2019)");
   script_name("Apple MacOSX Security Updates (HT210119) - 01");
 

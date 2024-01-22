@@ -7,13 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103701");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2023-11-02T05:05:26+0000");
   script_cve_id("CVE-1999-0077", "CVE-2000-0328", "CVE-2000-0916", "CVE-2001-0162", "CVE-2001-0288",
                 "CVE-2001-0328", "CVE-2002-1463", "CVE-2003-1230", "CVE-2004-0641", "CVE-2007-2782",
                 "CVE-2015-3963", "CVE-2018-7356");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2019-10-09 23:42:00 +0000 (Wed, 09 Oct 2019)");
   script_tag(name:"creation_date", value:"2013-04-22 11:14:29 +0200 (Mon, 22 Apr 2013)");
   script_name("TCP/IP Predictable TCP Initial Sequence Number Vulnerability");
   script_category(ACT_GATHER_INFO);

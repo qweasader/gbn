@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103040");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2023-10-31T05:06:37+0000");
+  script_tag(name:"last_modification", value:"2023-10-31 05:06:37 +0000 (Tue, 31 Oct 2023)");
   script_tag(name:"creation_date", value:"2011-01-24 13:11:38 +0100 (Mon, 24 Jan 2011)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -16,13 +16,13 @@ if(description)
   script_category(ACT_MIXED_ATTACK);
   script_family("SMTP problems");
   script_copyright("Copyright (C) 2011 Greenbone AG");
-  script_dependencies("smtpserver_detect.nasl");
+  script_dependencies("smtpserver_detect.nasl", "check_smtp_helo.nasl");
   script_require_ports("Services/smtp", 25);
   script_mandatory_keys("smtp/inetserver/detected");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/45960");
 
-  script_tag(name:"summary", value:"InetServ is prone to a denial-of-service vulnerability.");
+  script_tag(name:"summary", value:"InetServ is prone to a denial of service (DoS) vulnerability.");
 
   script_tag(name:"impact", value:"Exploiting this issue may allow attackers to cause the application to
   crash, resulting in denial-of-service conditions.");

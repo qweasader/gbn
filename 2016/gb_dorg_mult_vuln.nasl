@@ -9,12 +9,12 @@ CPE = "cpe:/a:dorg:dorg";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806697");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2023-10-27T05:05:28+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"creation_date", value:"2016-04-06 16:25:02 +0530 (Wed, 06 Apr 2016)");
-  script_tag(name:"qod_type", value:"remote_app");
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_name("Disc Organization System (DORG) Multiple Vulnerabilities");
 
   script_tag(name:"summary", value:"Disc Organization System (DORG) is prone to multiple vulnerabilities.");

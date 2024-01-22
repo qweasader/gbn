@@ -1,28 +1,14 @@
-# Copyright (C) 2017 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2017 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140239");
-  script_version("2023-03-08T10:19:59+0000");
-  script_tag(name:"last_modification", value:"2023-03-08 10:19:59 +0000 (Wed, 08 Mar 2023)");
+  script_version("2023-12-20T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2017-04-07 16:08:03 +0200 (Fri, 07 Apr 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -39,7 +25,7 @@ if(description)
 
   script_category(ACT_ATTACK);
   script_family("Default Accounts");
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_dependencies("ssh_detect.nasl", "gb_default_credentials_options.nasl");
   script_require_ports("Services/ssh", 22);
   script_mandatory_keys("ssh/server_banner/available");
@@ -85,10 +71,12 @@ if( defined_func( "ssh_login_interactive" ) &&
   if( ssh_dont_try_login( port:port ) )
     exit( 0 );
 
-  if( ! soc = open_sock_tcp( port ) )
+  # nb: No need to continue/start if we haven't received any banner...
+  if( ! ssh_get_serverbanner( port:port ) )
     exit( 0 );
 
-  user = "Fortimanager_Access";
+  if( ! soc = open_sock_tcp( port ) )
+    exit( 0 );
 
   auth = get_kb_item( "SSH/supportedauth/" + port );
   if( auth =~ "^publickey$" )
@@ -96,6 +84,8 @@ if( defined_func( "ssh_login_interactive" ) &&
 
   if( ! sess = ssh_connect( socket:soc ) )
     exit( 0 );
+
+  user = "Fortimanager_Access";
 
   prompt = ssh_login_interactive( sess, login:user );
 
@@ -120,6 +110,7 @@ if( defined_func( "ssh_login_interactive" ) &&
   login = ssh_login_interactive_pass( sess, password:pass1 );
 
   if( login == 0 ) {
+
     buf = ssh_request_exec( sess, cmd:"get system status" );
 
     if( "Version:" >< buf && "Forti" >< buf ) {

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113634");
-  script_version("2023-10-03T05:05:26+0000");
-  script_tag(name:"last_modification", value:"2023-10-03 05:05:26 +0000 (Tue, 03 Oct 2023)");
+  script_version("2023-12-22T05:05:24+0000");
+  script_tag(name:"last_modification", value:"2023-12-22 05:05:24 +0000 (Fri, 22 Dec 2023)");
   script_tag(name:"creation_date", value:"2020-01-27 10:34:33 +0100 (Mon, 27 Jan 2020)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -72,8 +72,7 @@ foreach readme_file( keys( wordpress_plugins_info ) ) {
   url = dir + "/wp-content/plugins/" + readme_file;
   res = http_get_cache( port: port, item: url );
 
-  if( ( concl = egrep( pattern: detect_regex, string: res, icase: TRUE ) ) && ( res =~ "Change( ){0,1}log" || res =~ "Tested up to: ([0-9.]+)" || res =~ "\* (Added|Fixed): " ) ) {
-
+  if( ( concl = egrep( pattern: detect_regex, string: res, icase: TRUE ) ) && ( res =~ "Change( ){0,1}log" || res =~ "Tested up to: ([0-9.]+)" || res =~ "\* (Add|Fix)(ed)?: " ) ) {
     version = "unknown";
     # nb: Minor formatting change for the reporting.
     concl = chomp( concl );
@@ -94,9 +93,14 @@ foreach readme_file( keys( wordpress_plugins_info ) ) {
     kb_entry_name = ereg_replace( pattern: "/(readme|changelog)\.(md|txt)", string: readme_file, replace: "", icase: TRUE );
     insloc = ereg_replace( pattern: "/(readme|changelog)\.(md|txt)", string: url, replace: "", icase: TRUE );
 
+    #nb: The Premium Starter Templates plugin changes slug through years
+    if( kb_entry_name == "astra-premium-sites")
+      kb_entry_name = "astra-pro-sites";
+
     # nb: Usually only the one without the "/http/" should be used for version checks.
     set_kb_item( name: "wordpress/plugin/" + kb_entry_name + "/detected", value: TRUE );
     set_kb_item( name: "wordpress/plugin/http/" + kb_entry_name + "/detected", value: TRUE );
+
     # nb: Some generic KB keys if we ever need to run this if multiple plugins have been detected.
     set_kb_item( name: "wordpress/plugin/detected", value: TRUE );
     set_kb_item( name: "wordpress/plugin/http/detected", value: TRUE );

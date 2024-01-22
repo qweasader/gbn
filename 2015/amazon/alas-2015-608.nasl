@@ -23,10 +23,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.120598");
   script_cve_id("CVE-2015-7181", "CVE-2015-7182", "CVE-2015-7183");
   script_tag(name:"creation_date", value:"2015-11-08 11:11:00 +0000 (Sun, 08 Nov 2015)");
-  script_version("2022-01-06T14:03:07+0000");
-  script_tag(name:"last_modification", value:"2022-01-06 14:03:07 +0000 (Thu, 06 Jan 2022)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2017-11-04 01:29:00 +0000 (Sat, 04 Nov 2017)");
 
   script_name("Amazon Linux: Security Advisory (ALAS-2015-608)");
   script_category(ACT_GATHER_INFO);

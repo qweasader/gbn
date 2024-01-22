@@ -8,11 +8,14 @@ if(description)
 {
   script_xref(name:"URL", value:"https://www.redhat.com/archives/rhsa-announce/2011-January/msg00006.html");
   script_oid("1.3.6.1.4.1.25623.1.0.870378");
-  script_version("2023-07-14T05:06:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 05:06:08 +0000 (Fri, 14 Jul 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2011-01-14 16:07:43 +0100 (Fri, 14 Jan 2011)");
   script_tag(name:"cvss_base", value:"7.9");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:M/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-08-14 16:35:00 +0000 (Fri, 14 Aug 2020)");
   script_xref(name:"RHSA", value:"2011:0017-01");
   script_cve_id("CVE-2010-3296", "CVE-2010-3877", "CVE-2010-4072", "CVE-2010-4073", "CVE-2010-4075", "CVE-2010-4080", "CVE-2010-4081", "CVE-2010-4158", "CVE-2010-4238", "CVE-2010-4243", "CVE-2010-4255", "CVE-2010-4263", "CVE-2010-4343", "CVE-2010-4258");
   script_name("RedHat Update for Red Hat Enterprise Linux 5.6 kernel RHSA-2011:0017-01");

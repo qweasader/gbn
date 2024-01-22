@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107307");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2023-12-01T16:11:30+0000");
+  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"creation_date", value:"2018-05-07 12:00:20 +0200 (Mon, 07 May 2018)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_tag(name:"cvss_base", value:"5.0");
@@ -18,7 +18,7 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "sw_magento_detect.nasl",
                       "gb_wordpress_http_detect.nasl", "osticket_http_detect.nasl", "gb_dotnetnuke_http_detect.nasl",
-                      "secpod_tikiwiki_detect.nasl", "gb_nuxeo_platform_detect.nasl", "gb_owncloud_detect.nasl",
+                      "secpod_tikiwiki_detect.nasl", "gb_nuxeo_platform_detect.nasl", "gb_owncloud_http_detect.nasl",
                       "gb_dolibarr_http_detect.nasl", "gb_atlassian_jira_http_detect.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");

@@ -7,7 +7,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813191");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2023-11-03T05:05:46+0000");
   script_cve_id("CVE-2014-4860", "CVE-2015-0235", "CVE-2015-0273", "CVE-2015-5924",
                 "CVE-2015-5925", "CVE-2015-5926", "CVE-2015-5927", "CVE-2015-5933",
                 "CVE-2015-5934", "CVE-2015-5936", "CVE-2015-5937", "CVE-2015-5939",
@@ -19,7 +19,10 @@ if(description)
                 "CVE-2015-7018", "CVE-2015-7024");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2021-05-04 18:15:00 +0000 (Tue, 04 May 2021)");
   script_tag(name:"creation_date", value:"2018-05-15 15:17:32 +0530 (Tue, 15 May 2018)");
   script_name("Apple Mac OS X Multiple Vulnerabilities-01 (HT205375)");
 

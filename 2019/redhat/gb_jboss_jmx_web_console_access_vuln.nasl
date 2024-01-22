@@ -9,8 +9,8 @@ CPE = "cpe:/a:redhat:jboss_application_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.142595");
-  script_version("2023-09-06T05:05:19+0000");
-  script_tag(name:"last_modification", value:"2023-09-06 05:05:19 +0000 (Wed, 06 Sep 2023)");
+  script_version("2024-01-09T05:06:46+0000");
+  script_tag(name:"last_modification", value:"2024-01-09 05:06:46 +0000 (Tue, 09 Jan 2024)");
   script_tag(name:"creation_date", value:"2019-07-12 06:01:03 +0000 (Fri, 12 Jul 2019)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -75,7 +75,7 @@ if (dir == "/")
 url = dir + "/web-console/ServerInfo.jsp";
 
 if (http_vuln_check(port: port, url: url, check_header: TRUE, extra_check: "Management Console",
-                    pattern: "<title>JBoss Management Console - Server Information</title>")) {
+                    pattern: "<title>JBoss Management Console - Server Information</title>", usecache: TRUE)) {
   report = "It was possible to access the JBoss Web Console at " +
            http_report_vuln_url(port: port, url: url, url_only: TRUE);
 }
@@ -83,7 +83,7 @@ if (http_vuln_check(port: port, url: url, check_header: TRUE, extra_check: "Mana
 url = dir + "/jmx-console/";
 
 if (http_vuln_check(port: port, url: url, pattern: "<title>JBoss JMX Management Console",
-                    check_header: TRUE)) {
+                    check_header: TRUE, usecache: TRUE)) {
   if (report)
     report += '\n\n';
   report += "It was possible to access the JBoss JMX Management Console at " +

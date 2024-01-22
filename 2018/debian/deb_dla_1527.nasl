@@ -9,32 +9,34 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.891527");
   script_cve_id("CVE-2018-16543", "CVE-2018-17183");
   script_tag(name:"creation_date", value:"2018-09-30 22:00:00 +0000 (Sun, 30 Sep 2018)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
 
-  script_name("Debian: Security Advisory (DLA-1527)");
+  script_name("Debian: Security Advisory (DLA-1527-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB8");
 
-  script_xref(name:"Advisory-ID", value:"DLA-1527");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2018/dla-1527-2");
+  script_xref(name:"Advisory-ID", value:"DLA-1527-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2018/DLA-1527-1");
   script_xref(name:"URL", value:"https://wiki.debian.org/LTS");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'ghostscript' package(s) announced via the DLA-1527 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'ghostscript' package(s) announced via the DLA-1527-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"Berkeley Roshan Churchill reported a regression for the recent security update for ghostscript, announced as DLA-1527-1, caused by an incomplete fix for CVE-2018-16543. The pdf2ps tool failed to produce any output and aborted with /rangecheck in .installpagedevice error.
+  script_tag(name:"insight", value:"Tavis Ormandy discovered multiple vulnerabilities in Ghostscript, an interpreter for the PostScript language, which could result in denial of service, the creation of files or the execution of arbitrary code if a malformed Postscript file is processed (despite the dSAFER sandbox being enabled).
 
-For Debian 8 Jessie, this problem has been fixed in version 9.06~dfsg-2+deb8u10.
+In addition this update changes the device to txtwrite for the ps2ascii tool to prevent an error due to the fix for CVE-2018-17183.
+
+For Debian 8 Jessie, these problems have been fixed in version 9.06~dfsg-2+deb8u9.
 
 We recommend that you upgrade your ghostscript packages.
 

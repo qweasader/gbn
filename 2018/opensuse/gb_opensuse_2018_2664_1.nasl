@@ -21,8 +21,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851883");
-  script_version("2021-06-25T11:00:33+0000");
-  script_tag(name:"last_modification", value:"2021-06-25 11:00:33 +0000 (Fri, 25 Jun 2021)");
+  script_version("2023-11-03T16:10:08+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2018-09-09 07:06:26 +0200 (Sun, 09 Sep 2018)");
   script_cve_id("CVE-2017-15430", "CVE-2018-16065", "CVE-2018-16066", "CVE-2018-16067",
                 "CVE-2018-16068", "CVE-2018-16069", "CVE-2018-16070", "CVE-2018-16071",
@@ -32,9 +32,9 @@ if(description)
                 "CVE-2018-16085", "CVE-2018-16086", "CVE-2018-16087", "CVE-2018-16088");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-01-16 14:00:00 +0000 (Wed, 16 Jan 2019)");
+  script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for chromium (openSUSE-SU-2018:2664-1)");
 

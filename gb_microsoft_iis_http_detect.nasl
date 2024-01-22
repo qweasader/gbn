@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900710");
-  script_version("2023-10-10T05:05:41+0000");
-  script_tag(name:"last_modification", value:"2023-10-10 05:05:41 +0000 (Tue, 10 Oct 2023)");
+  script_version("2023-12-14T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2023-12-14 05:05:32 +0000 (Thu, 14 Dec 2023)");
   script_tag(name:"creation_date", value:"2009-05-20 10:26:22 +0200 (Wed, 20 May 2009)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -22,7 +22,8 @@ if(description)
   # nb: Don't add a IIS/banner script_mandatory_keys because the VT is also doing a detection based
   # on redirects.
 
-  script_tag(name:"summary", value:"HTTP based detection of Microsoft Internet Information Services (IIS).");
+  script_tag(name:"summary", value:"HTTP based detection of Microsoft Internet Information Services
+  (IIS) and the underlying Microsoft Windows operating system version.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -33,6 +34,7 @@ include("http_func.inc");
 include("port_service_func.inc");
 include("cpe.inc");
 include("host_details.inc");
+include("os_func.inc");
 
 port = http_get_port( default:80 );
 
@@ -99,7 +101,7 @@ if( detected ) {
   set_kb_item( name:"microsoft/iis/detected", value:TRUE );
   set_kb_item( name:"microsoft/iis/http/detected", value:TRUE );
 
-  # nb: To tell http_can_host_asp and http_can_host_php from http_func.inc that the service support these
+  # nb: To tell http_can_host_asp and http_can_host_php from http_func.inc that the service is supporting these.
   replace_kb_item( name:"www/" + port + "/can_host_php", value:"yes" );
   replace_kb_item( name:"www/" + port + "/can_host_asp", value:"yes" );
 
@@ -114,7 +116,91 @@ if( detected ) {
                                             cpe:cpe,
                                             concludedUrl:concl_url,
                                             concluded:concluded ),
-                                            port:port );
+               port:port );
+
+  # nb:
+  # - Based on https://en.wikipedia.org/wiki/Internet_Information_Services#History
+  # - Some IIS versions are shipped with two or more OS variants so registering all here
+  # - IMPORTANT: Before registering two or more OS make sure that all OS variants have reached their
+  #   EOL as we currently can't control / prioritize which of the registered OS is chosen for the
+  #   "BestOS" and we would e.g. report a Server 2012 as EOL if Windows 8 was chosen
+  # - The "keep" is used below to mark the ones with OS variants matching the important note above
+  #   which shouldn't be registered yet
+
+  banner_type = "Microsoft IIS HTTP Server banner";
+  SCRIPT_DESC = "Microsoft Internet Information Services (IIS) Detection (HTTP)";
+
+  if( version != "unknown" ) {
+
+    if( version == "10.0" ) {
+      # keep: os_register_and_report( os:"Microsoft Windows Server 2016", cpe:"cpe:/o:microsoft:windows_server_2016", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+      # keep: os_register_and_report( os:"Microsoft Windows 10", cpe:"cpe:/o:microsoft:windows_10", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+      os_register_and_report( os:"Microsoft Windows Server 2016 or Microsoft Windows 10", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+    }
+
+    else if( version == "8.5" ) {
+      # keep: os_register_and_report( os:"Microsoft Windows Server 2012 R2", cpe:"cpe:/o:microsoft:windows_server_2012:r2", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+      # keep: os_register_and_report( os:"Microsoft Windows 8.1", cpe:"cpe:/o:microsoft:windows_8.1", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+      os_register_and_report( os:"Microsoft Windows Server 2012 R2 or Microsoft Windows 8.1", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+    }
+
+    else if( version == "8.0" ) {
+      # keep: os_register_and_report( os:"Microsoft Windows Server 2012", cpe:"cpe:/o:microsoft:windows_server_2012", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+      # keep: os_register_and_report( os:"Microsoft Windows 8", cpe:"cpe:/o:microsoft:windows_8", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+      os_register_and_report( os:"Microsoft Windows Server 2012 or Microsoft Windows 8", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+    }
+
+    else if( version == "7.5" ) {
+      # keep: os_register_and_report( os:"Microsoft Windows Server 2008 R2", cpe:"cpe:/o:microsoft:windows_server_2008:r2", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+      # keep: os_register_and_report( os:"Microsoft Windows 7", cpe:"cpe:/o:microsoft:windows_7", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+      os_register_and_report( os:"Microsoft Windows Server 2008 R2 or Microsoft Windows 7", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+    }
+
+    else if( version == "7.0" ) {
+      # keep: os_register_and_report( os:"Microsoft Windows Server 2008", cpe:"cpe:/o:microsoft:windows_server_2008", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+      # keep: os_register_and_report( os:"Microsoft Windows Vista", cpe:"cpe:/o:microsoft:windows_vista", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+      os_register_and_report( os:"Microsoft Windows Server 2008 or Microsoft Windows Vista", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+    }
+
+    else if( version == "6.0" ) {
+      os_register_and_report( os:"Microsoft Windows Server 2003 R2", cpe:"cpe:/o:microsoft:windows_server_2003:r2", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+      os_register_and_report( os:"Microsoft Windows Server 2003", cpe:"cpe:/o:microsoft:windows_server_2003", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+      os_register_and_report( os:"Microsoft Windows XP Professional x64", cpe:"cpe:/o:microsoft:windows_xp:-:-:x64", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+    }
+
+    else if( version == "5.1" ) {
+      os_register_and_report( os:"Microsoft Windows XP Professional", cpe:"cpe:/o:microsoft:windows_xp", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+    }
+
+    else if( version == "5.0" ) {
+      os_register_and_report( os:"Microsoft Windows 2000", cpe:"cpe:/o:microsoft:windows_2000", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+    }
+
+    else if( version == "4.0" ) {
+      os_register_and_report( os:"Microsoft Windows NT 4.0 Option Pack", cpe:"cpe:/o:microsoft:windows_nt:4.0", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+    }
+
+    else if( version == "3.0" ) {
+      os_register_and_report( os:"Microsoft Windows NT 4.0 SP2", cpe:"cpe:/o:microsoft:windows_nt:4.0:sp2", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+    }
+
+    else if( version == "2.0" ) {
+      os_register_and_report( os:"Microsoft Windows NT", version:"4.0", cpe:"cpe:/o:microsoft:windows_nt", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+    }
+
+    else if( version == "1.0" ) {
+      os_register_and_report( os:"Microsoft Windows NT", version:"3.51", cpe:"cpe:/o:microsoft:windows_nt", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+    }
+
+    else {
+      os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+      # nb: We also want to report an unknown OS if none of the above patterns for Windows is matching
+      os_register_unknown_banner( banner:concluded, banner_type_name:banner_type, banner_type_short:"iis_http_banner", port:port );
+    }
+  } else {
+    os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:concluded, desc:SCRIPT_DESC, runs_key:"windows" );
+    # nb: Here we don't want to report an unknown OS as the version wasn't extracted...
+  }
 }
 
 exit( 0 );

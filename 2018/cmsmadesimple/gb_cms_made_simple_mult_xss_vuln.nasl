@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113132");
-  script_version("2023-05-12T10:50:26+0000");
-  script_tag(name:"last_modification", value:"2023-05-12 10:50:26 +0000 (Fri, 12 May 2023)");
+  script_version("2023-10-24T05:06:28+0000");
+  script_tag(name:"last_modification", value:"2023-10-24 05:06:28 +0000 (Tue, 24 Oct 2023)");
   script_tag(name:"creation_date", value:"2018-03-14 10:38:33 +0100 (Wed, 14 Mar 2018)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
@@ -22,7 +22,7 @@ if( description )
 
   script_cve_id("CVE-2018-7893", "CVE-2018-8058");
 
-  script_name("CMS Made Simple 2.2.6 Multiple Stored XSS VUlnerabilities");
+  script_name("CMS Made Simple <= 2.2.6 Multiple Stored XSS Vulnerabilities");
 
   script_category(ACT_GATHER_INFO);
 
@@ -31,7 +31,8 @@ if( description )
   script_dependencies("gb_cms_made_simple_http_detect.nasl");
   script_mandatory_keys("cmsmadesimple/detected");
 
-  script_tag(name:"summary", value:"CMS Made Simple is prone to multiple stored XSS vulnerabilities.");
+  script_tag(name:"summary", value:"CMS Made Simple is prone to multiple stored cross-site scripting
+  (XSS) vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
 

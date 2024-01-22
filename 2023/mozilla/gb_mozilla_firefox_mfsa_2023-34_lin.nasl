@@ -9,10 +9,10 @@ CPE = "cpe:/a:mozilla:firefox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.2.1.2023.34");
-  script_cve_id("CVE-2023-4573", "CVE-2023-4574", "CVE-2023-4575", "CVE-2023-4577", "CVE-2023-4578", "CVE-2023-4579", "CVE-2023-4580", "CVE-2023-4581", "CVE-2023-4583", "CVE-2023-4584", "CVE-2023-4585");
+  script_cve_id("CVE-2023-4573", "CVE-2023-4574", "CVE-2023-4575", "CVE-2023-4577", "CVE-2023-4578", "CVE-2023-4579", "CVE-2023-4580", "CVE-2023-4581", "CVE-2023-4583", "CVE-2023-4584", "CVE-2023-4585", "CVE-2023-5732");
   script_tag(name:"creation_date", value:"2023-09-04 10:11:56 +0000 (Mon, 04 Sep 2023)");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2023-10-27T16:11:33+0000");
+  script_tag(name:"last_modification", value:"2023-10-27 16:11:33 +0000 (Fri, 27 Oct 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
@@ -28,6 +28,10 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MFSA2023-34");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2023-34/");
+  script_xref(name:"URL", value:"https://bugzilla.mozilla.org/buglist.cgi?bug_id=1751583%2C1841082%2C1847904%2C1848999");
+  script_xref(name:"URL", value:"https://bugzilla.mozilla.org/buglist.cgi?bug_id=1843968%2C1845205%2C1846080%2C1846526%2C1847529");
+  script_xref(name:"URL", value:"https://bugzilla.mozilla.org/show_bug.cgi?id=1690979");
+  script_xref(name:"URL", value:"https://bugzilla.mozilla.org/show_bug.cgi?id=1836962");
   script_xref(name:"URL", value:"https://bugzilla.mozilla.org/show_bug.cgi?id=1839007");
   script_xref(name:"URL", value:"https://bugzilla.mozilla.org/show_bug.cgi?id=1842030");
   script_xref(name:"URL", value:"https://bugzilla.mozilla.org/show_bug.cgi?id=1842766");
@@ -54,6 +58,9 @@ When creating a callback over IPC for showing the File Picker window, multiple o
 CVE-2023-4577: Memory corruption in JIT UpdateRegExpStatics
 When UpdateRegExpStatics attempted to access initialStringHeap it could already have been garbage collected prior to entering the function, which could potentially have led to an exploitable crash.
 
+CVE-2023-5732: Address bar spoofing via bidirectional characters
+An attacker could have created a malicious link using bidirectional characters to spoof the location in the address bar when visited.
+
 CVE-2023-4578: Error reporting methods in SpiderMonkey could have triggered an Out of Memory Exception
 When calling JS::CheckRegExpSyntax a Syntax Error could have been set which would end in calling convertToRuntimeErrorAndClear. A path in the function could attempt to allocate memory when none is available which would have caused a newly created Out of Memory exception to be mishandled as a Syntax Error.
 
@@ -64,9 +71,7 @@ CVE-2023-4580: Push notifications saved to disk unencrypted
 Push notifications stored on disk in private browsing mode were not being encrypted potentially allowing the leak of sensitive information.
 
 CVE-2023-4581: XLL file extensions were downloadable without warnings
-Excel .xll add-in files did not have a blocklist entry in Firefox's executable blocklist which allowed them to be downloaded without any warning of their potential harm.
-
-... [Please see the references for more information on the vulnerabilities]");
+Excel .xll add-in files did not have a blocklist entry in Firefox's executable blocklist which allowed them to be downloaded without any warning of their ... [Please see the references for more information on the vulnerabilities]");
 
   script_tag(name:"affected", value:"Firefox version(s) below 117.");
 

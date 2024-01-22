@@ -21,15 +21,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.816893");
-  script_version("2021-08-11T08:56:08+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2020-7080", "CVE-2020-7081", "CVE-2020-7082", "CVE-2020-7083",
                 "CVE-2020-7084", "CVE-2020-7085");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-08-11 08:56:08 +0000 (Wed, 11 Aug 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-04-21 17:28:00 +0000 (Tue, 21 Apr 2020)");
+  script_tag(name:"severity_date", value:"2020-04-23 13:53:00 +0000 (Thu, 23 Apr 2020)");
   script_tag(name:"creation_date", value:"2020-04-23 12:01:55 +0530 (Thu, 23 Apr 2020)");
   script_name("Microsoft Office 365 (2016 Click-to-Run) Autodesk FBX Vulnerabilities-Apr20");
 

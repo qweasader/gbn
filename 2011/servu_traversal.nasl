@@ -9,19 +9,19 @@ CPE = "cpe:/a:serv-u:serv-u";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103354");
-  script_version("2023-07-28T05:05:23+0000");
+  script_version("2023-12-20T05:05:58+0000");
   script_cve_id("CVE-2011-4800");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
 
   script_name("Serv-U FTP Server Jail Break");
 
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"creation_date", value:"2011-12-02 11:28:44 +0100 (Fri, 02 Dec 2011)");
   script_category(ACT_ATTACK);
   script_family("FTP");
   script_copyright("Copyright (C) 2011 Greenbone AG");
-  script_dependencies("gb_solarwinds_serv-u_consolidation.nasl", "os_detection.nasl");
+  script_dependencies("gb_solarwinds_serv-u_consolidation.nasl", "os_detection.nasl", "logins.nasl");
   script_require_ports("Services/ftp", 21);
   script_mandatory_keys("solarwinds/servu/detected", "Host/runs_windows");
 

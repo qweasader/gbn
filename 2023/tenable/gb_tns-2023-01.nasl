@@ -9,8 +9,8 @@ CPE = "cpe:/a:tenable:nessus";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126340");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2023-11-17T16:10:13+0000");
+  script_tag(name:"last_modification", value:"2023-11-17 16:10:13 +0000 (Fri, 17 Nov 2023)");
   script_tag(name:"creation_date", value:"2023-05-17 09:29:56 +0000 (Wed, 17 May 2023)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -30,8 +30,8 @@ if(description)
 
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Privilege escalation");
-  script_dependencies("gb_nessus_web_server_detect.nasl");
-  script_mandatory_keys("nessus/installed");
+  script_dependencies("gb_tenable_nessus_consolidation.nasl");
+  script_mandatory_keys("tenable/nessus/detected");
 
   script_tag(name:"summary", value:"Tenable Nessus is prone to a privilege escalation vulnerability.");
 
@@ -52,7 +52,7 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if (!port = get_app_port(cpe: CPE))
+if (isnull(port = get_app_port(cpe: CPE)))
   exit(0);
 
 if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE))

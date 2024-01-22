@@ -9,8 +9,8 @@ CPE = "cpe:/a:ibm:lotus_domino";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11717");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2023-10-31T05:06:37+0000");
+  script_tag(name:"last_modification", value:"2023-10-31 05:06:37 +0000 (Tue, 31 Oct 2023)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -22,7 +22,7 @@ if(description)
   script_category(ACT_MIXED_ATTACK);
   script_copyright("Copyright (C) 2003 Michel Arboi");
   script_family("Denial of Service");
-  script_dependencies("smtp_relay.nasl", "gb_hcl_domino_consolidation.nasl");
+  script_dependencies("smtp_relay.nasl", "gb_hcl_domino_consolidation.nasl", "check_smtp_helo.nasl");
   script_mandatory_keys("hcl/domino/detected");
 
   script_tag(name:"impact", value:"An attacker may use this flaw to crash the service continuously.");

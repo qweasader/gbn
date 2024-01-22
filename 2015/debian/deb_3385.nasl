@@ -9,25 +9,25 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.703385");
   script_cve_id("CVE-2015-4792", "CVE-2015-4802", "CVE-2015-4815", "CVE-2015-4816", "CVE-2015-4819", "CVE-2015-4826", "CVE-2015-4830", "CVE-2015-4836", "CVE-2015-4858", "CVE-2015-4861", "CVE-2015-4870", "CVE-2015-4879", "CVE-2015-4895", "CVE-2015-4913");
   script_tag(name:"creation_date", value:"2015-10-30 23:00:00 +0000 (Fri, 30 Oct 2015)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-01-12T16:12:11+0000");
+  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
 
-  script_name("Debian: Security Advisory (DSA-3385)");
+  script_name("Debian: Security Advisory (DSA-3385-1)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB8");
 
-  script_xref(name:"Advisory-ID", value:"DSA-3385");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2015/dsa-3385");
+  script_xref(name:"Advisory-ID", value:"DSA-3385-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2015/DSA-3385-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-3385");
   script_xref(name:"URL", value:"https://mariadb.com/kb/en/mariadb/mariadb-10021-release-notes/");
   script_xref(name:"URL", value:"https://mariadb.com/kb/en/mariadb/mariadb-10022-release-notes/");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mariadb-10.0' package(s) announced via the DSA-3385 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'mariadb-10.0' package(s) announced via the DSA-3385-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 

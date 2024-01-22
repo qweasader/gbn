@@ -1,28 +1,14 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.114027");
-  script_version("2023-02-28T10:20:42+0000");
-  script_tag(name:"last_modification", value:"2023-02-28 10:20:42 +0000 (Tue, 28 Feb 2023)");
+  script_version("2023-10-24T05:06:28+0000");
+  script_tag(name:"last_modification", value:"2023-10-24 05:06:28 +0000 (Tue, 24 Oct 2023)");
   script_tag(name:"creation_date", value:"2018-08-29 10:46:20 +0200 (Wed, 29 Aug 2018)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -35,7 +21,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Product detection");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
@@ -77,6 +63,14 @@ if ( res =~ '<meta http-equiv="refresh" content="0; URL=' ) {
     res = http_get_cache( port:port, item:url );
   }
 }
+# AXIS A8207-VE Mk II Network Video Door Station:
+# window.location.pathname='intercom/index.html'
+if ( res =~ "intercom/index\.html" ) {
+  # nb: Following redirect first to make sure it is an AXIS device
+  url = "/intercom/index.html";
+  res = http_get_cache( port:port, item:url );
+}
+
 # Companion Eye mini L:
 # <title>AXIS</title>
 #
@@ -85,7 +79,7 @@ if ( res =~ '<meta http-equiv="refresh" content="0; URL=' ) {
 # var refreshUrl = "/view/view.shtml?id=13";
 #
 if ( res =~ "^HTTP/(1\.[01]|2) 200" && ( res =~ "<title>.*AXIS.*</title>" ||
-    ( res =~ "<title>Index page</title>" && res =~ "/view/view.shtml" ) ) ) {
+    ( res =~ "<title>Index page</title>" && res =~ "/view/view\.shtml" ) ) ) {
 
   # nb: This are older versions of AXIS OS, 6.50.x and will not be detected by the other methods,
   # but this can also lead to false positives so we need to double check the version
@@ -110,6 +104,7 @@ if ( res =~ "^HTTP/(1\.[01]|2) 200" && ( res =~ "<title>.*AXIS.*</title>" ||
       version = mod[2];
     }
   } else {
+    conclUrl = "    " + http_report_vuln_url( port:port, url:url, url_only:TRUE );
     url = "/axis-cgi/basicdeviceinfo.cgi";
     data = '{"apiVersion":"1.2","method":"getAllUnrestrictedProperties"}';
 
@@ -153,7 +148,7 @@ if ( res =~ "^HTTP/(1\.[01]|2) 200" && ( res =~ "<title>.*AXIS.*</title>" ||
       if ( ! isnull( mod[1] ) ) {
         model = mod[1];
         concluded = "    " + mod[0];
-        conclUrl = "    " + http_report_vuln_url( port:port, url:url, url_only:TRUE );
+        conclUrl += '\n    ' + http_report_vuln_url( port:port, url:url, url_only:TRUE );
 
         # "ProdFullName": "AXIS Q6315-LE PTZ Network Camera"
         # "ProdFullName": "AXIS Companion Eye mini L Network Camera"

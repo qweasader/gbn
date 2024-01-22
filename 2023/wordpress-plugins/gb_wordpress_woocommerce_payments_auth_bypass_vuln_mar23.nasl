@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = "cpe:/a:automatic:woocommerce_payments";
+CPE = "cpe:/a:automattic:woopayments";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126037");
-  script_version("2023-10-13T16:09:03+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-01-11T05:05:45+0000");
+  script_tag(name:"last_modification", value:"2024-01-11 05:05:45 +0000 (Thu, 11 Jan 2024)");
   script_tag(name:"creation_date", value:"2023-03-24 13:15:00 +0000 (Fri, 24 Mar 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");

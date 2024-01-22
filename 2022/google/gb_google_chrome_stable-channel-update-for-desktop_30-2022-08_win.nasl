@@ -9,7 +9,7 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826430");
-  script_version("2023-10-18T05:05:17+0000");
+  script_version("2023-11-14T05:06:15+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2022-3038", "CVE-2022-3039", "CVE-2022-3040", "CVE-2022-3041",
@@ -17,10 +17,10 @@ if(description)
                 "CVE-2022-3046", "CVE-2022-3071", "CVE-2022-3047", "CVE-2022-3048",
                 "CVE-2022-3049", "CVE-2022-3050", "CVE-2022-3051", "CVE-2022-3052",
                 "CVE-2022-3053", "CVE-2022-3054", "CVE-2022-3055", "CVE-2022-3056",
-                "CVE-2022-3057", "CVE-2022-3058");
+                "CVE-2022-3057", "CVE-2022-3058", "CVE-2022-4913", "CVE-2022-4912");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"last_modification", value:"2023-11-14 05:06:15 +0000 (Tue, 14 Nov 2023)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-09-28 19:37:00 +0000 (Wed, 28 Sep 2022)");
@@ -75,7 +75,11 @@ if(description)
 
   - Inappropriate implementation in iframe Sandbox.
 
-  - Use after free in Sign-In Flow.");
+  - Use after free in Sign-In Flow.
+
+  - Type Confusion in MathML.
+
+  - Inappropriate implementation in Extensions.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow
   attackers to run arbitrary code, conduct spoofing and cause memory leak

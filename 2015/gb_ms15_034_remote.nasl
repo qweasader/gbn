@@ -9,15 +9,15 @@ CPE = "cpe:/a:microsoft:internet_information_services";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105257");
-  script_version("2023-10-10T05:05:41+0000");
+  script_version("2023-11-10T16:09:31+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2015-1635");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-10 05:05:41 +0000 (Tue, 10 Oct 2023)");
+  script_tag(name:"last_modification", value:"2023-11-10 16:09:31 +0000 (Fri, 10 Nov 2023)");
   script_tag(name:"creation_date", value:"2015-04-15 18:02:08 +0200 (Wed, 15 Apr 2015)");
-  script_name("MS15-034 HTTP.sys Remote Code Execution Vulnerability (Active Check)");
+  script_name("Microsoft HTTP.sys RCE Vulnerability (MS15-034) - Active Check");
   script_category(ACT_ATTACK);
   script_family("Web Servers");
   script_copyright("Copyright (C) 2015 Greenbone AG");
@@ -25,22 +25,22 @@ if(description)
   script_require_ports("Services/www", 80);
   script_mandatory_keys("IIS/installed");
 
-  script_xref(name:"URL", value:"https://support.microsoft.com/kb/3042553");
-  script_xref(name:"URL", value:"https://technet.microsoft.com/library/security/MS15-034");
+  script_xref(name:"URL", value:"https://support.microsoft.com/en-us/topic/ms15-034-vulnerability-in-http-sys-could-allow-remote-code-execution-april-14-2015-e8755c1e-c5a8-fa75-c7b1-32087b127850");
+  script_xref(name:"URL", value:"https://learn.microsoft.com/en-us/security-updates/SecurityBulletins/2015/ms15-034");
   script_xref(name:"URL", value:"http://pastebin.com/ypURDPc4");
 
-  script_tag(name:"impact", value:"Successful exploitation will allow remote attackers to run arbitrary
-  code in the context of the current user and to perform actions in the security context of the current user.");
+  script_tag(name:"summary", value:"This host is missing an important security update according to
+  Microsoft Bulletin MS15-034.");
 
-  script_tag(name:"vuldetect", value:"Send a special crafted HTTP GET request and check the response");
+  script_tag(name:"impact", value:"Successful exploitation will allow remote attackers to run
+  arbitrary code in the context of the current user and to perform actions in the security context
+  of the current user.");
 
-  script_tag(name:"insight", value:"Flaw exists due to the HTTP protocol stack 'HTTP.sys' that is triggered
-  when parsing HTTP requests.");
+  script_tag(name:"vuldetect", value:"Sends a special crafted HTTP GET request and checks the
+  response.");
 
-  script_tag(name:"solution", value:"The vendor has released updates. Please see the references for more information.");
-
-  script_tag(name:"summary", value:"This host is missing an important security update according to Microsoft
-  Bulletin MS15-034.");
+  script_tag(name:"insight", value:"Flaw exists due to the HTTP protocol stack 'HTTP.sys' that is
+  triggered when parsing HTTP requests.");
 
   script_tag(name:"affected", value:"- Microsoft Windows 8 x32/x64
 
@@ -54,8 +54,10 @@ if(description)
 
   - Microsoft Windows 7 x32/x64 Service Pack 1 and prior");
 
+  script_tag(name:"solution", value:"The vendor has released updates. Please see the references for more information.");
+
   script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_active");
+  script_tag(name:"qod_type", value:"remote_analysis"); # nb: Might not be fully reliable in e.g. Proxy environments
 
   exit(0);
 }

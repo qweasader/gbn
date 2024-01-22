@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.817853");
-  script_version("2021-12-10T03:03:39+0000");
+  script_version("2024-01-03T05:05:19+0000");
   script_cve_id("CVE-2020-17119", "CVE-2020-17123", "CVE-2020-17124", "CVE-2020-17126", "CVE-2020-17128");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-12-10 03:03:39 +0000 (Fri, 10 Dec 2021)");
+  script_tag(name:"last_modification", value:"2024-01-03 05:05:19 +0000 (Wed, 03 Jan 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-03-03 21:43:00 +0000 (Wed, 03 Mar 2021)");
+  script_tag(name:"severity_date", value:"2023-12-31 18:15:00 +0000 (Sun, 31 Dec 2023)");
   script_tag(name:"creation_date", value:"2020-12-09 10:39:05 +0530 (Wed, 09 Dec 2020)");
   script_tag(name:"qod_type", value:"executable_version");
   script_name("Microsoft Office Multiple Vulnerabilities (Dec 2020) - Mac OS X");

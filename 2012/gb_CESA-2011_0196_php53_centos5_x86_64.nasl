@@ -8,12 +8,12 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.centos.org/pipermail/centos-announce/2011-April/017380.html");
   script_oid("1.3.6.1.4.1.25623.1.0.881439");
-  script_version("2023-07-10T08:07:43+0000");
-  script_tag(name:"last_modification", value:"2023-07-10 08:07:43 +0000 (Mon, 10 Jul 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2012-07-30 17:52:14 +0530 (Mon, 30 Jul 2012)");
   script_cve_id("CVE-2010-3710", "CVE-2010-4156", "CVE-2010-4645");
   script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_xref(name:"CESA", value:"2011:0196");
   script_name("CentOS Update for php53 CESA-2011:0196 centos5 x86_64");
 

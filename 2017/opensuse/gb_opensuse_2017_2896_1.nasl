@@ -21,8 +21,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851636");
-  script_version("2022-05-23T14:26:21+0000");
-  script_tag(name:"last_modification", value:"2022-05-23 14:26:21 +0000 (Mon, 23 May 2022)");
+  script_version("2023-11-03T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
   script_tag(name:"creation_date", value:"2017-10-30 09:24:40 +0100 (Mon, 30 Oct 2017)");
   script_cve_id("CVE-2015-1863", "CVE-2015-4141", "CVE-2015-4142", "CVE-2015-4143",
                 "CVE-2015-4144", "CVE-2015-4145", "CVE-2015-5314", "CVE-2016-4476",
@@ -30,6 +30,9 @@ if(description)
                 "CVE-2017-13087", "CVE-2017-13088");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-08-12 13:13:00 +0000 (Wed, 12 Aug 2020)");
   script_tag(name:"qod_type", value:"package");
   script_name("openSUSE: Security Advisory for hostapd (openSUSE-SU-2017:2896-1)");
 

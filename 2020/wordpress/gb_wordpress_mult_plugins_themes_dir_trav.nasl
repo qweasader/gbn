@@ -23,7 +23,7 @@ CPE = "cpe:/a:wordpress:wordpress";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117055");
-  script_version("2023-03-01T10:20:05+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2007-6369", "CVE-2012-0896", "CVE-2013-7240", "CVE-2014-4940", "CVE-2014-5368",
@@ -36,7 +36,10 @@ if(description)
                 "CVE-2019-9618", "CVE-2020-11738", "CVE-2021-39316", "CVE-2022-1119");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-03-01 10:20:05 +0000 (Wed, 01 Mar 2023)");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
   script_tag(name:"creation_date", value:"2020-11-20 08:15:18 +0000 (Fri, 20 Nov 2020)");
   script_name("WordPress Multiple Plugins / Themes Directory Traversal / File Download Vulnerability (HTTP)");
   script_category(ACT_ATTACK);

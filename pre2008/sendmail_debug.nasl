@@ -9,25 +9,27 @@ CPE = "cpe:/a:sendmail:sendmail";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10247");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-01-10T05:05:17+0000");
+  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
   script_tag(name:"creation_date", value:"2006-03-26 17:55:15 +0200 (Sun, 26 Mar 2006)");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/1");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-1999-0095");
-  script_name("Sendmail DEBUG");
+  script_name("Sendmail DEBUG Command Enabled");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 1999 Renaud Deraison");
   script_family("SMTP problems");
-  script_dependencies("gb_sendmail_detect.nasl");
-  script_mandatory_keys("sendmail/detected");
+  script_dependencies("gb_sendmail_smtp_detect.nasl");
+  script_mandatory_keys("sendmail/smtp/detected");
   script_require_ports("Services/smtp", 25, 465, 587);
 
-  script_tag(name:"summary", value:"Your MTA accepts the DEBUG mode.");
+  script_tag(name:"summary", value:"The remote Sendmail service accepts the DEBUG command.");
 
-  script_tag(name:"insight", value:"This mode is dangerous as it allows remote users
-  to execute arbitrary commands as root without the need to log in.");
+  script_tag(name:"vuldetect", value:"Sends a crafted SMTP request and checks the response.");
+
+  script_tag(name:"insight", value:"This mode is dangerous as it allows remote users to execute
+  arbitrary commands as root without the need to log in.");
 
   script_tag(name:"solution", value:"Reconfigure or upgrade your MTA.");
 

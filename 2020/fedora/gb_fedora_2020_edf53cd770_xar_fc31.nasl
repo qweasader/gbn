@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.877429");
-  script_version("2022-07-05T11:37:00+0000");
+  script_version("2023-10-20T16:09:12+0000");
   script_cve_id("CVE-2018-17093", "CVE-2018-17094", "CVE-2017-11124", "CVE-2017-11125", "CVE-2010-3798", "CVE-2010-0055");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-07-05 11:37:00 +0000 (Tue, 05 Jul 2022)");
+  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-02-03 03:15:00 +0000 (Mon, 03 Feb 2020)");
   script_tag(name:"creation_date", value:"2020-02-07 04:02:46 +0000 (Fri, 07 Feb 2020)");
   script_name("Fedora: Security Advisory for xar (FEDORA-2020-edf53cd770)");
   script_category(ACT_GATHER_INFO);

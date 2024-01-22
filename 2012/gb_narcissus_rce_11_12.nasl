@@ -1,28 +1,14 @@
-# Copyright (C) 2012 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2012 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103607");
-  script_version("2023-01-05T10:12:14+0000");
-  script_tag(name:"last_modification", value:"2023-01-05 10:12:14 +0000 (Thu, 05 Jan 2023)");
+  script_version("2023-12-22T16:09:03+0000");
+  script_tag(name:"last_modification", value:"2023-12-22 16:09:03 +0000 (Fri, 22 Dec 2023)");
   script_tag(name:"creation_date", value:"2012-11-14 16:22:01 +0100 (Wed, 14 Nov 2012)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -35,9 +21,9 @@ if (description)
 
   script_category(ACT_ATTACK);
 
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
@@ -74,12 +60,13 @@ data = "machine=0&action=configure_image&release=|id";
 headers = make_array( "Content-Type", "application/x-www-form-urlencoded" );
 
 foreach dir( make_list_unique( "/narcissus", "/narcissus-master", http_cgi_dirs( port:port ) ) ) {
-  res = http_get_cache( port:port, item:dir + "/index.html");
-  if( res !~ "^HTTP/1\.[01] 200" || "<title>Narcissus - Online image" >!< res )
-    continue;
 
   if( dir == "/" )
     dir = "";
+
+  res = http_get_cache( port:port, item:dir + "/index.html");
+  if( res !~ "^HTTP/1\.[01] 200" || "<title>Narcissus - Online image" >!< res )
+    continue;
 
   url = dir + "/backend.php";
 

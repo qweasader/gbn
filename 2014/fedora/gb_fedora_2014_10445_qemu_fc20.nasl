@@ -7,12 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.868177");
-  script_version("2023-06-23T16:09:17+0000");
-  script_tag(name:"last_modification", value:"2023-06-23 16:09:17 +0000 (Fri, 23 Jun 2023)");
+  script_version("2023-11-02T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
   script_tag(name:"creation_date", value:"2014-09-11 05:56:35 +0200 (Thu, 11 Sep 2014)");
   script_cve_id("CVE-2014-3615", "CVE-2014-0222", "CVE-2014-0223", "CVE-2014-3461", "CVE-2014-0182", "CVE-2014-0142", "CVE-2014-0150", "CVE-2013-4544", "CVE-2014-2894");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2020-11-02 14:39:00 +0000 (Mon, 02 Nov 2020)");
   script_name("Fedora Update for qemu FEDORA-2014-10445");
   script_tag(name:"affected", value:"qemu on Fedora 20");
   script_tag(name:"solution", value:"Please install the updated package(s).");

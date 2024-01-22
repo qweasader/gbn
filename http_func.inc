@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2002 Michel Arboi
+# SPDX-FileCopyrightText: New code/functions since 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -828,6 +829,12 @@ function http_cgi_dirs( port, host ) {
 # @brief Returns if a remote web server is able to host or support hosting PHP files.
 #
 # @param port The port of the remote server to check.
+#
+# @note Please add a dependency to the following VTs if this function is used within a VT:
+#       - gb_php_http_detect.nasl (Is setting the "can_host_php" KB key if PHP was detected)
+#       - webmirror.nasl (Is setting the info provided by http_get_kb_file_extensions())
+#       - DDI_Directory_Scanner.nasl (required so that webmirror.nasl can crawl the remote host
+#         in more detail)
 #
 # @return TRUE if the remote web server is able to host or support hosting PHP files,
 #         FALSE otherwise and NULL in the case where no port parameter was passed.
@@ -2372,4 +2379,82 @@ function http_is_kb_caching_disabled() {
     is_kb_caching_disabled = __http_is_kb_caching_disabled;
   }
   return is_kb_caching_disabled;
+}
+
+# @brief Checks if a given HTTP response includes the HTML output of a phpinfo() PHP function call.
+#
+# @param data The HTTP response to be checked
+# @param webmirror_called Internal parameter only, will be set by webmirror.nasl
+#
+# @note More info is available at https://www.php.net/manual/en/function.phpinfo.php
+#
+# @note This function isn't checking for the HTTP status code (e.g. 200) because that status code
+#       might depend how the phpinfo() is called by the VT in question. Thus the calling VT should
+#       check the status code instead.
+#
+# @return A string including all matching parts, FALSE if no phpinfo() output has been identified in
+#         the response and NULL if no data has been passed.
+#
+function http_check_for_phpinfo_output( data, webmirror_called ) {
+
+  local_var data, webmirror_called;
+  local_var pattern, found, split_info, info, report;
+
+  if( ! data ) {
+    set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#data#-#http_check_for_phpinfo_output" );
+    return NULL;
+  }
+
+  pattern = "(";
+
+  # Usually just:
+  #
+  # <title>phpinfo()</title><meta name="ROBOTS" content="NOINDEX,NOFOLLOW,NOARCHIVE" /></head>
+  #
+  # but since PHP 7.3.0 (see https://www.php.net/ChangeLog-7.php#7.3.0) the version could be now
+  # included as well:
+  #
+  # <title>PHP 7.3.0 - phpinfo()</title><meta name="ROBOTS" content="NOINDEX,NOFOLLOW,NOARCHIVE" /></head>
+  # <title>PHP 7.4.3-4ubuntu2.18 - phpinfo()</title><meta name="ROBOTS" content="NOINDEX,NOFOLLOW,NOARCHIVE" /></head>
+  #
+  pattern += "<title>(PHP[^<]+)?phpinfo\(\)</title>|";
+
+  # The availability of the following depends on how the "phpinfo()" function is called:
+  #
+  # - phpinfo(); -> Defaults to INFO_ALL and includes all info
+  # - phpinfo(INFO_ENVIRONMENT); -> Only includes the Environment Variable information
+  #
+  # e.g.:
+  #
+  # <tr><td class="e">Configuration File (php.ini) Path </td><td class="v">/www/server/php/73/etc </td></tr>
+  pattern += ">Configuration File \(php\.ini\) Path\s*<|";
+  #
+  # or:
+  #
+  # <h2>PHP Variables</h2>
+  pattern += "<h2>PHP Variables</h2>";
+
+  pattern += ")";
+
+  # nb: The relevant code in webmirror.nasl seems to strip newlines so we need to re-add them after
+  # each </$something> so that the report doesn't "explode".
+  if( webmirror_called )
+    data = ereg_replace( string:data, pattern:"(</[^>]+>)", replace:"\1" + '\n' );
+
+  if( found = egrep( string:data, pattern:pattern, icase:FALSE ) ) {
+
+    split_info = split( found, keep:FALSE );
+
+    foreach info( split_info ) {
+      if( report )
+        report += '\n';
+
+      info = ereg_replace( string:info, pattern:"^(\s+)", replace:"" );
+      report += "  " + chomp( info );
+    }
+
+    return report;
+  } else {
+    return FALSE;
+  }
 }
