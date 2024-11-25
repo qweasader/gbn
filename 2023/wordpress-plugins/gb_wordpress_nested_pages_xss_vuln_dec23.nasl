@@ -9,8 +9,8 @@ CPE = "cpe:/a:nested_pages_project:nested_pages";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.124492");
-  script_version("2023-12-29T16:09:56+0000");
-  script_tag(name:"last_modification", value:"2023-12-29 16:09:56 +0000 (Fri, 29 Dec 2023)");
+  script_version("2024-06-25T05:05:27+0000");
+  script_tag(name:"last_modification", value:"2024-06-25 05:05:27 +0000 (Tue, 25 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-12-20 10:32:43 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"cvss_base", value:"4.7");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:M/C:P/I:P/A:N");
@@ -22,9 +22,9 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("WordPress Nested Pages Plugin <= 3.2.6 XSS Vulnerability");
+  script_name("WordPress Nested Pages Plugin < 3.2.7 XSS Vulnerability");
 
   script_category(ACT_GATHER_INFO);
 
@@ -42,10 +42,9 @@ if(description)
   such as redirects, advertisements, and other HTML payloads into your website which will be
   executed when guests visit your site.");
 
-  script_tag(name:"affected", value:"WordPress Nested Pages plugin version 3.2.6 and prior.");
+  script_tag(name:"affected", value:"WordPress Nested Pages plugin prior to version 3.2.7.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 20th December, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"Update to version 3.2.7 or later.");
 
   script_xref(name:"URL", value:"https://patchstack.com/database/vulnerability/wp-nested-pages/wordpress-nested-pages-plugin-3-2-6-cross-site-scripting-xss-vulnerability");
 
@@ -64,10 +63,10 @@ if ( ! infos = get_app_version_and_location( cpe:CPE, port:port, exit_no_version
 version = infos["version"];
 location = infos["location"];
 
-if ( version_is_less_equal( version: version, test_version: "3.2.6" ) ) {
-  report = report_fixed_ver( installed_version: version, fixed_version: "None", install_path: location );
+if ( version_is_less( version: version, test_version: "3.2.7" ) ) {
+  report = report_fixed_ver( installed_version: version, fixed_version: "3.2.7", install_path: location );
   security_message( port: port, data: report );
   exit( 0 );
 }
 
-exit( 0 );
+exit( 99 );

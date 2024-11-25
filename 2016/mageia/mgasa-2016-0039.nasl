@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131203");
   script_cve_id("CVE-2015-7974", "CVE-2015-7977", "CVE-2015-7978", "CVE-2015-7979", "CVE-2015-8138", "CVE-2015-8158");
   script_tag(name:"creation_date", value:"2016-02-02 05:44:19 +0000 (Tue, 02 Feb 2016)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-06-08 12:15:00 +0000 (Tue, 08 Jun 2021)");
+  script_tag(name:"severity_date", value:"2017-02-07 15:11:22 +0000 (Tue, 07 Feb 2017)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0039)");
   script_category(ACT_GATHER_INFO);
@@ -26,8 +26,6 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0039");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0039.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17606");
-  script_xref(name:"URL", value:"https://github.com/ntp-project/ntp/commit/71a962710bfe066f76da9679cf4cfdeffe34e95e");
   script_xref(name:"URL", value:"http://support.ntp.org/bin/view/Main/SecurityNotice#January_2016_NTP_4_2_8p6_Securit");
   script_xref(name:"URL", value:"http://www.talosintel.com/reports/TALOS-2016-0071/");
   script_xref(name:"URL", value:"http://www.talosintel.com/reports/TALOS-2016-0074/");
@@ -35,12 +33,14 @@ if(description)
   script_xref(name:"URL", value:"http://www.talosintel.com/reports/TALOS-2016-0076/");
   script_xref(name:"URL", value:"http://www.talosintel.com/reports/TALOS-2016-0077/");
   script_xref(name:"URL", value:"http://www.talosintel.com/reports/TALOS-2016-0080/");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17606");
   script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=1297471");
   script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=1299442");
   script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=1300269");
   script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=1300270");
   script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=1300271");
   script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=1300273");
+  script_xref(name:"URL", value:"https://github.com/ntp-project/ntp/commit/71a962710bfe066f76da9679cf4cfdeffe34e95e");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'ntp' package(s) announced via the MGASA-2016-0039 advisory.");
 

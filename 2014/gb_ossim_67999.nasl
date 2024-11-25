@@ -12,14 +12,14 @@ if(description)
   script_cve_id("CVE-2014-3804", "CVE-2014-3805");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-06-28T15:38:46+0000");
 
-  script_name("AlienVault OSSIM Multiple Remote Code Execution Vulnerabilities");
+  script_name("AlienVault OSSIM Multiple RCE Vulnerabilities");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/67999");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/67998");
 
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-06-20 12:08:51 +0200 (Fri, 20 Jun 2014)");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");
@@ -40,7 +40,7 @@ if(description)
   script_tag(name:"solution_type", value:"VendorFix");
 
   script_tag(name:"summary", value:"AlienVault OSSIM is prone to multiple remote code execution
-  vulnerabilities.");
+  (RCE) vulnerabilities.");
 
   script_tag(name:"affected", value:"AlienVault OSSIM 4.6.1 and prior are vulnerable.");
 
@@ -50,7 +50,6 @@ if(description)
 }
 
 include("http_func.inc");
-include("misc_func.inc");
 include("host_details.inc");
 
 if( ! wport = get_app_port( cpe:CPE ) )

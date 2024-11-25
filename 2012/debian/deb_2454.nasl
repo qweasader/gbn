@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.71261");
   script_cve_id("CVE-2006-7250", "CVE-2012-0884", "CVE-2012-1165", "CVE-2012-2110", "CVE-2012-2131");
   script_tag(name:"creation_date", value:"2012-04-30 11:57:59 +0000 (Mon, 30 Apr 2012)");
-  script_version("2024-01-12T16:12:10+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:10 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-02-01 14:37:10 +0000 (Thu, 01 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 

@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.12.2005.60.0");
-  script_cve_id("CVE-2004-0883", "CVE-2004-0949", "CVE-2005-0001");
+  script_cve_id("CVE-2005-0001");
   script_tag(name:"creation_date", value:"2022-08-26 07:43:23 +0000 (Fri, 26 Aug 2022)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:C/A:C");
 
@@ -23,7 +23,6 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"USN-60-0");
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-60-0");
-  script_xref(name:"URL", value:"http://lists.netsys.com/pipermail/full-disclosure/2005-January/030660.html:");
   script_xref(name:"URL", value:"http://lists.netsys.com/pipermail/full-disclosure/2005-January/030660.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'linux-source-2.6.8.1' package(s) announced via the USN-60-0 advisory.");
@@ -37,7 +36,7 @@ if(description)
  privileges on multiprocessor machines under some circumstances.
  This also affects the Hyper-Threading mode on Pentium 4 processors.
 
-[link moved to references]
+[link moved to references]:
 
  Brad Spengler discovered that some device drivers used
  copy_from_user() (a function to copy data from userspace tools into

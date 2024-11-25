@@ -9,11 +9,11 @@ CPE = "cpe:/a:cisco:unified_communications_manager_im_and_presence_service";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106453");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-09-13 05:05:46 +0000 (Fri, 13 Sep 2024)");
   script_tag(name:"creation_date", value:"2016-12-08 15:34:12 +0700 (Thu, 08 Dec 2016)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-09-13T05:05:46+0000");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-01-05 13:41:00 +0000 (Thu, 05 Jan 2017)");
@@ -64,28 +64,27 @@ if (!version = get_app_version(cpe:CPE))
 version = str_replace( string:version, find:"-", replace:"." );
 
 if (version =~ "^10\.5\.1") {
-  report = report_fixed_ver(installed_version: version, fixed_version: "See Advisory.");
+  report = report_fixed_ver(installed_version: version, fixed_version: "See vendor advisory");
   security_message(port: 0, data: report);
-  exit( 0 );
+  exit(0);
 }
 
 if (version =~ "^10\.5\.2") {
-  report = report_fixed_ver(installed_version: version, fixed_version: "See Advisory.");
+  report = report_fixed_ver(installed_version: version, fixed_version: "See vendor advisory");
   security_message(port: 0, data: report);
-  exit( 0 );
+  exit(0);
 }
 
 if (version =~ "^11\.0\.1") {
-  report = report_fixed_ver(installed_version: version, fixed_version: "See Advisory.");
+  report = report_fixed_ver(installed_version: version, fixed_version: "See vendor advisory");
   security_message(port: 0, data: report);
-  exit( 0 );
+  exit(0);
 }
 
 if (version =~ "^11\.5\.1") {
-  report = report_fixed_ver(installed_version: version, fixed_version: "See Advisory.");
+  report = report_fixed_ver(installed_version: version, fixed_version: "See vendor advisory");
   security_message(port: 0, data: report);
-  exit( 0 );
+  exit(0);
 }
 
-exit (99);
-
+exit(99);

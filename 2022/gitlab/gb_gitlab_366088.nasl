@@ -9,8 +9,8 @@ CPE = "cpe:/a:gitlab:gitlab";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.124106");
-  script_version("2023-12-06T05:06:11+0000");
-  script_tag(name:"last_modification", value:"2023-12-06 05:06:11 +0000 (Wed, 06 Dec 2023)");
+  script_version("2024-11-21T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2024-11-21 05:05:26 +0000 (Thu, 21 Nov 2024)");
   script_tag(name:"creation_date", value:"2022-07-07 09:47:46 +0000 (Thu, 07 Jul 2022)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -37,7 +37,7 @@ if (description)
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"Itt was possible for an unauthorised user to execute arbitrary
+  script_tag(name:"insight", value:"It was possible for an unauthorised user to execute arbitrary
   code on the server using the project import feature.");
 
   script_tag(name:"affected", value:"GitLab version 14.0.x through 14.10.4, 15.0.x through 15.0.3

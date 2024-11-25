@@ -9,7 +9,7 @@ CPE = "cpe:/a:mozilla:firefox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805906");
-  script_version("2023-11-02T05:05:26+0000");
+  script_version("2024-10-10T07:25:31+0000");
   script_cve_id("CVE-2015-2721", "CVE-2015-2722", "CVE-2015-2724", "CVE-2015-2725",
                 "CVE-2015-2726", "CVE-2015-2728", "CVE-2015-2729", "CVE-2015-2730",
                 "CVE-2015-2731", "CVE-2015-2733", "CVE-2015-2734", "CVE-2015-2735",
@@ -17,12 +17,12 @@ if(description)
                 "CVE-2015-2740", "CVE-2015-2741", "CVE-2015-2743", "CVE-2015-4000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-01-20 15:15:00 +0000 (Wed, 20 Jan 2021)");
   script_tag(name:"creation_date", value:"2015-07-08 16:47:07 +0530 (Wed, 08 Jul 2015)");
-  script_name("Mozilla Firefox Multiple Vulnerabilities-01 Jul15 (Mac OS X)");
+  script_name("Mozilla Firefox Multiple Vulnerabilities-01 (Jul 2015) - Mac OS X");
 
   script_tag(name:"summary", value:"Mozilla Firefox is prone to multiple vulnerabilities.");
 
@@ -42,7 +42,7 @@ if(description)
   implementation.
 
   - An error within the 'AudioParamTimeline::AudioNodeInputValue' function in the
-  Web Audio implementation .
+  Web Audio implementation.
 
   - An error in the implementation of Elliptical Curve Cryptography (ECC)
   multiplication for Elliptic Curve Digital Signature Algorithm (ECDSA) signature

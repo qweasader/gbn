@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2023.0266");
   script_cve_id("CVE-2023-3600", "CVE-2023-4045", "CVE-2023-4046", "CVE-2023-4047", "CVE-2023-4048", "CVE-2023-4049", "CVE-2023-4050", "CVE-2023-4051", "CVE-2023-4053", "CVE-2023-4055", "CVE-2023-4056", "CVE-2023-4057", "CVE-2023-4573", "CVE-2023-4574", "CVE-2023-4575", "CVE-2023-4576", "CVE-2023-4577", "CVE-2023-4578", "CVE-2023-4580", "CVE-2023-4581", "CVE-2023-4583", "CVE-2023-4584", "CVE-2023-4585", "CVE-2023-4863");
   script_tag(name:"creation_date", value:"2023-09-25 04:14:33 +0000 (Mon, 25 Sep 2023)");
-  script_version("2023-09-25T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-09-25 05:05:21 +0000 (Mon, 25 Sep 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-08-04 18:44:00 +0000 (Fri, 04 Aug 2023)");
+  script_tag(name:"severity_date", value:"2023-08-04 18:44:39 +0000 (Fri, 04 Aug 2023)");
 
   script_name("Mageia: Security Advisory (MGASA-2023-0266)");
   script_category(ACT_GATHER_INFO);
@@ -27,28 +27,28 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2023-0266");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2023-0266.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=32258");
+  script_xref(name:"URL", value:"https://firefox-source-docs.mozilla.org/security/nss/releases/index.html");
+  script_xref(name:"URL", value:"https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_93.html");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/firefox/115.0.1/releasenotes/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/firefox/115.0.2/releasenotes/");
-  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2023-26/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/firefox/115.0.3/releasenotes/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/firefox/115.1.0/releasenotes/");
-  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2023-31/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/firefox/115.2.0/releasenotes/");
-  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2023-36/");
-  script_xref(name:"URL", value:"https://firefox-source-docs.mozilla.org/security/nss/releases/nss_3_93.html");
-  script_xref(name:"URL", value:"https://firefox-source-docs.mozilla.org/security/nss/releases/index.html");
-  script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/115.0/releasenotes/");
-  script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/115.0.1/releasenotes/");
+  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/firefox/115.2.1/releasenotes/");
+  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2023-26/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2023-27/");
-  script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/115.1.0/releasenotes/");
+  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2023-31/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2023-33/");
+  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2023-36/");
+  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2023-38/");
+  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2023-40/");
+  script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/115.0.1/releasenotes/");
+  script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/115.0/releasenotes/");
+  script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/115.1.0/releasenotes/");
   script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/115.1.1/releasenotes/");
   script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/115.2.0/releasenotes/");
-  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2023-38/");
-  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/firefox/115.2.1/releasenotes/");
   script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/115.2.1/releasenotes/");
   script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/115.2.2/releasenotes/");
-  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2023-40/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'firefox, firefox-l10n, nss, rootcerts, thunderbird, thunderbird-l10n' package(s) announced via the MGASA-2023-0266 advisory.");
 
@@ -119,6 +119,8 @@ Heap buffer overflow in libwebp. (CVE-2023-4863)");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

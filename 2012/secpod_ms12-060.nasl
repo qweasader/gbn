@@ -1,42 +1,34 @@
-# Copyright (C) 2012 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2012 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.901211");
-  script_version("2022-08-09T10:11:17+0000");
+  script_version("2024-07-17T05:05:38+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2012-1856");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
+  script_tag(name:"last_modification", value:"2024-07-17 05:05:38 +0000 (Wed, 17 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-07-16 17:37:32 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2012-08-15 09:05:46 +0530 (Wed, 15 Aug 2012)");
   script_name("Microsoft Windows Common Controls Remote Code Execution Vulnerability (2720573)");
   script_xref(name:"URL", value:"https://docs.microsoft.com/en-us/security-updates/securitybulletins/2012/ms12-060");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/54948");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
-  script_dependencies("secpod_office_products_version_900032.nasl");
+  # nb: The MSSQL "Consolidation" wasn't added here on purpose and only the SMB Login one was used
+  # as the consolidation is not required for the KB check below.
+  script_dependencies("secpod_office_products_version_900032.nasl",
+                      "gb_microsoft_sql_server_smb_login_detect.nasl");
   script_require_ports(139, 445);
   script_mandatory_keys("SMB/WindowsVersion");
 
@@ -141,37 +133,33 @@ if(sysVer)
   }
 }
 
-key = "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft SQL Server 2000 Analysis Services";
-if(registry_key_exists(key:key))
-{
-  path = registry_get_sz(key:key, item:"InstallLocation");
-  dllVer = fetch_file_version(sysPath:path, file_name:"bin\msmdctr80.dll");
-  if(dllVer)
-  {
-    if(version_is_less(version:dllVer, test_version:"8.0.2304.0"))
-    {
-      security_message( port: 0, data: "The target host was found to be vulnerable" );
-      exit(0);
+if(get_kb_item("microsoft/sqlserver/smb-login/detected")) {
+
+  key = "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft SQL Server 2000 Analysis Services";
+  if(registry_key_exists(key:key)) {
+    path = registry_get_sz(key:key, item:"InstallLocation");
+    dllVer = fetch_file_version(sysPath:path, file_name:"bin\msmdctr80.dll");
+    if(dllVer) {
+      if(version_is_less(version:dllVer, test_version:"8.0.2304.0")) {
+        security_message( port: 0, data: "The target host was found to be vulnerable" );
+        exit(0);
+      }
+    }
+  }
+
+  key = "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft SQL Server 2000";
+  if(registry_key_exists(key:key)) {
+    path = registry_get_sz(key:key, item:"InstallLocation");
+    exeVer = fetch_file_version(sysPath:path, file_name:"Binn\sqlservr.exe");
+    if(exeVer) {
+      if(version_is_less(version:exeVer, test_version:"2000.80.2066.0") ||
+         version_in_range(version:exeVer, test_version:"2000.80.2300.0", test_version2:"2000.80.2304.0")) {
+        security_message( port: 0, data: "The target host was found to be vulnerable" );
+        exit(0);
+      }
     }
   }
 }
-
-key = "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft SQL Server 2000";
-if(registry_key_exists(key:key))
-{
-  path = registry_get_sz(key:key, item:"InstallLocation");
-  exeVer = fetch_file_version(sysPath:path, file_name:"Binn\sqlservr.exe");
-  if(exeVer)
-  {
-    if(version_is_less(version:exeVer, test_version:"2000.80.2066.0") ||
-       version_in_range(version:exeVer, test_version:"2000.80.2300.0", test_version2:"2000.80.2304.0"))
-    {
-      security_message( port: 0, data: "The target host was found to be vulnerable" );
-      exit(0);
-    }
-  }
-}
-
 
 key = "SOFTWARE\Microsoft\Host Integration Server\6.0";
 if(registry_key_exists(key:key))

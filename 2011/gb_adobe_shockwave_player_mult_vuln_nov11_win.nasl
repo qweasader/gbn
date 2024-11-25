@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802508");
-  script_version("2023-07-28T05:05:23+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2011-2446", "CVE-2011-2447", "CVE-2011-2448", "CVE-2011-2449");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-11-10 12:17:59 +0530 (Thu, 10 Nov 2011)");
-  script_name("Adobe Shockwave Player Multiple Vulnerabilities (Windows) - Nov 2011");
+  script_name("Adobe Shockwave Player Multiple Vulnerabilities (Nov 2011) - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/46667/");
   script_xref(name:"URL", value:"http://www.adobe.com/support/security/bulletins/apsb11-27.html");
 

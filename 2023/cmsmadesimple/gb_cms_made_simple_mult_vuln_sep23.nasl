@@ -9,8 +9,8 @@ CPE = "cpe:/a:cmsmadesimple:cms_made_simple";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170588");
-  script_version("2023-11-10T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-11-10 05:05:18 +0000 (Fri, 10 Nov 2023)");
+  script_version("2024-10-03T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-10-03 05:05:33 +0000 (Thu, 03 Oct 2024)");
   script_tag(name:"creation_date", value:"2023-09-29 10:21:05 +0000 (Fri, 29 Sep 2023)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
@@ -24,9 +24,9 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"WillNotFix");
 
-  script_name("CMS Made Simple <= 2.2.18 Multiple Vulnerabilities");
+  script_name("CMS Made Simple <= 2.2.21 Multiple Vulnerabilities");
 
   script_category(ACT_GATHER_INFO);
 
@@ -73,10 +73,12 @@ if(description)
 
   - CVE-2023-43872: Stored XSS vulnerability in File Manager file upload sanitization");
 
-  script_tag(name:"affected", value:"CMS Made Simple through version 2.2.18.");
+  script_tag(name:"affected", value:"CMS Made Simple through version 2.2.21.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 23th October, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.");
 
   script_xref(name:"URL", value:"https://github.com/sromanhu/CVE-2023-43339-CMSmadesimple-Reflected-XSS---Installation");
   script_xref(name:"URL", value:"https://github.com/sromanhu/CVE-2023-43352-CMSmadesimple-SSTI--Content");
@@ -105,7 +107,7 @@ if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version:
 version = infos["version"];
 location = infos["location"];
 
-if (version_is_less_equal(version: version, test_version: "2.2.18")) {
+if (version_is_less_equal(version: version, test_version: "2.2.21")) {
   report = report_fixed_ver(installed_version: version, fixed_version: "None", install_path: location);
   security_message(port: port, data: report);
   exit(0);

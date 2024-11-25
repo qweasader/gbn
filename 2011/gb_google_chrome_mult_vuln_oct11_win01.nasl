@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802262");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-08T14:36:53+0000");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-10-28 16:17:13 +0200 (Fri, 28 Oct 2011)");
   script_cve_id("CVE-2011-2845", "CVE-2011-3875", "CVE-2011-3876", "CVE-2011-3877",
                 "CVE-2011-3878", "CVE-2011-3879", "CVE-2011-3880", "CVE-2011-3881",
@@ -17,7 +17,7 @@ if(description)
                 "CVE-2011-3890", "CVE-2011-3891");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_name("Google Chrome Multiple Vulnerabilities - October11 (Windows)");
+  script_name("Google Chrome Multiple Vulnerabilities (Oct 2011) - Windows");
   script_xref(name:"URL", value:"http://securitytracker.com/id/1026242");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/50360");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2011/10/chrome-stable-release.html");

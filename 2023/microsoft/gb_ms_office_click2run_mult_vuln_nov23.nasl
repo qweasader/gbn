@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832625");
-  script_version("2023-11-23T05:06:17+0000");
+  script_version("2024-02-21T05:06:27+0000");
   script_cve_id("CVE-2023-36041", "CVE-2023-36045", "CVE-2023-36037", "CVE-2023-36413");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-11-23 05:06:17 +0000 (Thu, 23 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-21 05:06:27 +0000 (Wed, 21 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-11-20 18:19:00 +0000 (Mon, 20 Nov 2023)");
   script_tag(name:"creation_date", value:"2023-11-16 11:59:24 +0530 (Thu, 16 Nov 2023)");
-  script_name("Microsoft Office 365 (2016 Click-to-Run) Multiple Vulnerabilities (November23)");
+  script_name("Microsoft Office 365 (2016 Click-to-Run) Multiple Vulnerabilities (Nov 2023)");
 
   script_tag(name:"summary", value:"This host is missing a critical security
   update according to Microsoft Office Click-to-Run update November 2023");

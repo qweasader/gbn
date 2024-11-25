@@ -9,11 +9,11 @@ CPE = "cpe:/a:mcafee:epolicy_orchestrator";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803863");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2012-4594");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2013-08-09 12:24:03 +0530 (Fri, 09 Aug 2013)");
   script_name("McAfee ePolicy Orchestrator (ePO) Security Bypass Vulnerability");
   script_tag(name:"summary", value:"McAfee ePolicy Orchestrator is prone to a security bypass vulnerability.");
@@ -34,10 +34,9 @@ access to potentially sensitive information.");
   script_family("Web application abuses");
   script_dependencies("gb_mcafee_epolicy_orchestrator_detect.nasl");
   script_mandatory_keys("mcafee_ePO/installed");
-  script_require_ports("Services/www", 8443);
+
   exit(0);
 }
-
 
 include("host_details.inc");
 include("version_func.inc");
@@ -53,3 +52,5 @@ if(version_is_less(version:vers, test_version:"4.6.1")) {
   security_message(port:port, data:report);
   exit(0);
 }
+
+exit(99);

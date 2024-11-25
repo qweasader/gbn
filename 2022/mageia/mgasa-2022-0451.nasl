@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2022.0451");
   script_cve_id("CVE-2022-4135", "CVE-2022-4174", "CVE-2022-4175", "CVE-2022-4176", "CVE-2022-4177", "CVE-2022-4178", "CVE-2022-4179", "CVE-2022-4180", "CVE-2022-4181", "CVE-2022-4182", "CVE-2022-4183", "CVE-2022-4184", "CVE-2022-4185", "CVE-2022-4186", "CVE-2022-4187", "CVE-2022-4188", "CVE-2022-4189", "CVE-2022-4190", "CVE-2022-4191", "CVE-2022-4192", "CVE-2022-4193", "CVE-2022-4194", "CVE-2022-4195", "CVE-2022-4262");
   script_tag(name:"creation_date", value:"2022-12-07 04:12:01 +0000 (Wed, 07 Dec 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-11-28 14:44:00 +0000 (Mon, 28 Nov 2022)");
+  script_tag(name:"severity_date", value:"2022-11-28 14:44:24 +0000 (Mon, 28 Nov 2022)");
 
   script_name("Mageia: Security Advisory (MGASA-2022-0451)");
   script_category(ACT_GATHER_INFO);
@@ -95,6 +95,8 @@ in the wild.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

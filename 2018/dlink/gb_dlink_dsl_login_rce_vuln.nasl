@@ -9,8 +9,8 @@ CPE_PREFIX = "cpe:/o:dlink";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108458");
-  script_version("2024-01-22T05:07:31+0000");
-  script_tag(name:"last_modification", value:"2024-01-22 05:07:31 +0000 (Mon, 22 Jan 2024)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-09-04 09:45:51 +0200 (Tue, 04 Sep 2018)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -37,7 +37,7 @@ if(description)
   script_mandatory_keys("d-link/http/detected"); # nb: Experiences in the past have shown that various different devices are affected
   script_require_ports("Services/www", 80);
 
-  script_tag(name:"summary", value:"D-Link DSL routers are prone to a remote command execution
+  script_tag(name:"summary", value:"D-Link DSL routers are prone to a remote command execution (RCE)
   vulnerability.
 
   This vulnerability was known to be used by an unknown Botnet in 2018.");

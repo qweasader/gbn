@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2013.0168");
   script_cve_id("CVE-2013-2486", "CVE-2013-2487", "CVE-2013-3555", "CVE-2013-3557", "CVE-2013-3558", "CVE-2013-3559", "CVE-2013-3560", "CVE-2013-3561", "CVE-2013-3562");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
 
@@ -23,6 +23,9 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2013-0168");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2013-0168.html");
+  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2013/05/20/7");
+  script_xref(name:"URL", value:"http://www.wireshark.org/docs/relnotes/wireshark-1.8.7.html");
+  script_xref(name:"URL", value:"http://www.wireshark.org/news/20130517.html");
   script_xref(name:"URL", value:"http://www.wireshark.org/security/wnpa-sec-2013-23.html");
   script_xref(name:"URL", value:"http://www.wireshark.org/security/wnpa-sec-2013-24.html");
   script_xref(name:"URL", value:"http://www.wireshark.org/security/wnpa-sec-2013-25.html");
@@ -32,9 +35,6 @@ if(description)
   script_xref(name:"URL", value:"http://www.wireshark.org/security/wnpa-sec-2013-29.html");
   script_xref(name:"URL", value:"http://www.wireshark.org/security/wnpa-sec-2013-30.html");
   script_xref(name:"URL", value:"http://www.wireshark.org/security/wnpa-sec-2013-31.html");
-  script_xref(name:"URL", value:"http://www.wireshark.org/docs/relnotes/wireshark-1.8.7.html");
-  script_xref(name:"URL", value:"http://www.wireshark.org/news/20130517.html");
-  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2013/05/20/7");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'wireshark' package(s) announced via the MGASA-2013-0168 advisory.");
 

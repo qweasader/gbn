@@ -1,20 +1,8 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 # Texts are kept so output of scripts doesn't change in a delta
 strengthtext["strong"]  = "'Strong'";
@@ -78,14 +66,14 @@ function print_cipherlist( port, version, strength, negative ) {
 
   report = NULL;
 
-  # nb: No cipher enumeration for SSLv2 is done (in secpod_ssl_ciphers.nasl) because this doesn't
+  # nb: No cipher enumeration for SSLv2 is done (in gb_ssl_tls_ciphers_gathering.nasl) because this doesn't
   # make much sense these days:
   # The protocol itself is long deprecated, has so many flaws and is already reported separately
   # (in 2015/sw_sslv2_v3_detect.nasl) as deprecated with a severity accordingly.
   if( version == SSL_v2 )
     return report;
 
-  cipherlistname = "secpod_ssl_ciphers/" + version_kb_string_mapping[version] + "/" + port + "/" +
+  cipherlistname = "ssl_tls/ciphers/" + version_kb_string_mapping[version] + "/" + port + "/" +
                    strength + "_ciphers";
   cipherlist = get_kb_list( cipherlistname );
   if( ! isnull( cipherlist ) ) {
@@ -143,7 +131,7 @@ function print_cipherlist_version( port, version, strengths, negative ) {
 
   report = NULL;
 
-  # nb: No cipher enumeration for SSLv2 is done (in secpod_ssl_ciphers.nasl) because this doesn't
+  # nb: No cipher enumeration for SSLv2 is done (in gb_ssl_tls_ciphers_gathering.nasl) because this doesn't
   # make much sense these days:
   # The protocol itself is long deprecated, has so many flaws and is already reported separately
   # (in 2015/sw_sslv2_v3_detect.nasl) as deprecated with a severity accordingly.
@@ -203,7 +191,7 @@ function print_cipherlists( port, strengths, negative ) {
   if( ! sup_ssl = get_kb_item( "tls/supported/" + port ) )
     return report;
 
-  # nb: No cipher enumeration for SSLv2 is done (in secpod_ssl_ciphers.nasl) because this doesn't
+  # nb: No cipher enumeration for SSLv2 is done (in gb_ssl_tls_ciphers_gathering.nasl) because this doesn't
   # make much sense these days:
   # The protocol itself is long deprecated, has so many flaws and is already reported separately
   # (in 2015/sw_sslv2_v3_detect.nasl) as deprecated with a severity accordingly.

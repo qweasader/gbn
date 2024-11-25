@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800055");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-08T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2008-11-12 16:32:06 +0100 (Wed, 12 Nov 2008)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2008-4818", "CVE-2008-4819", "CVE-2008-4820", "CVE-2008-4821",
                 "CVE-2008-4822", "CVE-2008-4823", "CVE-2008-4824", "CVE-2008-5361",
                 "CVE-2008-5362", "CVE-2008-5363");
-  script_name("Adobe Flash Player Multiple Vulnerabilities - Nov08 (Linux)");
+  script_name("Adobe Flash Player Multiple Vulnerabilities (Nov 2008) - Linux");
   script_xref(name:"URL", value:"http://www.adobe.com/support/security/bulletins/apsb08-20.html");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/32129");
   script_xref(name:"URL", value:"http://www.adobe.com/support/security/bulletins/apsb08-22.html");

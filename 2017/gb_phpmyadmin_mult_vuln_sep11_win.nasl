@@ -9,13 +9,13 @@ CPE = "cpe:/a:phpmyadmin:phpmyadmin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108209");
-  script_version("2023-10-17T05:05:34+0000");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_version("2024-02-09T05:06:25+0000");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-08-16 12:18:02 +0200 (Wed, 16 Aug 2017)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
   script_cve_id("CVE-2011-3591", "CVE-2011-3592");
-  script_name("phpMyAdmin Multiple XSS Vulnerabilities Sep11 (Windows)");
+  script_name("phpMyAdmin Multiple XSS Vulnerabilities (Sep 2011) - Windows");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");

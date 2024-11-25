@@ -9,8 +9,8 @@ CPE_PREFIX = "cpe:/h:moxa";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106743");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-04-12 08:26:22 +0200 (Wed, 12 Apr 2017)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -34,7 +34,7 @@ if(description)
   script_mandatory_keys("moxa_awk/detected");
 
   script_tag(name:"summary", value:"Moxa AWK series wireless access points are prone to an information
-  disclosure vulnerability .");
+  disclosure vulnerability.");
 
   script_tag(name:"vuldetect", value:"Sends a HTTP request and checks the response.");
 

@@ -9,8 +9,8 @@ CPE = "cpe:/a:bold-themes:bold_page_builder";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126606");
-  script_version("2024-01-10T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
+  script_version("2024-10-31T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-10-31 05:05:48 +0000 (Thu, 31 Oct 2024)");
   script_tag(name:"creation_date", value:"2024-01-04 10:04:50 +0000 (Thu, 04 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
@@ -65,7 +65,7 @@ location = infos["location"];
 
 if( version_is_less( version: version, test_version: "3.1.6" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "3.1.6", install_path: location );
-  security_message( data: report, port: port );
+  security_message( port: port, data: report );
   exit( 0 );
 }
 

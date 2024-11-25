@@ -1,35 +1,21 @@
-# Copyright (C) 2013 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2013 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:postgresql:postgresql";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.903102");
-  script_version("2022-04-25T14:50:49+0000");
+  script_version("2024-07-19T05:05:32+0000");
   script_cve_id("CVE-2012-4575");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2022-04-25 14:50:49 +0000 (Mon, 25 Apr 2022)");
+  script_tag(name:"last_modification", value:"2024-07-19 05:05:32 +0000 (Fri, 19 Jul 2024)");
   script_tag(name:"creation_date", value:"2013-01-25 11:24:17 +0530 (Fri, 25 Jan 2013)");
-  script_name("PostgreSQL PgBouncer Denial of Service Vulnerability (Windows)");
+  script_name("PostgreSQL PgBouncer Denial of Service Vulnerability - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/51128");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/56371");
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/79751");
@@ -37,9 +23,9 @@ if(description)
   script_xref(name:"URL", value:"http://git.postgresql.org/gitweb/?p=pgbouncer.git;a=commit;h=4b92112b820830b30cd7bc91bef3dd8f35305525");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   script_family("Denial of Service");
-  script_dependencies("secpod_postgresql_detect_win.nasl", "os_detection.nasl");
+  script_dependencies("gb_postgresql_consolidation.nasl", "os_detection.nasl");
   script_mandatory_keys("postgresql/detected", "Host/runs_windows");
   script_require_ports(139, 445);
 

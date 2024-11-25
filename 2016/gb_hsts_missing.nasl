@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105879");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-08T05:05:59+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-08-22 13:07:41 +0200 (Mon, 22 Aug 2016)");
   script_name("SSL/TLS: HTTP Strict Transport Security (HSTS) Missing");
   script_category(ACT_GATHER_INFO);
   script_family("SSL and TLS");
   script_copyright("Copyright (C) 2016 Greenbone AG");
-  script_dependencies("gb_hsts_detect.nasl");
+  script_dependencies("gb_hsts_http_detect.nasl");
   script_mandatory_keys("hsts/missing/port");
 
   script_xref(name:"URL", value:"https://owasp.org/www-project-secure-headers/");
@@ -27,19 +27,22 @@ if(description)
   script_xref(name:"URL", value:"https://httpd.apache.org/docs/current/mod/mod_headers.html#header");
   script_xref(name:"URL", value:"https://nginx.org/en/docs/http/ngx_http_headers_module.html#add_header");
 
-  script_tag(name:"summary", value:"The remote web server is not enforcing HSTS.");
+  script_tag(name:"summary", value:"The remote web server is not enforcing HTTP Strict Transport
+  Security (HSTS).");
 
-  script_tag(name:"solution", value:"Enable HSTS or add / configure the required directives correctly following the
-  guides linked in the references.
+  script_tag(name:"solution", value:"Enable HSTS or add / configure the required directives
+  correctly following the guides linked in the references.
 
-  Note: Some web servers are not sending headers on specific status codes by default. Please review your web server
-  or application configuration to always send these headers on every response independently from the status code.
+  Note: Some web servers are not sending headers on specific status codes by default. Please review
+  your web server or application configuration to always send these headers on every response
+  independently from the status code.
 
   - Apache: Use 'Header always set' instead of 'Header set'.
 
   - nginx: Append the 'always' keyword to each 'add_header' directive.
 
-  For different applications or web severs please refer to the related documentation for a similar configuration possibility.");
+  For different applications or web severs please refer to the related documentation for a similar
+  configuration possibility.");
 
   script_tag(name:"qod_type", value:"remote_banner");
   script_tag(name:"solution_type", value:"Workaround");
@@ -63,7 +66,7 @@ if( max_age_missing ) {
 } else {
   banner = get_kb_item( "www/banner/" + port + "/" );
   # Clean-up Banner from dynamic data so we don't report differences on the delta report
-  pattern = '([Dd]ate: |[Ee]xpires=|[Ee]xpires: |PHPSESSID=|[Ll]ast-[Mm]odified: |[Cc]ontent-[Ll]ength: |[Ss]et-[Cc]ookie: |[Ee][Tt]ag: (W/"|")?|[Ss]ession[Ii]d=)([0-9a-zA-Z :,-;=]+)';
+  pattern = '([Dd]ate\\s*:\\s*|[Ee]xpires=|[Ee]xpires\\s*:\\s*|PHPSESSID=|[Ll]ast-[Mm]odified\\s*:\\s*|[Cc]ontent-[Ll]ength\\s*:\\s*|[Ss]et-[Cc]ookie\\s*:\\s*|[Ee][Tt]ag\\s*:\\s*(W/"|")?|[Ss]ession[Ii]d=)([0-9a-zA-Z :,-;=_%]+)';
   if( eregmatch( pattern:pattern, string:banner ) )
     banner = ereg_replace( string:banner, pattern:pattern, replace:"\1***replaced***" );
 

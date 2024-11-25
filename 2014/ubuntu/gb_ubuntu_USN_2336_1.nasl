@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.841949");
   script_cve_id("CVE-2014-0155", "CVE-2014-0181", "CVE-2014-0206", "CVE-2014-4014", "CVE-2014-4027", "CVE-2014-4171", "CVE-2014-4508", "CVE-2014-4652", "CVE-2014-4653", "CVE-2014-4654", "CVE-2014-4655", "CVE-2014-4656", "CVE-2014-4667", "CVE-2014-5045");
   script_tag(name:"creation_date", value:"2014-09-03 03:55:32 +0000 (Wed, 03 Sep 2014)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-02-02T05:06:05+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:05 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"6.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:N/C:C/I:C/A:C");
 

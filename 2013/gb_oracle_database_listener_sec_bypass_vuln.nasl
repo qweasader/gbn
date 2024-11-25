@@ -9,12 +9,12 @@ CPE = 'cpe:/a:oracle:database_server';
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803960");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-10-29T05:05:45+0000");
   script_cve_id("CVE-2000-0818");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-10-29 05:05:45 +0000 (Tue, 29 Oct 2024)");
   script_tag(name:"creation_date", value:"2013-11-06 19:08:11 +0530 (Wed, 06 Nov 2013)");
   script_name("Oracle Database Server listener Security Bypass Vulnerability");
 
@@ -38,8 +38,8 @@ if(description)
   script_copyright("Copyright (C) 2013 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Databases");
-  script_dependencies("oracle_tnslsnr_version.nasl");
-  script_mandatory_keys("OracleDatabaseServer/installed");
+  script_dependencies("gb_oracle_database_consolidation.nasl");
+  script_mandatory_keys("oracle/database/detected");
   script_xref(name:"URL", value:"http://metalink.oracle.com");
 
   exit(0);
@@ -48,15 +48,22 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!port = get_app_port(cpe:CPE))exit(0);
-if(!ver = get_app_version(cpe:CPE, port:port))exit(0);
+if( isnull( port = get_app_port( cpe:CPE ) ) )
+  exit( 0 );
 
-if(ver =~ "^(8\.[0|1]\.|7\.3\.)")
-{
+if( ! infos = get_app_version_and_location( cpe:CPE, port:port, exit_no_version:TRUE ) )
+  exit( 0 );
+
+ver = infos["version"];
+path = infos["location"];
+
+if(ver =~ "^(8\.[0|1]\.|7\.3\.)") {
   if(version_is_equal(version:ver, test_version:"7.3.4") ||
      version_is_equal(version:ver, test_version:"8.0.6") ||
-     version_is_equal(version:ver, test_version:"8.1.6"))
-  {
-    security_message(port);
+     version_is_equal(version:ver, test_version:"8.1.6")) {
+    report = report_fixed_ver( installed_version:ver, fixed_version:"See references", install_path:path );
+    security_message( port:port, data:report );
+    exit(0);
   }
 }
+exit(99);

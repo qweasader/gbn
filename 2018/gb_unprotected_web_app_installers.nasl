@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107307");
-  script_version("2023-12-01T16:11:30+0000");
-  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
+  script_version("2024-10-24T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-10-24 05:05:32 +0000 (Thu, 24 Oct 2024)");
   script_tag(name:"creation_date", value:"2018-05-07 12:00:20 +0200 (Mon, 07 May 2018)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_tag(name:"cvss_base", value:"5.0");
@@ -16,10 +16,14 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "sw_magento_detect.nasl",
-                      "gb_wordpress_http_detect.nasl", "osticket_http_detect.nasl", "gb_dotnetnuke_http_detect.nasl",
-                      "secpod_tikiwiki_detect.nasl", "gb_nuxeo_platform_detect.nasl", "gb_owncloud_http_detect.nasl",
-                      "gb_dolibarr_http_detect.nasl", "gb_atlassian_jira_http_detect.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "sw_magento_detect.nasl",
+                      "gb_wordpress_http_detect.nasl", "osticket_http_detect.nasl",
+                      "gb_dotnetnuke_http_detect.nasl", "secpod_tikiwiki_detect.nasl",
+                      "gb_nuxeo_platform_detect.nasl", "gb_owncloud_http_detect.nasl",
+                      "gb_dolibarr_http_detect.nasl", "gb_atlassian_jira_http_detect.nasl",
+                      "gb_lucee_consolidation.nasl", "gb_froxlor_http_detect.nasl",
+                      "gb_mautic_http_detect.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
@@ -45,6 +49,7 @@ if(description)
 
   exit(0);
 }
+
 include("http_func.inc");
 include("http_keepalive.inc");
 include("port_service_func.inc");
@@ -56,6 +61,8 @@ include("host_details.inc");
 # array value = the description and the regex of the checked file separated with #-#. Optional a third entry separated by #-# containing an "extra_check" for http_vuln_check()
 
 genericfiles = make_array(
+# nb: phpipam has a separate entry below but this one here has been kept as the product might have
+# behaved differently back then in 2018.
 "/index.php", 'Installer / Setup-Tool of multiple vendors#-#<title>((Microweber|phpipam|VoIPmonitor) installation|Installation|WackoWiki Installation|(Piwik|Matomo) .* &rsaquo; Installation|LimeSurvey installer)</title>',
 "/index.php?module=Users&parent=Settings&view=SystemSetup", 'VTiger CMS Installation tool.#-#<title>Install</title>',
 "/index.php/index/install", 'Open Journal Systems installer#-#<title>O(JS|MP) Installation</title>',
@@ -83,7 +90,9 @@ genericfiles = make_array(
 "/install/", "phpBB installer#-#<title>Introduction</title>#-#<span>Install</span></a></li>",
 "/v1/settings/first-login", 'Rancher first login value is set to true#-#"value":"true"',
 "/v3/settings/first-login", 'Rancher first login value is set to true#-#"value":"true"',
-"/admin/install.php", "MantisBT installer#-#<title>Administration - Installation - MantisBT</title>"
+"/admin/install.php", "MantisBT installer#-#<title>Administration - Installation - MantisBT</title>",
+"/index.php?page=install", "phpipam installer#-#(<title>phpipam installation</title>|Welcome to phpipam installation wizard)",
+"/setup/start", "GitHub Enterprise installer#-#<title>Setup GitHub Enterprise</title>" # nb: "/setup/start" is redirecting to "/setup/unlock" if already configured / installed
 );
 
 # nb: Used later without the http_cgi_dirs() result
@@ -132,6 +141,21 @@ jirafiles = make_array(
 # <title>JIRA - JIRA setup</title>
 # <title>Jira - Jira setup</title>
 "/secure/SetupMode!default.jspa", "Atlassian Jira installer#-#<title>Jira - Jira setup</title>"
+);
+
+luceefiles = make_array(
+"/lucee/admin/web.cfm", 'Luceee Web Administrator allowing to set a new password#-#(<title>New Password - Lucee Web Administrator</title>|<th scope="row" class="right" nowrap="nowrap">Retype new password</th>)',
+"/lucee/admin/server.cfm", 'Luceee Server Administrator allowing to set a new password#-#(<title>New Password - Lucee Server Administrator</title>|<th scope="row" class="right" nowrap="nowrap">Retype new password</th>)'
+);
+
+froxlorfiles = make_array(
+  "/", "Froxlor installer#-#(Froxlor Server Management Panel - Installation|<p>It seems that Froxlor has not been installed yet\.</p>)",
+  "/index.php", "Froxlor installer#-#(Froxlor Server Management Panel - Installation|<p>It seems that Froxlor has not been installed yet\.</p>)"
+);
+
+mauticfiles = make_array(
+  "/index.php/installer", "Mautic installer#-#Mautic Installation - Environment Check",
+  "/installer", "Mautic installer#-#Mautic Installation - Environment Check"
 );
 
 global_var report, VULN;
@@ -236,6 +260,27 @@ if( jiradirs )
 else
   jiradirlist = dirlist;
 check_files( filesarray:jirafiles, dirlist:jiradirlist, port:port );
+
+luceedirs = get_app_location( port:port, cpe:"cpe:/a:lucee:lucee_server", service:"www", nofork:TRUE );
+if( luceedirs )
+  luceedirlist = make_list_unique( luceedirs, dirlist );
+else
+  luceedirlist = dirlist;
+check_files( filesarray:luceefiles, dirlist:luceedirlist, port:port );
+
+froxlordirs = get_app_location( port:port, cpe:"cpe:/a:froxlor:froxlor", service:"www", nofork:TRUE );
+if( froxlordirs )
+  froxlordirlist = make_list_unique( froxlordirs, dirlist );
+else
+  froxlordirlist = dirlist;
+check_files( filesarray:froxlorfiles, dirlist:froxlordirlist, port:port );
+
+mauticdirs = get_app_location( port:port, cpe:"cpe:/a:mautic:mautic", service:"www", nofork:TRUE );
+if( mauticdirs )
+  mauticdirlist = make_list_unique( mauticdirs, dirlist );
+else
+  mauticdirlist = dirlist;
+check_files( filesarray:mauticfiles, dirlist:mauticdirlist, port:port );
 
 if( VULN ) {
   security_message( port:port, data:report );

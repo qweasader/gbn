@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131098");
   script_cve_id("CVE-2015-3230");
   script_tag(name:"creation_date", value:"2015-10-16 05:44:14 +0000 (Fri, 16 Oct 2015)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
@@ -23,10 +23,10 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2015-0402");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2015-0402.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16928");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/pipermail/package-announce/2015-October/168985.html");
   script_xref(name:"URL", value:"http://www.port389.org/docs/389ds/releases/release-1-3-3-12.html");
   script_xref(name:"URL", value:"http://www.port389.org/docs/389ds/releases/release-1-3-3-13.html");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16928");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/pipermail/package-announce/2015-October/168985.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the '389-ds-base' package(s) announced via the MGASA-2015-0402 advisory.");
 

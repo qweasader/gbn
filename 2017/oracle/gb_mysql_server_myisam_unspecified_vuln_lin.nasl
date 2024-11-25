@@ -9,13 +9,13 @@ CPE = "cpe:/a:mysql:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812181");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2012-0583");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-11-23 14:56:52 +0530 (Thu, 23 Nov 2017)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
-  script_name("MySQL Server Component MyISAM Unspecified Vulnerability (Linux)");
+  script_name("MySQL Server Component MyISAM Unspecified Vulnerability - Linux");
   script_xref(name:"URL", value:"http://secunia.com/advisories/48890");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/53061");
   script_xref(name:"URL", value:"http://www.oracle.com/technetwork/topics/security/cpuapr2012-366314.html#AppendixMSQL");

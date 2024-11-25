@@ -8,11 +8,14 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2010-December/051853.html");
   script_oid("1.3.6.1.4.1.25623.1.0.862706");
-  script_version("2023-05-18T09:08:59+0000");
-  script_tag(name:"last_modification", value:"2023-05-18 09:08:59 +0000 (Thu, 18 May 2023)");
+  script_version("2024-07-01T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-07-01 05:05:38 +0000 (Mon, 01 Jul 2024)");
   script_tag(name:"creation_date", value:"2010-12-09 08:26:35 +0100 (Thu, 09 Dec 2010)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-06-27 19:23:03 +0000 (Thu, 27 Jun 2024)");
   script_xref(name:"FEDORA", value:"2010-18493");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");

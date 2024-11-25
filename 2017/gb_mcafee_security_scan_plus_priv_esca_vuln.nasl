@@ -9,16 +9,16 @@ CPE = "cpe:/a:intel:mcafee_security_scan_plus";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810824");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2016-8008");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-03-27 16:40:00 +0000 (Mon, 27 Mar 2017)");
   script_tag(name:"creation_date", value:"2017-03-22 11:37:02 +0530 (Wed, 22 Mar 2017)");
-  script_name("McAfee Security Scan Plus Privilege Escalation Vulnerability (Windows)");
+  script_name("McAfee Security Scan Plus Privilege Escalation Vulnerability - Windows");
 
   script_tag(name:"summary", value:"McAfee Security Scan Plus is prone to a privilege escalation vulnerability.");
 
@@ -42,7 +42,7 @@ if(description)
   script_xref(name:"URL", value:"https://service.mcafee.com/webcenter/portal/cp/home/articleview?articleId=TS102593");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_mcafee_security_scan_plus_detect.nasl");
   script_mandatory_keys("McAfee/SecurityScanPlus/Win/Ver");
   exit(0);

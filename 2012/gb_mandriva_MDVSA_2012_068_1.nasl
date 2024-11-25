@@ -8,14 +8,17 @@ if(description)
 {
   script_xref(name:"URL", value:"http://www.mandriva.com/en/support/security/advisories/?name=MDVSA-2012:068-1");
   script_oid("1.3.6.1.4.1.25623.1.0.831627");
-  script_version("2023-07-14T05:06:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 05:06:08 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-07-17T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-07-17 05:05:38 +0000 (Wed, 17 Jul 2024)");
   script_tag(name:"creation_date", value:"2012-08-03 09:56:04 +0530 (Fri, 03 Aug 2012)");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2012-1823", "CVE-2012-2335", "CVE-2012-2336");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-07-16 17:48:42 +0000 (Tue, 16 Jul 2024)");
   script_xref(name:"MDVSA", value:"2012:068-1");
   script_name("Mandriva Update for php MDVSA-2012:068-1 (php)");
 

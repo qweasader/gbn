@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2014.0287.1");
   script_cve_id("CVE-2011-1083", "CVE-2011-3593", "CVE-2012-1601", "CVE-2012-2137", "CVE-2012-2372", "CVE-2012-2745", "CVE-2012-3375", "CVE-2012-3412", "CVE-2012-3430", "CVE-2012-3511", "CVE-2012-4444", "CVE-2012-4530", "CVE-2012-4565", "CVE-2012-6537", "CVE-2012-6538", "CVE-2012-6539", "CVE-2012-6540", "CVE-2012-6541", "CVE-2012-6542", "CVE-2012-6544", "CVE-2012-6545", "CVE-2012-6546", "CVE-2012-6547", "CVE-2012-6548", "CVE-2012-6549", "CVE-2013-0160", "CVE-2013-0216", "CVE-2013-0231", "CVE-2013-0268", "CVE-2013-0310", "CVE-2013-0343", "CVE-2013-0349", "CVE-2013-0871", "CVE-2013-0914", "CVE-2013-1767", "CVE-2013-1773", "CVE-2013-1774", "CVE-2013-1792", "CVE-2013-1796", "CVE-2013-1797", "CVE-2013-1798", "CVE-2013-1827", "CVE-2013-1928", "CVE-2013-1943", "CVE-2013-2015", "CVE-2013-2141", "CVE-2013-2147", "CVE-2013-2164", "CVE-2013-2232", "CVE-2013-2234", "CVE-2013-2237", "CVE-2013-2634", "CVE-2013-2851", "CVE-2013-2852", "CVE-2013-2888", "CVE-2013-2889", "CVE-2013-2892", "CVE-2013-2893", "CVE-2013-2897", "CVE-2013-2929", "CVE-2013-3222", "CVE-2013-3223", "CVE-2013-3224", "CVE-2013-3225", "CVE-2013-3228", "CVE-2013-3229", "CVE-2013-3231", "CVE-2013-3232", "CVE-2013-3234", "CVE-2013-3235", "CVE-2013-4345", "CVE-2013-4470", "CVE-2013-4483", "CVE-2013-4511", "CVE-2013-4587", "CVE-2013-4588", "CVE-2013-4591", "CVE-2013-6367", "CVE-2013-6368", "CVE-2013-6378", "CVE-2013-6383", "CVE-2014-1444", "CVE-2014-1445", "CVE-2014-1446");
   script_tag(name:"creation_date", value:"2021-06-09 14:58:22 +0000 (Wed, 09 Jun 2021)");
-  script_version("2023-06-20T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:22 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-02T05:06:07+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:07 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-08-03 15:58:00 +0000 (Mon, 03 Aug 2020)");
+  script_tag(name:"severity_date", value:"2013-07-16 15:54:00 +0000 (Tue, 16 Jul 2013)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2014:0287-1)");
   script_category(ACT_GATHER_INFO);

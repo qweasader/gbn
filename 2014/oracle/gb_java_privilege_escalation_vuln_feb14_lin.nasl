@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108424");
-  script_version("2023-07-27T05:05:09+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2014-1876");
   script_tag(name:"cvss_base", value:"4.4");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2014-02-13 12:54:10 +0530 (Thu, 13 Feb 2014)");
-  script_name("Oracle Java SE Privilege Escalation Vulnerability Feb 2014 (Linux)");
+  script_name("Oracle Java SE Privilege Escalation Vulnerability (Feb 2014) - Linux");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2014 Greenbone AG");
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_java_prdts_detect_lin.nasl");
   script_mandatory_keys("Sun/Java/JRE/Linux/Ver");
 

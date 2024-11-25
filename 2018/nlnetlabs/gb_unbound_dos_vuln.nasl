@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113091");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-01-24 15:09:10 +0100 (Wed, 24 Jan 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
@@ -32,7 +32,7 @@ if( description )
   script_mandatory_keys("unbound/installed");
 
   script_tag(name:"summary", value:"A flaw was found in the way unbound before 1.6.8 validated wildcard-synthesized NSEC records. An improperly validated wildcard NSEC record could be used to prove the non-existence (NXDOMAIN answer) of an existing wildcard record, or trick unbound into accepting a NODATA proof.");
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
   script_tag(name:"affected", value:"Unbound DNS Resolver before version 1.6.8");
   script_tag(name:"solution", value:"Update to version 1.6.8 or above");
 

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2024.1056");
   script_cve_id("CVE-2023-39129");
   script_tag(name:"creation_date", value:"2024-01-09 04:20:32 +0000 (Tue, 09 Jan 2024)");
-  script_version("2024-01-09T05:06:46+0000");
-  script_tag(name:"last_modification", value:"2024-01-09 05:06:46 +0000 (Tue, 09 Jan 2024)");
+  script_version("2024-02-05T14:36:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:57 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"4.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-08-03 13:49:00 +0000 (Thu, 03 Aug 2023)");
+  script_tag(name:"severity_date", value:"2023-08-03 13:49:53 +0000 (Thu, 03 Aug 2023)");
 
   script_name("Huawei EulerOS: Security Advisory for gdb (EulerOS-SA-2024-1056)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROS\-2\.0SP10");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2024-1056");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2024-1056");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2024-1056");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'gdb' package(s) announced via the EulerOS-SA-2024-1056 advisory.");
 

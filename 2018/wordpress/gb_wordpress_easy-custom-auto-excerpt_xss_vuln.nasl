@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112189");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2018-01-12 12:10:00 +0100 (Fri, 12 Jan 2018)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
@@ -31,11 +31,13 @@ if (description)
   script_dependencies("gb_wordpress_plugin_http_detect.nasl");
   script_mandatory_keys("wordpress/plugin/easy-custom-auto-excerpt/detected");
 
-  script_tag(name:"summary", value:"The WordPress plugin 'Easy Custom Auto Excerpt' is prone to a cross-site scripting (XSS) vulnerability.");
+  script_tag(name:"summary", value:"The WordPress plugin 'Easy Custom Auto Excerpt' is prone to a
+  cross-site scripting (XSS) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"affected", value:"WordPress Easy Custom Auto Excerpt plugin up to and including version 2.4.6.");
+  script_tag(name:"affected", value:"WordPress Easy Custom Auto Excerpt plugin up to and including
+  version 2.4.6.");
 
   script_tag(name:"solution", value:"No known solution was made available for at least one year
   since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
@@ -52,13 +54,16 @@ CPE = "cpe:/a:tonjoostudio:easy_custom_auto_excerpt";
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe: CPE ) ) exit( 0 );
-if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) ) exit( 0 );
+if( ! port = get_app_port( cpe: CPE ) )
+  exit( 0 );
+
+if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) )
+  exit( 0 );
 
 version = infos["version"];
 location = infos["location"];
 
-if ( version_is_less_equal( version: version, test_version: "2.4.6" )) {
+if( version_is_less_equal( version: version, test_version: "2.4.6" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "None Available", install_path: location );
   security_message( port: port, data: report );
   exit( 0 );

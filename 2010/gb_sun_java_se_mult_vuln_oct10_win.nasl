@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801530");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-10-28 11:50:37 +0200 (Thu, 28 Oct 2010)");
   script_cve_id("CVE-2010-3550", "CVE-2010-3551", "CVE-2010-3552", "CVE-2010-3553",
                 "CVE-2010-3554", "CVE-2010-3555", "CVE-2010-3556", "CVE-2010-3557",
@@ -18,7 +18,7 @@ if(description)
                 "CVE-2010-3571", "CVE-2010-3572", "CVE-2010-3573", "CVE-2010-3574");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_name("Oracle Java SE Multiple Vulnerabilities (Windows)");
+  script_name("Oracle Java SE Multiple Vulnerabilities - Windows");
 
   script_xref(name:"URL", value:"http://www.vupen.com/english/advisories/2010/2660");
   script_xref(name:"URL", value:"http://www.oracle.com/technetwork/topics/security/javacpuoct2010-176258.html");

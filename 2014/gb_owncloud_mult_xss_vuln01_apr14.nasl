@@ -9,16 +9,16 @@ CPE = "cpe:/a:owncloud:owncloud";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804361");
-  script_version("2023-12-01T16:11:30+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2013-0201", "CVE-2013-0202", "CVE-2013-0203");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-12-18 19:39:00 +0000 (Wed, 18 Dec 2019)");
   script_tag(name:"creation_date", value:"2014-04-04 14:54:56 +0530 (Fri, 04 Apr 2014)");
-  script_name("ownCloud Multiple XSS Vulnerabilities-01 Apr14");
+  script_name("ownCloud Multiple XSS Vulnerabilities-01 (Apr 2014)");
 
   script_tag(name:"summary", value:"ownCloud is prone to multiple XSS vulnerabilities.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");

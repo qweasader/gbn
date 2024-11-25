@@ -12,9 +12,9 @@ if (description)
   script_cve_id("CVE-2015-8339", "CVE-2015-8340");
   script_tag(name:"cvss_base", value:"4.7");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:N/I:N/A:C");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-10-30T05:05:27+0000");
 
-  script_name("Citrix XenServer Security Update for CVE-2015-8339 & CVE-2015-8340 (CTX203451))");
+  script_name("Citrix XenServer Security Update for CVE-2015-8339 & CVE-2015-8340 (CTX203451)");
 
   script_xref(name:"URL", value:"http://support.citrix.com/article/CTX203451");
 
@@ -30,7 +30,7 @@ if (description)
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-10-30 05:05:27 +0000 (Wed, 30 Oct 2024)");
   script_tag(name:"creation_date", value:"2015-12-09 18:03:53 +0100 (Wed, 09 Dec 2015)");
   script_category(ACT_GATHER_INFO);
   script_family("Citrix Xenserver Local Security Checks");
@@ -53,11 +53,11 @@ if( ! hotfixes = get_kb_item("xenserver/patches") )
 
 patches = make_array();
 
-patches['6.5.0'] = make_list( 'XS65ESP1019' );
-patches['6.2.0'] = make_list( 'XS62ESP1035' );
-patches['6.1.0'] = make_list( 'XS61E061' );
-patches['6.0.2'] = make_list( 'XS602E049', 'XS602ECC025' );
-patches['6.0.0'] = make_list( 'XS60E054' );
+patches["6.5.0"] = make_list( "XS65ESP1019" );
+patches["6.2.0"] = make_list( "XS62ESP1035" );
+patches["6.1.0"] = make_list( "XS61E061" );
+patches["6.0.2"] = make_list( "XS602E049", "XS602ECC025" );
+patches["6.0.0"] = make_list( "XS60E054" );
 
 citrix_xenserver_check_report_is_vulnerable( version:version, hotfixes:hotfixes, patches:patches );
 

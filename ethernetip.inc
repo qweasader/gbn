@@ -2,7 +2,7 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 # EtherNet/IP Device types
 # (from https://github.com/wireshark/wireshark/blob/master/epan/dissectors/packet-cip.c)
@@ -669,7 +669,7 @@ vendors = make_array(1, "Rockwell Automation/Allen-Bradley",
                      614, "Jun-Tech Co., Ltd.",
                      615, "HAN-MI Co. Ltd.",
                      616, "uniNtech (formerly SungGi Internet)",
-                     617, "Hae Pyung Electronics Reserch Institute",
+                     617, "Hae Pyung Electronics Research Institute",
                      618, "Milwaukee Electronics",
                      619, "OBERG Industries",
                      620, "Parker Hannifin/Compumotor Division",

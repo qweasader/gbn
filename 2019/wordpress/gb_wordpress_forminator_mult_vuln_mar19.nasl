@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112529");
-  script_version("2023-10-27T16:11:33+0000");
-  script_tag(name:"last_modification", value:"2023-10-27 16:11:33 +0000 (Fri, 27 Oct 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2019-03-05 11:34:00 +0100 (Tue, 05 Mar 2019)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -68,7 +68,7 @@ if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_versio
 version = infos["version"];
 location = infos["location"];
 
-if( version_is_less( version: version, test_version: "1.6" )) {
+if( version_is_less( version: version, test_version: "1.6" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "1.6", install_path: location );
   security_message( port: port, data: report );
   exit( 0 );

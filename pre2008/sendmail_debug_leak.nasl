@@ -9,10 +9,10 @@ CPE = "cpe:/a:sendmail:sendmail";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11088");
-  script_version("2024-01-10T05:05:17+0000");
+  script_version("2024-09-13T05:05:46+0000");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/3898");
   script_cve_id("CVE-2001-0715");
-  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
+  script_tag(name:"last_modification", value:"2024-09-13 05:05:46 +0000 (Fri, 13 Sep 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:N/A:N");
@@ -59,7 +59,7 @@ if(!vers = get_app_version(cpe:CPE, port:port))
   exit(0);
 
 if(vers =~ "^8\.(([0-9]\..*)|(1[01]\..*)|(12\.0))$") {
-  report = report_fixed_ver(installed_version:vers, fixed_version:"See solution tag.");
+  report = report_fixed_ver(installed_version:vers, fixed_version:"See solution tag");
   security_message(port:port, data:report);
   exit(0);
 }

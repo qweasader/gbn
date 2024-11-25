@@ -1,22 +1,8 @@
-# Copyright (C) 2023 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2023 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 
 CPE = "cpe:/a:google:chrome";
@@ -24,7 +10,7 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826744");
-  script_version("2023-01-09T10:12:48+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2021-30606", "CVE-2021-30607", "CVE-2021-30608", "CVE-2021-30609",
                 "CVE-2021-30610", "CVE-2021-30611", "CVE-2021-30612", "CVE-2021-30613",
                 "CVE-2021-30614", "CVE-2021-30615", "CVE-2021-30616", "CVE-2021-30617",
@@ -32,12 +18,12 @@ if(description)
                 "CVE-2021-30622", "CVE-2021-30623", "CVE-2021-30624");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-01-09 10:12:48 +0000 (Mon, 09 Jan 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-09-07 21:58:00 +0000 (Tue, 07 Sep 2021)");
   script_tag(name:"creation_date", value:"2023-01-02 12:46:11 +0530 (Mon, 02 Jan 2023)");
-  script_name("Google Chrome Security Update(stable-channel-update-for-desktop_31-2021-08) - Windows");
+  script_name("Google Chrome Security Update (stable-channel-update-for-desktop_31-2021-08) - Windows");
 
   script_tag(name:"summary", value:"Google Chrome is prone to multiple vulnerabilities.");
 
@@ -74,7 +60,7 @@ if(description)
 
   script_xref(name:"URL", value:"https://chromereleases.googleblog.com/2021/08/stable-channel-update-for-desktop_31.html");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2023 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("General");
   script_dependencies("gb_google_chrome_detect_win.nasl");
   script_mandatory_keys("GoogleChrome/Win/Ver");

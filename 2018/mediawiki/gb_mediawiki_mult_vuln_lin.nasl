@@ -9,8 +9,8 @@ CPE = "cpe:/a:mediawiki:mediawiki";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141564");
-  script_version("2023-11-03T16:10:08+0000");
-  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
+  script_version("2024-07-16T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2018-10-05 09:52:00 +0700 (Fri, 05 Oct 2018)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:N");
@@ -24,20 +24,20 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("MediaWiki Multiple Vulnerabilities Sept18 (Linux)");
+  script_name("MediaWiki Multiple Vulnerabilities (Sep 2018) - Linux");
 
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("secpod_mediawiki_detect.nasl", "os_detection.nasl");
-  script_mandatory_keys("mediawiki/installed", "Host/runs_unixoide");
+  script_dependencies("gb_mediawiki_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("mediawiki/detected", "Host/runs_unixoide");
 
   script_tag(name:"summary", value:"MediaWiki is prone to multiple vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"MediaWiki is prone to multiple vulnerabilities:
+  script_tag(name:"insight", value:"The following flaws exist:
 
   - $wgRateLimits entry for 'user' overrides 'newbie' (CVE-2018-0503)
 

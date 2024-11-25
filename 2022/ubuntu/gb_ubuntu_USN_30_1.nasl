@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.12.2004.30.1");
-  script_cve_id("CVE-2004-0882", "CVE-2004-0883", "CVE-2004-0949");
+  script_cve_id("CVE-2004-0883", "CVE-2004-0949");
   script_tag(name:"creation_date", value:"2022-08-26 07:43:23 +0000 (Fri, 26 Aug 2022)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
-  script_tag(name:"cvss_base", value:"10.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
+  script_tag(name:"cvss_base", value:"6.4");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
 
   script_name("Ubuntu: Security Advisory (USN-30-1)");
   script_category(ACT_GATHER_INFO);
@@ -23,8 +23,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"USN-30-1");
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-30-1");
-  script_xref(name:"URL", value:"http://isec.pl/vulnerabilities/isec-0017-binfmt_elf.txt:");
-  script_xref(name:"URL", value:"http://marc.theaimsgroup.com/?l=linux-kernel&m=109776571411003&w=2:");
+  script_xref(name:"URL", value:"http://isec.pl/vulnerabilities/isec-0017-binfmt_elf.txt");
+  script_xref(name:"URL", value:"http://marc.theaimsgroup.com/?l=linux-kernel&m=109776571411003&w=2");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'linux-source-2.6.8.1' package(s) announced via the USN-30-1 advisory.");
 
@@ -49,7 +49,7 @@ if(description)
  space. So these bugs may theoretically lead to privilege escalation
  and total compromise of the whole system.
 
-[link moved to references]
+[link moved to references]:
 
  Several flaws have been found in the Linux ELF binary loader's
  handling of setuid binaries. Nowadays ELF is the standard format for
@@ -69,7 +69,7 @@ if(description)
  but executable suid binaries. The attacker can then use this to seek
  faults within the executable.
 
-[link moved to references]
+[link moved to references]:
 
  Bernard Gagnon discovered a memory leak in the mmap raw packet
  socket implementation. When a client application (in ELF format)

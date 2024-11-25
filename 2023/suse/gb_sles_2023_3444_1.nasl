@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2023.3444.1");
   script_cve_id("CVE-2021-3638", "CVE-2021-3750", "CVE-2023-0330", "CVE-2023-3180", "CVE-2023-3301", "CVE-2023-3354");
   script_tag(name:"creation_date", value:"2023-08-29 04:37:22 +0000 (Tue, 29 Aug 2023)");
-  script_version("2023-08-29T05:06:28+0000");
-  script_tag(name:"last_modification", value:"2023-08-29 05:06:28 +0000 (Tue, 29 Aug 2023)");
+  script_version("2024-05-09T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-05-09 05:05:43 +0000 (Thu, 09 May 2024)");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-05-16 18:14:00 +0000 (Mon, 16 May 2022)");
+  script_tag(name:"severity_date", value:"2022-05-16 18:14:14 +0000 (Mon, 16 May 2022)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2023:3444-1)");
   script_category(ACT_GATHER_INFO);
@@ -40,7 +40,7 @@ CVE-2021-3638: Fixed an out-of-bounds write due to an inconsistent check in ati_
 CVE-2023-3301: Fixed a DoS due to an assertion failure. (bsc#1213414)
 CVE-2021-3750: Fixed an use-after-free in DMA reentrancy issue. (bsc#1190011)");
 
-  script_tag(name:"affected", value:"'qemu' package(s) on SUSE Enterprise Storage 7.1, SUSE Linux Enterprise High Performance Computing 15-SP3, SUSE Linux Enterprise Micro 5.1, SUSE Linux Enterprise Micro 5.2, SUSE Linux Enterprise Micro for Rancher 5.2, SUSE Linux Enterprise Server 15-SP3, SUSE Linux Enterprise Server for SAP Applications 15-SP3, SUSE Manager Proxy 4.2, SUSE Manager Retail Branch Server 4.2, SUSE Manager Server 4.2.");
+  script_tag(name:"affected", value:"'qemu' package(s) on SUSE Linux Enterprise High Performance Computing 15-SP3, SUSE Linux Enterprise Server 15-SP3, SUSE Linux Enterprise Server for SAP Applications 15-SP3, SUSE Manager Proxy 4.2, SUSE Manager Retail Branch Server 4.2.");
 
   script_tag(name:"solution", value:"Please install the updated package(s).");
 

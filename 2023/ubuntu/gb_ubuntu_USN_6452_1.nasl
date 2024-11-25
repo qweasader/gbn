@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.12.2023.6452.1");
   script_cve_id("CVE-2023-3896", "CVE-2023-4733", "CVE-2023-4734", "CVE-2023-4735", "CVE-2023-4738", "CVE-2023-4750", "CVE-2023-4751", "CVE-2023-4752", "CVE-2023-4781", "CVE-2023-5344", "CVE-2023-5441", "CVE-2023-5535");
   script_tag(name:"creation_date", value:"2023-10-26 04:08:52 +0000 (Thu, 26 Oct 2023)");
-  script_version("2023-10-27T05:05:28+0000");
-  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
+  script_version("2024-02-02T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:10 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-10-16 14:16:00 +0000 (Mon, 16 Oct 2023)");
+  script_tag(name:"severity_date", value:"2023-10-16 14:16:54 +0000 (Mon, 16 Oct 2023)");
 
   script_name("Ubuntu: Security Advisory (USN-6452-1)");
   script_category(ACT_GATHER_INFO);

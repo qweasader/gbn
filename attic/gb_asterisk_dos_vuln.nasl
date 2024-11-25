@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107148");
-  script_version("2023-06-27T05:05:30+0000");
-  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-04-18 10:44:46 +0200 (Tue, 18 Apr 2017)");
   script_cve_id("CVE-2016-7551");
 
@@ -19,12 +19,14 @@ if(description)
   script_tag(name:"severity_date", value:"2017-04-25 00:39:00 +0000 (Tue, 25 Apr 2017)");
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
-  script_name("Asterisk Open Source and Certified Asterisk RTP Resource Exhaustion Denial of Service Vulnerability");
 
-  script_tag(name:"summary", value:"DEPRECATED since this check is already covered in 'Asterisk RTP Resource
-  Exhaustion Vulnerability' (OID: 1.3.6.1.4.1.25623.1.0.106239)
+  script_name("Asterisk Open Source and Certified Asterisk RTP Resource Exhaustion DoS Vulnerability");
 
-  Asterisk Open Source and Certified Asterisk are prone to a remote denial-of-service vulnerability.");
+  script_tag(name:"summary", value:"Asterisk Open Source and Certified Asterisk are prone to a
+  remote denial of service (DoS) vulnerability.
+
+  This script has been deprecated since this check is already covered in 'Asterisk RTP Resource
+  Exhaustion Vulnerability' (OID: 1.3.6.1.4.1.25623.1.0.106239).");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

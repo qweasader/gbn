@@ -9,13 +9,13 @@ CPE = "cpe:/a:vmware:player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810679");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2015-2341");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-04-07 17:39:57 +0530 (Fri, 07 Apr 2017)");
-  script_name("VMware Player 'RPC Command' Denial of Service Vulnerability (Windows)");
+  script_name("VMware Player 'RPC Command' Denial of Service Vulnerability - Windows");
 
   script_tag(name:"summary", value:"VMware Player is prone to a denial of service (DoS) vulnerability.");
 

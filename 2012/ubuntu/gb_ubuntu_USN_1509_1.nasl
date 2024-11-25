@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.841085");
   script_cve_id("CVE-2012-1948", "CVE-2012-1949", "CVE-2012-1950", "CVE-2012-1951", "CVE-2012-1952", "CVE-2012-1953", "CVE-2012-1954", "CVE-2012-1955", "CVE-2012-1957", "CVE-2012-1958", "CVE-2012-1959", "CVE-2012-1960", "CVE-2012-1961", "CVE-2012-1962", "CVE-2012-1963", "CVE-2012-1964", "CVE-2012-1965", "CVE-2012-1966", "CVE-2012-1967");
   script_tag(name:"creation_date", value:"2012-07-19 05:14:17 +0000 (Thu, 19 Jul 2012)");
-  script_version("2023-06-21T05:06:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:20 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
@@ -23,8 +23,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"USN-1509-1");
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-1509-1");
-  script_xref(name:"URL", value:"https://launchpad.net/bugs/1024562");
   script_xref(name:"URL", value:"https://launchpad.net/bugs/1020198");
+  script_xref(name:"URL", value:"https://launchpad.net/bugs/1024562");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'firefox' package(s) announced via the USN-1509-1 advisory.");
 

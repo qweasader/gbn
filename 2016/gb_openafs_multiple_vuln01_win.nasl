@@ -9,13 +9,13 @@ CPE = "cpe:/a:openafs:openafs";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808076");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-28T05:05:37+0000");
   script_cve_id("CVE-2015-6587", "CVE-2015-3282", "CVE-2015-3283");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-28 05:05:37 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-06-08 19:01:35 +0530 (Wed, 08 Jun 2016)");
-  script_name("OpenAFS Multiple Vulnerabilities-01 (Windows)");
+  script_name("OpenAFS Multiple Vulnerabilities - 01 - Windows");
 
   script_tag(name:"summary", value:"OpenAFS is prone to multiple vulnerabilities.");
 

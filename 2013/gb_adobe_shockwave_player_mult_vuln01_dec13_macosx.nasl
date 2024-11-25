@@ -9,13 +9,13 @@ CPE = "cpe:/a:adobe:shockwave_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804173");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2013-5334", "CVE-2013-5333");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-12-18 18:14:27 +0530 (Wed, 18 Dec 2013)");
-  script_name("Adobe Shockwave Player Multiple Vulnerabilities-01 Dec13 (Mac OS X)");
+  script_name("Adobe Shockwave Player Multiple Vulnerabilities-01 (Dec 2013) - Mac OS X");
 
 
   script_tag(name:"summary", value:"Adobe Shockwave Player is prone to multiple vulnerabilities.");

@@ -9,24 +9,25 @@ CPE = "cpe:/a:apache:tomcat";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807410");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2015-5351");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-07-19 01:29:00 +0000 (Thu, 19 Jul 2018)");
   script_tag(name:"creation_date", value:"2016-02-25 14:34:55 +0530 (Thu, 25 Feb 2016)");
-  script_name("Apache Tomcat CSRF Token Leak Vulnerability - Feb16 (Linux)");
+  script_name("Apache Tomcat CSRF Token Leak Vulnerability (Feb 2016) - Linux");
 
-  script_tag(name:"summary", value:"Apache Tomcat is prone to a CSRF Token leak vulnerability.");
+  script_tag(name:"summary", value:"Apache Tomcat is prone to a cross-site request forgery (CSRF)
+  token leak vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"The flaw is due to an error in index page
   of the Manager and Host Manager applications included a valid CSRF token when
-  issuing a redirect .");
+  issuing a redirect.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow remote
   attackers to bypass a CSRF protection mechanism by using a token.");

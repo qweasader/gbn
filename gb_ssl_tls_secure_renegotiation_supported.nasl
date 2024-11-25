@@ -1,37 +1,23 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117757");
-  script_version("2021-11-12T09:42:39+0000");
+  script_version("2024-09-27T05:05:23+0000");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
-  script_tag(name:"last_modification", value:"2021-11-12 09:42:39 +0000 (Fri, 12 Nov 2021)");
+  script_tag(name:"last_modification", value:"2024-09-27 05:05:23 +0000 (Fri, 27 Sep 2024)");
   script_tag(name:"creation_date", value:"2021-10-27 11:26:49 +0000 (Wed, 27 Oct 2021)");
   script_name("SSL/TLS: Safe/Secure Renegotiation Support Status");
   script_category(ACT_GATHER_INFO);
   script_family("SSL and TLS");
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
-  script_dependencies("gb_ssl_sni_supported.nasl", "gb_tls_version_get.nasl", "gb_starttls_pop3.nasl", "gb_starttls_imap.nasl",
-                      "gb_starttls_ftp.nasl", "gb_starttls_smtp.nasl", "gb_postgres_tls_support.nasl", "gb_starttls_ldap.nasl",
+  script_copyright("Copyright (C) 2021 Greenbone AG");
+  script_dependencies("gb_ssl_tls_sni_supported.nasl", "gb_ssl_tls_version_get.nasl", "gb_starttls_pop3.nasl", "gb_starttls_imap.nasl",
+                      "gb_starttls_ftp.nasl", "gb_starttls_smtp.nasl", "gb_postgresql_tls_support.nasl", "gb_starttls_ldap.nasl",
                       "gb_starttls_nntp.nasl", "gb_starttls_xmpp.nasl", "gb_starttls_mysql.nasl", "gb_starttls_irc.nasl",
                       "gb_starttls_rdp.nasl");
   script_mandatory_keys("ssl_tls/port");

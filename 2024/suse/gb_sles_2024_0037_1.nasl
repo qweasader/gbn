@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2024.0037.1");
   script_cve_id("CVE-2018-15853", "CVE-2018-15854", "CVE-2018-15855", "CVE-2018-15856", "CVE-2018-15857", "CVE-2018-15858", "CVE-2018-15859", "CVE-2018-15861", "CVE-2018-15862", "CVE-2018-15863", "CVE-2018-15864");
   script_tag(name:"creation_date", value:"2024-01-08 04:20:21 +0000 (Mon, 08 Jan 2024)");
-  script_version("2024-01-08T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2024-01-08 05:05:17 +0000 (Mon, 08 Jan 2024)");
+  script_version("2024-02-02T14:37:52+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 14:37:52 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-08-06 17:15:00 +0000 (Tue, 06 Aug 2019)");
+  script_tag(name:"severity_date", value:"2018-11-01 17:12:08 +0000 (Thu, 01 Nov 2018)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2024:0037-1)");
   script_category(ACT_GATHER_INFO);

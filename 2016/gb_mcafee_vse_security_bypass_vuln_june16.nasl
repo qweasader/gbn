@@ -9,23 +9,23 @@ CPE = "cpe:/a:mcafee:virusscan_enterprise";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808083");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2016-4534");
   script_tag(name:"cvss_base", value:"3.0");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:S/C:N/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:H/UI:N/S:U/C:N/I:L/A:L");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-12-01 03:10:00 +0000 (Thu, 01 Dec 2016)");
   script_tag(name:"creation_date", value:"2016-06-16 16:28:59 +0530 (Thu, 16 Jun 2016)");
-  script_name("McAfee VirusScan Enterprise Security Bypass Vulnerability- June 16");
+  script_name("McAfee VirusScan Enterprise Security Bypass Vulnerability (Jun 2016)");
 
   script_tag(name:"summary", value:"McAfee VirusScan Enterprise is prone to a security bypass vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"The flaw exists in antivirus engine which
-  disable engine without knowing the correct management password .");
+  disable engine without knowing the correct management password.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow local
   administrators to bypass intended self-protection rules and unlock the console

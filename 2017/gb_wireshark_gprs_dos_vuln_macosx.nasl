@@ -9,11 +9,11 @@ CPE = "cpe:/a:wireshark:wireshark";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811429");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-07-22T05:05:40+0000");
   script_cve_id("CVE-2017-11409");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-07-22 05:05:40 +0000 (Mon, 22 Jul 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
@@ -44,23 +44,26 @@ if(description)
   script_family("Denial of Service");
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_dependencies("gb_wireshark_detect_macosx.nasl");
-  script_mandatory_keys("Wireshark/MacOSX/Version");
+  script_mandatory_keys("wireshark/macosx/detected");
+
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!wirversion = get_app_version(cpe:CPE)){
+if(!infos = get_app_version_and_location(cpe:CPE, exit_no_version:TRUE))
   exit(0);
-}
 
-if(wirversion =~ "(^2\.0)")
-{
-  if(version_is_less(version:wirversion, test_version:"2.0.14"))
-  {
-    report = report_fixed_ver(installed_version:wirversion, fixed_version:"2.0.14");
-    security_message(data:report);
+version = infos["version"];
+location = infos["location"];
+
+if(version =~ "^2\.0") {
+  if(version_is_less(version:version, test_version:"2.0.14")) {
+    report = report_fixed_ver(installed_version:version, fixed_version:"2.0.14", install_path:location);
+    security_message(port:0, data:report);
     exit(0);
   }
 }
+
+exit(99);

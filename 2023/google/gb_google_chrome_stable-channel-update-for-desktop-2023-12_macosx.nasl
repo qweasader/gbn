@@ -9,17 +9,17 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832725");
-  script_version("2023-12-14T05:05:32+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2023-6508", "CVE-2023-6509", "CVE-2023-6510", "CVE-2023-6511",
                 "CVE-2023-6512");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-12-14 05:05:32 +0000 (Thu, 14 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-12-11 19:16:00 +0000 (Mon, 11 Dec 2023)");
   script_tag(name:"creation_date", value:"2023-12-07 11:36:09 +0530 (Thu, 07 Dec 2023)");
-  script_name("Google Chrome Security Update (stable-channel-update-for-desktop-2023-12) - MAC OS X");
+  script_name("Google Chrome Security Update (stable-channel-update-for-desktop-2023-12) - Mac OS X");
 
   script_tag(name:"summary", value:"Google Chrome is prone to multiple
   vulnerabilities.");
@@ -44,7 +44,7 @@ if(description)
   and cause a heap corruption on an affected system.");
 
   script_tag(name:"affected", value:"Google Chrome version prior to
-  120.0.6099.62 on MAC OS X");
+  120.0.6099.62 on Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade to version 120.0.6099.62 or
   later. Please see the references for more information.");

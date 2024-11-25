@@ -9,8 +9,8 @@ CPE = "cpe:/a:moodle:moodle";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127374");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-03-27 13:31:42 +0000 (Mon, 27 Mar 2023)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:N");
@@ -24,7 +24,7 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Moodle < 3.9.16 3.11.x < 3.11.9, 4.0.x < 4.0.3 Quiz Sequential Navigation Bypass Vulnerability (MSA-22-0027)");
+  script_name("Moodle < 3.9.16, 3.11.x < 3.11.9, 4.0.x < 4.0.3 Quiz Sequential Navigation Bypass Vulnerability (MSA-22-0027)");
 
   script_category(ACT_GATHER_INFO);
 

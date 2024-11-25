@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105586");
-  script_version("2023-09-15T05:06:15+0000");
-  script_tag(name:"last_modification", value:"2023-09-15 05:06:15 +0000 (Fri, 15 Sep 2023)");
+  script_version("2024-08-02T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-08-02 05:05:39 +0000 (Fri, 02 Aug 2024)");
   script_tag(name:"creation_date", value:"2016-03-23 14:28:40 +0100 (Wed, 23 Mar 2016)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -42,6 +42,20 @@ if( ! banner  || banner == "" || isnull( banner ) )
   exit( 0 );
 
 login_banner = ssh_get_login_banner( port:port );
+
+# Dell EMC Networking Operating System (OS10)
+if( login_banner =~ "Dell EMC Networking Operating System \(OS10\)" )
+{
+  os_register_and_report( os:"Dell EMC SmartFabric OS10", cpe:"cpe:/o:dell:emc_networking_os10", banner_type:BANNER_TYPE, port:port, banner:login_banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
+# Vega Session Controller - 2.3.23-119 (GA)
+if( "Vega Session Controller" >< login_banner )
+{
+  os_register_and_report( os:"Sangoma Session Border Controller (SBC) Firmware", cpe:"cpe:/o:sangoma:session_border_controller_firmware", banner_type:BANNER_TYPE, port:port, banner:login_banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
 
 # nb: Generic banner without OS info covered by gb_dropbear_ssh_detect.nasl
 if( egrep( pattern:"^SSH-([0-9.]+)-dropbear[_-]([0-9.]+)$", string:banner ) ||
@@ -108,6 +122,19 @@ if( egrep( pattern:"^SSH-2.0-[^ ]+ PKIX($|\[)", string:banner ) )
 # JSCAPE MFT Server, implemented in Java and cross-platform.
 # e.g. SSH-2.0-JSCAPE
 if( egrep( pattern:"^SSH-2\.0-JSCAPE$", string:banner ) )
+  exit( 0 );
+
+# Cross-platform, e.g.:
+# SSH-2.0-GoAnywhere7.4.1
+# SSH-2.0-GoAnywhere6.1.7
+# SSH-2.0-GoAnywhere
+if( egrep( pattern:"^SSH-2\.0-GoAnywhere", string:banner, icase:FALSE ) )
+  exit( 0 );
+
+# Cross-platform, e.g.:
+# SSH-2.0-CrushFTPSSHD_5
+# SSH-2.0-CrushFTPSSHD
+if( egrep( pattern:"^SSH-2\.0-CrushFTPSSHD", string:banner, icase:FALSE ) )
   exit( 0 );
 
 #For banners see e.g. https://github.com/BetterCrypto/Applied-Crypto-Hardening/blob/master/unsorted/ssh/ssh_version_strings.txt
@@ -346,6 +373,17 @@ if( "ubuntu" >< tolower( banner ) )
     exit( 0 );
   }
 
+  if( "SSH-2.0-OpenSSH_9.3p1 Ubuntu-1ubuntu3.3" >< banner )
+  {
+    os_register_and_report( os:"Ubuntu", version:"23.10", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+    exit( 0 );
+  }
+
+  if( "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13" >< banner )
+  {
+    os_register_and_report( os:"Ubuntu", version:"24.04", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+    exit( 0 );
+  }
   # We don't know the OS version
   os_register_and_report( os:"Ubuntu", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
   exit( 0 );
@@ -834,6 +872,9 @@ else if( "SSH-2.0-NOS-SSH" >< banner )
 # SSH-2.0-1.82 sshlib: WinSSHD 4.28
 # SSH-2.0-5.23 FlowSsh: Bitvise SSH Server (WinSSHD) 6.04
 # SSH-2.0-5.17 FlowSsh: Bitvise SSH Server (WinSSHD) 5.60: free only for personal non-commercial use
+# SSH-2.0-8.49 FlowSsh: Bitvise SSH Server (WinSSHD) 8.49
+# SSH-2.0-9.32 FlowSsh: Bitvise SSH Server (WinSSHD) 9.32: free only for personal non-commercial use
+# SSH-2.0-9.99 FlowSsh: Bitvise SSH Server (WinSSHD)
 else if( "WinSSHD" >< banner )
 {
   os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
@@ -872,6 +913,13 @@ else if( banner =~ "SSH-.+\-MOVEit Transfer SFTP" )
 else if( banner =~ "SSH-.+ Globalscape" )
 {
   os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
+  exit( 0 );
+}
+
+# SSH-2.0-IPSSH-6.9.0 Easergy-P5
+else if( banner =~ "SSH-.+ Easergy-P[0-9]" )
+{
+  os_register_and_report( os:"Schneider Electric PowerLogic Protection Firmware", cpe:"cpe:/o:schneider-electric:easergy_protection_firmware", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
   exit( 0 );
 }
 

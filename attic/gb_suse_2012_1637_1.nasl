@@ -7,9 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.850379");
-  script_version("2023-06-22T10:34:15+0000");
-  script_tag(name:"deprecated", value:TRUE);
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_version("2024-01-24T14:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-01-24 14:38:46 +0000 (Wed, 24 Jan 2024)");
   script_tag(name:"creation_date", value:"2012-12-14 09:52:50 +0530 (Fri, 14 Dec 2012)");
   script_cve_id("CVE-2012-5130", "CVE-2012-5131", "CVE-2012-5132", "CVE-2012-5133",
                 "CVE-2012-5134", "CVE-2012-5135", "CVE-2012-5136", "CVE-2012-5137",
@@ -23,7 +22,10 @@ if(description)
   script_family("SuSE Local Security Checks");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'Chromium'
-  package(s) announced via the referenced advisory.");
+  package(s) announced via the referenced advisory.
+
+  This VT has been deprecated as a duplicate of the VT 'openSUSE: Security Advisory for Chromium
+  (openSUSE-SU-2012:1637-1)' (OID: 1.3.6.1.4.1.25623.1.0.850385).");
 
   script_tag(name:"affected", value:"Chromium on openSUSE 12.1");
 
@@ -89,16 +91,16 @@ if(description)
   - Add a configuration file (/etc/default/chromium) where we
   can indicate flags for the chromium-browser.
 
-  - add explicit buildrequire on libbz2-devel
-
-  This VT has been replaced by OID:1.3.6.1.4.1.25623.1.0.850385.");
+  - add explicit buildrequire on libbz2-devel");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
   script_tag(name:"qod_type", value:"package");
   script_tag(name:"solution_type", value:"VendorFix");
+
+  script_tag(name:"deprecated", value:TRUE);
+
   exit(0);
 }
 
-
-exit(66); ## This VT is deprecated as addressed in 2013/gb_suse_2012_1637_1.nasl
+exit(66);

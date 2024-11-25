@@ -9,14 +9,14 @@ CPE = "cpe:/a:twiki:twiki";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802048");
-  script_version("2023-10-12T05:05:32+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2012-6329", "CVE-2012-6330");
   script_tag(name:"cvss_base", value:"7.5");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-12-27 12:46:41 +0530 (Thu, 27 Dec 2012)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
-  script_name("TWiki 'MAKETEXT' variable Remote Command Execution Vulnerability");
+  script_name("TWiki 'MAKETEXT' variable RCE Vulnerability");
 
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_category(ACT_ATTACK);

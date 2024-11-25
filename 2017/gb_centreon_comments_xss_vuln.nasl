@@ -9,11 +9,11 @@ CPE = "cpe:/a:centreon:centreon";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811735");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2015-7672");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-07-30 19:15:00 +0000 (Tue, 30 Jul 2019)");
@@ -47,7 +47,6 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("centreon_detect.nasl");
   script_mandatory_keys("centreon/installed");
-  script_require_ports("Services/www", 80);
 
   exit(0);
 }

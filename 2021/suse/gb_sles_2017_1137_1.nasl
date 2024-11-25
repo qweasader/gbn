@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2017.1137.1");
   script_cve_id("CVE-2016-5483", "CVE-2017-3302", "CVE-2017-3305", "CVE-2017-3308", "CVE-2017-3309", "CVE-2017-3329", "CVE-2017-3453", "CVE-2017-3456", "CVE-2017-3461", "CVE-2017-3462", "CVE-2017-3463", "CVE-2017-3464", "CVE-2017-3600");
   script_tag(name:"creation_date", value:"2021-06-09 14:57:59 +0000 (Wed, 09 Jun 2021)");
-  script_version("2023-06-20T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:22 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-02T14:37:49+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 14:37:49 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"6.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:C/I:N/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-07-19 16:32:00 +0000 (Tue, 19 Jul 2022)");
+  script_tag(name:"severity_date", value:"2017-05-04 13:06:46 +0000 (Thu, 04 May 2017)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2017:1137-1)");
   script_category(ACT_GATHER_INFO);

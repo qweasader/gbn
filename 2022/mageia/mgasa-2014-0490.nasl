@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2014.0490");
   script_cve_id("CVE-2014-6610");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
 
@@ -23,16 +23,16 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2014-0490");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2014-0490.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=14466");
   script_xref(name:"URL", value:"http://downloads.asterisk.org/pub/security/AST-2014-010.html");
   script_xref(name:"URL", value:"http://downloads.asterisk.org/pub/security/AST-2014-011.html");
   script_xref(name:"URL", value:"http://downloads.asterisk.org/pub/security/AST-2014-012.html");
   script_xref(name:"URL", value:"http://downloads.asterisk.org/pub/security/AST-2014-014.html");
   script_xref(name:"URL", value:"http://downloads.asterisk.org/pub/security/AST-2014-017.html");
   script_xref(name:"URL", value:"http://downloads.asterisk.org/pub/security/AST-2014-018.html");
-  script_xref(name:"URL", value:"http://downloads.asterisk.org/pub/telephony/asterisk/releases/ChangeLog-11.14.1");
   script_xref(name:"URL", value:"http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-11.14.1-summary.html");
+  script_xref(name:"URL", value:"http://downloads.asterisk.org/pub/telephony/asterisk/releases/ChangeLog-11.14.1");
   script_xref(name:"URL", value:"http://www.mandriva.com/en/support/security/advisories/mbs1/MDVSA-2014%3A218/");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=14466");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'asterisk' package(s) announced via the MGASA-2014-0490 advisory.");
 

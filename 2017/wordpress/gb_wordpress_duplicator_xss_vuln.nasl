@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112128");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2017-11-17 12:05:00 +0100 (Fri, 17 Nov 2017)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -31,13 +31,15 @@ if (description)
   script_dependencies("gb_wordpress_plugin_http_detect.nasl");
   script_mandatory_keys("wordpress/plugin/duplicator/detected");
 
-  script_tag(name:"summary", value:"The WordPress plugin 'Duplicator' is prone to a cross-site scripting (XSS) vulnerability.");
-
-  script_tag(name:"insight", value:"installer.php in the Snap Creek Duplicator (WordPress Site Migration & Backup) plugin
-for WordPress has XSS because the values 'url_new' (/wp-content/plugins/duplicator/installer/build/view.step4.php) and
-'logging' (wp-content/plugins/duplicator/installer/build/view.step2.php) are not filtered correctly.");
+  script_tag(name:"summary", value:"The WordPress plugin 'Duplicator' is prone to a
+  cross-site scripting (XSS) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+
+  script_tag(name:"insight", value:"installer.php in the Snap Creek Duplicator (WordPress Site
+  Migration & Backup) plugin for WordPress has XSS because the values 'url_new'
+  (/wp-content/plugins/duplicator/installer/build/view.step4.php) and 'logging'
+  (wp-content/plugins/duplicator/installer/build/view.step2.php) are not filtered correctly.");
 
   script_tag(name:"affected", value:"WordPress Duplicator plugin before version 1.2.30.");
 
@@ -55,13 +57,16 @@ CPE = "cpe:/a:snapcreek:duplicator";
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe: CPE ) ) exit( 0 );
-if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) ) exit( 0 );
+if( ! port = get_app_port( cpe: CPE ) )
+  exit( 0 );
+
+if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) )
+  exit( 0 );
 
 version = infos["version"];
 location = infos["location"];
 
-if ( version_is_less( version: version, test_version: "1.2.30" )) {
+if( version_is_less( version: version, test_version: "1.2.30" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "1.2.30", install_path: location );
   security_message( port: port, data: report );
   exit( 0 );

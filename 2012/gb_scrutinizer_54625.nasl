@@ -12,9 +12,9 @@ if(description)
   script_cve_id("CVE-2012-2962");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_version("2023-07-25T05:05:58+0000");
-  script_name("Dell SonicWALL Scrutinizer 'q' Parameter SQL Injection Vulnerability");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_name("Dell SonicWALL Scrutinizer 'q' Parameter SQLi Vulnerability");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-08-21 09:30:41 +0200 (Tue, 21 Aug 2012)");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");
@@ -26,13 +26,16 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/54625");
 
   script_tag(name:"solution", value:"Vendor updates are available. Please see the references for more
- information.");
-  script_tag(name:"summary", value:"Dell SonicWALL Scrutinizer is prone to an SQL-injection vulnerability
- because it fails to sufficiently sanitize user-supplied data.");
+  information.");
+
+  script_tag(name:"summary", value:"Dell SonicWALL Scrutinizer is prone to an SQL injection (SQLi)
+  vulnerability because it fails to sufficiently sanitize user-supplied data.");
+
   script_tag(name:"impact", value:"A successful exploit may allow an attacker to compromise the
- application, access or modify data, or exploit latent vulnerabilities in the underlying database.");
+  application, access or modify data, or exploit latent vulnerabilities in the underlying database.");
+
   script_tag(name:"affected", value:"Dell SonicWALL Scrutinizer 9.0.1 is vulnerable, other versions may
- also be affected.");
+  also be affected.");
 
   script_tag(name:"qod_type", value:"remote_app");
   script_tag(name:"solution_type", value:"VendorFix");

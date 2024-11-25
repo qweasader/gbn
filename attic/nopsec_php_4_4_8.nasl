@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.110186");
-  script_version("2022-03-16T16:30:47+0000");
-  script_tag(name:"last_modification", value:"2022-03-16 16:30:47 +0000 (Wed, 16 Mar 2022)");
+  script_version("2024-02-16T05:06:55+0000");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-06-21 11:43:12 +0100 (Thu, 21 Jun 2012)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-15 03:29:57 +0000 (Thu, 15 Feb 2024)");
   script_cve_id("CVE-2007-3378", "CVE-2007-3997", "CVE-2007-3799", "CVE-2007-4657",
                 "CVE-2007-4658", "CVE-2008-0145", "CVE-2008-2108");
   script_name("PHP < 4.4.8 Multiple Vulnerabilities");

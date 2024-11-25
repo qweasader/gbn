@@ -918,6 +918,55 @@ function fetch_file_version( sysPath, file_name ) {
   return sysVer;
 }
 
+# @brief This function will get the version details of a given file using the product version method.
+#
+# @param sysPath   The path to the file. Mandatory.
+# @param file_name The name of the file. Mandatory.
+#
+# @return The version of the file, FALSE if not all mandatory parameters were passed or no version was found.
+#
+function fetch_product_version_no_ps( sysPath, file_name ) {
+
+  local_var sysPath, file_name;
+  local_var kb_proxy_file, kb_proxy, share, file, sysVer;
+
+  if( ! sysPath ) {
+    set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#sysPath#-#fetch_product_version_no_ps" );
+    return FALSE;
+  }
+
+  if( ! file_name ) {
+    set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#file_name#-#fetch_product_version_no_ps" );
+    return FALSE;
+  }
+
+  file_name = tolower( file_name );
+  sysPath = tolower( sysPath );
+
+  kb_proxy_file = "SMB//fetch_product_version_no_ps//" + sysPath + "//" + file_name;
+
+  kb_proxy = get_kb_item( kb_proxy_file );
+  if( ! isnull( kb_proxy ) || kb_proxy ) {
+    if( kb_proxy == "unknown" )
+      return FALSE;
+    else
+      return kb_proxy;
+  }
+
+  share = ereg_replace( pattern:"([A-Za-z]):.*", replace:"\1$", string:sysPath );
+  file  = ereg_replace( pattern:"[A-Za-z]:(.*)", replace:"\1", string:sysPath + "\" + file_name );
+
+  sysVer = GetVer( file:file, share:share, prodvers:1 );
+  if( ! sysVer || isnull( sysVer ) || sysVer == "" || sysVer == 0 || sysVer == '0' ) {
+    set_kb_item( name:kb_proxy_file, value:"unknown" ); # nb: unknown is set to avoid that we're querying the version again if we already know that the file doesn't exist
+    return FALSE;
+  }
+
+  set_kb_item( name:kb_proxy_file, value:sysVer );
+
+  return sysVer;
+}
+
 # @brief This function will get the version details of a given file using the product version method and powershell.
 #
 # @param sysPath   The path to the file. Mandatory.

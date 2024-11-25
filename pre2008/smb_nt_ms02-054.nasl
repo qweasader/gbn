@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11148");
-  script_version("2023-08-03T05:05:16+0000");
-  script_tag(name:"last_modification", value:"2023-08-03 05:05:16 +0000 (Thu, 03 Aug 2023)");
+  script_version("2024-02-26T14:36:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-26 14:36:40 +0000 (Mon, 26 Feb 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_cve_id("CVE-2002-0370", "CVE-2002-1139");
-  script_name("Unchecked Buffer in Decompression Functions(Q329048)");
+  script_name("Microsoft Windows Unchecked Buffer in Decompression Functions (Q329048)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2002 SECNAP Network Security, LLC");
   script_family("Windows : Microsoft Bulletins");

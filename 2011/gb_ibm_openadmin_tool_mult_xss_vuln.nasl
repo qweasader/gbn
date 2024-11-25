@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:ibm:openadmin_tool';
+CPE = "cpe:/a:ibm:openadmin_tool";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802159");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2011-09-14 16:05:49 +0200 (Wed, 14 Sep 2011)");
 
   script_cve_id("CVE-2011-3390");
@@ -31,7 +31,6 @@ if(description)
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_ibm_openadmin_tool_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("ibm_openadmin/installed");
 
   script_tag(name:"insight", value:"The flaws are due to the improper validation of user supplied input via

@@ -7,7 +7,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802973");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-22T14:37:29+0000");
   script_cve_id("CVE-2012-2888", "CVE-2012-2887", "CVE-2012-2886", "CVE-2012-2885",
                 "CVE-2012-2884", "CVE-2012-2883", "CVE-2012-2882", "CVE-2012-2881",
                 "CVE-2012-2880", "CVE-2012-2879", "CVE-2012-2878", "CVE-2012-2877",
@@ -16,9 +16,9 @@ if(description)
                 "CVE-2012-2895", "CVE-2012-2874");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-22 14:37:29 +0000 (Thu, 22 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-09-28 12:49:03 +0530 (Fri, 28 Sep 2012)");
-  script_name("Google Chrome Multiple Vulnerabilities - Sep12 (Linux-01)");
+  script_name("Google Chrome < 22.0.1229.79 Multiple Vulnerabilities (Sep 2012) - Linux");
   script_xref(name:"URL", value:"http://secunia.com/advisories/50759/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/55676");
   script_xref(name:"URL", value:"https://code.google.com/p/chromium/issues/detail?id=137852");
@@ -40,7 +40,6 @@ if(description)
 
   exit(0);
 }
-
 
 include("version_func.inc");
 

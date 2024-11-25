@@ -9,13 +9,13 @@ CPE = "cpe:/a:ibm:lotus_domino";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103066");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2011-02-08 13:20:01 +0100 (Tue, 08 Feb 2011)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
-  script_name("IBM Lotus Domino Server 'diiop' Multiple Remote Code Execution Vulnerabilities");
+  script_name("IBM Lotus Domino Server 'diiop' Multiple RCE Vulnerabilities");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/46233");
   script_xref(name:"URL", value:"http://www.zerodayinitiative.com/advisories/ZDI-11-052/");

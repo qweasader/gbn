@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2022.2508");
   script_cve_id("CVE-2020-27067", "CVE-2020-27068", "CVE-2020-28097", "CVE-2021-0447", "CVE-2021-0920", "CVE-2021-1048", "CVE-2021-20265", "CVE-2021-20321", "CVE-2021-20322", "CVE-2021-21781", "CVE-2021-29650", "CVE-2021-33033", "CVE-2021-33061", "CVE-2021-3653", "CVE-2021-3655", "CVE-2021-3669", "CVE-2021-37159", "CVE-2021-3772", "CVE-2021-38199", "CVE-2021-39636", "CVE-2021-4002", "CVE-2021-4083", "CVE-2021-4157", "CVE-2021-4197", "CVE-2021-4203", "CVE-2021-42739", "CVE-2021-43389", "CVE-2021-43975", "CVE-2021-43976", "CVE-2021-45485", "CVE-2021-45486", "CVE-2021-45868", "CVE-2022-0492", "CVE-2022-0494", "CVE-2022-0617", "CVE-2022-0850", "CVE-2022-0854", "CVE-2022-1011", "CVE-2022-1016", "CVE-2022-1353", "CVE-2022-1652", "CVE-2022-1729", "CVE-2022-20132", "CVE-2022-20141", "CVE-2022-22942", "CVE-2022-24448", "CVE-2022-28388", "CVE-2022-28390");
   script_tag(name:"creation_date", value:"2022-10-10 07:55:28 +0000 (Mon, 10 Oct 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-02-09 02:12:00 +0000 (Thu, 09 Feb 2023)");
+  script_tag(name:"severity_date", value:"2023-02-09 02:12:54 +0000 (Thu, 09 Feb 2023)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2022-2508)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRT\-3\.0\.6\.6");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2022-2508");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2022-2508");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2022-2508");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2022-2508 advisory.");
 
@@ -57,6 +57,8 @@ An information disclosure vulnerability exists in the ARM SIGPAGE functionality 
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

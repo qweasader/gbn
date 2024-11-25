@@ -9,8 +9,8 @@ CPE = "cpe:/a:gtm4wp:google_tag_manager";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127571");
-  script_version("2023-10-13T16:09:03+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-10-04 07:40:00 +0000 (Wed, 04 Oct 2023)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -65,7 +65,7 @@ location = infos["location"];
 
 if( version_is_less( version: version, test_version: "1.15.1" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "1.15.1", install_path: location );
-  security_message( data: report, port: port );
+  security_message( port: port, data: report );
   exit( 0 );
 }
 

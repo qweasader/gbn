@@ -9,16 +9,16 @@ CPE = "cpe:/a:adobe:flash_player_chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812719");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-12T05:05:32+0000");
   script_cve_id("CVE-2018-4871");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-12 05:05:32 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-01-30 16:10:00 +0000 (Tue, 30 Jan 2018)");
   script_tag(name:"creation_date", value:"2018-01-10 15:17:07 +0530 (Wed, 10 Jan 2018)");
-  script_name("Adobe Flash Player Within Google Chrome Security Update (apsb18-01) - Windows");
+  script_name("Adobe Flash Player Within Google Chrome Security Update (APSB18-01) - Windows");
 
   script_tag(name:"summary", value:"Adobe Flash Player is prone to an information disclosure vulnerability.");
 

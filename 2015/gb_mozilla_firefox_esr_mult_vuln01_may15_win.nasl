@@ -9,14 +9,14 @@ CPE = "cpe:/a:mozilla:firefox_esr";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805627");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2015-0797", "CVE-2015-2708", "CVE-2015-2710", "CVE-2015-2713",
                 "CVE-2015-2716", "CVE-2011-3079");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-05-21 18:31:24 +0530 (Thu, 21 May 2015)");
-  script_name("Mozilla Firefox ESR Multiple Vulnerabilities-01 May15 (Windows)");
+  script_name("Mozilla Firefox ESR Multiple Vulnerabilities-01 (May 2015) - Windows");
 
   script_tag(name:"summary", value:"Mozilla Firefox ESR is prone to multiple vulnerabilities.");
 

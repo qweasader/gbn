@@ -1,33 +1,21 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108578");
-  script_version("2021-06-15T12:39:35+0000");
-  script_tag(name:"last_modification", value:"2021-06-15 12:39:35 +0000 (Tue, 15 Jun 2021)");
+  script_version("2024-03-08T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2024-03-08 05:05:30 +0000 (Fri, 08 Mar 2024)");
   script_tag(name:"creation_date", value:"2019-05-16 12:08:23 +0000 (Thu, 16 May 2019)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_name("OpenSSH Detection (Linux/Unix SSH Login)");
   script_category(ACT_GATHER_INFO);
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("Product detection");
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("login/SSH/success");
   script_exclude_keys("ssh/no_linux_shell");
@@ -44,35 +32,32 @@ include("host_details.inc");
 include("misc_func.inc");
 include("list_array_func.inc");
 
-known_exclusions = make_list(
-"/etc/ssh",
-"/usr/lib/apt/methods/ssh",
-"/etc/init.d/ssh",
-"/etc/default/ssh",
-"/etc/pam.d/sshd" );
-
-known_locations = make_list(
-"/usr/bin/ssh",
-"/usr/local/bin/ssh",
-"/usr/sbin/sshd",
-"/usr/local/sbin/sshd" );
-
-sock = ssh_login_or_reuse_connection();
-if( ! sock )
+if( ! sock = ssh_login_or_reuse_connection() )
   exit( 0 );
 
 port = kb_ssh_transport();
 
 # nb: ssh_find_file() instead of ssh_find_bin() is used here so that we're able to use a regex
 path_list = ssh_find_file( file_name:"/sshd?$", sock:sock, useregex:TRUE );
-if( ! path_list || ! is_array( path_list ) ) {
-  ssh_close_connection();
-  exit( 0 );
-}
+if( ! path_list || ! is_array( path_list ) )
+  path_list = make_list();
 
 # Add some common known file locations.
 # nb: The sbin ones are added here as mlocate might not find these but the
 # binaries are still accessible for version gathering in most situations.
+known_exclusions = make_list(
+  "/etc/ssh",
+  "/usr/lib/apt/methods/ssh",
+  "/etc/init.d/ssh",
+  "/etc/default/ssh",
+  "/etc/pam.d/sshd" );
+
+known_locations = make_list(
+  "/usr/bin/ssh",
+  "/usr/local/bin/ssh",
+  "/usr/sbin/sshd",
+  "/usr/local/sbin/sshd" );
+
 foreach known_location( known_locations ) {
   if( ! in_array( search:known_location, array:path_list, part_match:FALSE ) )
     path_list = make_list( path_list, known_location );

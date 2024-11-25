@@ -9,9 +9,9 @@ CPE = 'cpe:/a:horde:horde_groupware';
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108115");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2017-7413", "CVE-2017-7414");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-04-05 09:33:23 +0200 (Wed, 05 Apr 2017)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -28,8 +28,8 @@ if (description)
   script_xref(name:"URL", value:"https://lists.horde.org/archives/horde/Week-of-Mon-20170403/056767.html");
   script_xref(name:"URL", value:"https://lists.horde.org/archives/horde/Week-of-Mon-20170403/056768.html");
 
-  script_tag(name:"summary", value:"The Horde_Crypt library used in Horde Webmail is prone to a remote code
-  execution vulnerability if the PGP feature is enabled.");
+  script_tag(name:"summary", value:"The Horde_Crypt library used in Horde Webmail is prone to a
+  remote code execution (RCE) vulnerability if the PGP feature is enabled.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

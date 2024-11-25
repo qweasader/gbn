@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2021.1392");
   script_cve_id("CVE-2017-5849");
   script_tag(name:"creation_date", value:"2021-03-05 07:04:56 +0000 (Fri, 05 Mar 2021)");
-  script_version("2023-06-20T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:22 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2017-04-07 18:03:00 +0000 (Fri, 07 Apr 2017)");
+  script_tag(name:"severity_date", value:"2017-03-17 13:55:33 +0000 (Fri, 17 Mar 2017)");
 
   script_name("Huawei EulerOS: Security Advisory for netpbm (EulerOS-SA-2021-1392)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.2\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2021-1392");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2021-1392");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2021-1392");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'netpbm' package(s) announced via the EulerOS-SA-2021-1392 advisory.");
 

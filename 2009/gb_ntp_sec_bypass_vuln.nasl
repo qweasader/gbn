@@ -9,8 +9,8 @@ CPE = "cpe:/a:ntp:ntp";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800408");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-20T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-01-15 16:11:17 +0100 (Thu, 15 Jan 2009)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -31,12 +31,12 @@ if(description)
   validation checks and can cause spoofing attacks via signature checks on DSA
   and ECDSA keys used with SSL/TLS.");
 
-  script_tag(name:"affected", value:"NTP.org's ntpd version 4.2.4 to 4.2.4p5 and 4.2.5 to 4.2.5p150.");
+  script_tag(name:"affected", value:"NTPd version 4.2.4 through 4.2.4p5 and 4.2.5 through 4.2.5p150.");
 
   script_tag(name:"insight", value:"The flaw is due to improper validation of return value in
   EVP_VerifyFinal function of openssl.");
 
-  script_tag(name:"solution", value:"Upgrade to NTP.org's ntpd version 4.2.4p6 or 4.2.5p151.");
+  script_tag(name:"solution", value:"Update to version 4.2.4p6, 4.2.5p151 or later.");
 
   script_tag(name:"summary", value:"NTP.org's reference implementation of NTP server, ntpd is prone to a security bypass vulnerability.");
 
@@ -50,20 +50,20 @@ include("version_func.inc");
 include("revisions-lib.inc");
 include("host_details.inc");
 
-if(isnull(port = get_app_port(cpe:CPE)))
+if (isnull(port = get_app_port(cpe: CPE)))
   exit(0);
 
-if(!infos = get_app_full(cpe:CPE, port:port, exit_no_version:TRUE))
+if (!infos = get_app_full(cpe: CPE, port: port, exit_no_version: TRUE))
   exit(0);
 
 version = infos["version"];
 location = infos["location"];
 proto = infos["proto"];
 
-if(((revcomp(a:version, b:"4.2.4") >= 0) && (revcomp(a:version, b:"4.2.4p5") <= 0)) ||
-   ((revcomp(a:version, b:"4.2.5") >= 0) && (revcomp(a:version, b:"4.2.5p150") <= 0))) {
-  report = report_fixed_ver(installed_version:version, fixed_version:"4.2.4p6 or 4.2.5p151", install_path:location);
-  security_message(port:port, proto:proto, data:report);
+if (((revcomp(a: version, b: "4.2.4") >= 0) && (revcomp(a: version, b: "4.2.4p5") <= 0)) ||
+    ((revcomp(a: version, b: "4.2.5") >= 0) && (revcomp(a: version, b: "4.2.5p150") <= 0))) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "4.2.4p6 or 4.2.5p151", install_path: location);
+  security_message(port: port, proto: proto, data: report);
   exit(0);
 }
 

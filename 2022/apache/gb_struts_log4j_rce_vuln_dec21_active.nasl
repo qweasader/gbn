@@ -1,31 +1,15 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117950");
-  script_version("2023-02-16T10:19:47+0000");
-  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
-  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
+  script_version("2024-11-08T05:05:30+0000");
   script_cve_id("CVE-2021-44228", "CVE-2021-45046");
-  script_tag(name:"last_modification", value:"2023-02-16 10:19:47 +0000 (Thu, 16 Feb 2023)");
+  script_tag(name:"last_modification", value:"2024-11-08 05:05:30 +0000 (Fri, 08 Nov 2024)");
   script_tag(name:"creation_date", value:"2022-01-28 14:45:10 +0000 (Fri, 28 Jan 2022)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
@@ -34,10 +18,11 @@ if(description)
   script_tag(name:"severity_date", value:"2021-12-14 01:15:00 +0000 (Tue, 14 Dec 2021)");
   script_name("Apache Struts 2.5.x Multiple Log4j Vulnerabilities (Log4Shell) - Active Check");
   script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl",
-                      "gb_apache_struts_consolidation.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "gb_apache_struts_consolidation.nasl",
+                      "global_settings.nasl");
   script_require_ports("Services/www", 8080);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
@@ -47,12 +32,14 @@ if(description)
   script_xref(name:"URL", value:"https://www.openwall.com/lists/oss-security/2021/12/10/1");
   script_xref(name:"URL", value:"https://www.lunasec.io/docs/blog/log4j-zero-day/");
   script_xref(name:"URL", value:"https://www.lunasec.io/docs/blog/log4j-zero-day-update-on-cve-2021-45046/");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
 
   script_tag(name:"summary", value:"Apache Struts is prone to multiple vulnerabilities in the Apache
   Log4j library.");
 
-  script_tag(name:"vuldetect", value:"Sends various crafted HTTP GET requests and checks the
-  responses.
+  script_tag(name:"vuldetect", value:"Sends various crafted HTTP GET requests and checks if the
+  target is connecting back to the scanner host.
 
   Notes:
 
@@ -79,7 +66,8 @@ if(description)
 
   Notes:
 
-  - This VT is also reporting a flaw for other products affected by the same payload like Apache Struts
+  - This VT is also reporting a flaw for other products affected by the same payload like Apache
+  Struts
 
   - Some products might use Apache Struts internally and thus could be affected as well");
 
@@ -131,6 +119,7 @@ src_filter = pcap_src_ip_filter_from_hostnames();
 rnd_port = rand_int_range( min:10000, max:32000 );
 dst_filter = string( "(dst host ", ownip, " or dst host ", ownhostname, ")" );
 filter = string( "tcp and dst port ", rnd_port, " and ", src_filter, " and ", dst_filter );
+filter = string( filter, " and tcp[tcpflags] & (tcp-syn) != 0" );
 
 # nb: Just some defaults to be checked if no Struts got detected on the target and/or no static
 # files exists / were found on the target.
@@ -191,17 +180,25 @@ foreach static_file( static_files ) {
 
     headers = make_array( "If-Modified-Since", payload );
 
-    # nb: Always keep http_get_req() before open_sock_tcp() as the first could fork with multiple
-    # vhosts and the child's would share the same socket causing race conditions and similar.
     req = http_get_req( port:port, url:static_file, add_headers:headers );
 
+    # nb: Always keep open_sock_tcp() after the first call of a function forking on multiple
+    # hostnames / vhosts (e.g. http_get(), http_post_put_req(), http_host_name(), get_host_name(),
+    # ...). Reason: If the fork would be done after calling open_sock_tcp() the child's would share
+    # the same socket causing race conditions and similar.
     if( ! soc = open_sock_tcp( port ) )
       continue;
 
     res = send_capture( socket:soc, data:req, timeout:5, pcap_filter:filter );
     close( soc );
 
-    if( res ) {
+    if( ! res )
+      continue;
+
+    # nb: See note above on the reason of this check. This is just another fallback if something is
+    # going wrong in the send_capture() call above.
+    flags = get_tcp_element( tcp:res, element:"th_flags" );
+    if( flags & TH_SYN ) {
 
       # nb: We need to call the correct get_ip_*element() function below depending on the IP version
       # of the received IP packet.

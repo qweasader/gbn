@@ -9,11 +9,11 @@ CPE = "cpe:/a:opmantek:open-audit";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813675");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2018-11124");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-09-02 13:52:00 +0000 (Sun, 02 Sep 2018)");
@@ -39,13 +39,12 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_xref(name:"URL", value:"https://docs.google.com/document/d/1dJP1CQupHGXjsMWthgPGepOkcnxYA4mDfdjOE46nrhM");
-  script_xref(name:"URL", value:"https://opmantek.com");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_open_audit_detect.nasl");
   script_mandatory_keys("open-audit/detected");
-  script_require_ports("Services/www", 80, 443, 8080);
+
   exit(0);
 }
 
@@ -64,4 +63,4 @@ if(version_is_less(version:version, test_version:"2.2.2")) {
   exit(0);
 }
 
-exit(0);
+exit(99);

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2023.3835.1");
   script_cve_id("CVE-2023-20900");
   script_tag(name:"creation_date", value:"2023-09-28 09:48:31 +0000 (Thu, 28 Sep 2023)");
-  script_version("2023-10-09T05:05:36+0000");
-  script_tag(name:"last_modification", value:"2023-10-09 05:05:36 +0000 (Mon, 09 Oct 2023)");
+  script_version("2024-05-09T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-05-09 05:05:43 +0000 (Thu, 09 May 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:H/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-09-06 13:37:00 +0000 (Wed, 06 Sep 2023)");
+  script_tag(name:"severity_date", value:"2023-09-06 13:37:21 +0000 (Wed, 06 Sep 2023)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2023:3835-1)");
   script_category(ACT_GATHER_INFO);
@@ -31,7 +31,7 @@ if(description)
   script_xref(name:"URL", value:"https://github.com/vmware/open-vm-tools/blob/stable-12.3.0/ReleaseNotes.md");
   script_xref(name:"URL", value:"https://github.com/vmware/open-vm-tools/blob/stable-12.3.0/open-vm-tools/ChangeLog");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the 'open-vm-tools' package(s) announced via the SUSE-SU-2023:3835-1 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the 'Securitys update for open-vm-tools' package(s) announced via the SUSE-SU-2023:3835-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
@@ -39,19 +39,33 @@ if(description)
 Update to 12.3.0 (build 22234872) (bsc#1214850)
 
 
-There are no new features in the open-vm-tools 12.3.0 release. This is primarily a maintenance release that addresses a few critical problems, including:
+There are no new features in the open-vm-tools 12.3.0 release. This is
+ primarily a maintenance release that addresses a few critical problems,
+ including:
 
 
-This release integrates CVE-2023-20900 without the need for a patch. For more information on this vulnerability and its impact on VMware products, see [link moved to references].
+This release integrates CVE-2023-20900 without the need for a patch.
+ For more information on this vulnerability and its impact on VMware
+ products, see
+ [link moved to references].
 
-A tools.conf configuration setting is available to temporaily direct Linux quiesced snaphots to restore pre open-vm-tools 12.2.0 behavior of ignoring file systems already frozen.
-Building of the VMware Guest Authentication Service (VGAuth) using 'xml-security-c' and 'xerces-c' is being deprecated.
+A tools.conf configuration setting is available to temporaily direct
+ Linux quiesced snaphots to restore pre open-vm-tools 12.2.0 behavior
+ of ignoring file systems already frozen.
+Building of the VMware Guest Authentication Service (VGAuth) using
+ 'xml-security-c' and 'xerces-c' is being deprecated.
 A number of Coverity reported issues have been addressed.
-A number of GitHub issues and pull requests have been handled. Please see the Resolves Issues section of the Release Notes.
-For issues resolved in this release, see the Resolved Issues section of the Release Notes.
-For complete details, see: [link moved to references] Release Notes are available at [link moved to references] The granular changes that have gone into the 12.3.0 release are in the ChangeLog at [link moved to references] Fix (bsc#1205927) - hv_vmbus module is loaded unnecessarily in VMware guests jsc#PED-1344 - reinable building containerinfo plugin for SLES 15 SP4.");
+A number of GitHub issues and pull requests have been handled.
+ Please see the Resolves Issues section of the Release Notes.
+For issues resolved in this release, see the Resolved Issues section
+ of the Release Notes.
+For complete details, see:
+ [link moved to references] Release Notes are available at
+ [link moved to references] The granular changes that have gone into the 12.3.0 release are in the
+ ChangeLog at
+ [link moved to references] Fix (bsc#1205927) - hv_vmbus module is loaded unnecessarily in VMware guests jsc#PED-1344 - reinable building containerinfo plugin for SLES 15 SP4.");
 
-  script_tag(name:"affected", value:"'open-vm-tools' package(s) on SUSE Enterprise Storage 7.1, SUSE Linux Enterprise High Performance Computing 15-SP3, SUSE Linux Enterprise Micro 5.1, SUSE Linux Enterprise Micro 5.2, SUSE Linux Enterprise Micro 5.3, SUSE Linux Enterprise Micro 5.4, SUSE Linux Enterprise Micro for Rancher 5.2, SUSE Linux Enterprise Micro for Rancher 5.3, SUSE Linux Enterprise Micro for Rancher 5.4, SUSE Linux Enterprise Server 15-SP3, SUSE Linux Enterprise Server for SAP Applications 15-SP3, SUSE Manager Proxy 4.2, SUSE Manager Retail Branch Server 4.2, SUSE Manager Server 4.2.");
+  script_tag(name:"affected", value:"'Securitys update for open-vm-tools' package(s) on SUSE Enterprise Storage 7.1, SUSE Linux Enterprise High Performance Computing 15-SP3, SUSE Linux Enterprise Micro 5.1, SUSE Linux Enterprise Micro 5.2, SUSE Linux Enterprise Micro 5.3, SUSE Linux Enterprise Micro 5.4, SUSE Linux Enterprise Micro for Rancher 5.2, SUSE Linux Enterprise Micro for Rancher 5.3, SUSE Linux Enterprise Micro for Rancher 5.4, SUSE Linux Enterprise Server 15-SP3, SUSE Linux Enterprise Server for SAP Applications 15-SP3, SUSE Manager Proxy 4.2, SUSE Manager Retail Branch Server 4.2, SUSE Manager Server 4.2.");
 
   script_tag(name:"solution", value:"Please install the updated package(s).");
 

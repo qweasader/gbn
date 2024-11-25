@@ -9,8 +9,8 @@ CPE = "cpe:/a:machothemes:strong_testimonials";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.124502");
-  script_version("2024-01-16T05:05:27+0000");
-  script_tag(name:"last_modification", value:"2024-01-16 05:05:27 +0000 (Tue, 16 Jan 2024)");
+  script_version("2024-10-31T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-10-31 05:05:48 +0000 (Thu, 31 Oct 2024)");
   script_tag(name:"creation_date", value:"2024-01-09 09:45:45 +0000 (Tue, 09 Jan 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -41,7 +41,8 @@ if (description)
   script_tag(name:"insight", value:"The plugin allows a malicious actor to force higher privileged
   users to execute unwanted actions under their current authentication.");
 
-  script_tag(name:"affected", value:"WordPress Strong Testmionials prior to version 3.1.11.");
+  script_tag(name:"affected", value:"WordPress Strong Testmionials plugin prior to version
+  3.1.11.");
 
   script_tag(name:"solution", value:"Update to version 3.1.11 or later.");
 

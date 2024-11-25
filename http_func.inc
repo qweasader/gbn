@@ -729,8 +729,11 @@ function http_send_recv( port, data ) {
 
   # Some (mostly older) VTs are not passing the User-Agent header but we should always have one.
   if( " HTTP/1.1" >< data && ! egrep( pattern:"^User-Agent:.+", string:data, icase:TRUE ) ) {
-    data = ereg_replace( string:data, pattern:'\r\n\r\n', replace:'\r\nUser-Agent: ' + http_get_user_agent() + '\r\n\r\n' );
-    set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#http_send_recv(): Using a HTTP/1.1 request without a 'User-Agent:' header passed in 'data' variable. Adding it automatically to the request." );
+    oid = get_script_oid();
+    if( oid != "1.3.6.1.4.1.25623.1.0.114542" ) { # 2024/expressjs/gb_expressjs_debug_mode_http.nasl, we don't want to exclude the User Agent here on purpose
+      data = ereg_replace( string:data, pattern:'\r\n\r\n', replace:'\r\nUser-Agent: ' + http_get_user_agent() + '\r\n\r\n' );
+      set_kb_item( name:"vt_debug_misc/" + oid, value:oid + "#-#http_send_recv(): Using a HTTP/1.1 request without a 'User-Agent:' header passed in 'data' variable. Adding it automatically to the request." );
+    }
   }
 
   if( _http_ua_include_oid && user_agent = egrep( pattern:"^User-Agent:.+", string:data, icase:TRUE ) ) {
@@ -836,6 +839,13 @@ function http_cgi_dirs( port, host ) {
 #       - DDI_Directory_Scanner.nasl (required so that webmirror.nasl can crawl the remote host
 #         in more detail)
 #
+# @note Additional product detection VTs might also set the relevant KB key extending the coverage
+#       / reliability of this function.
+#
+# @note This function is (at least currently) working on a port base (and not including a possible
+#       vhost / hostname) on purpose as if a web server is e.g. supporting PHP scripts on vhost1 it
+#       should also support them on vhost2.
+#
 # @return TRUE if the remote web server is able to host or support hosting PHP files,
 #         FALSE otherwise and NULL in the case where no port parameter was passed.
 #
@@ -905,6 +915,13 @@ function http_can_host_php( port ) {
 # @brief Returns if a remote web server is able to host or support hosting .asp and/or .aspx files.
 #
 # @param port The port of the remote server to check.
+#
+# @note Additional product detection VTs might also set the relevant KB key extending the coverage
+#       / reliability of this function.
+#
+# @note This function is (at least currently) working on a port base (and not including a possible
+#       vhost / hostname) on purpose as if a web server is e.g. supporting ASP scripts on vhost1 it
+#       should also support them on vhost2.
 #
 # @return TRUE if the remote web server is able to host or support hosting .asp and/or .aspx files,
 #         FALSE otherwise and NULL in the case where no port parameter was passed.
@@ -1140,6 +1157,8 @@ function http_extract_location_from_redirect( port, data, debug, dir_only, curre
     current_dir = "/";
   }
 
+  if( debug || _http_debug ) display( 'DEBUG: Uses current_dir: "' + current_dir + '"' );
+
   # Return directly if we don't have a location header in the data or the header is empty.
   location_header = egrep( string:data, pattern:"^Location\s*:\s*[^\r\n]+", icase:TRUE );
   if( ! location_header ) {
@@ -1248,6 +1267,63 @@ function http_extract_location_from_redirect( port, data, debug, dir_only, curre
     else {
       return_location += location_target;
       if( debug || _http_debug ) display( 'DEBUG: Location header is pointing to "' + location_target + '" (a relative path to the passed current dir "' + passed_dir + '") on the same host/ip. Returning "' + return_location + '" as the location.' );
+    }
+    return return_location;
+  }
+
+  # Handle e.g.:
+  # Location: ./foo
+  # Location: ./index.php
+  # Location: ./foo/bar.php
+  else if( location_target =~ "^\./" ) {
+
+    if( dir_only ) {
+      # Catching "Location: ./foo/"
+      if( location_target =~ "/$" ) {
+        return_location = location_target;
+      }
+
+      # Catching "Location: ./foo/index.php"
+      else if( location_target =~ "([^/]*)/[^/]+\.[^/]+" ) {
+        _location = eregmatch( string:location_target, pattern:"\./(.*[^/]*)/[^/]+\.[^/]+" );
+        if( isnull( _location[1] ) )
+          return_location = "./"; # nb: For cases like "./index.php"
+        else
+          return_location = "./" + _location[1];
+      }
+
+      # Eerything else
+      else {
+        return_location = location_target;
+      }
+
+      # For the "dir_only = TRUE" case we're stripping the trailing "/" away as we want to return no trailing "/" for
+      # all "dir_only = TRUE" cases. But only replace trailing "/" if return_location != "./".
+      if( return_location != "./" )
+        return_location = ereg_replace( string:return_location, pattern:"/$", replace:"" );
+
+      # And finally we need to replace the "./" with our "current_dir", replacement pattern depends on the current "return_location" value
+      if( return_location == "./" )
+        return_location = ereg_replace( string:return_location, pattern:"^(\./)", replace:current_dir );
+      else
+        return_location = ereg_replace( string:return_location, pattern:"^(\.)", replace:current_dir );
+
+      # Sometimes we're getting e.g. "//foo" here so just replace "//" by "/"
+      return_location = ereg_replace( string:return_location, pattern:"^(//)", replace:"/" );
+
+      if( debug || _http_debug ) display( 'DEBUG: Location header is pointing to "' + location_target + '" on the same host/ip. dir_only parameter is set to TRUE, returning "' + return_location + '" as the location.' );
+    } else {
+      return_location = location_target;
+
+      # For this case we're just replacing the "./" by:
+      # - "current_dir" if current_dir is just "/"
+      # - "current_dir + /" for all other cases
+      if( current_dir == "/" )
+        return_location = ereg_replace( string:return_location, pattern:"^(\./)", replace:current_dir );
+      else
+        return_location = ereg_replace( string:return_location, pattern:"^(\./)", replace:current_dir + "/" );
+
+      if( debug || _http_debug ) display( 'DEBUG: Location header is pointing to "' + return_location + '" on the same host/ip. Returning this location.' );
     }
     return return_location;
   }

@@ -9,13 +9,13 @@ CPE = "cpe:/a:apache:tomcat";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805704");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-08T05:05:59+0000");
   script_cve_id("CVE-2014-0230");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-06-16 15:04:10 +0530 (Tue, 16 Jun 2015)");
-  script_name("Apache Tomcat Denial Of Service Vulnerability - Jun15 (Linux)");
+  script_name("Apache Tomcat Denial Of Service Vulnerability (Jun 2015) - Linux");
 
   script_tag(name:"summary", value:"Apache Tomcat is prone to a denial of service (DoS) vulnerability.");
 

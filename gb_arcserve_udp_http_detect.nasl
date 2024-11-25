@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.105294");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-05-22T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-05-22 05:05:29 +0000 (Wed, 22 May 2024)");
   script_tag(name:"creation_date", value:"2015-06-10 17:49:06 +0200 (Wed, 10 Jun 2015)");
 
   script_tag(name:"qod_type", value:"remote_banner");
@@ -140,9 +140,14 @@ function check_win() {
 
   if (!isnull(major)) {
     version = major;
-    if (!isnull(minor))
-      version += "." + minor;
-    else
+    if (!isnull(minor)) {
+      # nb: updateNumber is the service pack which we need to use to avoid false positives
+      # (e.g. updateNumnber 2 represents 9.2 on the 9.0 release)
+      if (update)
+        version += "." + update;
+      else
+        version += "." + minor;
+    } else
       version += ".0";
 
     if (build)
@@ -285,15 +290,19 @@ if (res =~ "^HTTP/1\.[01] 302" && "/samlsso?SAMLRequest=" >< res) {
   set_kb_item(name: "arcserve/udp/detected", value: TRUE);
   set_kb_item(name: "arcserve/udp/http/detected", value: TRUE);
 
-  # <label class="login_copyright"> build 9.0.6034.294</label>
-  vers = eregmatch(pattern: 'class="login_copyright">\\s*build\\s+([0-9.]+)', string: res);
-  if (isnull(vers[1])) {
-    # <label class="login_copyright" style="margin-bottom:-5px">version 6.5.4175</label>
-    vers = eregmatch(pattern: '<label class="login_copyright"[^>]+>version ([0-9.]+)<', string: res);
-  }
-
-  if (!isnull(vers[1]))
+  # <label class="login_copyright" style="margin-bottom:-5px">version 6.5.4175</label>
+  # <label class="login_copyright" style="margin-bottom:-5px">version 9.2</label>
+  vers = eregmatch(pattern: '<label class="login_copyright"[^>]+>version ([0-9.]+)<', string: res);
+  if (!isnull(vers[1])) {
     version = vers[1];
+
+    # <label class="login_copyright"> build 9.0.6034.294</label>
+    build = eregmatch(pattern: 'class="login_copyright">\\s*build\\s+([0-9.]+)', string: res);
+    if (!isnull(build[1])) {
+      extra += "Build:    " + build[1];
+      set_kb_item(name: "arcserver_udp/build", value: build[1]);
+    }
+  }
 
   # <label class="login_copyright">update 2 build 667</label>
   update = eregmatch(pattern: '<label class="login_copyright">update ([0-9]+) build ([0-9]+)<', string: res);

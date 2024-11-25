@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902655");
-  script_version("2023-10-24T05:06:28+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2011-1388", "CVE-2011-1391", "CVE-2011-1392");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-24 05:06:28 +0000 (Tue, 24 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2011-12-29 15:57:58 +0530 (Thu, 29 Dec 2011)");
-  script_name("IBM Rational Rhapsody BB FlashBack SDK ActiveX Control Remote Code Execution Vulnerabilities");
+  script_name("IBM Rational Rhapsody BB FlashBack SDK ActiveX Control RCE Vulnerabilities");
   script_xref(name:"URL", value:"http://secunia.com/advisories/47310");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51184");
   script_xref(name:"URL", value:"http://secunia.com/advisories/47286");

@@ -9,8 +9,8 @@ CPE = "cpe:/a:phpmyfaq:phpmyfaq";
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.124439");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-04-02T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-04-02 05:05:32 +0000 (Tue, 02 Apr 2024)");
   script_tag(name:"creation_date", value:"2023-10-03 08:08:56 +0200 (Tue, 03 Oct 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -18,7 +18,8 @@ if( description )
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-10-02 16:52:00 +0000 (Mon, 02 Oct 2023)");
 
-  script_cve_id("CVE-2023-5227", "CVE-2023-5316", "CVE-2023-5317", "CVE-2023-5319", "CVE-2023-5320");
+  script_cve_id("CVE-2023-5227", "CVE-2023-5316", "CVE-2023-5317", "CVE-2023-5319",
+                "CVE-2023-5320");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -65,10 +66,10 @@ if( description )
 include("host_details.inc");
 include("version_func.inc");
 
-if ( !port = get_app_port( cpe: CPE ) )
+if ( ! port = get_app_port( cpe: CPE ) )
   exit( 0 );
 
-if (!version = get_app_version( cpe: CPE, port: port ) )
+if ( ! version = get_app_version( cpe: CPE, port: port ) )
   exit( 0 );
 
 if ( version_is_less( version: version, test_version: "3.1.18" ) ) {

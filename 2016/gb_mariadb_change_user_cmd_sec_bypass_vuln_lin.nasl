@@ -9,18 +9,17 @@ CPE = "cpe:/a:mariadb:mariadb";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808154");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2012-5627");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-06-07 19:33:35 +0530 (Tue, 07 Jun 2016)");
-  script_name("MariaDB 'COM_CHANGE_USER' Command Insecure Salt Generation Security Bypass Vulnerability (Linux)");
+  script_name("MariaDB 'COM_CHANGE_USER' Command Insecure Salt Generation Security Bypass Vulnerability - Linux");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Databases");
   script_dependencies("mysql_version.nasl", "os_detection.nasl");
-  script_require_ports("Services/mysql", 3306);
   script_mandatory_keys("MariaDB/installed", "Host/runs_unixoide");
 
   script_tag(name:"summary", value:"MariaDB is prone to a security bypass vulnerability.");

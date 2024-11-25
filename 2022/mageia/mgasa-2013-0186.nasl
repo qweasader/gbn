@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2013.0186");
   script_cve_id("CVE-2013-1872", "CVE-2013-1981", "CVE-2013-1982", "CVE-2013-1983", "CVE-2013-1984", "CVE-2013-1985", "CVE-2013-1986", "CVE-2013-1987", "CVE-2013-1988", "CVE-2013-1989", "CVE-2013-1990", "CVE-2013-1991", "CVE-2013-1992", "CVE-2013-1993", "CVE-2013-1994", "CVE-2013-1995", "CVE-2013-1996", "CVE-2013-1997", "CVE-2013-1998", "CVE-2013-1999", "CVE-2013-2000", "CVE-2013-2001", "CVE-2013-2002", "CVE-2013-2003", "CVE-2013-2004", "CVE-2013-2005", "CVE-2013-2062", "CVE-2013-2063", "CVE-2013-2064", "CVE-2013-2066");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
 
@@ -23,8 +23,6 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2013-0186");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2013-0186.html");
-  script_xref(name:"URL", value:"http://www.x.org/wiki/Development/Security/Advisory-2013-05-23");
-  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2013-0897.html");
   script_xref(name:"URL", value:"http://www.debian.org/security/2013/dsa-2673");
   script_xref(name:"URL", value:"http://www.debian.org/security/2013/dsa-2674");
   script_xref(name:"URL", value:"http://www.debian.org/security/2013/dsa-2675");
@@ -46,7 +44,9 @@ if(description)
   script_xref(name:"URL", value:"http://www.debian.org/security/2013/dsa-2691");
   script_xref(name:"URL", value:"http://www.debian.org/security/2013/dsa-2692");
   script_xref(name:"URL", value:"http://www.debian.org/security/2013/dsa-2693");
+  script_xref(name:"URL", value:"http://www.x.org/wiki/Development/Security/Advisory-2013-05-23");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=10565");
+  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2013-0897.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'libdmx, libfs, libx11, libxcb, libxcursor, libxext, libxfixes, libxi, libxinerama, libxp, libxrandr, libxrender, libxres, libxt, libxtst, libxv, libxvmc, libxxf86dga, libxxf86vm, mesa, x11-driver-video-openchrome' package(s) announced via the MGASA-2013-0186 advisory.");
 

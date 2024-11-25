@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2022.0050");
   script_cve_id("CVE-2021-30613", "CVE-2021-30616", "CVE-2021-30618", "CVE-2021-30625", "CVE-2021-30626", "CVE-2021-30627", "CVE-2021-30628", "CVE-2021-30629", "CVE-2021-30630", "CVE-2021-30633", "CVE-2021-3517", "CVE-2021-3541", "CVE-2021-37962", "CVE-2021-37967", "CVE-2021-37968", "CVE-2021-37971", "CVE-2021-37972", "CVE-2021-37973", "CVE-2021-37975", "CVE-2021-37978", "CVE-2021-37979", "CVE-2021-37980", "CVE-2021-37984", "CVE-2021-37987", "CVE-2021-37989", "CVE-2021-37992", "CVE-2021-37993", "CVE-2021-37996", "CVE-2021-38001", "CVE-2021-38003", "CVE-2021-38005", "CVE-2021-38007", "CVE-2021-38009", "CVE-2021-38010", "CVE-2021-38012", "CVE-2021-38015", "CVE-2021-38017", "CVE-2021-38018", "CVE-2021-38019", "CVE-2021-38021", "CVE-2021-38022", "CVE-2021-4057", "CVE-2021-4058", "CVE-2021-4059", "CVE-2021-4062", "CVE-2021-4078", "CVE-2021-4079", "CVE-2021-4098", "CVE-2021-4099", "CVE-2021-4101", "CVE-2021-4102");
   script_tag(name:"creation_date", value:"2022-02-09 07:40:33 +0000 (Wed, 09 Feb 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-10-14 23:18:00 +0000 (Thu, 14 Oct 2021)");
+  script_tag(name:"severity_date", value:"2021-10-14 23:18:20 +0000 (Thu, 14 Oct 2021)");
 
   script_name("Mageia: Security Advisory (MGASA-2022-0050)");
   script_category(ACT_GATHER_INFO);
@@ -43,6 +43,8 @@ announcement for details.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

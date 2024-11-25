@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.104056");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2011-06-01 16:32:46 +0200 (Wed, 01 Jun 2011)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -18,24 +18,8 @@ if(description)
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Nmap NSE net");
 
-  script_tag(name:"summary", value:"Shows SSH hostkeys.
-
-Shows the target SSH server's key fingerprint and (with high enough verbosity level) the public key
-itself.  It records the discovered host keys in 'nmap.registry' for use by other scripts.
-Output can be controlled with the 'ssh_hostkey' script argument.
-
-SYNTAX:
-
-ssh_hostkey:  Controls the output format of keys. Multiple values may be
-given, separated by spaces. Possible values are
-
-  - ''full'': The entire key, not just the fingerprint.
-
-  - ''bubble'': Bubble Babble output,
-
-  - ''visual'': Visual ASCII art representation.
-
-  - ''all'': All of the above.");
+  script_tag(name:"summary", value:"This VT has been deprecated and is therefore no longer
+  functional.");
 
   script_tag(name:"solution_type", value:"Mitigation");
 

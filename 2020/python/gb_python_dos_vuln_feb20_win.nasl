@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113638");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2020-02-17 14:37:49 +0000 (Mon, 17 Feb 2020)");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:C");
@@ -22,7 +22,7 @@ if(description)
 
   script_cve_id("CVE-2020-8492");
 
-  script_name("Python 2.7.x <= 2.7.17, 3.5 <= 3.5.9, 3.6.x <= 3.6.10, 3.7.x <= 3.7.6, 3.8.x <= 3.8.1 Regular Expression Denial of Service (ReDoS) Vulnerability (Windows)");
+  script_name("Python 2.7.x <= 2.7.17, 3.5 <= 3.5.9, 3.6.x <= 3.6.10, 3.7.x <= 3.7.6, 3.8.x <= 3.8.1 Regular Expression Denial of Service (ReDoS) Vulnerability - Windows");
 
   script_category(ACT_GATHER_INFO);
 
@@ -31,7 +31,7 @@ if(description)
   script_dependencies("gb_python_consolidation.nasl", "os_detection.nasl");
   script_mandatory_keys("python/detected", "Host/runs_windows");
 
-  script_tag(name:"summary", value:"Python is prone to a Regular Expresson Denial of Service
+  script_tag(name:"summary", value:"Python is prone to a Regular Expression Denial of Service
   (ReDoS) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target

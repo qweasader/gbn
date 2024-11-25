@@ -9,14 +9,14 @@ CPE = "cpe:/o:intel:active_management_technology_firmware";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106877");
-  script_version("2023-08-18T16:09:48+0000");
-  script_tag(name:"last_modification", value:"2023-08-18 16:09:48 +0000 (Fri, 18 Aug 2023)");
+  script_version("2024-08-23T15:40:37+0000");
+  script_tag(name:"last_modification", value:"2024-08-23 15:40:37 +0000 (Fri, 23 Aug 2024)");
   script_tag(name:"creation_date", value:"2017-06-16 13:48:56 +0700 (Fri, 16 Jun 2017)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2017-06-27 17:32:00 +0000 (Tue, 27 Jun 2017)");
+  script_tag(name:"severity_date", value:"2024-01-26 18:02:00 +0000 (Fri, 26 Jan 2024)");
 
   script_cve_id("CVE-2017-5697");
 
@@ -24,25 +24,26 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Intel Active Management Technology Clickjacking Vulnerability");
+  script_name("Intel Active Management Technology Clickjacking Vulnerability (INTEL-SA-00081)");
 
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_intel_amt_webui_detect.nasl");
-  script_mandatory_keys("intel_amt/installed");
+  script_dependencies("gb_intel_amt_http_detect.nasl");
+  script_mandatory_keys("intel/amt/detected");
 
-  script_tag(name:"summary", value:"Insufficient clickjacking protection in the Web User Interface of Intel AMT
-  firmware potentially allows a remote attacker to hijack users web clicks via attacker's crafted web page.");
+  script_tag(name:"summary", value:"Insufficient clickjacking protection in the Web User Interface
+  of Intel AMT firmware potentially allows a remote attacker to hijack users web clicks via
+  attacker's crafted web page.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"affected", value:"Intel AMT firmware versions before 9.1.40.1000, 9.5.60.1952, 10.0.50.1004,
-  11.0.0.1205, and 11.6.25.1129.");
+  script_tag(name:"affected", value:"Intel AMT firmware versions prior to 9.1.40.1000, 9.5.60.1952,
+  10.0.50.1004, 11.0.0.1205 and 11.6.25.1129.");
 
-  script_tag(name:"solution", value:"Update firmware to version 9.1.40.1000, 9.5.60.1952, 10.0.50.1004,
-  11.0.0.1205, 11.6.25.1129 or later.");
+  script_tag(name:"solution", value:"Update firmware to version 9.1.40.1000, 9.5.60.1952,
+  10.0.50.1004, 11.0.0.1205, 11.6.25.1129 or later.");
 
   script_xref(name:"URL", value:"https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00081.html");
 
@@ -89,4 +90,4 @@ if (version =~ "^11\.6\.") {
   }
 }
 
-exit(0);
+exit(99);

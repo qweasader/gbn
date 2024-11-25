@@ -1,30 +1,16 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:elastic:elasticsearch";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117170");
-  script_version("2021-08-17T12:00:57+0000");
-  script_tag(name:"last_modification", value:"2021-08-17 12:00:57 +0000 (Tue, 17 Aug 2021)");
+  script_version("2024-10-10T07:25:31+0000");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"creation_date", value:"2021-01-19 14:15:51 +0000 (Tue, 19 Jan 2021)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
@@ -42,7 +28,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_elastic_elasticsearch_detect_http.nasl");
   script_mandatory_keys("elastic/elasticsearch/detected");
@@ -52,7 +38,7 @@ if(description)
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"A permission issue was found in Elasticsearch when Field Level Security
-  and Document Level Security are disabled and the _aliases, _shrink, or _split endpoints are used . If the
+  and Document Level Security are disabled and the _aliases, _shrink, or _split endpoints are used. If the
   elasticsearch.yml file has xpack.security.dls_fls.enabled set to false, certain permission checks are
   skipped when users perform one of the actions mentioned above, to make existing data available under a new
   index/alias name.");

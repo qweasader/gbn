@@ -9,8 +9,8 @@ CPE = "cpe:/a:mit:kerberos";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113084");
-  script_version("2023-06-27T05:05:30+0000");
-  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-01-17 14:14:14 +0100 (Wed, 17 Jan 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
@@ -36,8 +36,7 @@ if(description)
   script_tag(name:"summary", value:"MIT Kerberos5 is prone to a Denial of Service (DoS) and an
   information disclosure vulnerability.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the
-  target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"The DoS vulnerability exists due to the possibility of causing
   a NULL pointer dereference.

@@ -1,4 +1,5 @@
 # Christian Fischer <christian.fischer@greenbone.net>
+# SPDX-FileCopyrightText: 2017 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -21,15 +22,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108307");
-  script_version("2023-12-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-12-05 05:06:18 +0000 (Tue, 05 Dec 2023)");
+  script_version("2024-08-30T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-08-30 05:05:38 +0000 (Fri, 30 Aug 2024)");
   script_tag(name:"creation_date", value:"2017-12-05 09:03:31 +0100 (Tue, 05 Dec 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_name("NETGEAR ProSAFE Device Detection Consolidation");
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_dependencies("gb_netgear_prosafe_snmp_detect.nasl", "gb_netgear_prosafe_http_detect.nasl", "gb_netgear_prosafe_telnet_detect.nasl");
   script_mandatory_keys("netgear/prosafe/detected");
 

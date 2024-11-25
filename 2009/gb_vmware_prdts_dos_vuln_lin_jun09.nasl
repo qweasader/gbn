@@ -2,18 +2,18 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800806");
-  script_version("2023-03-24T10:19:42+0000");
-  script_tag(name:"last_modification", value:"2023-03-24 10:19:42 +0000 (Fri, 24 Mar 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-06-09 08:37:33 +0200 (Tue, 09 Jun 2009)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:N/C:N/I:N/A:C");
   script_cve_id("CVE-2009-1805");
-  script_name("VMware Products Descheduled Time Accounting Driver DoS Vulnerability (Linux)");
+  script_name("VMware Products Descheduled Time Accounting Driver DoS Vulnerability - Linux");
   script_xref(name:"URL", value:"http://secunia.com/advisories/35269");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/35141");
   script_xref(name:"URL", value:"http://securitytracker.com/alerts/2009/May/1022300.html");

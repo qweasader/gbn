@@ -9,13 +9,13 @@ CPE = "cpe:/a:konicaminolta:ftp_utility";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805750");
-  script_version("2023-12-20T05:05:58+0000");
+  script_version("2024-02-08T14:36:53+0000");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-09-28 13:43:21 +0530 (Mon, 28 Sep 2015)");
   script_cve_id("CVE-2015-7603", "CVE-2015-7767", "CVE-2015-7768");
-  script_name("Konica Minolta FTP Utility Multiple vulnerabilities");
+  script_name("Konica Minolta FTP Utility 1.0 Multiple Vulnerabilities - Active Check");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("FTP");
@@ -30,24 +30,22 @@ if(description)
 
   script_tag(name:"summary", value:"Konica Minolta FTP Utility is prone to multiple vulnerabilities.");
 
-  script_tag(name:"vuldetect", value:"Send the crafted directory traversal attack
-  request and check whether it is able to read the system file or not.");
+  script_tag(name:"vuldetect", value:"Sends a crafted FTP RETR request and checks the response.");
 
-  script_tag(name:"insight", value:"The flaw exists due to error in handling of
-  file names. It does not properly sanitise filenames containing directory traversal
-  sequences that are received from an FTP server.");
+  script_tag(name:"insight", value:"The flaw exists due to error in handling of file names. It does
+  not properly sanitise filenames containing directory traversal sequences that are received from an
+  FTP server.");
 
-  script_tag(name:"impact", value:"Successful exploitation will allow attackers
-  to read arbitrary files on the affected application or execute arbitrary command
-  on the affected application.");
+  script_tag(name:"impact", value:"Successful exploitation will allow attackers to read arbitrary
+  files on the affected application or execute arbitrary command on the affected application.");
 
-  script_tag(name:"affected", value:"Konica Minolta FTP Utility version 1.0.");
+  script_tag(name:"affected", value:"Konica Minolta FTP Utility version 1.0 is known to be affected.
+  Other versions might be affected as well.");
 
-  script_tag(name:"solution", value:"No known solution was made available
-  for at least one year since the disclosure of this vulnerability. Likely none will
-  be provided anymore. General solution options are to upgrade to a newer release,
-  disable respective features, remove the product or replace the product by another
-  one.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
+  options are to upgrade to a newer release, disable respective features, remove the product or
+  replace the product by another one.");
 
   script_tag(name:"solution_type", value:"WillNotFix");
   script_tag(name:"qod_type", value:"remote_vul");

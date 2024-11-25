@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.843527");
   script_cve_id("CVE-2018-5150", "CVE-2018-5151", "CVE-2018-5152", "CVE-2018-5153", "CVE-2018-5154", "CVE-2018-5155", "CVE-2018-5157", "CVE-2018-5158", "CVE-2018-5159", "CVE-2018-5160", "CVE-2018-5163", "CVE-2018-5164", "CVE-2018-5166", "CVE-2018-5167", "CVE-2018-5168", "CVE-2018-5169", "CVE-2018-5172", "CVE-2018-5173", "CVE-2018-5175", "CVE-2018-5176", "CVE-2018-5177", "CVE-2018-5180", "CVE-2018-5181", "CVE-2018-5182");
   script_tag(name:"creation_date", value:"2018-05-19 03:41:54 +0000 (Sat, 19 May 2018)");
-  script_version("2023-06-21T05:06:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:21 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-02-02T05:06:06+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:06 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-03-11 16:06:00 +0000 (Mon, 11 Mar 2019)");
+  script_tag(name:"severity_date", value:"2018-08-03 18:33:48 +0000 (Fri, 03 Aug 2018)");
 
   script_name("Ubuntu: Security Advisory (USN-3645-2)");
   script_category(ACT_GATHER_INFO);

@@ -9,8 +9,8 @@ CPE = "cpe:/a:mysql:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801572");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2011-01-21 14:38:54 +0100 (Fri, 21 Jan 2011)");
   script_cve_id("CVE-2010-3835", "CVE-2010-3839");
   script_tag(name:"cvss_base", value:"4.0");
@@ -27,7 +27,6 @@ if(description)
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Databases");
   script_dependencies("mysql_version.nasl");
-  script_require_ports("Services/mysql", 3306);
   script_mandatory_keys("MySQL/installed");
 
   script_tag(name:"impact", value:"Successful exploitation could allow users to cause a denial of service and
@@ -57,17 +56,20 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!sqlPort = get_app_port(cpe:CPE))
+if(!port = get_app_port(cpe:CPE))
   exit(0);
 
-if(!mysqlVer = get_app_version(cpe:CPE, port:sqlPort))
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
 
-mysqlVer = eregmatch(pattern:"([0-9.a-z]+)", string:mysqlVer);
-if(!isnull(mysqlVer[1]))
-{
-  if(version_in_range(version:mysqlVer[1], test_version:"5.1",test_version2:"5.1.50") ||
-     version_in_range(version:mysqlVer[1], test_version:"5.5",test_version2:"5.5.5")){
-    security_message(sqlPort);
+version = eregmatch(pattern:"([0-9.a-z]+)", string:version);
+if(!isnull(version[1])) {
+  if(version_in_range(version:version[1], test_version:"5.1",test_version2:"5.1.50") ||
+     version_in_range(version:version[1], test_version:"5.5",test_version2:"5.5.5")) {
+    report = report_fixed_ver(installed_version:version[1], fixed_version:"5.1.51/5.5.6");
+    security_message(port:port, data:report);
+    exit(0);
   }
 }
+
+exit(99);

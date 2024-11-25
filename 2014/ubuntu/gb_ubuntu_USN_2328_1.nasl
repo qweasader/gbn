@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.841946");
-  script_cve_id("CVE-2014-0475", "CVE-2014-5119");
+  script_cve_id("CVE-2014-5119");
   script_tag(name:"creation_date", value:"2014-08-29 03:52:18 +0000 (Fri, 29 Aug 2014)");
-  script_version("2023-06-21T05:06:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:21 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-02-28T14:37:42+0000");
+  script_tag(name:"last_modification", value:"2024-02-28 14:37:42 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 

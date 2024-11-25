@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800798");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2010-07-12 09:42:32 +0200 (Mon, 12 Jul 2010)");
   script_cve_id("CVE-2010-2229", "CVE-2010-2228",
                 "CVE-2010-2231", "CVE-2010-2230");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_name("Moodle Cross Site Scripting and Cross Site Request Forgery Vulnerabilities");
+  script_name("Moodle XSS and CSRF Vulnerabilities");
   script_xref(name:"URL", value:"http://secunia.com/advisories/40248");
   script_xref(name:"URL", value:"http://www.vupen.com/english/advisories/2010/1530");
   script_xref(name:"URL", value:"http://www.openwall.com/lists/oss-security/2010/06/21/2");
@@ -47,7 +47,8 @@ if(description)
 
   script_tag(name:"solution", value:"Upgrade to Moodle version 1.8.13 or 1.9.9 or later.");
 
-  script_tag(name:"summary", value:"Moodle is prone to Cross-Site Scripting and Cross Site Request Forgery Vulnerabilities.");
+  script_tag(name:"summary", value:"Moodle is prone to cross-site ccripting (XSS) and cross-site
+  request forgery (CSRF) vulnerabilities.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attackers to execute arbitrary HTML and
   script code in a user's browser session in the context of an affected site

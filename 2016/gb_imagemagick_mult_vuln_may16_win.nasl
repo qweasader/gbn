@@ -9,20 +9,20 @@ CPE = "cpe:/a:imagemagick:imagemagick";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807568");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-09-12T07:59:53+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2016-3714", "CVE-2016-3715", "CVE-2016-3716", "CVE-2016-3717",
                 "CVE-2016-3718");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2024-09-12 07:59:53 +0000 (Thu, 12 Sep 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-04-15 13:29:00 +0000 (Mon, 15 Apr 2019)");
+  script_tag(name:"severity_date", value:"2024-09-11 11:11:26 +0000 (Wed, 11 Sep 2024)");
   script_tag(name:"creation_date", value:"2016-05-05 14:06:00 +0530 (Thu, 05 May 2016)");
   script_tag(name:"qod_type", value:"registry");
-  script_name("ImageMagick Multiple Vulnerabilities May16 (Windows)");
+  script_name("ImageMagick Multiple Vulnerabilities (May 2016) - Windows");
 
   script_tag(name:"summary", value:"ImageMagick is prone to multiple vulnerabilities.");
 

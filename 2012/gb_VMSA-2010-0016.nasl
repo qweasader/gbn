@@ -10,9 +10,12 @@ if(description)
   script_cve_id("CVE-2010-0415", "CVE-2010-0307", "CVE-2010-0291", "CVE-2010-0622", "CVE-2010-1087", "CVE-2010-1437", "CVE-2010-1088", "CVE-2009-0844", "CVE-2009-0845", "CVE-2009-0846", "CVE-2009-4212", "CVE-2010-1321");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-05T05:05:38+0000");
   script_name("VMware ESXi/ESX third party updates for Service Console and Likewise components (VMSA-2010-0016)");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-05 05:05:38 +0000 (Mon, 05 Feb 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-02 16:38:32 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-03-15 16:13:01 +0100 (Thu, 15 Mar 2012)");
   script_category(ACT_GATHER_INFO);
   script_family("VMware Local Security Checks");

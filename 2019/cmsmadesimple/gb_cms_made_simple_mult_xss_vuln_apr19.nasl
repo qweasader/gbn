@@ -2,13 +2,15 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
+
+CPE = "cpe:/a:cmsmadesimple:cms_made_simple";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113380");
-  script_version("2023-10-27T16:11:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_version("2024-05-07T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-05-07 05:05:33 +0000 (Tue, 07 May 2024)");
   script_tag(name:"creation_date", value:"2019-04-29 12:27:28 +0000 (Mon, 29 Apr 2019)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
@@ -39,7 +41,7 @@ if(description)
 
   script_tag(name:"insight", value:"The following vulnerabilities exist:
 
-  - The File Manager is prone to reflected XSS via the 'New Name' field in a Rename action.
+  - The File Manager is prone to a reflected XSS via the 'New Name' field in a Rename action.
 
   - XSS Vulnerability via the m1_name parameter in 'Add Article' under Content->Content Manager->News.
 
@@ -60,10 +62,10 @@ if(description)
 
   script_tag(name:"affected", value:"CMS Made Simple through version 2.2.12.");
 
-  script_tag(name:"solution", value:"No known solution was made available for at least one year since
-  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
-  are to upgrade to a newer release, disable respective features, remove the product or replace the
-  product by another one.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
+  options are to upgrade to a newer release, disable respective features, remove the product or
+  replace the product by another one.");
 
   script_xref(name:"URL", value:"http://dev.cmsmadesimple.org/bug/view/12022");
   script_xref(name:"URL", value:"http://dev.cmsmadesimple.org/bug/view/12001");
@@ -72,8 +74,6 @@ if(description)
 
   exit(0);
 }
-
-CPE = "cpe:/a:cmsmadesimple:cms_made_simple";
 
 include( "host_details.inc" );
 include( "version_func.inc" );

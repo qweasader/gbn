@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.149246");
-  script_version("2023-08-04T16:09:15+0000");
-  script_tag(name:"last_modification", value:"2023-08-04 16:09:15 +0000 (Fri, 04 Aug 2023)");
+  script_version("2024-06-14T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-06-14 05:05:48 +0000 (Fri, 14 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-02-08 07:08:39 +0000 (Wed, 08 Feb 2023)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -119,10 +119,16 @@ set_kb_item(name: "slp/udp/detected", value: TRUE);
 set_kb_item(name: "slp/tcp_or_udp/detected", value: TRUE);
 set_kb_item(name: "slp/udp/" + port + "/detected", value: TRUE);
 
-# nb: For gsf/2023/gb_slp_service_wan_access.nasl
-register_host_detail(name: "port", value: port + "/udp");
-
 service_register(port: port, proto: "slp", ipproto: "udp");
+
+# nb:
+# - We can register a more generic CPE for the protocol itself which can be used for e.g.:
+#   - CVE scans / the CVE scanner
+#   - storing the reference from this one to some VTs like e.g. gb_slp_service_wan_access.nasl using
+#     the info collected here to show a cross-reference within the reports
+# - If changing the syntax of e.g. the "location" below make sure to update VTs like e.g. the
+#   gb_slp_service_wan_access.nasl accordingly
+register_product(cpe: "cpe:/a:service_location_protocol_project:service_location_protocol", location: port + "/udp", port: port, proto: "udp", service: "slp");
 
 # TBD: In the future we could also use the parsed/returned data from slp_parse_response() here...
 report = 'A service supporting the Service Location Protocol (SLP) is running at this port.\n\nResponse:\n\n' +

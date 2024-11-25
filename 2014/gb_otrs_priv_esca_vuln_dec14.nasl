@@ -9,14 +9,14 @@ CPE = "cpe:/a:otrs:otrs";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805230");
-  script_version("2023-07-27T05:05:09+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_cve_id("CVE-2014-9324");
   script_tag(name:"cvss_base", value:"6.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:P");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-12-24 12:30:49 +0530 (Wed, 24 Dec 2014)");
-  script_name("OTRS Help Desk Privilege Escalation Vulnerability - Dec14");
+  script_name("OTRS Help Desk Privilege Escalation Vulnerability (Dec 2014)");
 
   script_tag(name:"summary", value:"OTRS (Open Ticket Request System) Help Desk is prone to a privilege escalation vulnerability.");
 

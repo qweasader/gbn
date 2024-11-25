@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810623");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-07-04T05:05:37+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2017-0022");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N");
+  script_tag(name:"last_modification", value:"2024-07-04 05:05:37 +0000 (Thu, 04 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2017-09-28 01:29:00 +0000 (Thu, 28 Sep 2017)");
+  script_tag(name:"severity_date", value:"2024-07-02 12:59:23 +0000 (Tue, 02 Jul 2024)");
   script_tag(name:"creation_date", value:"2017-03-15 10:03:11 +0530 (Wed, 15 Mar 2017)");
   script_tag(name:"qod_type", value:"executable_version");
   script_name("Microsoft Windows XML Core Services Information Disclosure Vulnerability (4010321)");

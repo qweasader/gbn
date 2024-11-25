@@ -4,11 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-if( description )
+CPE = "cpe:/a:drupal:drupal";
+
+if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113033");
-  script_version("2023-09-19T05:06:03+0000");
-  script_tag(name:"last_modification", value:"2023-09-19 05:06:03 +0000 (Tue, 19 Sep 2023)");
+  script_version("2024-03-15T15:36:48+0000");
+  script_tag(name:"last_modification", value:"2024-03-15 15:36:48 +0000 (Fri, 15 Mar 2024)");
   script_tag(name:"creation_date", value:"2017-10-16 14:52:53 +0200 (Mon, 16 Oct 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -29,6 +31,8 @@ if( description )
   script_tag(name:"summary", value:"The Drupal version on the remote host has reached the End of
   Life (EOL) and should not be used anymore.");
 
+  script_tag(name:"vuldetect", value:"Checks if an EOL version is present on the target host.");
+
   script_tag(name:"impact", value:"An EOL version of Drupal is not receiving any security updates
   from the vendor. Unfixed security vulnerabilities might be leveraged by an attacker to compromise
   the security of this host.");
@@ -36,16 +40,17 @@ if( description )
   script_tag(name:"solution", value:"Update the Drupal version on the remote host to a still
   supported version.");
 
-  script_tag(name:"vuldetect", value:"Checks if an EOL version is present on the target host.");
-
+  script_xref(name:"URL", value:"https://www.drupal.org/psa-2023-11-01"); # nb: Drupal 9 EOL notice
+  script_xref(name:"URL", value:"https://www.drupal.org/psa-2023-06-07"); # nb: Drupal 7 final EOL extension to Jan 2025
+  script_xref(name:"URL", value:"https://www.drupal.org/psa-2022-02-23"); # nb: Drupal 7 second EOL extension to Nov 2023
+  script_xref(name:"URL", value:"https://www.drupal.org/psa-2021-11-30"); # nb: Drupal 8 EOL notice
+  script_xref(name:"URL", value:"https://www.drupal.org/psa-2020-06-24"); # nb: Drupal 7 first EOL extension to Nov 2022
+  script_xref(name:"URL", value:"https://www.drupal.org/psa-2019-02-25"); # nb: Initial Drupal 7 EOL notice for Nov 2021
   script_xref(name:"URL", value:"https://www.drupal.org/forum/general/news-and-announcements/2015-11-09/drupal-6-end-of-life-announcement");
-  script_xref(name:"URL", value:"https://www.drupal.org/psa-2020-06-24");
-  script_xref(name:"URL", value:"https://www.drupal.org/psa-2021-11-30");
+  script_xref(name:"URL", value:"https://www.drupal.org/docs/understanding-drupal/understanding-drupal-version-numbers/legacy-drupal-release-history");
 
   exit(0);
 }
-
-CPE = "cpe:/a:drupal:drupal";
 
 include("misc_func.inc");
 include("products_eol.inc");

@@ -9,15 +9,15 @@ CPE = "cpe:/a:live555:streaming_media";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107102");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-05-22 12:42:40 +0200 (Mon, 22 May 2017)");
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
 
-  script_name("LIVE555 Streaming Media Buffer Overflow Vulnerability (Linux)");
+  script_name("LIVE555 Streaming Media Buffer Overflow Vulnerability - Linux");
 
   script_tag(name:"summary", value:"LIVE555 Streaming Media is prone to a buffer overflow vulnerability.");
 

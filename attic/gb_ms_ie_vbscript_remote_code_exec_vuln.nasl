@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800482");
-  script_version("2023-06-27T05:05:30+0000");
-  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
+  script_version("2024-06-21T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"creation_date", value:"2010-03-10 15:48:25 +0100 (Wed, 10 Mar 2010)");
   script_tag(name:"cvss_base", value:"7.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2010-0483");
-  script_name("MS Internet Explorer 'VBScript' RCE Vulnerability");
+  script_name("Microsoft Internet Explorer 'VBScript' RCE Vulnerability");
   script_tag(name:"qod_type", value:"executable_version");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2010 Greenbone AG");

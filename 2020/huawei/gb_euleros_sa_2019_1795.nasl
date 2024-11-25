@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.1795");
   script_cve_id("CVE-2015-5590", "CVE-2015-8865", "CVE-2016-4537", "CVE-2016-4538", "CVE-2016-5096", "CVE-2016-5114", "CVE-2016-5771", "CVE-2016-5773", "CVE-2016-6289");
   script_tag(name:"creation_date", value:"2020-01-23 12:22:41 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-01-05 02:31:00 +0000 (Fri, 05 Jan 2018)");
+  script_tag(name:"severity_date", value:"2016-08-09 18:40:53 +0000 (Tue, 09 Aug 2016)");
 
   script_name("Huawei EulerOS: Security Advisory for php (EulerOS-SA-2019-1795)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROS\-2\.0SP5");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-1795");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-1795");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-1795");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'php' package(s) announced via the EulerOS-SA-2019-1795 advisory.");
 

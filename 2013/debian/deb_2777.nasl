@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.702777");
   script_cve_id("CVE-2013-4327", "CVE-2013-4391", "CVE-2013-4394");
   script_tag(name:"creation_date", value:"2013-10-10 22:00:00 +0000 (Thu, 10 Oct 2013)");
-  script_version("2024-01-12T16:12:10+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:10 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-02T05:06:04+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:04 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 

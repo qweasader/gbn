@@ -7,19 +7,19 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832285");
-  script_version("2023-10-13T05:06:10+0000");
+  script_version("2024-02-22T05:06:55+0000");
   script_cve_id("CVE-2023-36766", "CVE-2023-36762", "CVE-2023-36767", "CVE-2023-27911");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-22 05:06:55 +0000 (Thu, 22 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-04-26 22:51:00 +0000 (Wed, 26 Apr 2023)");
   script_tag(name:"creation_date", value:"2023-09-14 11:44:15 +0530 (Thu, 14 Sep 2023)");
-  script_name("Microsoft Office 2019 Multiple Vulnerabilities (September23) - Mac OS X");
+  script_name("Microsoft Office 2019 Multiple Vulnerabilities (Sep 2023) - Mac OS X");
 
   script_tag(name:"summary", value:"This host is missing an important security
-  update for Microsoft Office 2019 on Mac OSX according to Microsoft security
+  update for Microsoft Office 2019 on Mac OS X according to Microsoft security
   update September 2023");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present
@@ -59,7 +59,6 @@ include("version_func.inc");
 
 if(!vers = get_kb_item("MS/Office/MacOSX/Ver"))
   exit(0);
-
 
 if(vers =~ "^16\.") {
   if(version_in_range(version:vers, test_version:"16.17.0", test_version2:"16.76.2")) {

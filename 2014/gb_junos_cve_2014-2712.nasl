@@ -9,8 +9,8 @@ CPE = "cpe:/o:juniper:junos";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105905");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-07-24T05:06:37+0000");
+  script_tag(name:"last_modification", value:"2024-07-24 05:06:37 +0000 (Wed, 24 Jul 2024)");
   script_tag(name:"creation_date", value:"2014-04-29 16:10:41 +0700 (Tue, 29 Apr 2014)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -21,7 +21,7 @@ if (description)
 
   script_cve_id("CVE-2014-2712");
 
-  script_name("Juniper Networks Junos OS J-Web XSS Vulnerability");
+  script_name("Juniper Networks Junos OS J-Web XSS Vulnerability (JSA10521)");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2014 Greenbone AG");
@@ -29,19 +29,22 @@ if (description)
   script_dependencies("gb_juniper_junos_consolidation.nasl");
   script_mandatory_keys("juniper/junos/detected", "juniper/junos/build");
 
-  script_tag(name:"summary", value:"Cross-Site Scripting Vulnerability in J-Web.");
+  script_tag(name:"summary", value:"Juniper Networks Junos OS is prone to a cross-site scripting
+  (XSS) vulnerability in J-Web.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable OS build is present on the target host.");
 
-  script_tag(name:"insight", value:"J-Web is vulnerable to a cross-site scripting injection. Parameters
-passed as arguments to index.php can result in the execution of scripting tags within the user's browser.");
+  script_tag(name:"insight", value:"J-Web is vulnerable to a cross-site scripting injection.
+  Parameters passed as arguments to index.php can result in the execution of scripting tags within
+  the user's browser.");
 
-  script_tag(name:"impact", value:"Remote attackers can inject arbitrary web script or HTML to index.php.");
+  script_tag(name:"impact", value:"Remote attackers can inject arbitrary web script or HTML to
+  index.php.");
 
   script_tag(name:"affected", value:"Junos OS 10.0, 10.4, 11.4, 12.1 and 12.2.");
 
-  script_tag(name:"solution", value:"New builds of Junos OS software are available from Juniper. As a
-workaround disable J-Web.");
+  script_tag(name:"solution", value:"New builds of Junos OS software are available from Juniper. As
+  a workaround disable J-Web.");
 
   script_xref(name:"URL", value:"http://kb.juniper.net/JSA10521");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/66767");
@@ -94,18 +97,22 @@ if (version =~ "^12") {
   else if ((revcomp(a:version, b:"12.1X44-D30") < 0) &&
            (revcomp(a:version, b:"12.1X44") >= 0)) {
     security_message(port:0, data:desc);
+    exit(0);
   }
   else if ((revcomp(a:version, b:"12.1X45-D20") < 0) &&
            (revcomp(a:version, b:"12.1X45") >= 0)) {
     security_message(port:0, data:desc);
+    exit(0);
   }
   else if ((revcomp(a:version, b:"12.1X46-D10") < 0) &&
            (revcomp(a:version, b:"12.1X46") >= 0)) {
     security_message(port:0, data:desc);
+    exit(0);
   }
   else if ((revcomp(a:version, b:"12.2R1") < 0) &&
            (revcomp(a:version, b:"12.2") >= 0)) {
     security_message(port:0, data:desc);
+    exit(0);
   }
 }
 

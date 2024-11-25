@@ -9,17 +9,17 @@ CPE = "cpe:/a:foxitsoftware:reader";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.814581");
-  script_version("2023-10-27T16:11:32+0000");
+  script_version("2024-02-20T14:37:13+0000");
   script_cve_id("CVE-2018-18688", "CVE-2018-18689", "CVE-2018-3956",
                 "CVE-2019-5005", "CVE-2019-5006", "CVE-2019-5007");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-01-15 14:45:00 +0000 (Tue, 15 Jan 2019)");
   script_tag(name:"creation_date", value:"2019-01-04 13:50:04 +0530 (Fri, 04 Jan 2019)");
-  script_name("Foxit Reader Multiple Vulnerabilities-Jan 2019 (Windows)");
+  script_name("Foxit Reader Multiple Vulnerabilities (Jan 2019) - Windows");
 
   script_tag(name:"summary", value:"Foxit Reader is prone to multiple vulnerabilities.");
 

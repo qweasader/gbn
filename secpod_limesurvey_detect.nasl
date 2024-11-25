@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900352");
-  script_version("2023-12-13T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_version("2024-07-16T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2009-05-26 15:05:11 +0200 (Tue, 26 May 2009)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -72,7 +72,7 @@ foreach dir(make_list_unique("/limesurvey", "/phpsurveyor", "/survey", "/PHPSurv
       concUrl = url;
     }
 
-    set_kb_item(name: "limesurvey/installed", value: TRUE);
+    set_kb_item(name: "limesurvey/http/detected", value: TRUE);
 
     cpe = "cpe:/a:limesurvey:limesurvey";
     if (version != "unknown") {
@@ -106,7 +106,7 @@ foreach dir(make_list_unique("/limesurvey", "/phpsurveyor", "/survey", "/PHPSurv
       concUrl = url;
     }
 
-    set_kb_item(name: "limesurvey/installed", value: TRUE);
+    set_kb_item(name: "limesurvey/http/detected", value: TRUE);
 
     cpe = "cpe:/a:limesurvey:limesurvey";
     if (version != "unknown") {

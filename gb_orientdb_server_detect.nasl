@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808753");
-  script_version("2023-07-27T05:05:09+0000");
+  script_version("2024-06-26T05:05:39+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-08-08 15:37:50 +0530 (Mon, 08 Aug 2016)");
-  script_name("OrientDB Server Version Detection");
+  script_name("OrientDB Server Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Product detection");
@@ -20,11 +20,7 @@ if(description)
   script_require_ports("Services/www", 2480);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
-  script_tag(name:"summary", value:"Detection of installed version
-  of OrientDB Server.
-
-  This script sends an HTTP GET request and tries to ensure the presence of
-  OrientDB Server from the response.");
+  script_tag(name:"summary", value:"HTTP based detection of OrientDB Server.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -65,17 +61,20 @@ if (!found || version == "unknown") {
 }
 
 if (found) {
-  buf = http_get_cache(item:"/listDatabases", port:port);
+
+  install = "/";
+
+  buf = http_get_cache(item: "/listDatabases", port: port);
 
   if (dbs = eregmatch(pattern: '"databases":\\[(.*)\\]', string: buf)) {
-    databases = split(dbs[1],sep:",", keep:FALSE);
+    databases = split(dbs[1], sep: ",", keep: FALSE);
     set_kb_item(name: "OrientDB/" + host + "/" + port + "/databases", value: dbs[1]);
 
     extra = 'The following databases were found on the OrientDB Server:\n';
 
     foreach database(databases) {
-      database = str_replace(string: database, find: '"', replace: '');
-      extra += '- ' + database + '\n';
+      database = str_replace(string: database, find: '"', replace: "");
+      extra += "- " + database + '\n';
       url = "/database/" + database;
 
       req = http_get_req(port: port,
@@ -83,29 +82,30 @@ if (found) {
                          accept_header: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
       res = http_keepalive_send_recv(port: port, data: req);
 
-      if ('"code": 401' >< res && '"reason": "Unauthorized"' >< res &&  '"content": "401 Unauthorized."' >< res) {
-        set_kb_item( name: "www/" + host + "/" + port + "/content/auth_required", value: url);
+      if ('"code": 401' >< res && '"reason": "Unauthorized"' >< res && '"content": "401 Unauthorized."' >< res) {
+        set_kb_item(name: "www/" + host + "/" + port + "/content/auth_required", value: url);
         set_kb_item(name: "www/content/auth_required", value: TRUE);
         set_kb_item(name: "www/" + host + "/" + port + "/OrientDB/auth_required", value: url);
-        set_kb_item(name: "OrientDB/auth_required", value: TRUE );
+        set_kb_item(name: "OrientDB/auth_required", value: TRUE);
       }
     }
   }
 
-  set_kb_item(name: "OrientDB/Installed", value: TRUE);
+  set_kb_item(name: "orientdb/server/detected", value: TRUE);
+  set_kb_item(name: "orientdb/server/http/detected", value: TRUE);
+
   cpe = build_cpe(value: version, exp: "^([0-9.]+)", base: "cpe:/a:orientdb:orientdb:");
-
   if (!cpe)
-    cpe = 'cpe:/a:orientdb:orientdb';
+    cpe = "cpe:/a:orientdb:orientdb";
 
-  register_product(cpe: cpe, location: "/", port: port, service: "www");
+  register_product(cpe: cpe, location: install, port: port, service: "www");
   log_message(data: build_detection_report(app: "OrientDB Server",
                                            version: version,
-                                           install: "/",
+                                           install: install,
                                            cpe: cpe,
                                            concluded: vers[0],
                                            concludedUrl: concUrl,
                                            extra: extra),
-                                           port: port);
+              port: port);
   exit(0);
 }

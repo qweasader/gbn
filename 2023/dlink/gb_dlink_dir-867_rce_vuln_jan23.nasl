@@ -9,8 +9,8 @@ CPE = "cpe:/o:dlink:dir-867_firmware";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170328");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-02-29T14:37:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-29 14:37:57 +0000 (Thu, 29 Feb 2024)");
   script_tag(name:"creation_date", value:"2023-03-01 15:04:08 +0000 (Wed, 01 Mar 2023)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:C/I:C/A:C");
@@ -20,7 +20,7 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"WillNotFix");
 
   script_cve_id("CVE-2022-41140");
 
@@ -46,8 +46,10 @@ if(description)
   script_tag(name:"affected", value:"D-Link DIR-867 Rev. A devices through firmware version
   1.30B07.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 01st March, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.");
 
   script_xref(name:"URL", value:"https://support.dlink.com/ProductInfo.aspx?m=DIR-867-US");
   script_xref(name:"URL", value:"https://supportannouncement.us.dlink.com/announcement/publication.aspx?name=SAP10291");

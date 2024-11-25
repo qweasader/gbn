@@ -9,8 +9,8 @@ CPE = "cpe:/a:netatalk:netatalk";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.148913");
-  script_version("2023-11-16T05:05:14+0000");
-  script_tag(name:"last_modification", value:"2023-11-16 05:05:14 +0000 (Thu, 16 Nov 2023)");
+  script_version("2024-03-15T05:06:15+0000");
+  script_tag(name:"last_modification", value:"2024-03-15 05:06:15 +0000 (Fri, 15 Mar 2024)");
   script_tag(name:"creation_date", value:"2022-11-15 08:40:15 +0000 (Tue, 15 Nov 2022)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
@@ -37,16 +37,18 @@ if(description)
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"Netatalk has an afp_getappl heap-based buffer overflow
-  resulting in code execution via a crafted .appl file. This provides remote root access on some
-  platforms such as FreeBSD (used for TrueNAS).");
+  script_tag(name:"insight", value:"Netatalk has an afp_getappl heap-based buffer overflow resulting
+  in code execution via a crafted .appl file. This provides remote root access on some platforms
+  such as FreeBSD (used for TrueNAS).");
 
   script_tag(name:"affected", value:"Netatalk prior to version 3.1.15.");
 
   script_tag(name:"solution", value:"Update to version 3.1.15 or later.");
 
+  script_xref(name:"URL", value:"https://netatalk.io/3.1/ReleaseNotes3.1.15");
   script_xref(name:"URL", value:"https://rushbnt.github.io/bug%20analysis/netatalk-0day/");
   script_xref(name:"URL", value:"https://github.com/Netatalk/Netatalk/releases/tag/netatalk-3-1-15");
+  script_xref(name:"URL", value:"https://github.com/Netatalk/netatalk/issues/240");
 
   exit(0);
 }

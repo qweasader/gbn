@@ -9,13 +9,13 @@ CPE = "cpe:/a:mozilla:firefox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805515");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2015-0818");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2015-03-27 14:36:15 +0530 (Fri, 27 Mar 2015)");
-  script_name("Mozilla Firefox SVG Navigation Privilege Escalation Vulnerability Mar15 (Mac OS X)");
+  script_name("Mozilla Firefox SVG Navigation Privilege Escalation Vulnerability (Mar 2015) - Mac OS X");
 
   script_tag(name:"summary", value:"Mozilla Firefox is prone to a privilege escalation vulnerability.");
 
@@ -44,7 +44,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2015 Greenbone AG");
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_mozilla_prdts_detect_macosx.nasl");
   script_mandatory_keys("Mozilla/Firefox/MacOSX/Version");
 

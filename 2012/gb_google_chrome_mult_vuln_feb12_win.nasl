@@ -7,7 +7,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802594");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-22T14:37:29+0000");
   script_cve_id("CVE-2011-3960", "CVE-2011-3959", "CVE-2011-3958", "CVE-2011-3957",
                 "CVE-2011-3972", "CVE-2011-3956", "CVE-2011-3971", "CVE-2011-3955",
                 "CVE-2011-3970", "CVE-2011-3954", "CVE-2011-3969", "CVE-2011-3953",
@@ -15,9 +15,9 @@ if(description)
                 "CVE-2011-3964", "CVE-2011-3963", "CVE-2011-3962", "CVE-2011-3961");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-22 14:37:29 +0000 (Thu, 22 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-02-14 17:13:43 +0530 (Tue, 14 Feb 2012)");
-  script_name("Google Chrome Multiple Vulnerabilities - February 12 (Windows)");
+  script_name("Google Chrome < 17.0.963.46 Multiple Vulnerabilities (Feb 2012) - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/47938/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51911");
   script_xref(name:"URL", value:"http://securitytracker.com/id/1026654");

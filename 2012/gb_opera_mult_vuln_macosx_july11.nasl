@@ -7,7 +7,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802753");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-16T05:06:55+0000");
   script_cve_id("CVE-2011-1337", "CVE-2011-2609", "CVE-2011-2610", "CVE-2011-2611",
                 "CVE-2011-2612", "CVE-2011-2613", "CVE-2011-2614", "CVE-2011-2615",
                 "CVE-2011-2616", "CVE-2011-2617", "CVE-2011-2618", "CVE-2011-2619",
@@ -15,9 +15,9 @@ if(description)
                 "CVE-2011-2624", "CVE-2011-2625", "CVE-2011-2626", "CVE-2011-2627");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-04-19 10:01:43 +0530 (Thu, 19 Apr 2012)");
-  script_name("Opera Browser Multiple Vulnerabilities July-11 (Mac OS X)");
+  script_name("Opera Browser Multiple Vulnerabilities (Jul 2011) - Mac OS X");
   script_xref(name:"URL", value:"http://secunia.com/advisories/45060");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/48500");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/48501");

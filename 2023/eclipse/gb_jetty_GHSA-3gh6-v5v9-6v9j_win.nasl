@@ -9,8 +9,8 @@ CPE = "cpe:/a:eclipse:jetty";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.151004");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-06-11T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-06-11 05:05:40 +0000 (Tue, 11 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-09-19 04:55:19 +0000 (Tue, 19 Sep 2023)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:N");
@@ -30,7 +30,7 @@ if(description)
 
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Web Servers");
-  script_dependencies("gb_jetty_detect.nasl", "os_detection.nasl");
+  script_dependencies("gb_jetty_http_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("jetty/detected", "Host/runs_windows");
 
   script_tag(name:"summary", value:"Eclipse Jetty is prone to a vulnerability in the CgiServlet.");

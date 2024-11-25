@@ -8,15 +8,15 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103421");
   script_cve_id("CVE-2012-1217");
-  script_version("2023-12-13T05:05:23+0000");
-  script_name("STHS v2 Web Portal 'team' parameter Multiple SQL Injection Vulnerabilities");
+  script_version("2024-06-27T05:05:29+0000");
+  script_name("STHS v2 Web Portal 'team' parameter Multiple SQLi Vulnerabilities");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51991");
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/73154");
   script_xref(name:"URL", value:"http://www.simhl.net/");
   script_xref(name:"URL", value:"http://0nto.wordpress.com/2012/02/13/sths-v2-web-portal-2-2-sql-injection-vulnerabilty/");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-02-15 11:22:27 +0100 (Wed, 15 Feb 2012)");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");
@@ -25,9 +25,9 @@ if(description)
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
-  script_tag(name:"summary", value:"STHS v2 Web Portal is prone to multiple SQL-injection vulnerabilities
-  because the application fails to sufficiently sanitize user-supplied
-  data before using it in an SQL query.");
+  script_tag(name:"summary", value:"STHS v2 Web Portal is prone to multiple SQL injection (SQLi)
+  vulnerabilities because the application fails to sufficiently sanitize user-supplied data
+  before using it in an SQL query.");
 
   script_tag(name:"impact", value:"Exploiting these issues could allow an attacker to compromise the
   application, access or modify data, or exploit latent vulnerabilities in the underlying database.");

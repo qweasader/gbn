@@ -1,30 +1,16 @@
-# Copyright (C) 2017 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2017 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/h:fortinet:fortianalyzer";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140264");
-  script_version("2021-09-14T13:01:54+0000");
-  script_tag(name:"last_modification", value:"2021-09-14 13:01:54 +0000 (Tue, 14 Sep 2021)");
+  script_version("2024-10-24T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-10-24 05:05:32 +0000 (Thu, 24 Oct 2024)");
   script_tag(name:"creation_date", value:"2017-08-01 16:24:31 +0700 (Tue, 01 Aug 2017)");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
@@ -41,23 +27,26 @@ if (description)
   script_name("Fortinet FortiAnalyzer Open Redirect Vulnerability (FG-IR-17-014)");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("FortiOS Local Security Checks");
   script_dependencies("gb_fortianalyzer_version.nasl");
   script_mandatory_keys("fortianalyzer/version");
 
-  script_tag(name:"summary", value:"The FortiAnalyzer WebUI accept a user-controlled input that specifies a link
-to an external site, and uses that link in a redirect.");
+  script_tag(name:"summary", value:"Fortinet FortiAnalyzer is prone to an open redirect
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"impact", value:"Open redirect");
+  script_tag(name:"insight", value:"The FortiAnalyzer WebUI accept a user-controlled input that
+  specifies a link to an external site, and uses that link in a redirect.");
 
-  script_tag(name:"affected", value:"FortiAnalyzer versions 5.4.0 to 5.4.2.");
+  script_tag(name:"affected", value:"Fortinet FortiAnalyzer versions 5.4.x through 5.4.2.");
 
   script_tag(name:"solution", value:"Update to version 5.4.3 or later.");
 
   script_xref(name:"URL", value:"https://www.fortiguard.com/psirt/FG-IR-17-014");
+  script_xref(name:"Advisory-ID", value:"FG-IR-17-014");
 
   exit(0);
 }
@@ -65,7 +54,7 @@ to an external site, and uses that link in a redirect.");
 include("host_details.inc");
 include("version_func.inc");
 
-if (!version = get_app_version(cpe: CPE))
+if (!version = get_app_version(cpe: CPE, nofork: TRUE))
   exit(0);
 
 if (version_in_range(version: version, test_version: "5.4.0", test_version2: "5.4.2")) {

@@ -9,8 +9,8 @@ CPE = "cpe:/a:gitlab:gitlab";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126013");
-  script_version("2023-12-06T05:06:11+0000");
-  script_tag(name:"last_modification", value:"2023-12-06 05:06:11 +0000 (Wed, 06 Dec 2023)");
+  script_version("2024-11-15T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-15 05:05:36 +0000 (Fri, 15 Nov 2024)");
   script_tag(name:"creation_date", value:"2022-06-14 08:34:10 +0000 (Tue, 14 Jun 2022)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:N/A:N");
@@ -75,9 +75,9 @@ if ( version_in_range( version:version, test_version:"14.9.0", test_version2:"14
 }
 
 if ( version_is_equal( version:version, test_version:"14.10.0" ) ) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "14.10.1", install_path: location);
-  security_message(port: port, data: report);
-  exit(0);
+  report = report_fixed_ver( installed_version:version, fixed_version:"14.10.1", install_path:location );
+  security_message( port:port, data:report );
+  exit( 0 );
 }
 
 exit( 99 );

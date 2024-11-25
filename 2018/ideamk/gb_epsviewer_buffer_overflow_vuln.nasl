@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112391");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-10-11 21:37:12 +0200 (Thu, 11 Oct 2018)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
@@ -18,7 +18,7 @@ if(description)
 
   script_cve_id("CVE-2013-4979");
 
-  script_name("EPS Viewer Buffer Overflow Vulnerability (Windows)");
+  script_name("EPS Viewer Buffer Overflow Vulnerability - Windows");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
@@ -28,7 +28,7 @@ if(description)
 
   script_tag(name:"summary", value:"EPS Viewer is prone to a buffer overflow vulnerability.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"EPS Viewer is prone to a security vulnerability when processing EPS files.
   This vulnerability could be exploited by a remote attacker to execute arbitrary code on the target machine

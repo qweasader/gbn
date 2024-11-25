@@ -9,13 +9,13 @@ CPE = "cpe:/a:symantec:pcanywhere";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802884");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_cve_id("CVE-2011-3478", "CVE-2011-3479", "CVE-2012-0292", "CVE-2012-0291");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-07-09 12:27:08 +0530 (Mon, 09 Jul 2012)");
-  script_name("Symantec pcAnywhere 'awhost32' Remote Code Execution Vulnerability");
+  script_name("Symantec pcAnywhere 'awhost32' RCE Vulnerability");
 
   script_category(ACT_DENIAL);
   script_tag(name:"qod_type", value:"remote_analysis");

@@ -8,14 +8,14 @@ CPE = "cpe:/a:wordpress:wordpress";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806800");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2015-5734", "CVE-2015-5733", "CVE-2015-5732", "CVE-2015-5731",
                 "CVE-2015-5730", "CVE-2015-2213");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-12-15 13:15:38 +0530 (Tue, 15 Dec 2015)");
-  script_name("WordPress Multiple Vulnerabilities-01 Dec15 (Windows)");
+  script_name("WordPress Multiple Vulnerabilities-01 (Dec 2015) - Windows");
 
   script_tag(name:"summary", value:"WordPress is prone to multiple vulnerabilities.");
 

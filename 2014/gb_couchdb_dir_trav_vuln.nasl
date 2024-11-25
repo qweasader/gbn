@@ -9,8 +9,8 @@ CPE = "cpe:/a:apache:couchdb";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105903");
-  script_version("2023-05-10T09:37:12+0000");
-  script_tag(name:"last_modification", value:"2023-05-10 09:37:12 +0000 (Wed, 10 May 2023)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2014-04-28 11:20:26 +0700 (Mon, 28 Apr 2014)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -24,7 +24,7 @@ if(description)
   script_name("Apache CouchDB <= 1.0.3, 1.1.x <= 1.1.1, 1.2.0 Directory Traversal Vulnerability");
 
   script_category(ACT_GATHER_INFO);
-  script_family("Web application abuses");
+  script_family("Databases");
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_dependencies("gb_apache_couchdb_http_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("apache/couchdb/detected", "Host/runs_windows");

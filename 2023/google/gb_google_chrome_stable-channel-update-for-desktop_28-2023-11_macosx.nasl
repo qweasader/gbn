@@ -9,19 +9,19 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832720");
-  script_version("2024-01-22T05:07:31+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2023-6348", "CVE-2023-6347", "CVE-2023-6346", "CVE-2023-6350",
                 "CVE-2023-6351", "CVE-2023-6345");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2024-01-22 05:07:31 +0000 (Mon, 22 Jan 2024)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-12-01 20:18:00 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"creation_date", value:"2023-11-29 14:34:08 +0530 (Wed, 29 Nov 2023)");
-  script_name("Google Chrome Security Update(stable-channel-update-for-desktop_28-2023-11) - MAC OS X");
+  script_name("Google Chrome Security Update (stable-channel-update-for-desktop_28-2023-11) - Mac OS X");
 
   script_tag(name:"summary", value:"Google Chrome is prone to multiple
   vulnerabilities.");
@@ -47,7 +47,7 @@ if(description)
   to run arbitrary code, and cause a denial of service on an affected system.");
 
   script_tag(name:"affected", value:"Google Chrome version prior to
-  119.0.6045.199 on MAC OS X");
+  119.0.6045.199 on Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade to version 119.0.6045.199 or
   later. Please see the references for more information.");

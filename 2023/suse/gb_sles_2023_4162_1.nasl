@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2023.4162.1");
   script_cve_id("CVE-2023-4039");
   script_tag(name:"creation_date", value:"2023-10-24 04:21:12 +0000 (Tue, 24 Oct 2023)");
-  script_version("2023-10-24T14:40:27+0000");
-  script_tag(name:"last_modification", value:"2023-10-24 14:40:27 +0000 (Tue, 24 Oct 2023)");
+  script_version("2024-05-09T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-05-09 05:05:43 +0000 (Thu, 09 May 2024)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:P/I:P/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-09-14 20:01:00 +0000 (Thu, 14 Sep 2023)");
+  script_tag(name:"severity_date", value:"2023-09-14 20:01:22 +0000 (Thu, 14 Sep 2023)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2023:4162-1)");
   script_category(ACT_GATHER_INFO);
@@ -91,7 +91,7 @@ Update embedded newlib to version 4.2.0 Allow cross-pru-gcc12-bootstrap for armv
  armv7l in order to build both host applications and PRU firmware
  during the same build.");
 
-  script_tag(name:"affected", value:"'gcc13' package(s) on SUSE Linux Enterprise Desktop 15-SP4, SUSE Linux Enterprise Desktop 15-SP5, SUSE Linux Enterprise High Performance Computing 15-SP4, SUSE Linux Enterprise High Performance Computing 15-SP5, SUSE Linux Enterprise Micro 5.1, SUSE Linux Enterprise Micro 5.2, SUSE Linux Enterprise Micro 5.3, SUSE Linux Enterprise Micro 5.4, SUSE Linux Enterprise Micro 5.5, SUSE Linux Enterprise Micro for Rancher 5.2, SUSE Linux Enterprise Micro for Rancher 5.3, SUSE Linux Enterprise Micro for Rancher 5.4, SUSE Linux Enterprise Server 15-SP2, SUSE Linux Enterprise Server 15-SP3, SUSE Linux Enterprise Server 15-SP4, SUSE Linux Enterprise Server 15-SP5, SUSE Linux Enterprise Server for SAP Applications 15-SP4, SUSE Linux Enterprise Server for SAP Applications 15-SP5, SUSE Manager Proxy 4.2, SUSE Manager Proxy 4.3, SUSE Manager Retail Branch Server 4.2, SUSE Manager Retail Branch Server 4.3, SUSE Manager Server 4.2, SUSE Manager Server 4.3, SUSE Package Hub 15.");
+  script_tag(name:"affected", value:"'gcc13' package(s) on SUSE Linux Enterprise Desktop 15-SP4, SUSE Linux Enterprise Desktop 15-SP5, SUSE Linux Enterprise High Performance Computing 15-SP4, SUSE Linux Enterprise High Performance Computing 15-SP5, SUSE Linux Enterprise Micro 5.3, SUSE Linux Enterprise Micro 5.4, SUSE Linux Enterprise Micro 5.5, SUSE Linux Enterprise Micro for Rancher 5.3, SUSE Linux Enterprise Micro for Rancher 5.4, SUSE Linux Enterprise Server 15-SP2, SUSE Linux Enterprise Server 15-SP3, SUSE Linux Enterprise Server 15-SP4, SUSE Linux Enterprise Server 15-SP5, SUSE Linux Enterprise Server for SAP Applications 15-SP4, SUSE Linux Enterprise Server for SAP Applications 15-SP5, SUSE Manager Proxy 4.3, SUSE Manager Retail Branch Server 4.3, SUSE Manager Server 4.3.");
 
   script_tag(name:"solution", value:"Please install the updated package(s).");
 

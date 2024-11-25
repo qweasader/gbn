@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802316");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-08T14:36:53+0000");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-08-10 13:49:51 +0200 (Wed, 10 Aug 2011)");
   script_cve_id("CVE-2011-2358", "CVE-2011-2359", "CVE-2011-2360", "CVE-2011-2361",
                 "CVE-2011-2783", "CVE-2011-2784", "CVE-2011-2785", "CVE-2011-2786",
@@ -20,7 +20,7 @@ if(description)
                 "CVE-2011-2819");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_name("Google Chrome Multiple Vulnerabilities - August11 (Windows)");
+  script_name("Google Chrome Multiple Vulnerabilities (Aug 2011) - Windows");
   script_xref(name:"URL", value:"http://securitytracker.com/id/1025882");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/48960");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2011/08/stable-channel-update.html");

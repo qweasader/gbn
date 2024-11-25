@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108014");
-  script_version("2023-09-26T05:05:30+0000");
-  script_tag(name:"last_modification", value:"2023-09-26 05:05:30 +0000 (Tue, 26 Sep 2023)");
+  script_version("2024-10-24T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-10-24 05:05:32 +0000 (Thu, 24 Oct 2024)");
   script_tag(name:"creation_date", value:"2016-11-03 14:13:48 +0100 (Thu, 03 Nov 2016)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -147,12 +147,24 @@ foreach proto( make_list( "udp", "tcp" ) ) {
     # 9.18.16-1~deb12u1~bpo11+1-Debian
     # 9.18.12-1~bpo11+1-Debian
     # 9.16.44-Debian (this was bind9 package 1:9.16.44-1~deb11u1 and the banner didn't included the "-1")
+    #
     # nb: On Debian 12/bookworn the versioning scheme changed to include the "-1" from the package:
+    #
     # 9.18.16-1-Debian (for bind9 package 1:9.18.16-1~deb12u1)
     # 9.18.19-1-Debian (for bind9 package 1:9.18.19-1~deb12u1)
-    # also seens the following for Debian 12 (banner info might depend on some configuration or similar):
+    # 9.18.24-1-Debian (for bind9 package 1:9.18.24-1)
+    # 9.18.28-1~deb12u1-Debian (for bind9 package 1:9.18.28-1~deb12u1)
+    # 9.18.28-1~deb12u2-Debian (for bind9 package 1:9.18.28-1~deb12u2)
+    #
+    # also seen the following for Debian 12 (banner info might depend on some configuration or similar):
+    #
     # 9.18.16-1~deb12u1-Debian
     # 9.18.19-1~deb12u1-Debian
+    #
+    # General info on the Debian packages can be found here:
+    # - https://packages.debian.org/search?keywords=bind9
+    # - https://packages.qa.debian.org/b/bind9.html ("News" section with entries like "in bookworm-security")
+    #
     if( "-Debian" >< banner || ( "PowerDNS Authoritative Server" >< banner && "debian.org)" >< banner ) ) {
       if( "~deb8" >< banner || "+deb8" >< banner ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"8", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:proto, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
@@ -160,9 +172,9 @@ foreach proto( make_list( "udp", "tcp" ) ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"9", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:proto, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       } else if( "9.11.5-P4-5.1-Debian" >< banner || "~deb10" >< banner || "+deb10" >< banner || "~bpo10" >< banner ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"10", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:proto, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
-      } else if( "9.16.33-Debian" >< banner || "9.16.27-Debian" >< banner || "9.16.37-Debian" >< banner || "9.16.42-Debian" >< banner || "9.16.44-Debian" >< banner || "~deb11" >< banner || "+deb11" >< banner || "~bpo11" >< banner ) {
+      } else if( "9.16.33-Debian" >< banner || "9.16.27-Debian" >< banner || "9.16.37-Debian" >< banner || "9.16.42-Debian" >< banner || "9.16.44-Debian" >< banner || "9.16.48-Debian" >< banner || "~deb11" >< banner || "+deb11" >< banner || "~bpo11" >< banner ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"11", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:proto, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
-      } else if( "9.18.16-1-Debian" >< banner || "9.18.19-1-Debian" >< banner || "~deb12" >< banner || "+deb12" >< banner || "~bpo12" >< banner ) {
+      } else if( "9.18.16-1-Debian" >< banner || "9.18.19-1-Debian" >< banner || "9.18.24-1-Debian" >< banner || "~deb12" >< banner || "+deb12" >< banner || "~bpo12" >< banner ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"12", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:proto, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       } else {
         os_register_and_report( os:"Debian GNU/Linux", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, proto:proto, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
@@ -170,7 +182,7 @@ foreach proto( make_list( "udp", "tcp" ) ) {
       continue;
     }
 
-    # Those are only running on Unix-like OS variantes
+    # Those are only running on Unix-like OS variants
     # keep at the bottom so the pattern above are evaluated first.
     # dnsmasq-pi-hole-2.79
     # dnsmasq-2.76
@@ -178,11 +190,13 @@ foreach proto( make_list( "udp", "tcp" ) ) {
     # dnsmasq-pi-hole-2.87test4-6
     # dnsmasq-pi-hole-v2.87rc1
     # dnsmasq-pi-hole-v2.89-9461807
+    # dnsmasq-pi-hole-v2.90
+    # dnsmasq-pi-hole-v2.90+1
     if( banner =~ "^dnsmasq" || banner =~ "^PowerDNS Authoritative Server" || banner =~ "^PowerDNS Recursor" || "jenkins@autotest.powerdns.com" >< banner || banner =~ "^Knot DNS" ) {
       # Doesn't have any OS info so just register Linux/Unix
       os_register_and_report( os:"Linux/Unix", cpe:"cpe:/o:linux:kernel", banner_type:BANNER_TYPE, port:port, proto:proto, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       # Only continue here for the pattern without OS info so we register an unknown OS down below if there is any additional data in the banner we want to know
-      if( banner == "dnsmasq" || egrep( pattern:"^dnsmasq-(pi-hole-)?v?([0-9.]+((rc|test)?[0-9-]+)?)$", string:banner ) ||
+      if( banner == "dnsmasq" || egrep( pattern:"^dnsmasq-(pi-hole-)?v?([0-9.]+((rc|test)?[0-9+-]+)?)$", string:banner ) ||
           egrep( pattern:"^PowerDNS Authoritative Server ([0-9.]+)$", string:banner ) ||
           egrep( pattern:"^PowerDNS Recursor ([0-9.]+)$", string:banner ) ||
           egrep( pattern:"^Knot DNS ([0-9.]+)$", string:banner ) ) {

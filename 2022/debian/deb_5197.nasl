@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.705197");
   script_cve_id("CVE-2021-22898", "CVE-2021-22924", "CVE-2021-22945", "CVE-2021-22946", "CVE-2021-22947", "CVE-2022-22576", "CVE-2022-27774", "CVE-2022-27775", "CVE-2022-27776", "CVE-2022-27781", "CVE-2022-27782", "CVE-2022-32205", "CVE-2022-32206", "CVE-2022-32207", "CVE-2022-32208");
   script_tag(name:"creation_date", value:"2022-08-03 01:00:21 +0000 (Wed, 03 Aug 2022)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-02T05:06:08+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:08 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-07-15 03:15:00 +0000 (Fri, 15 Jul 2022)");
+  script_tag(name:"severity_date", value:"2022-07-14 17:38:27 +0000 (Thu, 14 Jul 2022)");
 
   script_name("Debian: Security Advisory (DSA-5197-1)");
   script_category(ACT_GATHER_INFO);

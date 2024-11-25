@@ -9,13 +9,13 @@ CPE = "cpe:/a:symantec:web_gateway";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805229");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_cve_id("CVE-2014-7285");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-12-23 15:04:28 +0530 (Tue, 23 Dec 2014)");
-  script_name("Symantec Web Gateway Unspecified Remote Command Execution Vulnerability - Dec14");
+  script_name("Symantec Web Gateway Unspecified Remote Command Execution Vulnerability (Dec 2014)");
 
   script_tag(name:"summary", value:"Symantec Web Gateway is prone to a remote command execution (RCE) vulnerability.");
 

@@ -4,18 +4,21 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:pidgin:pidgin';
+CPE = "cpe:/a:pidgin:pidgin";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800422");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-27T05:06:31+0000");
+  script_tag(name:"last_modification", value:"2024-02-27 05:06:31 +0000 (Tue, 27 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-01-16 12:13:24 +0100 (Sat, 16 Jan 2010)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-01-26 17:47:00 +0000 (Fri, 26 Jan 2024)");
   script_cve_id("CVE-2010-0013");
-  script_name("Pidgin MSN Custom Smileys File Disclosure Vulnerability (Linux)");
+  script_name("Pidgin < 2.6.5 MSN Custom Smileys File Disclosure Vulnerability - Linux");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("General");
@@ -37,7 +40,9 @@ if(description)
 
   script_tag(name:"summary", value:"Pidgin is prone to a file disclosure vulnerability.");
 
-  script_tag(name:"solution", value:"Apply the patch or upgrade to Pidgin version 2.6.5.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+
+  script_tag(name:"solution", value:"Apply the patch or update to version 2.6.5 or later.");
 
   script_tag(name:"qod_type", value:"executable_version_unreliable");
   script_tag(name:"solution_type", value:"VendorFix");
@@ -48,9 +53,10 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!ver = get_app_version(cpe:CPE)) exit(0);
+if(!ver = get_app_version(cpe:CPE))
+  exit(0);
 
-if(version_is_less(version:ver, test_version:"2.6.5")){
+if(version_is_less(version:ver, test_version:"2.6.5")) {
   report = report_fixed_ver(installed_version:ver, fixed_version:"2.6.5");
   security_message(data:report);
   exit(0);

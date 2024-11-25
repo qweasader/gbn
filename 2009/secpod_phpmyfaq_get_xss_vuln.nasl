@@ -1,30 +1,16 @@
-# Copyright (C) 2009 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:phpmyfaq:phpmyfaq';
+CPE = "cpe:/a:phpmyfaq:phpmyfaq";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900982");
-  script_version("2022-05-09T13:48:18+0000");
-  script_tag(name:"last_modification", value:"2022-05-09 13:48:18 +0000 (Mon, 09 May 2022)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2009-11-26 06:39:46 +0100 (Thu, 26 Nov 2009)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -35,11 +21,10 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"remote_banner");
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("phpmyfaq_detect.nasl");
   script_mandatory_keys("phpmyfaq/installed");
-  script_require_ports("Services/www", 80);
 
   script_tag(name:"impact", value:"Successful exploitation will allow remote attackers to execute arbitrary
   HTML and script code and cause cross-site scripting attacks.");

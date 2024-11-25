@@ -9,8 +9,8 @@ CPE = "cpe:/a:webmediaexplorer:webmedia_explorer";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100891");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2010-11-03 12:47:25 +0100 (Wed, 03 Nov 2010)");
   script_tag(name:"cvss_base", value:"2.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:N/I:P/A:N");
@@ -19,11 +19,9 @@ if(description)
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_dependencies("webmedia_explorer_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("WebmediaExplorer/detected");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/44598");
-  script_xref(name:"URL", value:"http://www.webmediaexplorer.com/");
 
   script_tag(name:"summary", value:"Webmedia Explorer is prone to an HTML-injection vulnerability because
   it fails to properly sanitize user-supplied input before using it in dynamically generated content.");
@@ -49,8 +47,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_equal( version:vers, test_version:"6.13.1" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"Unknown" );

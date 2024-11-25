@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802892");
-  script_version("2023-10-17T05:05:34+0000");
+  script_version("2024-02-08T14:36:53+0000");
   script_cve_id("CVE-2012-1950", "CVE-2012-1965", "CVE-2012-1966");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-07-23 18:31:44 +0530 (Mon, 23 Jul 2012)");
-  script_name("Mozilla Firefox Multiple Vulnerabilities - July12 (Mac OS X)");
+  script_name("Mozilla Firefox Multiple Vulnerabilities (Jul 2012) - Mac OS X");
   script_xref(name:"URL", value:"http://secunia.com/advisories/49965");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/54577");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/54579");

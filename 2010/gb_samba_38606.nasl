@@ -9,8 +9,8 @@ CPE = "cpe:/a:samba:samba";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100522");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-09-13T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2024-09-13 05:05:46 +0000 (Fri, 13 Sep 2024)");
   script_tag(name:"creation_date", value:"2010-03-09 22:32:06 +0100 (Tue, 09 Mar 2010)");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:C/I:C/A:C");
@@ -46,17 +46,21 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( isnull( port = get_app_port( cpe:CPE ) ) ) exit( 0 );
-if( ! infos = get_app_version_and_location( cpe:CPE, port:port, exit_no_version:TRUE ) ) exit( 0 );
-vers = infos['version'];
-loc = infos['location'];
+if( isnull( port = get_app_port( cpe:CPE ) ) )
+  exit( 0 );
+
+if( ! infos = get_app_version_and_location( cpe:CPE, port:port, exit_no_version:TRUE ) )
+  exit( 0 );
+
+vers = infos["version"];
+loc = infos["location"];
 
 if( version_is_equal( version:vers, test_version:"3.3.11" ) ||
     version_is_equal( version:vers, test_version:"3.4.6" ) ||
     version_is_equal( version:vers, test_version:"3.5.0" ) ||
     version_in_range( version:vers, test_version:"3.4", test_version2:"3.4.5" ) ||
     version_in_range( version:vers, test_version:"3.3", test_version2:"3.3.10" ) ) {
-  report = report_fixed_ver( installed_version:vers, fixed_version:"See references.", install_path:loc );
+  report = report_fixed_ver( installed_version:vers, fixed_version:"See references", install_path:loc );
   security_message( port:port, data:report );
   exit( 0 );
 }

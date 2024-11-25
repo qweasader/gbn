@@ -1,55 +1,40 @@
-# Copyright (C) 2010 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2010 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902045");
-  script_version("2022-02-18T13:05:59+0000");
-  script_tag(name:"last_modification", value:"2022-02-18 13:05:59 +0000 (Fri, 18 Feb 2022)");
+  script_version("2024-07-25T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-07-25 05:05:41 +0000 (Thu, 25 Jul 2024)");
   script_tag(name:"creation_date", value:"2010-04-29 10:04:32 +0200 (Thu, 29 Apr 2010)");
   script_cve_id("CVE-2008-7255");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
-  script_name("aMSN session hijack vulnerability (Windows)");
+  script_name("aMSN < 0.97.1 Session Hijack Vulnerability - Windows");
   script_xref(name:"URL", value:"http://en.securitylab.ru/nvd/393176.php");
   script_xref(name:"URL", value:"http://www.amsn-project.net/forums/index.php?topic=5317.0");
   script_xref(name:"URL", value:"http://sourceforge.net/project/shownotes.php?release_id=610067");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("General");
   script_dependencies("secpod_amsn_detect_win.nasl");
   script_mandatory_keys("aMSN/Win/Ver");
   script_tag(name:"impact", value:"Successful exploitation will let attackers to hijack a session by visiting
   an unattended workstation.");
-  script_tag(name:"affected", value:"aMSN vesrion prior to 0.97.1");
-  script_tag(name:"insight", value:"The flaw is due to the error in 'login_screen.tcl' which saves a
-  password after logout which allows attackers to hijack a session.");
-  script_tag(name:"solution", value:"Upgrade to the aMSN version 0.97.1.");
-  script_tag(name:"summary", value:"aMSN is prone to session hijack vulnerability.");
+  script_tag(name:"affected", value:"aMSN prior to version 0.97.1");
+  script_tag(name:"insight", value:"The flaw is due to an error in 'login_screen.tcl' which saves a
+  password after logout. This allows attackers to hijack the session.");
+  script_tag(name:"solution", value:"Update to version 0.97.1 or later.");
+  script_tag(name:"summary", value:"aMSN is prone to a session hijacking vulnerability.");
   script_tag(name:"qod_type", value:"registry");
   script_tag(name:"solution_type", value:"VendorFix");
-  script_xref(name:"URL", value:"http://sourceforge.net/projects/amsn/files/");
+
   exit(0);
 }
-
 
 include("version_func.inc");
 

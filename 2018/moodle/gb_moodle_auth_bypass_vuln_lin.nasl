@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113173");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-02-09T05:06:25+0000");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2018-05-08 11:30:00 +0200 (Tue, 08 May 2018)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
@@ -22,7 +22,7 @@ if( description )
 
   script_cve_id("CVE-2018-1082");
 
-  script_name("Moodle 3.x Authentication Bypass Vulnerability - Mar'18 (Linux)");
+  script_name("Moodle 3.x Authentication Bypass Vulnerability (Mar 2018) - Linux");
 
   script_category(ACT_GATHER_INFO);
 

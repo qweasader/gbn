@@ -1,38 +1,24 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.877841");
-  script_version("2021-07-14T02:00:49+0000");
+  script_version("2024-10-10T07:25:31+0000");
   script_cve_id("CVE-2020-9365", "CVE-2020-9274");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2021-07-14 02:00:49 +0000 (Wed, 14 Jul 2021)");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-11-16 19:32:00 +0000 (Mon, 16 Nov 2020)");
   script_tag(name:"creation_date", value:"2020-05-16 03:19:36 +0000 (Sat, 16 May 2020)");
   script_name("Fedora: Security Advisory for pure-ftpd (FEDORA-2020-84fb0920fd)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Fedora Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/fedora", "ssh/login/rpms", re:"ssh/login/release=FC31");
@@ -48,7 +34,7 @@ if(description)
   script_tag(name:"insight", value:"Pure-FTPd is a fast, production-quality, standard-comformant FTP server,
 based upon Troll-FTPd. Unlike other popular FTP servers, it has no known
 security flaw, it is really trivial to set up and it is especially designed
-for modern Linux and FreeBSD kernels (setfsuid, sendfile, capabilities) .
+for modern Linux and FreeBSD kernels (setfsuid, sendfile, capabilities).
 Features include PAM support, IPv6, chroot()ed home directories, virtual
 domains, built-in LS, anti-warez system, bandwidth throttling, FXP, bounded
 ports for passive downloads, UL/DL ratios, native LDAP and SQL support,

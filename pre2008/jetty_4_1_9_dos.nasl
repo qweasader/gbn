@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.17348");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-06-11T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-06-11 05:05:40 +0000 (Tue, 11 Jun 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_cve_id("CVE-2004-2381");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/9917");
@@ -19,7 +19,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2005 Westpoint Limited");
   script_family("Denial of Service");
-  script_dependencies("gb_jetty_detect.nasl");
+  script_dependencies("gb_jetty_http_detect.nasl");
   script_mandatory_keys("jetty/detected");
 
   script_tag(name:"solution", value:"Update to the latest available version.");

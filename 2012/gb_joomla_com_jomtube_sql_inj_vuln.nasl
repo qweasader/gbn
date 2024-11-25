@@ -9,13 +9,13 @@ CPE = "cpe:/a:joomla:joomla";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802744");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-04-12 15:32:57 +0530 (Thu, 12 Apr 2012)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
-  script_name("Joomla Jomtube Component 'id' Parameter SQL Injection Vulnerability");
+  script_name("Joomla Jomtube Component 'id' Parameter SQLi Vulnerability");
 
   script_xref(name:"URL", value:"http://www.1337day.com/exploits/18033");
   script_xref(name:"URL", value:"http://www.allinfosec.com/2012/04/10/webapps-0day-joomla-component-com_jomtube-sql-injection-vulnerability/");

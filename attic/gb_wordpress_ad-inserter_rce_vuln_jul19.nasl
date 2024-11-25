@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112607");
-  script_version("2023-03-31T10:19:34+0000");
-  script_tag(name:"last_modification", value:"2023-03-31 10:19:34 +0000 (Fri, 31 Mar 2023)");
+  script_version("2024-04-04T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2024-04-04 05:05:25 +0000 (Thu, 04 Apr 2024)");
   script_tag(name:"creation_date", value:"2019-07-16 19:00:00 +0000 (Tue, 16 Jul 2019)");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");

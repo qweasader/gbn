@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802737");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2008-7297");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-04-09 16:56:54 +0530 (Mon, 09 Apr 2012)");
-  script_name("Opera 'HTTPS-Session' Multiple Vulnerabilities (Linux)");
+  script_name("Opera 'HTTPS-Session' Multiple Vulnerabilities - Linux");
   script_xref(name:"URL", value:"http://scarybeastsecurity.blogspot.com/2008/11/cookie-forcing.html");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/49134");
   script_xref(name:"URL", value:"http://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy_for_cookies");

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2024.0106.1");
   script_cve_id("CVE-2023-5868", "CVE-2023-5869", "CVE-2023-5870");
   script_tag(name:"creation_date", value:"2024-01-16 10:08:43 +0000 (Tue, 16 Jan 2024)");
-  script_version("2024-01-17T05:05:30+0000");
-  script_tag(name:"last_modification", value:"2024-01-17 05:05:30 +0000 (Wed, 17 Jan 2024)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-12-13 22:15:00 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"severity_date", value:"2023-12-10 18:15:07 +0000 (Sun, 10 Dec 2023)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2024:0106-1)");
   script_category(ACT_GATHER_INFO);
@@ -27,9 +27,9 @@ if(description)
   script_xref(name:"Advisory-ID", value:"SUSE-SU-2024:0106-1");
   script_xref(name:"URL", value:"https://www.suse.com/support/update/announcement/2024/suse-su-20240106-1/");
   script_xref(name:"URL", value:"https://www.postgresql.org/about/news/2715");
-  script_xref(name:"URL", value:"https://www.postgresql.org/docs/16/release-16.html");
-  script_xref(name:"URL", value:"https://www.postgresql.org/docs/16/release-16-1.html");
   script_xref(name:"URL", value:"https://www.postgresql.org/docs/15/release-15-5.html");
+  script_xref(name:"URL", value:"https://www.postgresql.org/docs/16/release-16-1.html");
+  script_xref(name:"URL", value:"https://www.postgresql.org/docs/16/release-16.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'postgresql, postgresql15, postgresql16' package(s) announced via the SUSE-SU-2024:0106-1 advisory.");
 

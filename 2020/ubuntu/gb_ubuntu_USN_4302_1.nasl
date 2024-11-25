@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.844364");
-  script_cve_id("CVE-2019-14615", "CVE-2019-15217", "CVE-2019-19046", "CVE-2019-19051", "CVE-2019-19056", "CVE-2019-19058", "CVE-2019-19066", "CVE-2019-19068", "CVE-2020-2732", "CVE-2020-8832");
+  script_cve_id("CVE-2019-15217", "CVE-2019-19046", "CVE-2019-19051", "CVE-2019-19056", "CVE-2019-19058", "CVE-2019-19066", "CVE-2019-19068", "CVE-2020-2732", "CVE-2020-8832");
   script_tag(name:"creation_date", value:"2020-03-17 04:00:29 +0000 (Tue, 17 Mar 2020)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-02-28T14:37:42+0000");
+  script_tag(name:"last_modification", value:"2024-02-28 14:37:42 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
+  script_tag(name:"severity_date", value:"2020-04-10 20:09:26 +0000 (Fri, 10 Apr 2020)");
 
   script_name("Ubuntu: Security Advisory (USN-4302-1)");
   script_category(ACT_GATHER_INFO);

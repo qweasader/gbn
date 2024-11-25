@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802513");
-  script_version("2023-10-17T05:05:34+0000");
+  script_version("2024-02-15T05:05:39+0000");
   script_cve_id("CVE-2011-3655");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-11-14 12:22:15 +0530 (Mon, 14 Nov 2011)");
-  script_name("Mozilla Products 'NoWaiverWrapper' Privilege Escalation Vulnerability (Mac OS X)");
+  script_name("Mozilla Products 'NoWaiverWrapper' Privilege Escalation Vulnerability - Mac OS X");
 
   script_xref(name:"URL", value:"http://www.mozilla.org/security/announce/2011/mfsa2011-52.html");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/50594");

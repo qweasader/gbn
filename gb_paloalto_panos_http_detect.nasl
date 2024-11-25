@@ -1,28 +1,14 @@
-# Copyright (C) 2015 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2015 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105261");
-  script_version("2022-10-10T10:12:14+0000");
-  script_tag(name:"last_modification", value:"2022-10-10 10:12:14 +0000 (Mon, 10 Oct 2022)");
+  script_version("2024-02-07T05:05:18+0000");
+  script_tag(name:"last_modification", value:"2024-02-07 05:05:18 +0000 (Wed, 07 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-04-22 13:08:50 +0200 (Wed, 22 Apr 2015)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -33,7 +19,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Product detection");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 443);
@@ -57,8 +43,20 @@ url = "/php/login.php";
 res = http_get_cache( port:port, item:url );
 
 # Newer Devices / Firmware (e.g. PA-220) don't have a server banner at all
-if( "Server: PanWeb Server/" >< banner ||
+if( egrep( string:banner, pattern:"^[Ss]erver\s*:\s*PanWeb Server/", icase:FALSE ) ||
+    # nb: 10.2.x and later, e.g.:
+    # <TITLE>Login</TITLE>
+    # window.Pan = window.Pan || {}; window.Pan.st = { st: {}}; window.Pan.st.st.st60610 = "<redacted>";    </script>
+    # <script src='js/lib/panos-panos-runtime.js?__version=1702717248'></script>
+    # <script src='js/lib/panos-panos-browser.js?__version=1702717247'></script>
+    # <script src='js/lib/panos-panos-direct.js?__version=1702717247'></script>
+    # <script src='js/lib/panos-panos-platform.js?__version=1702717248'></script>
+    # <script src='js/lib/panos-panos-i18n.js?__version=1702717248'></script>
+    # <img src="/login/images/panw_new_logo_302_53.png" alt="">
+    ( res =~ "<TITLE>Login</TITLE>" && ( "window.Pan = window.Pan" >< res || "src='js/lib/panos-panos-" >< res || '"/login/images/panw_new_logo_' >< res ) ) ||
+    # nb: This has been seen on versions up to 10.1.x
     ( "Pan.base.cookie.set" >< res && "BEGIN PAN_FORM_CONTENT" >< res ) ||
+    # nb: Unclear version (9.x or even earlier?)
     ( "'js/Pan.js'></script>" >< res && ( "/login/images/logo-pan-" >< res || "/images/login-page.gif" >< res ) ) ) {
 
   # Currently no FW Version / Product name exposed unauthenticated

@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902819");
-  script_version("2023-12-20T05:05:58+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-03-21 16:16:16 +0530 (Wed, 21 Mar 2012)");
-  script_name("Telnet-FTP Server 'RETR' Command Remote Denial of Service Vulnerability");
+  script_name("Telnet-FTP Server 'RETR' Command Remote DoS Vulnerability");
   script_category(ACT_DENIAL);
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("FTP");
@@ -44,7 +44,6 @@ if(description)
 }
 
 include("ftp_func.inc");
-include("misc_func.inc");
 include("port_service_func.inc");
 
 ftpPort = ftp_get_port(default:21);

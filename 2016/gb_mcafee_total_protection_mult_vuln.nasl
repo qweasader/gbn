@@ -9,16 +9,16 @@ CPE = "cpe:/a:mcafee:total_protection";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807237");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2015-8772", "CVE-2015-8773");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-03-04 18:03:00 +0000 (Fri, 04 Mar 2016)");
   script_tag(name:"creation_date", value:"2016-02-08 17:22:31 +0530 (Mon, 08 Feb 2016)");
-  script_name("McAfee Total Protection Multiple Vulnerabilities (Windows)");
+  script_name("McAfee Total Protection Multiple Vulnerabilities - Windows");
 
   script_tag(name:"summary", value:"McAfee Total Protection is prone to multiple vulnerabilities.");
 

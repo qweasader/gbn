@@ -9,16 +9,16 @@ CPE = "cpe:/a:apache:tomcat";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807404");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-02-08T05:05:59+0000");
   script_cve_id("CVE-2015-5174");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-04-15 16:30:00 +0000 (Mon, 15 Apr 2019)");
   script_tag(name:"creation_date", value:"2016-02-25 11:25:47 +0530 (Thu, 25 Feb 2016)");
-  script_name("Apache Tomcat Limited Directory Traversal Vulnerability - Feb16 (Windows)");
+  script_name("Apache Tomcat Limited Directory Traversal Vulnerability (Feb 2016) - Windows");
 
   script_tag(name:"summary", value:"Apache Tomcat is prone to a limited directory traversal vulnerability.");
 

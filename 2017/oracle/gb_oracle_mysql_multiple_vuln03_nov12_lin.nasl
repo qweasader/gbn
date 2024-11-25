@@ -9,13 +9,13 @@ CPE = "cpe:/a:mysql:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812192");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2012-3173", "CVE-2012-3167", "CVE-2012-3166");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-11-23 14:32:30 +0530 (Thu, 23 Nov 2017)");
-  script_name("Oracle MySQL Server Multiple Vulnerabilities-03 Nov12 (Linux)");
+  script_name("Oracle MySQL Server Multiple Vulnerabilities - 03 - (Nov 2012) - Linux");
   script_xref(name:"URL", value:"http://secunia.com/advisories/51008/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/56041");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/56018");
@@ -29,7 +29,6 @@ if(description)
   script_family("Databases");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
   script_dependencies("mysql_version.nasl", "os_detection.nasl");
-  script_require_ports("Services/mysql", 3306);
   script_mandatory_keys("MySQL/installed", "Host/runs_unixoide");
 
   script_tag(name:"impact", value:"Successful exploitation will allow an
@@ -51,7 +50,6 @@ if(description)
   exit(0);
 }
 
-include("misc_func.inc");
 include("version_func.inc");
 include("host_details.inc");
 
@@ -61,8 +59,8 @@ if(!port = get_app_port(cpe:CPE))
 if(!infos = get_app_version_and_location(cpe:CPE, port:port, exit_no_version:TRUE))
   exit(0);
 
-vers = infos['version'];
-path = infos['location'];
+vers = infos["version"];
+path = infos["location"];
 
 vers = eregmatch(pattern:"([0-9.a-z]+)", string:vers);
 

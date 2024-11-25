@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.1471");
   script_cve_id("CVE-2013-2889", "CVE-2013-4345", "CVE-2013-7421", "CVE-2014-0155", "CVE-2014-3122", "CVE-2014-4014", "CVE-2015-3332", "CVE-2015-4176", "CVE-2016-2184", "CVE-2016-2545", "CVE-2016-2546", "CVE-2017-14340", "CVE-2017-16531", "CVE-2017-18218", "CVE-2017-18360", "CVE-2017-5669", "CVE-2018-10675", "CVE-2018-11232", "CVE-2018-18710", "CVE-2018-7480");
   script_tag(name:"creation_date", value:"2020-01-23 11:48:49 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-02-24 18:33:00 +0000 (Fri, 24 Feb 2023)");
+  script_tag(name:"severity_date", value:"2018-03-17 10:31:32 +0000 (Sat, 17 Mar 2018)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2019-1471)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.1\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-1471");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-1471");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-1471");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2019-1471 advisory.");
 

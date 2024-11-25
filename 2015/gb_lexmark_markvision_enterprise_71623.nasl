@@ -12,9 +12,9 @@ if(description)
   script_cve_id("CVE-2014-8741");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-06-28T15:38:46+0000");
 
-  script_name("Lexmark MarkVision Enterprise Remote Code Execution Vulnerability");
+  script_name("Lexmark MarkVision Enterprise RCE Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/71623");
   script_xref(name:"URL", value:"http://support.lexmark.com/index?page=content&id=TE667&locale=EN&userlocale=EN_US");
@@ -26,15 +26,15 @@ if(description)
 
   script_tag(name:"solution", value:"The vulnerability has been fixed in MarkVision Enterprise v2.1 and all future releases.");
 
-  script_tag(name:"summary", value:"Lexmark MarkVision Enterprise is prone to a remote code-execution
-  vulnerability because it fails to sufficiently sanitize user-supplied input.");
+  script_tag(name:"summary", value:"Lexmark MarkVision Enterprise is prone to a remote code
+  execution (RCE) vulnerability because it fails to sufficiently sanitize user-supplied input.");
 
   script_tag(name:"affected", value:"Versions prior to Lexmark MarkVision Enterprise 2.1 are vulnerable.");
   script_tag(name:"solution_type", value:"VendorFix");
 
   script_tag(name:"qod_type", value:"remote_app");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-01-29 20:25:00 +0000 (Wed, 29 Jan 2020)");

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.109113");
-  script_version("2023-08-25T05:06:04+0000");
-  script_tag(name:"last_modification", value:"2023-08-25 05:06:04 +0000 (Fri, 25 Aug 2023)");
+  script_version("2024-03-19T15:34:11+0000");
+  script_tag(name:"last_modification", value:"2024-03-19 15:34:11 +0000 (Tue, 19 Mar 2024)");
   script_tag(name:"creation_date", value:"2018-04-30 09:56:50 +0200 (Mon, 30 Apr 2018)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:S/C:N/I:N/A:N");

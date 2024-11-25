@@ -9,8 +9,8 @@ CPE = "cpe:/a:eclipse:jetty";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.151573");
-  script_version("2024-01-19T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2024-01-19 05:06:18 +0000 (Fri, 19 Jan 2024)");
+  script_version("2024-06-11T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-06-11 05:05:40 +0000 (Tue, 11 Jun 2024)");
   script_tag(name:"creation_date", value:"2024-01-18 04:58:41 +0000 (Thu, 18 Jan 2024)");
   script_tag(name:"cvss_base", value:"3.4");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:M/C:P/I:P/A:P");
@@ -25,7 +25,7 @@ if(description)
 
   script_copyright("Copyright (C) 2024 Greenbone AG");
   script_family("Web Servers");
-  script_dependencies("gb_jetty_detect.nasl", "os_detection.nasl");
+  script_dependencies("gb_jetty_http_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("jetty/detected", "Host/runs_unixoide");
 
   script_tag(name:"summary", value:"Eclipse Jetty is prone to a XML external entity (XXE)

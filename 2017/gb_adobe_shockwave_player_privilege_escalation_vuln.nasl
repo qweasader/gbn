@@ -9,11 +9,11 @@ CPE = "cpe:/a:adobe:shockwave_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810816");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2017-2983");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-07-17 13:18:00 +0000 (Mon, 17 Jul 2017)");
@@ -42,7 +42,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/96863");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("secpod_adobe_shockwave_player_detect.nasl");
   script_mandatory_keys("Adobe/ShockwavePlayer/Ver");
   exit(0);

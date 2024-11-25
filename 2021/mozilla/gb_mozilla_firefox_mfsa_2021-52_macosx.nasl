@@ -1,22 +1,8 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mozilla:firefox";
 
@@ -25,8 +11,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.818881");
   script_cve_id("CVE-2021-4128", "CVE-2021-4129", "CVE-2021-43536", "CVE-2021-43537", "CVE-2021-43538", "CVE-2021-43539", "CVE-2021-43540", "CVE-2021-43541", "CVE-2021-43542", "CVE-2021-43543", "CVE-2021-43545", "CVE-2021-43546");
   script_tag(name:"creation_date", value:"2021-12-12 23:57:32 +0530 (Sun, 12 Dec 2021)");
-  script_version("2023-10-20T16:09:12+0000");
-  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_version("2024-02-09T14:47:30+0000");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
@@ -35,7 +21,7 @@ if(description)
 
   script_name("Mozilla Firefox Security Advisory (MFSA2021-52) - Mac OS X");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("General");
   script_dependencies("gb_mozilla_prdts_detect_macosx.nasl");
   script_mandatory_keys("Mozilla/Firefox/MacOSX/Version");
@@ -71,9 +57,9 @@ By misusing a race in our notification code, an attacker could have forcefully h
 CVE-2021-43539: GC rooting failure when calling wasm instance methods
 Failure to correctly record the location of live pointers across wasm instance calls resulted in a GC occurring within the call not tracing those live pointers. This could have led to a use-after-free causing a potentially exploitable crash.
 
-CVE-2021-4128: Use-after-free in fullscreen objects on MacOS
+CVE-2021-4128: Use-after-free in fullscreen objects on macOS
 When transitioning in and out of fullscreen mode, a graphics object was not correctly protected. This resulted in memory corruption and a potentially exploitable crash.
-This bug only affects Firefox on MacOS. Other operating systems are unaffected.
+This bug only affects Firefox on Mac OS X. Other operating systems are unaffected.
 
 CVE-2021-43540: WebExtensions could have installed persistent ServiceWorkers
 WebExtensions with the correct permissions were able to create and install ServiceWorkers for third-party websites that would not have been uninstalled with the extension.

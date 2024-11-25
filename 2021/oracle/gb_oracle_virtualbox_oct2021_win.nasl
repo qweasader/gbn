@@ -1,39 +1,25 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:oracle:vm_virtualbox";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.818826");
-  script_version("2023-10-20T16:09:12+0000");
+  script_version("2024-02-23T14:36:45+0000");
   script_cve_id("CVE-2021-35538", "CVE-2021-35545", "CVE-2021-35540", "CVE-2021-35542",
                 "CVE-2021-2475");
   script_tag(name:"cvss_base", value:"5.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-23 14:36:45 +0000 (Fri, 23 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-10-26 13:35:00 +0000 (Tue, 26 Oct 2021)");
   script_tag(name:"creation_date", value:"2021-10-25 13:13:45 +0530 (Mon, 25 Oct 2021)");
-  script_name("Oracle VirtualBox Security Update(Oct2021) - Windows");
+  script_name("Oracle VirtualBox Security Update (cpuoct2021) - Windows");
 
   script_tag(name:"summary", value:"Oracle VM VirtualBox is prone to multiple vulnerabilities.");
 
@@ -56,12 +42,13 @@ if(description)
   script_tag(name:"qod_type", value:"registry");
   script_xref(name:"URL", value:"https://www.oracle.com/security-alerts/cpuoct2021.html#AppendixOVIR");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("General");
   script_dependencies("secpod_sun_virtualbox_detect_win.nasl");
   script_mandatory_keys("Oracle/VirtualBox/Win/Ver");
   exit(0);
 }
+
 include("host_details.inc");
 include("version_func.inc");
 
@@ -71,8 +58,7 @@ if(!infos = get_app_version_and_location(cpe:CPE, exit_no_version:TRUE))
 version = infos["version"];
 path = infos["location"];
 
-if(version =~ "^6\.1\." && version_is_less(version:version, test_version:"6.1.28"))
-{
+if(version =~ "^6\.1\." && version_is_less(version:version, test_version:"6.1.28")) {
   report = report_fixed_ver(installed_version:version, fixed_version:"6.1.28", install_path:path);
   security_message(data:report, port:0);
   exit(0);

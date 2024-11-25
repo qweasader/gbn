@@ -1,30 +1,16 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:epross:avcon6_system_management_platform";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.142919");
-  script_version("2020-09-28T14:05:41+0000");
-  script_tag(name:"last_modification", value:"2020-09-28 14:05:41 +0000 (Mon, 28 Sep 2020)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2019-09-23 07:28:52 +0000 (Mon, 23 Sep 2019)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -37,13 +23,13 @@ if (description)
 
   script_category(ACT_ATTACK);
 
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_avcon_systems_management_platform_detect.nasl");
   script_mandatory_keys("avcon_smp/detected");
 
-  script_tag(name:"summary", value:"AVCON6 Systems Management Platform is prone to a remote code execution
-  vulnerability.");
+  script_tag(name:"summary", value:"AVCON6 Systems Management Platform is prone to a remote code
+  execution (RCE) vulnerability.");
 
   script_tag(name:"impact", value:"An unauthenticated attacker may execute arbitrary code on the system.");
 

@@ -7,19 +7,21 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105221");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-11-15T05:05:36+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-15 05:05:36 +0000 (Fri, 15 Nov 2024)");
   script_tag(name:"creation_date", value:"2015-02-18 10:02:43 +0100 (Wed, 18 Feb 2015)");
-  script_name("Forti Authenticator Detection");
+  script_name("Fortinet FortiAuthenticator Detection (SSH Login)");
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("FortiOS/Authenticator/system");
 
-  script_tag(name:"summary", value:"This script performs SSH based detection of FortiAuthenticator.");
+  script_xref(name:"URL", value:"https://www.fortinet.com/products/identity-access-management/fortiauthenticator");
+
+  script_tag(name:"summary", value:"SSH login-based detection of Fortinet FortiAuthenticator.");
 
   script_tag(name:"qod_type", value:"package");
 
@@ -37,52 +39,48 @@ vers = "unknown";
 
 model = eregmatch( string:system, pattern:"Version\s*:\s*(FAC[^ ]*)" );
 
-if( ! isnull( model[1] ) )
-{
+if( ! isnull( model[1] ) ) {
   mod = model[1];
   mod = chomp( mod );
   set_kb_item( name:"fortiauthenticator/model", value:mod );
 }
 
 version = eregmatch( pattern:"Version\s*:\s*FAC[^ ]* v([^-]+)", string:system );
-if( ! isnull( version[1] ) )
-{
+if( ! isnull( version[1] ) ) {
   ver = version[1];
-  for( i = 0; i < strlen( ver ); i++ )
-  {
+  for( i = 0; i < strlen( ver ); i++ ) {
     if( ver[i] == "." )
       continue;
 
     v += ver[ i ];
 
     if( i < ( strlen( ver ) - 1 ) )
-      v += '.';
+      v += ".";
   }
   set_kb_item( name:"fortiauthenticator/version", value:v );
-  cpe += ':' + v;
+  cpe += ":" + v;
   vers = v;
 }
 
 b = eregmatch( pattern:"-build([^,]+),", string:system );
-if( ! isnull( b[1] ) )
-{
+if( ! isnull( b[1] ) ) {
   build = b[1];
-  build = ereg_replace( string:build, pattern:'^0', replace:"" );
+  build = ereg_replace( string:build, pattern:"^0", replace:"" );
   set_kb_item( name:"fortiauthenticator/build", value:build );
 }
 
 register_product( cpe:cpe, location:"ssh", service:"ssh" );
 
-report = 'Detected FortiAuthenticator (ssh)\n\n' +
-         'Version: ' + vers + '\n';
+report = 'Detected Fortinet FortiAuthenticator (ssh)\n\n' +
+         "Version: " + vers + '\n';
 
 if( mod )
-  report += 'Model:   ' + mod + '\n';
+  report += "Model:   " + mod + '\n';
 
 if( ! isnull( build ) )
-  report += 'Build:   ' + build + '\n';
+  report += "Build:   " + build + '\n';
 
-report += 'CPE:     ' + cpe;
+report += "CPE:     " + cpe;
 
 log_message( port:0, data:report );
 

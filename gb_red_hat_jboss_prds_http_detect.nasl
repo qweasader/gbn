@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100387");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-03-05T05:05:54+0000");
+  script_tag(name:"last_modification", value:"2024-03-05 05:05:54 +0000 (Tue, 05 Mar 2024)");
   script_tag(name:"creation_date", value:"2009-12-10 14:34:38 +0100 (Thu, 10 Dec 2009)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -183,7 +183,7 @@ if( found > 1 ) {
   set_kb_item( name:"redhat/jboss/prds/detected", value:TRUE );
   set_kb_item( name:"redhat/jboss/prds/http/detected", value:TRUE );
 
-  cpe = build_cpe( value:version, exp:"(^[0-9.]+)", base:"cpe:/a:redhat:jboss_application_server:" );
+  cpe = build_cpe( value:version, exp:"^([0-9.]+)", base:"cpe:/a:redhat:jboss_application_server:" );
   if( ! cpe ) {
     cpe = "cpe:/a:redhat:jboss_application_server";
   } else {

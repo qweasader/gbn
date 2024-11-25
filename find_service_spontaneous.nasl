@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108747");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-08-30T15:39:02+0000");
+  script_tag(name:"last_modification", value:"2024-08-30 15:39:02 +0000 (Fri, 30 Aug 2024)");
   script_tag(name:"creation_date", value:"2020-04-14 11:32:00 +0000 (Tue, 14 Apr 2020)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -320,6 +320,13 @@ if( "(Thread" >< banner && ( "Notify Wlan Link " >< banner ||
     ( "WFSAPI" >< banner && "File not found" >< banner ) ) ) {
   service_register( port:port, proto:"wifiradio-setup", message:"A WiFi radio setup service seems to be running on this port." );
   log_message( port:port, data:"A WiFi radio setup service seems to be running on this port." );
+  exit( 0 );
+}
+
+# HSQLDB JDBC Network Listener.
+if( "HSQLDB JDBC Network Listener" >< banner ) {
+  service_register( port:port, proto:"hsqldb", message:"An HSQLDB service seems to be running on this port.");
+  log_message( port:port, data:"An HSQLDB service seems to be running on this port.");
   exit( 0 );
 }
 

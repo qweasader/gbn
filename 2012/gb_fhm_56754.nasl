@@ -9,10 +9,10 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.103618");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:P/A:P");
-  script_version("2023-12-13T05:05:23+0000");
-  script_name("Free Hosting Manager 'id' Parameter SQL Injection Vulnerability");
+  script_version("2024-06-27T05:05:29+0000");
+  script_name("Free Hosting Manager 'id' Parameter SQLi Vulnerability");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/56754");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-12-04 11:39:15 +0100 (Tue, 04 Dec 2012)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");
@@ -24,9 +24,9 @@ if(description)
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
-  script_tag(name:"summary", value:"Free Hosting Manager is prone to an SQL-injection vulnerability
-because it fails to sufficiently sanitize user-supplied data before
-using it in an SQL query.");
+  script_tag(name:"summary", value:"Free Hosting Manager is prone to an SQL injection (SQLi)
+  vulnerability because it fails to sufficiently sanitize user-supplied data before using it in an
+  SQL query.");
 
   script_tag(name:"impact", value:"An attacker can exploit this issue to compromise the application,
 access or modify data, or exploit latent vulnerabilities in the

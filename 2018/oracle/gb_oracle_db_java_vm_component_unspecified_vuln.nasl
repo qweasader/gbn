@@ -8,11 +8,11 @@ CPE = "cpe:/a:oracle:database_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812736");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-10-29T05:05:46+0000");
   script_cve_id("CVE-2018-2680");
   script_tag(name:"cvss_base", value:"5.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-10-29 05:05:46 +0000 (Tue, 29 Oct 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
@@ -44,28 +44,28 @@ if(description)
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Databases");
-  script_dependencies("oracle_tnslsnr_version.nasl");
-  script_mandatory_keys("OracleDatabaseServer/installed");
+  script_dependencies("gb_oracle_database_consolidation.nasl");
+  script_mandatory_keys("oracle/database/detected");
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!dbport = get_app_port(cpe:CPE)){
+if(isnull(port = get_app_port(cpe:CPE)))
   exit(0);
-}
 
-if(!infos = get_app_version_and_location(cpe:CPE, port:dbport, exit_no_version:TRUE)) exit(0);
-dbVer = infos['version'];
-path = infos['location'];
+if(!infos = get_app_version_and_location(cpe:CPE, port:port, exit_no_version:TRUE))
+  exit(0);
 
-if(dbVer == "11.2.0.4" ||
-   dbVer == "12.1.0.2" ||
-   dbVer == "12.2.0.1")
-{
-  report = report_fixed_ver(installed_version:dbVer, fixed_version:"Apply the appropriate patch", install_path:path);
-  security_message(data:report, port:dbport);
+ver = infos["version"];
+path = infos["location"];
+
+if(ver == "11.2.0.4" ||
+   ver == "12.1.0.2" ||
+   ver == "12.2.0.1") {
+  report = report_fixed_ver(installed_version:ver, fixed_version:"Apply the appropriate patch", install_path:path);
+  security_message(data:report, port:port);
   exit(0);
 }
 exit(0);

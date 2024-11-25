@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.96207");
-  script_version("2023-08-04T05:06:23+0000");
-  script_tag(name:"last_modification", value:"2023-08-04 05:06:23 +0000 (Fri, 04 Aug 2023)");
+  script_version("2024-06-21T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"creation_date", value:"2011-04-26 12:54:47 +0200 (Tue, 26 Apr 2011)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -313,9 +313,6 @@ if(!handle || !handlereg){
   if(x64) msxml5 = fetch_file_version(sysPath:ComFilesDirx86 + "\Microsoft Shared\OFFICE11", file_name:"msxml5.dll");
   else msxml5 = fetch_file_version(sysPath:ComFilesDir + "\Microsoft Shared\OFFICE11", file_name:"msxml5.dll");
   msxml6 = fetch_file_version(sysPath:OSSYSDIR + "\system32", file_name:"msxml6.dll");
-
-  smbsqlregentries = registry_enum_keys(key:"SOFTWARE\Microsoft\Microsoft SQL Server");
-  if (x64)smbsqlregentriesx =  registry_enum_keys(key:"SOFTWARE\Wow6432Node\Microsoft\Microsoft SQL Server");
 
   messenger = registry_get_sz(key:"SOFTWARE\Microsoft\Active Setup\Installed Components\{5945c046-1e7d-11d1-bc44-00c04fd912be}", item:"Version");
   if (messenger)messenger = ereg_replace(pattern:",", replace:".", string:messenger);
@@ -911,9 +908,6 @@ else if(handle && handlereg){
 
 #  wlmessenger = wmi_reg_get_sz(wmi_handle:handlereg, key:"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{A85FD55B-891B-4314-97A5-EA96C0BD80B5}", key_name:"DisplayVersion")
 
-  sqlregentries = wmi_reg_enum_key(wmi_handle:handlereg, key:"SOFTWARE\Microsoft\Microsoft SQL Server");
-  if (x64)sqlregentriesx = wmi_reg_enum_key(wmi_handle:handlereg, key:"SOFTWARE\Wow6432Node\Microsoft\Microsoft SQL Server");
-
   messenger = wmi_reg_get_sz(wmi_handle:handlereg, key:"SOFTWARE\Microsoft\Active Setup\Installed Components\{5945c046-1e7d-11d1-bc44-00c04fd912be}", key_name:"Version");
   if (messenger)messenger = ereg_replace(pattern:",", replace:".", string:messenger);
 
@@ -1056,8 +1050,6 @@ else if(handle && handlereg){
 
 # nb: Check if keylist exists and set missing wmi variable for future work
 if (!keylist) keylist = smbkeylist;
-if (!sqlregentries) sqlregentries = smbsqlregentries;
-if (!sqlregentriesx) sqlregentriesx = smbsqlregentriesx;
 
 #if (!keylist) exit(0);
 if (keylist)instprg = split(keylist, sep:"|", keep:0);
@@ -2510,131 +2502,6 @@ if (msxml3 || msxml4 || msxml5 || msxml6){
 
 if (worksVer){
   register_host_detail(name:"App", value:"cpe:/a:microsoft:works:" + worksVer, desc:SCRIPT_DESC);
-}
-
-
-if (sqlregentries || sqlregentriesx){
-  mssql = NULL;
-  cpe = "cpe:/a:microsoft:sql_server";
-  if(sqlregentries){
-    entry = NULL;
-    if (!smbsqlregentries)entry = split(sqlregentries, sep:"|", keep:FALSE);
-    if(!entry)entry = sqlregentries;
-    for(i=0; i<max_index(entry); i++)
-    {
-      val = NULL;
-      if(handlereg)val = wmi_reg_get_sz(wmi_handle:handlereg, key:"SOFTWARE\Microsoft\Microsoft SQL Server\" + entry[i] + "\MSSQLServer\CurrentVersion", key_name:"CurrentVersion");
-      else val = registry_get_sz(key:"SOFTWARE\Microsoft\Microsoft SQL Server\" + entry[i] + "\MSSQLServer\CurrentVersion", item:"CurrentVersion");
-
-      if( ! val || isnull( val ) ) continue;
-
-      if (version_in_range(version:val, test_version:"6.00.121", test_version2:"6.50.000"))register_host_detail(name:"App", value:cpe + ":6.0", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"7.00.623", test_version2:"7.00.677"))register_host_detail(name:"App", value:cpe + ":7.0", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"7.00.677", test_version2:"7.00.689"))register_host_detail(name:"App", value:cpe + ":7.0", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"6.50.201", test_version2:"7.00.000"))register_host_detail(name:"App", value:cpe + ":6.5", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"7.00.699", test_version2:"7.00.835"))register_host_detail(name:"App", value:cpe + ":7.0:sp1", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"7.00.842", test_version2:"7.00.961"))register_host_detail(name:"App", value:cpe + ":7.0:sp2", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"7.00.961", test_version2:"7.00.1063"))register_host_detail(name:"App", value:cpe + ":7.0:sp3", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"7.00.1063", test_version2:"8.00.0000"))register_host_detail(name:"App", value:cpe + ":7.0:sp4", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"8.00.194", test_version2:"8.00.382"))
-      {
-        register_host_detail(name:"App", value:cpe + ":2000", desc:SCRIPT_DESC);
-        register_host_detail(name:"App", value:cpe + ":2000:gold", desc:SCRIPT_DESC);
-      }
-      else if (version_in_range(version:val, test_version:"8.00.382", test_version2:"8.00.534"))register_host_detail(name:"App", value:cpe + ":2000:sp1", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"8.00.534", test_version2:"8.00.760"))register_host_detail(name:"App", value:cpe + ":2000:sp2", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"8.00.760", test_version2:"8.00.2039"))
-      {
-        register_host_detail(name:"App", value:cpe + ":2000:sp3", desc:SCRIPT_DESC);
-        register_host_detail(name:"App", value:cpe + ":2000:sp3a", desc:SCRIPT_DESC);
-      }
-      else if (version_in_range(version:val, test_version:"8.00.2039", test_version2:"9.00.000"))register_host_detail(name:"App", value:cpe + ":2000:sp4", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"9.00.1399", test_version2:"9.00.2047"))register_host_detail(name:"App", value:cpe + ":2005", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"9.00.2047", test_version2:"9.00.3042"))register_host_detail(name:"App", value:cpe + ":2005:sp1", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"9.00.3042", test_version2:"9.00.4035"))register_host_detail(name:"App", value:cpe + ":2005:sp2", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"9.00.4035", test_version2:"9.00.5000"))register_host_detail(name:"App", value:cpe + ":2005:sp3", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"9.00.5000", test_version2:"10.00.0"))register_host_detail(name:"App", value:cpe + ":2005:sp4", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"10.00.1600.22", test_version2:"10.00.2531.00"))register_host_detail(name:"App", value:cpe + ":2008", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"10.00.2531.00", test_version2:"10.00.4000.00"))register_host_detail(name:"App", value:cpe + ":2008:sp1", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"10.00.4000.00", test_version2:"10.00.5500.00"))register_host_detail(name:"App", value:cpe + ":2008:sp2", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"10.00.5500.00", test_version2:"10.50.1600.1"))register_host_detail(name:"App", value:cpe + ":2008:sp3", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"10.50.1600.1", test_version2:"10.50.2500.0"))register_host_detail(name:"App", value:cpe + ":2008:r2", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"10.50.2500.0", test_version2:"10.50.4000.0"))register_host_detail(name:"App", value:cpe + ":2008:r2:sp1", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"10.50.4000.0", test_version2:"11.0.0.0"))register_host_detail(name:"App", value:cpe + ":2008:r2:sp2", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"11.00.3000.00", test_version2:"11.00.2100.60"))register_host_detail(name:"App", value:cpe + ":2012", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"11.00.2100.60", test_version2:"12.0.0.0"))register_host_detail(name:"App", value:cpe + ":2012:sp1", desc:SCRIPT_DESC);
-      else
-      {
-        if (val && !mssql) mssql = "1";
-        else if (val && mssql == "2") mssql = "1";
-        else mssql = "2";
-        if(mssql == "1"){
-          register_host_detail(name:"App", value:"cpe:/a:microsoft:sql_server", desc:SCRIPT_DESC);
-          mssql = "3";
-        }
-      }
-    }
-  }
-  if(sqlregentriesx){
-    entry = NULL;
-    if (!smbsqlregentriesx)entry = split(sqlregentriesx, sep:"|", keep:FALSE);
-    if(!entry)entry = sqlregentriesx;
-    for(i=0; i<max_index(entry); i++)
-    {
-      val = NULL;
-      if(handlereg)val = wmi_reg_get_sz(wmi_handle:handlereg, key:"SOFTWARE\Microsoft\Microsoft SQL Server\" + entry[i] + "\MSSQLServer\CurrentVersion", key_name:"CurrentVersion");
-      else val = registry_get_sz(key:"SOFTWARE\Microsoft\Microsoft SQL Server\" + entry[i] + "\MSSQLServer\CurrentVersion", item:"CurrentVersion");
-
-      if( ! val || isnull( val ) ) continue;
-
-      if (version_in_range(version:val, test_version:"6.00.121", test_version2:"6.50.000"))register_host_detail(name:"App", value:cpe + ":6.0", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"6.50.201", test_version2:"7.00.000"))register_host_detail(name:"App", value:cpe + ":6.5", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"7.00.623", test_version2:"7.00.677"))register_host_detail(name:"App", value:cpe + ":7.0", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"7.00.677", test_version2:"7.00.689"))register_host_detail(name:"App", value:cpe + ":7.0", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"7.00.699", test_version2:"7.00.835"))register_host_detail(name:"App", value:cpe + ":7.0:sp1", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"7.00.842", test_version2:"7.00.961"))register_host_detail(name:"App", value:cpe + ":7.0:sp2", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"7.00.961", test_version2:"7.00.1063"))register_host_detail(name:"App", value:cpe + ":7.0:sp3", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"7.00.1063", test_version2:"8.00.0000"))register_host_detail(name:"App", value:cpe + ":7.0:sp4", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"8.00.194", test_version2:"8.00.382"))
-      {
-        register_host_detail(name:"App", value:cpe + ":2000", desc:SCRIPT_DESC);
-        register_host_detail(name:"App", value:cpe + ":2000:gold", desc:SCRIPT_DESC);
-      }
-      else if (version_in_range(version:val, test_version:"8.00.382", test_version2:"8.00.534"))register_host_detail(name:"App", value:cpe + ":2000:sp1", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"8.00.534", test_version2:"8.00.760"))register_host_detail(name:"App", value:cpe + ":2000:sp2", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"8.00.760", test_version2:"8.00.2039"))
-      {
-        register_host_detail(name:"App", value:cpe + ":2000:sp3", desc:SCRIPT_DESC);
-        register_host_detail(name:"App", value:cpe + ":2000:sp3a", desc:SCRIPT_DESC);
-      }
-      else if (version_in_range(version:val, test_version:"8.00.2039", test_version2:"9.00.000"))register_host_detail(name:"App", value:cpe + ":2000:sp4", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"9.00.1399", test_version2:"9.00.2047"))register_host_detail(name:"App", value:cpe + ":2005", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"9.00.2047", test_version2:"9.00.3042"))register_host_detail(name:"App", value:cpe + ":2005:sp1", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"9.00.3042", test_version2:"9.00.4035"))register_host_detail(name:"App", value:cpe + ":2005:sp2", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"9.00.4035", test_version2:"9.00.5000"))register_host_detail(name:"App", value:cpe + ":2005:sp3", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"9.00.5000", test_version2:"10.00.0"))register_host_detail(name:"App", value:cpe + ":2005:sp4", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"10.00.1600.22", test_version2:"10.00.2531.00"))register_host_detail(name:"App", value:cpe + ":2008", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"10.00.2531.00", test_version2:"10.00.4000.00"))register_host_detail(name:"App", value:cpe + ":2008:sp1", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"10.00.4000.00", test_version2:"10.00.5500.00"))register_host_detail(name:"App", value:cpe + ":2008:sp2", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"10.00.5500.00", test_version2:"10.50.1600.1"))register_host_detail(name:"App", value:cpe + ":2008:sp3", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"10.50.1600.1", test_version2:"10.50.2500.0"))register_host_detail(name:"App", value:cpe + ":2008:r2", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"10.50.2500.0", test_version2:"10.50.4000.0"))register_host_detail(name:"App", value:cpe + ":2008:r2:sp1", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"10.50.4000.0", test_version2:"11.0.0.0"))register_host_detail(name:"App", value:cpe + ":2008:r2:sp2", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"11.00.3000.00", test_version2:"11.00.2100.60"))register_host_detail(name:"App", value:cpe + ":2012", desc:SCRIPT_DESC);
-      else if (version_in_range(version:val, test_version:"11.00.2100.60", test_version2:"12.0.0.0"))register_host_detail(name:"App", value:cpe + ":2012:sp1", desc:SCRIPT_DESC);
-
-      else
-      {
-        if (val && !mssql) mssql = "1";
-        else if (val && mssql == "2") mssql = "1";
-        else mssql = "2";
-        if(mssql == "1"){
-          register_host_detail(name:"App", value:"cpe:/a:microsoft:sql_server", desc:SCRIPT_DESC);
-          mssql = "3";
-        }
-      }
-    }
-  }
 }
 
 if (messenger){

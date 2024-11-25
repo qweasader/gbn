@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.703627");
   script_cve_id("CVE-2016-1927", "CVE-2016-2039", "CVE-2016-2040", "CVE-2016-2041", "CVE-2016-2560", "CVE-2016-2561", "CVE-2016-5099", "CVE-2016-5701", "CVE-2016-5705", "CVE-2016-5706", "CVE-2016-5731", "CVE-2016-5733", "CVE-2016-5739");
   script_tag(name:"creation_date", value:"2016-08-02 05:28:14 +0000 (Tue, 02 Aug 2016)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-02T05:06:05+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:05 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-10-30 16:27:00 +0000 (Tue, 30 Oct 2018)");
+  script_tag(name:"severity_date", value:"2016-07-05 17:09:20 +0000 (Tue, 05 Jul 2016)");
 
   script_name("Debian: Security Advisory (DSA-3627-1)");
   script_category(ACT_GATHER_INFO);

@@ -1,28 +1,14 @@
-# Copyright (C) 2011 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2011 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902445");
-  script_version("2022-05-25T07:40:23+0000");
-  script_tag(name:"last_modification", value:"2022-05-25 07:40:23 +0000 (Wed, 25 May 2022)");
+  script_version("2024-06-21T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"creation_date", value:"2011-06-21 13:52:36 +0200 (Tue, 21 Jun 2011)");
   script_cve_id("CVE-2011-1280");
   script_tag(name:"cvss_base", value:"4.3");
@@ -32,9 +18,12 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/48196");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2011 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
-  script_dependencies("smb_reg_service_pack.nasl");
+  # nb: The MSSQL "Consolidation" wasn't added here on purpose and only the SMB Login one was used
+  # as the consolidation is not required for the KB check below.
+  script_dependencies("smb_reg_service_pack.nasl",
+                      "gb_microsoft_sql_server_smb_login_detect.nasl");
   script_require_ports(139, 445);
   script_mandatory_keys("SMB/WindowsVersion");
 
@@ -61,35 +50,32 @@ include("smb_nt.inc");
 include("version_func.inc");
 include("secpod_smb_func.inc");
 
+if(get_kb_item("microsoft/sqlserver/smb-login/detected")) {
 
-## Microsoft SQL Server
-key = "SOFTWARE\Microsoft\Microsoft SQL Server\";
-if(registry_key_exists(key:key))
-{
-  foreach item (registry_enum_keys(key:key))
-  {
-    sysPath = registry_get_sz(key:key + item + "\Setup", item:"SQLBinRoot");
-    if("Microsoft SQL Server" >< sysPath)
-    {
-      sysVer = fetch_file_version(sysPath:sysPath, file_name:"sqlservr.exe");
-      if(sysVer)
-      {
-        ## SQL Server 2005 Service Pack 3 GDR/QFE, SQL Server 2005 Service Pack 4 GDR/QFE
-        ## SQL Server 2008 Service Pack 1 GDR/QFE,  SQL Server 2008 Service Pack 2 GDR/QFE
-        ##  SQL Server 2008 R2 QFE/GDR
-        if(version_in_range(version:sysVer, test_version:"2005.90.4000", test_version2:"2005.90.4059.0")||
-           version_in_range(version:sysVer, test_version:"2005.90.4300", test_version2:"2005.90.4339.0")||
-           version_in_range(version:sysVer, test_version:"2005.90.5000", test_version2:"2005.90.5056.0")||
-           version_in_range(version:sysVer, test_version:"2005.90.5200", test_version2:"2005.90.5291.0")||
-           version_in_range(version:sysVer, test_version:"2007.100.2500", test_version2:"2007.100.2572.0")||
-           version_in_range(version:sysVer, test_version:"2007.100.2800", test_version2:"2007.100.2840.0")||
-           version_in_range(version:sysVer, test_version:"2007.100.4000", test_version2:"2007.100.4063.0")||
-           version_in_range(version:sysVer, test_version:"2007.100.4300", test_version2:"2007.100.4310.0")||
-           version_in_range(version:sysVer, test_version:"2009.100.1600", test_version2:"2009.100.1616.0")||
-           version_in_range(version:sysVer, test_version:"2009.100.1700", test_version2:"2009.100.1789.0"))
-        {
-          security_message( port: 0, data: "The target host was found to be vulnerable" );
-          exit(0);
+  ## Microsoft SQL Server
+  key = "SOFTWARE\Microsoft\Microsoft SQL Server\";
+  if(registry_key_exists(key:key)) {
+    foreach item (registry_enum_keys(key:key)) {
+      sysPath = registry_get_sz(key:key + item + "\Setup", item:"SQLBinRoot");
+      if("Microsoft SQL Server" >< sysPath) {
+        sysVer = fetch_file_version(sysPath:sysPath, file_name:"sqlservr.exe");
+        if(sysVer) {
+          ## SQL Server 2005 Service Pack 3 GDR/QFE, SQL Server 2005 Service Pack 4 GDR/QFE
+          ## SQL Server 2008 Service Pack 1 GDR/QFE,  SQL Server 2008 Service Pack 2 GDR/QFE
+          ## SQL Server 2008 R2 QFE/GDR
+          if(version_in_range(version:sysVer, test_version:"2005.90.4000", test_version2:"2005.90.4059.0")||
+             version_in_range(version:sysVer, test_version:"2005.90.4300", test_version2:"2005.90.4339.0")||
+             version_in_range(version:sysVer, test_version:"2005.90.5000", test_version2:"2005.90.5056.0")||
+             version_in_range(version:sysVer, test_version:"2005.90.5200", test_version2:"2005.90.5291.0")||
+             version_in_range(version:sysVer, test_version:"2007.100.2500", test_version2:"2007.100.2572.0")||
+             version_in_range(version:sysVer, test_version:"2007.100.2800", test_version2:"2007.100.2840.0")||
+             version_in_range(version:sysVer, test_version:"2007.100.4000", test_version2:"2007.100.4063.0")||
+             version_in_range(version:sysVer, test_version:"2007.100.4300", test_version2:"2007.100.4310.0")||
+             version_in_range(version:sysVer, test_version:"2009.100.1600", test_version2:"2009.100.1616.0")||
+             version_in_range(version:sysVer, test_version:"2009.100.1700", test_version2:"2009.100.1789.0")) {
+            security_message( port: 0, data: "The target host was found to be vulnerable" );
+            exit(0);
+          }
         }
       }
     }

@@ -9,13 +9,13 @@ CPE = "cpe:/a:adobe:acrobat_reader";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802749");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-20T14:37:13+0000");
   script_cve_id("CVE-2012-0777", "CVE-2012-0776", "CVE-2012-0774", "CVE-2012-0775");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-04-17 13:03:11 +0530 (Tue, 17 Apr 2012)");
-  script_name("Adobe Reader Multiple Vulnerabilities April-2012 (Mac OS X)");
+  script_name("Adobe Reader Multiple Vulnerabilities (Apr 2012) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Reader is prone to multiple vulnerabilities.");
 

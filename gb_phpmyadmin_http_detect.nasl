@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900129");
-  script_version("2023-12-13T05:05:23+0000");
+  script_version("2024-02-19T14:37:31+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 14:37:31 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2008-10-03 15:12:54 +0200 (Fri, 03 Oct 2008)");
   script_name("phpMyAdmin Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
@@ -107,6 +107,7 @@ foreach dir( make_list_unique( "/", "/phpmyadmin", "/phpMyAdmin", "/phpMyAdminOL
       # phpMyAdmin 4.0.10.20 documentation
       # phpMyAdmin 4.6.6 documentation
       # phpMyAdmin 5.1.1 documentation
+      # phpMyAdmin 5.2.1 documentation
       vers = eregmatch( pattern:"phpMyAdmin (([0-9.]+)(-[betadevrc0-9]*)?) documentation", string:res1 );
       if( ! isnull( vers[1] ) ) {
         version = vers[1];

@@ -4,19 +4,19 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:ibm:websphere_portal';
+CPE = "cpe:/a:ibm:websphere_portal";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810734");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2014-8912");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-04-07 17:26:57 +0530 (Fri, 07 Apr 2017)");
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("IBM WebSphere Portal Sensitive Information Disclosure Vulnerability(swg21963226)");
+  script_name("IBM WebSphere Portal Sensitive Information Disclosure Vulnerability (swg21963226)");
 
   script_tag(name:"summary", value:"IBM Websphere Portal is prone to sensitive information Disclosure vulnerability.");
 
@@ -34,7 +34,7 @@ if(description)
   IBM WebSphere Portal versions 6.1.5 before 6.1.5.3 CF27,
   IBM WebSphere Portal versions 7.0.0 before 7.0.0.2 CF29,
   IBM WebSphere Portal versions 8.0.0 before 8.0.0.1 CF19, and
-  IBM WebSphere Portal versions 8.5.0 before CF08 .");
+  IBM WebSphere Portal versions 8.5.0 before CF08.");
 
   script_tag(name:"solution", value:"Upgrade to IBM WebSphere Portal
   Fix Pack 6.1.0.6 with Cumulative Fix 27 (CF27).Fix Pack 6.1.5.3 with
@@ -117,4 +117,3 @@ if(VULN)
   security_message(data:report, port:webPort);
   exit(0);
 }
-

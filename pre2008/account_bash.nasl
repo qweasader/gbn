@@ -7,11 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.15583");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-04-12T15:39:03+0000");
+  script_tag(name:"last_modification", value:"2024-04-12 15:39:03 +0000 (Fri, 12 Apr 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
-  script_tag(name:"cvss_base", value:"10.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"cvss_base", value:"7.5");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_cve_id("CVE-1999-0502");
   script_name("Unpassworded 'bash' account");
   script_category(ACT_ATTACK);
   script_family("Malware");
@@ -19,6 +20,8 @@ if(description)
   script_dependencies("find_service.nasl", "telnet.nasl", "ssh_detect.nasl", "gb_default_credentials_options.nasl");
   script_require_ports("Services/telnet", 23, "Services/ssh", 22);
   script_exclude_keys("default_credentials/disable_default_account_checks");
+
+  script_xref(name:"URL", value:"https://packetstormsecurity.com/files/34833/FakeRedhatPatchAnalysis.txt.html");
 
   script_tag(name:"summary", value:"The account 'bash' has no password set.");
 
@@ -30,8 +33,6 @@ if(description)
   by a fake Linux Redhat patch.
 
   See the references for more information.");
-
-  script_xref(name:"URL", value:"https://packetstormsecurity.com/files/34833/FakeRedhatPatchAnalysis.txt.html");
 
   script_tag(name:"solution_type", value:"Mitigation");
   script_tag(name:"qod_type", value:"remote_vul");

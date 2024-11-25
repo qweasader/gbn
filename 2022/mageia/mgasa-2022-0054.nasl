@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2022.0054");
   script_cve_id("CVE-2021-20316", "CVE-2021-44141", "CVE-2021-44142", "CVE-2022-0336");
   script_tag(name:"creation_date", value:"2022-02-11 03:16:20 +0000 (Fri, 11 Feb 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-09-01 20:05:00 +0000 (Thu, 01 Sep 2022)");
+  script_tag(name:"severity_date", value:"2022-09-01 20:05:40 +0000 (Thu, 01 Sep 2022)");
 
   script_name("Mageia: Security Advisory (MGASA-2022-0054)");
   script_category(ACT_GATHER_INFO);
@@ -27,14 +27,14 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2022-0054");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2022-0054.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=29974");
+  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/72ZRNFZ3DE3TJA7HFCVV476YJN6I4B5M/");
+  script_xref(name:"URL", value:"https://lists.suse.com/pipermail/sle-security-updates/2022-February/010164.html");
+  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5260-1");
+  script_xref(name:"URL", value:"https://www.samba.org/samba/history/samba-4.14.12.html");
+  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2021-20316.html");
   script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2021-44141.html");
   script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2021-44142.html");
   script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2022-0336.html");
-  script_xref(name:"URL", value:"https://www.samba.org/samba/history/samba-4.14.12.html");
-  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5260-1");
-  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2021-20316.html");
-  script_xref(name:"URL", value:"https://lists.suse.com/pipermail/sle-security-updates/2022-February/010164.html");
-  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/72ZRNFZ3DE3TJA7HFCVV476YJN6I4B5M/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'samba' package(s) announced via the MGASA-2022-0054 advisory.");
 

@@ -8,13 +8,13 @@ CPE = "cpe:/a:advantech:advantech_webaccess";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807041");
-  script_version("2023-12-20T05:05:58+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2014-9202", "CVE-2014-9208");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-01-25 12:23:44 +0530 (Mon, 25 Jan 2016)");
-  script_name("Advantech WebAccess Multiple Buffer Overflow Vulnerabilities Jan16");
+  script_name("Advantech WebAccess Multiple Buffer Overflow Vulnerabilities (Jan 2016)");
 
   script_tag(name:"summary", value:"Advantech WebAccess is prone to multiple stack-based buffer overflow vulnerabilities.");
 

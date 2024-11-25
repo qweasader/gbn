@@ -9,18 +9,18 @@ CPE = 'cpe:/a:oracle:database_server';
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804227");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-10-29T05:05:45+0000");
   script_cve_id("CVE-2013-5764", "CVE-2013-5853");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-10-29 05:05:45 +0000 (Tue, 29 Oct 2024)");
   script_tag(name:"creation_date", value:"2014-01-24 14:49:13 +0530 (Fri, 24 Jan 2014)");
-  script_name("Oracle Database Server Multiple Unspecified Vulnerabilities-01 Jan2014");
+  script_name("Oracle Database Server Multiple Unspecified Vulnerabilities-01 (Jan 2014)");
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Databases");
-  script_mandatory_keys("OracleDatabaseServer/installed");
-  script_dependencies("oracle_tnslsnr_version.nasl");
+  script_mandatory_keys("oracle/database/detected");
+  script_dependencies("gb_oracle_database_consolidation.nasl");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/56452/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/64811");
@@ -51,14 +51,20 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!port = get_app_port(cpe:CPE)) exit(0);
-if(!ver = get_app_version(cpe:CPE, port:port)) exit(0);
+if( isnull( port = get_app_port( cpe:CPE ) ) )
+  exit( 0 );
 
-if(ver =~ "^(11\.[1|2]\.0|12\.1\.0)"){
+if( ! infos = get_app_version_and_location( cpe:CPE, port:port, exit_no_version:TRUE ) )
+  exit( 0 );
+
+ver = infos["version"];
+path = infos["location"];
+
+if(ver =~ "^(11\.[1|2]\.0|12\.1\.0)") {
   if(version_is_equal(version:ver, test_version:"11.2.0.3") ||
      version_is_equal(version:ver, test_version:"12.1.0.1") ||
      version_is_equal(version:ver, test_version:"11.1.0.7")) {
-    report = report_fixed_ver(installed_version:ver, fixed_version:"See references for available updates.");
+    report = report_fixed_ver(installed_version:ver, fixed_version:"See references for available updates.", install_path:path);
     security_message(port:port, data:report);
     exit(0);
   }

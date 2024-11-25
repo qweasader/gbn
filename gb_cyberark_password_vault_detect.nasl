@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140960");
-  script_version("2023-07-26T05:05:09+0000");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_version("2024-06-13T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-13 05:05:46 +0000 (Thu, 13 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-04-12 14:10:27 +0700 (Thu, 12 Apr 2018)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -26,7 +26,9 @@ if(description)
 
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Product detection");
-  script_dependencies("find_service.nasl", "httpver.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "httpver.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "global_settings.nasl",
+                      "gb_microsoft_iis_http_detect.nasl");
   script_require_ports("Services/www", 80, 443);
   script_exclude_keys("Settings/disable_cgi_scanning");
 

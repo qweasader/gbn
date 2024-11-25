@@ -9,7 +9,7 @@ CPE = "cpe:/a:adobe:flash_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.90019");
-  script_version("2023-10-13T05:06:09+0000");
+  script_version("2024-02-22T05:06:55+0000");
   script_cve_id("CVE-2007-5275", "CVE-2007-6019", "CVE-2007-6243",
                 "CVE-2007-6637", "CVE-2008-1654", "CVE-2008-1655");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/26930");
@@ -20,10 +20,10 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/28697");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:09 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-22 05:06:55 +0000 (Thu, 22 Feb 2024)");
   script_tag(name:"creation_date", value:"2008-09-03 22:30:27 +0200 (Wed, 03 Sep 2008)");
   script_tag(name:"qod_type", value:"registry");
-  script_name("Adobe Flash Player 9.0.115.0 and earlier vulnerability (Windows)");
+  script_name("Adobe Flash Player <= 9.0.115.0 Vulnerability - Windows");
 
   script_tag(name:"summary", value:"The remote host is probably affected by
   the vulnerabilities described in CVE-2007-5275, CVE-2007-6019, CVE-2007-6243,

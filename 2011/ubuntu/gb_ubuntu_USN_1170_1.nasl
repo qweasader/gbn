@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.840703");
   script_cve_id("CVE-2010-4076", "CVE-2010-4077", "CVE-2010-4247", "CVE-2010-4526", "CVE-2011-0726", "CVE-2011-1163", "CVE-2011-1577", "CVE-2011-1745", "CVE-2011-1746", "CVE-2011-2022");
   script_tag(name:"creation_date", value:"2011-07-18 13:23:56 +0000 (Mon, 18 Jul 2011)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-02-02T05:06:04+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:04 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:C");
 

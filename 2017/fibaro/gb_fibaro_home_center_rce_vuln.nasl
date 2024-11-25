@@ -9,8 +9,8 @@ CPE = "cpe:/a:fibaro:home_center";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140420");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-09-29 15:41:18 +0700 (Fri, 29 Sep 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -29,7 +29,7 @@ if(description)
   script_mandatory_keys("fibaro_home_center/detected");
 
   script_tag(name:"summary", value:"FIBARO Home Center 2/Lite are prone to a remote code execution
-  vulnerability.");
+  (RCE) vulnerability.");
 
   script_tag(name:"insight", value:"FIBARO Home Center 2 and Home Center Lite don't validate input correctly
   in services/liliSetDeviceCommand.php which allows an attacker to execute arbitrary commands and escalate their

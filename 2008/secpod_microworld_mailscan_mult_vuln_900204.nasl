@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900204");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-02-08T14:36:53+0000");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2008-08-22 10:29:01 +0200 (Fri, 22 Aug 2008)");
   script_cve_id("CVE-2008-3726");
   script_copyright("Copyright (C) 2008 Greenbone AG");
@@ -16,7 +16,7 @@ if(description)
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
   script_category(ACT_MIXED_ATTACK);
   script_family("Web application abuses");
-  script_name("MicroWorld MailScan for Mail Servers multiple vulnerabilities");
+  script_name("MicroWorld MailScan for Mail Servers < 6.4a Multiple Vulnerabilities");
   script_dependencies("smb_reg_service_pack.nasl");
   script_mandatory_keys("SMB/WindowsVersion");
   script_require_ports(139, 445, 10443);

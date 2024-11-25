@@ -21,12 +21,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.63412");
-  script_version("2022-01-20T14:18:20+0000");
-  script_tag(name:"last_modification", value:"2022-01-20 14:18:20 +0000 (Thu, 20 Jan 2022)");
+  script_version("2024-01-23T05:05:19+0000");
+  script_tag(name:"last_modification", value:"2024-01-23 05:05:19 +0000 (Tue, 23 Jan 2024)");
   script_tag(name:"creation_date", value:"2009-02-18 23:13:28 +0100 (Wed, 18 Feb 2009)");
   script_cve_id("CVE-2006-3835", "CVE-2007-0184", "CVE-2007-0185", "CVE-2007-2377", "CVE-2007-2449", "CVE-2007-2450", "CVE-2007-3382", "CVE-2007-3385", "CVE-2007-3386", "CVE-2007-5333", "CVE-2007-5342", "CVE-2007-5461", "CVE-2007-5613", "CVE-2007-5615", "CVE-2007-6286", "CVE-2008-0002", "CVE-2008-1232", "CVE-2008-1586", "CVE-2008-1947", "CVE-2008-2235", "CVE-2008-2370", "CVE-2008-2938", "CVE-2008-3231", "CVE-2008-3651", "CVE-2008-3652", "CVE-2008-3663", "CVE-2008-3796", "CVE-2008-4577", "CVE-2008-5086", "CVE-2008-5233", "CVE-2008-5234", "CVE-2008-5235", "CVE-2008-5236", "CVE-2008-5237", "CVE-2008-5238", "CVE-2008-5239", "CVE-2008-5240", "CVE-2008-5241", "CVE-2008-5242", "CVE-2008-5243", "CVE-2008-5244", "CVE-2008-5245", "CVE-2008-5246", "CVE-2008-5247", "CVE-2008-5248", "CVE-2008-5250", "CVE-2008-5252", "CVE-2008-5256", "CVE-2008-5302", "CVE-2008-5557", "CVE-2008-5587", "CVE-2008-5658", "CVE-2008-5718", "CVE-2009-0030", "CVE-2009-0310", "CVE-2009-0313", "CVE-2009-0416", "CVE-2009-0490");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-01-21 02:46:00 +0000 (Sun, 21 Jan 2024)");
   script_name("SUSE: Security Summary (SUSE-SR:2009:004)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2009 E-Soft Inc.");

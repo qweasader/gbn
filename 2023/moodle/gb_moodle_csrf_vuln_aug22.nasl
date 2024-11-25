@@ -9,8 +9,8 @@ CPE = "cpe:/a:moodle:moodle";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126540");
-  script_version("2023-11-07T05:06:14+0000");
-  script_tag(name:"last_modification", value:"2023-11-07 05:06:14 +0000 (Tue, 07 Nov 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-10-31 09:31:42 +0000 (Tue, 31 Oct 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -33,7 +33,7 @@ if(description)
   script_dependencies("gb_moodle_cms_detect.nasl");
   script_mandatory_keys("moodle/detected");
 
-  script_tag(name:"summary", value:"Moodle is prone to a cross site request forgery (CSRF)
+  script_tag(name:"summary", value:"Moodle is prone to a cross-site request forgery (CSRF)
   vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");

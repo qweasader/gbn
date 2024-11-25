@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2022.2566");
   script_cve_id("CVE-2020-24586", "CVE-2020-24587", "CVE-2020-24588", "CVE-2020-26139", "CVE-2020-26140", "CVE-2020-26141", "CVE-2020-26142", "CVE-2020-26143", "CVE-2020-26144", "CVE-2020-26145", "CVE-2020-26146", "CVE-2020-26147", "CVE-2021-0920", "CVE-2021-0938", "CVE-2021-0941", "CVE-2021-20321", "CVE-2021-29650", "CVE-2021-33098", "CVE-2021-34556", "CVE-2021-35477", "CVE-2021-3655", "CVE-2021-3744", "CVE-2021-3764", "CVE-2021-3772", "CVE-2021-38209", "CVE-2021-39633", "CVE-2021-39634", "CVE-2021-39698", "CVE-2021-39713", "CVE-2021-4002", "CVE-2021-4037", "CVE-2021-4083", "CVE-2021-4135", "CVE-2021-4157", "CVE-2021-4159", "CVE-2021-44733", "CVE-2021-45485", "CVE-2021-45486", "CVE-2021-45868", "CVE-2022-0001", "CVE-2022-0002", "CVE-2022-0492", "CVE-2022-0494", "CVE-2022-0617", "CVE-2022-1011", "CVE-2022-1012", "CVE-2022-1016", "CVE-2022-1353", "CVE-2022-1678", "CVE-2022-1729", "CVE-2022-20008", "CVE-2022-20132", "CVE-2022-20141", "CVE-2022-23960", "CVE-2022-24448", "CVE-2022-27666", "CVE-2022-28388", "CVE-2022-28390", "CVE-2022-29581", "CVE-2022-30594", "CVE-2022-32250", "CVE-2022-32296");
   script_tag(name:"creation_date", value:"2022-10-12 04:41:33 +0000 (Wed, 12 Oct 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"7.4");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:M/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-09-30 16:34:00 +0000 (Fri, 30 Sep 2022)");
+  script_tag(name:"severity_date", value:"2022-09-30 16:34:07 +0000 (Fri, 30 Sep 2022)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2022-2566)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.6\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2022-2566");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2022-2566");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2022-2566");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2022-2566 advisory.");
 
@@ -59,6 +59,8 @@ In bpf_skb_change_head of filter.c, there is a possible out of bounds read due t
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

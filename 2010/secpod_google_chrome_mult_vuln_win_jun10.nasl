@@ -1,28 +1,14 @@
-# Copyright (C) 2010 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2010 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902073");
-  script_version("2023-11-02T05:05:26+0000");
-  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_version("2024-02-27T05:06:31+0000");
+  script_tag(name:"last_modification", value:"2024-02-27 05:06:31 +0000 (Tue, 27 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-06-22 13:34:32 +0200 (Tue, 22 Jun 2010)");
   script_cve_id("CVE-2010-1770", "CVE-2010-1772", "CVE-2010-1773", "CVE-2010-2295", "CVE-2010-2296",
                 "CVE-2010-2297", "CVE-2010-2298", "CVE-2010-2299", "CVE-2010-2300", "CVE-2010-2301",
@@ -32,7 +18,7 @@ if(description)
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-08-14 16:23:00 +0000 (Fri, 14 Aug 2020)");
-  script_name("Google Chrome 'WebKit' Multiple Vulnerabilities (Windows) - June 10");
+  script_name("Google Chrome 'WebKit' Multiple Vulnerabilities (Jun 2010) - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/40072");
   script_xref(name:"URL", value:"http://code.google.com/p/chromium/issues/detail?id=43902");
   script_xref(name:"URL", value:"http://code.google.com/p/chromium/issues/detail?id=43304");
@@ -42,7 +28,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"registry");
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("General");
   script_dependencies("gb_google_chrome_detect_portable_win.nasl");
   script_mandatory_keys("GoogleChrome/Win/Ver");

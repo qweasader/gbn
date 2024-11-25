@@ -1,39 +1,25 @@
-# Copyright (C) 2010 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2010 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902244");
-  script_version("2021-09-01T09:31:49+0000");
-  script_tag(name:"last_modification", value:"2021-09-01 09:31:49 +0000 (Wed, 01 Sep 2021)");
+  script_version("2024-06-21T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"creation_date", value:"2010-09-15 17:01:07 +0200 (Wed, 15 Sep 2010)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
   script_cve_id("CVE-2010-0820");
-  script_name("MS Local Security Authority Subsystem Service Privilege Elevation Vulnerability (983539)");
+  script_name("Microsoft Local Security Authority Subsystem Service Privilege Elevation Vulnerability (983539)");
   script_xref(name:"URL", value:"http://support.microsoft.com/kb/981550");
   script_xref(name:"URL", value:"http://support.microsoft.com/kb/982000");
   script_xref(name:"URL", value:"http://www.vupen.com/english/advisories/2010/2389");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
   script_dependencies("secpod_reg_enum.nasl");
   script_require_ports(139, 445);

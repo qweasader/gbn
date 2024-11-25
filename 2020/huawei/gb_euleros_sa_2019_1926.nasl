@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.1926");
   script_cve_id("CVE-2018-16871", "CVE-2018-20855", "CVE-2018-20856", "CVE-2019-10639", "CVE-2019-12378", "CVE-2019-12380", "CVE-2019-12381", "CVE-2019-12456", "CVE-2019-12818", "CVE-2019-12819", "CVE-2019-12984", "CVE-2019-13272", "CVE-2019-13631", "CVE-2019-13648", "CVE-2019-14283", "CVE-2019-14284", "CVE-2019-14763", "CVE-2019-15211", "CVE-2019-15292", "CVE-2019-16994");
   script_tag(name:"creation_date", value:"2020-01-23 12:26:58 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-04-19 14:08:00 +0000 (Wed, 19 Apr 2023)");
+  script_tag(name:"severity_date", value:"2019-08-26 19:05:22 +0000 (Mon, 26 Aug 2019)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2019-1926)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.2\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-1926");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-1926");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-1926");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2019-1926 advisory.");
 
@@ -49,6 +49,8 @@ The Linux kernel 4.x (starting from 4.1) and 5.x before 5.0.8 allows Information
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

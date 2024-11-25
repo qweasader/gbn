@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11149");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-03-15T15:36:48+0000");
+  script_tag(name:"last_modification", value:"2024-03-15 15:36:48 +0000 (Fri, 15 Mar 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -29,6 +29,16 @@ if(description)
 
   script_tag(name:"summary", value:"This script logs onto a web server through a login page and
   stores the authentication / session cookie.");
+
+  script_tag(name:"insight", value:"- The used login needs to be configured separately in / via the
+  'HTTP account' and 'HTTP password' preferences of the VT 'Login configurations' (OID:
+  1.3.6.1.4.1.25623.1.0.10870)
+
+  - This configured login will be used in the '%USER%' and '%PASS%' placeholders configured within
+  the 'Login form fields' preference of this VT
+
+  - The 'Login page' and 'Login form' preferences of this VT needs to be configured before a login
+  is tried");
 
   script_tag(name:"qod_type", value:"remote_banner");
 

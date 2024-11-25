@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2023.0272");
   script_cve_id("CVE-2023-21930", "CVE-2023-21937", "CVE-2023-21938", "CVE-2023-21939", "CVE-2023-21954", "CVE-2023-21967", "CVE-2023-21968", "CVE-2023-22006", "CVE-2023-22036", "CVE-2023-22041", "CVE-2023-22044", "CVE-2023-22045", "CVE-2023-22049", "CVE-2023-25193");
   script_tag(name:"creation_date", value:"2023-10-02 04:11:57 +0000 (Mon, 02 Oct 2023)");
-  script_version("2023-10-02T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-10-02 05:05:22 +0000 (Mon, 02 Oct 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-02-13 14:53:00 +0000 (Mon, 13 Feb 2023)");
+  script_tag(name:"severity_date", value:"2023-02-13 14:53:46 +0000 (Mon, 13 Feb 2023)");
 
   script_name("Mageia: Security Advisory (MGASA-2023-0272)");
   script_category(ACT_GATHER_INFO);
@@ -26,13 +26,13 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2023-0272");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2023-0272.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=32203");
-  script_xref(name:"URL", value:"https://access.redhat.com/errata/RHSA-2023:1904");
-  script_xref(name:"URL", value:"https://access.redhat.com/errata/RHSA-2023:1880");
-  script_xref(name:"URL", value:"https://www.oracle.com/security-alerts/cpuapr2023.html#AppendixJAVA");
-  script_xref(name:"URL", value:"https://access.redhat.com/errata/RHSA-2023:4178");
   script_xref(name:"URL", value:"https://access.redhat.com/errata/RHBA-2023:4374");
+  script_xref(name:"URL", value:"https://access.redhat.com/errata/RHSA-2023:1880");
+  script_xref(name:"URL", value:"https://access.redhat.com/errata/RHSA-2023:1904");
   script_xref(name:"URL", value:"https://access.redhat.com/errata/RHSA-2023:4169");
+  script_xref(name:"URL", value:"https://access.redhat.com/errata/RHSA-2023:4178");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=32203");
+  script_xref(name:"URL", value:"https://www.oracle.com/security-alerts/cpuapr2023.html#AppendixJAVA");
   script_xref(name:"URL", value:"https://www.oracle.com/security-alerts/cpujul2023.html#AppendixJAVA");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'java-1.8.0-openjdk, java-11-openjdk, java-17-openjdk, java-latest-openjdk, openjfx' package(s) announced via the MGASA-2023-0272 advisory.");

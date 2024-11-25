@@ -2,21 +2,21 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:typo3:typo3";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805247");
-  script_version("2023-04-05T10:19:45+0000");
+  script_version("2024-02-23T14:36:45+0000");
   script_cve_id("CVE-2014-9508", "CVE-2014-9509");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
-  script_tag(name:"last_modification", value:"2023-04-05 10:19:45 +0000 (Wed, 05 Apr 2023)");
+  script_tag(name:"last_modification", value:"2024-02-23 14:36:45 +0000 (Fri, 23 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-01-19 12:19:42 +0530 (Mon, 19 Jan 2015)");
-  script_name("TYPO3 Multiple Vulnerabilities-01 Jan-2015 (SA-2014-003)");
+  script_name("TYPO3 Multiple Vulnerabilities (TYPO3-CORE-SA-2014-003)");
 
   script_tag(name:"summary", value:"TYPO3 is prone to multiple vulnerabilities.");
 

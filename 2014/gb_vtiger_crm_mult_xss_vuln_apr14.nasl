@@ -9,11 +9,11 @@ CPE = "cpe:/a:vtiger:vtiger_crm";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804541");
-  script_version("2023-07-27T05:05:09+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2013-7326");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2014-04-17 17:45:25 +0530 (Thu, 17 Apr 2014)");
 
   script_name("Vtiger 'return_url' Parameter Multiple Cross Site Scripting Vulnerabilities");
@@ -46,7 +46,6 @@ script code in a user's browser session in the context of an affected site.");
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_dependencies("gb_vtiger_crm_detect.nasl");
   script_mandatory_keys("vtiger/detected");
-  script_require_ports("Services/www", 80, 8888);
 
   exit(0);
 }
@@ -54,15 +53,15 @@ script code in a user's browser session in the context of an affected site.");
 include("host_details.inc");
 include("version_func.inc");
 
-if(!http_port = get_app_port(cpe:CPE))
+if(!port = get_app_port(cpe:CPE))
   exit(0);
 
-if(!vtVer = get_app_version(cpe:CPE, port:http_port))
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
 
-if(version_is_equal(version:vtVer, test_version:"5.4.0")) {
-  report = report_fixed_ver(installed_version: vtVer, fixed_version: "6.0.0");
-  security_message(port:http_port, data: report);
+if(version_is_equal(version:version, test_version:"5.4.0")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"6.0.0");
+  security_message(port:port, data:report);
   exit(0);
 }
 

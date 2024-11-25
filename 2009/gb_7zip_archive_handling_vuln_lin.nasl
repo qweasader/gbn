@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800256");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-04-02 08:15:32 +0200 (Thu, 02 Apr 2009)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2008-6536");
-  script_name("7-Zip Unspecified Archive Handling Vulnerability (Linux)");
+  script_name("7-Zip Unspecified Archive Handling Vulnerability - Linux");
   script_xref(name:"URL", value:"http://secunia.com/advisories/29434");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/28285");
   script_xref(name:"URL", value:"http://www.vupen.com/english/advisories/2008/0914/references");

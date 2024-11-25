@@ -9,8 +9,8 @@ CPE = "cpe:/a:kerio:kerio_mailserver";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100666");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-09-13T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2024-09-13 05:05:46 +0000 (Fri, 13 Sep 2024)");
   script_tag(name:"creation_date", value:"2010-06-03 13:39:07 +0200 (Thu, 03 Jun 2010)");
   script_name("Multiple Kerio Products Administration Console File Disclosure and Corruption Vulnerability");
   script_tag(name:"cvss_base", value:"4.4");
@@ -21,7 +21,7 @@ if(description)
   script_dependencies("gb_kerio_mailserver_detect.nasl");
   script_mandatory_keys("KerioMailServer/detected");
 
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/40505");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210127223002/http://www.securityfocus.com/bid/40505");
   script_xref(name:"URL", value:"http://www.kerio.com/support/security-advisories#1006");
 
   script_tag(name:"impact", value:"An attacker can exploit this vulnerability to gain access to
@@ -44,10 +44,11 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! vers = get_app_version( cpe:CPE, nofork:TRUE ) ) exit( 0 );
+if( ! vers = get_app_version( cpe:CPE, nofork:TRUE ) )
+  exit( 0 );
 
 if( version_is_less_equal( version:vers, test_version:"6.7.3" ) ) {
-  report = report_fixed_ver( installed_version:vers, fixed_version:"See references." );
+  report = report_fixed_ver( installed_version:vers, fixed_version:"See references" );
   security_message( port:0, data:report );
   exit( 0 );
 }

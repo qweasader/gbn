@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108251");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-08T05:05:59+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-10-10 13:07:41 +0200 (Tue, 10 Oct 2017)");
   script_name('SSL/TLS: Check for `max-age` Attribute in HSTS Header');
   script_category(ACT_GATHER_INFO);
   script_family("SSL and TLS");
   script_copyright("Copyright (C) 2017 Greenbone AG");
-  script_dependencies("gb_hsts_detect.nasl");
+  script_dependencies("gb_hsts_http_detect.nasl");
   script_mandatory_keys("hsts/available/port");
 
   script_add_preference(name:"Minimum max-age value (in seconds)", type:"entry", value:"10886400", id:1);
@@ -27,10 +27,12 @@ if(description)
   script_xref(name:"URL", value:"https://tools.ietf.org/html/rfc6797");
   script_xref(name:"URL", value:"https://securityheaders.io/");
 
-  script_tag(name:"summary", value:"The remote web server is using a too low value within the 'max-age' attribute in the HSTS header.");
+  script_tag(name:"summary", value:"The remote web server is using a too low value within the
+  'max-age' attribute in the HTTP Strict Transport Security (HSTS) header.");
 
-  script_tag(name:"solution", value:"The minimum value to get added to the HSTS preload lists of Google Chrome is 18 weeks (10886400 seconds).
-  The value should aim towards 6 months (15768000 seconds) but heavily depends on your deployment scenario.");
+  script_tag(name:"solution", value:"The minimum value to get added to the HSTS preload lists of
+  Google Chrome is 18 weeks (10886400 seconds). The value should aim towards 6 months (15768000
+  seconds) but heavily depends on your deployment scenario.");
 
   script_tag(name:"qod_type", value:"remote_banner");
   script_tag(name:"solution_type", value:"Workaround");

@@ -9,16 +9,16 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.814198");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2018-1747");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:L");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-09 23:39:00 +0000 (Wed, 09 Oct 2019)");
   script_tag(name:"creation_date", value:"2018-11-20 10:44:42 +0530 (Tue, 20 Nov 2018)");
-  script_name("Google Chrome Security Update(stable-channel-update-for-desktop_19-2018-11)-Windows");
+  script_name("Google Chrome Security Update (stable-channel-update-for-desktop_19-2018-11) - Windows");
 
   script_tag(name:"summary", value:"Google Chrome is prone to a use after free vulnerability.");
 

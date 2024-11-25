@@ -1,34 +1,20 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117233");
-  script_version("2021-06-14T09:56:19+0000");
-  script_tag(name:"last_modification", value:"2021-06-14 09:56:19 +0000 (Mon, 14 Jun 2021)");
+  script_version("2024-03-08T15:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-08 15:37:10 +0000 (Fri, 08 Mar 2024)");
   script_tag(name:"creation_date", value:"2021-02-25 11:11:24 +0000 (Thu, 25 Feb 2021)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_name("Apache HTTP Server Detection (Linux/Unix SSH Login)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("login/SSH/success");
@@ -44,8 +30,7 @@ if(description)
 include("ssh_func.inc");
 include("list_array_func.inc");
 
-sock = ssh_login_or_reuse_connection();
-if( ! sock )
+if( ! sock = ssh_login_or_reuse_connection() )
   exit( 0 );
 
 # nb: On package based installs the file are placed in /usr/sbin which isn't necessarily
@@ -76,6 +61,29 @@ port = kb_ssh_transport();
 
 foreach full_path( full_path_list ) {
 
+  # nb: BusyBox is also providing a "httpd" binary:
+  # https://busybox.net/downloads/BusyBox.html#httpd
+  # and if we're calling this via the "-v" parameter below we would start a HTTP server on port 80
+  # (if the scan was running as root and no other service listed on that port yet).
+  if( full_path =~ "/httpd$" ) {
+    check = ssh_cmd( socket:sock, cmd:full_path + " --help" );
+
+    # e.g. (the "Verbose" part has/had tabs):
+    # BusyBox v1.36.1 (2023-11-07 18:53:09 UTC) multi-call binary.
+    # *snip*
+    # Listen for incoming HTTP requests
+    # *snip*
+    #   -v[v]   Verbose
+    #
+    # nb: We're using a few variants from the above to catch possible different variants of the help banner
+    if( ( "BusyBox " >< check && "Listen for incoming HTTP requests" >< check ) ||
+        ( "BusyBox " >< check && check =~ "\s+-v\[v\]\s+Verbose" ) ||
+        ( "Listen for incoming HTTP requests" >< check && check =~ "\s+-v\[v\]\s+Verbose" )
+      ) {
+      continue;
+    }
+  }
+
   # Server version: Apache/2.4.43 (Linux/SUSE) -> SLES 15
   # Server version: Apache/2.4.41 (Ubuntu) -> Ubuntu 20.04
   # Server version: Apache/2.4.6 (CentOS) -> CentOS 7
@@ -83,7 +91,6 @@ foreach full_path( full_path_list ) {
   # Server version: Apache/2.2.8 (Ubuntu) -> Ubuntu 8.04
   # Server version: Apache/2.4.10 (Debian) -> Debian 8
   # Server version: Apache/2.4.25 (Debian) -> Debian 9
-
   vers = ssh_get_bin_version( full_prog_name:full_path, sock:sock, version_argv:"-v", ver_pattern:"Server version\s*:\s*Apache/([0-9.]+(-(alpha|beta))?)" );
   if( ! vers || ! vers[1] )
     continue;

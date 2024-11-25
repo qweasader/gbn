@@ -4,23 +4,25 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
+CPE = "cpe:/a:microsoft:sql_server";
+
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800105");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-07-11T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-07-11 05:05:33 +0000 (Thu, 11 Jul 2024)");
   script_tag(name:"creation_date", value:"2008-10-14 16:26:50 +0200 (Tue, 14 Oct 2008)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
   script_cve_id("CVE-2008-0085", "CVE-2008-0086", "CVE-2008-0106", "CVE-2008-0107");
   script_xref(name:"CB-A", value:"08-0110");
-  script_name("MS SQL Server Elevation of Privilege Vulnerabilities (941203)");
+  script_name("Microsoft SQL Server Elevation of Privilege Vulnerabilities (941203)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
-  script_dependencies("smb_reg_service_pack.nasl");
+  script_dependencies("gb_microsoft_sql_server_consolidation.nasl");
   script_require_ports(139, 445);
-  script_mandatory_keys("SMB/WindowsVersion");
+  script_mandatory_keys("microsoft/sqlserver/smb-login/detected");
 
   script_xref(name:"URL", value:"http://www.frsirt.com/english/advisories/2008/2022");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/30119");
@@ -66,6 +68,20 @@ if(description)
 include("smb_nt.inc");
 include("version_func.inc");
 include("secpod_smb_func.inc");
+include("host_details.inc");
+
+if(isnull(port = get_app_port(cpe:CPE, service:"smb-login")))
+  exit(0);
+
+if(!infos = get_app_full(cpe:CPE, port:port, exit_no_version:TRUE))
+  exit(0);
+
+if(!vers = infos["internal_version"])
+  exit(0);
+
+# nb: 2005 (9.x) and earlier should be only affected
+if(vers !~ "^[1-9]\.")
+  exit(99);
 
 function Get_FileVersion(ver, path)
 {
@@ -122,7 +138,7 @@ if(!insSqlVer){
 
 if(version_is_greater(version:reqSqlVer, test_version:insSqlVer)){
   report = report_fixed_ver(installed_version:insSqlVer, fixed_version:reqSqlVer);
-  security_message(port:0, data:report);
+  security_message(port:port, data:report);
   exit(0);
 }
 

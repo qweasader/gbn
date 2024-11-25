@@ -8,11 +8,14 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.53851");
   script_cve_id("CVE-2002-0653");
-  script_version("2023-07-19T05:05:15+0000");
-  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
+  script_version("2024-10-10T07:25:31+0000");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"creation_date", value:"2008-01-17 22:24:46 +0100 (Thu, 17 Jan 2008)");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-02 02:50:09 +0000 (Fri, 02 Feb 2024)");
   script_name("Debian Security Advisory DSA 135-1 (libapache-mod-ssl)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 E-Soft Inc.");
@@ -31,7 +34,7 @@ specially crafted .htaccess files.
 More information about this vulnerability can be found at the references.");
 
   script_tag(name:"solution", value:"This has been fixed in the libapache-mod-ssl_2.4.10-1.3.9-1potato2 package
-(for potato), and the libapache-mod-ssl_2.8.9-2 package (for woody) .
+(for potato), and the libapache-mod-ssl_2.8.9-2 package (for woody).
 We recommend you upgrade as soon as possible.");
   script_tag(name:"summary", value:"The remote host is missing an update to libapache-mod-ssl
 announced via advisory DSA 135-1.");

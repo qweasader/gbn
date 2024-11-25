@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802545");
-  script_version("2023-10-17T05:05:34+0000");
+  script_version("2024-02-27T14:36:53+0000");
   script_cve_id("CVE-2010-5074", "CVE-2002-2437", "CVE-2002-2436");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-27 14:36:53 +0000 (Tue, 27 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-12-09 14:17:09 +0530 (Fri, 09 Dec 2011)");
-  script_name("Mozilla Products Multiple Information Disclosure Vulnerabilities - (Windows)");
+  script_name("Mozilla Products Multiple Information Disclosure Vulnerabilities - Windows");
 
   script_xref(name:"URL", value:"http://www.security-database.com/detail.php?alert=CVE-2010-5074");
   script_xref(name:"URL", value:"http://www.security-database.com/detail.php?alert=CVE-2002-2436");

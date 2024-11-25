@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.841785");
   script_cve_id("CVE-2014-0001", "CVE-2014-0384", "CVE-2014-2419", "CVE-2014-2430", "CVE-2014-2431", "CVE-2014-2432", "CVE-2014-2436", "CVE-2014-2438", "CVE-2014-2440");
   script_tag(name:"creation_date", value:"2014-05-02 04:40:53 +0000 (Fri, 02 May 2014)");
-  script_version("2023-06-21T05:06:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:21 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
@@ -23,10 +23,10 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"USN-2170-1");
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-2170-1");
+  script_xref(name:"URL", value:"http://dev.mysql.com/doc/refman/5.5/en/default-privileges.html");
   script_xref(name:"URL", value:"http://dev.mysql.com/doc/relnotes/mysql/5.5/en/news-5-5-36.html");
   script_xref(name:"URL", value:"http://dev.mysql.com/doc/relnotes/mysql/5.5/en/news-5-5-37.html");
   script_xref(name:"URL", value:"http://www.oracle.com/technetwork/topics/security/cpuapr2014-1972952.html");
-  script_xref(name:"URL", value:"http://dev.mysql.com/doc/refman/5.5/en/default-privileges.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'mysql-5.5' package(s) announced via the USN-2170-1 advisory.");
 

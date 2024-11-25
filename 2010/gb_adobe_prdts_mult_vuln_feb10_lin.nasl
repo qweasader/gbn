@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800476");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-08T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-02-19 11:58:13 +0100 (Fri, 19 Feb 2010)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_cve_id("CVE-2010-0186", "CVE-2010-0187");
-  script_name("Adobe Flash Player/Air Multiple Vulnerabilities -feb10 (Linux)");
+  script_name("Adobe Flash Player/Air Multiple Vulnerabilities (Feb 2010) - Linux");
   script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=563819");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/38198");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/38200");

@@ -9,8 +9,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10861");
-  script_version("2023-08-03T05:05:16+0000");
-  script_tag(name:"last_modification", value:"2023-08-03 05:05:16 +0000 (Thu, 03 Aug 2023)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_cve_id("CVE-2004-0842", "CVE-2004-0727", "CVE-2004-0216", "CVE-2004-0839",
                 "CVE-2004-0844", "CVE-2004-0843", "CVE-2004-0841", "CVE-2004-0845",
@@ -26,10 +26,13 @@ if(description)
                 "CVE-2005-0553", "CVE-2005-0554", "CVE-2005-0555");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-02 15:23:21 +0000 (Fri, 02 Feb 2024)");
   script_xref(name:"IAVA", value:"2003-A-0014");
   script_xref(name:"IAVA", value:"2004-A-0016");
   script_xref(name:"IAVA", value:"2005-A-0006");
-  script_name("IE 5.01 5.5 6.0 Cumulative patch (890923)");
+  script_name("Microsoft Internet Explorer 5.01, 5.5, 6.0 Cumulative Patch (890923, MS05-020)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2002 Michael Scheidell");
   script_family("Windows : Microsoft Bulletins");

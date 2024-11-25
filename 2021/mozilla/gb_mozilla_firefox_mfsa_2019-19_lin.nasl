@@ -27,13 +27,13 @@ if(description)
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2019-11708");
   script_tag(name:"creation_date", value:"2021-11-08 15:21:25 +0000 (Mon, 08 Nov 2021)");
-  script_version("2022-08-09T10:11:17+0000");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
+  script_version("2024-07-04T05:05:37+0000");
+  script_tag(name:"last_modification", value:"2024-07-04 05:05:37 +0000 (Thu, 04 Jul 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-08-15 16:15:00 +0000 (Thu, 15 Aug 2019)");
+  script_tag(name:"severity_date", value:"2024-07-02 17:02:19 +0000 (Tue, 02 Jul 2024)");
 
   script_name("Mozilla Firefox Security Advisory (MFSA2019-19) - Linux");
   script_category(ACT_GATHER_INFO);

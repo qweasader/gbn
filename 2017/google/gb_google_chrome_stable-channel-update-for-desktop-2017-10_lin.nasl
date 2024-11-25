@@ -9,7 +9,7 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811873");
-  script_version("2023-11-08T05:05:52+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2017-5124", "CVE-2017-5125", "CVE-2017-5126", "CVE-2017-5127",
                 "CVE-2017-5128", "CVE-2017-5129", "CVE-2017-5132", "CVE-2017-5130",
                 "CVE-2017-5131", "CVE-2017-5133", "CVE-2017-15386", "CVE-2017-15387",
@@ -18,12 +18,12 @@ if(description)
                 "CVE-2017-15401");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-11-08 05:05:52 +0000 (Wed, 08 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-02-23 15:55:00 +0000 (Fri, 23 Feb 2018)");
   script_tag(name:"creation_date", value:"2017-10-19 12:40:22 +0530 (Thu, 19 Oct 2017)");
-  script_name("Google Chrome Security Updates(stable-channel-update-for-desktop-2017-10)-Linux");
+  script_name("Google Chrome Security Updates (stable-channel-update-for-desktop-2017-10) - Linux");
 
   script_tag(name:"summary", value:"Google Chrome is prone to multiple vulnerabilities.");
 

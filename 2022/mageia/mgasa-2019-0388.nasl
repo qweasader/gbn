@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2019.0388");
   script_cve_id("CVE-2019-19332");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:P/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-03-13 14:15:00 +0000 (Fri, 13 Mar 2020)");
+  script_tag(name:"severity_date", value:"2020-01-27 16:52:33 +0000 (Mon, 27 Jan 2020)");
 
   script_name("Mageia: Security Advisory (MGASA-2019-0388)");
   script_category(ACT_GATHER_INFO);
@@ -27,9 +27,9 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2019-0388");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2019-0388.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=25834");
-  script_xref(name:"URL", value:"https://kernelnewbies.org/Linux_5.4");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.4.1");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.4.2");
+  script_xref(name:"URL", value:"https://kernelnewbies.org/Linux_5.4");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'kernel, kmod-virtualbox, kmod-xtables-addons, ldetect-lst, wireguard-tools, xtables-addons' package(s) announced via the MGASA-2019-0388 advisory.");
 

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2019.0212");
   script_cve_id("CVE-2019-11709", "CVE-2019-11711", "CVE-2019-11712", "CVE-2019-11713", "CVE-2019-11715", "CVE-2019-11717", "CVE-2019-11719", "CVE-2019-11729", "CVE-2019-11730", "CVE-2019-9811");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-07-29 16:15:00 +0000 (Mon, 29 Jul 2019)");
+  script_tag(name:"severity_date", value:"2019-07-24 16:57:05 +0000 (Wed, 24 Jul 2019)");
 
   script_name("Mageia: Security Advisory (MGASA-2019-0212)");
   script_category(ACT_GATHER_INFO);
@@ -26,11 +26,11 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2019-0212");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2019-0212.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=25103");
-  script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/60.8.0/releasenotes/");
-  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2019-23/");
-  script_xref(name:"URL", value:"https://enigmail.net/index.php/en/download/changelog#enig2.0.12");
   script_xref(name:"URL", value:"https://access.redhat.com/errata/RHSA-2019:1775");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=25103");
+  script_xref(name:"URL", value:"https://enigmail.net/index.php/en/download/changelog#enig2.0.12");
+  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2019-23/");
+  script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/60.8.0/releasenotes/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'thunderbird, thunderbird-l10n' package(s) announced via the MGASA-2019-0212 advisory.");
 

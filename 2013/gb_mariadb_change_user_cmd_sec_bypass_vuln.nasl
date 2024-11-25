@@ -9,18 +9,17 @@ CPE = "cpe:/a:mariadb:mariadb";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804037");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2012-5627");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2013-11-06 15:34:28 +0530 (Wed, 06 Nov 2013)");
   script_name("MariaDB 'COM_CHANGE_USER' Command Insecure Salt Generation Security Bypass Vulnerability");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2013 Greenbone AG");
   script_family("Databases");
   script_dependencies("mysql_version.nasl", "os_detection.nasl");
-  script_require_ports("Services/mysql", 3306);
   script_mandatory_keys("MariaDB/installed", "Host/runs_windows");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/52015");
@@ -53,22 +52,20 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!mariadbPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-mariadbVer = get_app_version(cpe:CPE, port:mariadbPort);
-if(!mariadbVer || mariadbVer !~ "^5\.[235]\."){
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-if(version_in_range(version:mariadbVer, test_version:"5.2", test_version2:"5.2.13") ||
-   version_in_range(version:mariadbVer, test_version:"5.3", test_version2:"5.3.11") ||
-   version_in_range(version:mariadbVer, test_version:"5.5", test_version2:"5.5.28"))
-{
-  fix = "5.2.14, or 5.3.12, or 5.5.29";
-  report = report_fixed_ver(installed_version:mariadbVer, fixed_version:fix);
-  security_message(port:mariadbPort, data:report);
+if(version !~ "^5\.[235]\.")
+  exit(99);
+
+if(version_in_range(version:version, test_version:"5.2", test_version2:"5.2.13") ||
+   version_in_range(version:version, test_version:"5.3", test_version2:"5.3.11") ||
+   version_in_range(version:version, test_version:"5.5", test_version2:"5.5.28")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"5.2.14/5.3.12/5.5.29");
+  security_message(port:port, data:report);
   exit(0);
 }
 

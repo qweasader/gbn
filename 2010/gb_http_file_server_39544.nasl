@@ -9,8 +9,8 @@ CPE = "cpe:/a:httpfilesever:hfs";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100585");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2010-04-19 20:46:01 +0200 (Mon, 19 Apr 2010)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -26,7 +26,6 @@ if(description)
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_dependencies("gb_http_file_server_detect.nasl");
   script_mandatory_keys("hfs/Installed");
-  script_require_ports("Services/www", 80);
 
   script_tag(name:"affected", value:"HttpFileServer version 2.2e and prior.");
 
@@ -47,12 +46,15 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! hfsPort = get_app_port( cpe:CPE ) ) exit(0);
-if( ! hfsVer = get_app_version( cpe:CPE, port:hfsPort ) ) exit(0);
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
 
-if( version_is_less( version:hfsVer, test_version:"2.2f" ) ) {
-  report = report_fixed_ver( installed_version: hfsVer, fixed_version: "2.2f" );
-  security_message( port:hfsPort, data:report );
+if( ! version = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
+
+if( version_is_less( version:version, test_version:"2.2f" ) ) {
+  report = report_fixed_ver( installed_version: version, fixed_version: "2.2f" );
+  security_message( port:port, data:report );
   exit( 0 );
 }
 

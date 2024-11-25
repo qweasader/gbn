@@ -9,8 +9,8 @@ CPE = "cpe:/a:horde:imp";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.15616");
-  script_version("2023-08-03T05:05:16+0000");
-  script_tag(name:"last_modification", value:"2023-08-03 05:05:16 +0000 (Thu, 03 Aug 2023)");
+  script_version("2024-07-23T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2024-07-23 05:05:30 +0000 (Tue, 23 Jul 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -41,15 +41,21 @@ include("http_func.inc");
 include("http_keepalive.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! dir  = get_app_location( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
 
-if( dir == "/" ) dir = "";
-url = dir + "/status.php3?script=<script>vt-test</script>" ;
+if( ! dir  = get_app_location( cpe:CPE, port:port ) )
+  exit( 0 );
 
-if( http_vuln_check( port:port, url:url, pattern:'<script>vt-test</script>', check_header:TRUE ) ) {
+if( dir == "/" )
+  dir = "";
+
+url = dir + "/status.php3?script=<script>vt-test</script>";
+
+if( http_vuln_check( port:port, url:url, pattern:"<script>vt-test</script>", check_header:TRUE ) ) {
   report = http_report_vuln_url( url:url, port:port );
-  security_message( port:port, data:url );
+  security_message( port:port, data:report );
+  exit( 0 );
 }
 
-exit( 0 );
+exit( 99 );

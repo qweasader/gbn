@@ -9,11 +9,11 @@ CPE = "cpe:/a:open-xchange:open-xchange_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811132");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2015-1588");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-09 19:55:00 +0000 (Tue, 09 Oct 2018)");
@@ -50,37 +50,32 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_ox_server_detect.nasl");
   script_mandatory_keys("open_xchange_server/installed");
-  script_require_ports("Services/www", 80);
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-
-if(!oxsPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-oxsVer = get_app_version(cpe:CPE, port:oxsPort);
-if(!oxsVer){
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-oxRev = get_kb_item("open_xchange_server/" + oxsPort + "/rev");
-if(oxRev)
-{
+revision = get_kb_item("open_xchange_server/" + port + "/rev");
+if(revision) {
+
   ## Updating version with revision number
-  oxsVer = oxsVer + "." + oxRev;
+  version = version + "." + revision;
 
   ##http://www.securityfocus.com/bid/74350
-  if(oxsVer =~ "^(6|7)")
-  {
-    if(version_in_range(version:oxsVer, test_version:"6.20.7.15", test_version2:"7.6.1.20"))
-    {
-      report = report_fixed_ver(installed_version:oxsVer, fixed_version:"7.6.1-rev21");
-      security_message(data:report, port:oxsPort);
+  if(version =~ "^[67]\.") {
+    if(version_in_range(version:version, test_version:"6.20.7.15", test_version2:"7.6.1.20")) {
+      report = report_fixed_ver(installed_version:version, fixed_version:"7.6.1-rev21");
+      security_message(data:report, port:port);
       exit(0);
     }
   }
 }
+
+exit(99);

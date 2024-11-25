@@ -11,14 +11,15 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.105627");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-06-27T05:05:30+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2016-3657");
   script_name("Palo Alto PAN-OS Unauthenticated Buffer Overflow (PAN-SA-2016-0005) - Active Check");
 
   script_xref(name:"URL", value:"https://security.paloaltonetworks.com/CVE-2016-3657");
 
-  script_tag(name:"summary", value:"When a PAN-OS device is configured as a GlobalProtect portal, a vulnerability exists
-  where an improper handling of a buffer involved in the processing of SSL VPN requests can result in device crash and possible remote code execution.");
+  script_tag(name:"summary", value:"When a PAN-OS device is configured as a GlobalProtect portal, a
+  vulnerability exists where an improper handling of a buffer involved in the processing of SSL VPN
+  requests can result in device crash and possible remote code execution (RCE).");
 
   script_tag(name:"vuldetect", value:"Send a special crafted HTTP POST request and check the response.");
   script_tag(name:"solution", value:"Update to PAN-OS releases 5.0.18, 6.0.13, 6.1.10 and 7.0.5 and newer");
@@ -31,7 +32,7 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_active");
 
-  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-02-17 16:15:00 +0000 (Mon, 17 Feb 2020)");

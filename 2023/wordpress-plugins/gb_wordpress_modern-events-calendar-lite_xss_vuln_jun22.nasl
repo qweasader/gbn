@@ -9,8 +9,8 @@ CPE = "cpe:/a:webnus:modern_events_calendar_lite";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127597");
-  script_version("2023-10-27T05:05:28+0000");
-  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-10-24 09:50:34 +0000 (Tue, 24 Oct 2023)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
@@ -65,7 +65,7 @@ location = infos["location"];
 
 if( version_is_less( version: version, test_version: "6.3.0" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "6.3.0", install_path: location );
-  security_message( data: report, port: port );
+  security_message( port: port, data: report );
   exit( 0 );
 }
 

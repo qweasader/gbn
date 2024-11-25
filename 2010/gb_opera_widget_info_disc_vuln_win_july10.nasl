@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801371");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-28T05:05:37+0000");
+  script_tag(name:"last_modification", value:"2024-02-28 05:05:37 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-07-16 18:57:03 +0200 (Fri, 16 Jul 2010)");
   script_cve_id("CVE-2010-2659");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_name("Opera Browser 'widget' Information Disclosure Vulnerability july-10 (Windows)");
+  script_name("Opera Browser < 10.50 'widget' Information Disclosure Vulnerability (Jul 2010) - Windows");
   script_xref(name:"URL", value:"http://www.opera.com/support/search/view/959/");
   script_xref(name:"URL", value:"http://www.opera.com/docs/changelogs/mac/1052/");
   script_xref(name:"URL", value:"http://www.vupen.com/english/advisories/2010/1673");

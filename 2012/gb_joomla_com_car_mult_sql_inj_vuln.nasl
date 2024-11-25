@@ -9,13 +9,13 @@ CPE = "cpe:/a:joomla:joomla";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802567");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-01-23 15:38:16 +0530 (Mon, 23 Jan 2012)");
 
-  script_name("Joomla Car Component Multiple SQL Injection Vulnerabilities");
+  script_name("Joomla Car Component Multiple SQLi Vulnerabilities");
 
   script_xref(name:"URL", value:"http://packetstormsecurity.org/files/108909/joomlacarid-sql.txt");
 

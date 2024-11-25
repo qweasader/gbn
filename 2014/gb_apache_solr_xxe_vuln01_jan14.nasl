@@ -9,13 +9,13 @@ CPE = "cpe:/a:apache:solr";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.903507");
-  script_version("2024-01-18T05:07:09+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_cve_id("CVE-2013-6408");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:P");
-  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-01-29 16:29:04 +0530 (Wed, 29 Jan 2014)");
-  script_name("Apache Solr XML External Entity (XXE) Vulnerability (SOLR-4881, SOLR-5520) (Linux)");
+  script_name("Apache Solr XML External Entity (XXE) Vulnerability (SOLR-4881, SOLR-5520) - Linux");
 
   script_tag(name:"summary", value:"Apache Solr is prone to an XML external entity (XXE) vulnerability.");
 

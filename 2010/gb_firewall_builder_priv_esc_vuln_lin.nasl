@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800996");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2010-03-18 15:44:57 +0100 (Thu, 18 Mar 2010)");
   script_tag(name:"cvss_base", value:"3.3");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:N/I:P/A:P");
   script_cve_id("CVE-2009-4664");
-  script_name("Firewall Builder Privilege Escalation Vulnerability (Linux)");
+  script_name("Firewall Builder Privilege Escalation Vulnerability - Linux");
   script_xref(name:"URL", value:"http://secunia.com/advisories/36809");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/36468");
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/53392");
@@ -21,7 +21,7 @@ if(description)
 
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_category(ACT_GATHER_INFO);
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_firewall_builder_detect_lin.nasl");
   script_mandatory_keys("FirewallBuilder/Linux/Ver");
   script_tag(name:"impact", value:"Successful exploitation will allow local users to perform certain actions

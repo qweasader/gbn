@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802842");
-  script_version("2023-10-17T05:05:34+0000");
+  script_version("2024-02-08T05:05:59+0000");
   script_cve_id("CVE-2012-0475");
   script_tag(name:"cvss_base", value:"2.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-05-02 12:29:17 +0530 (Wed, 02 May 2012)");
-  script_name("Mozilla Products Security Bypass Vulnerability - May12 (Windows)");
+  script_name("Mozilla Products Security Bypass Vulnerability (May 2012) - Windows");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/48972/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/53230");

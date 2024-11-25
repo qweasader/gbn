@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.58525");
   script_cve_id("CVE-2007-3798");
   script_tag(name:"creation_date", value:"2008-01-17 22:19:52 +0000 (Thu, 17 Jan 2008)");
-  script_version("2024-01-15T05:06:27+0000");
-  script_tag(name:"last_modification", value:"2024-01-15 05:06:27 +0000 (Mon, 15 Jan 2024)");
+  script_version("2024-02-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-02-01 14:37:10 +0000 (Thu, 01 Feb 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2024-01-12 22:06:00 +0000 (Fri, 12 Jan 2024)");
+  script_tag(name:"severity_date", value:"2007-07-17 22:11:00 +0000 (Tue, 17 Jul 2007)");
 
   script_name("Debian: Security Advisory (DSA-1353-1)");
   script_category(ACT_GATHER_INFO);

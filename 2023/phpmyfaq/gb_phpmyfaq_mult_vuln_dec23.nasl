@@ -9,8 +9,8 @@ CPE = "cpe:/a:phpmyfaq:phpmyfaq";
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.124493");
-  script_version("2023-12-26T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-12-26 05:05:23 +0000 (Tue, 26 Dec 2023)");
+  script_version("2024-04-02T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-04-02 05:05:32 +0000 (Tue, 02 Apr 2024)");
   script_tag(name:"creation_date", value:"2023-12-20 08:08:56 +0200 (Wed, 20 Dec 2023)");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:N");
@@ -56,10 +56,10 @@ if( description )
 include("host_details.inc");
 include("version_func.inc");
 
-if ( !port = get_app_port( cpe: CPE ) )
+if ( ! port = get_app_port( cpe: CPE ) )
   exit( 0 );
 
-if (!version = get_app_version( cpe: CPE, port: port ) )
+if ( ! version = get_app_version( cpe: CPE, port: port ) )
   exit( 0 );
 
 if ( version_is_less( version: version, test_version: "3.1.17" ) ) {

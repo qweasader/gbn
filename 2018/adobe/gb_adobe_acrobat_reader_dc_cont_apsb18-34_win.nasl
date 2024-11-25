@@ -9,18 +9,18 @@ CPE = "cpe:/a:adobe:acrobat_reader_dc_continuous";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.814033");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-12T05:05:32+0000");
   script_cve_id("CVE-2018-12848", "CVE-2018-12849", "CVE-2018-12850", "CVE-2018-12801",
                 "CVE-2018-12840", "CVE-2018-12778", "CVE-2018-12775", "CVE-2018-19721",
                 "CVE-2018-19723");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-12 05:05:32 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-02-24 20:15:00 +0000 (Mon, 24 Feb 2020)");
   script_tag(name:"creation_date", value:"2018-09-20 10:19:20 +0530 (Thu, 20 Sep 2018)");
-  script_name("Adobe Acrobat Reader DC (Continuous Track) Security Updates (apsb18-34) - Windows");
+  script_name("Adobe Acrobat Reader DC (Continuous Track) Security Updates (APSB18-34) - Windows");
 
   script_tag(name:"summary", value:"Adobe Acrobat Reader DC (Continuous Track) is prone to multiple vulnerabilities.");
 

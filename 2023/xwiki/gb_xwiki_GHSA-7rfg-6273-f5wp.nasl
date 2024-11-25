@@ -9,8 +9,8 @@ CPE = "cpe:/a:xwiki:xwiki";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.124498");
-  script_version("2024-01-10T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-12-27 09:30:39 +0000 (Wed, 27 Dec 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -33,7 +33,7 @@ if(description)
   script_dependencies("gb_xwiki_enterprise_detect.nasl");
   script_mandatory_keys("xwiki/detected");
 
-  script_tag(name:"summary", value:"Xwiki is prone to a server side request forgery (SSRF)
+  script_tag(name:"summary", value:"Xwiki is prone to a server-side request forgery (SSRF)
   vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
@@ -44,7 +44,8 @@ if(description)
   other domains and include all cookies that were sent in the original request to ensure that
   images with restricted view right can be compared.");
 
-  script_tag(name:"affected", value:"XWiki version 11.10.1 prior to 14.10.15, 15.x prior to 15.5.1.");
+  script_tag(name:"affected", value:"XWiki version 11.10.1 prior to 14.10.15 and 15.x prior to
+  15.5.1.");
 
   script_tag(name:"solution", value:"Update to version 14.10.15, 15.5.1 or later.");
 

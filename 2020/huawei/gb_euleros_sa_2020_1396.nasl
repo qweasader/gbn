@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2020.1396");
   script_cve_id("CVE-2014-3180", "CVE-2014-9888", "CVE-2017-12134", "CVE-2017-13216", "CVE-2017-13693", "CVE-2017-7346", "CVE-2017-8068", "CVE-2017-8069", "CVE-2017-8070", "CVE-2018-12207", "CVE-2018-14633", "CVE-2019-0154", "CVE-2019-0155", "CVE-2019-10126", "CVE-2019-10220", "CVE-2019-11135", "CVE-2019-14895", "CVE-2019-14896", "CVE-2019-14897", "CVE-2019-14901", "CVE-2019-15291", "CVE-2019-16230", "CVE-2019-16231", "CVE-2019-16232", "CVE-2019-18675", "CVE-2019-18805", "CVE-2019-18806", "CVE-2019-19054", "CVE-2019-19056", "CVE-2019-19057", "CVE-2019-19060", "CVE-2019-19062", "CVE-2019-19063", "CVE-2019-19066", "CVE-2019-19073", "CVE-2019-19074", "CVE-2019-19227", "CVE-2019-19332", "CVE-2019-19523", "CVE-2019-19524", "CVE-2019-19527", "CVE-2019-19528", "CVE-2019-19530", "CVE-2019-19531", "CVE-2019-19532", "CVE-2019-19533", "CVE-2019-19534", "CVE-2019-19536", "CVE-2019-19537", "CVE-2019-19768", "CVE-2019-19922", "CVE-2019-19965", "CVE-2019-19966", "CVE-2019-20054", "CVE-2019-20096", "CVE-2019-2215", "CVE-2019-5108", "CVE-2020-2732", "CVE-2020-8647", "CVE-2020-8648", "CVE-2020-8649", "CVE-2020-8992", "CVE-2020-9383");
   script_tag(name:"creation_date", value:"2020-04-16 05:48:56 +0000 (Thu, 16 Apr 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-06-22 14:47:00 +0000 (Tue, 22 Jun 2021)");
+  script_tag(name:"severity_date", value:"2019-12-10 14:55:37 +0000 (Tue, 10 Dec 2019)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2020-1396)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROS\-2\.0SP3");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2020-1396");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2020-1396");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2020-1396");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2020-1396 advisory.");
 
@@ -61,6 +61,8 @@ An out-of-bounds memory write issue was found in the Linux Kernel, version 3.13 
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

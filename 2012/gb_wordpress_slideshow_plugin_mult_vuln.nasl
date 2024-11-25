@@ -9,12 +9,12 @@ CPE = "cpe:/a:wordpress:wordpress";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802999");
-  script_version("2023-10-27T05:05:28+0000");
+  script_version("2024-05-07T05:05:33+0000");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-05-07 05:05:33 +0000 (Tue, 07 May 2024)");
   script_tag(name:"creation_date", value:"2012-10-18 12:07:20 +0530 (Thu, 18 Oct 2012)");
-  script_name("WordPress Slideshow Plugin Multiple Vulnerabilities");
+  script_name("WordPress Slideshow Plugin <= 2.1.12 Multiple Vulnerabilities - Active Check");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Web application abuses");
@@ -26,26 +26,29 @@ if(description)
   script_xref(name:"URL", value:"http://seclists.org/bugtraq/2012/Oct/97");
   script_xref(name:"URL", value:"http://www.securityfocus.com/archive/1/524452/30/0/threaded");
 
-  script_tag(name:"impact", value:"Successful exploitation could allow attackers to execute arbitrary
-  HTML and script code in a user's browser session in context of an affected site
-  and to gain sensitive information like installation path location.");
+  script_tag(name:"summary", value:"WordPress Slideshow Plugin is prone to multiple cross-site
+  scripting (XSS) and full path disclosure vulnerabilities.");
 
-  script_tag(name:"affected", value:"WordPress Slideshow Plugin version 2.1.12");
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks the response.");
 
   script_tag(name:"insight", value:"- Input passed via the 'randomId', 'slides' and 'settings'
   parameters to views/SlideshowPlugin/slideshow.php, 'settings', 'inputFields'
   parameters to views/SlideshowPluginPostType/settings.php and
-  views/SlideshowPluginPostType/style-settings.php is not properly
-  sanitised before being returned to the user.
+  views/SlideshowPluginPostType/style-settings.php is not properly sanitised before being returned
+  to the user.
 
   - Direct request to the multiple '.php' files reveals the full installation path.");
 
-  script_tag(name:"solution", value:"No known solution was made available for at least one year
-  since the disclosure of this vulnerability. Likely none will be provided anymore.
-  General solution options are to upgrade to a newer release, disable respective
-  features, remove the product or replace the product by another one.");
+  script_tag(name:"impact", value:"Successful exploitation could allow attackers to execute
+  arbitrary HTML and script code in a user's browser session in context of an affected site and to
+  gain sensitive information like installation path location.");
 
-  script_tag(name:"summary", value:"WordPress Slideshow Plugin is prone to cross site scripting and full path disclosure vulnerabilities.");
+  script_tag(name:"affected", value:"WordPress Slideshow Plugin version 2.1.12 and probably prior.");
+
+  script_tag(name:"solution", value:"No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
+  options are to upgrade to a newer release, disable respective features, remove the product or
+  replace the product by another one.");
 
   script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"WillNotFix");

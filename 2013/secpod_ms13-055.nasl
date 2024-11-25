@@ -7,7 +7,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.903314");
-  script_version("2023-05-18T09:08:59+0000");
+  script_version("2024-07-01T05:05:39+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2013-3115", "CVE-2013-3143", "CVE-2013-3144", "CVE-2013-3145",
@@ -17,7 +17,10 @@ if(description)
                 "CVE-2013-3166", "CVE-2013-3846");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-05-18 09:08:59 +0000 (Thu, 18 May 2023)");
+  script_tag(name:"last_modification", value:"2024-07-01 05:05:39 +0000 (Mon, 01 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-06-28 13:40:22 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2013-07-10 08:34:28 +0530 (Wed, 10 Jul 2013)");
   script_name("Microsoft Internet Explorer Multiple Vulnerabilities (2846071)");
 

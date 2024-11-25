@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2023.1748");
   script_cve_id("CVE-2017-3735", "CVE-2018-0739", "CVE-2019-1563", "CVE-2021-23840", "CVE-2021-3712", "CVE-2022-0778", "CVE-2022-28737");
   script_tag(name:"creation_date", value:"2023-05-08 04:14:25 +0000 (Mon, 08 May 2023)");
-  script_version("2023-07-31T05:06:15+0000");
-  script_tag(name:"last_modification", value:"2023-07-31 05:06:15 +0000 (Mon, 31 Jul 2023)");
+  script_version("2024-02-05T14:36:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:57 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-07-28 15:33:00 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"severity_date", value:"2023-07-28 15:33:58 +0000 (Fri, 28 Jul 2023)");
 
   script_name("Huawei EulerOS: Security Advisory for shim-signed (EulerOS-SA-2023-1748)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.2\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2023-1748");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2023-1748");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2023-1748");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'shim-signed' package(s) announced via the EulerOS-SA-2023-1748 advisory.");
 

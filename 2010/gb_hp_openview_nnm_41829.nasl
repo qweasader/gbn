@@ -9,8 +9,8 @@ CPE = "cpe:/a:hp:openview_network_node_manager";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100786");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2010-09-07 15:26:31 +0200 (Tue, 07 Sep 2010)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -20,7 +20,6 @@ if(description)
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_dependencies("os_detection.nasl", "secpod_hp_openview_nnm_detect.nasl");
-  script_require_ports("Services/www", 7510);
   script_mandatory_keys("HP/OVNNM/installed", "Host/runs_windows");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/41829");
@@ -47,9 +46,14 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-get_app_version( cpe:CPE, port:port, nofork:TRUE );
-if( ! vers = get_kb_item( "www/"+ port + "/HP/OVNNM/Ver" ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! get_app_version( cpe:CPE, port:port, nofork:TRUE ) )
+  exit( 0 );
+
+if( ! vers = get_kb_item( "www/"+ port + "/HP/OVNNM/Ver" ) )
+  exit( 0 );
 
 if( version_is_equal( version:vers, test_version:"B.07.51" ) ||
     version_is_equal( version:vers, test_version:"B.07.53" ) ) {

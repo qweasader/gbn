@@ -9,8 +9,8 @@ CPE = "cpe:/a:oracle:openjdk";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.114280");
-  script_version("2024-01-19T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2024-01-19 05:06:18 +0000 (Fri, 19 Jan 2024)");
+  script_version("2024-04-19T05:05:37+0000");
+  script_tag(name:"last_modification", value:"2024-04-19 05:05:37 +0000 (Fri, 19 Apr 2024)");
   script_tag(name:"creation_date", value:"2024-01-17 07:49:08 +0000 (Wed, 17 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:N");
@@ -25,7 +25,7 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Oracle OpenJDK 8.x, 11.x, 17.x, 21.x Multiple Vulnerabilities (Jan 2024)");
+  script_name("Oracle OpenJDK 8.x - 21.x Multiple Vulnerabilities (Jan 2024)");
 
   script_category(ACT_GATHER_INFO);
 
@@ -52,10 +52,10 @@ if(description)
 
   See the referenced CVEs for more details on the flaws.");
 
-  script_tag(name:"affected", value:"Oracle OpenJDK versions 8, 11, 17 and 21.
+  script_tag(name:"affected", value:"Oracle OpenJDK versions 8.x through 21.x.
 
   Note: The vendor is only evaluating the affected status of supported versions but EOL versions
-  like 9, 12 or 18 in between the affected versions are also assumed to be affected.");
+  like 9.x, 12.x or 18.x in between the affected versions are also assumed to be affected.");
 
   script_tag(name:"solution", value:"See the referenced vendor advisory for a solution.");
 

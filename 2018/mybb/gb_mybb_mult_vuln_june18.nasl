@@ -9,17 +9,17 @@ CPE = "cpe:/a:mybb:mybb";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813456");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_cve_id("CVE-2018-1000503", "CVE-2018-1000502");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
   script_tag(name:"creation_date", value:"2018-06-27 13:22:02 +0530 (Wed, 27 Jun 2018)");
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("MyBB Multiple Vulnerabilities-June18");
+  script_name("MyBB Multiple Vulnerabilities (Jun 2018)");
 
   script_tag(name:"summary", value:"MyBB is prone to multiple vulnerabilities.");
 

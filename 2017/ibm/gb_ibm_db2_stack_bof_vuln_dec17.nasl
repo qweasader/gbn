@@ -9,15 +9,15 @@ CPE = "cpe:/a:ibm:db2";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812268");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-02-20T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-12-15 15:44:32 +0530 (Fri, 15 Dec 2017)");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:C/I:C/A:C");
 
   script_cve_id("CVE-2014-3094");
 
-  script_name("IBM Db2 Stack Buffer Overflow Vulnerability Dec17");
+  script_name("IBM Db2 Stack Buffer Overflow Vulnerability (Dec 2017)");
 
   script_tag(name:"summary", value:"IBM Db2 is prone to stack buffer overflow vulnerability.");
 

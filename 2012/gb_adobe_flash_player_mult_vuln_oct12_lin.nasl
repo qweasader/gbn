@@ -7,7 +7,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802988");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-08T05:05:59+0000");
   script_cve_id("CVE-2012-5248", "CVE-2012-5249", "CVE-2012-5250", "CVE-2012-5251",
                 "CVE-2012-5252", "CVE-2012-5253", "CVE-2012-5254", "CVE-2012-5255",
                 "CVE-2012-5256", "CVE-2012-5257", "CVE-2012-5258", "CVE-2012-5259",
@@ -18,9 +18,9 @@ if(description)
                 "CVE-2012-5287");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-10-15 12:53:03 +0530 (Mon, 15 Oct 2012)");
-  script_name("Adobe Flash Player Multiple Vulnerabilities - Oct12 (Linux)");
+  script_name("Adobe Flash Player Multiple Vulnerabilities (Oct 2012) - Linux");
   script_xref(name:"URL", value:"http://secunia.com/advisories/50876/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/55827");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/56374");

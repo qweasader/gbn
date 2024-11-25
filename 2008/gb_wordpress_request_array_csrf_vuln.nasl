@@ -9,13 +9,13 @@ CPE = "cpe:/a:wordpress:wordpress";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800140");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2008-11-21 14:18:03 +0100 (Fri, 21 Nov 2008)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:N/I:P/A:P");
   script_cve_id("CVE-2008-5113");
-  script_name("WordPress _REQUEST array Cross Site Request Forgery (CSRF) Vulnerability");
+  script_name("WordPress _REQUEST array CSRF Vulnerability");
 
   script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2008/11/14/1");
   script_xref(name:"URL", value:"http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=504771");
@@ -34,7 +34,8 @@ if(description)
   script_tag(name:"insight", value:"The flaw is due to incorrect usage of _REQUEST super global array,
   which leads to cross site request forgery (CSRF) attacks via crafted cookies.");
 
-  script_tag(name:"summary", value:"WordPress is prone to Cross Site Request Forgery(CSRF) Vulnerabilities.");
+  script_tag(name:"summary", value:"WordPress is prone to cross-site request forgery (CSRF)
+  vulnerabilities.");
 
   script_tag(name:"solution", value:"Update to WordPress version 2.9.2 or later.");
 

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131291");
   script_cve_id("CVE-2016-2167", "CVE-2016-2168");
   script_tag(name:"creation_date", value:"2016-05-09 11:17:54 +0000 (Mon, 09 May 2016)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"4.9");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-10-20 22:15:00 +0000 (Tue, 20 Oct 2020)");
+  script_tag(name:"severity_date", value:"2016-05-06 17:51:06 +0000 (Fri, 06 May 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0161)");
   script_category(ACT_GATHER_INFO);
@@ -26,11 +26,11 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0161");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0161.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=18299");
   script_xref(name:"URL", value:"http://mail-archives.apache.org/mod_mbox/subversion-announce/201604.mbox/%3CCAP_GPNgJet+7_MAhomFVOXPgLtewcUw9w=k9zdPCkq5tvPxVMA@mail.gmail.com%3E");
-  script_xref(name:"URL", value:"http://svn.apache.org/repos/asf/subversion/tags/1.8.16/CHANGES");
   script_xref(name:"URL", value:"http://subversion.apache.org/security/CVE-2016-2167-advisory.txt");
   script_xref(name:"URL", value:"http://subversion.apache.org/security/CVE-2016-2168-advisory.txt");
+  script_xref(name:"URL", value:"http://svn.apache.org/repos/asf/subversion/tags/1.8.16/CHANGES");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=18299");
   script_xref(name:"URL", value:"https://www.debian.org/security/2016/dsa-3561");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'subversion' package(s) announced via the MGASA-2016-0161 advisory.");

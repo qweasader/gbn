@@ -9,17 +9,17 @@ CPE = "cpe:/a:ibm:tivoli_endpoint_manager";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809368");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2016-0292", "CVE-2016-0397", "CVE-2016-0295");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-03-16 17:52:00 +0000 (Fri, 16 Mar 2018)");
   script_tag(name:"creation_date", value:"2016-10-18 13:23:56 +0530 (Tue, 18 Oct 2016)");
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("IBM BigFix (Formerly Tivoli Endpoint Manager) Multiple Vulnerabilities Oct16");
+  script_name("IBM BigFix (Formerly Tivoli Endpoint Manager) Multiple Vulnerabilities (Oct 2016)");
 
   script_tag(name:"summary", value:"IBM BigFix (Formerly Tivoli Endpoint Manager) is prone to multiple vulnerabilities.");
 
@@ -56,7 +56,7 @@ if (description)
   script_family("Web application abuses");
   script_dependencies("gb_ibm_endpoint_manager_web_detect.nasl");
   script_mandatory_keys("ibm_endpoint_manager/installed");
-  script_require_ports("Services/www", 52311);
+
   exit(0);
 }
 

@@ -8,11 +8,14 @@ if(description)
 {
   script_xref(name:"URL", value:"https://www.redhat.com/archives/fedora-package-announce/2007-April/msg00044.html");
   script_oid("1.3.6.1.4.1.25623.1.0.861368");
-  script_version("2023-07-06T05:05:36+0000");
-  script_tag(name:"last_modification", value:"2023-07-06 05:05:36 +0000 (Thu, 06 Jul 2023)");
+  script_version("2024-02-05T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 05:05:38 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-02-27 16:27:46 +0100 (Fri, 27 Feb 2009)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:C/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-02 14:03:24 +0000 (Fri, 02 Feb 2024)");
   script_xref(name:"FEDORA", value:"2007-415");
   script_cve_id("CVE-2007-1285", "CVE-2007-1583", "CVE-2007-1718", "CVE-2007-1001", "CVE-2007-0455");
   script_name("Fedora Update for php FEDORA-2007-415");

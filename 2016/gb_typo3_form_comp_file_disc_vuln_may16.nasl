@@ -2,19 +2,19 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:typo3:typo3";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807829");
-  script_version("2023-04-05T10:19:45+0000");
+  script_version("2024-02-23T14:36:45+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-04-05 10:19:45 +0000 (Wed, 05 Apr 2023)");
+  script_tag(name:"last_modification", value:"2024-02-23 14:36:45 +0000 (Fri, 23 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-05-20 18:19:17 +0530 (Fri, 20 May 2016)");
-  script_name("TYPO3 Form Component Arbitrary File Disclosure Vulnerability May16 (SA-2016-010)");
+  script_name("TYPO3 Form Component Arbitrary File Disclosure Vulnerability (TYPO3-CORE-SA-2016-010)");
 
   script_tag(name:"summary", value:"TYPO3 is prone to arbitrary file disclosure vulnerability.");
 

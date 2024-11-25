@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811567");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-06-21T05:05:42+0000");
   script_cve_id("CVE-2017-8516");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-10-27 01:04:00 +0000 (Thu, 27 Oct 2022)");
@@ -40,80 +40,35 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
-  script_dependencies("smb_reg_service_pack.nasl");
-  script_mandatory_keys("SMB/WindowsVersion");
-  script_require_ports(139, 445);
+  script_dependencies("gb_microsoft_sql_server_consolidation.nasl");
+  script_mandatory_keys("microsoft/sqlserver/smb-login/detected");
   exit(0);
 }
 
-include("smb_nt.inc");
 include("host_details.inc");
 include("version_func.inc");
-include("secpod_smb_func.inc");
 
-os_arch = get_kb_item("SMB/Windows/Arch");
-if(!os_arch){
+CPE = "cpe:/a:microsoft:sql_server";
+
+if(isnull(port = get_app_port(cpe:CPE, service:"smb-login")))
   exit(0);
-}
 
-if("x64" >< os_arch){
-  arch = "x64";
-}
-else if("x86" >< os_arch){
-  arch = "x86";
-}
-else{
+if(!infos = get_app_full(cpe:CPE, port:port, exit_no_version:TRUE))
   exit(0);
-}
 
-ms_sql_key = "SOFTWARE\Microsoft\Microsoft SQL Server\";
-if(!registry_key_exists(key:ms_sql_key)){
+if(!vers = infos["internal_version"])
   exit(0);
-}
 
-foreach item (registry_enum_keys(key:ms_sql_key))
-{
-  sql_path = registry_get_sz(key:ms_sql_key + item + "\Tools\Setup", item:"SQLPath");
-  sql_ver = registry_get_sz(key:ms_sql_key + item + "\Tools\Setup", item:"Version");
+location = infos["location"];
 
-  if(!sql_ver){
-    continue;
-  }
-
-  if("Microsoft SQL Server" >< sql_path)
-  {
-    ## Reset the string
-    sql_ver_path = "";
-
-    if(sql_ver =~ "^13\.0"){
-      sql_ver_path = "SQLServer2016";
-    }
-    else{
-      continue;
-    }
-
-    ## TODO: We have taken arch path for "x86" on assumption and some google
-    ## but not sure about the file path in case in "x86", we need to update the
-    ## path if it's different.
-    sql_path = sql_path - "Tools\" + "Setup Bootstrap\" + sql_ver_path + "\" + arch;
-
-    sysVer = fetch_file_version(sysPath:sql_path,
-             file_name:"Microsoft.sqlserver.chainer.infrastructure.dll");
-
-    if(sysVer)
-    {
-      ## MS SQl 2016 :  GDR(13.0.4206.0)
-      if(sysVer =~ "^13\.0")
-      {
-        if(version_in_range(version:sysVer, test_version:"13.0.4000.0", test_version2:"13.0.4205.0"))
-        {
-          report = 'File checked:     ' + sql_path + "\microsoft.sqlserver.chainer.infrastructre.dll" + '\n' +
-                   'File version:     ' + sysVer  + '\n' +
-                   'Vulnerable range: 13.0.4000.0 - 13.0.4205.0\n' ;
-          security_message(data:report);
-          exit(0);
-        }
-      }
-    }
+## MS SQl 2016 :  GDR(13.0.4206.0)
+if(vers =~ "^13\.0") {
+  if(version_in_range(version:vers, test_version:"13.0.4000.0", test_version2:"13.0.4205.0")) {
+    report = report_fixed_ver(installed_version:vers, install_path:location,
+                              vulnerable_range:"13.0.4000.0 - 13.0.4205.0");
+    security_message(port:port, data:report);
+    exit(0);
   }
 }
+
+exit(99);

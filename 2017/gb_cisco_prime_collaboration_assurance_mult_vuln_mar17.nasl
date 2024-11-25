@@ -9,16 +9,16 @@ CPE = "cpe:/a:cisco:prime_collaboration_assurance";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810677");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_cve_id("CVE-2017-3843", "CVE-2017-3844", "CVE-2017-3845");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-07-25 01:29:00 +0000 (Tue, 25 Jul 2017)");
   script_tag(name:"creation_date", value:"2017-03-23 10:34:46 +0530 (Thu, 23 Mar 2017)");
-  script_name("Cisco Prime Collaboration Assurance Multiple Vulnerabilities - Mar17");
+  script_name("Cisco Prime Collaboration Assurance Multiple Vulnerabilities (Mar 2017)");
 
   script_tag(name:"summary", value:"cisco prime collaboration assurance is prone to multiple vulnerabilities.");
 

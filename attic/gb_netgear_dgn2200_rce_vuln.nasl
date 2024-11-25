@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107229");
-  script_version("2023-06-27T05:05:30+0000");
-  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
+  script_version("2024-07-17T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-07-17 05:05:38 +0000 (Wed, 17 Jul 2024)");
   script_tag(name:"creation_date", value:"2017-06-28 17:33:05 +0200 (Wed, 28 Jun 2017)");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
@@ -16,15 +16,16 @@ if(description)
 
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
+  script_tag(name:"severity_date", value:"2024-07-16 17:55:52 +0000 (Tue, 16 Jul 2024)");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_name("NETGEAR DGN2200 CVE-2017-6334 Remote Code Execution Vulnerability");
+  script_name("NETGEAR DGN2200 CVE-2017-6334 RCE Vulnerability");
 
-  script_tag(name:"summary", value:"NETGEAR DGN2200 is prone to a remote code-execution vulnerability.");
+  script_tag(name:"summary", value:"NETGEAR DGN2200 is prone to a remote code execution (RCE)
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

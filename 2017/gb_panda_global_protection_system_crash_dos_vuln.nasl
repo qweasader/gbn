@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108315");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2017-12-20 12:31:33 +0100 (Wed, 20 Dec 2017)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
@@ -34,7 +34,7 @@ if( description )
   script_tag(name:"summary", value:"Panda Global Protection through 17.00.01 is vulnerable to
   multiple vulnerabilities that can cause a system crash.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the system.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"A system crash can be caused through both a 0xb3702c04 or 0xb3702c44 DeviceIoControl request.");
 

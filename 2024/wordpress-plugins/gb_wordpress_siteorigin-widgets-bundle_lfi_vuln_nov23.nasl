@@ -9,8 +9,8 @@ CPE = "cpe:/a:siteorigin:siteorigin_widgets_bundle";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127676");
-  script_version("2024-01-12T05:05:56+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 05:05:56 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-10-31T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-10-31 05:05:48 +0000 (Thu, 31 Oct 2024)");
   script_tag(name:"creation_date", value:"2024-01-04 19:50:45 +0000 (Thu, 04 Jan 2024)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:M/C:C/I:C/A:C");
@@ -42,7 +42,7 @@ if (description)
   generate paths passed to include function/s, allowing users with the administrator role to
   perform LFI attacks in the context of Multisite WordPress sites.");
 
-  script_tag(name:"affected", value:"WordPress SiteOrigin Widgets Bundle prior to version
+  script_tag(name:"affected", value:"WordPress SiteOrigin Widgets Bundle plugin prior to version
   1.51.0.");
 
   script_tag(name:"solution", value:"Update to version 1.51.0 or later.");

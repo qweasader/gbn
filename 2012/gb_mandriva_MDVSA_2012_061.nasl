@@ -8,12 +8,15 @@ if(description)
 {
   script_xref(name:"URL", value:"http://www.mandriva.com/en/support/security/advisories/?name=MDVSA-2012:061");
   script_oid("1.3.6.1.4.1.25623.1.0.831642");
-  script_version("2023-07-14T05:06:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 05:06:08 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-02-16T05:06:55+0000");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-08-03 09:58:01 +0530 (Fri, 03 Aug 2012)");
   script_cve_id("CVE-2012-0037");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-15 03:22:33 +0000 (Thu, 15 Feb 2024)");
   script_xref(name:"MDVSA", value:"2012:061");
   script_name("Mandriva Update for raptor MDVSA-2012:061 (raptor)");
 

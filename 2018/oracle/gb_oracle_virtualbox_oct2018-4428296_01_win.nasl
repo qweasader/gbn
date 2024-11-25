@@ -9,19 +9,19 @@ CPE = "cpe:/a:oracle:vm_virtualbox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.814264");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-02-12T05:05:32+0000");
   script_cve_id("CVE-2018-3287", "CVE-2018-0732", "CVE-2018-2909", "CVE-2018-3290",
                 "CVE-2018-3291", "CVE-2018-3292", "CVE-2018-3293", "CVE-2018-3294",
                 "CVE-2018-3295", "CVE-2018-3296", "CVE-2018-3297", "CVE-2018-3298",
                 "CVE-2018-3289", "CVE-2018-3288");
   script_tag(name:"cvss_base", value:"6.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-12 05:05:32 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
   script_tag(name:"creation_date", value:"2018-10-17 12:26:17 +0530 (Wed, 17 Oct 2018)");
-  script_name("Oracle VirtualBox Security Updates (oct2018-4428296)-Windows");
+  script_name("Oracle VirtualBox Security Updates (oct2018-4428296) - Windows");
 
   script_tag(name:"summary", value:"Oracle VM VirtualBox is prone to multiple vulnerabilities.");
 

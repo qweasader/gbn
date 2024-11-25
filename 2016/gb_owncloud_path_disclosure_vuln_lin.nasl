@@ -9,16 +9,16 @@ CPE = "cpe:/a:owncloud:owncloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807401");
-  script_version("2023-12-01T16:11:30+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2016-1501");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-01-12 02:48:00 +0000 (Tue, 12 Jan 2016)");
   script_tag(name:"creation_date", value:"2016-03-02 15:04:46 +0530 (Wed, 02 Mar 2016)");
-  script_name("ownCloud 8.0.x < 8.0.9, 8.1.x < 8.1.4 Path Disclosure Vulnerability (Linux)");
+  script_name("ownCloud 8.0.x < 8.0.9, 8.1.x < 8.1.4 Path Disclosure Vulnerability - Linux");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");

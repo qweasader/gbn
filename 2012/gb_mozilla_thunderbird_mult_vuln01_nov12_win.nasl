@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803351");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-16T05:06:55+0000");
   script_cve_id("CVE-2012-4209", "CVE-2012-4214", "CVE-2012-4215", "CVE-2012-4216",
                 "CVE-2012-4201", "CVE-2012-4202", "CVE-2012-4207", "CVE-2012-5842",
                 "CVE-2012-5841", "CVE-2012-5829", "CVE-2012-5840", "CVE-2012-5833",
                 "CVE-2012-5835", "CVE-2012-5839");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-11-26 12:10:03 +0530 (Mon, 26 Nov 2012)");
-  script_name("Mozilla Thunderbird Multiple Vulnerabilities-01 November12 (Windows)");
+  script_name("Mozilla Thunderbird Multiple Vulnerabilities-01 (Nov 2012) - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/51358");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/56611");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/56614");

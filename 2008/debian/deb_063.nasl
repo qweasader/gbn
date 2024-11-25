@@ -8,8 +8,8 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.53816");
   script_cve_id("CVE-2001-0763", "CVE-2001-1322");
-  script_version("2023-07-19T05:05:15+0000");
-  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2008-01-17 14:24:38 +0100 (Thu, 17 Jan 2008)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -29,7 +29,7 @@ Another problem is that xinetd sets it umask to 0. As a result any
 programs that xinetd start that are not careful with file permissions
 will create world-writable files.
 
-Both problems have been fixed in version 2.1.8.8.p3-1.1 .");
+Both problems have been fixed in version 2.1.8.8.p3-1.1.");
   script_tag(name:"summary", value:"The remote host is missing an update to xinetd
 announced via advisory DSA 063-1.");
   script_tag(name:"qod_type", value:"package");

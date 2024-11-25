@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113099");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-02-01 13:06:12 +0100 (Thu, 01 Feb 2018)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -33,7 +33,7 @@ if( description )
 
   script_tag(name:"summary", value:"SuperAntiSpyware 6.0.1254 is prone to multiple vulnerabilities.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"An attacker can write to the driver file. The input is not validated, leading
 to possible BSOD or Privilege Escalation.");

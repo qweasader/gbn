@@ -9,16 +9,16 @@ CPE = "cpe:/a:adobe:flash_player_chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.815060");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2019-7837");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-05-23 13:48:00 +0000 (Thu, 23 May 2019)");
   script_tag(name:"creation_date", value:"2019-05-15 12:43:15 +0530 (Wed, 15 May 2019)");
-  script_name("Adobe Flash Player Within Google Chrome Security Update(apsb19-26) - Mac OS X");
+  script_name("Adobe Flash Player Within Google Chrome Security Update (APSB19-26) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Flash Player is prone to an use after free vulnerability.");
 

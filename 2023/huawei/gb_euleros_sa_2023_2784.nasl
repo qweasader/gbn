@@ -9,13 +9,10 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2023.2784");
   script_cve_id("CVE-2020-23064");
   script_tag(name:"creation_date", value:"2023-09-11 13:33:06 +0000 (Mon, 11 Sep 2023)");
-  script_version("2023-09-12T05:05:19+0000");
-  script_tag(name:"last_modification", value:"2023-09-12 05:05:19 +0000 (Tue, 12 Sep 2023)");
-  script_tag(name:"cvss_base", value:"6.4");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
-  script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-07-04 01:38:00 +0000 (Tue, 04 Jul 2023)");
+  script_version("2024-05-16T05:05:35+0000");
+  script_tag(name:"last_modification", value:"2024-05-16 05:05:35 +0000 (Thu, 16 May 2024)");
+  script_tag(name:"cvss_base", value:"5.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 
   script_name("Huawei EulerOS: Security Advisory for doxygen (EulerOS-SA-2023-2784)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +22,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROS\-2\.0SP10");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2023-2784");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2023-2784");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2023-2784");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'doxygen' package(s) announced via the EulerOS-SA-2023-2784 advisory.");
 

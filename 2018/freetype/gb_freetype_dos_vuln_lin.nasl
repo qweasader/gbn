@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113116");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-02-16 14:32:33 +0100 (Fri, 16 Feb 2018)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
@@ -22,7 +22,7 @@ if( description )
 
   script_cve_id("CVE-2018-6942");
 
-  script_name("FreeType 2 DoS Vulnerability (Linux)");
+  script_name("FreeType 2.x < 2.9.1 DoS Vulnerability - Linux");
 
   script_category(ACT_GATHER_INFO);
 
@@ -31,10 +31,17 @@ if( description )
   script_dependencies("secpod_freetype_detect_lin.nasl");
   script_mandatory_keys("FreeType/Linux/Ver");
 
-  script_tag(name:"summary", value:"FreeType 2 is prone to a Denial of Service vulnerability.");
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target system.");
-  script_tag(name:"insight", value:"An issue was discovered in FreeType 2. A NULL pointer dereference in the Ins_GETVARIATION() function within ttinterp.c could lead to DoS via a crafted font file.");
+  script_tag(name:"summary", value:"FreeType 2 is prone to a denial of service (DoS)
+  vulnerability.");
+
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+
+  script_tag(name:"insight", value:"An issue was discovered in FreeType 2. A NULL pointer
+  dereference in the Ins_GETVARIATION() function within ttinterp.c could lead to DoS via a crafted
+  font file.");
+
   script_tag(name:"affected", value:"FreeType 2 through version 2.9.");
+
   script_tag(name:"solution", value:"Update to version 2.9.1 or later.");
 
   script_xref(name:"URL", value:"https://git.savannah.gnu.org/cgit/freetype/freetype2.git/commit/?id=29c759284e305ec428703c9a5831d0b1fc3497ef");

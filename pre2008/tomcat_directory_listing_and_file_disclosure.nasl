@@ -9,14 +9,13 @@ CPE = "cpe:/a:apache:tomcat";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11438");
-  script_version("2023-08-03T05:05:16+0000");
-  script_tag(name:"last_modification", value:"2023-08-03 05:05:16 +0000 (Thu, 03 Aug 2023)");
+  script_version("2024-04-04T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2024-04-04 05:05:25 +0000 (Thu, 04 Apr 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/6721");
-  script_cve_id("CVE-2003-0042");
-  script_name("Apache Tomcat Directory Listing and File disclosure");
+  script_cve_id("CVE-2003-0042", "CVE-2003-0043");
+  script_name("Apache Tomcat < 3.3.1a Directory Listing and File Disclosure Vulnerability - Active Check");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2003 A.D.Consulting");
   script_family("Web Servers");
@@ -24,13 +23,22 @@ if(description)
   script_require_ports("Services/www", 8080);
   script_mandatory_keys("apache/tomcat/http/detected");
 
-  script_tag(name:"solution", value:"Update Tomcat to version 4.1.18 or later.");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210420135001/http://www.securityfocus.com/bid/6721");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210413203724/http://www.securityfocus.com/bid/6722");
 
-  script_tag(name:"summary", value:"Apache Tomcat (prior to 3.3.1a) is prone to a directory listing and file
+  script_tag(name:"summary", value:"Apache Tomcat is prone to a directory listing and a file
   disclosure vulnerability.");
 
-  script_tag(name:"insight", value:"The flaw allows remote attackers to potentially list directories even
-  with an index.html or other file present, or obtain unprocessed source code for a JSP file.");
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks the response.");
+
+  script_tag(name:"insight", value:"The flaw allows remote attackers to potentially list directories
+  even with an index.html or other file present, or obtain unprocessed source code for a JSP
+  file.");
+
+  script_tag(name:"affected", value:"Apache Tomcat prior to version 3.3.1a when used with JDK 1.3.1
+  or earlier.");
+
+  script_tag(name:"solution", value:"Update to version 3.3.1a or later.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_vul");
@@ -59,7 +67,8 @@ if( ! res )
   exit( 0 );
 
 if( "Index of /" >< res || "Directory Listing" >< res ) {
-  security_message( port:port );
+  report = http_report_vuln_url( port:port, url:"/<asciinullchar>.jsp" );
+  security_message( port:port, data:report );
   exit( 0 );
 }
 

@@ -9,17 +9,17 @@ CPE = "cpe:/a:imagemagick:imagemagick";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810585");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2015-8901", "CVE-2015-8902", "CVE-2015-8903");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-07-31 18:43:00 +0000 (Fri, 31 Jul 2020)");
   script_tag(name:"creation_date", value:"2017-03-09 13:32:59 +0530 (Thu, 09 Mar 2017)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("ImageMagick Multiple Denial of Service Vulnerabilities Mar17 (Mac OS X)");
+  script_name("ImageMagick Multiple Denial of Service Vulnerabilities (Mar 2017) - Mac OS X");
 
   script_tag(name:"summary", value:"ImageMagick is prone to multiple denial of service vulnerabilities.");
 

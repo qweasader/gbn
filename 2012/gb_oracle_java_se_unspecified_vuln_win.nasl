@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802950");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-27T14:36:53+0000");
   script_cve_id("CVE-2012-1726");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-27 14:36:53 +0000 (Tue, 27 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-08-22 19:06:04 +0530 (Wed, 22 Aug 2012)");
-  script_name("Oracle Java SE Java Runtime Environment Unspecified Vulnerability - (Windows)");
+  script_name("Oracle Java SE Java Runtime Environment Unspecified Vulnerability - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/48589");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/53948");
   script_xref(name:"URL", value:"http://www.oracle.com/technetwork/topics/security/javacpufeb2012-366318.html");
@@ -33,7 +33,6 @@ if(description)
   script_tag(name:"solution_type", value:"VendorFix");
   exit(0);
 }
-
 
 include("version_func.inc");
 

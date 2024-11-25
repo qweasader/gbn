@@ -9,11 +9,11 @@ CPE = "cpe:/a:mcafee:asset_manager";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804428");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2014-2587", "CVE-2014-2588");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2014-04-17 11:25:02 +0530 (Thu, 17 Apr 2014)");
   script_name("McAfee Asset Manager Multiple Vulnerabilities");
 
@@ -46,24 +46,23 @@ General solution options are to upgrade to a newer release, disable respective f
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_dependencies("gb_mcafee_asset_manager_detect.nasl");
   script_mandatory_keys("McAfee/Asset/Manager/installed");
-  script_require_ports("Services/www", 443);
+
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!mwgPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_is_equal(version:version, test_version:"6.6")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"None");
+  security_message(port:port, data:report);
   exit(0);
 }
 
-mwgVer = get_app_version(cpe:CPE, port:mwgPort);
-if(!mwgVer){
-  exit(0);
-}
-
-if(version_is_equal(version:mwgVer, test_version:"6.6"))
-{
-  security_message(port:mwgPort);
-  exit(0);
-}
+exit(0);

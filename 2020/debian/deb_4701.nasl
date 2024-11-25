@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.704701");
   script_cve_id("CVE-2020-0543", "CVE-2020-0548", "CVE-2020-0549");
   script_tag(name:"creation_date", value:"2020-06-12 03:00:45 +0000 (Fri, 12 Jun 2020)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-11-08T15:39:48+0000");
+  script_tag(name:"last_modification", value:"2024-11-08 15:39:48 +0000 (Fri, 08 Nov 2024)");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:N/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-09-09 08:15:00 +0000 (Wed, 09 Sep 2020)");
+  script_tag(name:"severity_date", value:"2020-02-25 16:52:27 +0000 (Tue, 25 Feb 2020)");
 
   script_name("Debian: Security Advisory (DSA-4701-1)");
   script_category(ACT_GATHER_INFO);
@@ -27,7 +27,7 @@ if(description)
   script_xref(name:"Advisory-ID", value:"DSA-4701-1");
   script_xref(name:"URL", value:"https://www.debian.org/security/2020/DSA-4701-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-4701");
-  script_xref(name:"URL", value:"https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00320.html,");
+  script_xref(name:"URL", value:"https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00320.html");
   script_xref(name:"URL", value:"https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00329.html");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/intel-microcode");
 

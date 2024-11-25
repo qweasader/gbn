@@ -9,13 +9,13 @@ CPE = "cpe:/a:adobe:adobe_air";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805590");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-08T14:36:53+0000");
   script_cve_id("CVE-2015-3097");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-06-15 13:30:22 +0530 (Mon, 15 Jun 2015)");
-  script_name("Adobe Air Security Bypass Vulnerability - June15 (Windows)");
+  script_name("Adobe Air Security Bypass Vulnerability (Jun 2015) - Windows");
 
   script_tag(name:"summary", value:"Adobe Air and is prone to a security bypass vulnerability.");
 

@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103391");
-  script_version("2023-12-13T05:05:23+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_tag(name:"cvss_base", value:"2.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:N/I:P/A:N");
-  script_name("OneOrZero AIMS 'index.php' Cross Site Scripting Vulnerability");
+  script_name("OneOrZero AIMS 'index.php' XSS Vulnerability");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51549");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-01-19 11:24:53 +0100 (Thu, 19 Jan 2012)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_analysis");

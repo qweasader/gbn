@@ -10,11 +10,14 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103508");
   script_cve_id("CVE-2012-0911");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-01-23T05:05:19+0000");
+  script_tag(name:"last_modification", value:"2024-01-23 05:05:19 +0000 (Tue, 23 Jan 2024)");
   script_tag(name:"creation_date", value:"2012-07-09 14:32:27 +0200 (Mon, 09 Jul 2012)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-01-21 02:50:00 +0000 (Sun, 21 Jan 2024)");
   script_name("Tiki Wiki CMS Groupware 'unserialize()' Multiple PHP Code Execution Vulnerabilities");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");

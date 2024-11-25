@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2016.0349");
   script_cve_id("CVE-2015-7554", "CVE-2015-8668", "CVE-2016-3186", "CVE-2016-3622", "CVE-2016-3623", "CVE-2016-3632", "CVE-2016-3945", "CVE-2016-3990", "CVE-2016-3991", "CVE-2016-5314", "CVE-2016-5315", "CVE-2016-5316", "CVE-2016-5317", "CVE-2016-5320", "CVE-2016-5321", "CVE-2016-5322", "CVE-2016-5323", "CVE-2016-5875", "CVE-2016-6223");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-12-22T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-12-22 05:05:24 +0000 (Fri, 22 Dec 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-12-20 18:28:00 +0000 (Wed, 20 Dec 2023)");
+  script_tag(name:"severity_date", value:"2016-01-13 16:19:10 +0000 (Wed, 13 Jan 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0349)");
   script_category(ACT_GATHER_INFO);
@@ -26,16 +26,16 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0349");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0349.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17480");
-  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2015/12/26/7");
-  script_xref(name:"URL", value:"https://lists.opensuse.org/opensuse-updates/2016-04/msg00064.html");
-  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2016/07/14/4");
   script_xref(name:"URL", value:"http://lwn.net/Vulnerabilities/695692/");
-  script_xref(name:"URL", value:"https://lists.opensuse.org/opensuse-updates/2016-07/msg00087.html");
-  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2016-1546.html");
   script_xref(name:"URL", value:"http://lwn.net/Vulnerabilities/696207/");
   script_xref(name:"URL", value:"http://lwn.net/Vulnerabilities/698795/");
   script_xref(name:"URL", value:"http://lwn.net/Vulnerabilities/699684/");
+  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2015/12/26/7");
+  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2016/07/14/4");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17480");
+  script_xref(name:"URL", value:"https://lists.opensuse.org/opensuse-updates/2016-04/msg00064.html");
+  script_xref(name:"URL", value:"https://lists.opensuse.org/opensuse-updates/2016-07/msg00087.html");
+  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2016-1546.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'libtiff' package(s) announced via the MGASA-2016-0349 advisory.");
 

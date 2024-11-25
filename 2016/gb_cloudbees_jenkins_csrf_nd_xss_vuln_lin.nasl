@@ -9,16 +9,17 @@ CPE = "cpe:/a:jenkins:jenkins";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807348");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2013-2034", "CVE-2013-2033", "CVE-2013-1808");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-07-14 13:00:47 +0530 (Thu, 14 Jul 2016)");
 
   script_name("Jenkins CSRF And XSS Vulnerabilities - Linux");
 
-  script_tag(name:"summary", value:"Jenkins is prone to cross-site request forgery and cross-site scripting vulnerabilities.");
+  script_tag(name:"summary", value:"Jenkins is prone to cross-site request forgery (CSRF) and cross-
+  site scripting vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

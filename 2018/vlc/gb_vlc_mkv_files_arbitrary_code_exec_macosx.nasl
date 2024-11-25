@@ -9,17 +9,17 @@ CPE = "cpe:/a:videolan:vlc_media_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813575");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2018-11529");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:A/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-03-21 20:10:00 +0000 (Thu, 21 Mar 2019)");
   script_tag(name:"creation_date", value:"2018-07-17 11:51:09 +0530 (Tue, 17 Jul 2018)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("VLC Media Player MKV Files Arbitrary Code Execution Vulnerability (Mac OS X)");
+  script_name("VLC Media Player MKV Files Arbitrary Code Execution Vulnerability - Mac OS X");
 
   script_tag(name:"summary", value:"VLC media player is prone to an arbitrary code execution vulnerability.");
 

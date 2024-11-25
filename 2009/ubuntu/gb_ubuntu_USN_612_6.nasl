@@ -8,8 +8,8 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.840321");
   script_tag(name:"creation_date", value:"2009-03-23 09:59:50 +0000 (Mon, 23 Mar 2009)");
-  script_version("2023-06-21T05:06:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:20 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 
@@ -22,8 +22,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"USN-612-6");
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-612-6");
-  script_xref(name:"URL", value:"https://launchpad.net/bugs/230208");
   script_xref(name:"URL", value:"https://launchpad.net/bugs/230193");
+  script_xref(name:"URL", value:"https://launchpad.net/bugs/230208");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'openssl-blacklist, openvpn' package(s) announced via the USN-612-6 advisory.");
 

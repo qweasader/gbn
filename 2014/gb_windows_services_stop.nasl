@@ -1,38 +1,25 @@
-# Copyright (C) 2014 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2014 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804787");
-  script_version("2022-07-27T10:11:28+0000");
+  script_version("2024-07-24T05:06:37+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-07-27 10:11:28 +0000 (Wed, 27 Jul 2022)");
+  script_tag(name:"last_modification", value:"2024-07-24 05:06:37 +0000 (Wed, 24 Jul 2024)");
   script_tag(name:"creation_date", value:"2014-11-05 11:50:33 +0530 (Wed, 05 Nov 2014)");
   script_name("Windows Services Stop");
   # nb: Needs to run at the end of the scan because the services shouldn't be stopped before...
   script_category(ACT_END);
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Windows");
   script_mandatory_keys("RemoteRegistry/Win/Service/Manual/Start");
   script_require_ports(139, 445);
+  script_exclude_keys("win/lsc/disable_win_cmd_exec");
 
   script_tag(name:"summary", value:"If the Windows services got started manually by a VT then stop
   those services at the end of a scan.");
@@ -45,6 +32,8 @@ if(description)
 include("smb_nt.inc");
 
 if( ! defined_func( "win_cmd_exec" ) ) exit( 0 );
+
+if( get_kb_item( "win/lsc/disable_win_cmd_exec" ) ) exit( 0 );
 
 function run_command( command, password, username ) {
 

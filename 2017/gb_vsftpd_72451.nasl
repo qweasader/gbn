@@ -4,28 +4,26 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:beasts:vsftpd';
+CPE = "cpe:/a:beasts:vsftpd";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108045");
   script_cve_id("CVE-2015-1419");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-01T14:37:10+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2017-01-18 10:23:55 +0100 (Wed, 18 Jan 2017)");
   script_name("vsftpd < 3.0.3 Security Bypass Vulnerability");
   script_category(ACT_GATHER_INFO);
   script_family("FTP");
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_dependencies("sw_vsftpd_detect.nasl");
-  script_require_ports("Services/ftp", 21);
   script_mandatory_keys("vsftpd/installed");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/72451");
   script_xref(name:"URL", value:"https://security.appspot.com/vsftpd/Changelog.txt");
-  script_xref(name:"URL", value:"https://security.appspot.com/vsftpd.html");
 
   script_tag(name:"summary", value:"vsftpd is prone to a security-bypass vulnerability.");
 
@@ -45,8 +43,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_less( version:vers, test_version:"3.0.2" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"3.0.3" );

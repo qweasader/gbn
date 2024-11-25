@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2015 SCHUTZWERK GmbH
+# SPDX-FileCopyrightText: New/improved detection methods / pattern / code since 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -7,8 +8,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111001");
-  script_version("2023-06-22T10:34:15+0000");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_version("2024-04-03T05:05:20+0000");
+  script_tag(name:"last_modification", value:"2024-04-03 05:05:20 +0000 (Wed, 03 Apr 2024)");
   script_tag(name:"creation_date", value:"2015-03-02 12:00:00 +0100 (Mon, 02 Mar 2015)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -42,7 +43,9 @@ foreach dir( make_list_unique( "/", "/jenkins", http_cgi_dirs( port:port ) ) ) {
     dir = "";
 
   buf1 =  http_get_cache( item:dir + "/", port:port );
-  headers1 = http_extract_headers_from_response( data:buf1 );
+  if( buf1 )
+    headers1 = http_extract_headers_from_response( data:buf1 );
+
   buf2 = http_get_cache( item:dir + "/login", port:port );
 
   if( "Welcome to Jenkins!" >< buf1 || "<title>Dashboard [Jenkins]</title>" >< buf1 || headers1 =~ "X-Jenkins\s*:" ||
@@ -71,7 +74,7 @@ foreach dir( make_list_unique( "/", "/jenkins", http_cgi_dirs( port:port ) ) ) {
         version = ver[1];
     }
 
-    # nb: set kb-item for LTS version of Jenkins to differentiate it from weekly version in the VTs
+    # nb: set KB item for LTS version of Jenkins to differentiate it from weekly version in the VTs
     # LTS: x.x.x - Weekly: x.x
     if( version && version != "unknown" ) {
       if( version =~ "^[0-9]+\.[0-9]+\.[0-9]+" ) {

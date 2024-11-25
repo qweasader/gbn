@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2023.2498");
   script_cve_id("CVE-2021-42523");
   script_tag(name:"creation_date", value:"2023-08-01 04:15:08 +0000 (Tue, 01 Aug 2023)");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-02-05T14:36:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:57 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-08-31 16:54:00 +0000 (Wed, 31 Aug 2022)");
+  script_tag(name:"severity_date", value:"2022-08-31 16:54:01 +0000 (Wed, 31 Aug 2022)");
 
   script_name("Huawei EulerOS: Security Advisory for colord (EulerOS-SA-2023-2498)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.6\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2023-2498");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2023-2498");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2023-2498");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'colord' package(s) announced via the EulerOS-SA-2023-2498 advisory.");
 

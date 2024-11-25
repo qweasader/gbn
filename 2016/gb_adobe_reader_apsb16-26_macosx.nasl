@@ -9,7 +9,7 @@ CPE = "cpe:/a:adobe:acrobat_reader";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808582");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2016-4191", "CVE-2016-4192", "CVE-2016-4193", "CVE-2016-4194",
                 "CVE-2016-4195", "CVE-2016-4196", "CVE-2016-4197", "CVE-2016-4198",
                 "CVE-2016-4199", "CVE-2016-4200", "CVE-2016-4201", "CVE-2016-4202",
@@ -22,12 +22,12 @@ if(description)
                 "CVE-2016-4119", "CVE-2016-6937", "CVE-2016-6938");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-09-01 01:29:00 +0000 (Fri, 01 Sep 2017)");
   script_tag(name:"creation_date", value:"2016-07-14 13:02:40 +0530 (Thu, 14 Jul 2016)");
-  script_name("Adobe Reader Security Updates(apsb16-26) - Mac OS X");
+  script_name("Adobe Reader Security Updates (APSB16-26) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Reader is prone to multiple vulnerabilities.");
 

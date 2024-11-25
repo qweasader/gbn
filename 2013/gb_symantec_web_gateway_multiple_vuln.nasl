@@ -9,12 +9,12 @@ CPE = "cpe:/a:symantec:web_gateway";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803732");
-  script_version("2023-06-22T10:34:15+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2013-1616", "CVE-2013-1617", "CVE-2013-4670", "CVE-2013-4671",
                 "CVE-2013-4672");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2013-08-06 15:41:47 +0530 (Tue, 06 Aug 2013)");
   script_name("Symantec Web Gateway Multiple Vulnerabilities (Aug 2013)");
   script_tag(name:"summary", value:"Symantec Web Gateway is prone to multiple vulnerabilities.");
@@ -49,27 +49,22 @@ compromise a vulnerable system.");
   script_family("Web application abuses");
   script_dependencies("gb_symantec_web_gateway_detect.nasl");
   script_mandatory_keys("symantec_web_gateway/installed");
-  script_require_ports("Services/www", 80);
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-port = get_app_port(cpe:CPE);
-if(!port){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!vers = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_is_less(version:vers, test_version:"5.1.1")) {
+  report = report_fixed_ver(installed_version:vers, fixed_version:"5.1.1");
+  security_message(port:port, data:report);
   exit(0);
 }
 
-if(!vers = get_app_version(cpe:CPE, port:port)){
-  exit(0);
-}
-
-if("unknown" >!< vers && vers)
-{
-  if(version_is_less(version:vers, test_version:"5.1.1"))
-  {
-    security_message(port);
-    exit(0);
-  }
-}
+exit(99);

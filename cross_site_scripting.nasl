@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10815");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -23,9 +23,12 @@ if(description)
   script_xref(name:"URL", value:"http://www.securiteam.com/exploits/Security_concerns_when_developing_a_dynamically_generated_web_site.html");
   script_xref(name:"URL", value:"http://www.cert.org/advisories/CA-2000-02.html");
 
-  script_tag(name:"summary", value:"The remote web server seems to be vulnerable to a Cross Site Scripting
-  vulnerability (XSS). The vulnerability is caused by the result being returned to the user when a non-existing
-  file is requested (e.g. the result contains script code provided in the request).");
+  script_tag(name:"summary", value:"The remote web server seems to be vulnerable to a cross-site
+  scripting (XSS) vulnerability.");
+
+  script_tag(name:"insight", value:"The vulnerability is caused by the result being returned to the
+  user when a non-existing file is requested (e.g. the result contains script code provided in the
+  request).");
 
   script_tag(name:"impact", value:"This vulnerability would allow an attacker to make the server present the
   user with the attacker's JavaScript/HTML code.

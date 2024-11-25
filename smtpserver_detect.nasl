@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10263");
-  script_version("2023-12-07T05:05:41+0000");
-  script_tag(name:"last_modification", value:"2023-12-07 05:05:41 +0000 (Thu, 07 Dec 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -258,6 +258,27 @@ foreach port( ports ) {
     set_kb_item( name:"smtp/sophos/email_appliance/detected", value:TRUE );
     set_kb_item( name:"smtp/" + port + "/sophos/email_appliance/detected", value:TRUE );
     guess += '\n- Sophos Email Appliance';
+  }
+
+  # 220 mail.example.com ESMTP Symantec Messaging Gateway
+  if( banner =~ "220.* ESMTP Symantec Messaging Gateway" ) {
+    set_kb_item( name:"smtp/symantec/smg/detected", value:TRUE );
+    set_kb_item( name:"smtp/" + port + "/symantec/smg/detected", value:TRUE );
+    guess += '\n- Symantec Messaging Gateway';
+  }
+
+  # 220-mailcow ESMTP Postcow
+  if( banner =~ "220.* ESMTP Postcow" ) {
+    set_kb_item( name:"smtp/mailcow/detected", value:TRUE );
+    set_kb_item( name:"smtp/" + port + "/mailcow/detected", value:TRUE );
+    guess += '\n- Mailcow';
+  }
+
+  # 220 mail.example.com ESMTP OpenSMTPD
+  if( banner =~ "220.* ESMTP OpenSMTPD" ) {
+    set_kb_item( name:"smtp/opensmtpd/detected", value:TRUE );
+    set_kb_item( name:"smtp/" + port + "/opensmtpd/detected", value:TRUE );
+    guess += '\n- OpenSMTPD';
   }
 
   report = 'Remote SMTP server banner:\n\n' + banner;

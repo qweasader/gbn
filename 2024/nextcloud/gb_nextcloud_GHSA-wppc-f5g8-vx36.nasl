@@ -9,11 +9,14 @@ CPE = "cpe:/a:nextcloud:nextcloud_server";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.114293");
-  script_version("2024-01-19T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2024-01-19 05:06:18 +0000 (Fri, 19 Jan 2024)");
+  script_version("2024-01-29T05:05:18+0000");
+  script_tag(name:"last_modification", value:"2024-01-29 05:05:18 +0000 (Mon, 29 Jan 2024)");
   script_tag(name:"creation_date", value:"2024-01-18 13:56:29 +0000 (Thu, 18 Jan 2024)");
-  script_tag(name:"cvss_base", value:"2.1");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:S/C:P/I:N/A:N");
+  script_tag(name:"cvss_base", value:"2.6");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:N/I:P/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-01-26 21:03:00 +0000 (Fri, 26 Jan 2024)");
 
   script_cve_id("CVE-2024-22403");
 
@@ -41,10 +44,14 @@ if (description)
 
   script_tag(name:"affected", value:"Nextcloud Server versions prior to 28.0.0");
 
-  script_tag(name:"solution", value:"Update to version 28.0.0 or later.");
+  script_tag(name:"solution", value:"Update to version 28.0.0 or later.
+
+  Note: The vendor doesn't plan to fix this flaw in older (supported) server versions like 26 or 27.
+  Please see the references for more information.");
 
   script_xref(name:"URL", value:"https://github.com/nextcloud/security-advisories/security/advisories/GHSA-wppc-f5g8-vx36");
   script_xref(name:"URL", value:"https://github.com/nextcloud/server/pull/40766");
+  script_xref(name:"URL", value:"https://github.com/nextcloud/security-advisories/discussions/32");
 
   exit(0);
 }

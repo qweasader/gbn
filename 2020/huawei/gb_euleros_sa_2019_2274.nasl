@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.2274");
   script_cve_id("CVE-2017-5754", "CVE-2017-5897", "CVE-2017-7261", "CVE-2017-7472", "CVE-2017-7518", "CVE-2018-10124", "CVE-2018-10323", "CVE-2018-1066", "CVE-2018-10675", "CVE-2018-13094", "CVE-2018-20976", "CVE-2018-3693", "CVE-2018-6412", "CVE-2018-7995", "CVE-2018-9363", "CVE-2018-9518", "CVE-2019-10140", "CVE-2019-10142", "CVE-2019-10207", "CVE-2019-1125", "CVE-2019-12378", "CVE-2019-12381", "CVE-2019-12382", "CVE-2019-12456", "CVE-2019-12818", "CVE-2019-13631", "CVE-2019-13648", "CVE-2019-14283", "CVE-2019-14284", "CVE-2019-14814", "CVE-2019-14815", "CVE-2019-14816", "CVE-2019-14821", "CVE-2019-14835", "CVE-2019-15098", "CVE-2019-15118", "CVE-2019-15212", "CVE-2019-15213", "CVE-2019-15214", "CVE-2019-15215", "CVE-2019-15216", "CVE-2019-15217", "CVE-2019-15218", "CVE-2019-15219", "CVE-2019-15220", "CVE-2019-15221", "CVE-2019-15239", "CVE-2019-15292", "CVE-2019-15505", "CVE-2019-15807", "CVE-2019-15916", "CVE-2019-15926", "CVE-2019-15927", "CVE-2019-16413", "CVE-2019-17052", "CVE-2019-17053", "CVE-2019-17054", "CVE-2019-17055", "CVE-2019-17056", "CVE-2019-2101", "CVE-2019-3846", "CVE-2019-3882", "CVE-2019-9500", "CVE-2019-9503", "CVE-2019-9506");
   script_tag(name:"creation_date", value:"2020-01-23 12:44:02 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-11-16 14:09:00 +0000 (Wed, 16 Nov 2022)");
+  script_tag(name:"severity_date", value:"2019-08-26 17:15:49 +0000 (Mon, 26 Aug 2019)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2019-2274)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROS\-2\.0SP3");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-2274");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-2274");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-2274");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2019-2274 advisory.");
 

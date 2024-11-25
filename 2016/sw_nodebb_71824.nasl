@@ -9,8 +9,8 @@ CPE = "cpe:/a:nodebb:nodebb";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111101");
-  script_version("2023-11-03T05:05:46+0000");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_version("2024-03-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2016-05-07 16:00:00 +0200 (Sat, 07 May 2016)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
@@ -23,7 +23,6 @@ if(description)
   script_copyright("Copyright (C) 2016 SCHUTZWERK GmbH");
   script_family("Web application abuses");
   script_dependencies("sw_nodebb_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("NodeBB/installed");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/71824");
@@ -45,8 +44,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! ver = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! ver = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_less( version:ver, test_version:"0.7.0" ) ) {
   report = report_fixed_ver( installed_version:ver, fixed_version:"0.7.0" );

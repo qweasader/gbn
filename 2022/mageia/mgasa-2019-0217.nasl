@@ -8,8 +8,8 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.10.2019.0217");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 
@@ -22,12 +22,12 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2019-0217");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2019-0217.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=25185");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=24701");
-  script_xref(name:"URL", value:"https://xenbits.xen.org/xsa/advisory-300.html");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=25185");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.1.19");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.1.20");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.1.21");
+  script_xref(name:"URL", value:"https://xenbits.xen.org/xsa/advisory-300.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'kernel, kernel-userspace-headers, kmod-virtualbox, kmod-xtables-addons' package(s) announced via the MGASA-2019-0217 advisory.");
 

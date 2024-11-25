@@ -12,7 +12,7 @@ if (description)
   script_cve_id("CVE-2014-8727");
   script_tag(name:"cvss_base", value:"6.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:N/I:C/A:C");
-  script_version("2023-08-09T05:05:14+0000");
+  script_version("2024-05-29T05:05:18+0000");
 
   script_name("F5 BIG-IP - Directory traversal vulnerability CVE-2014-8727");
 
@@ -33,22 +33,22 @@ to (1) tmui/Control/jspmap/tmui/system/archive/properties.jsp or (2) tmui/Contro
   script_tag(name:"summary", value:"F5 BIG-IP is prone to a directory traversal vulnerability.");
 
   script_tag(name:"qod_type", value:"package");
-  script_tag(name:"last_modification", value:"2023-08-09 05:05:14 +0000 (Wed, 09 Aug 2023)");
+  script_tag(name:"last_modification", value:"2024-05-29 05:05:18 +0000 (Wed, 29 May 2024)");
   script_tag(name:"creation_date", value:"2015-02-17 08:08:36 +0100 (Tue, 17 Feb 2015)");
   script_category(ACT_GATHER_INFO);
   script_family("F5 Local Security Checks");
   script_copyright("Copyright (C) 2015 Greenbone AG");
-  script_dependencies("gb_f5_big_ip_version.nasl");
+  script_dependencies("gb_f5_big_ip_ssh_login_detect.nasl");
   script_mandatory_keys("f5/big_ip/version", "f5/big_ip/active_modules");
   exit(0);
 }
 
-include("version_func.inc");
+include("f5.inc");
 include("host_details.inc");
 include("list_array_func.inc");
-include("f5.inc");
+include("version_func.inc");
 
-if (!version = get_app_version(cpe: CPE))
+if (!version = get_app_version(cpe: CPE, service: "ssh-login"))
   exit(0);
 
 check_f5["LTM"] = make_array("affected",   "10.0.0-10.2.2_HF1;",

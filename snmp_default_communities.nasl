@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103914");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-06-04T05:05:28+0000");
+  script_tag(name:"last_modification", value:"2024-06-04 05:05:28 +0000 (Tue, 04 Jun 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -24,8 +24,8 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/archive/1/313714/2003-03-01/2003-03-07/0");
   script_xref(name:"URL", value:"https://web.archive.org/web/20070428232535/http://www.iss.net/issEn/delivery/xforce/alertdetail.jsp?id=advise15");
 
-  script_tag(name:"summary", value:"The script sends a connection request to the server and attempts to
-  login with default communities. Successful logins are storen in the KB.");
+  script_tag(name:"summary", value:"The script sends a connection request to the server and attempts
+  to login with default communities. Successful logins are storen in the KB.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -33,6 +33,7 @@ if(description)
 }
 
 include("list_array_func.inc");
+include("misc_func.inc");
 
 # If optimize_test = no
 if( get_kb_item( "default_credentials/disable_brute_force_checks" ) )
@@ -40,8 +41,8 @@ if( get_kb_item( "default_credentials/disable_brute_force_checks" ) )
 
 #nb: Don't use UDP/PORTS or snmp_get_port() as the check below is quite unreliable against other non-snmp UDP services
 port = 161;
-if (!get_udp_port_state(port))
-  exit(0);
+if( ! get_udp_port_state( port ) )
+  exit( 0 );
 
 communities = make_list(
 "Cisco router", # for Cisco equipment
@@ -56,12 +57,20 @@ communities = make_list(
 "wheel", # https://blogs.cisco.com/security/talos/rockwell-snmp-vuln
 # From https://lkhill.com/brocade-vdx-snmp-changes/ and http://h20564.www2.hpe.com/hpsc/doc/public/display?docId=mmr_kc-0127107
 "ConvergedNetwork",
+# Brocade Fabric OS, see e.g.:
+# - https://techdocs.broadcom.com/us/en/fibre-channel-networking/fabric-os/fabric-os-web-tools/9-1-x/v26882500/v26815803/v26850344.html)
+# - https://adminhelpline.blogspot.com/2015/01/brocade-san-switch-snmp-configuration.html
+# nb:
+# - CVE-2024-5460 mentions "Brocade Fabric OS versions prior to v9.0 have default community strings"
+#   which seems to be those ones below
+# - "private" and "public" are already included separately below
 "secret c0de", # Advisories are showing differences between lower/uppercase and quotes/no quotes for these four communities:
 '"secret c0de"',
-"Secret C0de", # Brocade
+"Secret C0de",
 '"Secret C0de"',
 "common",
 "FibreChannel",
+"OrigEquipMfr",
 # CVE-2002-1229, https://marc.info/?l=bugtraq&m=103470243012971&w=2
 "diag",
 "manuf",
@@ -85,7 +94,6 @@ communities = make_list(
 "I$ilonpublic", # Dell EMC Isilon OneFS (CVE-2020-5364)
 "Intermec",
 "NoGaH$@!", # Avaya
-"OrigEquipMfr", # Brocade
 "PRIVATE",
 "PUBLIC",
 "Private",
@@ -197,22 +205,14 @@ communities = make_list(
 "snmp-Trap"
 );
 
-# Add device/host name
-name = get_host_name();
-if( name !~ "^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$" && ":" >!< name ) {
-  # We have a name, not an IP/IPv6
-  names[0] = name;
-  dot = strstr( name, '.' );
-  if( dot ) {
-    name = name - dot; # Use short name
-    names[1] = name;
-  }
+# Add domain name parts, create_hostname_parts_list() always returns a list, even an empty one
+hnlist = create_hostname_parts_list();
 
-  foreach name( names ) {
-    if( ! in_array( search:name, array:communities ) ) {
-      communities = make_list( communities, name ); # The name is not already in the list
-    }
-  }
+# nb: No need to check for an empty "name" string here (create_hostname_parts_list() could return an
+# empty list) as foreach seems to be able to handle this.
+foreach name( hnlist ) {
+  if( ! in_array( search:name, array:communities ) )
+    communities = make_list( communities, name ); # nb: The name is not already in the list
 }
 
 count = 0;

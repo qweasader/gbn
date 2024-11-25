@@ -9,16 +9,16 @@ CPE = "cpe:/a:wireshark:wireshark";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810974");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-07-22T05:05:40+0000");
   script_cve_id("CVE-2017-9766");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-22 05:05:40 +0000 (Mon, 22 Jul 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
   script_tag(name:"creation_date", value:"2017-07-05 18:10:56 +0530 (Wed, 05 Jul 2017)");
-  script_name("Wireshark 'profinet/packet-dcerpc-pn-io.c' DoS (Windows)");
+  script_name("Wireshark 2.2.7 'profinet/packet-dcerpc-pn-io.c' DoS Vulnerability - Windows");
 
   script_tag(name:"summary", value:"Wireshark is prone to a denial of service (DoS) vulnerability.");
 
@@ -31,7 +31,7 @@ if(description)
   attackers to crash the affected application, resulting in denial-of-service
   conditions.");
 
-  script_tag(name:"affected", value:"Wireshark version 2.2.7 on Windows");
+  script_tag(name:"affected", value:"Wireshark version 2.2.7 on Windows.");
 
   script_tag(name:"solution", value:"Apply the appropriate patch from vendor.");
 
@@ -46,7 +46,7 @@ if(description)
   script_family("Denial of Service");
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_dependencies("gb_wireshark_detect_win.nasl");
-  script_mandatory_keys("Wireshark/Win/Ver");
+  script_mandatory_keys("wireshark/windows/detected");
   exit(0);
 }
 
@@ -60,6 +60,6 @@ if(!wirversion = get_app_version(cpe:CPE)){
 if(wirversion == "2.2.7")
 {
   report = report_fixed_ver(installed_version:wirversion, fixed_version:"Apply the patch");
-  security_message(data:report);
+  security_message(port:0, data:report);
   exit(0);
 }

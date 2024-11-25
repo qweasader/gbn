@@ -9,14 +9,14 @@ CPE = "cpe:/a:nodejs:node.js";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805943");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2015-5380");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-08-04 18:22:15 +0530 (Tue, 04 Aug 2015)");
   script_tag(name:"qod_type", value:"registry");
-  script_name("Node.js 'V8 utf-8 decoder' Denial Of Service Vulnerability (Windows)");
+  script_name("Node.js 'V8 utf-8 decoder' Denial Of Service Vulnerability - Windows");
 
   script_tag(name:"summary", value:"Node.js is prone to a denial of service (DoS) vulnerability.");
 

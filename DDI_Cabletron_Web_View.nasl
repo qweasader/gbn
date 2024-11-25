@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10962");
-  script_version("2023-07-07T05:05:26+0000");
-  script_tag(name:"last_modification", value:"2023-07-07 05:05:26 +0000 (Fri, 07 Jul 2023)");
+  script_version("2024-07-23T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2024-07-23 05:05:30 +0000 (Tue, 23 Jul 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -37,15 +37,18 @@ if(description)
 }
 
 include("http_func.inc");
+include("http_keepalive.inc");
 include("port_service_func.inc");
 
 port = http_get_port(default:80);
 
-req = http_get(item:"/chassis/config/GeneralChassisConfig.html", port:port);
-res = http_send_recv(port:port, data:req);
+url = "/chassis/config/GeneralChassisConfig.html";
+res = http_get_cache(item:url, port:port);
 
-if("Chassis Configuration" >< res){
-  security_message(port:port);
+if("Chassis Configuration" >< res) {
+  report = http_report_vuln_url(port:port, url:url);
+  security_message(port:port, data:report);
+  exit(0);
 }
 
-exit(0);
+exit(99);

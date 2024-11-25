@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802648");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-08T14:36:53+0000");
   script_cve_id("CVE-2012-3555", "CVE-2012-3556", "CVE-2012-3557", "CVE-2012-3558",
                 "CVE-2012-3560");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-06-21 15:15:15 +0530 (Thu, 21 Jun 2012)");
-  script_name("Opera Multiple Vulnerabilities - June12 (Linux)");
+  script_name("Opera Multiple Vulnerabilities (Jun 2012) - Linux");
   script_xref(name:"URL", value:"http://secunia.com/advisories/49533/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/54011");
   script_xref(name:"URL", value:"http://www.opera.com/support/kb/view/1018/");

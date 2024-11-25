@@ -1,33 +1,19 @@
-# Copyright (C) 2012 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2012 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902697");
-  script_version("2022-05-25T07:40:23+0000");
+  script_version("2024-06-21T05:05:42+0000");
   script_cve_id("CVE-2012-3214", "CVE-2012-3217", "CVE-2012-4791");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2022-05-25 07:40:23 +0000 (Wed, 25 May 2022)");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-12-12 12:01:07 +0530 (Wed, 12 Dec 2012)");
-  script_name("MS Exchange Server Remote Code Execution Vulnerabilities (2784126)");
+  script_name("Microsoft Exchange Server Remote Code Execution Vulnerabilities (2784126)");
   script_xref(name:"URL", value:"http://securitytracker.com/id/1027669");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/55977");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/55993");
@@ -36,7 +22,7 @@ if(description)
   script_xref(name:"URL", value:"https://docs.microsoft.com/en-us/security-updates/securitybulletins/2012/ms12-077");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
   script_dependencies("smb_reg_service_pack.nasl");
   script_require_ports(139, 445);

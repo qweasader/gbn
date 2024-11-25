@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.1479");
   script_cve_id("CVE-2014-0196", "CVE-2014-0206", "CVE-2014-1444", "CVE-2014-1445", "CVE-2014-1446", "CVE-2014-1690", "CVE-2014-1737", "CVE-2014-1738", "CVE-2014-1739", "CVE-2014-1874", "CVE-2014-2038", "CVE-2014-2309", "CVE-2014-2523", "CVE-2014-2568", "CVE-2014-2672", "CVE-2014-2673", "CVE-2014-2706", "CVE-2014-2851", "CVE-2014-3122", "CVE-2014-3144", "CVE-2014-3145");
   script_tag(name:"creation_date", value:"2020-01-23 11:51:32 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
@@ -22,7 +22,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRT\-3\.0\.1\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-1479");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-1479");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-1479");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2019-1479 advisory.");
 
@@ -53,6 +53,8 @@ It was found that the Linux kernel's floppy driver leaked internal ... [Please s
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

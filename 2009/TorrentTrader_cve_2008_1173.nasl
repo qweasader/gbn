@@ -9,8 +9,8 @@ CPE = "cpe:/a:torrenttrader:torrenttrader_classic";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100181");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2009-05-02 19:46:33 +0200 (Sat, 02 May 2009)");
   script_cve_id("CVE-2008-1173");
   script_tag(name:"cvss_base", value:"4.3");
@@ -20,12 +20,10 @@ if(description)
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2009 Greenbone AG");
   script_dependencies("gb_torrent_trader_classic_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("torrenttraderclassic/installed");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/28082");
   script_xref(name:"URL", value:"http://sourceforge.net/project/shownotes.php?group_id=98584&release_id=545219");
-  script_xref(name:"URL", value:"http://www.torrenttrader.org/index.php");
 
   script_tag(name:"solution", value:"This issue has been addressed in the revision 25/03/08 of Torrent Classic 1.08.
   Update to Torrent Classic 1.09.");

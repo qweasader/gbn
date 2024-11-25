@@ -7,15 +7,18 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801921");
-  script_version("2023-07-28T05:05:23+0000");
+  script_version("2024-02-15T05:05:39+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2011-0611");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-02 02:39:19 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-04-22 16:38:12 +0200 (Fri, 22 Apr 2011)");
-  script_name("Adobe Products Arbitrary Code Execution Vulnerability (Windows)");
+  script_name("Adobe Products Arbitrary Code Execution Vulnerability - Windows");
 
   script_tag(name:"summary", value:"Adobe Acrobat/Reader/Flash Player are prone to a code execution vulnerability.");
 

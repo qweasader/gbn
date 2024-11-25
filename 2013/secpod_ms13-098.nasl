@@ -21,13 +21,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.903228");
-  script_version("2022-08-09T10:11:17+0000");
+  script_version("2024-11-15T15:55:05+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2013-3900");
   script_tag(name:"cvss_base", value:"7.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
+  script_tag(name:"last_modification", value:"2024-11-15 15:55:05 +0000 (Fri, 15 Nov 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-11-15 14:34:02 +0000 (Fri, 15 Nov 2024)");
   script_tag(name:"creation_date", value:"2013-12-11 10:31:03 +0530 (Wed, 11 Dec 2013)");
   script_name("Microsoft WinVerifyTrust Signature Validation Vulnerability (2893294)");
 

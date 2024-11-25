@@ -9,13 +9,13 @@ CPE = "cpe:/a:postgresql:postgresql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803220");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-07-19T05:05:32+0000");
   script_cve_id("CVE-2012-1618");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-19 05:05:32 +0000 (Fri, 19 Jul 2024)");
   script_tag(name:"creation_date", value:"2013-01-24 19:16:05 +0530 (Thu, 24 Jan 2013)");
-  script_name("PostgreSQL JDBC Driver SQL Injection Vulnerability (Windows)");
+  script_name("PostgreSQL JDBC Driver SQL Injection Vulnerability - Windows");
   script_xref(name:"URL", value:"http://seclists.org/bugtraq/2012/Mar/125");
   script_xref(name:"URL", value:"https://bugzilla.novell.com/show_bug.cgi?id=754273");
   script_xref(name:"URL", value:"http://archives.neohapsis.com/archives/bugtraq/2012-03/0126.html");
@@ -24,7 +24,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2013 Greenbone AG");
   script_family("General");
-  script_dependencies("secpod_postgresql_detect_win.nasl", "os_detection.nasl");
+  script_dependencies("gb_postgresql_consolidation.nasl", "os_detection.nasl");
   script_mandatory_keys("postgresql/detected", "Host/runs_windows");
   script_require_ports(139, 445);
 

@@ -44,7 +44,13 @@ function f5_valid_products() {
   if( ! isnull( __f5_valid_products ) ) {
     return __f5_valid_products;
   } else {
-    valid_products = make_list( "LTM", "AAM", "AFM", "APM", "ASM", "GTM", "PEM", "PSM", "WOM", "AVR", "WAM", "LC" );
+    # nb:
+    # - BIG-IP GTM name has changed to BIG-IP DNS according to https://my.f5.com/manage/s/article/K17329
+    # - Overview on the modules is available at https://my.f5.com/manage/s/article/K2200
+    # - LC = Short name for "Link Controller"
+    # - AVR = Short name for "Analytics"
+    # - PSM, WOM, and WAM = Aged modules which seems to be no longer supported
+    valid_products = make_list( "LTM", "AAM", "AFM", "APM", "ASM", "GTM", "PEM", "PSM", "WOM", "AVR", "WAM", "LC", "DNS" );
     __f5_valid_products = valid_products;
     return valid_products;
   }

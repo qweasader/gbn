@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2023.2444");
   script_cve_id("CVE-2018-1128", "CVE-2019-14896", "CVE-2019-14897", "CVE-2019-18885", "CVE-2019-19039", "CVE-2019-9444", "CVE-2020-0066", "CVE-2020-0404", "CVE-2020-0427", "CVE-2020-0433", "CVE-2020-12655", "CVE-2020-12888", "CVE-2020-14416", "CVE-2020-25284", "CVE-2020-25670", "CVE-2020-25672", "CVE-2020-25673", "CVE-2020-27066", "CVE-2020-2732", "CVE-2020-28374", "CVE-2020-29660", "CVE-2020-29661", "CVE-2020-36322", "CVE-2020-36557", "CVE-2020-36558", "CVE-2020-4788", "CVE-2021-0129", "CVE-2021-0512", "CVE-2021-22555", "CVE-2021-33098", "CVE-2021-33655", "CVE-2021-33656", "CVE-2021-3564", "CVE-2021-3715", "CVE-2021-3923", "CVE-2021-39634", "CVE-2021-39648", "CVE-2021-4037", "CVE-2021-4155", "CVE-2022-0812", "CVE-2022-1184", "CVE-2022-1679", "CVE-2022-20166", "CVE-2022-20368", "CVE-2022-20565", "CVE-2022-20572", "CVE-2022-2503", "CVE-2022-2588", "CVE-2022-2663", "CVE-2022-2873", "CVE-2022-29581", "CVE-2022-2964", "CVE-2022-2977", "CVE-2022-3028", "CVE-2022-32296", "CVE-2022-3424", "CVE-2022-34918", "CVE-2022-3524", "CVE-2022-3542", "CVE-2022-3545", "CVE-2022-3564", "CVE-2022-3565", "CVE-2022-3566", "CVE-2022-3567", "CVE-2022-3586", "CVE-2022-3594", "CVE-2022-36123", "CVE-2022-3628", "CVE-2022-3629", "CVE-2022-36879", "CVE-2022-36946", "CVE-2022-3903", "CVE-2022-39188", "CVE-2022-40768", "CVE-2022-41218", "CVE-2022-4129", "CVE-2022-41850", "CVE-2022-4269", "CVE-2022-42703", "CVE-2022-43750", "CVE-2022-4662", "CVE-2022-47929", "CVE-2023-0266", "CVE-2023-0394", "CVE-2023-1073", "CVE-2023-1074", "CVE-2023-1095", "CVE-2023-1118", "CVE-2023-1281", "CVE-2023-1380", "CVE-2023-1382", "CVE-2023-23454", "CVE-2023-23455", "CVE-2023-28328", "CVE-2023-28772");
   script_tag(name:"creation_date", value:"2023-07-25 08:38:57 +0000 (Tue, 25 Jul 2023)");
-  script_version("2023-07-26T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:08 +0000 (Wed, 26 Jul 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-01-07 06:15:00 +0000 (Tue, 07 Jan 2020)");
+  script_tag(name:"severity_date", value:"2019-12-10 15:01:42 +0000 (Tue, 10 Dec 2019)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2023-2444)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRT\-3\.0\.6\.6");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2023-2444");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2023-2444");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2023-2444");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2023-2444 advisory.");
 
@@ -60,6 +60,8 @@ A use-after-free flaw was found in the Linux kernel's ISDN over IP tunnel functi
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

@@ -12,12 +12,12 @@ if (description)
   script_cve_id("CVE-2014-2205");
   script_tag(name:"cvss_base", value:"6.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:C/I:N/A:N");
-  script_version("2023-05-16T09:08:27+0000");
+  script_version("2024-06-28T15:38:46+0000");
 
   script_name("McAfee ePolicy Orchestrator < 4.6.7 Hotfix 940148 XXE Vulnerability");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/65771");
 
-  script_tag(name:"last_modification", value:"2023-05-16 09:08:27 +0000 (Tue, 16 May 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-03-20 11:41:18 +0100 (Thu, 20 Mar 2014)");
   script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"remote_banner");
@@ -38,7 +38,7 @@ if (description)
 
   script_tag(name:"solution", value:"Updates are available.");
 
-  script_tag(name:"summary", value:"McAfee ePolicy Orchestrator is prone to an XML External Entity
+  script_tag(name:"summary", value:"McAfee ePolicy Orchestrator is prone to an XML external entity
   (XXE) vulnerability.");
 
   script_tag(name:"affected", value:"McAfee ePolicy Orchestrator versions 4.6.7 and prior are

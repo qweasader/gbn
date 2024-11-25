@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805945");
-  script_version("2023-08-03T05:05:16+0000");
-  script_tag(name:"last_modification", value:"2023-08-03 05:05:16 +0000 (Thu, 03 Aug 2023)");
+  script_version("2024-03-08T15:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-08 15:37:10 +0000 (Fri, 08 Mar 2024)");
   script_tag(name:"creation_date", value:"2015-08-05 13:27:24 +0530 (Wed, 05 Aug 2015)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
 
   script_cve_id("CVE-2015-2676");
 
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_tag(name:"qod_type", value:"remote_analysis");
 
   script_tag(name:"solution_type", value:"WillNotFix");
 

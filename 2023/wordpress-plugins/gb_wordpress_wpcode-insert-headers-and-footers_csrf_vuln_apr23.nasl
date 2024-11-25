@@ -2,15 +2,15 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:wpcode:wpcode";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127511");
-  script_version("2023-10-13T16:09:03+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-08-08 14:28:06 +0000 (Tue, 08 Aug 2023)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:C/A:N");
@@ -67,7 +67,7 @@ location = infos["location"];
 
 if( version_is_less( version: version, test_version: "2.0.9" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "2.0.9", install_path: location );
-  security_message( data: report, port: port );
+  security_message( port: port, data: report );
   exit( 0 );
 }
 

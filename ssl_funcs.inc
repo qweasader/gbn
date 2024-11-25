@@ -198,7 +198,7 @@ sslv2_raw_ciphers["SSL2_UNKNOWN"] = raw_string( 0x06, 0x00, 0x80 );
 ## Testing for all existing ciphers codes for all protocols since some webservers aren't fully spec-compliant.
 ## Naming following the http://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml pattern.
 ##
-## nb: If adding ciphers here also add them to sslv3_tls_ciphers of secpod_ssl_ciphers.inc
+## nb: If adding ciphers here also add them to sslv3_tls_ciphers of gb_ssl_tls_ciphers.inc
 ##
 ## Check for duplicates: egrep -o "^sslv3_tls_raw_ciphers\['([^']+)']" ssl_funcs.inc | sort | uniq -d
 ##
@@ -872,7 +872,7 @@ function get_server_cert( port ) {
 
       # nb: It *might* happen that the scanner (nasl_builtin_find_service.c) is missing to detect that the service
       # is SSL/TLS encapsulated (e.g. if the scanner is not supporting specific ciphers, elliptic curves or similar
-      # due to lacking support in GnuTLS) but our own NASL SSL/TLS detection (gb_tls_version_get.nasl) is still able
+      # due to lacking support in GnuTLS) but our own NASL SSL/TLS detection (gb_ssl_tls_version_get.nasl) is still able
       # to detect it. In this case socket_get_cert() (and any other scanner internal socket function) will fail to
       # talk / connect to the remote service but we're still able to grab at least the cert from the service via
       # get_cert_from_port().
@@ -1513,7 +1513,7 @@ function _ssl3_tls_hello( port, ciphers, version, extensions, session_id, add_tl
   else
     hello_data += raw_string( 0x01 ) + compression_methods["NULL"];
 
-  # nb: If the extended set of elliptic curves should be requested is determined by gb_tls_version_get.nasl
+  # nb: If the extended set of elliptic curves should be requested is determined by gb_ssl_tls_version_get.nasl
   # Note that the setting of "use_extended_ec" (if passed as TRUE/FALSE) takes precedence over this automatic
   # determination.
   if( ! isnull( use_extended_ec ) ) {
@@ -1523,12 +1523,12 @@ function _ssl3_tls_hello( port, ciphers, version, extensions, session_id, add_tl
       ec_type = "elliptic_curves";
   }
 
-  # Automatic determination by gb_tls_version_get.nasl
+  # Automatic determination by gb_ssl_tls_version_get.nasl
   else {
 
     tls_kb_vers = version_kb_string_mapping[version];
 
-    # nb: We're saving the status here to avoid calling this get_kb_item() call in e.g. secpod_ssl_ciphers.inc
+    # nb: We're saving the status here to avoid calling this get_kb_item() call in e.g. gb_ssl_tls_ciphers.inc
     # multiple times. Instead we're only querying it once and save the status in our internal array.
     if( isnull( __use_extended_ec[port + "#--#" + tls_kb_vers] ) ) {
       use_extended_ec = get_kb_item( "tls_version_get/" + port + "/" + tls_kb_vers + "/extended_ec_used" );
@@ -2101,7 +2101,7 @@ function ssl_recv( socket ) {
 # @param handshake_version TODO
 # @param use_extended_ec            If set to TRUE an extended set of "elliptic curves" is added to the Client Hello for TLS1.0+.
 #                                   Note that this extended set is always to the SSL/TLS Client Hello if it was determined to be
-#                                   required by gb_tls_version_get.nasl. But passing "use_extended_ec" (TRUE and FALSE) will take
+#                                   required by gb_ssl_tls_version_get.nasl. But passing "use_extended_ec" (TRUE and FALSE) will take
 #                                   precedence over the automatic determination.
 #
 # @return A raw string containing the SSL/TLS Client Hello request created from the given data.
@@ -2554,7 +2554,7 @@ function get_3byte_len( data, pos ) {
 # @param min  The minimum supported SSL/TLS version which should be returned, accepted constants: SSL_v2, SSL_v3, TLS_10, TLS_11, TLS_12
 # @param max  The maximum supported SSL/TLS version which should be returned, accepted constants: SSL_v2, SSL_v3, TLS_10, TLS_11, TLS_12
 #
-# @note add gb_tls_version_get.nasl as dependency if you want to use this function
+# @note add gb_ssl_tls_version_get.nasl as dependency if you want to use this function
 #
 # @return A raw string of the supported SSL/TLS version or NULL if none was found or not all required infos were passed.
 #
@@ -2612,7 +2612,7 @@ function get_supported_tls_version( port, min, max ) {
 # @param min  The minimum supported SSL/TLS version which should be returned, accepted constants: SSL_v2, SSL_v3, TLS_10, TLS_11, TLS_12.
 # @param max  The maximum supported SSL/TLS version which should be returned, accepted constants: SSL_v2, SSL_v3, TLS_10, TLS_11, TLS_12, TLS_13.
 #
-# @note add gb_tls_version_get.nasl as dependency if you want to use this function.
+# @note add gb_ssl_tls_version_get.nasl as dependency if you want to use this function.
 #
 # @return A list of all supported SSL/TLS version of the remote port as raw strings or NULL if none was found or not all required infos were passed.
 #
@@ -2672,7 +2672,7 @@ function get_supported_tls_versions( port, min, max ) {
 # @brief Returns all detected SSL/TLS ports on the remote host saved within the "ssl_tls/port" KB item.
 #
 # @note This function will fork if multiple SSL/TLS ports were found.
-# @note add gb_tls_version_get.nasl as dependency if you want to use this function.
+# @note add gb_ssl_tls_version_get.nasl as dependency if you want to use this function.
 #
 # @return The detected SSL/TLS ports on the remote host.
 #
@@ -2682,7 +2682,7 @@ function tls_ssl_get_port() {
 
 # @brief Returns a list of all detected SSL/TLS ports on the remote host saved within the "ssl_tls/port" KB item.
 #
-# @note add gb_tls_version_get.nasl as dependency if you want to use this function.
+# @note add gb_ssl_tls_version_get.nasl as dependency if you want to use this function.
 #
 # @return The detected SSL/TLS ports on the remote host as a list.
 #
@@ -2697,7 +2697,7 @@ function tls_ssl_get_ports() {
 #       is not able to detect the remote SSL/TLS version anymore and @ref get_port_transport and/or
 #       the KB key Transports/TCP/$port would contain the info that the remote service has no support
 #       for SSL/TLS where it actually has such support.
-# @note Add a dependency to gb_tls_version_get.nasl if you want to use this function.
+# @note Add a dependency to gb_ssl_tls_version_get.nasl if you want to use this function.
 #
 # @return TRUE if the passed port has SSL/TLS enabled, FALSE otherwise and NULL if no port parameter
 #         was passed.

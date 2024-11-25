@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131219");
   script_cve_id("CVE-2016-1897", "CVE-2016-1898", "CVE-2016-2213");
   script_tag(name:"creation_date", value:"2016-02-11 05:22:18 +0000 (Thu, 11 Feb 2016)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2016-12-06 03:08:00 +0000 (Tue, 06 Dec 2016)");
+  script_tag(name:"severity_date", value:"2016-02-25 17:40:59 +0000 (Thu, 25 Feb 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0060)");
   script_category(ACT_GATHER_INFO);
@@ -26,11 +26,11 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0060");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0060.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17539");
-  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2016/02/03/2");
-  script_xref(name:"URL", value:"http://git.videolan.org/?p=ffmpeg.git;a=shortlog;h=n2.4.13");
   script_xref(name:"URL", value:"http://ffmpeg.org/download.html");
   script_xref(name:"URL", value:"http://ffmpeg.org/security.html");
+  script_xref(name:"URL", value:"http://git.videolan.org/?p=ffmpeg.git;a=shortlog;h=n2.4.13");
+  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2016/02/03/2");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17539");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'ffmpeg' package(s) announced via the MGASA-2016-0060 advisory.");
 

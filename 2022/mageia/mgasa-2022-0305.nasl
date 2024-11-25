@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2022.0305");
   script_cve_id("CVE-2022-1679", "CVE-2022-2585", "CVE-2022-2586", "CVE-2022-2588", "CVE-2022-26373");
   script_tag(name:"creation_date", value:"2022-08-26 04:58:48 +0000 (Fri, 26 Aug 2022)");
-  script_version("2024-01-15T05:06:27+0000");
-  script_tag(name:"last_modification", value:"2024-01-15 05:06:27 +0000 (Mon, 15 Jan 2024)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2024-01-12 16:47:00 +0000 (Fri, 12 Jan 2024)");
+  script_tag(name:"severity_date", value:"2024-01-12 16:47:44 +0000 (Fri, 12 Jan 2024)");
 
   script_name("Mageia: Security Advisory (MGASA-2022-0305)");
   script_category(ACT_GATHER_INFO);
@@ -26,8 +26,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2022-0305");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2022-0305.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=30750");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=30725");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=30750");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.15.59");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.15.60");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.15.61");
@@ -99,6 +99,8 @@ Other fixes in this update:
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

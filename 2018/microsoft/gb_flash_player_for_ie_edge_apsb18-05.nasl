@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813030");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2018-4920", "CVE-2018-4919");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-11-18 16:25:00 +0000 (Fri, 18 Nov 2022)");
   script_tag(name:"creation_date", value:"2018-03-14 11:17:28 +0530 (Wed, 14 Mar 2018)");
-  script_name("Microsoft IE And Microsoft Edge Flash Player Multiple RCE Vulnerabilities (apsb18-05)");
+  script_name("Microsoft IE And Microsoft Edge Flash Player Multiple RCE Vulnerabilities (APSB18-05)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
@@ -25,7 +25,8 @@ if(description)
 
   script_xref(name:"URL", value:"https://helpx.adobe.com/security/products/flash-player/apsb18-05.html");
 
-  script_tag(name:"summary", value:"Adobe Flash Player within Microsoft Edge or Internet Explorer is prone to multiple remote code execution vulnerabilities.");
+  script_tag(name:"summary", value:"Adobe Flash Player within Microsoft Edge or Internet Explorer is
+  prone to multiple remote code execution (RCE) vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

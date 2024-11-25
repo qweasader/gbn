@@ -9,8 +9,8 @@ CPE = "cpe:/a:mysql:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801066");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-03-04T05:10:24+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 05:10:24 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2009-12-04 14:17:59 +0100 (Fri, 04 Dec 2009)");
   script_tag(name:"cvss_base", value:"4.4");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:P/I:P/A:P");
@@ -24,7 +24,6 @@ if(description)
   script_family("Denial of Service");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
   script_dependencies("mysql_version.nasl");
-  script_require_ports("Services/mysql", 3306);
   script_mandatory_keys("MySQL/installed");
 
   script_tag(name:"impact", value:"Successful exploitation could allow users to bypass intended access restrictions
@@ -48,16 +47,16 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!sqlPort = get_app_port(cpe:CPE))
+if(!port = get_app_port(cpe:CPE))
   exit(0);
 
-if(!mysqlVer = get_app_version(cpe:CPE, port:sqlPort))
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
 
-mysqlVer = eregmatch(pattern:"([0-9.a-z]+)", string:mysqlVer);
-if(mysqlVer[1] && version_in_range(version:mysqlVer[1], test_version:"5.1",test_version2:"5.1.40")) {
-  report = report_fixed_ver(installed_version:mysqlVer, fixed_version:"5.1.41");
-  security_message(port:sqlPort, data:report);
+version = eregmatch(pattern:"([0-9.a-z]+)", string:version);
+if(version[1] && version_in_range(version:version[1], test_version:"5.1",test_version2:"5.1.40")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"5.1.41");
+  security_message(port:port, data:report);
   exit(0);
 }
 

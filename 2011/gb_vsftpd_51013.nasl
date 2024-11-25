@@ -4,22 +4,21 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:beasts:vsftpd';
+CPE = "cpe:/a:beasts:vsftpd";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103362");
-  script_version("2023-07-28T05:05:23+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_tag(name:"cvss_base", value:"5.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2011-12-13 10:23:55 +0100 (Tue, 13 Dec 2011)");
   script_name("vsftpd '__tzfile_read()' Function Heap Based Buffer Overflow Vulnerability");
   script_category(ACT_GATHER_INFO);
   script_family("FTP");
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_dependencies("sw_vsftpd_detect.nasl");
-  script_require_ports("Services/ftp", 21);
   script_mandatory_keys("vsftpd/installed");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51013");
@@ -46,8 +45,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_equal( version:vers, test_version:"2.3.4" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"2.3.5" );

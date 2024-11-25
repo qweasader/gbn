@@ -9,11 +9,11 @@ CPE = "cpe:/a:kallithea:kallithea";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112058");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2015-1864");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-05-28 16:59:00 +0000 (Thu, 28 May 2020)");
@@ -51,25 +51,23 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_kallithea_detect.nasl");
   script_mandatory_keys("Kallithea/Installed");
-  script_require_ports("Services/www", 5000);
+
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!port = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!ver = get_app_version(cpe:CPE, port:port)){
+if(!ver = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-if(version_is_less(version:ver, test_version:"0.2.1"))
-{
+if(version_is_less(version:ver, test_version:"0.2.1")) {
   report = report_fixed_ver(installed_version:ver, fixed_version:"0.2.1");
   security_message(port:port, data:report);
   exit(0);
 }
+
 exit(99);

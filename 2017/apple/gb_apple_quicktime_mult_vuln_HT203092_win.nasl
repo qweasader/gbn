@@ -9,13 +9,13 @@ CPE = "cpe:/a:apple:quicktime";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812350");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-16T14:37:06+0000");
   script_cve_id("CVE-2014-4351", "CVE-2014-4350", "CVE-2014-4979", "CVE-2014-1391");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 14:37:06 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-12-14 17:26:49 +0530 (Thu, 14 Dec 2017)");
-  script_name("Apple QuickTime Multiple Vulnerabilities-HT203092 (Windows)");
+  script_name("Apple QuickTime Multiple Vulnerabilities (HT203092) - Windows");
 
   script_tag(name:"summary", value:"Apple QuickTime is prone to multiple vulnerabilities.");
 

@@ -9,8 +9,8 @@ CPE = "cpe:/a:gitlab:gitlab";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170082");
-  script_version("2023-12-06T05:06:11+0000");
-  script_tag(name:"last_modification", value:"2023-12-06 05:06:11 +0000 (Wed, 06 Dec 2023)");
+  script_version("2024-11-15T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-15 05:05:36 +0000 (Fri, 15 Nov 2024)");
   script_tag(name:"creation_date", value:"2022-03-28 14:21:05 +0000 (Mon, 28 Mar 2022)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -19,7 +19,10 @@ if (description)
   script_tag(name:"severity_date", value:"2019-10-09 23:21:00 +0000 (Wed, 09 Oct 2019)");
 
   script_cve_id("CVE-2017-0916", "CVE-2017-0920");
-  # nb: Backported on Debian, see https://www.debian.org/security/2018/dsa-4206 and https://www.debian.org/security/2018/dsa-4145
+
+  # nb: Backported on Debian, see:
+  # - https://www.debian.org/security/2018/dsa-4206
+  # - https://www.debian.org/security/2018/dsa-4145
   script_tag(name:"qod_type", value:"executable_version_unreliable");
 
   script_tag(name:"solution_type", value:"VendorFix");
@@ -39,10 +42,10 @@ if (description)
 
   script_tag(name:"insight", value:"The following vulnerabilities exist:
 
-  - CVE-2017-0916: Gitlab is vulnerable to a lack of input validation in the
+  - CVE-2017-0916: GitLab is vulnerable to a lack of input validation in the
   system_hook_push queue through web hook component resulting in remote code execution.
 
-  - CVE-2017-0923: GitLab is  vulnerable to an authorization bypass issue in the
+  - CVE-2017-0923: GitLab is vulnerable to an authorization bypass issue in the
    Projects::MergeRequests::CreationsController component resulting in an attacker to see every
    project name and their respective namespace on a GitLab instance.");
 

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.58057");
-  script_version("2023-07-19T05:05:15+0000");
-  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
+  script_version("2024-10-10T07:25:31+0000");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"creation_date", value:"2008-09-24 21:14:03 +0200 (Wed, 24 Sep 2008)");
   script_cve_id("CVE-2006-3788", "CVE-2006-3789", "CVE-2006-3790", "CVE-2006-3791", "CVE-2006-3792");
   script_tag(name:"cvss_base", value:"7.5");
@@ -22,7 +22,7 @@ if(description)
   script_tag(name:"insight", value:"Multiple vulnerabilities have been found in the network components of
 UFO2000 that could result in the remote execution of arbitrary code.");
   script_tag(name:"solution", value:"UFO2000 currently depends on the dumb-0.9.2 library, which has been removed
-from portage due to security problems (GLSA 200608-14) . Because of this,
+from portage due to security problems (GLSA 200608-14). Because of this,
 UFO2000 has been masked, and we recommend unmerging the package until the
 next beta release can remove the dependency on dumb.
 

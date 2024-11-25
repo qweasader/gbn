@@ -9,13 +9,13 @@ CPE = "cpe:/a:oracle:http_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10850");
-  script_version("2023-08-03T05:05:16+0000");
-  script_tag(name:"last_modification", value:"2023-08-03 05:05:16 +0000 (Thu, 03 Aug 2023)");
+  script_version("2024-06-05T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2024-06-05 05:05:26 +0000 (Wed, 05 Jun 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
-  script_cve_id("CVE-2002-0562");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_name("Oracle 9iAS Globals.jsa access");
+  script_cve_id("CVE-2002-0562");
+  script_name("Oracle 9iAS Globals.jsa Access Information Disclosure Vulnerability - Active Check");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2002 Matt Moore");
   script_family("Web application abuses");
@@ -23,15 +23,17 @@ if(description)
   script_require_ports("Services/www", 80);
   script_mandatory_keys("oracle/http_server/detected");
 
-  script_xref(name:"URL", value:"http://www.nextgenss.com/advisories/orajsa.txt");
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/4034");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20080820021515/http://www.nextgenss.com/advisories/orajsa.txt");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210129085734/http://www.securityfocus.com/bid/4034/");
 
-  script_tag(name:"solution", value:"Edit httpd.conf to disallow access to *.jsa.");
-
-  script_tag(name:"summary", value:"In the default configuration of Oracle9iAS, it is possible to make
-  requests for the globals.jsa file for a given web application.
+  script_tag(name:"summary", value:"In the default configuration of Oracle9iAS, it is possible to
+  make requests for the globals.jsa file for a given web application.
 
   These files should not be returned by the server as they often contain sensitive information.");
+
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks the response.");
+
+  script_tag(name:"solution", value:"Edit httpd.conf to disallow access to *.jsa.");
 
   script_tag(name:"qod_type", value:"remote_vul");
   script_tag(name:"solution_type", value:"Mitigation");

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.12.2023.6405.1");
   script_cve_id("CVE-2023-3600", "CVE-2023-4057", "CVE-2023-4577", "CVE-2023-4578", "CVE-2023-4580", "CVE-2023-4583", "CVE-2023-4585", "CVE-2023-5169", "CVE-2023-5171", "CVE-2023-5176", "CVE-2023-5217");
   script_tag(name:"creation_date", value:"2023-10-04 04:08:40 +0000 (Wed, 04 Oct 2023)");
-  script_version("2023-10-04T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-10-04 05:06:18 +0000 (Wed, 04 Oct 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-09-29 15:17:00 +0000 (Fri, 29 Sep 2023)");
+  script_tag(name:"severity_date", value:"2023-09-29 15:17:47 +0000 (Fri, 29 Sep 2023)");
 
   script_name("Ubuntu: Security Advisory (USN-6405-1)");
   script_category(ACT_GATHER_INFO);
@@ -58,6 +58,8 @@ denial of service, or possibly execute arbitrary code. (CVE-2023-5217)");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

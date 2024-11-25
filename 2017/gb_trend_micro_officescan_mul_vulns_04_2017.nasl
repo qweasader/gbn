@@ -9,9 +9,9 @@ CPE = "cpe:/a:trend_micro:office_scan";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107154");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2017-5481", "CVE-2017-8801");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-04-26 11:00:00 +0200 (Wed, 26 Apr 2017)");
 
   script_tag(name:"cvss_base", value:"4.3");
@@ -36,7 +36,7 @@ if(description)
   script_tag(name:"affected", value:"Trend Micro OfficeScan XG (12.0) and 11.0 are affected.");
 
   script_tag(name:"solution", value:"Trend Micro OfficeScan XG (12.0) users should update to XG CP 1352.
-  Trend Micro OfficeScan XG 11.0 users should update to Version 11.0 SP1 CP 6325 .");
+  Trend Micro OfficeScan XG 11.0 users should update to Version 11.0 SP1 CP 6325.");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/98007");
   script_tag(name:"solution_type", value:"VendorFix");
@@ -63,16 +63,16 @@ if (Ver =~ "^11\.")
 {
     if(version_is_equal(version: Ver, test_version:"11.0"))
     {
-        fix = "11.0 SP1 CP 6325";
-        VULN = TRUE;
+      fix = "11.0 SP1 CP 6325";
+      VULN = TRUE;
     }
 }
 if (Ver =~ "^12\.")
 {
   if (version_is_equal(version: Ver, test_version:"12.0"))
   {
-        fix = "XG CP 1352";
-        VULN = TRUE;
+    fix = "XG CP 1352";
+    VULN = TRUE;
   }
 }
 
@@ -82,4 +82,5 @@ if (VULN)
    security_message(data:report);
    exit(0);
 }
+
 exit(99);

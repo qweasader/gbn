@@ -1,28 +1,14 @@
-# Copyright (C) 2015 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2015 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851138");
-  script_version("2023-11-02T05:05:26+0000");
-  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_version("2024-10-10T07:25:31+0000");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"creation_date", value:"2015-12-05 08:43:02 +0100 (Sat, 05 Dec 2015)");
   script_cve_id("CVE-2015-0272", "CVE-2015-2925", "CVE-2015-5283", "CVE-2015-5307",
                 "CVE-2015-7799", "CVE-2015-7872", "CVE-2015-7990", "CVE-2015-8104",
@@ -99,7 +85,7 @@ if(description)
 
   - Disable some ppc64le netfilter modules to restore the kabi (bsc#951546)
 
-  - Fix regression .
+  - Fix regression.
 
   Description truncated, please see the referenced URL(s) for more information.");
 
@@ -109,7 +95,7 @@ if(description)
   script_xref(name:"SUSE-SU", value:"2015:2194-1");
   script_tag(name:"solution_type", value:"VendorFix");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("SuSE Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/suse", "ssh/login/rpms", re:"ssh/login/release=(SLED12\.0SP0|SLES12\.0SP0)");

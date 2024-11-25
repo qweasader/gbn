@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.14361");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-09-27T05:05:23+0000");
+  script_tag(name:"last_modification", value:"2024-09-27 05:05:23 +0000 (Fri, 27 Sep 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_cve_id("CVE-2004-0826");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/11015");
@@ -18,7 +18,7 @@ if(description)
   script_category(ACT_MIXED_ATTACK);
   script_copyright("Copyright (C) 2004 Digital Defense Inc.");
   script_family("Gain a shell remotely");
-  script_dependencies("find_service.nasl", "httpver.nasl", "gb_tls_version_get.nasl");
+  script_dependencies("find_service.nasl", "httpver.nasl", "gb_ssl_tls_version_get.nasl");
   script_mandatory_keys("ssl_tls/port");
 
   script_tag(name:"solution", value:"Upgrade the remote service to use NSS 3.9.2 or newer.");

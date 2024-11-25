@@ -9,8 +9,8 @@ CPE = "cpe:/a:phppgadmin:phppgadmin";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.151047");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-06-25T05:05:27+0000");
+  script_tag(name:"last_modification", value:"2024-06-25 05:05:27 +0000 (Tue, 25 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-09-27 03:57:02 +0000 (Wed, 27 Sep 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -22,9 +22,9 @@ if (description)
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("phpPgAdmin <= 7.14.4 RCE Vulnerability");
+  script_name("phpPgAdmin < 7.14.6 RCE Vulnerability");
 
   script_category(ACT_GATHER_INFO);
 
@@ -43,12 +43,12 @@ if (description)
   PHP 'unserialize()' function in multiple places. An example is the functionality to manage tables
   in 'tables.php' where the 'ma[]' POST parameter is deserialized.");
 
-  script_tag(name:"affected", value:"phpPgAdmin version 7.14.4 and prior.");
+  script_tag(name:"affected", value:"phpPgAdmin prior to version 7.14.6.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 27th August, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"Update to version 7.14.6 or later.");
 
   script_xref(name:"URL", value:"https://github.com/dub-flow/vulnerability-research/tree/main/CVE-2023-40619");
+  script_xref(name:"URL", value:"https://github.com/hestiacp/phppgadmin/releases/tag/v7.14.6");
 
   exit(0);
 }
@@ -65,10 +65,10 @@ if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version:
 version = infos["version"];
 location = infos["location"];
 
-if (version_is_less_equal(version: version, test_version: "7.14.4")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "None", install_path: location);
+if (version_is_less(version: version, test_version: "7.14.6")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "7.14.6", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }
 
-exit(0);
+exit(99);

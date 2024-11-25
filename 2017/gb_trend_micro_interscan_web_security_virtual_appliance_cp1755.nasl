@@ -9,9 +9,9 @@ CPE = "cpe:/a:trendmicro:interscan_web_security_virtual_appliance";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106841");
-  script_version("2023-07-28T16:09:07+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2017-11396");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-06-01 15:02:52 +0700 (Thu, 01 Jun 2017)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -32,9 +32,9 @@ if (description)
   script_dependencies("gb_trend_micro_interscan_web_security_virtual_appliance_consolidation.nasl");
   script_mandatory_keys("trendmicro/IWSVA/detected");
 
-  script_tag(name:"summary", value:"Trend Micro has released a new hot fix for Trend Micro InterScan Web
-  Security Virtual Appliance (IWSVA) 6.5. This build resolves multiple vulnerabilities related to potential remote
-  code execution.");
+  script_tag(name:"summary", value:"Trend Micro has released a new hot fix for Trend Micro InterScan
+  Web Security Virtual Appliance (IWSVA) 6.5. This build resolves multiple vulnerabilities related
+  to potential remote code execution (RCE).");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

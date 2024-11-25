@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113159");
-  script_version("2023-11-03T16:10:08+0000");
-  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-04-18 13:10:35 +0200 (Wed, 18 Apr 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
@@ -36,7 +36,7 @@ if( description )
 
   ikiwiki incorrectly called the CGI::FormBuilder->field method (similar to the CGI->param API that led to Bugzilla's CVE-2014-1572),
   which can be abused to lead to commit metadata forgery.");
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
   script_tag(name:"impact", value:"Successful exploitation could allow an attacker to bypass access restriction.");
   script_tag(name:"affected", value:"IkiWiki before version 3.20161229.");
   script_tag(name:"solution", value:"Update to version 3.20161229.");

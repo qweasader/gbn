@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.130044");
   script_cve_id("CVE-2015-0799", "CVE-2015-0801", "CVE-2015-0802", "CVE-2015-0803", "CVE-2015-0804", "CVE-2015-0805", "CVE-2015-0806", "CVE-2015-0807", "CVE-2015-0808", "CVE-2015-0811", "CVE-2015-0812", "CVE-2015-0813", "CVE-2015-0814", "CVE-2015-0815", "CVE-2015-0816", "CVE-2015-2706", "CVE-2015-2708", "CVE-2015-2709", "CVE-2015-2710", "CVE-2015-2711", "CVE-2015-2712", "CVE-2015-2713", "CVE-2015-2715", "CVE-2015-2716", "CVE-2015-2717", "CVE-2015-2718", "CVE-2015-4496");
   script_tag(name:"creation_date", value:"2015-10-15 07:41:56 +0000 (Thu, 15 Oct 2015)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
 
@@ -23,8 +23,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2015-0342");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2015-0342.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16698");
   script_xref(name:"URL", value:"http://www.seamonkey-project.org/releases/seamonkey2.35/");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16698");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-30/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-31/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-32/");

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2020.1747");
   script_cve_id("CVE-2011-4718", "CVE-2014-9767", "CVE-2014-9912", "CVE-2015-4116", "CVE-2015-6831", "CVE-2015-6832", "CVE-2015-6833", "CVE-2015-7803", "CVE-2015-7804", "CVE-2015-8866", "CVE-2015-8867", "CVE-2015-8874", "CVE-2015-8879", "CVE-2015-8935", "CVE-2016-10158", "CVE-2016-10159", "CVE-2016-10161", "CVE-2016-10397", "CVE-2016-2554", "CVE-2016-3141", "CVE-2016-3142", "CVE-2016-3185", "CVE-2016-4070", "CVE-2016-4073", "CVE-2016-4539", "CVE-2016-4540", "CVE-2016-4542", "CVE-2016-5093", "CVE-2016-5094", "CVE-2016-5772", "CVE-2016-6288", "CVE-2016-6291", "CVE-2016-6292", "CVE-2016-6294", "CVE-2016-7124", "CVE-2016-7125", "CVE-2016-7128", "CVE-2016-7412", "CVE-2016-7414", "CVE-2016-7418", "CVE-2016-9934", "CVE-2016-9935", "CVE-2017-11143", "CVE-2017-11144", "CVE-2017-11145", "CVE-2017-11147", "CVE-2017-11628", "CVE-2017-12933", "CVE-2017-16642", "CVE-2017-7272", "CVE-2017-9226", "CVE-2018-10545", "CVE-2018-10547", "CVE-2018-14851", "CVE-2018-17082", "CVE-2018-5711", "CVE-2018-5712", "CVE-2019-11041", "CVE-2019-11042", "CVE-2019-11043", "CVE-2019-11047", "CVE-2019-11050", "CVE-2019-19204", "CVE-2019-19246", "CVE-2019-9641");
   script_tag(name:"creation_date", value:"2020-07-03 06:19:30 +0000 (Fri, 03 Jul 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-04-05 20:49:00 +0000 (Tue, 05 Apr 2022)");
+  script_tag(name:"severity_date", value:"2019-03-11 14:10:35 +0000 (Mon, 11 Mar 2019)");
 
   script_name("Huawei EulerOS: Security Advisory for php (EulerOS-SA-2020-1747)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRT\-3\.0\.6\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2020-1747");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2020-1747");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2020-1747");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'php' package(s) announced via the EulerOS-SA-2020-1747 advisory.");
 
@@ -55,6 +55,8 @@ In PHP before 5.6.31, 7.x before 7.0.21, and 7.1.x before 7.1.7, a stack-based b
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

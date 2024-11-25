@@ -9,8 +9,8 @@ CPE = "cpe:/a:mysql:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801573");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2011-01-21 14:38:54 +0100 (Fri, 21 Jan 2011)");
   script_cve_id("CVE-2010-3840");
   script_tag(name:"cvss_base", value:"4.0");
@@ -26,7 +26,6 @@ if(description)
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Databases");
   script_dependencies("mysql_version.nasl");
-  script_require_ports("Services/mysql", 3306);
   script_mandatory_keys("MySQL/installed");
 
   script_tag(name:"impact", value:"Successful exploitation could allow users to cause a denial of service and

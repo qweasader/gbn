@@ -9,11 +9,11 @@ CPE = "cpe:/a:horde:imp";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100724");
-  script_version("2023-10-27T05:05:28+0000");
-  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
+  script_version("2024-07-23T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2024-07-23 05:05:30 +0000 (Tue, 23 Jul 2024)");
   script_tag(name:"creation_date", value:"2010-07-27 20:48:46 +0200 (Tue, 27 Jul 2010)");
   script_cve_id("CVE-2008-4182");
-  script_name("Horde Turba Contact Manager '/imp/test.php' Cross Site Scripting Vulnerability");
+  script_name("Horde Turba Contact Manager '/imp/test.php' XSS Vulnerability");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
   script_category(ACT_ATTACK);
@@ -24,10 +24,10 @@ if(description)
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/31168");
 
-  script_tag(name:"solution", value:"Updates are available. Please see the references for more information.");
+  script_tag(name:"summary", value:"Turba Contact Manager is prone to a cross-site scripting (XSS)
+  vulnerability because it fails to properly sanitize user-supplied input.");
 
-  script_tag(name:"summary", value:"Turba Contact Manager is prone to a cross-site scripting vulnerability
-  because it fails to properly sanitize user-supplied input.");
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP POST request and checks the response.");
 
   script_tag(name:"impact", value:"An attacker may leverage this issue to execute arbitrary script code
   in the browser of an unsuspecting user in the context of the affected site. This may let the attacker
@@ -37,6 +37,8 @@ if(description)
   be affected.
 
   Note that this issue also affects Turba on Horde IMP.");
+
+  script_tag(name:"solution", value:"Updates are available. Please see the references for more information.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_analysis");
@@ -75,7 +77,8 @@ if( ! res )
 
 if( res =~ "^HTTP/1\.[01] 200" && egrep( pattern:"<script>alert\('vt-xss-test'\)</script>", string:res, icase:TRUE ) ) {
   report = http_report_vuln_url( url:url, port:port );
-  security_message( port:port, data:url );
+  security_message( port:port, data:report );
+  exit( 0 );
 }
 
-exit( 0 );
+exit( 99 );

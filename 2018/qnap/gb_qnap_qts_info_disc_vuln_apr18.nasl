@@ -9,8 +9,8 @@ CPE = "cpe:/o:qnap:qts";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813119");
-  script_version("2023-09-27T05:05:31+0000");
-  script_tag(name:"last_modification", value:"2023-09-27 05:05:31 +0000 (Wed, 27 Sep 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2018-04-20 10:36:37 +0530 (Fri, 20 Apr 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -24,7 +24,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("QNAP QTS 'sysinfoReq.cgi' Information Disclosure Vulnerability-Apr18");
+  script_name("QNAP QTS 'sysinfoReq.cgi' Information Disclosure Vulnerability (Apr 2018)");
 
   script_category(ACT_GATHER_INFO);
 

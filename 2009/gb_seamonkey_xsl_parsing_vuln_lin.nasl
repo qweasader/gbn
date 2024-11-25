@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800378");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-04-08 08:04:29 +0200 (Wed, 08 Apr 2009)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2009-1169");
-  script_name("Mozilla Seamonkey XSL Parsing Vulnerability (Linux)");
+  script_name("Mozilla Seamonkey XSL Parsing Vulnerability - Linux");
   script_xref(name:"URL", value:"http://secunia.com/advisories/34471");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/34235");
   script_xref(name:"URL", value:"http://www.milw0rm.com/exploits/8285");

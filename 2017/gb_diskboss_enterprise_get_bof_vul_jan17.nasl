@@ -9,12 +9,12 @@ CPE = "cpe:/a:dboss:diskboss_enterprise";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107124");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-09-25T05:06:11+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2017-01-17 16:11:25 +0530 (Tue, 17 Jan 2017)");
-  script_name("DiskBoss Enterprise Server 'Get' Buffer Overflow Vulnerability (Windows)");
+  script_name("DiskBoss Enterprise Server 'Get' Buffer Overflow Vulnerability - Windows");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Denial of Service");
@@ -25,7 +25,7 @@ if(description)
 
   script_tag(name:"summary", value:"DiskBoss Enterprise is prone to a buffer overflow vulnerability.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"The flaw is due to an improper validation of
   web requests passed via GET request.");

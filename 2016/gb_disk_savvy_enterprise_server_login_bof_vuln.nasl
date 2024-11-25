@@ -9,11 +9,11 @@ CPE = "cpe:/a:disksavvy:disksavvy_enterprise";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809486");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-03-01T14:37:10+0000");
   script_cve_id("CVE-2017-6187");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-03-13 19:11:00 +0000 (Wed, 13 Mar 2019)");
@@ -24,7 +24,6 @@ if(description)
   script_family("Denial of Service");
   script_dependencies("gb_disk_savvy_enterprise_server_detect.nasl");
   script_mandatory_keys("DiskSavvy/Enterprise/Server/installed");
-  script_require_ports("Services/www", 80);
 
   script_xref(name:"URL", value:"http://www.disksavvy.com");
   script_xref(name:"URL", value:"https://www.exploit-db.com/exploits/41436/");
@@ -57,8 +56,11 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_less_equal( version:vers, test_version:"9.4.18" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"None Available");

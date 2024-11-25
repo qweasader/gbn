@@ -1,34 +1,20 @@
-# Copyright (C) 2011 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2011 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103996");
-  script_version("2022-08-03T10:11:15+0000");
-  script_tag(name:"last_modification", value:"2022-08-03 10:11:15 +0000 (Wed, 03 Aug 2022)");
+  script_version("2024-05-29T05:05:18+0000");
+  script_tag(name:"last_modification", value:"2024-05-29 05:05:18 +0000 (Wed, 29 May 2024)");
   script_tag(name:"creation_date", value:"2011-04-05 14:24:03 +0200 (Tue, 05 Apr 2011)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
   script_name("Gather Hardware Information (Linux/Unix SSH Login)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2011 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("login/SSH/success");
@@ -55,46 +41,48 @@ cpuinfo = ssh_cmd( socket:sock, cmd:"cat /proc/cpuinfo" );
 cpus = make_array();
 cpunumber = 0;
 
+# nb: There seems to be no real consistency what info is included as shown in the examples below.
+#
 # BusyBox v1.20.2 single core CPU output of cat /proc/cpuinfo:
 #
-# Processor     : Marvell PJ4Bv7 Processor rev 1 (v7l)
-# BogoMIPS      : 1196.85
-# Features      : swp half thumb fastmult vfp edsp vfpv3 vfpv3d16 tls
-# CPU implementer       : 0x56
+# Processor       : Marvell PJ4Bv7 Processor rev 1 (v7l)
+# BogoMIPS        : 1196.85
+# Features        : swp half thumb fastmult vfp edsp vfpv3 vfpv3d16 tls
+# CPU implementer : 0x56
 # CPU architecture: 7
-# CPU variant   : 0x1
-# CPU part      : 0x581
-# CPU revision  : 1
+# CPU variant     : 0x1
+# CPU part        : 0x581
+# CPU revision    : 1
 #
-# Hardware      : Marvell Armada-370
-# Revision      : 0000
-# Serial                : 0000000000000000
+# Hardware        : Marvell Armada-370
+# Revision        : 0000
+# Serial          : 0000000000000000
 #
 # BusyBox v1.20.2 dual core CPU output of cat /proc/cpuinfo:
 #
-# processor     : 0
-# model name    : ARMv7 Processor rev 1 (v7l)
-# BogoMIPS      : 2655.84
-# Features      : swp half thumb fastmult vfp edsp neon vfpv3 tls
-# CPU implementer       : 0x41
+# processor       : 0
+# model name      : ARMv7 Processor rev 1 (v7l)
+# BogoMIPS        : 2655.84
+# Features        : swp half thumb fastmult vfp edsp neon vfpv3 tls
+# CPU implementer : 0x41
 # CPU architecture: 7
-# CPU variant   : 0x4
-# CPU part      : 0xc09
-# CPU revision  : 1
+# CPU variant     : 0x4
+# CPU part        : 0xc09
+# CPU revision    : 1
 #
-# processor     : 1
-# model name    : ARMv7 Processor rev 1 (v7l)
-# BogoMIPS      : 2655.84
-# Features      : swp half thumb fastmult vfp edsp neon vfpv3 tls
-# CPU implementer       : 0x41
+# processor       : 1
+# model name      : ARMv7 Processor rev 1 (v7l)
+# BogoMIPS        : 2655.84
+# Features        : swp half thumb fastmult vfp edsp neon vfpv3 tls
+# CPU implementer : 0x41
 # CPU architecture: 7
-# CPU variant   : 0x4
-# CPU part      : 0xc09
-# CPU revision  : 1
+# CPU variant     : 0x4
+# CPU part        : 0xc09
+# CPU revision    : 1
 #
-# Hardware      : Marvell Armada 380/381/382/385/388 (Device Tree)
-# Revision      : 0000
-# Serial                : 0000000000000000
+# Hardware        : Marvell Armada 380/381/382/385/388 (Device Tree)
+# Revision        : 0000
+# Serial          : 0000000000000000
 #
 # Standard-Linux Intel CPU output of cat /proc/cpuinfo:
 #
@@ -125,6 +113,91 @@ cpunumber = 0;
 # model         : 49
 # model name    : AMD EPYC 7452 32-Core Processor
 # *snip*
+#
+# Further examples for ARM systems:
+#
+# processor       : 0
+# model name      : ARMv7 Processor rev 4 (v7l)
+# BogoMIPS        : 38.40
+# Features        : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
+# CPU implementer : 0x41
+# CPU architecture: 7
+# CPU variant     : 0x0
+# CPU part        : 0xd03
+# CPU revision    : 4
+#
+# *snip*
+#
+# Hardware  : BCM2835
+# Revision  : a02082
+# Serial    : 000000008dffccd2
+# Model     : Raspberry Pi 3 Model B Rev 1.2
+#
+# or:
+#
+# processor       : 0
+# model name      : ARMv7 Processor rev 3 (v7l)
+# BogoMIPS        : 144.00
+# Features        : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
+# CPU implementer : 0x41
+# CPU architecture: 7
+# CPU variant     : 0x0
+# CPU part        : 0xd08
+# CPU revision    : 3
+#
+# *snip*
+#
+# Hardware  : BCM2711
+# Revision  : c03112
+# Serial    : 10000000ed30ba2e
+# Model     : Raspberry Pi 4 Model B Rev 1.2
+#
+# or:
+#
+# processor       : 0
+# model name      : ARMv7 Processor rev 2 (v7l)
+# BogoMIPS        : 50.00
+# Features        : half thumb fastmult vfp edsp thumbee vfpv3 tls idiva idivt vfpd32 lpae
+# CPU implementer : 0x56
+# CPU architecture: 7
+# CPU variant     : 0x2
+# CPU part        : 0x584
+# CPU revision    : 2
+#
+# Sometimes the model name is not even included like e.g.:
+#
+# processor       : 7
+# BogoMIPS        : 2.40
+# Features        : fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid
+# CPU implementer : 0x41
+# CPU architecture: 8
+# CPU variant     : 0x0
+# CPU part        : 0xd03
+# CPU revision    : 3
+#
+# or:
+#
+# processor       : 0
+# BogoMIPS        : 200.00
+# Features        : fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma dcpop asimddp asimdfhm
+# CPU implementer : 0x48
+# CPU architecture: 8
+# CPU variant     : 0x1
+# CPU part        : 0xd01
+# CPU id          : 0x481fd010
+# CPU revision    : 0
+#
+# or:
+#
+# processor       : 0
+# BogoMIPS        : 200.00
+# cpu MHz         : 2400.000
+# Features        : fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma dcpop asimddp asimdfhm
+# CPU implementer : 0x48
+# CPU architecture: 8
+# CPU variant     : 0x1
+# CPU part        : 0xd01
+# CPU revision    : 0
 
 if( cpuinfo =~ "Hardware\s*: " )
   cpu_regex = "^Hardware\s*: (.+)$";
@@ -162,6 +235,51 @@ foreach line( split( cpuinfo ) ) {
   }
 }
 
+if( ! cpu_vendor_id ) {
+
+  # model name    : ARMv7 Processor rev 1 (v7l)
+  # model name  : ARMv8 Processor rev 0 (v8l)
+  if( cpuinfo =~ "(model name|Processor)\s*:\s*ARM" )
+    cpu_vendor_id = "ARM";
+
+  # Processor     : Marvell PJ4Bv7 Processor rev 1 (v7l)
+  else if( cpuinfo =~ "(model name|Processor)\s*:\s*Marvell" )
+    cpu_vendor_id = "Marvell";
+
+  # model name    : Intel(R) Core(TM) i5-6300U CPU @ 2.40GHz
+  else if( cpuinfo =~ "(model name|Processor)\s*:\s*Intel" )
+    cpu_vendor_id = "GenuineIntel";
+
+  # model name    : AMD EPYC 7452 32-Core Processor
+  else if( cpuinfo =~ "(model name|Processor)\s*:\s*AMD" )
+    cpu_vendor_id = "AuthenticAMD";
+
+  # nb: We're assuming (for now) that the vendor is always the first part up to the first space
+  else if( _vendor = eregmatch( string:cpuinfo, pattern:"(model name|Processor)\s*:\s*([A-Za-z]+[^ ]*)", icase:FALSE ) )
+    cpu_vendor_id = _vendor[2];
+}
+
+# -- Get the systems architecture -- #
+archinfo = ssh_cmd( socket:sock, cmd:"uname -m" );
+arch = "";
+
+# nb: If adding additional architectures here make sure to also check the ARM specific pattern below
+if( egrep( string:archinfo, pattern:"^(x86_64|i386|i486|i586|i686|sun4u|unknown|armv7l|armv8|aarch64|arm64|ia64|alpha|amd64|arm|armeb|armel|hppa|m32r|m68k|mips|mipsel|powerpc|ppc64|s390|s390x|sh3|sh3eb|sh4|sh4eb|sparc)$" ) ) {
+  arch = archinfo;
+  set_kb_item( name:"ssh/login/arch", value:arch );
+}
+
+# nb: Last fallback as some examples above are showing that on some systems none of the previously
+# evaluated info is there. In this case some guessing based on the system architecture reported by
+# the Kernel is done.
+if( ! cpu_vendor_id && arch ) {
+
+  if( arch =~ "^(armv7l|armv8|aarch64|arm64|arm|armeb|armel)$" )
+    cpu_vendor_id = "ARM (based on the identified architecture '" + arch + "')";
+}
+
+# nb: This is used in some Linux Kernel "CPU Vulnerabilities" VTs to exit if e.g. only a specific
+# Vendor is affected.
 if( cpu_vendor_id ) {
   set_kb_item( name:"ssh/login/cpu_vendor_id", value:cpu_vendor_id );
   register_host_detail( name:"cpu_vendor_id", value:cpu_vendor_id, desc:SCRIPT_DESC );
@@ -172,14 +290,12 @@ if( cpu_vendor_id ) {
 
   else if( "AuthenticAMD" >< cpu_vendor_id )
     set_kb_item( name:"ssh/login/amd_cpu/detected", value:TRUE );
-}
 
-# -- Get the systems architecture -- #
-archinfo = ssh_cmd( socket:sock, cmd:"uname -m" );
-arch = "";
-if( egrep( string:archinfo, pattern:"^(x86_64|i386|i486|i586|i686|sun4u|unknown|armv7l|armv8|ia64|alpha|amd64|arm|armeb|armel|hppa|m32r|m68k|mips|mipsel|powerpc|ppc64|s390|s390x|sh3|sh3eb|sh4|sh4eb|sparc)$" ) ) {
-  arch = archinfo;
-  set_kb_item( name:"ssh/login/arch", value:arch );
+  else if( "ARM" >< cpu_vendor_id )
+    set_kb_item( name:"ssh/login/arm_cpu/detected", value:TRUE );
+
+  else if( "Marvell" >< cpu_vendor_id )
+    set_kb_item( name:"ssh/login/marvell_cpu/detected", value:TRUE );
 }
 
 # -- Get the PCI information -- #

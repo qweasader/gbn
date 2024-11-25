@@ -9,8 +9,8 @@ CPE = "cpe:/a:videolan:vlc_media_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112753");
-  script_version("2023-10-27T16:11:33+0000");
-  script_tag(name:"last_modification", value:"2023-10-27 16:11:33 +0000 (Fri, 27 Oct 2023)");
+  script_version("2024-02-15T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2020-05-19 13:02:00 +0000 (Tue, 19 May 2020)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
@@ -24,7 +24,7 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("VLC Media Player < 3.0.9 DoS Vulnerability (Linux)");
+  script_name("VLC Media Player < 3.0.9 DoS Vulnerability - Linux");
 
   script_category(ACT_GATHER_INFO);
 

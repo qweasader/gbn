@@ -9,8 +9,8 @@ CPE = "cpe:/a:banu:tinyproxy";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140255");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-03-12T05:06:30+0000");
+  script_tag(name:"last_modification", value:"2024-03-12 05:06:30 +0000 (Tue, 12 Mar 2024)");
   script_tag(name:"creation_date", value:"2017-07-31 11:31:40 +0700 (Mon, 31 Jul 2017)");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:P");
@@ -24,21 +24,27 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Tinyproxy DoS Vulnerability");
+  script_name("Tinyproxy < 1.10.0 DoS Vulnerability");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
-  script_family("Web application abuses");
-  script_dependencies("sw_tinyproxy_detect.nasl");
-  script_mandatory_keys("tinyproxy/installed");
+  script_family("Web Servers");
+  script_dependencies("sw_tinyproxy_http_detect.nasl");
+  script_mandatory_keys("tinyproxy/detected");
 
-  script_tag(name:"summary", value:"Tinyproxy creates a /run/tinyproxy/tinyproxy.pid file after dropping
-  privileges to a non-root account, which might allow local users to kill arbitrary processes by leveraging access
-  to this non-root account for tinyproxy.pid modification before a root script executes a 'kill' command.");
+  script_tag(name:"summary", value:"Tinyproxy is prone to a denial of service (DoS)
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"solution", value:"Update Tinyproxy to version 1.10.0 or later.");
+  script_tag(name:"insight", value:"Tinyproxy creates a /run/tinyproxy/tinyproxy.pid file after
+  dropping privileges to a non-root account, which might allow local users to kill arbitrary
+  processes by leveraging access to this non-root account for tinyproxy.pid modification before a
+  root script executes a 'kill' command.");
+
+  script_tag(name:"affected", value:"Tinyproxy versions prior to 1.10.0.");
+
+  script_tag(name:"solution", value:"Update to version 1.10.0 or later.");
 
   script_xref(name:"URL", value:"https://github.com/tinyproxy/tinyproxy/releases/tag/1.10.0");
   script_xref(name:"URL", value:"https://github.com/tinyproxy/tinyproxy/issues/106");

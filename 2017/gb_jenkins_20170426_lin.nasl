@@ -9,8 +9,8 @@ CPE = "cpe:/a:jenkins:jenkins";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107156");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-04-28 12:09:09 +0200 (Fri, 28 Apr 2017)");
   script_cve_id("CVE-2017-1000353", "CVE-2017-1000354", "CVE-2017-1000355", "CVE-2017-1000356");
 
@@ -24,8 +24,9 @@ if(description)
 
   script_name("Jenkins Multiple Vulnerabilities (Apr 2017) - Linux");
 
-  script_tag(name:"summary", value:"Multiple Cross-Site Request Forgery vulnerabilities in Jenkins allow malicious users to
-  perform several administrative actions by tricking a victim into opening a web page.");
+  script_tag(name:"summary", value:"Multiple cross-site request forgery (CSRF) vulnerabilities in
+  Jenkins allow malicious users to perform several administrative actions by tricking a victim into
+  opening a web page.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

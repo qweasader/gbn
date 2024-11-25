@@ -7,11 +7,14 @@
 if(description)
 {  script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2010-March/037754.html");
   script_oid("1.3.6.1.4.1.25623.1.0.861793");
-  script_version("2023-06-30T05:06:12+0000");
-  script_tag(name:"last_modification", value:"2023-06-30 05:06:12 +0000 (Fri, 30 Jun 2023)");
+  script_version("2024-02-05T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 05:05:38 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-03-31 14:20:46 +0200 (Wed, 31 Mar 2010)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-03 02:24:33 +0000 (Sat, 03 Feb 2024)");
   script_xref(name:"FEDORA", value:"2010-4518");
   script_cve_id("CVE-2010-0046", "CVE-2010-0049", "CVE-2010-0050", "CVE-2010-0051", "CVE-2010-0651", "CVE-2010-0052", "CVE-2010-0054", "CVE-2010-0047", "CVE-2010-0048", "CVE-2010-0053");
   script_name("Fedora Update for qt FEDORA-2010-4518");

@@ -9,8 +9,8 @@ CPE = "cpe:/a:mit:kerberos";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.149052");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2023-01-03 02:28:45 +0000 (Tue, 03 Jan 2023)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -36,8 +36,7 @@ if(description)
   script_tag(name:"summary", value:"MIT Kerberos5 is prone to an integer overflow vulnerability in
   PAC parsing.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the
-  target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"PAC parsing has integer overflows that may lead to remote code
   execution (in KDC, kadmind, or a GSS or Kerberos application server) on 32-bit platforms (which

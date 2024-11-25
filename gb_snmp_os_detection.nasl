@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103429");
-  script_version("2024-01-17T05:05:33+0000");
-  script_tag(name:"last_modification", value:"2024-01-17 05:05:33 +0000 (Wed, 17 Jan 2024)");
+  script_version("2024-07-18T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-07-18 05:05:48 +0000 (Thu, 18 Jul 2024)");
   script_tag(name:"creation_date", value:"2012-02-17 10:17:12 +0100 (Fri, 17 Feb 2012)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -313,6 +313,15 @@ if( ( sysdesc =~ "^Cisco IOS" || "IOS (tm)" >< sysdesc ) && "Cisco IOS XR" >!< s
   set_kb_item(name:"Host/OS/SNMP/Confidence", value:100);
 
   os_register_and_report( os:"Cisco IOS XE", cpe:"cpe:/o:cisco:ios_xe", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
+# nb: More detailed OS detection covered in gsf/gb_dell_emc_smartfabric_os10_snmp_detect.nasl
+if( "Dell EMC Networking OS10" >< sysdesc ) {
+  set_kb_item( name:"Host/OS/SNMP", value:"Dell EMC SmartFabric OS10" );
+  set_kb_item( name:"Host/OS/SNMP/Confidence", value:100 );
+
+  os_register_and_report( os:"Dell EMC SmartFabric OS10", cpe:"cpe:/o:dell:emc_networking_os10", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
   exit( 0 );
 }
 
@@ -650,7 +659,7 @@ if( egrep( pattern:"VxWorks", string:sysdesc, icase:TRUE ) ) {
   exit( 0 );
 }
 
-# nb: More detailed OS Detection covered in gb_westermo_weos_detect.nasl
+# nb: More detailed OS Detection covered in gb_westermo_weos_snmp_detect.nasl
 if( egrep( pattern:"^Westermo.*, primary:.*, backup:.*, bootloader:", string:sysdesc, icase:TRUE ) ) {
   os_register_and_report( os:"Westermo WeOS", cpe:"cpe:/o:westermo:weos", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
   exit( 0 );
@@ -661,6 +670,12 @@ if( egrep( pattern:"^Westermo.*, primary:.*, backup:.*, bootloader:", string:sys
 # - Case insensitive match (via "=~") is expected / done on purpose
 if( sysdesc =~ "^EPSON " ) {
   os_register_and_report( os:"Epson Printer Firmware", cpe:"cpe:/o:epson:printer_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
+# nb: More detailed OS Detection covered in gb_toshiba_printer_snmp_detect.nasl
+if( sysdesc =~ "^TOSHIBA (e-STUDIO|TEC)" ) {
+  os_register_and_report( os:"TOSHIBA Printer Firmware", cpe:"cpe:/o:toshibatec:printer_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
   exit( 0 );
 }
 
@@ -762,13 +777,25 @@ if( sysdesc =~ "^Palo Alto Networks" ) {
   exit( 0 );
 }
 
+# e.g.:
+# NS-BSD SN160W<redacted> arm
+if( sysdesc =~ "^NS\-BSD SN[0-9]" ) {
+  os_register_and_report( os:"FreeBSD", cpe:"cpe:/o:freebsd:freebsd", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
 # Linux SOA1000 2.6.26.8 #62 SMP Mon Sep 21 18:13:37 CST 2009 i686 unknown
+# BIG-IP Virtual Edition : Linux 3.10.0-862.14.4.el7.ve.x86_64 : BIG-IP software release 15.1.5.1, build 0.0.14
 if( sysdesc =~ "Linux" && "Cisco IOS" >!< sysdesc ) {
 
   set_kb_item( name:"Host/OS/SNMP", value:"Linux" );
   set_kb_item( name:"Host/OS/SNMP/Confidence", value:100 );
 
-  version = eregmatch( pattern:"Linux [^ ]* ([0-9]+\.[^ ]*).*", string:sysdesc );
+  if( "BIG-IP " >< sysdesc )
+    version = eregmatch( pattern:"BIG-IP [^:]+ : Linux ([0-9]+\.[^ ]*).*", string:sysdesc );
+  else
+    version = eregmatch( pattern:"Linux [^ ]* ([0-9]+\.[^ ]*).*", string:sysdesc );
+
   if( version[1] ) {
 
     # 2.0 SP2:
@@ -913,6 +940,12 @@ if( sysdesc =~ "^MiiNePort" ) {
   exit( 0 );
 }
 
+# nb: More detailed detection covered in gsf/gb_moxa_eds_snmp_detect.nasl
+if( sysdesc =~ "^Moxa EDS-G?[0-9]" ) {
+  os_register_and_report( os:"Moxa EDS Firmware", cpe:"cpe:/o:moxa:eds_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
 # nb: More detailed detection covered in gb_citrix_netscaler_snmp_detect.nasl
 if( sysdesc =~ "^NetScaler NS" ) {
   os_register_and_report( os:"Citrix NetScaler OS", cpe:"cpe:/o:citrix:netscaler", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
@@ -980,6 +1013,7 @@ if( "ExtremeXOS" >< sysdesc ) {
 # Pulse Secure, LLC,Pulse Connect Secure,SA-2500,8.1R11 (build 52981)
 # Pulse Secure,LLC,Pulse Connect Secure,MAG-SM160,8.1R7 (build 41041)
 # Pulse Secure, LLC,Ivanti Connect Secure,PSA-3000,9.1R18.2 (build 24467)
+# Pulse Secure, LLC,Ivanti Connect Secure,ISA-V,22.3R1 (build 1647)
 #
 # nb:
 # - Please keep the pattern used here in sync with the one used in gb_pulse_connect_secure_snmp_detect.nasl
@@ -987,6 +1021,14 @@ if( "ExtremeXOS" >< sysdesc ) {
 #
 if( sysdesc =~ "(Ivanti|Pulse) Connect Secure" && "Pulse Secure" >< sysdesc ) {
   os_register_and_report( os:"Linux", cpe:"cpe:/o:linux:kernel", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 );
+}
+
+# SCHNEIDER M241-51 Fast Ethernet TCP/IP
+# SCHNEIDER M258 Fast Ethernet TCP/IP
+# nb: More detailed detection covered in gsf/gb_schneider_modicon_controller_snmp_detect.nasl
+if( egrep( pattern:"^SCHNEIDER M[0-9]{3}.*Fast Ethernet TCP/IP", string:sysdesc, icase:FALSE ) ) {
+  os_register_and_report( os:"Schneider Electric Modicon Controller Firmware", cpe:"cpe:/o:schneider-electric:modicon_controller_firmware", banner_type:BANNER_TYPE, port:port, proto:"udp", banner:sysdesc, desc:SCRIPT_DESC, runs_key:"unixoide" );
   exit( 0 );
 }
 

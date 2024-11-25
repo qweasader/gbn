@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2020.0366");
   script_cve_id("CVE-2020-15953");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-09-22 22:15:00 +0000 (Tue, 22 Sep 2020)");
+  script_tag(name:"severity_date", value:"2020-07-30 19:03:51 +0000 (Thu, 30 Jul 2020)");
 
   script_name("Mageia: Security Advisory (MGASA-2020-0366)");
   script_category(ACT_GATHER_INFO);
@@ -27,8 +27,8 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2020-0366");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2020-0366.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=27168");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2020/dla-2329");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/QFBWNA5REI5ZGW2DAOEAVHM23MOU6O5J/");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2020/dla-2329");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'libetpan' package(s) announced via the MGASA-2020-0366 advisory.");
 

@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.842460");
   script_cve_id("CVE-2015-4500", "CVE-2015-4501", "CVE-2015-4502", "CVE-2015-4504", "CVE-2015-4506", "CVE-2015-4507", "CVE-2015-4508", "CVE-2015-4509");
   script_tag(name:"creation_date", value:"2015-09-25 05:19:25 +0000 (Fri, 25 Sep 2015)");
-  script_version("2023-06-21T05:06:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:21 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
@@ -23,8 +23,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"USN-2743-3");
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-2743-3");
-  script_xref(name:"URL", value:"https://launchpad.net/bugs/1498681");
   script_xref(name:"URL", value:"https://launchpad.net/bugs/1069793");
+  script_xref(name:"URL", value:"https://launchpad.net/bugs/1498681");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'unity-firefox-extension, webaccounts-browser-extension, webapps-greasemonkey' package(s) announced via the USN-2743-3 advisory.");
 

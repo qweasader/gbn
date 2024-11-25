@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803127");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-20T14:37:13+0000");
   script_cve_id("CVE-2012-5139", "CVE-2012-5140", "CVE-2012-5141", "CVE-2012-5142",
                 "CVE-2012-5143", "CVE-2012-5144");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-12-14 13:26:00 +0530 (Fri, 14 Dec 2012)");
-  script_name("Google Chrome Multiple Vulnerabilities-03 Dec2012 (Windows)");
+  script_name("Google Chrome Multiple Vulnerabilities-03 (Dec 2012) - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/51549/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/56903");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.in/2012/12/stable-channel-update.html");

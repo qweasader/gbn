@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803102");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2012-3374");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-10-19 13:10:50 +0530 (Fri, 19 Oct 2012)");
-  script_name("Pidgin MXit Message Parsing Buffer Overflow Vulnerability (Windows)");
+  script_name("Pidgin MXit Message Parsing Buffer Overflow Vulnerability - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/49831/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/54322");
   script_xref(name:"URL", value:"http://hg.pidgin.im/pidgin/main/rev/ded93865ef42");

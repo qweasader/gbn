@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2020.1398");
   script_cve_id("CVE-2014-9482", "CVE-2016-5028", "CVE-2016-5029", "CVE-2016-5030", "CVE-2016-5031", "CVE-2016-5032", "CVE-2016-5033", "CVE-2016-5034", "CVE-2016-5035", "CVE-2016-5036", "CVE-2016-5037", "CVE-2016-5038", "CVE-2016-5039", "CVE-2016-5040", "CVE-2016-5041", "CVE-2016-5042", "CVE-2016-5043", "CVE-2016-5044", "CVE-2016-7510", "CVE-2016-8679", "CVE-2016-8680", "CVE-2016-8681");
   script_tag(name:"creation_date", value:"2020-04-16 05:50:17 +0000 (Thu, 16 Apr 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-03-01 19:05:00 +0000 (Tue, 01 Mar 2022)");
+  script_tag(name:"severity_date", value:"2017-02-22 17:49:16 +0000 (Wed, 22 Feb 2017)");
 
   script_name("Huawei EulerOS: Security Advisory for libdwarf (EulerOS-SA-2020-1398)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROS\-2\.0SP3");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2020-1398");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2020-1398");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2020-1398");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'libdwarf' package(s) announced via the EulerOS-SA-2020-1398 advisory.");
 

@@ -2,20 +2,20 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:typo3:typo3";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804216");
-  script_version("2023-04-05T10:19:45+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
-  script_tag(name:"last_modification", value:"2023-04-05 10:19:45 +0000 (Wed, 05 Apr 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-01-08 17:10:27 +0530 (Wed, 08 Jan 2014)");
-  script_name("TYPO3 Multiple Vulnerabilities Feb10");
+  script_name("TYPO3 Multiple Vulnerabilities (Feb 2010)");
 
   script_tag(name:"impact", value:"Successful exploitation will allow remote attackers to get sensitive
 information or execute arbitrary scripts.");
@@ -25,7 +25,7 @@ information or execute arbitrary scripts.");
   - An error exists in backend, which fails to sanitize certain user input.
 
   - An error exists in the frontend, which is caused by improper validation of
-user-supplied input by the index.php script .");
+user-supplied input by the index.php script.");
   script_tag(name:"solution", value:"Upgrade to TYPO3 version 4.2.12, 4.3.2 or later.");
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"summary", value:"TYPO3 is prone to multiple vulnerabilities.");

@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805027");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-06-21T05:05:42+0000");
   script_cve_id("CVE-2014-6356", "CVE-2014-6357");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-12-10 12:32:44 +0530 (Wed, 10 Dec 2014)");
-  script_name("MS Office Compatibility Pack Remote Code Execution Vulnerabilities (3017301)");
+  script_name("Microsoft Office Compatibility Pack Remote Code Execution Vulnerabilities (3017301)");
 
   script_tag(name:"summary", value:"This host is missing a critical security
   update according to Microsoft Bulletin MS14-081.");

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.1532");
   script_cve_id("CVE-2013-2894", "CVE-2013-2930", "CVE-2014-4652", "CVE-2014-8133", "CVE-2014-9644", "CVE-2015-6526", "CVE-2015-8215", "CVE-2016-4470", "CVE-2016-4565", "CVE-2016-4913", "CVE-2016-6198", "CVE-2016-7097", "CVE-2017-15274", "CVE-2017-16995", "CVE-2017-17864", "CVE-2017-6001", "CVE-2018-14610", "CVE-2018-7757", "CVE-2019-5489", "CVE-2019-9162");
   script_tag(name:"creation_date", value:"2020-01-23 12:06:52 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-02-12 05:05:32 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-04-05 20:46:00 +0000 (Tue, 05 Apr 2022)");
+  script_tag(name:"severity_date", value:"2024-02-09 19:11:41 +0000 (Fri, 09 Feb 2024)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2019-1532)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.1\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-1532");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-1532");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-1532");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2019-1532 advisory.");
 

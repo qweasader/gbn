@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2018.0324");
   script_cve_id("CVE-2018-10840", "CVE-2018-1087", "CVE-2018-10876", "CVE-2018-10877", "CVE-2018-10879", "CVE-2018-10880", "CVE-2018-10881", "CVE-2018-10882", "CVE-2018-10883", "CVE-2018-1118", "CVE-2018-11412", "CVE-2018-13405", "CVE-2018-8897");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
+  script_tag(name:"severity_date", value:"2018-06-20 14:00:15 +0000 (Wed, 20 Jun 2018)");
 
   script_name("Mageia: Security Advisory (MGASA-2018-0324)");
   script_category(ACT_GATHER_INFO);
@@ -26,9 +26,9 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2018-0324");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2018-0324.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=23315");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=23263");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=23305");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=23315");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.14.51");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.14.52");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.14.53");

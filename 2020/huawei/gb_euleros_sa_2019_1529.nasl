@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.1529");
   script_cve_id("CVE-2013-2888", "CVE-2013-2893", "CVE-2013-6376", "CVE-2013-7268", "CVE-2014-1438", "CVE-2014-1445", "CVE-2014-6417", "CVE-2014-7842", "CVE-2014-8884", "CVE-2015-3291", "CVE-2015-4170", "CVE-2015-8746", "CVE-2016-10147", "CVE-2016-5195", "CVE-2016-5400", "CVE-2017-12188", "CVE-2017-14140", "CVE-2017-16527", "CVE-2017-16528", "CVE-2017-9242");
   script_tag(name:"creation_date", value:"2020-01-23 12:05:48 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-03-08 02:29:00 +0000 (Thu, 08 Mar 2018)");
+  script_tag(name:"severity_date", value:"2024-04-02 18:05:18 +0000 (Tue, 02 Apr 2024)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2019-1529)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.1\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-1529");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-1529");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-1529");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2019-1529 advisory.");
 
@@ -59,6 +59,8 @@ The Human Interface Device (HID) subsystem in the Linux ... [Please see the refe
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

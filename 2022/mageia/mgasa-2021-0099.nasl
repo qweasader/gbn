@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2021.0099");
   script_cve_id("CVE-2021-20194", "CVE-2021-21781", "CVE-2021-26930", "CVE-2021-26931", "CVE-2021-26932");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-03-31 00:15:00 +0000 (Wed, 31 Mar 2021)");
+  script_tag(name:"severity_date", value:"2021-02-23 18:35:29 +0000 (Tue, 23 Feb 2021)");
 
   script_name("Mageia: Security Advisory (MGASA-2021-0099)");
   script_category(ACT_GATHER_INFO);
@@ -26,12 +26,12 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2021-0099");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2021-0099.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=28467");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=28435");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=28429");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=28417");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=28415");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=27910");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=28415");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=28417");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=28429");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=28435");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=28467");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.10.15");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.10.16");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.10.17");

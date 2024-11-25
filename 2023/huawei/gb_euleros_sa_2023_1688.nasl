@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2023.1688");
   script_cve_id("CVE-2015-8558", "CVE-2016-9102", "CVE-2020-13754", "CVE-2020-13791", "CVE-2020-15469", "CVE-2020-15859", "CVE-2020-25742", "CVE-2020-25743", "CVE-2020-35503", "CVE-2021-20203", "CVE-2021-20255", "CVE-2021-20257", "CVE-2021-3507", "CVE-2021-3713", "CVE-2021-3748", "CVE-2021-3750", "CVE-2021-3930", "CVE-2021-4206", "CVE-2022-26353", "CVE-2022-4144");
   script_tag(name:"creation_date", value:"2023-05-08 04:14:25 +0000 (Mon, 08 May 2023)");
-  script_version("2023-06-20T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:25 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-05T14:36:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:57 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"6.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-01-03 15:16:00 +0000 (Tue, 03 Jan 2023)");
+  script_tag(name:"severity_date", value:"2023-01-03 15:16:38 +0000 (Tue, 03 Jan 2023)");
 
   script_name("Huawei EulerOS: Security Advisory for qemu-kvm (EulerOS-SA-2023-1688)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.2\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2023-1688");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2023-1688");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2023-1688");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'qemu-kvm' package(s) announced via the EulerOS-SA-2023-1688 advisory.");
 

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.53715");
-  script_version("2023-07-19T05:05:15+0000");
-  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2008-01-17 22:56:38 +0100 (Thu, 17 Jan 2008)");
   script_cve_id("CVE-2004-0999", "CVE-2004-1095");
   script_tag(name:"cvss_base", value:"10.0");
@@ -27,7 +27,7 @@ and Exposures Project identifies the following problems:
 
 CVE-2004-1095
 
-Luke Macken and infamous41md independently discoverd multiple
+Luke Macken and infamous41md independently discovered multiple
 integer overflows in zgv.  Remote exploitation of an integer
 overflow vulnerability could allow the execution of arbitrary
 code.

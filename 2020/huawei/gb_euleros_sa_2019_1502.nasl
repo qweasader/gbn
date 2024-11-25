@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.1502");
   script_cve_id("CVE-2017-18255", "CVE-2017-18270", "CVE-2017-18344", "CVE-2017-2584", "CVE-2017-2596", "CVE-2017-2636", "CVE-2017-2647", "CVE-2017-2671", "CVE-2017-5551", "CVE-2017-5669", "CVE-2017-5970", "CVE-2017-5986", "CVE-2017-6001", "CVE-2017-6074", "CVE-2017-6214", "CVE-2017-6348", "CVE-2017-6353", "CVE-2017-6951", "CVE-2017-7187", "CVE-2017-7261", "CVE-2017-7294", "CVE-2017-7308");
   script_tag(name:"creation_date", value:"2020-01-23 11:58:09 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-02-12 05:05:32 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-02-14 18:32:00 +0000 (Tue, 14 Feb 2023)");
+  script_tag(name:"severity_date", value:"2024-02-09 19:11:41 +0000 (Fri, 09 Feb 2024)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2019-1502)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRT\-3\.0\.1\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-1502");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-1502");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-1502");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2019-1502 advisory.");
 

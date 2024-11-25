@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802734");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-08T14:36:53+0000");
   script_cve_id("CVE-2011-3058", "CVE-2011-3065", "CVE-2011-3064", "CVE-2011-3063",
                 "CVE-2011-3062", "CVE-2011-3061", "CVE-2011-3060", "CVE-2011-3059");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-04-05 15:48:59 +0530 (Thu, 05 Apr 2012)");
-  script_name("Google Chrome Multiple Vulnerabilities - April 12 - Mac OS X");
+  script_name("Google Chrome Multiple Vulnerabilities (Apr 2012) - Mac OS X");
   script_xref(name:"URL", value:"http://secunia.com/advisories/48618/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/52762");
   script_xref(name:"URL", value:"http://www.securitytracker.com/id/1026877");

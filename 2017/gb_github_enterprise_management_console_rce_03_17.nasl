@@ -1,30 +1,16 @@
-# Copyright (C) 2017 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2017 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:github:github_enterprise";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140196");
-  script_version("2022-06-03T09:15:17+0000");
-  script_tag(name:"last_modification", value:"2022-06-03 09:15:17 +0000 (Fri, 03 Jun 2022)");
+  script_version("2024-07-18T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-07-18 05:05:48 +0000 (Thu, 18 Jul 2024)");
   script_tag(name:"creation_date", value:"2017-03-17 17:11:03 +0100 (Fri, 17 Mar 2017)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -42,13 +28,13 @@ if(description)
 
   script_category(ACT_ATTACK);
 
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_github_enterprise_web_detect.nasl");
+  script_dependencies("gb_github_enterprise_http_detect.nasl");
   script_require_ports("Services/www", 8443);
-  script_mandatory_keys("github/enterprise/management_console/detected");
+  script_mandatory_keys("github/enterprise/management_console/http/detected");
 
-  script_tag(name:"summary", value:"GitHub Enterprise suffer from a remote code execution
+  script_tag(name:"summary", value:"GitHub Enterprise suffer from a remote code execution (RCE)
   vulnerability.");
 
   script_tag(name:"vuldetect", value:"Sends multiple crafted HTTP requests with a special crafted
@@ -117,13 +103,13 @@ if( ! port = get_app_port( cpe:CPE, service:"www" ) )
 if( ! dir = get_app_location( port:port, cpe:CPE ) )
   exit( 0 );
 
-# nb: gb_github_enterprise_web_detect.nasl is registering the dir as "/setup"
+# nb: gb_github_enterprise_http_detect.nasl is registering the dir as "/setup"
 # and the final URL is / should be /setup/unlock here.
 url = dir + "/unlock";
 req = http_get( item:url, port:port );
 buf = http_keepalive_send_recv( port:port, data:req, bodyonly:FALSE );
 
-if( "Set-Cookie:" >!< buf || "_gh_manage" >!< buf )
+if( buf !~ "Set-Cookie\s*:.+" || "_gh_manage" >!< buf )
   exit( 0 );
 
 c = eregmatch( pattern:'_gh_manage=([^\r\n; ]+)', string:buf );

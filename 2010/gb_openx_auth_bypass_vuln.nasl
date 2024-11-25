@@ -9,8 +9,8 @@ CPE = "cpe:/a:openx:openx";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800760");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2010-05-04 09:40:09 +0200 (Tue, 04 May 2010)");
   script_cve_id("CVE-2009-4830");
   script_tag(name:"cvss_base", value:"7.5");
@@ -20,7 +20,6 @@ if(description)
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("OpenX_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("openx/installed");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/37914");
@@ -44,8 +43,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_in_range( version:vers, test_version:"2.8.1", test_version2:"2.8.2" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"2.8.3" );

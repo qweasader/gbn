@@ -9,13 +9,13 @@ CPE = "cpe:/a:ntp:ntp";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810678");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2017-6464", "CVE-2017-6462", "CVE-2017-6463", "CVE-2017-6455",
                 "CVE-2017-6452", "CVE-2017-6459", "CVE-2017-6458", "CVE-2017-6451",
                 "CVE-2017-6460", "CVE-2016-9042");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-10-24 01:29:00 +0000 (Tue, 24 Oct 2017)");
@@ -84,11 +84,10 @@ if(description)
   script_tag(name:"impact", value:"Successful exploitation will allow remote
   attackers to conduct denial of service condition.");
 
-  script_tag(name:"affected", value:"NTP.org's ntpd versions 4.x before 4.2.8p10 and 4.3.x
-  before 4.3.94.");
+  script_tag(name:"affected", value:"NTPd version 4.x prior to 4.2.8p10 and 4.3.x prior to
+  4.3.94.");
 
-  script_tag(name:"solution", value:"Upgrade to NTP.org's ntpd version 4.2.8p10 or 4.3.94
-  or later.");
+  script_tag(name:"solution", value:"Update to version 4.2.8p10, 4.3.94 or later.");
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
   script_tag(name:"solution_type", value:"VendorFix");
@@ -100,28 +99,28 @@ include("version_func.inc");
 include("revisions-lib.inc");
 include("host_details.inc");
 
-if(isnull(port = get_app_port(cpe:CPE)))
+if (isnull(port = get_app_port(cpe: CPE)))
   exit(0);
 
-if(!infos = get_app_full(cpe:CPE, port:port, exit_no_version:TRUE))
+if (!infos = get_app_full(cpe: CPE, port: port, exit_no_version: TRUE))
   exit(0);
 
 version = infos["version"];
 location = infos["location"];
 proto = infos["proto"];
 
-if(version =~ "^4\.[0-2]") {
-  if(revcomp(a:version, b:"4.2.8p10") < 0) {
-    report = report_fixed_ver(installed_version:version, fixed_version:"4.2.8p10", install_path:location);
-    security_message(port:port, proto:proto, data:report);
+if (version =~ "^4\.[0-2]") {
+  if (revcomp(a: version, b: "4.2.8p10") < 0) {
+    report = report_fixed_ver(installed_version: version, fixed_version: "4.2.8p10", install_path: location);
+    security_message(port: port, proto: proto, data: report);
     exit(0);
   }
 }
 
-else if(version =~ "^4\.3") {
-  if(revcomp(a:version, b:"4.3.94") < 0) {
-    report = report_fixed_ver(installed_version:version, fixed_version:"4.3.94", install_path:location);
-    security_message(port:port, proto:proto, data:report);
+else if (version =~ "^4\.3") {
+  if (revcomp(a: version, b: "4.3.94") < 0) {
+    report = report_fixed_ver(installed_version: version, fixed_version: "4.3.94", install_path: location);
+    security_message(port: port, proto: proto, data: report);
     exit(0);
   }
 }

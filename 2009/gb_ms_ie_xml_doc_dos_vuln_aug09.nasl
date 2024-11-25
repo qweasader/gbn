@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800863");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-08-11 07:36:16 +0200 (Tue, 11 Aug 2009)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_cve_id("CVE-2009-2668");
-  script_name("Microsoft Internet Explorer XML Document DoS Vulnerability - Aug09");
+  script_name("Microsoft Internet Explorer XML Document DoS Vulnerability (Aug 2009)");
   script_xref(name:"URL", value:"http://websecurity.com.ua/3216/");
   script_xref(name:"URL", value:"http://archives.neohapsis.com/archives/bugtraq/2009-07/0193.html");
 

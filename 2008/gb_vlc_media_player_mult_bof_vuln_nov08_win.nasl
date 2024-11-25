@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800132");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-08T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2008-11-14 10:43:16 +0100 (Fri, 14 Nov 2008)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2008-5032", "CVE-2008-5036");
-  script_name("VLC Media Player Multiple Stack-Based BOF Vulnerabilities - Nov08 (Windows)");
+  script_name("VLC Media Player Multiple Stack-Based BOF Vulnerabilities (Nov 2008) - Windows");
 
   script_xref(name:"URL", value:"http://www.videolan.org/security/sa0810.html");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/32125");

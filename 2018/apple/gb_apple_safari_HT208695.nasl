@@ -9,7 +9,7 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813111");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2018-4102", "CVE-2018-4116", "CVE-2018-4137", "CVE-2018-4101",
                 "CVE-2018-4114", "CVE-2018-4118", "CVE-2018-4119", "CVE-2018-4120",
                 "CVE-2018-4121", "CVE-2018-4122", "CVE-2018-4125", "CVE-2018-4127",
@@ -18,12 +18,12 @@ if(description)
                 "CVE-2018-4113", "CVE-2018-4146", "CVE-2018-4117");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-03-08 16:06:00 +0000 (Fri, 08 Mar 2019)");
   script_tag(name:"creation_date", value:"2018-04-02 10:37:28 +0530 (Mon, 02 Apr 2018)");
-  script_name("Apple Safari Security Updates(HT208695)");
+  script_name("Apple Safari Security Updates (HT208695)");
 
   script_tag(name:"summary", value:"Apple Safari is prone to multiple vulnerabilities.");
 

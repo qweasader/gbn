@@ -7,23 +7,24 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809413");
-  script_version("2023-12-13T05:05:23+0000");
+  script_version("2024-07-12T15:38:44+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-07-12 15:38:44 +0000 (Fri, 12 Jul 2024)");
   script_tag(name:"creation_date", value:"2016-09-27 12:37:02 +0530 (Tue, 27 Sep 2016)");
   script_name("Nextcloud Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Product detection");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl",
+                      "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
-  script_tag(name:"summary", value:"Detects the installed version of Nextcloud.
+  script_xref(name:"URL", value:"https://nextcloud.com/");
 
-  The script sends a connection request to the server and attempts to
-  extract the version number from the reply.");
+  script_tag(name:"summary", value:"HTTP based detection of Nextcloud.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -62,22 +63,33 @@ foreach dir( make_list_unique( "/", "/nc", "/nextcloud", "/Nextcloud", "/cloud",
   }
 
   # nb: Don't check for 200 as a 400 will be returned when accessing via an untrusted domain
+  #
   # Example responses:
+  #
   # {"installed":true,"maintenance":false,"needsDbUpgrade":false,"version":"12.0.0.29","versionstring":"12.0.0","edition":"","productname":"Nextcloud"}
   # {"installed":true,"maintenance":false,"needsDbUpgrade":false,"version":"12.0.1.3","versionstring":"12.0.1 RC4","edition":"","productname":"Nextcloud"}
   # {"installed":true,"maintenance":false,"needsDbUpgrade":false,"version":"18.0.6.0","versionstring":"18.0.6","edition":"","productname":"Nextcloud","extendedSupport":false}
-  if( "egroupware" >!< tolower( buf ) && # EGroupware is using the very same status.php
-      buf !~ '"productname":"[^"]*ownCloud[^"]*"' && # Don't detect ownCloud as Nextcloud
-    ( egrep( string:buf, pattern:'"installed":("true"|true),("maintenance":("true"|true|"false"|false),)?("needsDbUpgrade":("true"|true|"false"|false),)?"version":"([0-9.]+)","versionstring":"([0-9. a-zA-Z]+)","edition":"(.*)"' ) ||
+  #
+  # nb: EGroupware is using a similar status.php like e.g. the following and thus has been excluded here:
+  #
+  # {"installed":"true","version":"4.80.1","versionstring":"EGroupware 23.1.005","edition":""}
+  # {"installed":"true","version":"4.80.1","versionstring":"EGroupware 21.1.001","edition":""}
+  # {"installed":"true","version":"4.80.1","versionstring":"EGroupware 17.1.007","edition":""}
+  # {"installed":"true","version":"4.80.1","versionstring":"EGroupware 17.1","edition":""}
+  # {"installed":"true","version":"4.80.1","versionstring":"EGroupware 1.8.007","edition":""}
+  #
+  if( "egroupware" >!< tolower( buf ) &&
+      buf !~ '"product(name)?"\\s*:\\s*"[^"]*(ownCloud|Infinite Scale)[^"]*"' && # nb: Don't detect Nextcloud as ownCloud / oCIS
+    ( egrep( string:buf, pattern:'"installed"\\s*:\\s*("true"|true)\\s*,\\s*("maintenance"\\s*:\\s*("true"|true|"false"|false)\\s*,\\s*)?("needsDbUpgrade"\\s*:\\s*("true"|true|"false"|false)\\s*,\\s*)?"version"\\s*:\\s*"([0-9.]+)"\\s*,\\s*"versionstring"\\s*:\\s*"([0-9. a-zA-Z]+)"\\s*,\\s*"edition"\\s*:\\s*"[^"]*"' ) ||
       ( "You are accessing the server from an untrusted domain" >< buf && ">Nextcloud<" >< buf ) ||
-      buf =~ '"productname":"[^"]*Nextcloud[^"]*"' ) ) { # Last fallback if the syntax of the status has changed or the product is themed.
+      buf =~ '"product(name)?"\\s*:\\s*"[^"]*Nextcloud[^"]*"' ) ) { # nb: Last fallback if the syntax of the status has changed or the product is themed.
 
     version = "unknown";
     extra = NULL;
     isNC = FALSE;
     conclUrl = http_report_vuln_url( port:port, url:url, url_only:TRUE );
 
-    #Basic auth check for default_http_auth_credentials.nasl
+    # nb: Basic auth check for default_http_auth_credentials.nasl
     foreach authurl( make_list( dir + "/remote.php/dav", dir + "/remote.php/webdav" ) ) {
 
       req = http_get( item:authurl, port:port );
@@ -90,7 +102,7 @@ foreach dir( make_list_unique( "/", "/nc", "/nextcloud", "/Nextcloud", "/cloud",
       }
     }
 
-    ver = eregmatch( string:buf, pattern:'version":"([0-9.]+)","versionstring":"([0-9. a-zA-Z]+)"', icase:TRUE );
+    ver = eregmatch( string:buf, pattern:'version"\\s*:\\s*"([0-9.]+)[^"]*"\\s*,\\s*"versionstring"\\s*:\\s*"([0-9. a-zA-Z]+)[^"]*"', icase:TRUE );
     if( ! isnull( ver[2] ) )
       version = ereg_replace( pattern:" ", replace:"", string:ver[2] );
 
@@ -99,17 +111,17 @@ foreach dir( make_list_unique( "/", "/nc", "/nextcloud", "/Nextcloud", "/cloud",
     if( version_in_range( version:version, test_version:"9.0.50", test_version2:"9.0.99" ) )
       isNC = TRUE;
 
-    # Nextcloud10 has e.g. "version":"9.1.2.2","versionstring":"10.0.2"
-    if( ver[1] =~ "9.1.([0-9]+)" && ver[2] =~ "10.0.([0-9]+)" )
+    # Nextcloud 10 had e.g. "version":"9.1.2.2","versionstring":"10.0.2"
+    if( ver[1] =~ "9\.1\.([0-9]+)" && ver[2] =~ "10\.0\.([0-9]+)" )
       isNC = TRUE;
 
-    # Valid for Nextcloud11+
+    # Valid for Nextcloud 11+
     # nb: Using a regex here because the productname could also contain something like "MyCompany Nextcloud".
-    if( buf =~ '"productname":"[^"]*Nextcloud[^"]*"' )
+    if( buf =~ '"product(name)?"\\s*:\\s*"[^"]*Nextcloud[^"]*"' )
       isNC = TRUE;
 
-    # This was also added in a later Nextcloud version and doesn't exist in ownCloud (at least up to 10.5).
-    if( buf =~ ',"extendedSupport":(false|true)' )
+    # This was also added in a later Nextcloud version and doesn't exist in ownCloud (at least up to 10.14.0).
+    if( buf =~ ',\\s*"extendedSupport"\\s*:\\s*(false|true)' )
       isNC = TRUE;
 
     if( "You are accessing the server from an untrusted domain" >< buf && ">Nextcloud<" ) {
@@ -121,8 +133,13 @@ foreach dir( make_list_unique( "/", "/nc", "/nextcloud", "/Nextcloud", "/cloud",
     if( ! isNC )
       continue;
 
-    set_kb_item( name:"nextcloud/install/" + host + "/" + port + "/" + install, value:TRUE ); # For gb_owncloud_http_detect.nasl to avoid double detection of Nextcloud and ownCloud
-    set_kb_item( name:"owncloud_or_nextcloud/installed", value:TRUE );
+    set_kb_item( name:"nextcloud/install/" + host + "/" + port + "/" + install, value:TRUE ); # nb: For gb_owncloud_http_detect.nasl to avoid double detection of Nextcloud and ownCloud / oCIS
+    set_kb_item( name:"owncloud_or_nextcloud/detected", value:TRUE );
+
+    set_kb_item( name:"nextcloud/detected", value:TRUE );
+    set_kb_item( name:"nextcloud/http/detected", value:TRUE );
+
+    # nb: Should be replaced with the above in the future
     set_kb_item( name:"nextcloud/installed", value:TRUE );
 
     cpe = build_cpe( value:version, exp:"^([0-9.a-zA-Z]+)", base:"cpe:/a:nextcloud:nextcloud_server:" );
@@ -138,7 +155,7 @@ foreach dir( make_list_unique( "/", "/nc", "/nextcloud", "/Nextcloud", "/cloud",
                                               extra:extra,
                                               concludedUrl:conclUrl,
                                               concluded:ver[0] ),
-                                              port:port );
+                 port:port );
   }
 }
 

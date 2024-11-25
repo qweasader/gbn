@@ -9,12 +9,12 @@ CPE = "cpe:/a:adobe:acrobat_reader";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.814036");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-28T14:37:42+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-28 14:37:42 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2018-09-21 12:06:57 +0530 (Fri, 21 Sep 2018)");
-  script_name("Adobe Reader End Of Life Detection (Linux)");
+  script_name("Adobe Reader End of Life (EOL) Detection - Linux");
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("General");
@@ -23,21 +23,21 @@ if(description)
 
   script_xref(name:"URL", value:"https://helpx.adobe.com/support/programs/eol-matrix.html");
 
-  script_tag(name:"summary", value:"The Adobe Reader version on the remote host
-  has reached the end of life and should not be used anymore.");
+  script_tag(name:"summary", value:"The Adobe Reader version on the remote host has reached the end
+  of life (EOL) and should not be used anymore.");
 
-  script_tag(name:"impact", value:"An end of life version of Adobe Reader is not
-  receiving any security updates from the vendor. Unfixed security vulnerabilities
-  might be leveraged by an attacker to compromise the security of this host.");
+  script_tag(name:"vuldetect", value:"Checks if an EOL version is present on the target host.");
 
-  script_tag(name:"solution", value:"Update the Adobe Reader version on the remote
-  host to a still supported version.");
+  script_tag(name:"impact", value:"An EOL version of Adobe Reader is not receiving any security
+  updates from the vendor. Unfixed security vulnerabilities might be leveraged by an attacker to
+  compromise the security of this host.");
 
-  script_tag(name:"vuldetect", value:"Checks if an unsupported version is present
-  on the target host.");
+  script_tag(name:"solution", value:"Update the Adobe Reader version on the remote host to a still
+  supported version.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"executable_version");
+
   exit(0);
 }
 
@@ -46,10 +46,10 @@ include("products_eol.inc");
 include("list_array_func.inc");
 include("host_details.inc");
 
-if( ! version = get_app_version( cpe:CPE ) ) exit( 0 );
+if( ! version = get_app_version( cpe:CPE ) )
+  exit( 0 );
 
 if( ret = product_reached_eol( cpe:CPE, version:version ) ) {
-
   report = build_eol_message( name:"Adobe Reader",
                               cpe:CPE,
                               version:version,
@@ -59,3 +59,5 @@ if( ret = product_reached_eol( cpe:CPE, version:version ) ) {
   security_message( port:0, data:report );
   exit( 0 );
 }
+
+exit( 99 );

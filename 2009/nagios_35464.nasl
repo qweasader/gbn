@@ -9,8 +9,8 @@ CPE = "cpe:/a:nagios:nagios";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100229");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2009-07-08 19:01:22 +0200 (Wed, 08 Jul 2009)");
   script_cve_id("CVE-2009-2288");
   script_tag(name:"cvss_base", value:"7.5");
@@ -25,7 +25,6 @@ if (description)
   script_family("General");
   script_copyright("Copyright (C) 2009 Greenbone AG");
   script_dependencies("nagios_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("nagios/installed");
 
   script_tag(name:"solution", value:"The vendor has released updates.");
@@ -49,8 +48,11 @@ if (description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!port = get_app_port(cpe:CPE))exit(0);
-if(!vers = get_app_version(cpe:CPE, port:port))exit(0);
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!vers = get_app_version(cpe:CPE, port:port))
+  exit(0);
 
 if(version_is_less(version: vers, test_version: "3.1.1")) {
   report = report_fixed_ver(installed_version: vers, fixed_version: "3.1.1");

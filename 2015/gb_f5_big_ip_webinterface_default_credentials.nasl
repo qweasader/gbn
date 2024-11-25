@@ -9,17 +9,17 @@ CPE = "cpe:/h:f5:big-ip";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105163");
-  script_version("2023-09-13T05:05:22+0000");
+  script_version("2024-05-29T05:05:18+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-09-13 05:05:22 +0000 (Wed, 13 Sep 2023)");
+  script_tag(name:"last_modification", value:"2024-05-29 05:05:18 +0000 (Wed, 29 May 2024)");
   script_tag(name:"creation_date", value:"2015-01-09 16:30:36 +0100 (Fri, 09 Jan 2015)");
 
   script_tag(name:"qod_type", value:"remote_vul");
 
   script_tag(name:"solution_type", value:"Mitigation");
 
-  script_name("F5 Networks BIG-IP Default Credentials (HTTP)");
+  script_name("F5 BIG-IP Default Credentials (HTTP)");
 
   script_category(ACT_ATTACK);
 
@@ -59,12 +59,14 @@ if( ! get_app_location( cpe:CPE, port:port, nofork:TRUE ) )
   exit( 0 );
 
 pd = "username=admin&passwd=admin";
+url = "/tmui/logmein.html";
 
-req = http_post( port:port, item:"/tmui/logmein.html", data:pd );
+req = http_post( port:port, item:url, data:pd );
 res = http_keepalive_send_recv( port:port, data:req );
 
 if( "BIGIPAuthCookie" >< res && "BIGIPAuthUsernameCookie" >< res ) {
-  security_message( port:port );
+  report = http_report_vuln_url( port:port, url:url );
+  security_message( port:port, data:report );
   exit( 0 );
 }
 

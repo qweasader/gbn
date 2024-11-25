@@ -1,37 +1,24 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117461");
-  script_version("2022-12-08T10:12:32+0000");
-  script_tag(name:"last_modification", value:"2022-12-08 10:12:32 +0000 (Thu, 08 Dec 2022)");
+  script_version("2024-06-14T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-06-14 05:05:48 +0000 (Fri, 14 Jun 2024)");
   script_tag(name:"creation_date", value:"2021-05-28 11:07:40 +0000 (Fri, 28 May 2021)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
   script_name("IKE / ISAKMP Service Detection (UDP)");
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_dependencies("gb_open_udp_ports.nasl", "echo_udp.nasl");
-  script_require_udp_ports("Services/udp/unknown", 500, 4500); # nb: 4500/udp is NAT-T IKE (RFC 3947 NAT-Traversal encapsulation)
+  # nb: 4500/udp is NAT-T IKE (RFC 3947 NAT-Traversal encapsulation)
+  script_require_udp_ports("Services/udp/unknown", 500, 4500);
 
   script_tag(name:"summary", value:"UDP based detection of services supporting the Internet Key
   Exchange (IKE) Protocol / Internet Security Association and Key Management Protocol (ISAKMP).");
@@ -127,10 +114,27 @@ foreach port( ports ) {
     if( ! ike_vers_text )
       continue;
 
+    # nb for the register_product() calls:
+    # - We can register a more generic CPE for the protocol itself which can be used for e.g.:
+    #   - CVE scans / the CVE scanner
+    #   - storing the reference from this one to some VTs like e.g. gb_ike_CVE-2002-1623.nasl using
+    #     the info collected here to show a cross-reference within the reports
+    # - If changing the syntax of e.g. the "location" below make sure to update VTs like e.g. the
+    #   gb_ike_CVE-2002-1623.nasl accordingly
+
     if( ike_vers_text == "1.0" ) {
       set_kb_item( name:"isakmp/v1.0/detected", value:TRUE );
       set_kb_item( name:"isakmp/v1.0/" + proto + "/detected", value:TRUE );
       set_kb_item( name:"isakmp/v1.0/" + proto + "/" + port + "/detected", value:TRUE );
+
+      register_product( cpe:"cpe:/a:ietf:internet_key_exchange:1.0", location:port + "/udp", port:port, proto:"udp", service:"isakmp" );
+
+    } else if( ike_vers_text == "2.0" ) {
+      set_kb_item( name:"isakmp/v2.0/detected", value:TRUE );
+      set_kb_item( name:"isakmp/v2.0/" + proto + "/detected", value:TRUE );
+      set_kb_item( name:"isakmp/v2.0/" + proto + "/" + port + "/detected", value:TRUE );
+
+      register_product( cpe:"cpe:/a:ietf:internet_key_exchange:2.0", location:port + "/udp", port:port, proto:"udp", service:"isakmp" );
     }
 
     if( used_list == "full_transforms_list" )

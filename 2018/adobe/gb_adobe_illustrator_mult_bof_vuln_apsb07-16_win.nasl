@@ -9,14 +9,14 @@ CPE = "cpe:/a:adobe:illustrator";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813496");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-12T05:05:32+0000");
   script_cve_id("CVE-2007-2244", "CVE-2007-2365");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-12 05:05:32 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"creation_date", value:"2018-07-12 15:32:37 +0530 (Thu, 12 Jul 2018)");
   script_tag(name:"qod", value:"30"); ## Solution is Mitigation
-  script_name("Adobe Illustrator Multiple Buffer Overflow Vulnerabilities (apsb07-16) - Windows");
+  script_name("Adobe Illustrator Multiple Buffer Overflow Vulnerabilities (APSB07-16) - Windows");
 
   script_tag(name:"summary", value:"Adobe Illustrator is prone to multiple buffer overflow vulnerabilities.");
 

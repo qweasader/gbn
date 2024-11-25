@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100035");
-  script_version("2023-06-27T05:05:30+0000");
-  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2009-03-10 08:40:52 +0100 (Tue, 10 Mar 2009)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_name("phpBB 'ucp.php' Cross Site Scripting Vulnerability");
+  script_name("phpBB 'ucp.php' XSS Vulnerability");
   script_category(ACT_GATHER_INFO);
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2009 Greenbone AG");

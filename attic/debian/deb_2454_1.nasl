@@ -1,4 +1,3 @@
-
 # SPDX-FileCopyrightText: 2012 E-Soft Inc.
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
@@ -11,8 +10,8 @@ if(description)
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_cve_id("CVE-2012-0884", "CVE-2012-1165", "CVE-2012-2110", "CVE-2011-4619");
-  script_version("2023-06-29T08:15:14+0000");
-  script_tag(name:"last_modification", value:"2023-06-29 08:15:14 +0000 (Thu, 29 Jun 2023)");
+  script_version("2024-08-30T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-08-30 05:05:38 +0000 (Fri, 30 Aug 2024)");
   script_tag(name:"creation_date", value:"2012-04-30 07:57:50 -0400 (Mon, 30 Apr 2012)");
   script_name("Debian Security Advisory DSA 2454-1 (openssl)");
   script_category(ACT_GATHER_INFO);
@@ -65,3 +64,4 @@ This VT has been merged into the VT 'Debian: Security Advisory (DSA-2454)' (OID:
 }
 
 exit(66);
+

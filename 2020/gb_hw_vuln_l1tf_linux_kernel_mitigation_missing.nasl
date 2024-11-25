@@ -7,9 +7,9 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108839");
-  script_version("2023-08-14T05:05:34+0000");
+  script_version("2024-06-14T05:05:48+0000");
   script_cve_id("CVE-2018-3615", "CVE-2018-3620", "CVE-2018-3646");
-  script_tag(name:"last_modification", value:"2023-08-14 05:05:34 +0000 (Mon, 14 Aug 2023)");
+  script_tag(name:"last_modification", value:"2024-06-14 05:05:48 +0000 (Fri, 14 Jun 2024)");
   script_tag(name:"creation_date", value:"2020-08-12 14:03:21 +0000 (Wed, 12 Aug 2020)");
   script_tag(name:"cvss_base", value:"5.4");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:P/A:N");
@@ -24,6 +24,7 @@ if(description)
   script_mandatory_keys("ssh/hw_vulns/kernel_mitigations/missing_or_vulnerable");
 
   script_xref(name:"URL", value:"https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/l1tf.html");
+  script_xref(name:"URL", value:"https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00161.html");
 
   script_tag(name:"summary", value:"The remote host is missing one or more known mitigation(s) on
   Linux Kernel side for the referenced 'L1TF - L1 Terminal Fault' hardware vulnerabilities.");
@@ -44,8 +45,14 @@ if(description)
 
   - update the BIOS of the Mainboard
 
-  Note: Please create an override for this result if the sysfs file is not available but other
-  mitigations like a Microcode update is already in place.");
+  Note: Please create an override for this result if one of the following applies:
+
+  - the sysfs file is not available but other mitigations like a Microcode update is already in
+  place
+
+  - the sysfs file is not available but the CPU of the host is not affected
+
+  - the reporting of the Linux Kernel is not correct (this is out of the control of this VT)");
 
   script_tag(name:"qod", value:"80"); # nb: None of the existing QoD types are matching here
   script_tag(name:"solution_type", value:"VendorFix");
@@ -70,10 +77,11 @@ report = 'The Linux Kernel on the remote host is missing the mitigation for the 
 path = "/sys/devices/system/cpu/vulnerabilities/" + covered_vuln;
 info[path] = mitigation_status;
 
-# Store link between gb_hw_vuln_linux_kernel_mitigation_detect.nasl and this VT.
-# nb: We don't use the host_details.inc functions in both so we need to call this directly.
+# nb:
+# - Store link between gb_hw_vuln_linux_kernel_mitigation_detect.nasl and this VT
+# - We don't want to use get_app_* functions as we're only interested in the cross-reference here
 register_host_detail( name:"detected_by", value:"1.3.6.1.4.1.25623.1.0.108765" ); # gb_hw_vuln_linux_kernel_mitigation_detect.nasl
-register_host_detail( name:"detected_at", value:"general/tcp" ); # gb_hw_vuln_linux_kernel_mitigation_detect.nasl is using port:0
+register_host_detail( name:"detected_at", value:"general/tcp" ); # nb: gb_hw_vuln_linux_kernel_mitigation_detect.nasl is using port:0
 
 report += text_format_table( array:info, sep:" | ", columnheader:make_list( "sysfs file checked", "Linux Kernel status (SSH response)" ) );
 report += '\n\nNotes on the "Linux Kernel status (SSH response)" column:';

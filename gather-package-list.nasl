@@ -6,11 +6,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 
+include("plugin_feed_info.inc");
+
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.50282");
-  script_version("2024-01-10T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
+  script_version("2024-11-20T05:05:31+0000");
+  script_tag(name:"last_modification", value:"2024-11-20 05:05:31 +0000 (Wed, 20 Nov 2024)");
   script_tag(name:"creation_date", value:"2008-01-17 22:05:49 +0100 (Thu, 17 Jan 2008)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -18,7 +20,9 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 Greenbone AG, E-Soft Inc. and Tim Brown");
   script_family("Product detection");
-  script_dependencies("ssh_authorization.nasl");
+  script_dependencies("ssh_authorization.nasl", "gb_netconf_ssh_login_detect.nasl");
+  if(FEED_NAME == "GSF" || FEED_NAME == "GEF" || FEED_NAME == "SCM")
+    script_dependencies("gsf/gb_schneider_powerlogic_protection_ssh_login_detect.nasl");
   script_mandatory_keys("login/SSH/success");
 
   script_tag(name:"summary", value:"This script will, if given a userid/password or
@@ -80,23 +84,16 @@ function register_packages( buf ) {
   return TRUE;
 }
 
-# @brief Saves the given RPM string into the KB.
+# @brief Checks the given RPM string.
 #
-# @param custom_key_name If the RPMs should be saved to a different KB-key.
-# @param buf             A RPM string to save into the KB.
+# @param buf             A RPM string to check.
 #
-# @return TRUE if the RPM string was saved into the KB, FALSE otherwise and NULL
+# @return TRUE if the RPM string was correct, FALSE otherwise and NULL
 #         if the "buf" string was empty / wasn't passed.
 #
-function register_rpms( buf, custom_key_name ) {
+function check_rpms( buf ) {
 
-  local_var buf, custom_key_name;
-  local_var rpms_kb_key;
-
-  if( isnull( buf ) ) {
-    set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#register_rpms#-#buf" );
-    return NULL;
-  }
+  local_var buf;
 
   # nb: Have seen this only on Fusion Compute which is based on EulerOS:
   # error: cannot open Packages index using db5 - Permission denied (13)
@@ -106,6 +103,31 @@ function register_rpms( buf, custom_key_name ) {
     set_kb_item( name:"ssh/login/failed_rpm_db_access/reason", value:chomp( buf ) );
     return FALSE;
   }
+
+  return TRUE;
+}
+
+# @brief Saves the given RPM string into the KB, or check if it is possible to.
+#
+# @param custom_key_name If the RPMs should be saved to a different KB-key.
+# @param buf             A RPM string to save into the KB.
+# @param skip_check      Boolean to skip check that buf is valid. TRUE to skip it.
+#
+# @return TRUE if the RPM string was saved into the KB, FALSE otherwise and NULL
+#         if the "buf" string was empty / wasn't passed.
+#
+function register_rpms( buf, custom_key_name, skip_check ) {
+
+  local_var buf, custom_key_name, skip_check;
+  local_var rpms_kb_key;
+
+  if( isnull( buf ) ) {
+    set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#register_rpms#-#buf" );
+    return NULL;
+  }
+
+  if( ! skip_check && ! check_rpms( buf ) )
+    return FALSE;
 
   rpms_kb_key = "ssh/login/rpms";
 
@@ -118,6 +140,53 @@ function register_rpms( buf, custom_key_name ) {
   set_kb_item( name:"ssh/login/rpms_or_debs/gathered", value:TRUE );
 
   return TRUE;
+}
+
+# @brief Saves the given package list string into the KB for LSC via notus.
+#
+# @param os_release The OS release
+# @param pkg_list   The package list
+# @param rpms       If the packages list is RPM
+#
+# @return TRUE if the OS release string and package were registered, FALSE otherwise and NULL
+#         if the "os_release" or "pkg_list" string was empty / wasn't passed.
+#
+function register_notus( os_release, pkg_list, rpms ) {
+
+  local_var os_release, pkg_list, rpms, pkg_key_name;
+
+  if( ! os_release ) {
+    set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#register_notus#-#os_release" );
+    return NULL;
+  }
+
+  if( ! pkg_list ) {
+    set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#register_notus#-#pkg_list" );
+    return NULL;
+  }
+
+  if( rpms == TRUE && ! check_rpms( buf:pkg_list ) )
+    return FALSE;
+
+  if( defined_func( "update_table_driven_lsc_data" ) ) {
+    update_table_driven_lsc_data( pkg_list:pkg_list, os_release:os_release );
+    return TRUE;
+  }
+
+  # Store OS release
+  set_kb_item( name:"ssh/login/release_notus", value:os_release );
+
+  # Store package list for RPM
+  pkg_key_name = "ssh/login/package_list_notus";
+  if( rpms == TRUE ) {
+    if( ! register_rpms( buf:pkg_list, custom_key_name:pkg_key_name, skip_check:TRUE ) )
+      return FALSE;
+
+    return TRUE;
+  }
+
+  # Store package list for non-RPM
+  set_kb_item( name:pkg_key_name, value:pkg_list );
 }
 
 function register_uname( uname ) {
@@ -165,12 +234,132 @@ if( get_kb_item( "cisco/wlc/ssh-login/detected" ) )
 
 port = kb_ssh_transport();
 
+# NETCONF over SSH
+# nb:
+# - running this against such services doesn't make any sense and these are also detected previously
+# - the KB key is set by gb_netconf_ssh_login_detect.nasl and there shouldn't be any risk here for
+#   wrongly "jumping out" as the banner check in that VT is quite strict
+# - We're not setting things like "ssh/no_linux_shell" because this would set these for the whole
+#   host while on e.g. 22/tcp a standard shell could be available...
+if( get_kb_item( "netconf/ssh/" + port + "/detected" ) )
+  exit( 0 );
+
+# Separately handled (with dedicated preferences) in / via:
+# gsf/gb_schneider_powerlogic_protection_ssh_login_detect.nasl
+if( get_kb_item( "schneider/powerlogic/protection/ssh/" + port + "/detected" ) ) {
+  set_kb_item( name:"ssh/no_linux_shell", value:TRUE );
+  replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
+  exit( 0 );
+}
+
 if( ! sock = ssh_login_or_reuse_connection() )
   exit( 0 );
 
 # First command: Grab uname -a of the remote system
 if( ! uname = ssh_cmd( socket:sock, cmd:"uname -a", return_errors:TRUE, nosu:TRUE, pty:TRUE, timeout:60, retry:30 ) )
   exit( 0 );
+
+# nb:
+# - See e.g. See https://www.dinotools.de/en/2020/01/21/use-supermicros-ipmi-and-ssh-to-power-on-a-server/ as well
+# - The "->" is the shell / prompt
+# - The first example had no version but this was available via e.g. "version" as:
+#   Insyde SMASH CLP Shell Version 1.05
+# - The system didn't provide any info about the underlying system (no SMASH command seems to be
+#   available) so no product detection was done here
+# - https://www.supermicro.com/manuals/other/BMC_Users_Guide_X12_H12.pdf has some examples on the
+#   available commands on a Supermicro BMC
+#
+# Examples:
+#
+# Insyde SMASH-CLP System Management Shell, versions
+# Copyright (c) 2015-2016 by Insyde International CO., Ltd.
+# All Rights Reserved
+#
+#
+# ->
+#
+# or:
+#
+# ATEN SMASH-CLP System Management Shell, version 1.04
+# Copyright (c) 2008-2009 by ATEN International CO., Ltd.
+# All Rights Reserved
+#
+#
+# ->
+if( " SMASH-CLP System Management Shell, version" >< uname && "->" >< uname ) {
+
+  set_kb_item( name:"ssh/restricted_shell", value:TRUE );
+  set_kb_item( name:"ssh/no_linux_shell", value:TRUE );
+  replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
+
+  log_message( port:port, data:create_lsc_os_detection_report( detect_text:"a SMASH-CLP System Management Shell (Usually available on BMC products like e.g. Supermicro BMC). Note: No info is available on this restricted shell to determine the type of product", no_lsc_support:TRUE ) );
+
+  os_register_and_report( os:"Linux", cpe:"cpe:/o:linux:kernel", banner_type:"SSH login", desc:SCRIPT_DESC, runs_key:"unixoide" );
+  exit( 0 ); # nb: No need to continue here / for such a shell
+}
+
+# e.g.:
+#
+# /admin1-> cmdstat
+#   status       : 2
+#   status_tag   : COMMAND PROCESSING FAILED
+#   error        : 252
+#   error_tag    : COMMAND SYNTAX ERROR
+# /admin1->
+#
+# or:
+#
+# racadm>>ERROR: Invalid command specified.
+# racadm>>
+#
+# nb: See gsf/gb_dell_drac_idrac_ssh_login_detect.nasl for a full example banner of the next commands
+if( "ERROR: Invalid command specified." >< uname ||
+    "COMMAND PROCESSING FAILED" >< uname ||
+    "COMMAND SYNTAX ERROR" >< uname ||
+    "racadm>>" >< uname ||
+    "/admin1->" >< uname
+  ) {
+
+  show_ver = ssh_cmd( socket:sock, cmd:"racadm getversion", nosh:TRUE, nosu:TRUE, return_errors:FALSE, pty:FALSE, clear_buffer:TRUE );
+  if( "DRAC Version" >< show_ver ) {
+
+    set_kb_item( name:"ssh/restricted_shell", value:TRUE );
+    set_kb_item( name:"ssh/no_linux_shell", value:TRUE );
+    replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
+
+    set_kb_item( name:"ssh/login/dell/idrac/detected", value:TRUE );
+    set_kb_item( name:"ssh/login/dell/idrac/port", value:port );
+    set_kb_item( name:"ssh/login/dell/idrac/" + port + "/getversion_banner", value:chomp( show_ver ) );
+
+    idrac_info = ssh_cmd( socket:sock, cmd:"racadm get idrac.info", nosh:TRUE, nosu:TRUE, return_errors:FALSE, pty:FALSE, clear_buffer:TRUE );
+    idrac_info = chomp( idrac_info );
+    if( idrac_info )
+      set_kb_item( name:"ssh/login/dell/idrac/" + port + "/idrac_info_banner", value:idrac_info );
+
+    exit( 0 );
+  }
+}
+
+# nb: See gsf/gb_f5_big-ip_next_central_manager_ssh_login_detect.nasl for a full example banner
+if( "Welcome to the F5 BIG-IP Next Central Manager" >< uname ||
+    # nb: Just used as a last fallback if the above welcome message is getting changed in the future
+    ( "/ /__/ -_) _ / __/ __/ _ `/ / / /_/ / _ `/ _ / _ `/ _ `/ -_) __/" >< uname &&
+      "___/__/_//_/__/_/  _,_/_/ /_/  /_/_,_/_//_/_,_/_, /__/_/" >< uname )
+  ) {
+
+  # nb: System seems to use sudo
+  replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
+  set_kb_item( name:"ssh/login/f5/big-ip/next_central_manager/detected", value:TRUE );
+  set_kb_item( name:"ssh/login/f5/big-ip/next_central_manager/port", value:port );
+  set_kb_item( name:"ssh/login/f5/big-ip/next_central_manager/" + port + "/login_banner", value:chomp( uname ) );
+
+  # nb:
+  # - Seems to run on Ubuntu according to https://my.f5.com/manage/s/article/K000139266
+  # - More detailed OS detection in / via gsf/gb_f5_big-ip_next_central_manager_consolidation.nasl
+  os_register_and_report( os:"Ubuntu", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:"SSH login", desc:SCRIPT_DESC, runs_key:"unixoide" );
+
+  exit( 0 );
+}
 
 if( "Welcome to Viptela CLI" >< uname ) {
   set_kb_item( name:"ssh/no_linux_shell", value:TRUE );
@@ -191,6 +380,33 @@ if( "Welcome to Viptela CLI" >< uname ) {
   exit( 0 );
 }
 
+if( "Session Smart Networking Platform" >< uname ) {
+  if( "Starting the PCLI" >< uname ) {
+    set_kb_item( name:"ssh/no_linux_shell", value:TRUE );
+    replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
+
+    set_kb_item( name:"ssh/login/juniper/ssr/detected", value:TRUE );
+    set_kb_item( name:"ssh/login/juniper/ssr/port", value:port );
+
+    show_ver = ssh_cmd( socket:sock, cmd:"show system version", nosh:TRUE, nosu:TRUE, return_errors:FALSE, pty:FALSE, clear_buffer:TRUE );
+    if( "Version" >< show_ver ) {
+      set_kb_item( name:"ssh/login/juniper/ssr/" + port + "/show_ver", value:show_ver );
+      set_kb_item( name:"ssh/login/juniper/ssr/" + port + "/show_ver_cmd", value:"show system version" );
+    }
+  } else {
+    set_kb_item( name:"ssh/login/juniper/ssr/detected", value:TRUE );
+    set_kb_item( name:"ssh/login/juniper/ssr/port", value:port );
+
+    vers = ssh_cmd( socket:sock, cmd:"cat /etc/128technology/version-info/128T-ISO-release", return_errors:FALSE );
+    if( vers =~ "^128T\-[0-9.]+.*\.iso$" ) {
+      set_kb_item( name:"ssh/login/juniper/ssr/" + port + "/vers", value:vers);
+      set_kb_item( name:"ssh/login/juniper/ssr/" + port + "/vers_cmd", value:"cat /etc/128technology/version-info/128T-ISO-release" );
+    }
+  }
+
+  exit( 0 );
+}
+
 # nb: See gsf/gb_meinberg_lantime_ssh_login_detect.nasl for an example "banner"
 if( _uname = egrep( string:uname, pattern:"^[ >]*(LANTIME V[0-9.]+|Meinberg (LANTIME|Funkuhren))", icase:FALSE ) ) {
 
@@ -201,12 +417,58 @@ if( _uname = egrep( string:uname, pattern:"^[ >]*(LANTIME V[0-9.]+|Meinberg (LAN
   exit( 0 );
 }
 
+# Policy Manager CLI v6.10(0),
+#        Copyright .. 2021, Hewlett Packard Enterprise Development LP.
+# Software Version      : 6.10.0.180076
+#
+# Management IP Address : <redacted>
+# System Model          : CLABV
+if( "Policy Manager CLI" >< uname ) {
+  set_kb_item( name:"ssh/no_linux_shell", value:TRUE );
+  set_kb_item( name:"ssh/force/pty", value:TRUE );
+  replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
+  set_kb_item( name:"ssh/login/clearpass/detected", value:TRUE );
+  set_kb_item( name:"ssh/login/clearpass/port", value:port );
+
+  show_ver = ssh_cmd( socket:sock, cmd:"show version", nosh:TRUE, nosu:TRUE, return_errors:FALSE,
+                      pty:TRUE, clear_buffer:TRUE );
+  set_kb_item( name:"ssh/login/clearpass/" + port + "/show_ver", value:show_ver );
+  exit( 0 );
+}
+
+#   //////////////////////////////////////////////////
+#  ///     SolarWinds Security Event Manager      ///
+#  ///                    management console      ///
+#  //////////////////////////////////////////////////
+if( "SolarWinds Security Event Manager" >< uname ) {
+  set_kb_item( name:"ssh/no_linux_shell", value:TRUE );
+  set_kb_item( name:"ssh/force/pty", value:TRUE );
+  replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
+  set_kb_item( name:"ssh/login/solarwinds/sem/detected", value:TRUE );
+  set_kb_item( name:"ssh/login/solarwinds/sem/port", value:port );
+  exit(0);
+}
+
+# Version 7.2.54.0.20688:
+#
 # Kemp LoadMaster (c) 2002-2021 Kemp Technologies
+# *snip*
 # Kemp (Geo) LoadMaster Isetup -- (c) 2002-2021 Kemp Technologies
+# *snip*
 # LoadMaster configuration (KEMP)
-# nb: This software has a "graphical" UI we can't use from NASL side so just doing some basic
-# detection here.
-if( _uname = eregmatch( string:uname, pattern:'(Kemp LoadMaster [^\r\n]+ Kemp Technologies|Kemp[^\r\n]+LoadMaster Isetup|LoadMaster configuration \\(KEMP\\))', icase:TRUE ) ) {
+#
+# Version 7.2.59.2.22338:
+#
+# Kemp LoadMaster (c) 2002-2023 Progress Software Corporation
+# *snip*
+# Kemp (Geo) LoadMaster Isetup<newline>Copyright (c) 2002-2023 Progress Software Corporation
+# *snip*
+# LoadMaster configuration (KEMP)
+#
+# nb: This software has a "graphical" UI we can't use from NASL side and we seems to be not able to
+# send "plain" commands like e.g. "ls /etc" without any PTY so just doing some basic detection here.
+#
+if( _uname = eregmatch( string:uname, pattern:'(Kemp LoadMaster [^\r\n]+ (Kemp Technologies|Progress Software Corporation)|Kemp[^\r\n]+LoadMaster Isetup|LoadMaster configuration \\(KEMP\\))', icase:TRUE ) ) {
 
   set_kb_item( name:"ssh/login/kemp/loadmaster/detected", value:TRUE );
   set_kb_item( name:"ssh/login/kemp/loadmaster/port", value:port );
@@ -531,8 +793,10 @@ if( "restricted: cannot specify" >< uname ) {
   exit( 0 );
 }
 
+# nb: Cisco VCS and Expressway Series
 if( "TANDBERG Video Communication Server" >< uname ) {
-  set_kb_item( name:"cisco/ssh/vcs", value:TRUE );
+  set_kb_item( name:"cisco/ssh/expressway", value:TRUE );
+  set_kb_item( name:"cisco/ssh/expressway/uname", value:uname );
   set_kb_item( name:"ssh/send_extra_cmd", value:'\n' );
   exit( 0 );
 }
@@ -831,30 +1095,14 @@ if( uname =~ "Cisco NGIPS(v)?" && "Cisco Fire Linux OS" >< uname )
 
 if( "CLINFR0329  Invalid command" >< uname )
 {
-  show_ver = ssh_cmd(socket: sock, cmd: "show version all", nosh: TRUE, nosu: TRUE, return_errors: FALSE, pty: FALSE);
+  show_ver = ssh_cmd( socket:sock, cmd:"show version all", nosh:TRUE, nosu:TRUE, return_errors:FALSE,
+                      pty:FALSE );
   if( show_ver && "Check Point Gaia" >< show_ver )
   {
-    gaia_cpe = "cpe:/o:checkpoint:gaia_os";
-    set_kb_item(name: "checkpoint_fw/detected", value: TRUE);
-    replace_kb_item(name: "ssh/lsc/use_su", value: "no");
-
-    version = eregmatch(pattern: 'Product version Check Point Gaia (R[^\r\n]+)', string: show_ver);
-    if( ! isnull( version[1] ) )
-    {
-      gaia_cpe += ':' + tolower(version[1]);
-      set_kb_item(name: "checkpoint_fw/ssh/version", value: version[1]);
-    }
-
-    os_register_and_report(os: "Check Point Gaia", cpe: gaia_cpe, banner_type: "SSH login", desc: SCRIPT_DESC, runs_key: "unixoide" );
-
-    build = eregmatch(pattern: 'OS build ([^\r\n]+)', string: show_ver);
-    if( ! isnull( build[1] ) ) set_kb_item( name:"checkpoint_fw/ssh/build", value:build[1] );
-
-    report = "Check Point Gaia";
-    if( version[1] ) report += '\nVersion: ' + version[1];
-    if( build[1] ) report += '\nBuild: ' + build[1];
-
-    log_message( port:port, data:create_lsc_os_detection_report( detect_text:report ) );
+    set_kb_item( name:"ssh/login/checkpoint/fw/detected", value:TRUE );
+    set_kb_item( name:"ssh/login/checkpoint/fw/port", value:port );
+    replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
+    set_kb_item(name: "ssh/login/checkpoint/fw/" + port + "/show_vers", value:show_ver );
     exit( 0 );
   }
 }
@@ -884,48 +1132,74 @@ if( "Error: Unrecognized command found at '^' position." >< uname ||
   cmd = "display version";
   display_vers = ssh_cmd( socket:sock, cmd:cmd, return_errors:FALSE, pty:TRUE, nosh:TRUE, nosu:TRUE,
                           timeout:20, retry:10, force_reconnect:TRUE, clear_buffer:TRUE );
-  if( "Huawei Versatile Routing Platform" >< display_vers ) {
+
+  # Just e.g.:
+  # Huawei Versatile Routing Platform
+  # Huawei YunShan OS
+  if( huawei_login_banner = egrep( string:display_vers, pattern:"Huawei (Versatile Routing Platform|YunShan OS)", icase:FALSE ) ) {
+
+    huawei_login_banner = chomp( huawei_login_banner );
 
     # nb:
     # <HUAWEI>
     # <Huawei>
     # <SOME-TEXT>
     display_vers = ereg_replace( string:display_vers, pattern:'\n[^\r\n]+$', replace:"" );
-    set_kb_item( name:"huawei/vrp/display_version", value:display_vers );
 
-    set_kb_item( name:"huawei/vrp/ssh/port", value:port );
+    if( "Huawei Versatile Routing Platform" >< display_vers ) {
+      set_kb_item( name:"ssh-login/huawei/vrp/detected", value:TRUE );
+      set_kb_item( name:"ssh-login/huawei/vrp/port", value:port );
+      set_kb_item( name:"ssh-login/huawei/vrp/" + port + "/display_version", value:display_vers );
+    } else {
+      set_kb_item( name:"ssh-login/huawei/yunshan_os/detected", value:TRUE );
+      set_kb_item( name:"ssh-login/huawei/yunshan_os/port", value:port );
+      set_kb_item( name:"ssh-login/huawei/yunshan_os/" + port + "/display_version", value:display_vers );
+    }
+
     set_kb_item( name:"ssh/no_linux_shell", value:TRUE );
     set_kb_item( name:"ssh/force/pty", value:TRUE );
     set_kb_item( name:"ssh/force/reconnect", value:TRUE );
     replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
 
-    concluded_command = "'" + cmd + "'";
+    concluded_command = '\n  - ' + cmd;
 
     cmd = "display patch-information";
     patch_info = ssh_cmd( socket:sock, cmd:cmd, return_errors:FALSE, pty:TRUE, nosh:TRUE, nosu:TRUE,
                           timeout:20, retry:10, force_reconnect:TRUE, clear_buffer:TRUE );
-    if (patch_info) {
-      if (concluded_command)
-        concluded_command += ", ";
-      concluded_command += "'" + cmd + "'";
+    if( patch_info ) {
+      if( concluded_command )
+        concluded_command += '\n';
+      concluded_command += "  - " + cmd;
 
       patch_info = ereg_replace( string:patch_info, pattern:'\n[^\r\n]+$', replace:"" );
-      set_kb_item( name:"huawei/vrp/patch-information", value:patch_info );
+      if( "Huawei Versatile Routing Platform" >< display_vers )
+        set_kb_item( name:"ssh-login/huawei/vrp/" + port + "/patch-information", value:patch_info );
+      else
+        set_kb_item( name:"ssh-login/huawei/yunshan_os/" + port + "/patch-information", value:patch_info );
     }
 
     cmd = "display device";
     display_dev = ssh_cmd( socket:sock, cmd:cmd, return_errors:FALSE, pty:TRUE, nosh:TRUE, nosu:TRUE,
                            timeout:20, retry:10, force_reconnect:TRUE, clear_buffer:TRUE );
-    if (display_dev) {
-      if (concluded_command)
-        concluded_command += ", ";
-      concluded_command += "'" + cmd + "'";
+    if( display_dev ) {
+      if( concluded_command )
+        concluded_command += '\n';
+      concluded_command += "  - " + cmd;
 
       display_dev = ereg_replace( string:display_dev, pattern:'\n<[^\r\n]+>$', replace:"" );
-      set_kb_item( name:"huawei/vrp/display_device", value:display_dev );
+      if( "Huawei Versatile Routing Platform" >< display_vers )
+        set_kb_item( name:"ssh-login/huawei/vrp/" + port + "/display_device", value:display_dev );
+      else
+        set_kb_item( name:"ssh-login/huawei/yunshan_os/" + port + "/display_device", value:display_dev );
     }
 
-    set_kb_item( name:"huawei/vrp/ssh-login/" + port + "/concluded_command", value:concluded_command );
+    if( "Huawei Versatile Routing Platform" >< display_vers ) {
+      set_kb_item( name:"ssh-login/huawei/vrp/" + port + "/concluded_command", value:concluded_command );
+      set_kb_item( name:"ssh-login/huawei/vrp/" + port + "/login_banner", value:huawei_login_banner );
+    } else {
+      set_kb_item( name:"ssh-login/huawei/yunshan_os/" + port + "/concluded_command", value:concluded_command );
+      set_kb_item( name:"ssh-login/huawei/yunshan_os/" + port + "/login_banner", value:huawei_login_banner );
+    }
 
     exit( 0 );
   }
@@ -979,7 +1253,7 @@ if( 'ERROR: "/" not recognized' >< uname )
   sv = ssh_cmd( socket:sock, cmd:"show version", nosh:TRUE, nosu:TRUE, pty:TRUE, pattern:"F5 Networks LROS Version" );
   if( "F5 Networks LROS Version" >< sv )
   {
-    set_kb_item( name:"f5/LROS/show_version", value:sv );
+    set_kb_item( name:"f5/LROS/show_version", value:sv ); # gb_f5_linerate_ssh_login_detect.nasl
     replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
     exit( 0 );
   }
@@ -1022,9 +1296,21 @@ if( "Unknown command:" >< uname && "IBM Security Network Protection" >< uname )
   exit( 0 );
 }
 
+# For Palo Alto devices:
+# $username@$devicename> Unknown command: /bin/sh
 if( "Unknown command: " >< uname || "Unknown command or missing feature key" >< uname )
 {
-  system = ssh_cmd( socket:sock, cmd:"show system info", nosh:TRUE, nosu:TRUE, pty:TRUE, pattern:"model: PA", retry:8 );
+
+  # nb: This had originally just a "retry:8" but it seems some (hardware?) devices are quite slow
+  # to respond (e.g. problem haven't been noticed on a VM) and has been raised to the following
+  # accordingly (similar to the initial "uname" call on top):
+  # "timeout:60, retry:30"
+  system = ssh_cmd( socket:sock, cmd:"show system info", nosh:TRUE, nosu:TRUE, pty:TRUE, pattern:"model: PA", timeout:60, retry:30 );
+
+  # model: PA-220
+  # model: PA-VM
+  # family: 220
+  # family: vm
   if( eregmatch( pattern:"model: PA-", string:system ) && "family:" >< system )
   {
     set_kb_item( name:"palo_alto/detected", value:TRUE );
@@ -1310,6 +1596,77 @@ if( "Invalid input:" >< uname ) {
 }
 
 if( ! is_pfsense ) {
+  synoinfo = ssh_cmd( socket:sock, cmd:"cat /etc.defaults/synoinfo.conf", nosu:TRUE, pattern:"Synology NAS" );
+  if( synoinfo ) {
+    vers = ssh_cmd( socket:sock, cmd:"cat /etc.defaults/VERSION", nosu:TRUE, pattern:"productversion" );
+    if( "buildnumber" >< vers ) {
+      replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
+
+      set_kb_item( name:"ssh/login/synology/dsm/detected", value:TRUE );
+      set_kb_item( name:"ssh/login/synology/dsm/port", value:port );
+      set_kb_item( name:"ssh/login/synology/dsm/" + port + "/version_info", value:chomp( vers ) );
+
+      mod_info = ssh_cmd( socket:sock, cmd:"cat /proc/cmdline", nosu:TRUE, return_errors:FALSE,
+                          pattern:"syno_hw_version" );
+      if (mod_info)
+        set_kb_item( name:"ssh/login/synology/dsm/" + port + "/model_info", value:chomp( mod_info ) );
+
+      exit( 0 );
+    }
+  }
+}
+
+if( ! is_pfsense ) {
+  server = ssh_cmd( socket:sock, cmd:"/usr/local/avamar/bin/mcserver.sh --version", return_errors:FALSE );
+
+  if( "version" >< server && "build date" >< server ) {
+    set_kb_item( name:"ssh/login/dell/avamar/detected", value:TRUE );
+    set_kb_item( name:"ssh/login/dell/avamar/port", value:port );
+    set_kb_item( name:"ssh/login/dell/avamar/" + port + "/vers_info", value:server );
+    # nb: Don't use exit(0); here as the software is running e.g. on SUSE SLES which is checked later
+  }
+}
+
+if( ! is_pfsense ) {
+  version = ssh_cmd( socket:sock, cmd:"/opt/Avaya/vsp/swversion.sh", return_errors:TRUE );
+
+  if( "System Manager" >< version && "System Information" >< version ) {
+    set_kb_item( name:"ssh/login/avaya/system_manager/detected", value:TRUE );
+    set_kb_item( name:"ssh/login/avaya/system_manager/port", value:port );
+    set_kb_item( name:"ssh/login/avaya/system_manager/" + port + "/vers_info", value:version );
+    # nb: Don't use exit(0); here as the software is running e.g. on Red Hat Linux which is checked later
+  }
+}
+
+if( ! is_pfsense ) {
+  version = ssh_cmd( socket:sock, cmd:"cat /opt/versa/vnms/etc/package_info.in", return_errors:FALSE );
+
+  if( "versa-director" >< version && '"ver_major"' >< version ) {
+    set_kb_item( name:"ssh/login/versa/director/detected", value:TRUE );
+    set_kb_item( name:"ssh/login/versa/director/port", value:port );
+    set_kb_item( name:"ssh/login/versa/director/" + port + "/vers_info", value:version );
+    # nb: Don't use exit(0); here as the software is running e.g. on Ubuntu which is checked later
+  }
+}
+
+if( ! is_pfsense ) {
+  cmd1 = "cat /opt/landesk/etc/landesk.conf";
+  platform = ssh_cmd( socket:sock, cmd:cmd1, return_errors:FALSE );
+  if( platform && "platformid=ldcsa" >< platform ) {
+    cmd2 = "cat /etc/LDBUILD";
+    version = ssh_cmd( socket:sock, cmd:cmd2, return_errors:FALSE );
+
+    if( version ) {
+      set_kb_item( name:"ssh/login/ivanti/csa/detected", value:TRUE );
+      set_kb_item( name:"ssh/login/ivanti/csa/port", value:port );
+      set_kb_item( name:"ssh/login/ivanti/csa/" + port + "/vers_info", value:version );
+      set_kb_item( name:"ssh/login/ivanti/csa/" + port + "/loc_info", value:"    " + cmd1 + '\n    ' + cmd2 );
+      # nb: Don't use exit(0); here as the software is running e.g. on CentOS which is checked later
+    }
+  }
+}
+
+if( ! is_pfsense ) {
   rls = ssh_cmd( socket:sock, cmd:"cat /opt/vmware/etc/appliance-manifest.xml", return_errors:FALSE );
 
   if( strlen( rls ) )
@@ -1406,6 +1763,8 @@ if( ! is_pfsense ) {
     _unknown_os_info += '/etc/github/enterprise-release: ' + rls + '\n\n';
 }
 
+# nb: If the command above is ever getting changed / extended make sure to adjust the "concluded"
+# reporting in gb_github_enterprise_ssh_login_detect.nasl accordingly.
 if( "RELEASE_VERSION" >< rls && "RELEASE_BUILD_ID" >< rls ) {
   set_kb_item( name:"github/enterprise/rls", value:rls );
   exit( 0 );
@@ -1434,10 +1793,29 @@ if( ! is_pfsense ) {
 
 if( rls =~ '^[0-9]\\.[0-9]\\.[0-9]\\.20(1|2)[0-9]+' ) {
   rls = chomp( rls );
-  set_kb_item( name:"qradar/version", value:rls );
+  set_kb_item( name:"ssh/login/ibm/qradar/detected", value:port );
+  set_kb_item( name:"ssh/login/ibm/qradar/port", value:port );
+  set_kb_item( name:"ssh/login/ibm/qradar/" + port + "/version", value:rls );
+  set_kb_item( name:"ssh/login/ibm/qradar/" + port + "/conclfrom", value:"/etc/.qradar_install_version" );
   typ = ssh_cmd( socket:sock, cmd:"cat /etc/.product_name", return_errors:FALSE );
-  if( ! isnull( typ ) ) set_kb_item( name:'qradar/product_name', value:typ );
+  if( ! isnull( typ ) )
+    set_kb_item( name:"ssh/login/ibm/qradar/" + port + "/product_name", value:typ );
   exit( 0 );
+} else {
+  vers = ssh_cmd( socket:sock, cmd:"/opt/qradar/bin/getHostVersion.sh", return_errors:FALSE );
+  vers = eregmatch( pattern:'qradarVersion="([0-9.]+)"', string:vers );
+  if( ! isnull( vers[1] ) ) {
+    set_kb_item( name:"ssh/login/ibm/qradar/detected", value:port );
+    set_kb_item( name:"ssh/login/ibm/qradar/port", value:port );
+    version = vers[1];
+    build = eregmatch( pattern: "^[0-9]+\.[0-9]+\.[0-9]+\.([0-9]+)", string:rls );
+    if( ! isnull( build[1] ) )
+      version += "." + build[1];
+
+    set_kb_item( name:"ssh/login/ibm/qradar/" + port + "/version", value:version );
+    set_kb_item( name:"ssh/login/ibm/qradar/" + port + "/conclfrom", value:"/opt/qradar/bin/getHostVersion.sh" + '\n' + "/etc/.qradar_install_version");
+    exit( 0 );
+  }
 }
 
 if( ! is_pfsense ) {
@@ -1469,35 +1847,56 @@ if( "IPFire" >< rls ) { # IPFire 2.17 (i586) - core91
   exit( 0 );
 }
 
-# e.g. "Amazon Linux AMI release" or "Amazon Linux release 2 (Karoo)" among possible later releases
-# This only covers Amazon Linux AMI for now. Not the later releases.
+# e.g.:
+# Amazon Linux AMI release
+# Amazon Linux release 2 (Karoo)
+# Amazon Linux release 2023 (Amazon Linux)
+# among possible later releases.
 #
+# nb: This covers Amazon Linux AMI, Amazon Linux 2 and Amazon Linux 2023 for now. Not the later releases.
 # NOTE: Amazon Linux also perfectly supports /etc/os-release, so that could also be used.
-if( "Amazon Linux AMI release" >< rls ) {
+if( "Amazon Linux" >< rls ) {
 
+  os_key = "Amazon Linux";
+  cpe_key = "cpe:/o:amazon:linux";
+  kb_item_release = "AMAZON";
+
+  # nb: Standardized login key for Amazon Linux
   set_kb_item( name:"ssh/login/amazon_linux", value:TRUE );
+
+  if( "Amazon Linux AMI release" >< rls ) {
+    set_kb_item( name:"ssh/login/release", value:kb_item_release );
+
+  } else {
+    vers = eregmatch( pattern:"Amazon Linux release ([0-9]+)", string:rls, icase:TRUE );
+
+    if( vers[1] ) {
+      kb_item_release = "AMAZON" + vers[1];
+      os_key += " " + vers[1];
+      cpe_key += "_" + vers[1];
+
+      set_kb_item( name:"ssh/login/release", value:kb_item_release );
+    } else {
+      # nb: In case, an unknown/unsupported format is detected
+      os_key += " Unknown Release";
+      cpe_key += "_unknown_release";
+    }
+  }
 
   buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}~%{VERSION}~%{RELEASE};'" );
   if( buf ) {
     if( ! register_rpms( buf:";" + buf ) )
       error = buf;
-
-    # Package gathering for Notus
-    buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n'" );
-    if( buf ) {
-      if( ! register_rpms( buf:buf, custom_key_name:"ssh/login/package_list_notus" ) )
-        error = buf;
-    }
   }
 
-  set_kb_item( name:"ssh/login/release", value:"AMAZON" );
+  buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n'" );
+  if( buf ) {
+    if( ! register_notus( os_release:os_key, pkg_list:buf, rpms:TRUE ) )
+      error = buf;
+  }
 
-  # nb: Notus standardized release key
-  set_kb_item( name:"ssh/login/release_notus", value:"Amazon Linux" );
-
-  log_message( port:port, data:create_lsc_os_detection_report( rpm_access_error:error, detect_text:"Amazon Linux" ) );
-
-  os_register_and_report( os:"Amazon Linux", cpe:"cpe:/o:amazon:linux", banner_type:"SSH login", desc:SCRIPT_DESC, runs_key:"unixoide" );
+  log_message( port:port, data:create_lsc_os_detection_report( rpm_access_error:error, detect_text:os_key ) );
+  os_register_and_report( os:os_key, cpe:cpe_key, banner_type:"SSH login", desc:SCRIPT_DESC, runs_key:"unixoide" );
 
   exit( 0 );
 }
@@ -1570,30 +1969,27 @@ if( ! is_pfsense ) {
 if( "Syntax Error: unexpected argument" >< rls ) {
   rls = ssh_cmd( socket:sock, cmd:'run util bash -c "cat /VERSION"', nosh:TRUE, nosu:TRUE );
   if( "BIG-" >< rls || "Product: EM" >< rls ) {
-    set_kb_item( name:"f5/shell_is_tmsh", value:TRUE );
+    set_kb_item( name:"f5/shell_is_tmsh", value:TRUE ); # gb_f5_big_ip_ssh_login_detect.nasl, gb_f5_big_iq_ssh_login_detect.nasl and gb_f5_enterprise_manager_ssh_login_detect.nasl
     set_kb_item( name:"ssh/no_linux_shell", value:TRUE );
     replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
   }
 }
 
 if( "BIG-IP" >< rls ) {
-  set_kb_item( name:"f5/big_ip/lsc", value:TRUE ); # gb_f5_big_iq_ssh_login_detect.nasl
-  set_kb_item( name:"f5/big_ip/VERSION_RAW", value:rls );
+  set_kb_item( name:"f5/big_ip/VERSION_RAW", value:rls ); # gb_f5_big_ip_ssh_login_detect.nasl
   replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
-  exit( 0 );
+  exit( 0 ); # nb: OS is registered / handled in gb_f5_big_ip_ssh_login_detect.nasl
 }
 
 if( "BIG-IQ" >< rls ) {
-  set_kb_item( name:"f5/big_iq/lsc", value:TRUE ); # gb_f5_big_iq_version.nasl
-  set_kb_item( name:"f5/big_iq/VERSION_RAW", value:rls );
+  set_kb_item( name:"f5/big_iq/VERSION_RAW", value:rls ); # gb_f5_big_iq_ssh_login_detect.nasl
   set_kb_item( name:"f5/big_iq/ssh-login/port", value:port );
   replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
   exit( 0 );
 }
 
 if( "Product: EM" >< rls && "BaseBuild" >< rls ) {
-  set_kb_item( name:"f5/f5_enterprise_manager/lsc", value:TRUE ); # gb_f5_enterprise_manager_version.nasl
-  set_kb_item( name:"f5/f5_enterprise_manager/VERSION_RAW", value:rls );
+  set_kb_item( name:"f5/f5_enterprise_manager/VERSION_RAW", value:rls ); # gb_f5_enterprise_manager_ssh_login_detect.nasl
   replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
   exit( 0 );
 }
@@ -1688,10 +2084,11 @@ if( rls =~ "Oracle Linux ([^ ]+ )?release" ) {
 
     buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n'" );
     if( buf ) {
-      if( ! register_rpms( buf:buf, custom_key_name:"ssh/login/package_list_notus" ) )
+      if( ! register_rpms( buf:buf ) )
         error = buf;
+      else
+        pkg_list = buf;
     }
-
   }
 
   vers = eregmatch( pattern:"Oracle Linux ([^ ]+ )?release ([0-9]+)([0-9.]+)?", string:rls, icase:TRUE );
@@ -1709,6 +2106,9 @@ if( rls =~ "Oracle Linux ([^ ]+ )?release" ) {
     oskey += vers[2];
     oskey_notus += " " + vers[2];
 
+    if( ! register_notus( os_release:oskey_notus, pkg_list:pkg_list, rpms:TRUE ) )
+      error = pkg_list;
+
     log_message( port:port, data:create_lsc_os_detection_report( detect_text:os + " " + version, rpm_access_error:error ) );
     os_register_and_report( os:os, version:version, cpe:cpe, banner_type:"SSH login", banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide", full_cpe:TRUE );
   } else {
@@ -1717,8 +2117,6 @@ if( rls =~ "Oracle Linux ([^ ]+ )?release" ) {
   }
 
   set_kb_item( name:"ssh/login/release", value:oskey );
-  # nb: Notus standardized release key
-  set_kb_item( name:"ssh/login/release_notus", value:oskey_notus );
 
   exit( 0 );
 }
@@ -1795,6 +2193,7 @@ if( rls =~ "red hat linux release" ) {
 
 if( rls =~ "fedora" && rls =~ "release" ) {
   oskey = "FC";
+  notusoskey = "Fedora";
   if( rls =~ "fedora core" ) {
     cpe = "cpe:/o:fedoraproject:fedora_core";
     set_kb_item( name:"ssh/login/fedora_core", value:TRUE );
@@ -1815,6 +2214,14 @@ if( rls =~ "fedora" && rls =~ "release" ) {
   if( vers[2] ) {
     cpe += ":" + vers[2];
     oskey += vers[2];
+    notusoskey += " " + vers[2];
+
+    buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{EVR}.%{ARCH}\n'" );
+    if( buf ) {
+      if( ! register_notus( os_release:notusoskey, pkg_list:buf, rpms:TRUE ) )
+        error = buf;
+    }
+
     log_message( port:port, data:create_lsc_os_detection_report( detect_text:os + " release " + vers[2], rpm_access_error:error ) );
     os_register_and_report( os:os, version:vers[2], cpe:cpe, banner_type:"SSH login", desc:SCRIPT_DESC, runs_key:"unixoide", full_cpe:TRUE );
   } else {
@@ -1832,9 +2239,13 @@ if( rls =~ "fedora" && rls =~ "release" ) {
 # Red Hat Enterprise Linux AS release 3 (Taroon Update 3)
 # Red Hat Enterprise Linux Desktop release 3.90
 # Red Hat Enterprise Linux Server release 5.11 (Tikanga)
+# Red Hat Enterprise Linux Server release 7.6 (Maipo)
 # Red Hat Enterprise Linux release 8.6 (Ootpa)
+# Red Hat Enterprise Linux release 8.7 (Ootpa)
+# Red Hat Enterprise Linux release 9.1 (Plow)
 if( rls =~ "red hat enterprise linux.*release" ) {
   oskey = "RHENT_";
+  notusoskey = "Red Hat Enterprise Linux";
   cpe = "cpe:/o:redhat:enterprise_linux";
 
   set_kb_item( name:"ssh/login/rhel", value:TRUE );
@@ -1849,6 +2260,14 @@ if( rls =~ "red hat enterprise linux.*release" ) {
   if( vers[1] ) {
     cpe += ":" + vers[1];
     oskey += vers[1];
+    notusoskey += " " + vers[1];
+
+    buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{EVR}.%{ARCH}\n'" );
+    if( buf ) {
+      if( ! register_notus( os_release:notusoskey, pkg_list:buf, rpms:TRUE ) )
+        error = buf;
+    }
+
     os_register_and_report( os:rls, version:vers[1], cpe:cpe, banner_type:"SSH login", desc:SCRIPT_DESC, runs_key:"unixoide", full_cpe:TRUE );
   } else {
     os_register_and_report( os:rls, cpe:cpe, banner_type:"SSH login", desc:SCRIPT_DESC, runs_key:"unixoide" );
@@ -1916,12 +2335,6 @@ if( rls =~ "mageia release" ) {
   if( buf ) {
     if( ! register_rpms( buf:";" + buf ) )
       error = buf;
-
-    buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n'" );
-    if( buf ) {
-      if( ! register_rpms( buf:buf, custom_key_name:"ssh/login/package_list_notus" ) )
-        error = buf;
-    }
   }
 
   vers = eregmatch( pattern:"mageia release ([0-9.]+)", string:rls, icase:TRUE );
@@ -1929,6 +2342,12 @@ if( rls =~ "mageia release" ) {
     cpe += ":" + vers[1];
     oskey += vers[1];
     oskey_notus += " " + vers[1];
+
+    buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n'" );
+    if( buf ) {
+      if( ! register_notus( os_release:oskey_notus, pkg_list:buf, rpms:TRUE ) )
+        error = buf;
+    }
 
     log_message( port:port, data:create_lsc_os_detection_report( detect_text:os + " release " + vers[1], rpm_access_error:error ) );
     os_register_and_report( os:os, version:vers[1], cpe:cpe, banner_type:"SSH login", desc:SCRIPT_DESC, runs_key:"unixoide", full_cpe:TRUE );
@@ -1938,8 +2357,6 @@ if( rls =~ "mageia release" ) {
   }
 
   set_kb_item( name:"ssh/login/release", value:oskey );
-  # nb: Notus standardized release key
-  set_kb_item( name:"ssh/login/release_notus", value:oskey_notus );
 
   exit( 0 );
 }
@@ -2096,6 +2513,22 @@ if( rls =~ "distrib_id=ubuntu" && rls =~ "distrib_release=" ) {
     if( buf )
       register_packages( buf:buf );
 
+    if( vers[3] )
+      version = vers[1] + "." + vers[2] + "." + vers[3];
+    else
+      version = vers[1] + "." + vers[2];
+
+    oskey_notus += version;
+
+    if( vers[1] % 2 == 0 && vers[2] =~ "0[46]") {
+      lts = " LTS";
+      oskey += version + lts;
+      cpe += ":" + version + ":-:lts";
+    } else {
+      oskey += version;
+      cpe += ":" + version;
+    }
+
     # Gather package information for Ubuntu in Notus
     # dpkg-query might not be available in very old Ubuntu versions.
     # Also, use --showformat instead of -f to be backwards compatible with older Ubuntu versions.
@@ -2113,23 +2546,7 @@ if( rls =~ "distrib_id=ubuntu" && rls =~ "distrib_release=" ) {
       packages = chomp( packages );
 
       if( packages )
-        set_kb_item( name:"ssh/login/package_list_notus", value:packages );
-    }
-
-    if( vers[3] )
-      version = vers[1] + "." + vers[2] + "." + vers[3];
-    else
-      version = vers[1] + "." + vers[2];
-
-    oskey_notus += version;
-
-    if( vers[1] % 2 == 0 && vers[2] =~ "0[46]") {
-      lts = " LTS";
-      oskey += version + lts;
-      cpe += ":" + version + ":-:lts";
-    } else {
-      oskey += version;
-      cpe += ":" + version;
+        register_notus( os_release:oskey_notus, pkg_list:packages, rpms:FALSE );
     }
 
     log_message( port:port, data:create_lsc_os_detection_report( detect_text:os + " " + version + lts ) );
@@ -2140,8 +2557,6 @@ if( rls =~ "distrib_id=ubuntu" && rls =~ "distrib_release=" ) {
   }
 
   set_kb_item( name:"ssh/login/release", value:oskey );
-  # nb: Notus standardized release key
-  set_kb_item( name:"ssh/login/release_notus", value:oskey_notus );
 
   exit( 0 );
 }
@@ -2382,12 +2797,10 @@ if( rls =~ "^[0-9]+[0-9.]+" || rls =~ "buster/sid" || rls =~ "bullseye/sid" ) {
     packages = chomp( packages );
 
     if( packages )
-      set_kb_item( name:"ssh/login/package_list_notus", value:packages );
+      register_notus( os_release:oskey_notus, pkg_list:packages, rpms:FALSE );
   }
 
   set_kb_item( name:"ssh/login/release", value:oskey );
-  # nb: Notus standardized release key
-  set_kb_item( name:"ssh/login/release_notus", value:oskey_notus );
 
   os_register_and_report( os:"Debian GNU/Linux", version:rls, cpe:cpe, banner_type:"SSH login", desc:SCRIPT_DESC, runs_key:"unixoide", full_cpe:TRUE );
 
@@ -2418,7 +2831,6 @@ if( "Slackware " >< rls ) {
   buf = ssh_cmd( socket:sock, cmd:"ls -1 /var/log/packages" );
   if( buf ) {
     set_kb_item( name:"ssh/login/slackpack", value:buf );
-    set_kb_item( name:"ssh/login/package_list_notus", value:buf );
   }
 
   vers = eregmatch( pattern:"Slackware (([0-9]+)\.([0-9]+))(\+$)?", string:rls, icase:FALSE );
@@ -2434,6 +2846,10 @@ if( "Slackware " >< rls ) {
     cpe += ":" + vers[1];
     oskey += release;
     oskey_notus += " " + release;
+
+    if( buf )
+      register_notus( os_release:oskey_notus, pkg_list:buf, rpms:FALSE );
+
     log_message( port:port, data:create_lsc_os_detection_report( detect_text:"Slackware " + release ) );
     os_register_and_report( os:"Slackware", version:release, cpe:cpe, banner_type:"SSH login", desc:SCRIPT_DESC, runs_key:"unixoide", full_cpe:TRUE );
   } else {
@@ -2442,8 +2858,6 @@ if( "Slackware " >< rls ) {
   }
 
   set_kb_item( name:"ssh/login/release", value:oskey );
-  # nb: Notus standardized release key
-  set_kb_item( name:"ssh/login/release_notus", value:oskey_notus );
 
   exit( 0 );
 }
@@ -2476,14 +2890,6 @@ if( rls =~ "Rocky Linux release" ) {
   if( buf ) {
     if( ! register_rpms( buf:";" + buf ) )
       error = buf;
-
-    # Notus requires a more verbose package name output
-    # and also requires it to be written to its own package_list key
-    buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{EVR}.%{ARCH}\n'" );
-    if( buf ) {
-      if( ! register_rpms( buf:buf, custom_key_name:"ssh/login/package_list_notus" ) )
-        error = buf;
-    }
   }
 
   vers = eregmatch( pattern:"Rocky Linux release ([0-9]+)([0-9.]+)?", string:rls, icase:TRUE );
@@ -2505,6 +2911,12 @@ if( rls =~ "Rocky Linux release" ) {
     # which for Rocky requires "Rocky Linux <release>"
     notusoskey = os + " " + vers[1];
 
+    buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{EVR}.%{ARCH}\n'" );
+    if( buf ) {
+      if( ! register_notus( os_release:notusoskey, pkg_list:buf, rpms:TRUE ) )
+        error = buf;
+    }
+
     log_message( port:port, data:create_lsc_os_detection_report( detect_text:os + " " + version, rpm_access_error:error ) );
     os_register_and_report( os:os, version:version, cpe:cpe, banner_type:"SSH login", banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide", full_cpe:TRUE );
   } else {
@@ -2513,8 +2925,6 @@ if( rls =~ "Rocky Linux release" ) {
   }
 
   set_kb_item( name:"ssh/login/release", value:oskey );
-  # nb: Notus standardized release key
-  set_kb_item( name:"ssh/login/release_notus", value:notusoskey );
 
   exit( 0 );
 }
@@ -2548,14 +2958,6 @@ if( rls =~ "AlmaLinux release" ) {
   if( buf ) {
     if( ! register_rpms( buf:";" + buf ) )
       error = buf;
-
-    # Notus requires a more verbose package name output
-    # and also requires it to be written to its own package_list key
-    buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{EVR}.%{ARCH}\n'" );
-    if( buf ) {
-      if( ! register_rpms( buf:buf, custom_key_name:"ssh/login/package_list_notus" ) )
-        error = buf;
-    }
   }
 
   vers = eregmatch( pattern:"AlmaLinux release ([0-9]+)([0-9.]+)?", string:rls, icase:TRUE );
@@ -2577,6 +2979,12 @@ if( rls =~ "AlmaLinux release" ) {
     # which for Alma requires "AlmaLinux <release>"
     notusoskey = os + " " + vers[1];
 
+    buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{EVR}.%{ARCH}\n'" );
+    if( buf ) {
+      if( ! register_notus( os_release:notusoskey, pkg_list:buf, rpms:TRUE ) )
+        error = buf;
+    }
+
     log_message( port:port, data:create_lsc_os_detection_report( detect_text:os + " " + version, rpm_access_error:error ) );
     os_register_and_report( os:os, version:version, cpe:cpe, banner_type:"SSH login", banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide", full_cpe:TRUE );
   } else {
@@ -2585,8 +2993,6 @@ if( rls =~ "AlmaLinux release" ) {
   }
 
   set_kb_item( name:"ssh/login/release", value:oskey );
-  # nb: Notus standardized release key
-  set_kb_item( name:"ssh/login/release_notus", value:notusoskey );
 
   exit( 0 );
 }
@@ -2654,6 +3060,89 @@ if( rls =~ "(open)?suse( leap| linux)?" && rls !~ "enterprise" ) {
   exit( 0 );
 }
 
+if( 'NAME="openEuler"' >< rls ) {
+  set_kb_item( name:"ssh/login/openeuler", value:TRUE );
+  os = "openEuler";
+  # format in advisories: openEuler-22.03-LTS-SP4
+
+  # cpe from nist - differs from content of /etc/system-release-cpe
+  # cpe:/o:huawei:openeuler:20.03:sp2:lts
+  cpe_base = "cpe:/o:huawei:openeuler";
+
+  # Version examples from /etc/os-release:
+  # VERSION="22.03 LTS"
+  # VERSION="22.03 (LTS-SP4)"
+  # VERSION="23.03"
+  # VERSION="24.03 (LTS)"
+  vers = eregmatch( pattern:"VERSION="+'"'+"([0-9]{2}\.[0-9]{2}) ?\(?(LTS)?-?(SP[0-9])?", string:rls, icase:TRUE );
+  if( vers[1] ) {
+    # 22.03
+    version = vers[1];
+    # cpe:/o:huawei:openeuler:22.03
+    cpe = cpe_base + ":" + vers[1];
+
+    if( vers[2] ) {
+      # 22.03 LTS
+      version += " " + vers[2];
+      # cpe:/o:huawei:openeuler:22.03:lts
+      cpe += ":" + vers[2];
+    }
+
+    if( vers[3] ) {
+      # 22.03 LTS SP4
+      version += " " + vers[3];
+      # cpe:/o:huawei:openeuler:22.03:sp4:lts
+      cpe = cpe_base + ":" + vers[1] + ":" + vers[3] + ":" + vers[2];
+    }
+
+    cpe = tolower(cpe);
+
+    # openEuler 22.03 LTS SP4
+    os += " " + version;
+
+    buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n'" );
+    if( buf ) {
+      if( ! register_notus( os_release:os, pkg_list:buf, rpms:TRUE ) )
+        error = buf;
+    }
+
+    log_message( port:port, data:create_lsc_os_detection_report( detect_text:os, rpm_access_error:error ) );
+    os_register_and_report( os:os, version:version, cpe:cpe, banner_type:"SSH login", banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide", full_cpe:TRUE );
+  } else {
+    log_message( port:port, data:create_lsc_os_detection_report( detect_text:os, rpm_access_error:error ) );
+    os_register_and_report( os:os, cpe:cpe_base, banner_type:"SSH login", banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  }
+
+  exit( 0 );
+
+}
+
+if( "Huawei Cloud EulerOS" >< rls ) {
+  vers = eregmatch( pattern:'VERSION_ID="([0-9.]+)"', string:rls, icase:TRUE );
+  if( vers[1] ) {
+    notusoskey = "HCE" + " " + vers[1];
+
+    cpe = "cpe:/o:huawei:hce" + ":" + vers[1];
+    set_kb_item( name:"ssh/login/hce", value:TRUE );
+    os = "HCE";
+
+    buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n'" );
+    if( buf ) {
+      if( ! register_notus( os_release:notusoskey, pkg_list:buf, rpms:TRUE ) )
+        error = buf;
+    }
+
+    log_message( port:port, data:create_lsc_os_detection_report( detect_text:os + " " + vers[1], rpm_access_error:error ) );
+    os_register_and_report( os:os, version:vers[1], cpe:cpe, banner_type:"SSH login", desc:SCRIPT_DESC, runs_key:"unixoide", full_cpe:TRUE );
+  } else {
+    log_message( port:port, data:create_lsc_os_detection_report( detect_text:os, rpm_access_error:error ) );
+    os_register_and_report( os:os, cpe:cpe, banner_type:"SSH login", desc:SCRIPT_DESC, runs_key:"unixoide" );
+  }
+
+  exit( 0 );
+  }
+
+
 # nb: Arch Linux is a rolling release so there is no "real" version
 if( 'NAME="Arch Linux"' >< rls ) {
   set_kb_item( name:"ssh/login/arch_linux", value:TRUE );
@@ -2717,6 +3206,14 @@ if( rls =~ 'NAME\\s*=\\s*"OpenWrt"' && "OPENWRT_DEVICE_" >< rls ) {
   set_kb_item( name:"ssh/login/openwrt/port", value:port );
   set_kb_item( name:"ssh/login/openwrt/detected", value:TRUE );
   replace_kb_item( name:"ssh/lsc/use_su", value:"no" );
+  exit( 0 );
+}
+
+if( "OpenBMC" >< rls && "OPENBMC_TARGET_MACHINE" >< rls ) {
+  set_kb_item( name:"ssh/login/openbmc/detected", value:TRUE );
+  set_kb_item( name:"ssh/login/openbmc/port", value:port );
+  set_kb_item( name:"ssh/login/openbmc/" + port + "/etc_os-release", value:chomp( rls ) );
+  replace_kb_item( name:"ssh/lsc/use_us", value:"no" );
   exit( 0 );
 }
 
@@ -2830,24 +3327,17 @@ if( rls =~ "suse linux enterprise" || suse_os_rls =~ "suse linux enterprise" || 
     os = "SUSE Linux Enterprise Desktop";
   }
 
-  if( ! isnull( notus_os_release ) && notus_os_release ) {
-    # nb: Notus standardized release key
-    set_kb_item( name:"ssh/login/release_notus", value:notus_os_release );
-  }
-
   set_kb_item( name:"ssh/login/suse", value:TRUE );
   buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}~%{VERSION}~%{RELEASE};'" );
   if( buf ) {
     if( ! register_rpms( buf:";" + buf ) )
       error = buf;
-    else {
-      # Collect the RPMs in a different format for the Notus scanner
-      buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n'" );
-      if( buf ) {
-        if( ! register_rpms( buf:buf, custom_key_name:"ssh/login/package_list_notus" ) )
-          error = buf;
-      }
-    }
+  }
+
+  buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n'" );
+  if( buf ) {
+    if( ! register_notus( os_release:notus_os_release, pkg_list:buf, rpms:TRUE ) )
+      error = buf;
   }
 
   if( version ) {
@@ -3026,22 +3516,19 @@ if( rls =~ "EulerOS release" ) {
   release_match = eregmatch( pattern:"EulerOS release ([0-9]+\.[0-9]+)\s?(\((SP[0-9]+)(x86_64)?\))?", string:rls, icase:FALSE );
   if( release_match[1] ) {
     # EulerOS V2.0
-    formatted_os_release = "EulerOS V" + release_match[1];
+    notus_os_release = "EulerOS V" + release_match[1];
     if( release_match[3] ) {
       # EulerOS V2.0SP5
-      formatted_os_release += release_match[3];
+      notus_os_release += release_match[3];
     } else {
       # EulerOS V2.0SP0
-      formatted_os_release += "SP0";
+      notus_os_release += "SP0";
     }
 
     if( release_match[4] ) {
       # EulerOS V2.0SP9(x86_64)
-      formatted_os_release += "(" + release_match[4] + ")";
+      notus_os_release += "(" + release_match[4] + ")";
     }
-
-    # nb: Notus standardized release key
-    set_kb_item( name:"ssh/login/release_notus", value:formatted_os_release );
   }
 
   # EulerOS Virtualization release 3.0.2.1 (x86_64)
@@ -3060,22 +3547,22 @@ if( rls =~ "EulerOS release" ) {
     # For Notus scanner: Reformat the release version string to be equivalent to what is listed in advisories
     # EulerOS Virtualization release 3.0.2.1 (x86_64)
     # EulerOS Virtualization for ARM 64 release 3.0.2.0 (aarch64)
-    release_match = eregmatch( pattern:"EulerOS Virtualization ([a-zA-Z0-9 ]+) ([0-9.]+)", string:_rls, icase:FALSE );
+    release_match = eregmatch( pattern:"EulerOS Virtualization ([a-zA-Z0-9 ]+)?([0-9]+\.[0-9]+\.[0-9]+(\.[0-9]+)?)", string:_rls, icase:FALSE );
     if( release_match[1] ) {
-      formatted_os_release = "EulerOS Virtualization ";
+      notus_os_release = "EulerOS Virtualization ";
+      if( "release" >< release_match[1] ) {
+        notus_os_release += "release ";
+      }
       if( "for ARM 64" >< release_match[1] ) {
-        # EulerOS Virtualization for ARM 64
-        formatted_os_release += "for ARM 64 ";
+        notus_os_release += "for ARM 64 ";
       }
-
-      if( release_match[2] ) {
-        # EulerOS Virtualization 3.0.2.1
-        # EulerOS Virtualization for ARM 64 3.0.2.0
-        formatted_os_release += release_match[2];
-      }
-
-      # nb: Notus standardized release key
-      set_kb_item( name:"ssh/login/release_notus", value:formatted_os_release );
+    }
+    if( release_match[2] ) {
+      # EulerOS Virtualization 3.0.2.1
+      # EulerOS Virtualization 2.10.0
+      # EulerOS Virtualization release 3.0.2.1
+      # EulerOS Virtualization for ARM 64 3.0.2.0
+      notus_os_release += release_match[2];
     }
 
     rls = _rls + '\n(Base system: ' + rls + ")";
@@ -3097,16 +3584,13 @@ if( rls =~ "EulerOS release" ) {
   if( buf ) {
     if( ! register_rpms( buf:";" + buf ) )
       error = buf;
-    else {
-      # Collect the RPMs in a different format for the Notus scanner
-      buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n'" );
-      if( buf ) {
-        if( ! register_rpms( buf:buf, custom_key_name:"ssh/login/package_list_notus" ) )
-          error = buf;
-      }
-    }
   }
 
+  buf = ssh_cmd( socket:sock, cmd:"/bin/rpm -qa --qf '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n'" );
+  if( buf ) {
+    if( ! register_notus( os_release:notus_os_release, pkg_list:buf, rpms:TRUE ) )
+      error = buf;
+  }
   log_message( port:port, data:create_lsc_os_detection_report( rpm_access_error:error, detect_text:rls ) );
 
   exit( 0 );

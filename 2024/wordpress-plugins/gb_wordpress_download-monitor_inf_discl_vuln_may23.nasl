@@ -9,8 +9,8 @@ CPE = "cpe:/a:wpchill:download_monitor";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127679");
-  script_version("2024-01-12T16:12:12+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-10-31T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-10-31 05:05:48 +0000 (Thu, 31 Oct 2024)");
   script_tag(name:"creation_date", value:"2024-01-09 07:10:45 +0000 (Tue, 09 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
@@ -42,7 +42,7 @@ if (description)
   including user reports, download reports, and user data including email, role, id and other info
   (not passwords) via REST API.");
 
-  script_tag(name:"affected", value:"WordPress Download Monitor prior to version 4.7.70.");
+  script_tag(name:"affected", value:"WordPress Download Monitor plugin prior to version 4.7.70.");
 
   script_tag(name:"solution", value:"Update to version 4.7.70 or later.");
 

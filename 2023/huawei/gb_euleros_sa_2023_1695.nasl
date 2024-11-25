@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2023.1695");
   script_cve_id("CVE-2021-33061", "CVE-2021-33655", "CVE-2021-33656", "CVE-2021-39698", "CVE-2021-39713", "CVE-2021-4155", "CVE-2021-4159", "CVE-2021-4197", "CVE-2021-4203", "CVE-2021-45868", "CVE-2022-0001", "CVE-2022-0002", "CVE-2022-0322", "CVE-2022-0492", "CVE-2022-0494", "CVE-2022-0617", "CVE-2022-0812", "CVE-2022-0850", "CVE-2022-0854", "CVE-2022-1011", "CVE-2022-1012", "CVE-2022-1016", "CVE-2022-1184", "CVE-2022-1353", "CVE-2022-1462", "CVE-2022-1729", "CVE-2022-20008", "CVE-2022-20132", "CVE-2022-20154", "CVE-2022-20166", "CVE-2022-20368", "CVE-2022-20565", "CVE-2022-23960", "CVE-2022-2503", "CVE-2022-2586", "CVE-2022-2588", "CVE-2022-2639", "CVE-2022-2663", "CVE-2022-26966", "CVE-2022-27666", "CVE-2022-28388", "CVE-2022-28390", "CVE-2022-29581", "CVE-2022-2964", "CVE-2022-2977", "CVE-2022-3028", "CVE-2022-30594", "CVE-2022-32250", "CVE-2022-32296", "CVE-2022-34918", "CVE-2022-3524", "CVE-2022-3542", "CVE-2022-3545", "CVE-2022-3565", "CVE-2022-3566", "CVE-2022-3567", "CVE-2022-3586", "CVE-2022-3594", "CVE-2022-3629", "CVE-2022-36879", "CVE-2022-36946", "CVE-2022-39188", "CVE-2022-4129", "CVE-2022-41850", "CVE-2022-41858", "CVE-2022-42703", "CVE-2022-42895", "CVE-2022-43750");
   script_tag(name:"creation_date", value:"2023-05-08 04:14:25 +0000 (Mon, 08 May 2023)");
-  script_version("2023-06-20T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:25 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-09-30 16:34:00 +0000 (Fri, 30 Sep 2022)");
+  script_tag(name:"severity_date", value:"2022-09-30 16:34:07 +0000 (Fri, 30 Sep 2022)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2023-1695)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.2\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2023-1695");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2023-1695");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2023-1695");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2023-1695 advisory.");
 
@@ -59,6 +59,8 @@ A memory leak flaw was found in the Linux kernel's DMA subsystem, in the way a u
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

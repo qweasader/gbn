@@ -1,34 +1,20 @@
-# Copyright (C) 2017 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2017 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108379");
-  script_version("2022-08-01T10:11:45+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2017-10388", "CVE-2017-10293", "CVE-2017-10346", "CVE-2017-10345",
                 "CVE-2017-10285", "CVE-2017-10356", "CVE-2017-10348", "CVE-2017-10295",
                 "CVE-2017-10349", "CVE-2017-10347", "CVE-2017-10274", "CVE-2017-10355",
                 "CVE-2017-10357", "CVE-2017-10281");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-08-01 10:11:45 +0000 (Mon, 01 Aug 2022)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-07-30 03:36:00 +0000 (Sat, 30 Jul 2022)");
@@ -46,7 +32,7 @@ if(description)
   script_tag(name:"impact", value:"Successful exploitation of this vulnerability
   will allow remote attackers to gain elevated privileges, partially access and
   partially modify data, access sensitive data, obtain sensitive information or
-  cause a denial of service, .");
+  cause a denial of service.");
 
   script_tag(name:"affected", value:"Oracle Java SE version 1.6.0.161 and earlier,
   1.7.0.151 and earlier, 1.8.0.144 and earlier, 9.0 on Linux.");
@@ -71,7 +57,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/101355");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/101378");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("General");
   script_dependencies("gb_java_prdts_detect_lin.nasl");
   script_mandatory_keys("Sun/Java/JRE/Linux/Ver");

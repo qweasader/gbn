@@ -9,16 +9,16 @@ CPE = "cpe:/a:oracle:vm_virtualbox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808259");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-02-16T05:06:55+0000");
   script_cve_id("CVE-2016-3597");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-09-01 01:29:00 +0000 (Fri, 01 Sep 2017)");
   script_tag(name:"creation_date", value:"2016-07-21 12:24:33 +0530 (Thu, 21 Jul 2016)");
-  script_name("Oracle Virtualbox Denial of Service Vulnerability-01 July16 (Linux)");
+  script_name("Oracle Virtualbox Denial of Service Vulnerability-01 (Jul 2016) - Linux");
 
   script_tag(name:"summary", value:"Oracle VM VirtualBox is prone to a denial of service vulnerability.");
 

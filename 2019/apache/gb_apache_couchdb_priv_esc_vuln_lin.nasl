@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112475");
-  script_version("2023-05-10T09:37:12+0000");
-  script_tag(name:"last_modification", value:"2023-05-10 09:37:12 +0000 (Wed, 10 May 2023)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2019-01-03 11:36:11 +0100 (Thu, 03 Jan 2019)");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
@@ -27,7 +27,7 @@ if (description)
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2019 Greenbone AG");
-  script_family("Web application abuses");
+  script_family("Databases");
   script_dependencies("gb_apache_couchdb_http_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("apache/couchdb/detected", "Host/runs_unixoide");
 

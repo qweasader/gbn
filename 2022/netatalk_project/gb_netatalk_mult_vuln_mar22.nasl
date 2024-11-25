@@ -9,8 +9,8 @@ CPE = "cpe:/a:netatalk:netatalk";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113948");
-  script_version("2023-11-16T05:05:14+0000");
-  script_tag(name:"last_modification", value:"2023-11-16 05:05:14 +0000 (Thu, 16 Nov 2023)");
+  script_version("2024-03-15T05:06:15+0000");
+  script_tag(name:"last_modification", value:"2024-03-15 05:06:15 +0000 (Fri, 15 Mar 2024)");
   script_tag(name:"creation_date", value:"2022-04-25 14:38:33 +0000 (Mon, 25 Apr 2022)");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:P/I:P/A:P");
@@ -40,11 +40,11 @@ if(description)
 
   - CVE-2021-31439: Heap-based buffer overflow");
 
-  script_tag(name:"affected", value:"Netatalk versions before 3.1.13.");
+  script_tag(name:"affected", value:"Netatalk prior to version 3.1.13.");
 
   script_tag(name:"solution", value:"Update to version 3.1.13 or later.");
 
-  script_xref(name:"URL", value:"https://netatalk.sourceforge.io/3.1/ReleaseNotes3.1.13.html");
+  script_xref(name:"URL", value:"https://netatalk.io/3.1/ReleaseNotes3.1.13");
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
   script_tag(name:"solution_type", value:"VendorFix");

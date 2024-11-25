@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100283");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2009-10-01 18:57:31 +0200 (Thu, 01 Oct 2009)");
   script_cve_id("CVE-2009-3103");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_name("Microsoft Windows SMB2 '_Smb2ValidateProviderCallback()' Remote Code Execution Vulnerability");
+  script_name("Microsoft Windows SMB2 '_Smb2ValidateProviderCallback()' RCE Vulnerability");
   script_tag(name:"qod_type", value:"remote_analysis");
   script_category(ACT_KILL_HOST);
   script_family("Windows");
@@ -58,7 +58,6 @@ if(description)
   exit(0);
 }
 
-include("misc_func.inc");
 include("smb_nt.inc");
 
 if(kb_smb_is_samba())

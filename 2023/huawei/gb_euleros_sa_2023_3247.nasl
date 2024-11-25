@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2023.3247");
   script_cve_id("CVE-2022-40982", "CVE-2022-45884", "CVE-2022-45887", "CVE-2022-45919", "CVE-2023-20588", "CVE-2023-21400", "CVE-2023-37453", "CVE-2023-3777", "CVE-2023-39189", "CVE-2023-39192", "CVE-2023-39193", "CVE-2023-39194", "CVE-2023-4015", "CVE-2023-4244", "CVE-2023-42753", "CVE-2023-42754", "CVE-2023-42756", "CVE-2023-45862", "CVE-2023-45863", "CVE-2023-45871", "CVE-2023-4622", "CVE-2023-4623", "CVE-2023-46813", "CVE-2023-4921", "CVE-2023-5178", "CVE-2023-5197", "CVE-2023-5717");
   script_tag(name:"creation_date", value:"2023-12-12 04:35:10 +0000 (Tue, 12 Dec 2023)");
-  script_version("2024-01-18T05:07:09+0000");
-  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
-  script_tag(name:"cvss_base", value:"10.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_version("2024-06-19T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-06-19 05:05:42 +0000 (Wed, 19 Jun 2024)");
+  script_tag(name:"cvss_base", value:"9.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2024-01-16 19:43:00 +0000 (Tue, 16 Jan 2024)");
+  script_tag(name:"severity_date", value:"2024-06-18 15:10:41 +0000 (Tue, 18 Jun 2024)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2023-3247)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROS\-2\.0SP11");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2023-3247");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2023-3247");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2023-3247");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2023-3247 advisory.");
 

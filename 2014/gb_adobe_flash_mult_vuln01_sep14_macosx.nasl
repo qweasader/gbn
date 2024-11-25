@@ -9,16 +9,16 @@ CPE = "cpe:/a:adobe:flash_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804841");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2014-0559", "CVE-2014-0557", "CVE-2014-0556", "CVE-2014-0555",
                 "CVE-2014-0553", "CVE-2014-0552", "CVE-2014-0551", "CVE-2014-0550",
                 "CVE-2014-0549", "CVE-2014-0548", "CVE-2014-0547", "CVE-2014-0554");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-09-12 11:27:48 +0530 (Fri, 12 Sep 2014)");
 
-  script_name("Adobe Flash Player Multiple Vulnerabilities-01 Sep14 (Mac OS X)");
+  script_name("Adobe Flash Player Multiple Vulnerabilities-01 (Sep 2014) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Flash Player is prone to multiple vulnerabilities.");
 

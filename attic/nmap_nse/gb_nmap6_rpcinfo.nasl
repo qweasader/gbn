@@ -7,29 +7,19 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803504");
-  script_version("2023-07-28T16:09:07+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2013-02-28 18:59:53 +0530 (Thu, 28 Feb 2013)");
   script_name("Nmap NSE 6.01: rpcinfo");
-  script_category(ACT_ATTACK);
+  script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"remote_analysis");
   script_copyright("Copyright (C) 2013 Greenbone AG");
   script_family("Nmap NSE");
 
-  script_tag(name:"summary", value:"Connects to portmapper and fetches a list of all registered programs.  It then prints out a table
-including (for each program) the RPC program number, supported version numbers, port number and
-protocol, and program name.
-
-SYNTAX:
-
-nfs.version:  number If set overrides the detected version of nfs
-
-mount.version:  number If set overrides the detected version of mountd
-
-rpc.protocol:  table If set overrides the preferred order in which
-protocols are tested. (ie. 'tcp', 'udp')");
+  script_tag(name:"summary", value:"This VT has been deprecated and is therefore no longer
+  functional.");
 
   script_tag(name:"solution_type", value:"Mitigation");
 

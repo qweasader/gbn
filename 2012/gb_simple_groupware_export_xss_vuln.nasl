@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802589");
-  script_version("2023-12-13T05:05:23+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_cve_id("CVE-2012-1028");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-02-09 17:20:45 +0530 (Thu, 09 Feb 2012)");
-  script_name("SimpleGroupware 'export' Parameter Cross Site Scripting Vulnerability");
+  script_name("SimpleGroupware 'export' Parameter XSS Vulnerability");
 
   script_xref(name:"URL", value:"http://archives.neohapsis.com/archives/bugtraq/2012-02/0028.html");
 

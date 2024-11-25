@@ -9,18 +9,18 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826805");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2021-30554", "CVE-2021-30555", "CVE-2021-30556", "CVE-2021-30557");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-07-18 03:15:00 +0000 (Sun, 18 Jul 2021)");
   script_tag(name:"creation_date", value:"2022-12-07 17:04:11 +0530 (Wed, 07 Dec 2022)");
-  script_name("Google Chrome Security Update(stable-channel-update-for-desktop_17-2021-06) - Mac OS X");
+  script_name("Google Chrome Security Update (stable-channel-update-for-desktop_17-2021-06) - Mac OS X");
 
   script_tag(name:"summary", value:"Google Chrome is prone to multiple after free
   vulnerabilities.");

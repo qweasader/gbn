@@ -9,16 +9,16 @@ CPE = "cpe:/a:owncloud:owncloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807443");
-  script_version("2023-12-01T16:11:30+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2016-1499");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-09 19:59:00 +0000 (Tue, 09 Oct 2018)");
   script_tag(name:"creation_date", value:"2016-03-02 15:04:46 +0530 (Wed, 02 Mar 2016)");
-  script_name("ownCloud Information Exposure Vulnerability Feb16 (Windows)");
+  script_name("ownCloud Information Exposure Vulnerability (Feb 2016) - Windows");
 
   script_tag(name:"summary", value:"ownCloud is prone to an information exposure vulnerability.");
 

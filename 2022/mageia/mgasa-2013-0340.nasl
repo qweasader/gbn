@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2013.0340");
   script_cve_id("CVE-2012-4412", "CVE-2012-4424", "CVE-2013-2207", "CVE-2013-4237", "CVE-2013-4332", "CVE-2013-4458", "CVE-2013-4788");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
@@ -24,13 +24,13 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2013-0340");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2013-0340.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=11059");
+  script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=1007545");
+  script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=1022280");
   script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=855385");
   script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=858238");
   script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=976408");
-  script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=995839");
-  script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=1007545");
   script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=985625");
-  script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=1022280");
+  script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=995839");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'glibc' package(s) announced via the MGASA-2013-0340 advisory.");
 

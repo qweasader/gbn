@@ -9,13 +9,13 @@ CPE = "cpe:/a:oracle:vm_virtualbox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806989");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2016-0602");
   script_tag(name:"cvss_base", value:"6.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-01-22 16:40:56 +0530 (Fri, 22 Jan 2016)");
-  script_name("Oracle Virtualbox Unspecified Vulnerability Jan16 (Mac OS X)");
+  script_name("Oracle Virtualbox Unspecified Vulnerability (Jan 2016) - Mac OS X");
 
   script_tag(name:"summary", value:"Oracle VM VirtualBox is prone to an unspecified vulnerability.");
 

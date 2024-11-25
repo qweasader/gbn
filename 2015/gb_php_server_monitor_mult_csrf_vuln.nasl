@@ -9,10 +9,10 @@ CPE = "cpe:/a:phpserver:monitor";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806528");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_tag(name:"cvss_base", value:"6.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2015-11-02 18:23:47 +0530 (Mon, 02 Nov 2015)");
   script_tag(name:"qod_type", value:"remote_banner");
   script_name("PHP Server Monitor Multiple CSRF Vulnerabilities");
@@ -43,7 +43,6 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_php_server_monitor_detect.nasl");
   script_mandatory_keys("PHP/Server/Monitor/Installed");
-  script_require_ports("Services/www", 80);
 
   exit(0);
 }
@@ -51,17 +50,16 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if(!monPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_is_equal(version:version, test_version:"3.1.1")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"WillNotFix");
+  security_message(data:report, port:port);
   exit(0);
 }
 
-if(!monVer = get_app_version(cpe:CPE, port:monPort)){
-  exit(0);
-}
-
-if(version_is_equal(version:monVer, test_version:"3.1.1"))
-{
-  report = report_fixed_ver(installed_version:monVer, fixed_version:"WillNotFix");
-  security_message(data:report, port:monPort);
-  exit(0);
-}
+exit(99);

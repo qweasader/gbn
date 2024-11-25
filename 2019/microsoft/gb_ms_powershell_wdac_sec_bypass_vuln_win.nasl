@@ -1,38 +1,24 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:microsoft:powershell";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.815419");
-  script_version("2021-09-06T13:01:39+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2019-1167");
   script_tag(name:"cvss_base", value:"1.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2021-09-06 13:01:39 +0000 (Mon, 06 Sep 2021)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
   script_tag(name:"creation_date", value:"2019-07-17 12:25:47 +0530 (Wed, 17 Jul 2019)");
-  script_name("PowerShell Windows Defender Application Control Security Feature Bypass Vulnerability (Windows)");
+  script_name("PowerShell Windows Defender Application Control Security Feature Bypass Vulnerability - Windows");
 
   script_tag(name:"summary", value:"This host is missing an important security
   update for PowerShell Core according to Microsoft security advisory
@@ -60,7 +46,7 @@ if(description)
   script_xref(name:"URL", value:"https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-1167");
   script_xref(name:"URL", value:"https://github.com/PowerShell/PowerShell/security/advisories/GHSA-5frh-8cmj-gc59");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("General");
   script_dependencies("gb_powershell_core_detect_win.nasl");
   script_mandatory_keys("PowerShell/Win/Ver");

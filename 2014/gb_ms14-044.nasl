@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802080");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-06-21T05:05:42+0000");
   script_cve_id("CVE-2014-1820", "CVE-2014-4061");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-08-13 17:35:15 +0530 (Wed, 13 Aug 2014)");
   script_tag(name:"solution_type", value:"VendorFix");
   script_name("Microsoft SQL Server Elevation of Privilege Vulnerability (2984340)");
@@ -47,121 +47,71 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
-  script_dependencies("smb_reg_service_pack.nasl");
-  script_mandatory_keys("SMB/WindowsVersion");
-  script_require_ports(139, 445);
+  script_dependencies("gb_microsoft_sql_server_consolidation.nasl");
+  script_mandatory_keys("microsoft/sqlserver/smb-login/detected");
   exit(0);
 }
 
-include("smb_nt.inc");
-include("secpod_reg.inc");
 include("version_func.inc");
-include("secpod_smb_func.inc");
+include("host_details.inc");
 
-os_arch = get_kb_item("SMB/Windows/Arch");
-if(!os_arch){
+CPE = "cpe:/a:microsoft:sql_server";
+
+if(isnull(port = get_app_port(cpe:CPE, service:"smb-login")))
   exit(0);
-}
 
-if("x64" >< os_arch){
-  arch = "x64";
-}
-else if("x86" >< os_arch){
-  arch = "x86";
-}
-else{
+if(!infos = get_app_full(cpe:CPE, port:port, exit_no_version:TRUE))
   exit(0);
-}
 
-ms_sql_key = "SOFTWARE\Microsoft\Microsoft SQL Server\";
-if(!registry_key_exists(key:ms_sql_key)){
+if(!vers = infos["internal_version"])
   exit(0);
-}
 
-## C:\Program Files\Microsoft SQL Server\120\Setup Bootstrap\SQLServer2014\x64
-foreach item (registry_enum_keys(key:ms_sql_key))
-{
-  sql_path = registry_get_sz(key:ms_sql_key + item + "\Tools\Setup", item:"SQLPath");
-  sql_ver = registry_get_sz(key:ms_sql_key + item + "\Tools\Setup", item:"Version");
+location = infos["location"];
 
-  if(!sql_ver){
-    continue;
+if(vers) {
+  ## MS SQL 2014 : GDR x64 ==> 12.0.2254.0  ; QFE x64 ==> 12.0.2381.0
+  if(vers =~ "^12\.0") {
+    if(version_in_range(version:vers, test_version:"12.0.2000", test_version2:"12.0.2253") ||
+       version_in_range(version:vers, test_version:"12.0.2300", test_version2:"12.0.2380")) {
+      report = report_fixed_ver(installed_version:vers, install_path:location,
+                                vulnerable_range:"12.0.2000 - 12.0.2253 / 12.0.2300 - 12.0.2380");
+      security_message(port:port, data:report);
+      exit(0);
+    }
   }
 
-  if("Microsoft SQL Server" >< sql_path)
-  {
-    ## Reset the string
-    sql_ver_path = "";
-
-    if(sql_ver =~ "^12\.0"){
-      sql_ver_path = "SQLServer2014";
+  ## MS SQL 2012 SP1 : GDR x64/x86 ==> 11.0.3153.0  ; QFE x64/x86 ==> 11.0.3460.0
+  if(vers =~ "^11\.0") {
+    if(version_in_range(version:vers, test_version:"11.0.3000", test_version2:"11.0.3152") ||
+       version_in_range(version:vers, test_version:"11.0.3300", test_version2:"11.0.3459")) {
+      report = report_fixed_ver(installed_version:vers, install_path:location,
+                                vulnerable_range:"11.0.3000 - 11.0.3152 / 11.0.3300 - 11.0.3459");
+      security_message(port:port, data:report);
+      exit(0);
     }
-    else if(sql_ver =~ "^11\.0"){
-      sql_ver_path = "SQLServer2012";
+  }
+
+  ## MS SQL 2008 R2 SP2 : GDR x64/x86 ==> 10.50.4033.0 ; QFE x64/x86 ==> 10.50.4321.0
+  if(vers =~ "^10\.50") {
+    if(version_in_range(version:vers, test_version:"10.50.4000", test_version2:"10.50.4032") ||
+       version_in_range(version:vers, test_version:"10.50.4251", test_version2:"10.50.4320")) {
+      report = report_fixed_ver(installed_version:vers, install_path:location,
+                                vulnerable_range:"10.50.4000 - 10.50.4032 / 10.50.4251 - 10.50.4320");
+      security_message(port:port, data:report);
+      exit(0);
     }
-    else if(sql_ver =~ "^10\.50"){
-      sql_ver_path = "SQLServer2008R2";
-    }
-    else if(sql_ver =~ "^10\.0"){
-      sql_ver_path = "SQLServer2008";
-    }
-    else {
-      continue;
-    }
+  }
 
-    ## We have taken arch path for "x86" on assumption and some google
-    ## but not sure about the file path in case in "x86", we need to update the
-    ## path if it's different.
-    sql_path = sql_path - "Tools\" + "Setup Bootstrap\" + sql_ver_path + "\" + arch;
-
-    sysVer = fetch_file_version(sysPath:sql_path,
-             file_name:"Microsoft.sqlserver.chainer.infrastructure.dll");
-
-    if(sysVer)
-    {
-      ## MS SQL 2014 : GDR x64 ==> 12.0.2254.0  ; QFE x64 ==> 12.0.2381.0
-      if(sysVer =~ "^12\.0")
-      {
-        if(version_in_range(version:sysVer, test_version:"12.0.2000", test_version2:"12.0.2253") ||
-           version_in_range(version:sysVer, test_version:"12.0.2300", test_version2:"12.0.2380"))
-        {
-          security_message( port: 0, data: "The target host was found to be vulnerable" );
-          exit(0);
-        }
-      }
-
-      ## MS SQL 2012 SP1 : GDR x64/x86 ==> 11.0.3153.0  ; QFE x64/x86 ==> 11.0.3460.0
-      if(sysVer =~ "^11\.0")
-      {
-        if(version_in_range(version:sysVer, test_version:"11.0.3000", test_version2:"11.0.3152") ||
-           version_in_range(version:sysVer, test_version:"11.0.3300", test_version2:"11.0.3459"))
-        {
-          security_message( port: 0, data: "The target host was found to be vulnerable" );
-          exit(0);
-        }
-      }
-
-      ## MS SQL 2008 R2 SP2 : GDR x64/x86 ==> 10.50.4033.0 ; QFE x64/x86 ==> 10.50.4321.0
-      if(sysVer =~ "^10\.50")
-      {
-        if(version_in_range(version:sysVer, test_version:"10.50.4000", test_version2:"10.50.4032") ||
-           version_in_range(version:sysVer, test_version:"10.50.4251", test_version2:"10.50.4320"))
-        {
-          security_message( port: 0, data: "The target host was found to be vulnerable" );
-          exit(0);
-        }
-      }
-
-      ## MS SQL 2008 SP3 : GDR x64/x86 ==> 10.0.5520.0  ; QFE x64/x86 ==> 10.0.5869.0
-      if(sysVer =~ "^10\.0")
-      {
-        if(version_in_range(version:sysVer, test_version:"10.0.5500", test_version2:"10.0.5519") ||
-           version_in_range(version:sysVer, test_version:"10.0.5750", test_version2:"10.0.5868"))
-        {
-          security_message( port: 0, data: "The target host was found to be vulnerable" );
-          exit(0);
-        }
-      }
+  ## MS SQL 2008 SP3 : GDR x64/x86 ==> 10.0.5520.0  ; QFE x64/x86 ==> 10.0.5869.0
+  if(vers =~ "^10\.0") {
+    if(version_in_range(version:vers, test_version:"10.0.5500", test_version2:"10.0.5519") ||
+       version_in_range(version:vers, test_version:"10.0.5750", test_version2:"10.0.5868")) {
+      report = report_fixed_ver(installed_version:vers, install_path:location,
+                                vulnerable_range:"10.0.5500 - 10.0.5519 / 10.0.5750 - 10.0.5868");
+      security_message(port:port, data:report);
+      exit(0);
     }
   }
 }
+
+exit(99);

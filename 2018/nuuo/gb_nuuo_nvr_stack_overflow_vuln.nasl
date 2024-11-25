@@ -9,8 +9,8 @@ CPE = "cpe:/a:nuuo:nuuo";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141762");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-04-03T05:05:20+0000");
+  script_tag(name:"last_modification", value:"2024-04-03 05:05:20 +0000 (Wed, 03 Apr 2024)");
   script_tag(name:"creation_date", value:"2018-12-06 11:32:59 +0700 (Thu, 06 Dec 2018)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -24,7 +24,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("NUUO NVRmini2 < 3.10.0 Remote Stack Overflow Vulnerability");
+  script_name("NUUO NVRmini 2 < 3.10.0 Remote Stack Overflow Vulnerability");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
@@ -32,18 +32,18 @@ if (description)
   script_dependencies("gb_nuuo_devices_web_detect.nasl");
   script_mandatory_keys("nuuo/web/detected");
 
-  script_tag(name:"summary", value:"NUUO NVRmini2 is prone to a unauthenticated remote stack overflow
-vulnerability.");
-
-  script_tag(name:"insight", value:"Sending a crafted GET request to the affected service with a URI length of 351
-or greater will trigger the stack overflow. Overflowing of the stack variable, which is intended to hold the
-request data, results in the overwriting of stored return addresses, and with a properly crafted payload, can be
-leveraged to achieve arbitrary code execution.");
-
-  script_tag(name:"impact", value:"Remote, unauthenticated users can execute arbitrary code on the affected system
-with root privileges.");
+  script_tag(name:"summary", value:"NUUO NVRmini 2 devices are prone to an unauthenticated remote
+  stack overflow vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+
+  script_tag(name:"insight", value:"Sending a crafted GET request to the affected service with a URI
+  length of 351 or greater will trigger the stack overflow. Overflowing of the stack variable, which
+  is intended to hold the request data, results in the overwriting of stored return addresses, and
+  with a properly crafted payload, can be leveraged to achieve arbitrary code execution.");
+
+  script_tag(name:"impact", value:"Remote, unauthenticated users can execute arbitrary code on the
+  affected system with root privileges.");
 
   script_tag(name:"solution", value:"Update to version 3.10.0 or later.");
 
@@ -66,3 +66,5 @@ if (version_is_less(version: version, test_version: "3.10.0")) {
   security_message(port: port, data: report);
   exit(0);
 }
+
+exit(99);

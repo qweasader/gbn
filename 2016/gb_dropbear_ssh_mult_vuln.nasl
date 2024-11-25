@@ -1,30 +1,16 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:dropbear_ssh_project:dropbear_ssh";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106381");
-  script_version("2021-09-17T13:01:55+0000");
-  script_tag(name:"last_modification", value:"2021-09-17 13:01:55 +0000 (Fri, 17 Sep 2021)");
+  script_version("2024-11-08T15:39:48+0000");
+  script_tag(name:"last_modification", value:"2024-11-08 15:39:48 +0000 (Fri, 08 Nov 2024)");
   script_tag(name:"creation_date", value:"2016-11-10 14:18:45 +0700 (Thu, 10 Nov 2016)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -42,7 +28,7 @@ if (description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("General");
   script_dependencies("gb_dropbear_consolidation.nasl");
   script_mandatory_keys("dropbear_ssh/detected");
@@ -68,9 +54,9 @@ if (description)
 
   script_tag(name:"impact", value:"An authenticated attacker may run arbitrary code.");
 
-  script_tag(name:"affected", value:"Dropbear SSH 2016.73 and prior.");
+  script_tag(name:"affected", value:"Dropbear SSH versions 2016.73 and prior.");
 
-  script_tag(name:"solution", value:"Update to 2016.74 or later.");
+  script_tag(name:"solution", value:"Update to version 2016.74 or later.");
 
   script_xref(name:"URL", value:"http://www.openwall.com/lists/oss-security/2016/09/14/7");
 
@@ -80,8 +66,11 @@ if (description)
 include("host_details.inc");
 include("version_func.inc");
 
-if (isnull(port = get_app_port(cpe: CPE))) exit(0);
-if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE)) exit(0);
+if (isnull(port = get_app_port(cpe: CPE)))
+  exit(0);
+
+if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE))
+  exit(0);
 
 vers = infos["version"];
 path = infos["location"];
@@ -92,4 +81,4 @@ if (version_is_less(version: vers, test_version: "2016.74")) {
   exit(0);
 }
 
-exit(0);
+exit(99);

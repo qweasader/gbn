@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:mcafee:epolicy_orchestrator';
+CPE = "cpe:/a:mcafee:epolicy_orchestrator";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106681");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-09-13T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2024-09-13 05:05:46 +0000 (Fri, 13 Sep 2024)");
   script_tag(name:"creation_date", value:"2017-03-22 13:37:15 +0700 (Wed, 22 Mar 2017)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -79,9 +79,9 @@ if (version_is_equal(version: version, test_version: "5.1.3")) {
 }
 
 if (version_in_range(version: version, test_version: "5.2.0", test_version2: "5.3.2")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "See advisory.");
+  report = report_fixed_ver(installed_version: version, fixed_version: "See advisory");
   security_message(port: port, data: report);
   exit(0);
 }
 
-exit(0);
+exit(99);

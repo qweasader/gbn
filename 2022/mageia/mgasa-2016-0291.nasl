@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2016.0291");
   script_cve_id("CVE-2016-6606", "CVE-2016-6607", "CVE-2016-6609", "CVE-2016-6610", "CVE-2016-6611", "CVE-2016-6612", "CVE-2016-6613", "CVE-2016-6614", "CVE-2016-6615", "CVE-2016-6616", "CVE-2016-6618", "CVE-2016-6619", "CVE-2016-6620", "CVE-2016-6622", "CVE-2016-6623", "CVE-2016-6624", "CVE-2016-6625", "CVE-2016-6626", "CVE-2016-6627", "CVE-2016-6628", "CVE-2016-6629", "CVE-2016-6630", "CVE-2016-6631", "CVE-2016-6632", "CVE-2016-6633");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2017-07-01 01:30:00 +0000 (Sat, 01 Jul 2017)");
+  script_tag(name:"severity_date", value:"2016-12-14 16:03:53 +0000 (Wed, 14 Dec 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0291)");
   script_category(ACT_GATHER_INFO);
@@ -27,6 +27,8 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0291");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0291.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=19204");
+  script_xref(name:"URL", value:"https://www.phpmyadmin.net/files/4.4.15.6/");
+  script_xref(name:"URL", value:"https://www.phpmyadmin.net/news/2016/8/16/phpmyadmin-401017-44158-and-464-are-released/");
   script_xref(name:"URL", value:"https://www.phpmyadmin.net/security/PMASA-2016-29/");
   script_xref(name:"URL", value:"https://www.phpmyadmin.net/security/PMASA-2016-30/");
   script_xref(name:"URL", value:"https://www.phpmyadmin.net/security/PMASA-2016-32/");
@@ -52,8 +54,6 @@ if(description)
   script_xref(name:"URL", value:"https://www.phpmyadmin.net/security/PMASA-2016-54/");
   script_xref(name:"URL", value:"https://www.phpmyadmin.net/security/PMASA-2016-55/");
   script_xref(name:"URL", value:"https://www.phpmyadmin.net/security/PMASA-2016-56/");
-  script_xref(name:"URL", value:"https://www.phpmyadmin.net/files/4.4.15.6/");
-  script_xref(name:"URL", value:"https://www.phpmyadmin.net/news/2016/8/16/phpmyadmin-401017-44158-and-464-are-released/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'phpmyadmin' package(s) announced via the MGASA-2016-0291 advisory.");
 

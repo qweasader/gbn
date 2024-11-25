@@ -9,11 +9,11 @@ CPE = "cpe:/a:f5:enterprise_manager";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105306");
-  script_version("2023-08-09T05:05:14+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2014-2927");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-08-09 05:05:14 +0000 (Wed, 09 Aug 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2015-06-24 14:31:00 +0200 (Wed, 24 Jun 2015)");
   script_name("F5 Enterprise Manager - ConfigSync IP Rsync full file system access vulnerability CVE-2014-2927");
   script_category(ACT_GATHER_INFO);
@@ -25,8 +25,8 @@ if (description)
   script_xref(name:"URL", value:"https://my.f5.com/manage/s/article/K15236");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/69461");
 
-  script_tag(name:"summary", value:"F5 Networks Enterprise Manager is prone to a remote
-  code-execution (RCE) vulnerability.");
+  script_tag(name:"summary", value:"F5 Networks Enterprise Manager is prone to a remote code
+  execution (RCE) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

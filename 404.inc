@@ -61,6 +61,7 @@ errmessages_404 = make_list(
 # HTTP/1.1 501 no such file '/resin-doc/'
 "no such file",
 "Requested resource does not exist", # SAP NetWeaver
+"The requested URL was rejected\.", # Seen on Adobe Experience Manager (AEM)
 "Sorry, the page you were looking for does not exist", # VMware Operations for Logs which had thrown a 403 error including this message for non-existing pages
 "<TITLE>Invalid URL</TITLE>" ); # AkamaiGHost might throw a 400 instead of 404 on non-existing files, see e.g. https://seclists.org/pen-test/2003/Oct/2
 

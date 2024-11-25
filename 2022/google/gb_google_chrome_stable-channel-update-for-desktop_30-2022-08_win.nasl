@@ -9,7 +9,7 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826430");
-  script_version("2023-11-14T05:06:15+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2022-3038", "CVE-2022-3039", "CVE-2022-3040", "CVE-2022-3041",
@@ -20,12 +20,12 @@ if(description)
                 "CVE-2022-3057", "CVE-2022-3058", "CVE-2022-4913", "CVE-2022-4912");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-11-14 05:06:15 +0000 (Tue, 14 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-09-28 19:37:00 +0000 (Wed, 28 Sep 2022)");
   script_tag(name:"creation_date", value:"2022-09-01 17:11:09 +0530 (Thu, 01 Sep 2022)");
-  script_name("Google Chrome Security Update(stable-channel-update-for-desktop_30-2022-08) - Windows");
+  script_name("Google Chrome Security Update (stable-channel-update-for-desktop_30-2022-08) - Windows");
 
   script_tag(name:"summary", value:"Google Chrome is prone to multiple
   vulnerabilities.");

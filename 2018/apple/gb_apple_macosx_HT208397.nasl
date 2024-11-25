@@ -9,16 +9,16 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812629");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2017-5753", "CVE-2017-5715");
   script_tag(name:"cvss_base", value:"4.7");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-04-14 14:52:00 +0000 (Wed, 14 Apr 2021)");
   script_tag(name:"creation_date", value:"2018-01-12 16:38:44 +0530 (Fri, 12 Jan 2018)");
-  script_name("Apple MacOSX Security Updates (HT208397)");
+  script_name("Apple Mac OS X Security Updates (HT208397)");
 
   script_tag(name:"summary", value:"Apple Mac OS X is prone to multiple information disclosure vulnerabilities.");
 

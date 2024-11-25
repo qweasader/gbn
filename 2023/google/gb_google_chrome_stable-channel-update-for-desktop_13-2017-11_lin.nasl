@@ -9,16 +9,16 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832574");
-  script_version("2023-11-09T05:05:33+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2017-15428");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-11-09 05:05:33 +0000 (Thu, 09 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-01-30 14:47:00 +0000 (Wed, 30 Jan 2019)");
   script_tag(name:"creation_date", value:"2023-11-03 14:25:33 +0530 (Fri, 03 Nov 2023)");
-  script_name("Google Chrome Security Update(stable-channel-update-for-desktop_13-2017-11) - Linux");
+  script_name("Google Chrome Security Update (stable-channel-update-for-desktop_13-2017-11) - Linux");
 
   script_tag(name:"summary", value:"Google Chrome is prone to an Out of bounds
   read vulnerability.");

@@ -9,16 +9,16 @@ CPE = "cpe:/a:wireshark:wireshark";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811943");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-07-22T05:05:40+0000");
   script_cve_id("CVE-2017-15193", "CVE-2017-15192");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-22 05:05:40 +0000 (Mon, 22 Jul 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-10-17 20:01:00 +0000 (Tue, 17 Oct 2017)");
   script_tag(name:"creation_date", value:"2017-10-12 13:42:13 +0530 (Thu, 12 Oct 2017)");
-  script_name("Wireshark Security Updates (wnpa-sec-2017-43_wnpa-sec-2017-42)-Windows");
+  script_name("Wireshark Security Updates (wnpa-sec-2017-43_wnpa-sec-2017-42) - Windows");
 
   script_tag(name:"summary", value:"Wireshark is prone to multiple vulnerabilities.");
 
@@ -54,7 +54,7 @@ if(description)
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("General");
   script_dependencies("gb_wireshark_detect_win.nasl");
-  script_mandatory_keys("Wireshark/Win/Ver");
+  script_mandatory_keys("wireshark/windows/detected");
   exit(0);
 }
 
@@ -78,7 +78,7 @@ if(wirversion =~ "^(2\.(2|4))")
   if(fix)
   {
     report = report_fixed_ver(installed_version:wirversion, fixed_version:fix);
-    security_message(data:report);
+    security_message(port:0, data:report);
     exit(0);
   }
 }

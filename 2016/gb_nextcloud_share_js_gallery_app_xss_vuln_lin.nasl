@@ -2,23 +2,23 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:nextcloud:nextcloud_server";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809415");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2016-7419", "CVE-2016-9459", "CVE-2016-9460", "CVE-2016-9461", "CVE-2016-9462");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-09 23:20:00 +0000 (Wed, 09 Oct 2019)");
   script_tag(name:"creation_date", value:"2016-09-27 13:01:29 +0530 (Tue, 27 Sep 2016)");
-  script_name("Nextcloud 'share.js' Gallery Application XSS Vulnerability (Linux)");
+  script_name("Nextcloud 'share.js' Gallery Application XSS Vulnerability - Linux");
 
   script_tag(name:"summary", value:"Nextcloud is prone to a cross-site scripting (XSS) vulnerability.");
 

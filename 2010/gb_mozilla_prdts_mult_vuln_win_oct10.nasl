@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801467");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-16T05:06:55+0000");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-10-28 11:50:37 +0200 (Thu, 28 Oct 2010)");
   script_cve_id("CVE-2010-3170", "CVE-2010-3173", "CVE-2010-3179", "CVE-2010-3178",
                 "CVE-2010-3181", "CVE-2010-3180", "CVE-2010-3183");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("Mozilla Products Multiple Vulnerabilities October-10 (Windows)");
+  script_name("Mozilla Products Multiple Vulnerabilities (Oct 2010) - Windows");
 
   script_xref(name:"URL", value:"http://www.mozilla.org/security/announce/2010/mfsa2010-70.html");
   script_xref(name:"URL", value:"http://www.mozilla.org/security/announce/2010/mfsa2010-72.html");

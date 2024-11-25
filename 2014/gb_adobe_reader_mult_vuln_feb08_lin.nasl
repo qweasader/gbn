@@ -9,16 +9,19 @@ CPE = "cpe:/a:adobe:acrobat_reader";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804374");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-07-01T05:05:39+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2008-0667", "CVE-2007-5666", "CVE-2007-5659", "CVE-2007-5663",
                 "CVE-2008-0726", "CVE-2008-0655", "CVE-2008-2042");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-01 05:05:39 +0000 (Mon, 01 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-06-28 14:15:34 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-04-08 19:38:29 +0530 (Tue, 08 Apr 2014)");
-  script_name("Adobe Reader Multiple Vulnerabilities Feb08 (Linux)");
+  script_name("Adobe Reader Multiple Vulnerabilities (Feb 2008) - Linux");
 
   script_tag(name:"summary", value:"Adobe Reader is prone to multiple vulnerabilities.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");

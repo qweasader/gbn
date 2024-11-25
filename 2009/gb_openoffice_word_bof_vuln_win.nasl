@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800696");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-09-08 18:25:53 +0200 (Tue, 08 Sep 2009)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2009-0200", "CVE-2009-0201");
-  script_name("OpenOffice.org Word Documents Parsing Buffer Overflow Vulnerability (Windows)");
+  script_name("OpenOffice.org Word Documents Parsing Buffer Overflow Vulnerability - Windows");
   script_xref(name:"URL", value:"http://secunia.com/secunia_research/2009-27/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/36200");
   script_xref(name:"URL", value:"http://www.vupen.com/english/advisories/2009/2490");

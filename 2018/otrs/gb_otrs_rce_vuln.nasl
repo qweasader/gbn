@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113124");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-03-06 12:23:32 +0100 (Tue, 06 Mar 2018)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -31,8 +31,8 @@ if( description )
   script_dependencies("secpod_otrs_detect.nasl");
   script_mandatory_keys("OTRS/installed");
 
-  script_tag(name:"summary", value:"OTRS is prone to a Remote Code Execution vulnerability.");
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"summary", value:"OTRS is prone to a remote code execution (RCE) vulnerability.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
   script_tag(name:"insight", value:"In the Admin Package Manager in Open Ticket Request System (OTRS),
   authenticated admins are able to exploit a Blind Remote Code Execution vulnerability by loading a crafted
   opm file with an embedded CodeInstall element to execute a command on the server during package installation.");

@@ -9,7 +9,7 @@ CPE = "cpe:/a:mozilla:firefox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809805");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2016-5296", "CVE-2016-5292", "CVE-2016-5293", "CVE-2016-5294",
                 "CVE-2016-5297", "CVE-2016-9064", "CVE-2016-9066", "CVE-2016-9067",
                 "CVE-2016-5290", "CVE-2016-9068", "CVE-2016-5289", "CVE-2016-9075",
@@ -18,12 +18,12 @@ if(description)
                 "CVE-2016-9071");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-07-30 12:53:00 +0000 (Mon, 30 Jul 2018)");
   script_tag(name:"creation_date", value:"2016-11-16 12:21:41 +0530 (Wed, 16 Nov 2016)");
-  script_name("Mozilla Firefox Security Updates (mfsa_2016-89_2016-90)-Windows");
+  script_name("Mozilla Firefox Security Advisories (MFSA2016-89, MFSA2016-90) - Windows");
 
   script_tag(name:"summary", value:"Mozilla Firefox is prone to multiple vulnerabilities.");
 

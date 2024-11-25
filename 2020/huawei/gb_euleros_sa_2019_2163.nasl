@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.2163");
   script_cve_id("CVE-2016-10165");
   script_tag(name:"creation_date", value:"2020-01-23 12:37:22 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-12-22T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-12-22 05:05:24 +0000 (Fri, 22 Dec 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-12-20 16:43:00 +0000 (Wed, 20 Dec 2023)");
+  script_tag(name:"severity_date", value:"2017-02-09 15:05:10 +0000 (Thu, 09 Feb 2017)");
 
   script_name("Huawei EulerOS: Security Advisory for lcms2 (EulerOS-SA-2019-2163)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROS\-2\.0SP5");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-2163");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-2163");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-2163");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'lcms2' package(s) announced via the EulerOS-SA-2019-2163 advisory.");
 

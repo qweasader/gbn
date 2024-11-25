@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112061");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2017-09-29 09:03:31 +0200 (Fri, 29 Sep 2017)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -31,7 +31,8 @@ if (description)
   script_dependencies("gb_wordpress_plugin_http_detect.nasl");
   script_mandatory_keys("wordpress/plugin/backwpup/detected");
 
-  script_tag(name:"summary", value:"The WordPress plugin 'BackWPup' allows possible brute forcing of backup file for download.");
+  script_tag(name:"summary", value:"The WordPress plugin 'BackWPup' allows possible brute forcing of
+  backup file for download.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
@@ -50,13 +51,16 @@ CPE = "cpe:/a:inpsyde:backwpup";
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe: CPE ) ) exit( 0 );
-if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) ) exit( 0 );
+if( ! port = get_app_port( cpe: CPE ) )
+  exit( 0 );
+
+if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) )
+  exit( 0 );
 
 version = infos["version"];
 location = infos["location"];
 
-if ( version_is_less( version: version, test_version: "3.4.2" )) {
+if( version_is_less( version: version, test_version: "3.4.2" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "3.4.2", install_path: location );
   security_message( port: port, data: report );
   exit( 0 );

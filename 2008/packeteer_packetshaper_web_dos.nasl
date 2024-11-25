@@ -7,17 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.80030");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-07-23T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2024-07-23 05:05:30 +0000 (Tue, 23 Jul 2024)");
   script_tag(name:"creation_date", value:"2008-10-24 20:15:31 +0200 (Fri, 24 Oct 2008)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_cve_id("CVE-2007-3151");
   script_xref(name:"OSVDB", value:"37230");
-  script_name("Packeteer PacketShaper Web Denial of Service");
+  script_name("Packeteer PacketShaper Web DoS Vulnerability (CVE-2007-3151)");
   script_family("Web application abuses");
   script_category(ACT_MIXED_ATTACK);
-  script_tag(name:"qod_type", value:"remote_analysis");
   script_copyright("Copyright (C) 2008 nnposter");
   script_dependencies("packeteer_web_version.nasl");
   script_require_ports("Services/www", 80);
@@ -26,7 +25,7 @@ if(description)
   script_tag(name:"summary", value:"Packeteer PacketShaper is susceptible to a denial of service
   vulnerability in the web management interface.");
 
-  script_tag(name:"impact", value:"Requesting a specificURL will cause the device to reboot. The
+  script_tag(name:"impact", value:"Requesting a specific URL will cause the device to reboot. The
   user must first log in but even read-only access is sufficient.");
 
   script_tag(name:"solution", value:"Restrict network access to the device management interfaces.");
@@ -34,6 +33,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/archive/1/470835/30/0/threaded");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/24388");
 
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"Mitigation");
 
   exit(0);
@@ -45,8 +45,6 @@ if(description)
 
 include("http_func.inc");
 include("port_service_func.inc");
-include("misc_func.inc");
-#include("snmp_func.inc"); # get_version_snmp() is commented out below...
 
 if (!get_kb_item("bluecoat_packetshaper/installed"))
   exit(0);
@@ -73,23 +71,23 @@ function get_version_snmp ()
 }
 
 port = http_get_port(default:80);
-product = get_kb_item("www/"+port+"/packeteer");
+product = get_kb_item("www/" + port + "/packeteer");
 if(!product || product != "PacketShaper")
   exit(0);
 
 if (safe_checks()) {
 
   KNOWN_BROKEN_VERSION = "7.5.1g1";
-  version = get_kb_item("www/"+port+"/packeteer/version");
-  #if (!version) version = get_version_snmp();
+  version = get_kb_item("www/" + port + "/packeteer/version");
   if (version && version =~ "^([0-6]\.|7\.([0-4]\.|5\.(0|1([a-f]|g0))))") {
     report = string("The vulnerability has not been tested. The assessment is based solely on the device software version, which is ", version, "." );
     security_message(port:port, data:report);
+    exit(0);
   }
-  exit(0);
+  exit(99);
 }
 
-cookie = get_kb_item("/tmp/http/auth/"+port);
+cookie = get_kb_item("/tmp/http/auth/" + port);
 if (!cookie)
   exit(0);
 
@@ -101,4 +99,5 @@ resp = http_send_recv(port:port, data:set_cookie(data:req, cookie:cookie));
 if (!http_is_dead(port:port))
   exit(0);
 
-security_message(port);
+security_message(port:port);
+exit(0);

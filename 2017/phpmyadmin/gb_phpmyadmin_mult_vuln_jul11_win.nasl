@@ -9,18 +9,17 @@ CPE = "cpe:/a:phpmyadmin:phpmyadmin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108239");
-  script_version("2023-10-17T05:05:34+0000");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_version("2024-02-13T05:06:26+0000");
+  script_tag(name:"last_modification", value:"2024-02-13 05:06:26 +0000 (Tue, 13 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-09-11 08:48:02 +0200 (Mon, 11 Sep 2017)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_cve_id("CVE-2011-2643", "CVE-2011-2718");
-  script_name("phpMyAdmin 3.4.x < 3.4.3.2 Multiple Directory Traversal Vulnerabilities (Windows)");
+  script_name("phpMyAdmin 3.4.x < 3.4.3.2 Multiple Directory Traversal Vulnerabilities (PMASA-2011-10, PMASA-2011-11) - Windows");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_phpmyadmin_http_detect.nasl", "os_detection.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("phpMyAdmin/installed", "Host/runs_windows");
 
   script_xref(name:"URL", value:"https://www.phpmyadmin.net/security/PMASA-2011-10/");
@@ -33,7 +32,7 @@ if(description)
 
   script_tag(name:"affected", value:"phpMyAdmin 3.4.x before 3.4.3.2.");
 
-  script_tag(name:"solution", value:"Update to version 3.4.3.2 or newer.");
+  script_tag(name:"solution", value:"Update to version 3.4.3.2 or later.");
 
   script_tag(name:"qod_type", value:"remote_banner");
   script_tag(name:"solution_type", value:"VendorFix");

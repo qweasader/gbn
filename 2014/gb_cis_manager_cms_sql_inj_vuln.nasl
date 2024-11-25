@@ -7,17 +7,19 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804558");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-06-13T05:05:46+0000");
   script_cve_id("CVE-2014-2847");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-13 05:05:46 +0000 (Thu, 13 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-04-28 19:58:39 +0530 (Mon, 28 Apr 2014)");
   script_name("CIS Manager 'TroncoID' Parameter SQL Injection Vulnerability");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "global_settings.nasl",
+                      "gb_microsoft_iis_http_detect.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 

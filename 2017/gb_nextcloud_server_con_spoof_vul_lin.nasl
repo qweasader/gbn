@@ -2,15 +2,15 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:nextcloud:nextcloud_server";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107145");
-  script_version("2023-11-03T05:05:46+0000");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_version("2024-02-15T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-04-10 09:39:06 +0200 (Mon, 10 Apr 2017)");
   script_cve_id("CVE-2017-0883", "CVE-2017-0884", "CVE-2017-0885", "CVE-2017-0886",
                 "CVE-2017-0887", "CVE-2017-0888");
@@ -21,7 +21,7 @@ if(description)
   script_tag(name:"severity_date", value:"2022-10-04 14:20:00 +0000 (Tue, 04 Oct 2022)");
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
-  script_name("Nextcloud Server Multiple Vulnerabilities (Linux)");
+  script_name("Nextcloud Server Multiple Vulnerabilities - Linux");
   script_tag(name:"summary", value:"Nextcloud Server is prone to multiple vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
@@ -65,7 +65,6 @@ if(description)
 
   script_dependencies("gb_nextcloud_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("nextcloud/installed", "Host/runs_unixoide");
-  script_require_ports("Services/www", 80);
 
   exit(0);
 }

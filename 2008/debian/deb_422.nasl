@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.53679");
-  script_version("2023-07-19T05:05:15+0000");
-  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
+  script_version("2024-10-10T07:25:31+0000");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"creation_date", value:"2008-01-17 22:41:51 +0100 (Thu, 17 Jan 2008)");
   script_cve_id("CVE-2003-0977");
   script_tag(name:"cvss_base", value:"7.5");
@@ -41,7 +41,7 @@ repository.
 Additionally, CVS pserver had a bug in parsing module requests which
 could be used to create files and directories outside a repository.
 This has been fixed upstream in version 1.11.11 and Debian version
-1.11.1p1debian-9 .
+1.11.1p1debian-9.
 
 Finally, the umask used for 'cvs init' and 'cvs-makerepos' has been
 changed to prevent repositories from being created with group write

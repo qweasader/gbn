@@ -8,16 +8,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832761");
-  script_version("2024-01-18T05:07:09+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2023-42940");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:N/A:N");
-  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2024-01-04 14:56:00 +0000 (Thu, 04 Jan 2024)");
   script_tag(name:"creation_date", value:"2024-01-08 14:54:24 +0530 (Mon, 08 Jan 2024)");
-  script_name("Apple MacOSX Security Update (HT214048)");
+  script_name("Apple Mac OS X Security Update (HT214048)");
 
   script_tag(name:"summary", value:"Apple Mac OS X is prone to an unspecified
   vulnerability.");

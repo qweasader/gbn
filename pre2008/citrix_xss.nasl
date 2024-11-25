@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.14626");
-  script_version("2023-10-27T05:05:28+0000");
-  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
+  script_version("2024-06-13T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-13 05:05:46 +0000 (Thu, 13 Jun 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/4372");
   script_cve_id("CVE-2002-0504");
@@ -20,7 +20,9 @@ if(description)
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2004 David Maciejak");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "httpver.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "cross_site_scripting.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "httpver.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "cross_site_scripting.nasl",
+                      "global_settings.nasl", "gb_microsoft_iis_http_detect.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 

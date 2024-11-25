@@ -21,12 +21,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.64643");
-  script_version("2022-01-20T14:18:20+0000");
-  script_tag(name:"last_modification", value:"2022-01-20 14:18:20 +0000 (Thu, 20 Jan 2022)");
+  script_version("2024-02-05T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 05:05:38 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-08-17 16:54:45 +0200 (Mon, 17 Aug 2009)");
   script_cve_id("CVE-2008-5518", "CVE-2009-0023", "CVE-2009-0038", "CVE-2009-0039", "CVE-2009-0781", "CVE-2009-1255", "CVE-2009-1373", "CVE-2009-1375", "CVE-2009-1376", "CVE-2009-1494", "CVE-2009-1788", "CVE-2009-1791", "CVE-2009-1889", "CVE-2009-1955", "CVE-2009-1956", "CVE-2009-2185", "CVE-2009-2285", "CVE-2009-2288", "CVE-2009-2415", "CVE-2009-2416");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-02 14:11:43 +0000 (Fri, 02 Feb 2024)");
   script_name("SUSE: Security Summary (SUSE-SR:2009:013)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2009 E-Soft Inc.");

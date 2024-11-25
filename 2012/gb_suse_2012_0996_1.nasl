@@ -21,14 +21,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.850312");
-  script_version("2022-08-09T10:11:17+0000");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
+  script_version("2024-07-17T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-07-17 05:05:38 +0000 (Wed, 17 Jul 2024)");
   script_tag(name:"creation_date", value:"2012-12-13 17:02:01 +0530 (Thu, 13 Dec 2012)");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2012-1535");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-07-16 17:38:08 +0000 (Tue, 16 Jul 2024)");
   script_xref(name:"openSUSE-SU", value:"2012:0996-1");
   script_name("openSUSE: Security Advisory for flash-player (openSUSE-SU-2012:0996-1)");
 

@@ -7,9 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.1.1.2023.5583");
+  script_cve_id("CVE-2023-50186");
   script_tag(name:"creation_date", value:"2023-12-22 04:20:47 +0000 (Fri, 22 Dec 2023)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-04-23T05:05:27+0000");
+  script_tag(name:"last_modification", value:"2024-04-23 05:05:27 +0000 (Tue, 23 Apr 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 

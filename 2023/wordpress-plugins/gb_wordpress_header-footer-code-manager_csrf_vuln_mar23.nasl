@@ -2,15 +2,15 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-on
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:draftpress:header_footer_code_manager";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.124440");
-  script_version("2023-10-13T16:09:03+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-11-08T15:39:48+0000");
+  script_tag(name:"last_modification", value:"2024-11-08 15:39:48 +0000 (Fri, 08 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-10-05 06:27:08 +0000 (Thu, 05 Oct 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -41,7 +41,8 @@ if(description)
   script_tag(name:"insight", value:"This could allow a malicious actor to force higher privileged
   users to execute unwanted actions under their current authentication.");
 
-  script_tag(name:"affected", value:"WordPress Header Footer Code Manager prior to version 1.1.35.");
+  script_tag(name:"affected", value:"WordPress Header Footer Code Manager prior to version
+  1.1.35.");
 
   script_tag(name:"solution", value:"Update to version 1.1.35 or later.");
 

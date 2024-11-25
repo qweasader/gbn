@@ -5,17 +5,18 @@
 # SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:vmware:workstation";
+
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809796");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2012-3569", "CVE-2012-5458", "CVE-2012-5459");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2017-02-07 17:19:44 +0530 (Tue, 07 Feb 2017)");
   script_tag(name:"qod_type", value:"registry");
-  script_name("VMware Workstation Code Execution And Privilege Escalation Vulnerabilities(Windows)");
+  script_name("VMware Workstation Code Execution And Privilege Escalation Vulnerabilities (VMSA-2012-0015) - Windows");
 
   script_tag(name:"summary", value:"VMware Workstation is prone to code execution and privilege escalation vulnerabilities.");
 
@@ -48,7 +49,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.vmware.com/security/advisories/VMSA-2012-0015.html");
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_category(ACT_GATHER_INFO);
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_vmware_prdts_detect_win.nasl");
   script_mandatory_keys("VMware/Workstation/Win/Ver");
   exit(0);

@@ -9,13 +9,13 @@ CPE = "cpe:/a:mcafee:virusscan_enterprise";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806964");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2015-8577");
   script_tag(name:"cvss_base", value:"2.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:N/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-01-18 14:28:24 +0530 (Mon, 18 Jan 2016)");
-  script_name("McAfee VirusScan Enterprise Security Bypass Vulnerability Jan16 (Windows)");
+  script_name("McAfee VirusScan Enterprise Security Bypass Vulnerability (Jan 2016) - Windows");
 
   script_tag(name:"summary", value:"McAfee VirusScan Enterprise is prone to a security bypass vulnerability.");
 

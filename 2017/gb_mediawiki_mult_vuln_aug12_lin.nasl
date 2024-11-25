@@ -9,22 +9,21 @@ CPE = "cpe:/a:mediawiki:mediawiki";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112113");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-07-16T05:05:43+0000");
   script_cve_id("CVE-2012-4377", "CVE-2012-4378", "CVE-2012-4379", "CVE-2012-4380", "CVE-2012-4382");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-10-31 22:08:00 +0000 (Tue, 31 Oct 2017)");
   script_tag(name:"creation_date", value:"2017-11-08 13:58:17 +0100 (Wed, 08 Nov 2017)");
-  script_name("MediaWiki Multiple Vulnerabilities - Aug12 (Linux)");
+  script_name("MediaWiki Multiple Vulnerabilities (Aug 2012) - Linux");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "os_detection.nasl", "secpod_mediawiki_detect.nasl");
-  script_require_ports("Services/www", 80);
-  script_mandatory_keys("mediawiki/installed", "Host/runs_unixoide");
+  script_dependencies("gb_mediawiki_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("mediawiki/detected", "Host/runs_unixoide");
 
   script_tag(name:"summary", value:"MediaWiki is prone to multiple vulnerabilities.");
 
@@ -58,8 +57,11 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_less( version:vers, test_version:"1.18.5" ) ) {
   fix = "1.18.5";

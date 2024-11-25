@@ -9,17 +9,17 @@ CPE = "cpe:/a:oracle:vm_virtualbox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809075");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2016-5501", "CVE-2016-6304", "CVE-2016-5610", "CVE-2016-5538",
                 "CVE-2016-5613", "CVE-2016-5611", "CVE-2016-5608");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-08-16 13:18:00 +0000 (Tue, 16 Aug 2022)");
   script_tag(name:"creation_date", value:"2016-10-21 14:40:28 +0530 (Fri, 21 Oct 2016)");
-  script_name("Oracle Virtualbox Multiple Security Bypass And DoS Vulnerabilities (Windows)");
+  script_name("Oracle Virtualbox Multiple Security Bypass And DoS Vulnerabilities - Windows");
 
   script_tag(name:"summary", value:"Oracle VM VirtualBox is prone to multiple security bypass and denial of service vulnerabilities.");
 

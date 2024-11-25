@@ -9,14 +9,14 @@ CPE = "cpe:/a:nullsoft:winamp";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804845");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_cve_id("CVE-2013-4694");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-09-18 16:49:22 +0530 (Thu, 18 Sep 2014)");
 
-  script_name("Winamp Libraries Multiple Buffer Overflow Vulnerability - Sep14");
+  script_name("Winamp Libraries Multiple Buffer Overflow Vulnerability (Sep 2014)");
 
   script_tag(name:"summary", value:"Winamp is prone to a buffer overflow vulnerability.");
 

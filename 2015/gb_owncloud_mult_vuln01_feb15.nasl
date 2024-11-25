@@ -9,13 +9,13 @@ CPE = "cpe:/a:owncloud:owncloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805279");
-  script_version("2023-12-01T16:11:30+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2014-9047", "CVE-2014-9048", "CVE-2014-9049");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-02-19 15:04:16 +0530 (Thu, 19 Feb 2015)");
-  script_name("ownCloud Multiple Vulnerabilities -01 Feb15");
+  script_name("ownCloud Multiple Vulnerabilities -01 (Feb 2015)");
 
   script_tag(name:"summary", value:"ownCloud is prone to multiple vulnerabilities.");
 

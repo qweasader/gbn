@@ -1,35 +1,23 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108547");
-  script_version("2023-03-01T10:20:05+0000");
+  script_version("2024-03-07T05:06:18+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-03-01 10:20:05 +0000 (Wed, 01 Mar 2023)");
+  script_tag(name:"last_modification", value:"2024-03-07 05:06:18 +0000 (Thu, 07 Mar 2024)");
   script_tag(name:"creation_date", value:"2019-02-09 16:58:00 +0100 (Sat, 09 Feb 2019)");
   script_name("Unprotected OSSEC/Wazuh ossec-authd (authd Protocol)");
   script_category(ACT_GATHER_INFO);
   script_family("Default Accounts");
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
+  # nb: No need to disable via default_credentials/disable_default_account_checks or
+  # gb_default_credentials_options.nasl because this isn't doing any login...
   script_dependencies("gb_ossec-authd_detect.nasl");
   script_mandatory_keys("ossec_wazuh/authd/no_auth");
 
@@ -56,7 +44,6 @@ if(description)
   exit(0);
 }
 
-include("misc_func.inc");
 include("port_service_func.inc");
 
 port = service_get_port( default:1515, proto:"ossec-authd" );

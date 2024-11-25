@@ -9,17 +9,17 @@ CPE = "cpe:/a:phpbb:phpbb";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.13840");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-08-02T15:38:45+0000");
+  script_tag(name:"last_modification", value:"2024-08-02 15:38:45 +0000 (Fri, 02 Aug 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
-  script_cve_id("CVE-2004-2054", "CVE-2004-2055");
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/10738");
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/10753");
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/10754");
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/10883");
+  script_cve_id("CVE-2004-0730", "CVE-2004-2054", "CVE-2004-2055");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210121162128/http://www.securityfocus.com/bid/10738");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210121162128/http://www.securityfocus.com/bid/10753");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210121162128/http://www.securityfocus.com/bid/10754");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210121162128/http://www.securityfocus.com/bid/10883");
   script_xref(name:"OSVDB", value:"8164");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
+  script_tag(name:"cvss_base", value:"6.8");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_name("phpBB < 2.0.10 Multiple Vulnerabilities");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2005 David Maciejak");
@@ -35,11 +35,13 @@ if(description)
 
   script_tag(name:"insight", value:"The following flaws exist:
 
-  - a flaw that allows a remote cross-site scripting (XSS) attack. This flaw exists because the
-  application does not validate user-supplied input in the 'search_author' parameter.
+  - CVE-2004-0730: Multiple cross-site scripting (XSS) vulnerabilities
 
-  - a HTTP response splitting vulnerability which permits the injection of CRLF characters in the
-  HTTP headers.");
+  - CVE-2004-2054: A HTTP response splitting vulnerability which permits the injection of CRLF
+  characters in the HTTP headers.
+
+  - CVE-2004-2055: A flaw that allows a remote XSS attack. This flaw exists because the application
+  does not validate user-supplied input in the 'search_author' parameter.");
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
   script_tag(name:"solution_type", value:"VendorFix");

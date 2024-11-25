@@ -778,7 +778,7 @@ function policy_match_reg_sz(key, item, type, default, partial, multi_sz){
   return ret;
 }
 
-# @brief Sets the reult keys to the KB
+# @brief Sets the result keys to the KB
 #
 # @param type The type of the test
 # @param cmd The actual command of the test
@@ -912,33 +912,134 @@ function policy_match_exact_dword_profiles(key, item, default, sids){
 #
 function policy_compare_office_config(users, setting, pspath, default, notconfigpass){
   local_var users, setting, pspath, default, notconfigpass;
-  local_var ret, u, value;
+  local_var ret, u, val, currValue;
 
-  ret["compliant"] = "yes";
+  compliant = "incomplete";
   ret["value"] = default;
-  ret["comment"] = "";
 
   # Each user SID configuration
   for(u = 1; u <= users; u++){
-    value = get_kb_item("policy/microsoft/office/" + u + setting);
+    currValue = get_kb_item("policy/microsoft/office/" + u + setting);
 
-    if(value == default){
-    }else if(!value && notconfigpass == TRUE){
-      ret["value"] = "Not configured (default)";
+    if(currValue == default){
+    }else if(!currValue && notconfigpass == TRUE){
+      val += "Not configured (default)" + '\n';
     }else{
-      if(value){
-        ret["value"] = value;
-      }else{
-        ret["value"] = "None";
-      }
-
-      ret["compliant"] = "no";
-      ret["comment"] = get_kb_item("policy/microsoft/office/" + u + pspath) + '\n' + "Value: " + value + '\n';
+      compliant = "no";
+      comment += get_kb_item("policy/microsoft/office/" + u + pspath) + '\n' + "Value: " + currValue + '\n';
+      val = currValue;
     }
   }
 
+  if("no" >!< compliant){
+    ret["compliant"] = "yes";
+  }else{
+    ret["compliant"] = "no";
+  }
+  ret["comment"] = comment;
+  if(val){
+    ret["value"] = val;
+  }
   return(ret);
 }
+
+# @brief Sets kbs for Office product configurations
+# @param configs are results from a powershell command
+# @param product is the unique name for the group of configurations collected
+function policy_office_set_kb(configs, product){
+  local_var configs, product, setting, keyname;
+
+  user_count = 1;
+  foreach config(split(configs, keep:FALSE)){
+    if(!config || config =~ "^\s" || config =~ "^\s*$" || config =~ "PSProvider" || config =~ "PSParentPath" || config =~ "PSChildName"){
+    }else{
+      values = eregmatch(string:config, pattern:"^(.+)\s*:\s*(.+)$");
+      keyname = values[1];
+      setting = values[2];
+      setting = ereg_replace(string:setting, pattern:"\s+", replace:"");
+      kb = "policy/microsoft/office/" + user_count + "/" + product + "/" + tolower(keyname);
+      kb = ereg_replace(string:kb, pattern:"\s+", replace:"");
+      set_kb_item(name:kb, value:setting);
+      if(config =~ "PSPath"){user_count++;}
+    }
+  }
+  user_count -= 1;
+  set_kb_item(name:"policy/microsoft/office/" + product + "/users", value:user_count);
+}
+
+
+# @brief Returns reporting variables for registry dword for multiple SIDs
+#
+# @param users Number of users
+# @param setting Setting under the user SID
+# @param pspath KB ID for SID
+# @param default Passing value
+# @nullconfigpass Not explicitly configured in the registry and default passes for recommendation
+#
+# @return ret array with value, comment and compliant strings
+#
+function policy_compare_chrome_config(users, setting, pspath, default, notconfigpass){
+  local_var users, setting, pspath, default, notconfigpass;
+  local_var ret, u, val, currValue;
+
+  compliant = "incomplete";
+  ret["value"] = default;
+
+  # Each user SID configuration
+  for(u = 1; u <= users; u++){
+    currValue = get_kb_item("policy/google" + setting);
+    if(currValue == default){
+    }else if(!currValue && notconfigpass == TRUE){
+      val += "Not configured (default)" + '\n';
+    }else{
+      compliant = "no";
+      if(currValue){
+        comment += get_kb_item("policy/google" + pspath) + '\n' + "Value: " + currValue + '\n';
+        val = currValue;
+      }else{
+        val = "None";
+        comment += "Not configured";
+      }
+    }
+  }
+
+  if("no" >!< compliant){
+    ret["compliant"] = "yes";
+  }else{
+    ret["compliant"] = "no";
+  }
+  ret["comment"] = comment;
+  if(val){
+    ret["value"] = val;
+  }
+  return(ret);
+}
+
+
+# @brief Sets kbs for Chrome product configurations
+# @param configs are results from a powershell command
+# @param product is the unique name for the group of configurations collected
+function policy_chrome_set_kb(configs, product){
+  local_var configs, product, setting, keyname;
+
+
+  foreach config(split(configs, keep:FALSE)){
+    if(!config || config =~ "^\s" || config =~ "^\s*$" || config =~ "PSProvider" || config =~ "PSParentPath" || config =~ "PSChildName"){
+    }else{
+      values = eregmatch(string:config, pattern:"^(.+)\s*:\s*(.+)$");
+      keyname = values[1];
+      setting = values[2];
+      setting = ereg_replace(string:setting, pattern:"\s+", replace:"");
+      kb = "policy/google/" + product + "/" + keyname;
+      kb = ereg_replace(string:kb, pattern:"\s+", replace:"");
+      set_kb_item(name:kb, value:setting);
+      if(config =~ "PSPath"){user_count++;}
+    }
+  }
+  user_count = 1;
+  set_kb_item(name:"policy/google/" + product, value:user_count);
+}
+
 
 # @brief Checks if the host runs Windows 10.
 #

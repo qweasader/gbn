@@ -9,8 +9,8 @@ CPE = "cpe:/a:dedecms:dedecms";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170370");
-  script_version("2023-10-12T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_version("2024-03-20T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-03-20 05:05:36 +0000 (Wed, 20 Mar 2024)");
   script_tag(name:"creation_date", value:"2023-03-17 16:27:43 +0000 (Fri, 17 Mar 2023)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:M/C:C/I:C/A:C");
@@ -22,7 +22,7 @@ if (description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"WillNotFix");
 
   script_name("DedeCMS 5.x SQL Injection Vulnerability (CVE-2023-27707)");
 
@@ -42,8 +42,10 @@ if (description)
 
   script_tag(name:"affected", value:"All versions of DedeCMS V5.7 SP2 (5.7.106) and prior.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 17th March, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.");
 
   script_xref(name:"URL", value:"https://srpopty.github.io/2023/02/27/DedeCMS-V5.7.160-Backend-SQLi-group/");
 

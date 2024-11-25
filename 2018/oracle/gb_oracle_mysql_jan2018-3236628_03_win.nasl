@@ -9,13 +9,13 @@ CPE = "cpe:/a:oracle:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812648");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-02-29T14:37:57+0000");
   script_cve_id("CVE-2018-2573", "CVE-2017-3737", "CVE-2018-2696", "CVE-2018-2590",
                 "CVE-2018-2583", "CVE-2018-2612", "CVE-2018-2645", "CVE-2018-2703",
                 "CVE-2018-2647");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-29 14:37:57 +0000 (Thu, 29 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-03-28 01:29:00 +0000 (Wed, 28 Mar 2018)");
@@ -61,29 +61,27 @@ if(description)
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Databases");
   script_dependencies("mysql_version.nasl", "os_detection.nasl");
-  script_require_ports("Services/mysql", 3306);
   script_mandatory_keys("MySQL/installed", "Host/runs_windows");
+
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!sqlPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!infos = get_app_version_and_location(cpe:CPE, port:sqlPort, exit_no_version:TRUE)){
+if(!infos = get_app_version_and_location(cpe:CPE, port:port, exit_no_version:TRUE))
   exit(0);
-}
 
-mysqlVer = infos['version'];
-path = infos['location'];
+version = infos["version"];
+path = infos["location"];
 
-if(version_in_range(version:mysqlVer, test_version:"5.6", test_version2:"5.6.38")||
-   version_in_range(version:mysqlVer, test_version:"5.7", test_version2:"5.7.20")){
-  report = report_fixed_ver(installed_version:mysqlVer, fixed_version: "Apply the patch", install_path:path);
-  security_message(port:sqlPort, data:report);
+if(version_in_range(version:version, test_version:"5.6", test_version2:"5.6.38") ||
+   version_in_range(version:version, test_version:"5.7", test_version2:"5.7.20")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"Apply the patch", install_path:path);
+  security_message(port:port, data:report);
   exit(0);
 }
 

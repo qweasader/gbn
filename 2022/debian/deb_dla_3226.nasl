@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.893226");
   script_cve_id("CVE-2020-28601", "CVE-2020-28602", "CVE-2020-28603", "CVE-2020-28604", "CVE-2020-28605", "CVE-2020-28606", "CVE-2020-28607", "CVE-2020-28608", "CVE-2020-28609", "CVE-2020-28610", "CVE-2020-28611", "CVE-2020-28612", "CVE-2020-28613", "CVE-2020-28614", "CVE-2020-28615", "CVE-2020-28616", "CVE-2020-28617", "CVE-2020-28618", "CVE-2020-28619", "CVE-2020-28620", "CVE-2020-28621", "CVE-2020-28622", "CVE-2020-28623", "CVE-2020-28624", "CVE-2020-28625", "CVE-2020-28626", "CVE-2020-28627", "CVE-2020-28628", "CVE-2020-28629", "CVE-2020-28630", "CVE-2020-28631", "CVE-2020-28632", "CVE-2020-28633", "CVE-2020-28634", "CVE-2020-28635", "CVE-2020-28636", "CVE-2020-35628", "CVE-2020-35629", "CVE-2020-35630", "CVE-2020-35631", "CVE-2020-35632", "CVE-2020-35633", "CVE-2020-35634", "CVE-2020-35635", "CVE-2020-35636");
   script_tag(name:"creation_date", value:"2022-12-07 02:00:49 +0000 (Wed, 07 Dec 2022)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-02T05:06:08+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:08 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-05-05 07:15:00 +0000 (Wed, 05 May 2021)");
+  script_tag(name:"severity_date", value:"2021-03-10 17:49:24 +0000 (Wed, 10 Mar 2021)");
 
   script_name("Debian: Security Advisory (DLA-3226-1)");
   script_category(ACT_GATHER_INFO);

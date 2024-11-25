@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2022.2713.1");
   script_cve_id("CVE-2021-25219", "CVE-2021-25220", "CVE-2022-0396");
   script_tag(name:"creation_date", value:"2022-08-10 04:21:08 +0000 (Wed, 10 Aug 2022)");
-  script_version("2023-06-20T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:25 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-02T14:37:51+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 14:37:51 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-11-28 18:14:00 +0000 (Mon, 28 Nov 2022)");
+  script_tag(name:"severity_date", value:"2022-11-28 18:14:39 +0000 (Mon, 28 Nov 2022)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2022:2713-1)");
   script_category(ACT_GATHER_INFO);

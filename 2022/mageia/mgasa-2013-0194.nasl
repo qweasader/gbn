@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2013.0194");
   script_cve_id("CVE-2013-2837", "CVE-2013-2838", "CVE-2013-2839", "CVE-2013-2840", "CVE-2013-2841", "CVE-2013-2842", "CVE-2013-2843", "CVE-2013-2844", "CVE-2013-2845", "CVE-2013-2846", "CVE-2013-2847", "CVE-2013-2848", "CVE-2013-2849", "CVE-2013-2855", "CVE-2013-2856", "CVE-2013-2857", "CVE-2013-2858", "CVE-2013-2859", "CVE-2013-2860", "CVE-2013-2861", "CVE-2013-2862", "CVE-2013-2863", "CVE-2013-2865");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
@@ -23,12 +23,12 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2013-0194");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2013-0194.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=10353");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2013/05/stable-channel-release.html");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2013/06/stable-channel-update.html");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2013/06/stable-channel-update_17.html");
   script_xref(name:"URL", value:"http://www.debian.org/security/2013/dsa-2695");
   script_xref(name:"URL", value:"http://www.debian.org/security/2013/dsa-2706");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=10353");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'chromium-browser-stable' package(s) announced via the MGASA-2013-0194 advisory.");
 

@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107303");
-  script_version("2023-11-03T16:10:08+0000");
-  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
+  script_version("2024-07-23T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2024-07-23 05:05:30 +0000 (Tue, 23 Jul 2024)");
   script_tag(name:"creation_date", value:"2018-03-23 08:14:54 +0100 (Fri, 23 Mar 2018)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_tag(name:"cvss_base", value:"9.3");
@@ -144,13 +144,27 @@ if(description)
                 "CVE-2022-27052",
                 "CVE-2022-27088",
                 "CVE-2022-27089",
+                "CVE-2022-27092",
                 "CVE-2022-27094",
                 "CVE-2022-27095",
                 "CVE-2022-29320",
                 "CVE-2022-31591",
                 "CVE-2022-33035",
                 "CVE-2022-35292",
-                "CVE-2022-35899");
+                "CVE-2022-35899",
+                "CVE-2022-37197",
+                "CVE-2022-4429",
+                "CVE-2022-44264",
+                "CVE-2023-24671",
+                "CVE-2023-26911",
+                "CVE-2023-31747",
+                "CVE-2023-3438",
+                "CVE-2023-36658",
+                "CVE-2023-37537",
+                "CVE-2023-6631",
+                "CVE-2023-7043",
+                "CVE-2024-1618",
+                "CVE-2024-25552");
 
   script_xref(name:"URL", value:"https://gallery.technet.microsoft.com/scriptcenter/Windows-Unquoted-Service-190f0341#content");
   script_xref(name:"URL", value:"http://www.ryanandjeffshow.com/blog/2013/04/11/powershell-fixing-unquoted-service-paths-complete/");
@@ -305,7 +319,10 @@ if( SERVICES_VULN || UNINSTALL_VULN ) {
     report += '\n\nDisplayName|Name|PathName\n';
     report += services_report;
     security_message( port:0, data:report );
+    exit( 0 );
   }
 }
 
+# nb: No exit(99); as not fully clear if our user has even access/permissions to the data to detect
+# the flaws.
 exit( 0 );

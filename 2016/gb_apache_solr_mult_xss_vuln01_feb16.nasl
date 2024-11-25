@@ -9,17 +9,17 @@ CPE = "cpe:/a:apache:solr";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806881");
-  script_version("2024-01-18T05:07:09+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_cve_id("CVE-2015-8795");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-02-22 22:07:00 +0000 (Mon, 22 Feb 2016)");
   script_tag(name:"creation_date", value:"2016-03-01 14:45:30 +0530 (Tue, 01 Mar 2016)");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
-  script_name("Apache Solr Multiple Cross-Site Scripting Vulnerabilities (SOLR-7346) (Linux)");
+  script_name("Apache Solr Multiple Cross-Site Scripting Vulnerabilities (SOLR-7346) - Linux");
 
   script_tag(name:"summary", value:"Apache Solr is prone to multiple cross-site scripting vulnerabilities.");
 

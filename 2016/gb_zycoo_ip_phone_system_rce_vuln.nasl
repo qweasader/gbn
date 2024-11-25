@@ -9,8 +9,8 @@ CPE = 'cpe:/a:zycoo:ip_phone_system';
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106214");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-08-29 16:16:40 +0700 (Mon, 29 Aug 2016)");
   script_tag(name:"cvss_base", value:"9.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:N");
@@ -19,7 +19,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"WillNotFix");
 
-  script_name("ZYCOO IP Phone System Remote Code Execution Vulnerability");
+  script_name("ZYCOO IP Phone System RCE Vulnerability");
 
   script_category(ACT_ATTACK);
 
@@ -28,7 +28,8 @@ if (description)
   script_dependencies("gb_zycoo_ip_phone_system_detect.nasl");
   script_mandatory_keys("zycoo_ipphonesystem/detected");
 
-  script_tag(name:"summary", value:"ZYCOO IP Phone System is prone to a remote command execution vulnerability");
+  script_tag(name:"summary", value:"ZYCOO IP Phone System is prone to a remote command execution
+  (RCE) vulnerability");
 
   script_tag(name:"insight", value:"The script /cgi-bin/system_cmd.cgi doesn't validate input which leads
   to remote command execution.");

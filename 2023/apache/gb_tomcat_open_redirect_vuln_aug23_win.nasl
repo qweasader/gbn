@@ -9,8 +9,8 @@ CPE = "cpe:/a:apache:tomcat";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.150909");
-  script_version("2023-10-12T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_version("2024-06-07T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-06-07 05:05:42 +0000 (Fri, 07 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-08-28 03:20:06 +0000 (Mon, 28 Aug 2023)");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
@@ -80,8 +80,8 @@ if (version_in_range_exclusive(version: version, test_version_lo: "9.0.0.M1", te
   exit(0);
 }
 
-if (version_in_range_exclusive(version: version, test_version_lo: "10.1.0.M1", test_version_up: "11.0.0.M11")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "11.0.0-M11", install_path: location);
+if (version_in_range_exclusive(version: version, test_version_lo: "10.0", test_version_up: "10.1.13")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "10.1.13", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }

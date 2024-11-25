@@ -1,28 +1,14 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.148721");
-  script_version("2022-09-15T10:11:07+0000");
-  script_tag(name:"last_modification", value:"2022-09-15 10:11:07 +0000 (Thu, 15 Sep 2022)");
+  script_version("2024-06-07T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-06-07 05:05:42 +0000 (Fri, 07 Jun 2024)");
   script_tag(name:"creation_date", value:"2022-09-13 06:47:59 +0000 (Tue, 13 Sep 2022)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -33,7 +19,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Product detection");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 5000);
@@ -73,10 +59,13 @@ if (res =~ "^HTTP/1\.[01] 30.") {
   }
 }
 
+found = FALSE;
+model = "unknown";
+version = "unknown";
+
 if (('class="loginNote-text"' >< res || "getWhoami" >< res) &&
     "utility/flag.js" >< res && ("login-nasImage" >< res || "desktopMainPage-bg" >< res)) {
-  model = "unknown";
-  version = "unknown";
+  found = TRUE;
 
   path = eregmatch(pattern: "^(.*/desktop,/)", string: url);
   if (!isnull(path[1])) {
@@ -94,12 +83,31 @@ if (('class="loginNote-text"' >< res || "getWhoami" >< res) &&
       concUrl = http_report_vuln_url(port: port, url: url, url_only: TRUE);
     }
   }
+} else if ("<title>Index_Page</title>" >< res && "loginwrap.html" >< res) {
+    url = ereg_replace(string: url, pattern: "/[^/]+$", replace: "/loginwrap.html");
+    res = http_get_cache(port: port, item: url);
 
+    if (res =~ "<title>ZyXEL\s*(NSA|NAS)[^<]+</title>") {
+      found = TRUE;
+      # <title>ZyXEL NSA320</title>
+      # <title>ZyXEL NSA325 v2</title>
+      mod = eregmatch(pattern: "<title>ZyXEL\s*((NSA|NAS)[^<]+)</title>", string: res);
+      if (!isnull(mod[1])) {
+        model = mod[1];
+        concUrl = http_report_vuln_url(port: port, url: url, url_only: TRUE);
+      }
+    }
+  }
+
+if (found) {
+  set_kb_item(name: "zyxel/nas/detected", value: TRUE);
+  set_kb_item(name: "zyxel/nas/http/detected", value: TRUE);
   if (model != "unknown") {
+    cpe_model = str_replace(string: tolower(model), find: " ", replace: "_");
     os_app = "Zyxel " + model + " Firmware";
     hw_app = "Zyxel " + model;
-    os_cpe = "cpe:/o:zyxel:" + tolower(model) + "_firmware";
-    hw_cpe = "cpe:/h:zyxel:" + tolower(model);
+    os_cpe = "cpe:/o:zyxel:" + cpe_model + "_firmware";
+    hw_cpe = "cpe:/h:zyxel:" + cpe_model;
   } else {
     os_app = "Zyxel NAS Firmware";
     hw_app = "Zyxel NAS Unknown Model";

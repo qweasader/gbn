@@ -9,13 +9,13 @@ CPE = "cpe:/a:apache:tomcat";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805702");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-08T05:05:59+0000");
   script_cve_id("CVE-2014-7810");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-06-16 15:04:10 +0530 (Tue, 16 Jun 2015)");
-  script_name("Apache Tomcat SecurityManager Security Bypass Vulnerability - Jun15 (Windows)");
+  script_name("Apache Tomcat SecurityManager Security Bypass Vulnerability (Jun 2015) - Windows");
 
   script_tag(name:"summary", value:"Apache Tomcat is prone to a security bypass vulnerability.");
 

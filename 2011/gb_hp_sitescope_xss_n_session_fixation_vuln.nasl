@@ -9,8 +9,8 @@ CPE = "cpe:/a:hp:sitescope";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801976");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2011-09-09 17:36:48 +0200 (Fri, 09 Sep 2011)");
   script_cve_id("CVE-2011-2400", "CVE-2011-2401");
   script_tag(name:"cvss_base", value:"8.3");
@@ -30,7 +30,6 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_get_http_banner.nasl");
   script_mandatory_keys("SiteScope/banner");
-  script_require_ports("Services/www", 80);
   script_tag(name:"impact", value:"Successful exploitation could allow execution of scripts or actions
 written by an attacker. In addition, an attacker may conduct session fixation attacks to hijack the target
 user's session.");
@@ -46,11 +45,10 @@ into logging in after following a specially crafted link.");
 
   script_tag(name:"summary", value:"HP SiteScope is prone to cross-site scripting and session fixation vulnerabilities.");
 
-  script_tag(name:"solution", value:"Apply the patch from below link.");
+  script_tag(name:"solution", value:"Apply the patch from the referenced link.");
   script_tag(name:"solution_type", value:"VendorFix");
   exit(0);
 }
-
 
 include("host_details.inc");
 include("version_func.inc");
@@ -64,5 +62,9 @@ if (!version = get_app_version(cpe: CPE, port: port))
 if(version_is_less_equal(version:version, test_version:"9.54") ||
    version_in_range(version:version, test_version:"11.0", test_version2:"11.10") ||
    version_in_range(version:version, test_version:"10.0", test_version2:"10.14")) {
-  security_message(port:port);
+  report = report_fixed_ver(installed_version:version, fixed_version:"See references");
+  security_message(port:port, data:report);
+  exit(0);
 }
+
+exit(99);

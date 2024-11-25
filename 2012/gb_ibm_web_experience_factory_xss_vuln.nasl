@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802563");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_cve_id("CVE-2011-5048");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-01-19 18:01:09 +0530 (Thu, 19 Jan 2012)");
-  script_name("IBM Web Experience Factory Multiple Cross Site Scripting Vulnerabilities");
+  script_name("IBM Web Experience Factory Multiple XSS Vulnerabilities");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51246");
   script_xref(name:"URL", value:"http://www-01.ibm.com/support/docview.wss?uid=swg21575083");
 
@@ -29,7 +29,8 @@ if(description)
 
   script_tag(name:"solution", value:"Upgrade to the IBM Web Experience Factory 7.0.1.2 or later.");
 
-  script_tag(name:"summary", value:"IBM Web Experience Factory is prone to multiple cross site scripting vulnerabilities.");
+  script_tag(name:"summary", value:"IBM Web Experience Factory is prone to multiple cross-site
+  scripting (XSS) vulnerabilities.");
 
   script_tag(name:"impact", value:"Successful exploitation could allow remote attackers to execute arbitrary
   HTML and script code in a user's browser session in context of an affected site.");
@@ -45,7 +46,6 @@ if(description)
 
 include("smb_nt.inc");
 include("version_func.inc");
-include("secpod_smb_func.inc");
 
 key = "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\IBM WebSphere Portlet Factory";
 if(!registry_key_exists(key:key))

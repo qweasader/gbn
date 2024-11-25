@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.702906");
   script_cve_id("CVE-2013-0343", "CVE-2013-2147", "CVE-2013-2889", "CVE-2013-2893", "CVE-2013-2929", "CVE-2013-4162", "CVE-2013-4299", "CVE-2013-4345", "CVE-2013-4511", "CVE-2013-4512", "CVE-2013-4587", "CVE-2013-4588", "CVE-2013-6367", "CVE-2013-6378", "CVE-2013-6380", "CVE-2013-6381", "CVE-2013-6382", "CVE-2013-6383", "CVE-2013-7263", "CVE-2013-7264", "CVE-2013-7265", "CVE-2013-7339", "CVE-2014-0101", "CVE-2014-1444", "CVE-2014-1445", "CVE-2014-1446", "CVE-2014-1874", "CVE-2014-2039", "CVE-2014-2523");
   script_tag(name:"creation_date", value:"2014-04-23 22:00:00 +0000 (Wed, 23 Apr 2014)");
-  script_version("2024-01-12T16:12:10+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:10 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-02-01 14:37:10 +0000 (Thu, 01 Feb 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-08-25 13:55:00 +0000 (Tue, 25 Aug 2020)");
+  script_tag(name:"severity_date", value:"2014-03-24 13:44:43 +0000 (Mon, 24 Mar 2014)");
 
   script_name("Debian: Security Advisory (DSA-2906-1)");
   script_category(ACT_GATHER_INFO);

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2017.0243");
   script_cve_id("CVE-2017-2834", "CVE-2017-2835", "CVE-2017-2836", "CVE-2017-2837", "CVE-2017-2838", "CVE-2017-2839");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-06-07 17:25:00 +0000 (Tue, 07 Jun 2022)");
+  script_tag(name:"severity_date", value:"2018-05-25 15:20:55 +0000 (Fri, 25 May 2018)");
 
   script_name("Mageia: Security Advisory (MGASA-2017-0243)");
   script_category(ACT_GATHER_INFO);
@@ -26,15 +26,15 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2017-0243");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2017-0243.html");
+  script_xref(name:"URL", value:"http://blog.talosintelligence.com/2017/07/vulnerbility-spotlight-freerdp-multiple.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=21427");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/JNO6AUPEMWZQNGI7PEVPRUZD3OFNCQ4R/");
   script_xref(name:"URL", value:"https://www.talosintelligence.com/vulnerability_reports/TALOS-2017-0336");
   script_xref(name:"URL", value:"https://www.talosintelligence.com/vulnerability_reports/TALOS-2017-0337");
   script_xref(name:"URL", value:"https://www.talosintelligence.com/vulnerability_reports/TALOS-2017-0338");
   script_xref(name:"URL", value:"https://www.talosintelligence.com/vulnerability_reports/TALOS-2017-0339");
   script_xref(name:"URL", value:"https://www.talosintelligence.com/vulnerability_reports/TALOS-2017-0340");
   script_xref(name:"URL", value:"https://www.talosintelligence.com/vulnerability_reports/TALOS-2017-0341");
-  script_xref(name:"URL", value:"http://blog.talosintelligence.com/2017/07/vulnerbility-spotlight-freerdp-multiple.html");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/JNO6AUPEMWZQNGI7PEVPRUZD3OFNCQ4R/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'freerdp, remmina, vinagre' package(s) announced via the MGASA-2017-0243 advisory.");
 

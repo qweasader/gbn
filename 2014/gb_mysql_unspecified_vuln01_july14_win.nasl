@@ -9,14 +9,14 @@ CPE = "cpe:/a:oracle:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804721");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-02-16T05:06:55+0000");
   script_cve_id("CVE-2014-4238", "CVE-2014-4240", "CVE-2014-4233",
                 "CVE-2014-2484", "CVE-2014-4214");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-07-24 16:59:38 +0530 (Thu, 24 Jul 2014)");
-  script_name("Oracle MySQL Multiple Unspecified vulnerabilities-01 July14 (Windows)");
+  script_name("Oracle MySQL Multiple Unspecified vulnerabilities-01 (Jul 2014) - Windows");
 
   script_tag(name:"summary", value:"Oracle MySQL is prone to multiple unspecified vulnerabilities.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
@@ -41,28 +41,26 @@ and cause a DoS (Denial of Service).");
   script_tag(name:"qod_type", value:"remote_banner");
   script_tag(name:"solution_type", value:"VendorFix");
   script_dependencies("mysql_version.nasl", "os_detection.nasl");
-  script_require_ports("Services/mysql", 3306);
   script_mandatory_keys("MySQL/installed", "Host/runs_windows");
+
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!sqlPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!mysqlVer = get_app_version(cpe:CPE, port:sqlPort)){
+if(!vers = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-if(mysqlVer =~ "^(5\.6)")
-{
-  if(version_in_range(version:mysqlVer, test_version:"5.6", test_version2:"5.6.17"))
-  {
-    report = report_fixed_ver(installed_version:mysqlVer, vulnerable_range:"5.6 - 5.6.17");
-    security_message(port:sqlPort, data:report);
+if(vers =~ "^5\.6") {
+  if(version_in_range(version:vers, test_version:"5.6", test_version2:"5.6.17")) {
+    report = report_fixed_ver(installed_version:vers, vulnerable_range:"5.6 - 5.6.17");
+    security_message(port:port, data:report);
     exit(0);
   }
 }
+
+exit(99);

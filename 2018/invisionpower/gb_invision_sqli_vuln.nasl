@@ -9,8 +9,8 @@ CPE = "cpe:/a:invision_power_services:invision_power_board";
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113143");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-03-22 12:47:45 +0100 (Thu, 22 Mar 2018)");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
@@ -35,7 +35,7 @@ if( description )
 
   script_tag(name:"summary", value:"Invision Power Board is prone to an SQL Injection Vulnerability.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"The flaw exists due to insufficient sanitation of the 'cld' parameter.");
 

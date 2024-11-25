@@ -12,9 +12,9 @@ if (description)
   script_cve_id("CVE-2016-5229");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-06-28T15:38:46+0000");
 
-  script_name("Atlassian Bamboo Remote Code Execution Vulnerability");
+  script_name("Atlassian Bamboo RCE Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/92057");
   script_xref(name:"URL", value:"https://jira.atlassian.com/browse/BAM-17736?src=confmacro&_ga=1.65705644.34970059.1459525314");
@@ -31,7 +31,8 @@ if (description)
   script_tag(name:"solution", value:"Updates are available. Please see the references or vendor
   advisory for more information.");
 
-  script_tag(name:"summary", value:"Atlassian Bamboo is prone to remote code-execution vulnerability.");
+  script_tag(name:"summary", value:"Atlassian Bamboo is prone to a remote code execution (RCE)
+  vulnerability.");
 
   script_tag(name:"affected", value:"The following versions are affected:
 
@@ -44,7 +45,7 @@ if (description)
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_active");
 
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-09 20:00:00 +0000 (Tue, 09 Oct 2018)");

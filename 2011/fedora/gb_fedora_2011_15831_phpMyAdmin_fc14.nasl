@@ -8,11 +8,14 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2011-November/069649.html");
   script_oid("1.3.6.1.4.1.25623.1.0.863640");
-  script_version("2023-06-30T16:09:17+0000");
-  script_tag(name:"last_modification", value:"2023-06-30 16:09:17 +0000 (Fri, 30 Jun 2023)");
+  script_version("2024-02-09T05:06:25+0000");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-11-25 11:59:05 +0530 (Fri, 25 Nov 2011)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-09 02:27:12 +0000 (Fri, 09 Feb 2024)");
   script_xref(name:"FEDORA", value:"2011-15831");
   script_cve_id("CVE-2011-4107");
   script_name("Fedora Update for phpMyAdmin FEDORA-2011-15831");

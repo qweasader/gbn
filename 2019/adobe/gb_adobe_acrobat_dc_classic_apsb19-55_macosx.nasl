@@ -9,21 +9,21 @@ CPE = "cpe:/a:adobe:acrobat_dc_classic";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.815694");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2019-16449", "CVE-2019-16456", "CVE-2019-16457", "CVE-2019-16458",
                 "CVE-2019-16461", "CVE-2019-16465", "CVE-2019-16450", "CVE-2019-16454",
                 "CVE-2019-16445", "CVE-2019-16448", "CVE-2019-16452", "CVE-2019-16459",
                 "CVE-2019-16464", "CVE-2019-16451", "CVE-2019-16462", "CVE-2019-16446",
                 "CVE-2019-16455", "CVE-2019-16460", "CVE-2019-16463", "CVE-2019-16444",
-                "CVE-2019-16453");
+                "CVE-2019-16453", "CVE-2019-16470", "CVE-2019-16471");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-12-30 17:01:00 +0000 (Mon, 30 Dec 2019)");
   script_tag(name:"creation_date", value:"2019-12-12 12:24:59 +0530 (Thu, 12 Dec 2019)");
-  script_name("Adobe Acrobat DC 2015 Security Updates(apsb19-55) - Mac OS X");
+  script_name("Adobe Acrobat DC 2015 Security Updates (APSB19-55) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Acrobat DC 2015 is prone to multiple vulnerabilities.");
 

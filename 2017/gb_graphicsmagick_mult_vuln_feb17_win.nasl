@@ -9,16 +9,16 @@ CPE = "cpe:/a:graphicsmagick:graphicsmagick";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810560");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2016-7446", "CVE-2016-7447", "CVE-2016-7448", "CVE-2016-7449");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-04-15 14:03:00 +0000 (Mon, 15 Apr 2019)");
   script_tag(name:"creation_date", value:"2017-02-21 10:39:33 +0530 (Tue, 21 Feb 2017)");
-  script_name("GraphicsMagick Multiple Vulnerabilities-01 Feb17 (Windows)");
+  script_name("GraphicsMagick Multiple Vulnerabilities-01 (Feb 2017) - Windows");
 
   script_tag(name:"summary", value:"GraphicsMagick is prone to multiple vulnerabilities.");
 

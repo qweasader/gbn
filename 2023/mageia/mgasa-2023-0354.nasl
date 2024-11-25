@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2023.0354");
   script_cve_id("CVE-2022-1920", "CVE-2022-1922", "CVE-2022-1923", "CVE-2022-1924", "CVE-2022-1925", "CVE-2022-2122", "CVE-2023-37327", "CVE-2023-37328", "CVE-2023-37329", "CVE-2023-38103", "CVE-2023-38104", "CVE-2023-40474", "CVE-2023-40475", "CVE-2023-40476", "CVE-2023-44429", "CVE-2023-44446");
   script_tag(name:"creation_date", value:"2023-12-25 04:12:15 +0000 (Mon, 25 Dec 2023)");
-  script_version("2023-12-26T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-12-26 05:05:23 +0000 (Tue, 26 Dec 2023)");
+  script_version("2024-02-02T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:10 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-07-26 22:30:00 +0000 (Tue, 26 Jul 2022)");
+  script_tag(name:"severity_date", value:"2022-07-26 22:30:03 +0000 (Tue, 26 Jul 2022)");
 
   script_name("Mageia: Security Advisory (MGASA-2023-0354)");
   script_category(ACT_GATHER_INFO);

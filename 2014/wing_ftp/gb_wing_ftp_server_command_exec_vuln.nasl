@@ -9,10 +9,10 @@ CPE = "cpe:/a:wftpserver:wing_ftp_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804766");
-  script_version("2023-12-20T05:05:58+0000");
+  script_version("2024-02-26T05:06:11+0000");
   script_tag(name:"cvss_base", value:"8.2");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:C/I:C/A:P");
-  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-02-26 05:06:11 +0000 (Mon, 26 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-09-12 11:42:19 +0530 (Fri, 12 Sep 2014)");
   script_cve_id("CVE-2015-4107");
   script_name("Wing FTP Server <= 4.3.8 Authenticated Command Execution Vulnerability");
@@ -63,7 +63,7 @@ include("ftp_func.inc");
 if(!port = get_app_port(cpe:CPE, service:"www"))
   exit(0);
 
-if(!dir = get_app_location(cpe:CPE, port:port));
+if(!dir = get_app_location(cpe:CPE, port:port))
   exit(0);
 
 if(dir == "/")

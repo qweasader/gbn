@@ -9,16 +9,16 @@ CPE = "cpe:/a:python:python";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801796");
-  script_version("2023-07-05T05:06:18+0000");
+  script_version("2024-02-15T05:05:39+0000");
   script_cve_id("CVE-2011-1015");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-06-07 13:29:28 +0200 (Tue, 07 Jun 2011)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("General");
-  script_name("Python CGIHTTPServer Module Information Disclosure Vulnerability (Windows)");
+  script_name("Python CGIHTTPServer Module Information Disclosure Vulnerability - Windows");
   script_dependencies("gb_python_consolidation.nasl", "os_detection.nasl");
   script_mandatory_keys("python/detected", "Host/runs_windows");
 

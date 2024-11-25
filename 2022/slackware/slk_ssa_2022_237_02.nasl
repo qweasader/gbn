@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.13.2022.237.02");
   script_cve_id("CVE-2021-33655", "CVE-2022-1012", "CVE-2022-1184", "CVE-2022-1462", "CVE-2022-1652", "CVE-2022-1679", "CVE-2022-1729", "CVE-2022-1734", "CVE-2022-1789", "CVE-2022-1852", "CVE-2022-1943", "CVE-2022-1966", "CVE-2022-1972", "CVE-2022-1973", "CVE-2022-1974", "CVE-2022-1975", "CVE-2022-2078", "CVE-2022-21123", "CVE-2022-21125", "CVE-2022-21166", "CVE-2022-21499", "CVE-2022-21505", "CVE-2022-2318", "CVE-2022-2503", "CVE-2022-2585", "CVE-2022-2586", "CVE-2022-2588", "CVE-2022-26365", "CVE-2022-26373", "CVE-2022-2873", "CVE-2022-28893", "CVE-2022-29900", "CVE-2022-29901", "CVE-2022-32250", "CVE-2022-32296", "CVE-2022-32981", "CVE-2022-33740", "CVE-2022-33741", "CVE-2022-33742", "CVE-2022-33743", "CVE-2022-33744", "CVE-2022-34494", "CVE-2022-34495", "CVE-2022-34918", "CVE-2022-36123", "CVE-2022-36879", "CVE-2022-36946");
   script_tag(name:"creation_date", value:"2022-08-26 05:09:05 +0000 (Fri, 26 Aug 2022)");
-  script_version("2023-06-20T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:25 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-09-30 16:34:00 +0000 (Fri, 30 Sep 2022)");
+  script_tag(name:"severity_date", value:"2022-09-30 16:34:07 +0000 (Fri, 30 Sep 2022)");
 
   script_name("Slackware: Security Advisory (SSA:2022-237-02)");
   script_category(ACT_GATHER_INFO);
@@ -96,6 +96,8 @@ patches/packages/linux-5.15.63/*: Upgraded.
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

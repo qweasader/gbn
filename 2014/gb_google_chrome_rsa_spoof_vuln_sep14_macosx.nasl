@@ -9,14 +9,14 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804927");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2014-1568");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-09-30 10:00:31 +0530 (Tue, 30 Sep 2014)");
 
-  script_name("Google Chrome RSA Spoof Vulnerability September14 (Macosx)");
+  script_name("Google Chrome RSA Spoof Vulnerability (Sep 2014) - Mac OS X");
 
   script_tag(name:"summary", value:"Google Chrome is prone to spoof vulnerability.");
 
@@ -28,7 +28,7 @@ if(description)
   script_tag(name:"impact", value:"Successful exploitation will allow attackers
   to conduct spoofing attacks.");
 
-  script_tag(name:"affected", value:"Google Chrome before 37.0.2062.124 on Macosx");
+  script_tag(name:"affected", value:"Google Chrome before 37.0.2062.124 on Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade to Google Chrome version 37.0.2062.124
   or later.");

@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100579");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2010-04-15 19:15:10 +0200 (Thu, 15 Apr 2010)");
   script_cve_id("CVE-2010-1317", "CVE-2010-1318", "CVE-2010-1319");
 
-  script_name("RealNetworks Helix and Helix Mobile Server Multiple Remote Code Execution Vulnerabilities");
+  script_name("RealNetworks Helix and Helix Mobile Server Multiple RCE Vulnerabilities");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/39490");
   script_xref(name:"URL", value:"http://www.realnetworks.com/products/media_delivery.html");
@@ -47,7 +47,6 @@ if(description)
 }
 
 include("version_func.inc");
-include("misc_func.inc");
 include("port_service_func.inc");
 
 port = service_get_port(default:554, proto:"rtsp");

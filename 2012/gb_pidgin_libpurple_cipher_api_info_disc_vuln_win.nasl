@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802935");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2011-4922");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-08-17 17:21:39 +0530 (Fri, 17 Aug 2012)");
-  script_name("Pidgin 'Libpurple' Cipher API Information Disclosure Vulnerability (Windows)");
+  script_name("Pidgin 'Libpurple' Cipher API Information Disclosure Vulnerability - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/43271/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/46307");
   script_xref(name:"URL", value:"http://www.pidgin.im/news/security/?id=50");

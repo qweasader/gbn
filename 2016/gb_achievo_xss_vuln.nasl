@@ -9,12 +9,12 @@ CPE = "cpe:/a:achievo:achievo";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807623");
-  script_version("2023-10-27T05:05:28+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-04-06 16:24:56 +0530 (Wed, 06 Apr 2016)");
-  script_name("Achievo Cross Site Scripting vulnerability-Mar16");
+  script_name("Achievo XSS Vulnerability (Mar 2016)");
 
   script_tag(name:"summary", value:"Achievo is prone to a cross-site scripting (XSS) vulnerability.");
 
@@ -49,21 +49,20 @@ include("http_func.inc");
 include("http_keepalive.inc");
 include("host_details.inc");
 
-if(!achPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!dir = get_app_location(cpe:CPE, port:achPort)){
+if(!dir = get_app_location(cpe:CPE, port:port))
   exit(0);
-}
 
 url = dir + '/index.php?%27%22--%3E%3C%2Fstyle%3E%3C%2Fscript%3E%3Cscript%3Ealert(document.cookie)%3C%2Fscript%3E';
 
-if(http_vuln_check(port:achPort, url:url, check_header:TRUE,
-   pattern:"<script>alert\(document\_cookie\)</script>",
+if(http_vuln_check(port:port, url:url, check_header:TRUE,
+   # nb: This was originally only a "\_" but it wasn't clear if this was just a typo
+   pattern:"<script>alert\(document[._]cookie\)</script>",
    extra_check:make_list("Achievo", ">Login", ">Username")))
 {
-  report = http_report_vuln_url( port:achPort, url:url );
-  security_message(port:achPort, data:report);
+  report = http_report_vuln_url(port:port, url:url);
+  security_message(port:port, data:report);
   exit(0);
 }

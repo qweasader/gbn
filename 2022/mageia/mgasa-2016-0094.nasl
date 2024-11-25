@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2016.0094");
   script_cve_id("CVE-2015-3223", "CVE-2015-5252", "CVE-2015-5296", "CVE-2015-5299", "CVE-2015-5330");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2016-12-31 02:59:00 +0000 (Sat, 31 Dec 2016)");
+  script_tag(name:"severity_date", value:"2015-12-30 16:24:13 +0000 (Wed, 30 Dec 2015)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0094)");
   script_category(ACT_GATHER_INFO);
@@ -26,14 +26,14 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0094");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0094.html");
+  script_xref(name:"URL", value:"http://lists.opensuse.org/opensuse-updates/2015-12/msg00107.html");
+  script_xref(name:"URL", value:"http://www.ubuntu.com/usn/usn-2855-2/");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17356");
   script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2015-3223.html");
   script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2015-5252.html");
   script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2015-5296.html");
   script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2015-5299.html");
   script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2015-5330.html");
-  script_xref(name:"URL", value:"http://lists.opensuse.org/opensuse-updates/2015-12/msg00107.html");
-  script_xref(name:"URL", value:"http://www.ubuntu.com/usn/usn-2855-2/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'ldb, samba, talloc, tdb, tevent' package(s) announced via the MGASA-2016-0094 advisory.");
 

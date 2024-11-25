@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800855");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-16T05:06:55+0000");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-08-07 07:29:21 +0200 (Fri, 07 Aug 2009)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2009-2662", "CVE-2009-2663", "CVE-2009-2664", "CVE-2009-2654");
-  script_name("Mozilla Firefox Multiple Memory Corruption Vulnerabilities Aug-09 (Windows)");
+  script_name("Mozilla Firefox Multiple Memory Corruption Vulnerabilities (Aug 2009) - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/36001/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/35803");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/35927");

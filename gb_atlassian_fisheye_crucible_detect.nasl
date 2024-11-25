@@ -7,20 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140326");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-07-19T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-07-19 05:05:32 +0000 (Fri, 19 Jul 2024)");
   script_tag(name:"creation_date", value:"2017-08-25 14:18:37 +0700 (Fri, 25 Aug 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_name("Atlassian FishEye and Crucible Detection");
+  script_name("Atlassian FishEye and Crucible Detection (HTTP)");
 
-  script_tag(name:"summary", value:"Detection of Atlassian FishEye and Crucible.
-
-The script sends a connection request to the server and attempts to detect Atlasian FishEye and Crucible and to
-extract its version.");
+  script_tag(name:"summary", value:"HTTP based detection of Atlassian FishEye and Crucible.");
 
   script_category(ACT_GATHER_INFO);
 

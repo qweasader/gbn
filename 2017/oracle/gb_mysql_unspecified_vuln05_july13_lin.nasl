@@ -9,14 +9,14 @@ CPE = "cpe:/a:mysql:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812196");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-20T14:37:13+0000");
   script_cve_id("CVE-2013-3811", "CVE-2013-3806", "CVE-2013-3810", "CVE-2013-3807",
                 "CVE-2013-3798", "CVE-2013-3796", "CVE-2013-3795");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-11-22 16:08:31 +0530 (Wed, 22 Nov 2017)");
-  script_name("MySQL Unspecified vulnerabilities-05 July-2013 (Linux)");
+  script_name("MySQL Unspecified vulnerabilities-05 (Jul 2013) - Linux");
 
   script_tag(name:"summary", value:"MySQL is prone to multiple unspecified vulnerabilities.");
 
@@ -48,10 +48,10 @@ if(description)
   script_tag(name:"solution_type", value:"VendorFix");
   script_dependencies("mysql_version.nasl", "os_detection.nasl");
   script_mandatory_keys("MySQL/installed", "Host/runs_unixoide");
+
   exit(0);
 }
 
-include("misc_func.inc");
 include("version_func.inc");
 include("host_details.inc");
 

@@ -9,8 +9,8 @@ CPE = "cpe:/a:cmsmadesimple:cms_made_simple";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170465");
-  script_version("2023-10-12T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_version("2024-05-16T05:05:35+0000");
+  script_tag(name:"last_modification", value:"2024-05-16 05:05:35 +0000 (Thu, 16 May 2024)");
   script_tag(name:"creation_date", value:"2023-05-12 19:34:45 +0000 (Fri, 12 May 2023)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -22,7 +22,7 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"WillNotFix");
 
   script_name("CMS Made Simple <= 2.2.16 SQLi Vulnerability");
 
@@ -44,8 +44,10 @@ if(description)
 
   script_tag(name:"affected", value:"CMS Made Simple version 2.2.16 and prior.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 16th May, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.");
 
   script_xref(name:"URL", value:"https://github.com/beerpwn/CVE/blob/master/cms_made_simple_2021/sqli_order_by/CMS-MS-SQLi-report.md");
   script_xref(name:"URL", value:"https://seclists.org/fulldisclosure/2021/Mar/49");

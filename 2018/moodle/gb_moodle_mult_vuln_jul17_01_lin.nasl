@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112267");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-02-09T05:06:25+0000");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2018-05-09 12:36:11 +0200 (Wed, 09 May 2018)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:N");
@@ -22,7 +22,7 @@ if( description )
 
   script_cve_id("CVE-2017-7532", "CVE-2017-2642");
 
-  script_name("Moodle 3.x Multiple Vulnerabilities - Jul'17 (Linux)");
+  script_name("Moodle 3.x Multiple Vulnerabilities (Jul 2017) - Linux");
 
   script_category(ACT_GATHER_INFO);
 

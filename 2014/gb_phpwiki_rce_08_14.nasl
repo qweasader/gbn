@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105074");
-  script_version("2023-12-13T05:05:23+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2014-5519");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_name("PhpWiki Remote Code Execution Vulnerability");
+  script_name("PhpWiki RCE Vulnerability");
   script_xref(name:"URL", value:"http://www.exploit-db.com/exploits/34451/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/69444");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-08-29 11:48:21 +0200 (Fri, 29 Aug 2014)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");
@@ -33,7 +33,8 @@ commands in the context of the affected application.");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_tag(name:"summary", value:"PhpWiki is prone to a remote code execution vulnerability.");
+  script_tag(name:"summary", value:"PhpWiki is prone to a remote code execution (RCE)
+  vulnerability.");
 
   script_tag(name:"affected", value:"PhpWiki 1.5.0. Other versions may affected as well.");
 

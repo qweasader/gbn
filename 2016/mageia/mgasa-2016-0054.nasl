@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131224");
   script_cve_id("CVE-2015-5291", "CVE-2015-8036");
   script_tag(name:"creation_date", value:"2016-02-11 05:22:22 +0000 (Thu, 11 Feb 2016)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
 
@@ -24,17 +24,17 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0054");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0054.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17187");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/pipermail/package-announce/2015-June/159916.html");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/pipermail/package-announce/2015-October/169765.html");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/pipermail/package-announce/2016-January/175762.html");
   script_xref(name:"URL", value:"https://tls.mbed.org/tech-updates/releases/mbedtls-1.3.10-released");
   script_xref(name:"URL", value:"https://tls.mbed.org/tech-updates/releases/mbedtls-1.3.11-released");
-  script_xref(name:"URL", value:"https://tls.mbed.org/tech-updates/releases/polarssl-1.2.15-and-mbedtls-1.3.12-released");
   script_xref(name:"URL", value:"https://tls.mbed.org/tech-updates/releases/mbedtls-2.1.1-and-1.3.13-and-polarssl-1.2.16-released");
   script_xref(name:"URL", value:"https://tls.mbed.org/tech-updates/releases/mbedtls-2.1.2-and-1.3.14-and-polarssl-1.2.17-released");
   script_xref(name:"URL", value:"https://tls.mbed.org/tech-updates/releases/mbedtls-2.2.0-2.1.3-1.3.15-and-polarssl.1.2.18-released");
   script_xref(name:"URL", value:"https://tls.mbed.org/tech-updates/releases/mbedtls-2.2.1-2.1.4-1.3.16-and-polarssl.1.2.19-released");
+  script_xref(name:"URL", value:"https://tls.mbed.org/tech-updates/releases/polarssl-1.2.15-and-mbedtls-1.3.12-released");
   script_xref(name:"URL", value:"https://tls.mbed.org/tech-updates/security-advisories/mbedtls-security-advisory-2015-01");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/pipermail/package-announce/2015-June/159916.html");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/pipermail/package-announce/2015-October/169765.html");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/pipermail/package-announce/2016-January/175762.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'belle-sip, hiawatha, linphone, mbedtls, pdns' package(s) announced via the MGASA-2016-0054 advisory.");
 

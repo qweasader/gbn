@@ -9,8 +9,8 @@ include("plugin_feed_info.inc");
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107796");
-  script_version("2023-04-25T10:19:16+0000");
-  script_tag(name:"last_modification", value:"2023-04-25 10:19:16 +0000 (Tue, 25 Apr 2023)");
+  script_version("2024-07-03T06:48:05+0000");
+  script_tag(name:"last_modification", value:"2024-07-03 06:48:05 +0000 (Wed, 03 Jul 2024)");
   script_tag(name:"creation_date", value:"2020-03-30 17:07:00 +0200 (Mon, 30 Mar 2020)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -24,7 +24,7 @@ if(description)
   script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_manageengine_assetexplorer_http_detect.nasl");
-  if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
+  if(FEED_NAME == "GSF" || FEED_NAME == "GEF" || FEED_NAME == "SCM")
     script_dependencies("gsf/gb_manageengine_assetexplorer_smb_login_detect.nasl");
   script_mandatory_keys("manageengine/assetexplorer/detected");
 

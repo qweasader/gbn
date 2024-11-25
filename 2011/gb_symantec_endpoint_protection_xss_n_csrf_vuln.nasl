@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802242");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2011-09-16 17:22:17 +0200 (Fri, 16 Sep 2011)");
   script_cve_id("CVE-2011-0550", "CVE-2011-0551");
   script_tag(name:"cvss_base", value:"6.8");
@@ -37,7 +37,8 @@ if(description)
     requests without performing any validity checks to verify the requests.");
   script_tag(name:"solution", value:"Upgrade to Symantec Endpoint Protection (SEP) version 11.0.7000 RU7 or
   later.");
-  script_tag(name:"summary", value:"Symantec Endpoint Protection Manager is prone to cross site scripting and cross site request forgery vulnerabilities.");
+  script_tag(name:"summary", value:"Symantec Endpoint Protection Manager is prone to cross-site
+  scripting (XSS) and cross-site request forgery (CSRF) vulnerabilities.");
   script_xref(name:"URL", value:"http://secunia.com/advisories/43662");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/48231");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/49101");

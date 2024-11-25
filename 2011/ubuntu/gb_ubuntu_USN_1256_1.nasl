@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.840802");
-  script_cve_id("CVE-2010-4250", "CVE-2011-1020", "CVE-2011-1078", "CVE-2011-1079", "CVE-2011-1080", "CVE-2011-1093", "CVE-2011-1160", "CVE-2011-1180", "CVE-2011-1478", "CVE-2011-1479", "CVE-2011-1493", "CVE-2011-1573", "CVE-2011-1576", "CVE-2011-1577", "CVE-2011-1581", "CVE-2011-1585", "CVE-2011-1767", "CVE-2011-1768", "CVE-2011-1771", "CVE-2011-1776", "CVE-2011-1833", "CVE-2011-2182", "CVE-2011-2213", "CVE-2011-2479", "CVE-2011-2484", "CVE-2011-2492", "CVE-2011-2493", "CVE-2011-2496", "CVE-2011-2497", "CVE-2011-2525", "CVE-2011-2689", "CVE-2011-2695", "CVE-2011-2699", "CVE-2011-2700", "CVE-2011-2723", "CVE-2011-2918", "CVE-2011-2928", "CVE-2011-2942", "CVE-2011-3188", "CVE-2011-3191", "CVE-2011-3209", "CVE-2011-3363", "CVE-2011-3619", "CVE-2011-3637", "CVE-2011-4087", "CVE-2011-4326", "CVE-2011-4914");
+  script_cve_id("CVE-2011-1020", "CVE-2011-1078", "CVE-2011-1079", "CVE-2011-1080", "CVE-2011-1093", "CVE-2011-1160", "CVE-2011-1180", "CVE-2011-1478", "CVE-2011-1479", "CVE-2011-1493", "CVE-2011-1573", "CVE-2011-1576", "CVE-2011-1577", "CVE-2011-1581", "CVE-2011-1585", "CVE-2011-1767", "CVE-2011-1768", "CVE-2011-1771", "CVE-2011-1776", "CVE-2011-1833", "CVE-2011-2182", "CVE-2011-2213", "CVE-2011-2479", "CVE-2011-2484", "CVE-2011-2492", "CVE-2011-2493", "CVE-2011-2496", "CVE-2011-2497", "CVE-2011-2525", "CVE-2011-2689", "CVE-2011-2695", "CVE-2011-2699", "CVE-2011-2700", "CVE-2011-2723", "CVE-2011-2918", "CVE-2011-2928", "CVE-2011-2942", "CVE-2011-3188", "CVE-2011-3191", "CVE-2011-3209", "CVE-2011-3363", "CVE-2011-3619", "CVE-2011-3637", "CVE-2011-4087", "CVE-2011-4326", "CVE-2011-4914");
   script_tag(name:"creation_date", value:"2011-11-11 04:25:49 +0000 (Fri, 11 Nov 2011)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-02-28T14:37:42+0000");
+  script_tag(name:"last_modification", value:"2024-02-28 14:37:42 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-07-29 16:26:00 +0000 (Wed, 29 Jul 2020)");
+  script_tag(name:"severity_date", value:"2013-06-10 13:37:00 +0000 (Mon, 10 Jun 2013)");
 
   script_name("Ubuntu: Security Advisory (USN-1256-1)");
   script_category(ACT_GATHER_INFO);

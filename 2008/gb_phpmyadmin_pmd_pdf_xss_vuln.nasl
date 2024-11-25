@@ -9,8 +9,8 @@ CPE = "cpe:/a:phpmyadmin:phpmyadmin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800301");
-  script_version("2023-10-17T05:05:34+0000");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_version("2024-03-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2008-10-31 15:07:51 +0100 (Fri, 31 Oct 2008)");
   script_tag(name:"cvss_base", value:"2.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:N/I:P/A:N");
@@ -20,7 +20,6 @@ if(description)
   script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_phpmyadmin_http_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("phpMyAdmin/installed");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/32449/");
@@ -48,8 +47,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_less_equal( version:vers, test_version:"3.0.1" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"3.0.1.1" );

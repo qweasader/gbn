@@ -8,11 +8,11 @@ CPE = "cpe:/a:oracle:database_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813691");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-10-29T05:05:46+0000");
   script_cve_id("CVE-2017-15095");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-10-29 05:05:46 +0000 (Tue, 29 Oct 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-02-22 21:41:00 +0000 (Mon, 22 Feb 2021)");
@@ -44,8 +44,8 @@ if(description)
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Databases");
-  script_dependencies("oracle_tnslsnr_version.nasl");
-  script_mandatory_keys("OracleDatabaseServer/installed");
+  script_dependencies("gb_oracle_database_consolidation.nasl");
+  script_mandatory_keys("oracle/database/detected");
   exit(0);
 }
 
@@ -53,18 +53,18 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!dbport = get_app_port(cpe:CPE)){
+if(isnull(port = get_app_port(cpe:CPE)))
   exit(0);
-}
 
-if(!infos = get_app_version_and_location(cpe:CPE, port:dbport, exit_no_version:TRUE)) exit(0);
-dbVer = infos['version'];
-path = infos['location'];
+if(!infos = get_app_version_and_location(cpe:CPE, port:port, exit_no_version:TRUE))
+  exit(0);
 
-if(dbVer == "12.2.0.1" || dbVer == "18.1")
-{
-  report = report_fixed_ver(installed_version:dbVer, fixed_version: "Apply the patch", install_path:path);
-  security_message(port:dbport, data:report);
+ver = infos["version"];
+path = infos["location"];
+
+if(ver == "12.2.0.1" || ver == "18.1") {
+  report = report_fixed_ver(installed_version:ver, fixed_version: "Apply the patch", install_path:path);
+  security_message(port:port, data:report);
   exit(0);
 }
 exit(0);

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2022.0061");
   script_cve_id("CVE-2022-22754", "CVE-2022-22756", "CVE-2022-22759", "CVE-2022-22760", "CVE-2022-22761", "CVE-2022-22763", "CVE-2022-22764");
   script_tag(name:"creation_date", value:"2022-02-13 03:19:42 +0000 (Sun, 13 Feb 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-12-29 22:51:00 +0000 (Thu, 29 Dec 2022)");
+  script_tag(name:"severity_date", value:"2022-12-29 22:51:42 +0000 (Thu, 29 Dec 2022)");
 
   script_name("Mageia: Security Advisory (MGASA-2022-0061)");
   script_category(ACT_GATHER_INFO);
@@ -27,8 +27,8 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2022-0061");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2022-0061.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=30012");
-  script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/91.6.0/releasenotes/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2022-06/");
+  script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/91.6.0/releasenotes/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'thunderbird, thunderbird-l10n' package(s) announced via the MGASA-2022-0061 advisory.");
 

@@ -9,8 +9,8 @@ CPE = "cpe:/a:hp:openview_network_node_manager";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801389");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2010-07-26 16:14:51 +0200 (Mon, 26 Jul 2010)");
   script_cve_id("CVE-2009-0720");
   script_tag(name:"cvss_base", value:"10.0");
@@ -20,7 +20,6 @@ if(description)
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("secpod_hp_openview_nnm_detect.nasl");
-  script_require_ports("Services/www", 7510);
   script_mandatory_keys("HP/OVNNM/installed");
 
   script_xref(name:"URL", value:"http://marc.info/?l=bugtraq&m=124146030732511&w=2");
@@ -52,7 +51,7 @@ include("version_func.inc");
 if( ! port = get_app_port( cpe:CPE ) )
   exit( 0 );
 
-if(!get_app_version( cpe:CPE, port:port ))
+if( ! get_app_version( cpe:CPE, port:port, nofork:TRUE ) )
   exit( 0 );
 
 if( ! vers = get_kb_item( "www/"+ port + "/HP/OVNNM/Ver" ) )

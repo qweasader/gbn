@@ -8,8 +8,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11153");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -1741,7 +1741,32 @@ if( port == 515 && rhexstr =~ "^ff$" ) {
   exit( 0 );
 }
 
-# Keep qotd at the end of the list, as it may generate false detection
+# Seen on e.g. port:
+# - 9650/tcp (on OpenSearch docker containers)
+# - 4690/tcp (on Render)
+#
+# e.g.:
+#
+# Method: helpHex
+#
+# 0x00:  00 00 12 04 00 00 00 00 00 00 03 7F FF FF FF 00    ................
+# 0x10:  04 00 10 00 00 00 06 00 00 20 00 00 00 04 08 00    ......... ......
+# 0x20:  00 00 00 00 00 0F 00 01 00 00 62 07 00 00 00 00    ..........b.....
+# 0x30:  00 00 00 00 00 00 00 00 01 48 54 54 50 2F 32 20    .........HTTP/2  # nb: Trailing space
+# 0x40:  63 6C 69 65 6E 74 20 70 72 65 66 61 63 65 20 73    client preface s
+# 0x50:  74 72 69 6E 67 20 6D 69 73 73 69 6E 67 20 6F 72    tring missing or
+# 0x60:  20 63 6F 72 72 75 70 74 2E 20 48 65 78 20 64 75     corrupt. Hex du
+# 0x70:  6D 70 20 66 6F 72 20 72 65 63 65 69 76 65 64 20    mp for received  # nb: Trailing space
+# 0x80:  62 79 74 65 73 3A 20 34 38 34 35 34 63 35 30 30    bytes: 48454c500
+# 0x90:  64 30 61                                           d0a
+
+if( "HTTP/2 client preface string missing or corrupt. Hex dump for received bytes:" >< rbinstr_space ) {
+  service_register( port:port, proto:"grpc", message:"A gRPC service seems to be running on this port." );
+  log_message( port:port, data:"A gRPC service seems to be running on this port." );
+  exit( 0 );
+}
+
+# nb: Keep qotd at the end of the list, as it may generate false detection
 if( r =~ '^"[^"]+"[ \t\r\n]+[A-Za-z -]+[ \t\r\n]+\\([0-9]+(-[0-9]+)?\\)[ \t\r\n]+$' || egrep( pattern:"^[A-Za-z. -]+\([0-9-]+\)", string:r ) ) {
   replace_kb_item( name:"qotd/tcp/" + port + "/banner", value:chomp( banner ) );
   service_register( port:port, proto:"qotd" );

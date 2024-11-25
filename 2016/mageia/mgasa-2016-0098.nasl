@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131256");
   script_cve_id("CVE-2015-0268", "CVE-2015-1563", "CVE-2015-2044", "CVE-2015-2045", "CVE-2015-2150", "CVE-2015-2151", "CVE-2015-2152", "CVE-2015-2751", "CVE-2015-2752", "CVE-2015-2756", "CVE-2015-3209", "CVE-2015-3259", "CVE-2015-3340", "CVE-2015-3456", "CVE-2015-4103", "CVE-2015-4104", "CVE-2015-4105", "CVE-2015-4106", "CVE-2015-4163", "CVE-2015-4164", "CVE-2015-5154", "CVE-2015-5165", "CVE-2015-5166", "CVE-2015-5307", "CVE-2015-6654", "CVE-2015-7311", "CVE-2015-7504", "CVE-2015-7812", "CVE-2015-7813", "CVE-2015-7814", "CVE-2015-7835", "CVE-2015-7969", "CVE-2015-7970", "CVE-2015-7971", "CVE-2015-7972", "CVE-2015-8104", "CVE-2015-8338", "CVE-2015-8339", "CVE-2015-8340", "CVE-2015-8550", "CVE-2015-8555", "CVE-2016-1570", "CVE-2016-1571", "CVE-2016-2270", "CVE-2016-2271");
   script_tag(name:"creation_date", value:"2016-03-08 05:15:19 +0000 (Tue, 08 Mar 2016)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-02-11 14:52:00 +0000 (Fri, 11 Feb 2022)");
+  script_tag(name:"severity_date", value:"2017-10-24 14:39:31 +0000 (Tue, 24 Oct 2017)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0098)");
   script_category(ACT_GATHER_INFO);
@@ -26,7 +26,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0098");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0098.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16956");
+  script_xref(name:"URL", value:"http://www.xenproject.org/downloads/xen-archives/xen-45-series/xen-451.html");
+  script_xref(name:"URL", value:"http://www.xenproject.org/downloads/xen-archives/xen-45-series/xen-452.html");
   script_xref(name:"URL", value:"http://xenbits.xen.org/xsa/advisory-117.html");
   script_xref(name:"URL", value:"http://xenbits.xen.org/xsa/advisory-118.html");
   script_xref(name:"URL", value:"http://xenbits.xen.org/xsa/advisory-119.html");
@@ -75,8 +76,7 @@ if(description)
   script_xref(name:"URL", value:"http://xenbits.xen.org/xsa/advisory-167.html");
   script_xref(name:"URL", value:"http://xenbits.xen.org/xsa/advisory-168.html");
   script_xref(name:"URL", value:"http://xenbits.xen.org/xsa/advisory-170.html");
-  script_xref(name:"URL", value:"http://www.xenproject.org/downloads/xen-archives/xen-45-series/xen-451.html");
-  script_xref(name:"URL", value:"http://www.xenproject.org/downloads/xen-archives/xen-45-series/xen-452.html");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16956");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'xen' package(s) announced via the MGASA-2016-0098 advisory.");
 

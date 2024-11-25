@@ -9,13 +9,13 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802283");
-  script_version("2023-07-28T05:05:23+0000");
+  script_version("2024-02-15T05:05:39+0000");
   script_cve_id("CVE-2011-4692");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-12-09 11:11:11 +0530 (Fri, 09 Dec 2011)");
-  script_name("Apple Safari WebKit Information Disclosure Vulnerability (Mac OS X)");
+  script_name("Apple Safari WebKit Information Disclosure Vulnerability - Mac OS X");
   script_xref(name:"URL", value:"http://oxplot.github.com/visipisi/visipisi.html");
   script_xref(name:"URL", value:"http://lcamtuf.coredump.cx/cachetime/firefox.html");
 

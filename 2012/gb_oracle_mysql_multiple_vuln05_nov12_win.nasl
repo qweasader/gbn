@@ -9,13 +9,13 @@ CPE = "cpe:/a:mysql:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803115");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2012-3156");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-11-26 18:06:53 +0530 (Mon, 26 Nov 2012)");
-  script_name("Oracle MySQL Server Multiple Vulnerabilities-05 Nov12 (Windows)");
+  script_name("Oracle MySQL Server Multiple Vulnerabilities - 05 - (Nov 2012) - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/51008/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/56013");
   script_xref(name:"URL", value:"http://www.securelist.com/en/advisories/51008");
@@ -27,7 +27,6 @@ if(description)
   script_family("Databases");
   script_tag(name:"qod_type", value:"remote_banner");
   script_dependencies("mysql_version.nasl", "os_detection.nasl");
-  script_require_ports("Services/mysql", 3306);
   script_mandatory_keys("MySQL/installed", "Host/runs_windows");
 
   script_tag(name:"impact", value:"Successful exploitation will allow an attacker to disclose potentially
@@ -47,7 +46,6 @@ if(description)
   exit(0);
 }
 
-include("misc_func.inc");
 include("version_func.inc");
 include("host_details.inc");
 

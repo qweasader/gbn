@@ -7,17 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.872150");
-  script_version("2023-05-18T09:08:59+0000");
-  script_tag(name:"last_modification", value:"2023-05-18 09:08:59 +0000 (Thu, 18 May 2023)");
+  script_version("2024-07-01T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-07-01 05:05:39 +0000 (Mon, 01 Jul 2024)");
   script_tag(name:"creation_date", value:"2016-12-16 06:03:12 +0100 (Fri, 16 Dec 2016)");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2016-6816", "CVE-2016-6817", "CVE-2016-8735");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-10-05 22:15:00 +0000 (Mon, 05 Oct 2020)");
+  script_tag(name:"severity_date", value:"2024-06-27 19:23:35 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"qod_type", value:"package");
   script_name("Fedora Update for tomcat FEDORA-2016-9c33466fbb");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'tomcat'

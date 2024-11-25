@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2016.0225");
   script_cve_id("CVE-2013-4312", "CVE-2015-5257", "CVE-2015-5307", "CVE-2015-5327", "CVE-2015-6937", "CVE-2015-7550", "CVE-2015-7799", "CVE-2015-8104", "CVE-2015-8543", "CVE-2016-0758", "CVE-2016-2085", "CVE-2016-2117", "CVE-2016-2143", "CVE-2016-3136", "CVE-2016-3137", "CVE-2016-3672", "CVE-2016-3713", "CVE-2016-3961");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-01-17 21:40:00 +0000 (Tue, 17 Jan 2023)");
+  script_tag(name:"severity_date", value:"2016-06-27 15:38:02 +0000 (Mon, 27 Jun 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0225)");
   script_category(ACT_GATHER_INFO);
@@ -26,11 +26,15 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0225");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0225.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=18688");
   script_xref(name:"URL", value:"http://kernelnewbies.org/Linux_4.2");
   script_xref(name:"URL", value:"http://kernelnewbies.org/Linux_4.3");
   script_xref(name:"URL", value:"http://kernelnewbies.org/Linux_4.4");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=18688");
   script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.4.1");
+  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.4.10");
+  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.4.11");
+  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.4.12");
+  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.4.13");
   script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.4.2");
   script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.4.3");
   script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.4.4");
@@ -39,10 +43,6 @@ if(description)
   script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.4.7");
   script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.4.8");
   script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.4.9");
-  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.4.10");
-  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.4.11");
-  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.4.12");
-  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.4.13");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'dracut, kernel, kernel-userspace-headers, kmod-vboxadditions, kmod-virtualbox, kmod-xtables-addons' package(s) announced via the MGASA-2016-0225 advisory.");
 

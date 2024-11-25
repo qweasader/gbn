@@ -4,11 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-if( description )
+CPE = "cpe:/a:apache:activemq";
+
+if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112387");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-02-29T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-29 05:05:39 +0000 (Thu, 29 Feb 2024)");
   script_tag(name:"creation_date", value:"2018-09-20 14:15:00 +0200 (Thu, 20 Sep 2018)");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
@@ -22,7 +24,7 @@ if( description )
 
   script_cve_id("CVE-2018-11775");
 
-  script_name("Apache Active MQ 5.0.0 - 5.15.5 Missing TLS Hostname Verification (Windows)");
+  script_name("Apache Active MQ 5.0.0 - 5.15.5 Missing TLS Hostname Verification Vulnerability - Windows");
 
   script_category(ACT_GATHER_INFO);
 
@@ -52,9 +54,8 @@ if( description )
 include( "host_details.inc" );
 include( "version_func.inc" );
 
-CPE = "cpe:/a:apache:activemq";
-
-if( ! version = get_app_version( cpe: CPE, nofork: TRUE ) ) exit( 0 );
+if( ! version = get_app_version( cpe: CPE, nofork: TRUE ) )
+  exit( 0 );
 
 if( version_in_range( version: version, test_version: "5.0.0", test_version2: "5.15.5" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "5.15.6" );

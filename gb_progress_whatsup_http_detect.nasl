@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106162");
-  script_version("2023-06-27T05:05:30+0000");
-  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
+  script_version("2024-09-04T05:16:32+0000");
+  script_tag(name:"last_modification", value:"2024-09-04 05:16:32 +0000 (Wed, 04 Sep 2024)");
   script_tag(name:"creation_date", value:"2016-08-02 08:27:33 +0700 (Tue, 02 Aug 2016)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -27,16 +27,12 @@ if(description)
 
   script_tag(name:"summary", value:"HTTP based detection of Progress / Ipswitch WhatsUp Gold.");
 
-  script_xref(name:"URL", value:"https://www.whatsupgold.com");
-
   exit(0);
 }
 
-include("cpe.inc");
 include("host_details.inc");
 include("http_func.inc");
 include("http_keepalive.inc");
-include("os_func.inc");
 include("port_service_func.inc");
 
 port = http_get_port(default: 443);
@@ -58,9 +54,12 @@ if ("<title>WhatsUp Gold</title>" >< res && 'id="microloader"' >< res) {
   vers = eregmatch(pattern: '/NmConsole/api/core/",version:"([0-9.]+)', string: res);
   if (!isnull(vers[1])) {
     version = vers[1];
-    concUrl = http_report_vuln_url(port: port, url: url, url_only: TRUE);
+    set_kb_item(name: "progress/whatsup_gold/http/" + port + "/concluded", value: vers[0]);
+    concUrl += '\n' + http_report_vuln_url(port: port, url: url, url_only: TRUE);
   } else {
-    res = http_get_cache(port: port, item: "/NmConsole/app.json");
+    url = "/NmConsole/app.json";
+
+    res = http_get_cache(port: port, item: url);
     # "path":"app-21.0.js"
     loc = eregmatch(pattern: '"path":"(app-[0-9.]+js)"', string: res);
     if (!isnull(loc[1])) {
@@ -71,7 +70,8 @@ if ("<title>WhatsUp Gold</title>" >< res && 'id="microloader"' >< res) {
       vers = eregmatch(pattern: "/NmConsole/api/core/.,version:.([0-9.]+)", string: res);
       if (!isnull(vers[1])) {
         version = vers[1];
-        concUrl = http_report_vuln_url(port: port, url: url, url_only: TRUE);
+        set_kb_item(name: "progress/whatsup_gold/http/" + port + "/concluded", value: vers[0]);
+        concUrl += '\n' + http_report_vuln_url(port: port, url: url, url_only: TRUE);
       }
     }
   }
@@ -99,8 +99,10 @@ else {
     concUrl = http_report_vuln_url(port: port, url: url, url_only: TRUE);
 
     vers = eregmatch(pattern: '"VersionText">.remium Edition&nbsp;v([0-9.]+)( Build ([0-9]+))?', string: res);
-    if (!isnull(vers[1]))
+    if (!isnull(vers[1])) {
       version = vers[1];
+      set_kb_item(name: "progress/whatsup_gold/http/" + port + "/concluded", value: vers[0]);
+    }
 
     if (!isnull(vers[3])) {
       build = vers[3];
@@ -111,10 +113,9 @@ else {
     url = "/NmConsole/User/LogIn?AspxAutoDetectCookieSupport=1";
     res = http_get_cache(port: port, item: url);
 
-    if (res =~ "Log[ Ii]n - WhatsUp Gold") {
+    if (res =~ "Log[ Ii]+n - WhatsUp Gold") {
       version = "unknown";
-      concUrl = http_report_vuln_url(port: port, url: url, url_only: TRUE);
-    } else {
+      concUrl = http_report_vuln_url(port: port, url: url, url_only: TRUE);    } else {
       # Didn't find the product
       exit(0);
     }
@@ -123,18 +124,9 @@ else {
 
 set_kb_item(name: "progress/whatsup_gold/detected", value: TRUE);
 set_kb_item(name: "progress/whatsup_gold/http/detected", value: TRUE);
+set_kb_item(name: "progress/whatsup_gold/http/port", value: port);
 
-os_register_and_report(os: "Microsoft Windows", cpe: "cpe:/o:microsoft:windows", port: port,
-                       desc: "Progress / Ipswitch WhatsUp Gold Detection (HTTP)", runs_key: "windows");
-
-cpe = build_cpe(value: version, exp: "^([0-9.]+)", base: "cpe:/a:progress:whatsupgold:");
-if (!cpe)
-  cpe = "cpe:/a:progress:whatsupgold";
-
-register_product(cpe: cpe, location: "/", port: port, service: "www");
-
-log_message(data: build_detection_report(app: "Progress / Ipswitch WhatsUp Gold", version: version, install: "/",
-                                         cpe: cpe, concluded: vers[0], concludedUrl: concUrl, extra: extra),
-            port: port);
+set_kb_item(name: "progress/whatsup_gold/http/" + port + "/version", value: version);
+set_kb_item(name: "progress/whatsup_gold/http/" + port + "/concludedUrl", value: concUrl);
 
 exit(0);

@@ -9,19 +9,19 @@ CPE = "cpe:/a:adobe:digital_editions";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809247");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2016-4256", "CVE-2016-4257", "CVE-2016-4258", "CVE-2016-4259",
                 "CVE-2016-4260", "CVE-2016-4261", "CVE-2016-4262", "CVE-2016-4263",
                 "CVE-2016-6980");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-08-13 01:29:00 +0000 (Sun, 13 Aug 2017)");
   script_tag(name:"creation_date", value:"2016-09-15 11:53:23 +0530 (Thu, 15 Sep 2016)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("Adobe Digital Editions Multiple Code Execution Vulnerabilities Sep16 (Mac OS X)");
+  script_name("Adobe Digital Editions Multiple Code Execution Vulnerabilities (Sep 2016) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Digital Edition is prone to multiple vulnerabilities.");
 

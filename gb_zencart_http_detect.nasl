@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.146890");
-  script_version("2023-12-13T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2021-10-12 13:10:00 +0000 (Tue, 12 Oct 2021)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -23,7 +23,9 @@ if(description)
 
   script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("Product detection");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl",
+                      "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
@@ -72,7 +74,7 @@ foreach dir (make_list_unique("/", "/shop", "/cart", "/zen-cart", http_cgi_dirs(
     set_kb_item(name: "zen_cart/detected", value: TRUE);
     set_kb_item(name: "zen_cart/http/detected", value: TRUE);
 
-    cpe = build_cpe(value: version, exp: "^(0-9a-z.]+)", base: "cpe:/a:zen-cart:zen_cart:");
+    cpe = build_cpe(value: version, exp: "^([0-9a-z.]+)", base: "cpe:/a:zen-cart:zen_cart:");
     if (!cpe)
       cpe = "cpe:/a:zen-cart:zen_cart";
 

@@ -11,10 +11,10 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.113001");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-09-19T05:06:03+0000");
-  script_tag(name:"last_modification", value:"2023-09-19 05:06:03 +0000 (Tue, 19 Sep 2023)");
+  script_version("2024-02-28T14:37:42+0000");
+  script_tag(name:"last_modification", value:"2024-02-28 14:37:42 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-09-21 10:22:22 +0200 (Thu, 21 Sep 2017)");
-  script_name("Joomla! End Of Life Detection");
+  script_name("Joomla! End of Life (EOL) Detection");
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Web application abuses");
@@ -23,14 +23,17 @@ if(description)
 
   script_xref(name:"URL", value:"https://docs.joomla.org/What_version_of_Joomla!_should_you_use%3F");
 
-  script_tag(name:"summary", value:"The Joomla! version on the remote host has reached the end of life and should not be used anymore.");
+  script_tag(name:"summary", value:"The Joomla! version on the remote host has reached the end of
+  life (EOL) and should not be used anymore.");
 
-  script_tag(name:"impact", value:"An end of life version of Joomla! is not receiving any security updates from the vendor. Unfixed security vulnerabilities
-  might be leveraged by an attacker to compromise the security of this host.");
+  script_tag(name:"vuldetect", value:"Checks if an EOL version is present on the target host.");
 
-  script_tag(name:"solution", value:"Update the Joomla! version on the remote host to a still supported version.");
+  script_tag(name:"impact", value:"An EOL version of Joomla! is not receiving any security updates
+  from the vendor. Unfixed security vulnerabilities might be leveraged by an attacker to compromise
+  the security of this host.");
 
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+  script_tag(name:"solution", value:"Update the Joomla! version on the remote host to a still
+  supported version.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");

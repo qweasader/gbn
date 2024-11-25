@@ -1,34 +1,20 @@
-# Copyright (C) 2009 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108478");
-  script_version("2021-04-16T08:08:22+0000");
-  script_tag(name:"last_modification", value:"2021-04-16 08:08:22 +0000 (Fri, 16 Apr 2021)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2009-03-26 19:23:59 +0100 (Thu, 26 Mar 2009)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
   script_name("rsh Service Detection");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Service detection");
   script_dependencies("find_service1.nasl");
   script_require_ports("Services/rsh", "Services/unknown", 514);
@@ -88,7 +74,7 @@ foreach port( ports ) {
     found = TRUE;
     set_kb_item( name:"rsh/login_from", value:"root" );
     set_kb_item( name:"rsh/login_to", value:"root" );
-    report = "The rsh service is misconfigured so it is allowing conntections without a password or with default root:root credentials.";
+    report = "The rsh service is misconfigured so it is allowing connections without a password or with default root:root credentials.";
   } else if( "getnameinfo: Temporary failure in name resolution" >< buf ) {
     found = TRUE;
     report = "The rsh service currently has issues with name resolution and is not allowing connections from this host.";

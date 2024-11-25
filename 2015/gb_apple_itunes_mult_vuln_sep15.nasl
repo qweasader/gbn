@@ -9,7 +9,7 @@ CPE = "cpe:/a:apple:itunes";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806063");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2015-1157", "CVE-2015-3686", "CVE-2015-3687", "CVE-2015-3688",
                 "CVE-2015-5755", "CVE-2015-5761", "CVE-2015-5874", "CVE-2014-8146",
                 "CVE-2015-1205", "CVE-2010-3190", "CVE-2015-1152", "CVE-2015-1153",
@@ -29,9 +29,9 @@ if(description)
                 "CVE-2015-5821", "CVE-2015-5822");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2015-10-01 10:34:38 +0530 (Thu, 01 Oct 2015)");
-  script_name("Apple iTunes Multiple Vulnerabilities Sep15 (Windows)");
+  script_name("Apple iTunes Multiple Vulnerabilities (Sep 2015) - Windows");
 
   script_tag(name:"summary", value:"Apple iTunes is prone to multiple vulnerabilities.");
 
@@ -51,7 +51,7 @@ if(description)
 
   script_tag(name:"impact", value:"Successful exploitation will allow
   attacker to obtain encrypted SMB credentials, to cause unexpected application
-  termination or arbitrary code execution, .");
+  termination or arbitrary code execution.");
 
   script_tag(name:"affected", value:"Apple iTunes versions before 12.3 on Windows.");
 

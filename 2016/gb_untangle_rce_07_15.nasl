@@ -9,11 +9,11 @@ CPE = "cpe:/a:untangle:ng-firewall";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105812");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
-  script_name("Untangle NG Firewall Remote Command Execution Vulnerability");
+  script_name("Untangle NG Firewall RCE Vulnerability");
 
   script_tag(name:"vuldetect", value:"Upload a python file within a zip file and try to execute it.");
 
@@ -22,7 +22,8 @@ if (description)
   is authenticated before processing the upload. It results in an arbitrary file upload vulnerability, which allows
   remote unauthenticated users to write custom python/HTML files to a known folder.");
 
-  script_tag(name:"summary", value:"The remote Untangle NG Firewall is prone to a remote command execution vulnerability.");
+  script_tag(name:"summary", value:"The remote Untangle NG Firewall is prone to a remote command
+  execution (RCE) vulnerability.");
 
   script_tag(name:"solution_type", value:"Workaround");
 
@@ -32,7 +33,7 @@ if (description)
 
   script_tag(name:"qod_type", value:"exploit");
 
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-07-18 15:16:18 +0200 (Mon, 18 Jul 2016)");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");

@@ -9,8 +9,8 @@ CPE = "cpe:/a:netatalk:netatalk";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.124500");
-  script_version("2023-11-16T05:05:14+0000");
-  script_tag(name:"last_modification", value:"2023-11-16 05:05:14 +0000 (Thu, 16 Nov 2023)");
+  script_version("2024-03-15T05:06:15+0000");
+  script_tag(name:"last_modification", value:"2024-03-15 05:06:15 +0000 (Fri, 15 Mar 2024)");
   script_tag(name:"creation_date", value:"2023-09-22 07:58:13 +0000 (Fri, 22 Sep 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -53,6 +53,7 @@ if(description)
 
   script_tag(name:"solution", value:"Update to version 3.1.17 or later.");
 
+  script_xref(name:"URL", value:"https://netatalk.io/3.1/ReleaseNotes3.1.17");
   script_xref(name:"URL", value:"https://github.com/Netatalk/netatalk/issues/486");
 
   exit(0);

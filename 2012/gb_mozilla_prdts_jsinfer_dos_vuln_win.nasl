@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802869");
-  script_version("2023-10-17T05:05:34+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2012-1939");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-06-19 15:21:15 +0530 (Tue, 19 Jun 2012)");
-  script_name("Mozilla Products 'jsinfer.cpp' Denial of Service Vulnerability (Windows)");
+  script_name("Mozilla Products 'jsinfer.cpp' Denial of Service Vulnerability - Windows");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/49368");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/53797");

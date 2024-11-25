@@ -9,8 +9,8 @@ CPE = "cpe:/a:adobe:flash_media_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801892");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2011-05-26 10:47:46 +0200 (Thu, 26 May 2011)");
   script_cve_id("CVE-2011-0612");
   script_tag(name:"cvss_base", value:"5.0");
@@ -20,7 +20,6 @@ if(description)
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Denial of Service");
   script_dependencies("gb_adobe_fms_detect.nasl");
-  script_require_ports("Services/www", 1111);
   script_mandatory_keys("Adobe/FMS/installed");
 
   script_xref(name:"URL", value:"http://www.vupen.com/english/advisories/2011/1224");
@@ -44,8 +43,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_in_range( version:vers, test_version:"4.0", test_version2:"4.0.1" ) ||
     version_is_less( version:vers, test_version:"3.5.6" ) ) {

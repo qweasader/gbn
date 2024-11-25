@@ -9,17 +9,17 @@ CPE = "cpe:/a:ibm:websphere_mq";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808619");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_cve_id("CVE-2015-7462");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-11-30 03:02:00 +0000 (Wed, 30 Nov 2016)");
   script_tag(name:"creation_date", value:"2016-07-15 18:17:58 +0530 (Fri, 15 Jul 2016)");
 
-  script_name("IBM WebSphere MQ Information Disclosure Vulnerability - July16");
+  script_name("IBM WebSphere MQ Information Disclosure Vulnerability (Jul 2016)");
 
   script_tag(name:"summary", value:"IBM WebSphere MQ is prone to an information disclosure vulnerability.");
 

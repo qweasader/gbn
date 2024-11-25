@@ -9,17 +9,17 @@ CPE = "cpe:/a:imagemagick:imagemagick";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808068");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-16T05:06:55+0000");
   script_cve_id("CVE-2016-4564", "CVE-2016-4562", "CVE-2016-4563");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-09-23 02:00:00 +0000 (Fri, 23 Sep 2016)");
   script_tag(name:"creation_date", value:"2016-06-06 18:38:55 +0530 (Mon, 06 Jun 2016)");
   script_tag(name:"qod_type", value:"registry");
-  script_name("ImageMagick Multiple Denial of Service Vulnerabilities June16 (Windows)");
+  script_name("ImageMagick Multiple Denial of Service Vulnerabilities (Jun 2016) - Windows");
 
   script_tag(name:"summary", value:"ImageMagick is prone to multiple denial of service vulnerabilities.");
 

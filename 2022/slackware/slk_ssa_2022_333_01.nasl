@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.13.2022.333.01");
   script_cve_id("CVE-2022-0171", "CVE-2022-20421", "CVE-2022-2308", "CVE-2022-2602", "CVE-2022-2663", "CVE-2022-2905", "CVE-2022-2978", "CVE-2022-3028", "CVE-2022-3061", "CVE-2022-3169", "CVE-2022-3176", "CVE-2022-3303", "CVE-2022-3521", "CVE-2022-3524", "CVE-2022-3535", "CVE-2022-3542", "CVE-2022-3543", "CVE-2022-3564", "CVE-2022-3565", "CVE-2022-3586", "CVE-2022-3594", "CVE-2022-3619", "CVE-2022-3621", "CVE-2022-3623", "CVE-2022-3625", "CVE-2022-3628", "CVE-2022-3629", "CVE-2022-3633", "CVE-2022-3635", "CVE-2022-3646", "CVE-2022-3649", "CVE-2022-39190", "CVE-2022-39842", "CVE-2022-40307", "CVE-2022-40768", "CVE-2022-4095", "CVE-2022-41674", "CVE-2022-41849", "CVE-2022-41850", "CVE-2022-42703", "CVE-2022-42719", "CVE-2022-42720", "CVE-2022-42721", "CVE-2022-42722", "CVE-2022-42895", "CVE-2022-42896", "CVE-2022-43750", "CVE-2022-43945");
   script_tag(name:"creation_date", value:"2022-11-30 04:18:51 +0000 (Wed, 30 Nov 2022)");
-  script_version("2023-06-20T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:25 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-02T05:06:09+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:09 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-11-28 01:27:00 +0000 (Mon, 28 Nov 2022)");
+  script_tag(name:"severity_date", value:"2022-11-28 01:27:19 +0000 (Mon, 28 Nov 2022)");
 
   script_name("Slackware: Security Advisory (SSA:2022-333-01)");
   script_category(ACT_GATHER_INFO);

@@ -9,8 +9,8 @@ CPE = "cpe:/a:apple:quicktime";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802133");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-08-18 14:57:45 +0200 (Thu, 18 Aug 2011)");
   script_cve_id("CVE-2011-0245", "CVE-2011-0246", "CVE-2011-0247",
                 "CVE-2011-0248", "CVE-2011-0249", "CVE-2011-0250",
@@ -18,7 +18,7 @@ if(description)
                 "CVE-2011-0257", "CVE-2011-0258");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("Apple QuickTime Multiple Buffer Overflow Vulnerabilities (Windows)");
+  script_name("Apple QuickTime Multiple Buffer Overflow Vulnerabilities - Windows");
   script_xref(name:"URL", value:"http://support.apple.com/kb/HT4826");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/49028");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/49029");

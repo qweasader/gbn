@@ -9,8 +9,8 @@ CPE = "cpe:/a:apache:solr";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113190");
-  script_version("2024-01-18T05:07:09+0000");
-  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-05-22 13:32:55 +0200 (Tue, 22 May 2018)");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:N/A:N");
@@ -24,7 +24,7 @@ if(description)
 
   script_cve_id("CVE-2018-8010");
 
-  script_name("Apache Solr 6.x < 6.6.4 and 7.x < 7.3.1 XXE Vulnerability (SOLR-12316) (Linux)");
+  script_name("Apache Solr 6.x < 6.6.4 and 7.x < 7.3.1 XXE Vulnerability (SOLR-12316) - Linux");
 
   script_category(ACT_GATHER_INFO);
 
@@ -33,7 +33,8 @@ if(description)
   script_dependencies("gb_apache_solr_http_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("apache/solr/detected", "Host/runs_unixoide");
 
-  script_tag(name:"summary", value:"Apache Solr is prone to an XML external entity expansion (XXE) vulnerability.");
+  script_tag(name:"summary", value:"Apache Solr is prone to an XML external entity (XXE) expansion
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

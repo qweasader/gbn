@@ -9,44 +9,47 @@ CPE = "cpe:/a:ibm:websphere_application_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808105");
-  script_version("2023-07-20T05:05:17+0000");
-  script_cve_id("CVE-2016-0306");
+  script_version("2024-11-14T05:05:31+0000");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-14 05:05:31 +0000 (Thu, 14 Nov 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-11-28 19:52:00 +0000 (Mon, 28 Nov 2016)");
   script_tag(name:"creation_date", value:"2016-05-20 17:02:37 +0530 (Fri, 20 May 2016)");
-  script_tag(name:"qod_type", value:"remote_banner_unreliable");
-  script_name("IBM Websphere Application Server Information Disclosure Vulnerability-01 May16");
 
-  script_tag(name:"summary", value:"IBM Websphere application server is prone to information-disclosure vulnerability.");
+  script_cve_id("CVE-2016-0306");
 
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
-
-  script_tag(name:"insight", value:"The flaw is due to the
-  improper TLS configuration when FIPS 140-2 is enabled.");
-
-  script_tag(name:"impact", value:"Successful exploitation will allow
-  remote attackers to obtain sensitive information using man in the middle
-  techniques.");
-
-  script_tag(name:"affected", value:"IBM WebSphere Application Server (WAS)
-  7.0 before 7.0.0.41, 8.0 before 8.0.0.13, and 8.5 before 8.5.5.10");
-
-  script_tag(name:"solution", value:"Upgrade to IBM WebSphere Application
-  Server (WAS) version 7.0.0.41, or 8.0.0.13, or 8.5.5.10, or later");
+  script_tag(name:"qod_type", value:"remote_banner");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_xref(name:"URL", value:"http://www-01.ibm.com/support/docview.wss?uid=swg21979231");
+  script_name("IBM WebSphere Application Server Information Disclosure Vulnerability (swg21979231)");
 
   script_category(ACT_GATHER_INFO);
+
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web Servers");
-  script_dependencies("gb_ibm_websphere_detect.nasl");
-  script_mandatory_keys("ibm_websphere_application_server/installed");
+  script_dependencies("gb_ibm_websphere_consolidation.nasl");
+  script_mandatory_keys("ibm/websphere/detected");
+
+  script_tag(name:"summary", value:"IBM WebSphere Application Server is prone to an information
+  disclosure vulnerability.");
+
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+
+  script_tag(name:"insight", value:"The flaw is due to the improper TLS configuration when FIPS
+  140-2 is enabled.");
+
+  script_tag(name:"impact", value:"Successful exploitation will allow remote attackers to obtain
+  sensitive information using man in the middle techniques.");
+
+  script_tag(name:"affected", value:"IBM WebSphere Application Server version 7.0.x prior to
+  7.0.0.41, 8.0.x prior to 8.0.0.13 and 8.5.x prior to 8.5.5.10.");
+
+  script_tag(name:"solution", value:"Update to version 7.0.0.41, 8.0.0.13, 8.5.5.10, or later.");
+
+  script_xref(name:"URL", value:"http://www-01.ibm.com/support/docview.wss?uid=swg21979231");
 
   exit(0);
 }
@@ -54,31 +57,24 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if(!wasVer = get_app_version(cpe:CPE, nofork:TRUE))
+if (!version = get_app_version(cpe: CPE, nofork: TRUE))
   exit(0);
 
-if(version_in_range(version:wasVer, test_version:"7.0", test_version2:"7.0.0.40"))
-{
-  fix = "7.0.0.41";
-  VULN = TRUE;
+if (version_in_range_exclusive(version: version, test_version_lo: "7.0", test_version_up: "7.0.0.41")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "7.0.0.41");
+  security_message(port: 0, data: report);
+  exit(0);
 }
 
-else if(version_in_range(version:wasVer, test_version:"8.0", test_version2:"8.0.0.12"))
-{
-  fix = "8.0.0.13";
-  VULN = TRUE;
+if (version_in_range_exclusive(version: version, test_version_lo: "8.0", test_version_up: "8.0.0.13")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "8.0.0.13");
+  security_message(port: 0, data: report);
+  exit(0);
 }
 
-else if(version_in_range(version:wasVer, test_version:"8.5", test_version2:"8.5.5.9"))
-{
-  fix = "8.5.5.10";
-  VULN = TRUE;
-}
-
-if(VULN)
-{
-  report = report_fixed_ver(installed_version:wasVer, fixed_version:fix);
-  security_message(port:0, data:report);
+if (version_in_range_exclusive(version: version, test_version_lo: "8.5", test_version_up: "8.5.5.10")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "8.5.5.10");
+  security_message(port: 0, data: report);
   exit(0);
 }
 

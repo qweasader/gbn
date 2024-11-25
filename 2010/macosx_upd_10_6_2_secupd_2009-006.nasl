@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.102038");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-02-05T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 05:05:38 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-05-12 14:48:44 +0200 (Wed, 12 May 2010)");
   script_cve_id("CVE-2009-2819", "CVE-2009-2818", "CVE-2009-0023", "CVE-2009-1191", "CVE-2009-1195",
                 "CVE-2009-1890", "CVE-2009-1891", "CVE-2009-1955", "CVE-2009-1956", "CVE-2009-2823",
@@ -24,6 +24,9 @@ if(description)
   script_name("Mac OS X 10.6.2 Update / Mac OS X Security Update 2009-006");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-02 14:11:43 +0000 (Fri, 02 Feb 2024)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2010 LSS");
   script_family("Mac OS X Local Security Checks");

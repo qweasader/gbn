@@ -9,13 +9,13 @@ CPE = "cpe:/a:oracle:goldengate";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807249");
-  script_version("2023-03-24T10:19:42+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2016-0452", "CVE-2016-0451", "CVE-2016-0450");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-03-24 10:19:42 +0000 (Fri, 24 Mar 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-02-12 13:49:29 +0530 (Fri, 12 Feb 2016)");
-  script_name("Oracle GoldenGate Multiple Unspecified Vulnerabilities Feb16 (Windows)");
+  script_name("Oracle GoldenGate Multiple Unspecified Vulnerabilities (Feb 2016) - Windows");
 
   script_tag(name:"summary", value:"Oracle GoldenGate is prone to multiple unspecified vulnerabilities.");
 

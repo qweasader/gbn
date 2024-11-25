@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106613");
-  script_version("2023-06-27T05:05:30+0000");
-  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-02-20 16:42:02 +0700 (Mon, 20 Feb 2017)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -22,7 +22,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Zabbix SQL Injection Vulnerability");
+  script_name("Zabbix SQLi Vulnerability");
 
   script_category(ACT_GATHER_INFO);
 

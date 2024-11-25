@@ -9,11 +9,11 @@ CPE = "cpe:/a:oracle:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811985");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-02-29T14:37:57+0000");
   script_cve_id("CVE-2017-10296", "CVE-2017-10365", "CVE-2017-10284");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-29 14:37:57 +0000 (Thu, 29 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-08-05 14:26:00 +0000 (Fri, 05 Aug 2022)");
@@ -50,25 +50,24 @@ if(description)
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Databases");
   script_dependencies("mysql_version.nasl", "os_detection.nasl");
-  script_require_ports("Services/mysql", 3306);
   script_mandatory_keys("MySQL/installed", "Host/runs_unixoide");
+
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!sqlPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_in_range(version:version, test_version:"5.7", test_version2:"5.7.18")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"Apply the patch");
+  security_message(port:port, data:report);
   exit(0);
 }
 
-if(!mysqlVer = get_app_version(cpe:CPE, port:sqlPort)){
-  exit(0);
-}
-
-if(version_in_range(version:mysqlVer, test_version:"5.7", test_version2:"5.7.18"))
-{
-  report = report_fixed_ver(installed_version:mysqlVer, fixed_version: "Apply the patch");
-  security_message(data:report, port:sqlPort);
-  exit(0);
-}
+exit(99);

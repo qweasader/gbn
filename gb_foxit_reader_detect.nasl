@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800536");
-  script_version("2023-06-22T10:34:15+0000");
+  script_version("2024-06-21T15:40:03+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_tag(name:"last_modification", value:"2024-06-21 15:40:03 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"creation_date", value:"2009-03-17 05:28:51 +0100 (Tue, 17 Mar 2009)");
   script_name("Foxit Reader Version Detection");
 
@@ -40,24 +40,28 @@ if(!os_arch){
 }
 
 if("x86" >< os_arch){
-  key_list = make_list("SOFTWARE\Foxit Software\Foxit Reader");
+  key_list = make_list("SOFTWARE\Foxit Software\Foxit Reader", "SOFTWARE\Foxit Software\Foxit PDF Reader");
 } else if("x64" >< os_arch){
   #nb: Currently only 32-bit application is available
-  key_list = make_list("SOFTWARE\Wow6432Node\Foxit Software\Foxit Reader");
+  key_list = make_list("SOFTWARE\Wow6432Node\Foxit Software\Foxit Reader", "SOFTWARE\Wow6432Node\Foxit Software\Foxit PDF Reader");
 }
 
 if(isnull(key_list)){
   exit(0);
 }
 
-if(!registry_key_exists(key:"SOFTWARE\Foxit Software\Foxit Reader")){
-  if(!registry_key_exists(key:"SOFTWARE\Wow6432Node\Foxit Software\Foxit Reader")){
-    exit(0);
+foreach key(key_list){
+  if(registry_key_exists(key: key)){
+    found = TRUE;
+    break;
   }
 }
 
-foreach key(key_list){
+if(!found){
+  exit(0);
+}
 
+foreach key(key_list){
   foxitVer = registry_get_sz(key:key, item:"Version");
   foxitPath = registry_get_sz(key:key, item:"InstallPath");
   if(!foxitPath){
@@ -70,11 +74,20 @@ foreach key(key_list){
       if(!foxitVer){
         foxitVer = fetch_file_version(sysPath:foxitPath, file_name:"FoxitReader.exe");
       }
-    }else{
+      if(!foxitVer){
+        foxitVer = fetch_file_version(sysPath:foxitPath, file_name:"FoxitPDFReader.exe");
+      }
+    }else {
       foxitPath = registry_get_sz(key:key, item:"InnoSetupUpdatePath");
       if(foxitPath){
         foxitPath = foxitPath - "unins000.exe";
         foxitVer = fetch_file_version(sysPath:foxitPath, file_name:"Foxit Reader.exe");
+      }
+      if(!foxitVer){
+        foxitVer = fetch_file_version(sysPath:foxitPath, file_name:"FoxitReader.exe");
+      }
+      if(!foxitVer){
+        foxitVer = fetch_file_version(sysPath:foxitPath, file_name:"FoxitPDFReader.exe");
       }
     }
   }

@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800889");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-08T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-09-07 19:45:38 +0200 (Mon, 07 Sep 2009)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
   script_cve_id("CVE-2009-3012");
-  script_name("Mozilla Firefox 'data:' URI XSS Vulnerability - Sep09 (Windows)");
+  script_name("Mozilla Firefox 'data:' URI XSS Vulnerability (Sep 2009) - Windows");
   script_xref(name:"URL", value:"http://websecurity.com.ua/3323/");
   script_xref(name:"URL", value:"http://websecurity.com.ua/3386/");
 

@@ -9,13 +9,13 @@ CPE = "cpe:/a:symantec:ghost_solutions_suite";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808573");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2015-5689");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-07-11 15:36:44 +0530 (Mon, 11 Jul 2016)");
-  script_name("Symantec Ghost Solutions Suite Denial of Service Vulnerability (Windows)");
+  script_name("Symantec Ghost Solutions Suite Denial of Service Vulnerability - Windows");
 
   script_tag(name:"summary", value:"Symantec Ghost Solutions Suite is prone to a denial of service (DoS) vulnerability.");
 

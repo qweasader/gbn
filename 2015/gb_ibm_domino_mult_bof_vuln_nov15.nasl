@@ -9,15 +9,15 @@ CPE = "cpe:/a:ibm:lotus_domino";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806610");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-11-04 11:23:23 +0530 (Wed, 04 Nov 2015)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
   script_cve_id("CVE-2015-4994", "CVE-2015-5040");
 
-  script_name("IBM Domino Multiple Buffer Overflow Vulnerabilities - Nov15");
+  script_name("IBM Domino Multiple Buffer Overflow Vulnerabilities (Nov 2015)");
 
   script_tag(name:"summary", value:"IBM Domino is prone to multiple buffer overflow vulnerabilities.");
 

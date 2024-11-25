@@ -8,8 +8,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.17975");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-09-27T05:05:23+0000");
+  script_tag(name:"last_modification", value:"2024-09-27 05:05:23 +0000 (Fri, 27 Sep 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -206,6 +206,12 @@ if( (r_len == 5 || r_len == 6) && r[3] == '\0' &&
 if( r == '\x01Permission denied' || ( "lpd " >< r && "Print-services" >< r ) ) {
   service_report( port:port, svc:"lpd", message:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
   log_message( port:port, data:"A service supporting the Line Printer Daemon (LPD) protocol seems to be running on this port." );
+  exit( 0 );
+}
+
+if( r =~ "^EVENT" && "WatchGuard Authentication Gateway SSO agent" >< r ) {
+  service_report( port:port, svc:"telnet", message:"A WatchGuard Authentication Gateway SSO agent service seems to be running on this port." );
+  log_message( port:port, data:"A WatchGuard Authentication Gateway SSO agent service seems to be running on this port." );
   exit( 0 );
 }
 
@@ -1415,6 +1421,28 @@ if( rbinstr_nospace =~ "Version mismatch, driver version is.+but server version 
 if( rhexstr =~ "702E67756964.+656E6370726F74.+7000000050000000a" ) {
   service_register( port:port, proto:"avalanche_mds", message:"An Ivanti Avalanche Mobile Device Server service seems to be running on this port." );
   log_message( port:port, data:"An Ivanti Avalanche Mobile Device Server service seems to be running on this port." );
+  exit( 0 );
+}
+
+# Seen on e.g. port:
+# - 9650/tcp (on OpenSearch docker containers)
+# - 4690/tcp (on Render)
+#
+# e.g.:
+#
+# Method: get_httpHex
+#
+# 0x00:  00 00 12 04 00 00 00 00 00 00 03 7F FF FF FF 00    ................
+# 0x10:  04 00 10 00 00 00 06 00 00 20 00 00 00 04 08 00    ......... ......
+# 0x20:  00 00 00 00 00 0F 00 01 00 00 2B 07 00 00 00 00    ..........+.....
+# 0x30:  00 00 00 00 00 00 00 00 01 55 6E 65 78 70 65 63    .........Unexpec
+# 0x40:  74 65 64 20 48 54 54 50 2F 31 2E 78 20 72 65 71    ted HTTP/1.x req
+# 0x50:  75 65 73 74 3A 20 47 45 54 20 2F 20                uest: GET / # nb: Trailing space
+
+if( "Unexpected HTTP/1.x request: GET /" >< rbinstr_space ) {
+  service_register( port:port, proto:"grpc", message:"A gRPC service seems to be running on this port." );
+  log_message( port:port, data:"A gRPC service seems to be running on this port." );
+  exit( 0 );
 }
 
 exit( 0 );

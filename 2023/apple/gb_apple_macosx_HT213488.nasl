@@ -8,7 +8,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832335");
-  script_version("2023-07-28T16:09:07+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2022-42795", "CVE-2022-32858", "CVE-2022-32898", "CVE-2022-32899", "CVE-2022-32907",
                 "CVE-2022-32827", "CVE-2022-32877", "CVE-2022-42789", "CVE-2022-42825", "CVE-2022-32902",
                 "CVE-2022-32904", "CVE-2022-32890", "CVE-2022-42796", "CVE-2022-42798", "CVE-2022-32940",
@@ -37,20 +37,22 @@ if(description)
                 "CVE-2022-2124", "CVE-2022-2125", "CVE-2022-2126", "CVE-2022-32875", "CVE-2022-42826",
                 "CVE-2022-32886", "CVE-2022-32888", "CVE-2022-32912", "CVE-2022-42799", "CVE-2022-42823",
                 "CVE-2022-42824", "CVE-2022-32923", "CVE-2022-32922", "CVE-2022-32892", "CVE-2022-32833",
-                "CVE-2022-46709", "CVE-2022-37434");
+                "CVE-2022-46709", "CVE-2022-37434", "CVE-2022-32931", "CVE-2022-42816", "CVE-2022-46721",
+                "CVE-2022-47915", "CVE-2022-47965", "CVE-2022-32889", "CVE-2022-48504", "CVE-2022-48577");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-07-15 03:15:00 +0000 (Fri, 15 Jul 2022)");
   script_tag(name:"creation_date", value:"2023-07-25 15:52:56 +0530 (Tue, 25 Jul 2023)");
-  script_name("Apple MacOSX Security Updates (HT213488)");
+  script_name("Apple Mac OS X Security Update (HT213488)");
 
   script_tag(name:"summary", value:"Apple Mac OS X is prone to multiple
   vulnerabilities.");
 
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present
+  on the target host.");
 
   script_tag(name:"insight", value:"Multiple flaws exist due to,
 
@@ -78,7 +80,7 @@ if(description)
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Mac OS X Local Security Checks");
   script_dependencies("gather-package-list.nasl");
-  script_mandatory_keys("ssh/login/osx_name", "ssh/login/osx_version", re:"ssh/login/osx_version=^13\.");
+  script_mandatory_keys("ssh/login/osx_name", "ssh/login/osx_version");
   exit(0);
 }
 
@@ -89,7 +91,7 @@ if(!osName)
   exit(0);
 
 osVer = get_kb_item("ssh/login/osx_version");
-if(!osVer || osVer !~ "^13\." || "Mac OS X" >!< osName) {
+if(!osVer || "Mac OS X" >!< osName) {
   exit(0);
 }
 

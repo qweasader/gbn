@@ -9,14 +9,14 @@ CPE = "cpe:/a:ilias:ilias";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170684");
-  script_version("2023-11-22T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-11-22 05:05:24 +0000 (Wed, 22 Nov 2023)");
+  script_version("2024-02-23T05:07:12+0000");
+  script_tag(name:"last_modification", value:"2024-02-23 05:07:12 +0000 (Fri, 23 Feb 2024)");
   script_tag(name:"creation_date", value:"2023-11-13 12:32:02 +0000 (Mon, 13 Nov 2023)");
-  script_tag(name:"cvss_base", value:"6.8");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:N/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"cvss_base", value:"8.5");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:N/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-11-14 18:08:00 +0000 (Tue, 14 Nov 2023)");
+  script_tag(name:"severity_date", value:"2024-02-22 19:06:44 +0000 (Thu, 22 Feb 2024)");
 
   script_cve_id("CVE-2023-45868");
 

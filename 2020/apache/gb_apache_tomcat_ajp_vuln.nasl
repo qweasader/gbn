@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.143545");
-  script_version("2023-07-06T05:05:36+0000");
-  script_tag(name:"last_modification", value:"2023-07-06 05:05:36 +0000 (Thu, 06 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2020-02-21 06:01:21 +0000 (Fri, 21 Feb 2020)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -34,8 +34,8 @@ if(description)
   script_require_ports("Services/ajp13", 8009);
   script_require_keys("apache/ajp/detected");
 
-  script_tag(name:"summary", value:"Apache Tomcat is prone to a remote code execution vulnerability
-  (dubbed 'Ghostcat') in the AJP connector.");
+  script_tag(name:"summary", value:"Apache Tomcat is prone to a remote code execution (RCE)
+  vulnerability (dubbed 'Ghostcat') in the AJP connector.");
 
   script_tag(name:"vuldetect", value:"Sends a crafted AJP request and checks the response.");
 

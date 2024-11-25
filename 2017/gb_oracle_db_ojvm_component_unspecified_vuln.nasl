@@ -8,11 +8,11 @@ CPE = "cpe:/a:oracle:database_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811532");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-10-29T05:05:45+0000");
   script_cve_id("CVE-2017-10202", "CVE-2017-10321", "CVE-2017-10190", "CVE-2017-10292");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-10-29 05:05:45 +0000 (Tue, 29 Oct 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
@@ -50,8 +50,8 @@ if(description)
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Databases");
-  script_dependencies("oracle_tnslsnr_version.nasl");
-  script_mandatory_keys("OracleDatabaseServer/installed");
+  script_dependencies("gb_oracle_database_consolidation.nasl");
+  script_mandatory_keys("oracle/database/detected");
   script_xref(name:"URL", value:"http://www.oracle.com/technetwork/security-advisory/cpujul2017-3236622.html");
   exit(0);
 }
@@ -60,19 +60,17 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!dbPort = get_app_port(cpe:CPE)){
+if(isnull(port = get_app_port(cpe:CPE)))
   exit(0);
-}
 
-if(!dbVer = get_app_version(cpe:CPE, port:dbPort)){
+if(!infos = get_app_version_and_location(cpe:CPE, port:port, exit_no_version:TRUE))
   exit(0);
-}
 
-if(dbVer == "11.2.0.4" ||
-   dbVer == "12.1.0.2" ||
-   dbVer == "12.2.0.1")
-{
-  report = report_fixed_ver(installed_version:dbVer, fixed_version:"Apply the appropriate patch");
-  security_message(data:report, port:dbPort);
+ver = infos["version"];
+path = infos["location"];
+
+if(ver == "11.2.0.4" || ver == "12.1.0.2" || ver == "12.2.0.1") {
+  report = report_fixed_ver(installed_version:ver, fixed_version:"Apply the appropriate patch", install_path:path);
+  security_message(data:report, port:port);
   exit(0);
 }

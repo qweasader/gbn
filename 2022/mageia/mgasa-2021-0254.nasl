@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2021.0254");
   script_cve_id("CVE-2021-30004");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-04-07 12:47:00 +0000 (Wed, 07 Apr 2021)");
+  script_tag(name:"severity_date", value:"2021-04-07 12:47:36 +0000 (Wed, 07 Apr 2021)");
 
   script_name("Mageia: Security Advisory (MGASA-2021-0254)");
   script_category(ACT_GATHER_INFO);
@@ -27,8 +27,8 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2021-0254");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2021-0254.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=29046");
-  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/EXT3Y5NEGCCPGZ7FTYURPUBTHNNJA6MF/");
   script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/4XPNZHCXJ32COQGQ62HNGD6DHPO5E552/");
+  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/EXT3Y5NEGCCPGZ7FTYURPUBTHNNJA6MF/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'hostapd, wpa_supplicant' package(s) announced via the MGASA-2021-0254 advisory.");
 

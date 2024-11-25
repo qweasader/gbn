@@ -9,16 +9,16 @@ CPE = "cpe:/a:owncloud:owncloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813054");
-  script_version("2023-12-01T16:11:30+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2014-1665");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-04-13 16:26:00 +0000 (Fri, 13 Apr 2018)");
   script_tag(name:"creation_date", value:"2018-03-23 12:50:26 +0530 (Fri, 23 Mar 2018)");
-  script_name("ownCloud XSS and CSRF Protection Bypass Vulnerabilities Mar18 - Linux");
+  script_name("ownCloud XSS and CSRF Protection Bypass Vulnerabilities (Mar 2018) - Linux");
 
   script_tag(name:"summary", value:"ownCloud is prone to XSS and CSRF vulnerabilities.");
 

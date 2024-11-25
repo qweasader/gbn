@@ -9,17 +9,17 @@ CPE = "cpe:/a:apache:wicket";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811841");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2014-7808");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-03-24 18:19:00 +0000 (Tue, 24 Mar 2020)");
   script_tag(name:"creation_date", value:"2017-10-04 13:06:12 +0530 (Wed, 04 Oct 2017)");
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("Apache Wicket 'CryptoMapper' Cross Site Request Forgery Vulnerability");
+  script_name("Apache Wicket 'CryptoMapper' CSRF Vulnerability");
 
   script_tag(name:"summary", value:"Apache Wicket is prone to a cross-site request forgery (CSRF) vulnerability.");
 
@@ -48,7 +48,7 @@ if(description)
   script_family("General");
   script_dependencies("gb_apache_wicket_detect.nasl");
   script_mandatory_keys("Apache/Wicket/Installed");
-  script_require_ports("Services/www", 8080);
+
   exit(0);
 }
 
@@ -56,34 +56,30 @@ include("host_details.inc");
 include("version_func.inc");
 include("revisions-lib.inc");
 
-if(!Port = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-Ver = get_app_version(cpe:CPE, port:Port);
-if(!Ver){
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-if(version_is_less(version:Ver, test_version:"1.5.13")){
+if(version_is_less(version:version, test_version:"1.5.13")){
   fix = "1.5.13";
 }
 
-else if(Ver =~ "^(6\.)")
-{
-  if(version_is_less(version:Ver, test_version:"6.19.0")){
+else if(version =~ "^6\.") {
+  if(version_is_less(version:version, test_version:"6.19.0")) {
     fix = "6.19.0";
   }
 }
 
-else if(Ver =~ "^(7\.)" && revcomp(a: Ver, b: "7.0.0.M5") < 0){
+else if(version =~ "^7\." && revcomp(a:version, b:"7.0.0.M5") < 0) {
   fix = "7.0.0-M5";
 }
 
-if(fix)
-{
-  report = report_fixed_ver(installed_version:Ver, fixed_version:fix);
-  security_message(data:report, port:Port);
+if(fix) {
+  report = report_fixed_ver(installed_version:version, fixed_version:fix);
+  security_message(data:report, port:port);
   exit(0);
 }
-exit(0);
+
+exit(99);

@@ -1,30 +1,16 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:eclipse:jetty";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.146164");
-  script_version("2021-08-27T11:01:07+0000");
-  script_tag(name:"last_modification", value:"2021-08-27 11:01:07 +0000 (Fri, 27 Aug 2021)");
+  script_version("2024-06-11T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-06-11 05:05:40 +0000 (Tue, 11 Jun 2024)");
   script_tag(name:"creation_date", value:"2021-06-23 04:46:29 +0000 (Wed, 23 Jun 2021)");
   script_tag(name:"cvss_base", value:"3.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:N");
@@ -42,9 +28,9 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("Web Servers");
-  script_dependencies("gb_jetty_detect.nasl", "os_detection.nasl");
+  script_dependencies("gb_jetty_http_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("jetty/detected", "Host/runs_unixoide");
 
   script_tag(name:"summary", value:"Eclipse Jetty is prone to a vulnerability in the session

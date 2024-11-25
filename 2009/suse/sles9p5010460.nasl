@@ -7,12 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.65461");
-  script_version("2023-07-18T05:05:36+0000");
-  script_tag(name:"last_modification", value:"2023-07-18 05:05:36 +0000 (Tue, 18 Jul 2023)");
+  script_version("2024-01-29T05:05:18+0000");
+  script_tag(name:"last_modification", value:"2024-01-29 05:05:18 +0000 (Mon, 29 Jan 2024)");
   script_tag(name:"creation_date", value:"2009-10-10 16:11:46 +0200 (Sat, 10 Oct 2009)");
   script_cve_id("CVE-2004-0689", "CVE-2004-0690", "CVE-2004-0721");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-01-26 17:06:00 +0000 (Fri, 26 Jan 2024)");
   script_name("SLES9: Security update for KDE");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2009 E-Soft Inc.");

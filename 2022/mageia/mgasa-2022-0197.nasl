@@ -8,8 +8,8 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.10.2022.0197");
   script_tag(name:"creation_date", value:"2022-05-23 04:32:41 +0000 (Mon, 23 May 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 
@@ -23,8 +23,8 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2022-0197");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2022-0197.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=30441");
-  script_xref(name:"URL", value:"https://www.nvidia.com/Download/driverResults.aspx/188601/en-us");
   script_xref(name:"URL", value:"https://nvidia.custhelp.com/app/answers/detail/a_id/5353");
+  script_xref(name:"URL", value:"https://www.nvidia.com/Download/driverResults.aspx/188601/en-us");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'nvidia390' package(s) announced via the MGASA-2022-0197 advisory.");
 

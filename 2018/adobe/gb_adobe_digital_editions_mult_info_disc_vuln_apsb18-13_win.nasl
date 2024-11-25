@@ -9,17 +9,17 @@ CPE = "cpe:/a:adobe:digital_editions";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813081");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-27T14:36:53+0000");
   script_cve_id("CVE-2018-4925", "CVE-2018-4926");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-27 14:36:53 +0000 (Tue, 27 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-06-22 13:37:00 +0000 (Fri, 22 Jun 2018)");
   script_tag(name:"creation_date", value:"2018-04-12 11:41:52 +0530 (Thu, 12 Apr 2018)");
   script_tag(name:"qod_type", value:"registry");
-  script_name("Adobe Digital Editions Multiple Information Disclosure Vulnerabilities-APSB18-13 (Windows)");
+  script_name("Adobe Digital Editions Multiple Information Disclosure Vulnerabilities (APSB18-13) - Windows");
 
   script_tag(name:"summary", value:"Adobe Digital Edition is prone to multiple information disclosure vulnerabilities.");
 
@@ -53,8 +53,8 @@ include("host_details.inc");
 include("version_func.inc");
 
 if(!infos = get_app_version_and_location(cpe:CPE, exit_no_version:TRUE)) exit(0);
-digitalVer = infos['version'];
-digitalPath = infos['location'];
+digitalVer = infos["version"];
+digitalPath = infos["location"];
 
 if(version_is_less(version:digitalVer, test_version:"4.5.8"))
 {

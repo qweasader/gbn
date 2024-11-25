@@ -9,16 +9,16 @@ CPE = "cpe:/a:wordpress:wordpress";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808035");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-05-07T05:05:33+0000");
   script_cve_id("CVE-2016-4029", "CVE-2016-6634", "CVE-2016-6635");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-05-07 05:05:33 +0000 (Tue, 07 May 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-11-04 01:29:00 +0000 (Sat, 04 Nov 2017)");
   script_tag(name:"creation_date", value:"2016-05-17 11:24:06 +0530 (Tue, 17 May 2016)");
-  script_name("WordPress Core Multiple Vulnerabilities May16 (Linux)");
+  script_name("WordPress < 4.5 Multiple Vulnerabilities (May 2016) - Linux");
 
   script_tag(name:"summary", value:"WordPress is prone to multiple vulnerabilities.");
 
@@ -55,23 +55,23 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("os_detection.nasl", "gb_wordpress_http_detect.nasl");
   script_mandatory_keys("wordpress/detected", "Host/runs_unixoide");
+
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!wpPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!vers = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_is_less(version:vers, test_version:"4.5")) {
+  report = report_fixed_ver(installed_version:vers, fixed_version:"4.5");
+  security_message(data:report, port:port);
   exit(0);
 }
 
-if(!wpVer = get_app_version(cpe:CPE, port:wpPort)){
-  exit(0);
-}
-
-if(version_is_less(version:wpVer, test_version:"4.5"))
-{
-  report = report_fixed_ver(installed_version:wpVer, fixed_version:"4.5");
-  security_message(data:report, port:wpPort);
-  exit(0);
-}
+exit(99);

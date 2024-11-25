@@ -23,8 +23,8 @@ CPE = "cpe:/a:fckeditor:fckeditor";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111022");
-  script_version("2021-06-17T07:43:22+0000");
-  script_tag(name:"last_modification", value:"2021-06-17 07:43:22 +0000 (Thu, 17 Jun 2021)");
+  script_version("2024-07-19T15:39:06+0000");
+  script_tag(name:"last_modification", value:"2024-07-19 15:39:06 +0000 (Fri, 19 Jul 2024)");
   script_tag(name:"creation_date", value:"2015-07-17 13:24:40 +0200 (Fri, 17 Jul 2015)");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:S/C:P/I:P/A:P");
@@ -32,7 +32,9 @@ if(description)
   script_category(ACT_ATTACK);
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2015 SCHUTZWERK GmbH");
-  script_dependencies("gb_fckeditor_http_detect.nasl");
+  # nb: Additional ones are for http_can_host_php()/http_can_host_asp()
+  script_dependencies("gb_fckeditor_http_detect.nasl", "gb_php_http_detect.nasl",
+                      "gb_microsoft_iis_http_detect.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("fckeditor/http/detected");
 

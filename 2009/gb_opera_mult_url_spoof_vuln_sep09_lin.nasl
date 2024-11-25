@@ -7,14 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800888");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-09T14:47:30+0000");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-09-07 19:45:38 +0200 (Mon, 07 Sep 2009)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-09 03:18:38 +0000 (Fri, 09 Feb 2024)");
   script_cve_id("CVE-2009-3044", "CVE-2009-3045", "CVE-2009-3046",
                 "CVE-2009-3047", "CVE-2009-3048", "CVE-2009-3049");
-  script_name("Opera Multiple URL Spoofing Vulnerabilities - Sep09 (Linux)");
+  script_name("Opera Multiple URL Spoofing Vulnerabilities (Sep 2009) - Linux");
   script_xref(name:"URL", value:"http://www.opera.com/support/kb/view/934/");
   script_xref(name:"URL", value:"http://www.opera.com/support/kb/view/933/");
   script_xref(name:"URL", value:"http://www.opera.com/support/kb/view/929/");

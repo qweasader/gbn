@@ -9,15 +9,15 @@ CPE = "cpe:/a:ibm:db2";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801504");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-21T05:06:27+0000");
+  script_tag(name:"last_modification", value:"2024-02-21 05:06:27 +0000 (Wed, 21 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-09-03 15:47:26 +0200 (Fri, 03 Sep 2010)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 
   script_cve_id("CVE-2010-3196", "CVE-2010-3197");
 
-  script_name("IBM Db2 SYSIBMADM Multiple Vulnerabilities (Sep10)");
+  script_name("IBM Db2 SYSIBMADM Multiple Vulnerabilities (Sep 2010)");
 
   script_xref(name:"URL", value:"http://www-01.ibm.com/support/docview.wss?uid=swg1IC67008");
   script_xref(name:"URL", value:"http://www-01.ibm.com/support/docview.wss?uid=swg21432298");

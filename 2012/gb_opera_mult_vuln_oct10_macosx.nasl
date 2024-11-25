@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802752");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-16T05:06:55+0000");
   script_cve_id("CVE-2010-4043", "CVE-2010-4044", "CVE-2010-4046", "CVE-2010-4045",
                 "CVE-2010-4047", "CVE-2010-4049", "CVE-2010-4048", "CVE-2010-4050");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-04-19 09:41:19 +0530 (Thu, 19 Apr 2012)");
-  script_name("Opera Browser Multiple Vulnerabilities October-10 (Mac OS X)");
+  script_name("Opera Browser Multiple Vulnerabilities (Oct 2010) - Mac OS X");
   script_xref(name:"URL", value:"http://secunia.com/advisories/41740");
   script_xref(name:"URL", value:"http://www.opera.com/support/kb/view/971/");
   script_xref(name:"URL", value:"http://www.opera.com/docs/changelogs/mac/1063/");

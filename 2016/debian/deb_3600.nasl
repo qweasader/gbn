@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.703600");
   script_cve_id("CVE-2016-2818", "CVE-2016-2819", "CVE-2016-2821", "CVE-2016-2822", "CVE-2016-2828", "CVE-2016-2831");
   script_tag(name:"creation_date", value:"2016-06-08 22:00:00 +0000 (Wed, 08 Jun 2016)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-11-08T15:39:48+0000");
+  script_tag(name:"last_modification", value:"2024-11-08 15:39:48 +0000 (Fri, 08 Nov 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-10-30 16:27:00 +0000 (Tue, 30 Oct 2018)");
+  script_tag(name:"severity_date", value:"2016-06-13 16:48:16 +0000 (Mon, 13 Jun 2016)");
 
   script_name("Debian: Security Advisory (DSA-3600-1)");
   script_category(ACT_GATHER_INFO);
@@ -27,7 +27,7 @@ if(description)
   script_xref(name:"Advisory-ID", value:"DSA-3600-1");
   script_xref(name:"URL", value:"https://www.debian.org/security/2016/DSA-3600-1");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-3600");
-  script_xref(name:"URL", value:"https://glandium.org/blog/?p=3622,");
+  script_xref(name:"URL", value:"https://glandium.org/blog/?p=3622");
   script_xref(name:"URL", value:"https://en.wikipedia.org/wiki/Mozilla_software_rebranded_by_Debian");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'firefox-esr' package(s) announced via the DSA-3600-1 advisory.");

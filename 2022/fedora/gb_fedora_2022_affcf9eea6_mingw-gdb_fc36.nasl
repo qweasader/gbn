@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.822825");
-  script_version("2023-10-18T05:05:17+0000");
+  script_version("2024-01-24T14:38:46+0000");
   script_cve_id("CVE-2021-3826");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"last_modification", value:"2024-01-24 14:38:46 +0000 (Wed, 24 Jan 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-09-07 19:44:00 +0000 (Wed, 07 Sep 2022)");
+  script_tag(name:"severity_date", value:"2024-01-22 15:01:00 +0000 (Mon, 22 Jan 2024)");
   script_tag(name:"creation_date", value:"2022-11-08 02:16:47 +0000 (Tue, 08 Nov 2022)");
   script_name("Fedora: Security Advisory for mingw-gdb (FEDORA-2022-affcf9eea6)");
   script_category(ACT_GATHER_INFO);

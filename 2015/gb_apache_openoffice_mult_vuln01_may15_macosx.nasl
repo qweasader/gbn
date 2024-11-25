@@ -9,14 +9,14 @@ CPE = "cpe:/a:apache:openoffice";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805610");
-  script_version("2023-04-21T10:20:09+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2014-3575", "CVE-2014-3524");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-04-21 10:20:09 +0000 (Fri, 21 Apr 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-06-01 12:23:19 +0530 (Mon, 01 Jun 2015)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("Apache OpenOffice Multiple Vulnerabilities -01 May15 (Mac OS X)");
+  script_name("Apache OpenOffice Multiple Vulnerabilities -01 (May 2015) - Mac OS X");
 
   script_tag(name:"summary", value:"Apache OpenOffice is prone to multiple vulnerabilities.");
 

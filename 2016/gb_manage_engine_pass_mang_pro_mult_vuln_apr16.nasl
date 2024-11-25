@@ -9,10 +9,10 @@ CPE = "cpe:/a:manageengine:password_manager_pro";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807677");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-03-04T05:10:24+0000");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 05:10:24 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2016-04-26 16:33:12 +0530 (Tue, 26 Apr 2016)");
   script_name("ManageEngine Password Manager Pro Multiple Vulnerabilities");
 
@@ -58,25 +58,23 @@ if (description)
   script_family("Web application abuses");
   script_dependencies("gb_manage_engine_pass_mang_pro_detect.nasl");
   script_mandatory_keys("ManageEngine/Password_Manager/installed");
-  script_require_ports("Services/www", 7272);
-  script_xref(name:"URL", value:"https://www.manageengine.com/products/passwordmanagerpro/");
+
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-if(!mePort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_in_range(version:version, test_version:"8102", test_version2:"8302")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"8.3 build Version 8303");
+  security_message(data:report, port:port);
   exit(0);
 }
 
-if(!meVer = get_app_version(cpe:CPE, port:mePort)){
-  exit(0);
-}
-
-if((version_in_range(version:meVer, test_version:"8102", test_version2:"8302")))
-{
-  report = report_fixed_ver(installed_version:meVer, fixed_version:"8.3 build Version 8303");
-  security_message(data:report, port:mePort);
-  exit(0);
-}
+exit(99);

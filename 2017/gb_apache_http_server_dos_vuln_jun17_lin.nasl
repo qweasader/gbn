@@ -9,17 +9,17 @@ CPE = "cpe:/a:apache:http_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811216");
-  script_version("2023-10-27T16:11:32+0000");
+  script_version("2024-02-16T05:06:55+0000");
   script_cve_id("CVE-2017-7668");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-04-21 14:40:00 +0000 (Thu, 21 Apr 2022)");
   script_tag(name:"creation_date", value:"2017-06-21 17:42:03 +0530 (Wed, 21 Jun 2017)");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
-  script_name("Apache HTTP Server Denial-Of-Service Vulnerability June17 (Linux)");
+  script_name("Apache HTTP Server Denial-Of-Service Vulnerability (Jun 2017) - Linux");
 
   script_tag(name:"summary", value:"Apache HTTP Server is prone to a denial of service (DoS) vulnerability.");
 

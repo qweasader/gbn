@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801326");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-05-04 09:40:09 +0200 (Tue, 04 May 2010)");
   script_cve_id("CVE-2010-1585");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("Mozilla Firefox Code Execution Vulnerability (Windows) - May10");
+  script_name("Mozilla Firefox Code Execution Vulnerability (May 2010) - Windows");
   script_xref(name:"URL", value:"http://www.securityfocus.com/archive/1/archive/1/510883/100/0/threaded");
   script_xref(name:"URL", value:"http://wizzrss.blat.co.za/2009/11/17/so-much-for-nsiscriptableunescapehtmlparsefragment/");
   script_xref(name:"URL", value:"http://www.security-assessment.com/files/whitepapers/Cross_Context_Scripting_with_Firefox.pdf");

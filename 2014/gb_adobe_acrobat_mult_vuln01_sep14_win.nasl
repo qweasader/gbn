@@ -9,15 +9,15 @@ CPE = "cpe:/a:adobe:acrobat";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804486");
-  script_version("2023-07-14T16:09:26+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2014-0560", "CVE-2014-0561", "CVE-2014-0563", "CVE-2014-0565",
                 "CVE-2014-0566", "CVE-2014-0567", "CVE-2014-0568");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:26 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-09-19 13:51:49 +0530 (Fri, 19 Sep 2014)");
 
-  script_name("Adobe Acrobat Multiple Vulnerabilities-01 Sep14 (Windows)");
+  script_name("Adobe Acrobat Multiple Vulnerabilities-01 (Sep 2014) - Windows");
 
   script_tag(name:"summary", value:"Adobe Acrobat is prone to multiple vulnerabilities.");
 

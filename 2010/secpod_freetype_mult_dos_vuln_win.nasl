@@ -1,41 +1,27 @@
-# Copyright (C) 2010 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2010 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.901142");
-  script_version("2022-05-02T09:35:37+0000");
-  script_tag(name:"last_modification", value:"2022-05-02 09:35:37 +0000 (Mon, 02 May 2022)");
+  script_version("2024-02-22T05:06:55+0000");
+  script_tag(name:"last_modification", value:"2024-02-22 05:06:55 +0000 (Thu, 22 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-09-01 09:34:36 +0200 (Wed, 01 Sep 2010)");
   script_cve_id("CVE-2010-3053", "CVE-2010-2808", "CVE-2010-2807",
                 "CVE-2010-2806", "CVE-2010-2805", "CVE-2010-2541");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_name("FreeType Multiple denial of service vulnerabilities (Windows)");
+  script_name("FreeType <= 2.4.1 Multiple DoS Vulnerabilities - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/40816");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/42285");
   script_xref(name:"URL", value:"http://www.vupen.com/english/advisories/2010/2018");
   script_xref(name:"URL", value:"http://sourceforge.net/projects/freetype/files/freetype2/2.4.2/NEWS/view");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("Denial of Service");
   script_dependencies("secpod_freetype_detect_win.nasl");
   script_mandatory_keys("FreeType/Win/Ver");
@@ -51,13 +37,12 @@ if(description)
     ftmulti.c in the ftmulti demo program and to the 'BOUNDS' macro when
     processing fonts.");
   script_tag(name:"solution", value:"Upgrade to FreeType version 2.4.2 or later.");
-  script_tag(name:"summary", value:"FreeType is prone to multiple Denial of Service vulnerabilities.");
+  script_tag(name:"summary", value:"FreeType is prone to multiple Denial of Service (DoS) vulnerabilities.");
   script_tag(name:"qod_type", value:"registry");
   script_tag(name:"solution_type", value:"VendorFix");
-  script_xref(name:"URL", value:"http://www.freetype.org/");
+
   exit(0);
 }
-
 
 include("version_func.inc");
 

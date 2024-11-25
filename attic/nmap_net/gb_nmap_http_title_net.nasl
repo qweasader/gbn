@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.104100");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2011-06-01 16:32:46 +0200 (Wed, 01 Jun 2011)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -18,20 +18,8 @@ if(description)
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Nmap NSE net");
 
-  script_tag(name:"summary", value:"Shows the title of the default page of a web server.
-
-The script will follow no more than one HTTP redirect, and only if the redirection leads to the same
-host. The script may send a DNS query to determine whether the host the redirect leads to has the
-same IP address as the original target.
-
-SYNTAX:
-
-http.pipeline:  If set, it represents the number of HTTP requests that'll be
-pipelined (ie, sent in a single request). This can be set low to make
-debugging easier, or it can be set high to test how a server reacts (its
-chosen max is ignored).
-
-http-max-cache-size:  The maximum memory size (in bytes) of the cache.");
+  script_tag(name:"summary", value:"This VT has been deprecated and is therefore no longer
+  functional.");
 
   script_tag(name:"deprecated", value:TRUE);
 

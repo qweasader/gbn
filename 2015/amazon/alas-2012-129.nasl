@@ -23,10 +23,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.120487");
   script_cve_id("CVE-2012-3488", "CVE-2012-3489");
   script_tag(name:"creation_date", value:"2015-09-08 11:27:35 +0000 (Tue, 08 Sep 2015)");
-  script_version("2022-01-06T14:03:07+0000");
-  script_tag(name:"last_modification", value:"2022-01-06 14:03:07 +0000 (Thu, 06 Jan 2022)");
+  script_version("2024-02-16T05:06:55+0000");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"cvss_base", value:"4.9");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-15 03:22:42 +0000 (Thu, 15 Feb 2024)");
 
   script_name("Amazon Linux: Security Advisory (ALAS-2012-129)");
   script_category(ACT_GATHER_INFO);

@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2005 SecuriTeam
+# SPDX-FileCopyrightText: Reworked, improved and extended detection code and pattern since 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -7,8 +8,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10281");
-  script_version("2023-12-15T16:10:08+0000");
-  script_tag(name:"last_modification", value:"2023-12-15 16:10:08 +0000 (Fri, 15 Dec 2023)");
+  script_version("2024-09-27T05:05:23+0000");
+  script_tag(name:"last_modification", value:"2024-09-27 05:05:23 +0000 (Fri, 27 Sep 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -118,6 +119,11 @@ if( strlen( banner ) ) {
       eregmatch( pattern:'Model name\\s*:\\s(NPort )?([^ \r\n]+)', string:banner ) ) {
     set_kb_item( name:"telnet/moxa/nport/detected", value:TRUE );
     guess += '\n- Moxa NPort';
+  }
+
+  if( banner =~ "OnCell G[0-9]{4}" ) {
+    set_kb_item( name:"telnet/moxa/oncell/detected", value:TRUE );
+    guess += '\n- Moxa OnCell';
   }
 
   if( "Welcome to V" >< banner && ( "VibNode" >< banner || "VIBNODE" >< banner ) ) {
@@ -358,6 +364,10 @@ if( strlen( banner ) ) {
     guess += '\n- DrayTek Vigor Device';
   }
 
+  # Grandstream GXP2124 Command Shell Copyright 2011
+  # Grandstream GXP2000 Command Shell
+  # Grandstream GXP1405 Command Shell Copyright 2011
+  # Grandstream GXP1200 Command Shell
   if( "Grandstream GXP" >< banner ) {
     set_kb_item( name:"telnet/grandstream/gxp/detected", value:TRUE );
     guess += '\n- Grandstream GXP Series IP Phone';
@@ -430,6 +440,11 @@ if( strlen( banner ) ) {
   if( banner =~ "Welcome on mldonkey command-line" ) {
     set_kb_item( name:"telnet/mldonkey/detected", value:TRUE );
     guess += '\n- MLDonkey';
+  }
+
+  if( banner =~ "^EVENT" && "WatchGuard Authentication Gateway SSO agent" >< banner ) {
+    set_kb_item( name:"telnet/watchguard/sso_agent/detected", value:TRUE );
+    guess += '\n- WatchGuard SSO Agent';
   }
 
   report = 'Remote Telnet banner:\n\n' + banner;

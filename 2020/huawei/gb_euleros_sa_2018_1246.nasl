@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2018.1246");
   script_cve_id("CVE-2017-18203", "CVE-2017-18208", "CVE-2018-1000026", "CVE-2018-6927");
   script_tag(name:"creation_date", value:"2020-01-23 11:18:40 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-10-05T05:05:26+0000");
-  script_tag(name:"last_modification", value:"2023-10-05 05:05:26 +0000 (Thu, 05 Oct 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-10-03 15:39:00 +0000 (Tue, 03 Oct 2023)");
+  script_tag(name:"severity_date", value:"2018-03-16 14:29:55 +0000 (Fri, 16 Mar 2018)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2018-1246)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRT\-2\.5\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2018-1246");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2018-1246");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2018-1246");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2018-1246 advisory.");
 

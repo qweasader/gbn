@@ -9,16 +9,16 @@ CPE = "cpe:/a:mozilla:firefox_esr";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832531");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2023-5169", "CVE-2023-5171", "CVE-2023-5176");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-09-29 15:17:00 +0000 (Fri, 29 Sep 2023)");
   script_tag(name:"creation_date", value:"2023-09-27 16:29:46 +0530 (Wed, 27 Sep 2023)");
-  script_name("Mozilla Firefox ESR Security Update (mfsa_2023-41_2023-43) - Mac OS X");
+  script_name("Mozilla Firefox ESR Security Advisories (MFSA2023-41, MFSA2023-43) - Mac OS X");
 
   script_tag(name:"summary", value:"Mozilla Firefox ESR is prone to
   multiple vulnerabilities.");

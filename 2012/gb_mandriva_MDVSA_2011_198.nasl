@@ -8,11 +8,14 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.mandriva.com/security-announce/2012-01/msg00000.php");
   script_oid("1.3.6.1.4.1.25623.1.0.831522");
-  script_version("2023-11-02T05:05:26+0000");
-  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_version("2024-02-09T05:06:25+0000");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-01-09 13:30:32 +0530 (Mon, 09 Jan 2012)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-09 02:27:12 +0000 (Fri, 09 Feb 2024)");
   script_xref(name:"MDVSA", value:"2011:198");
   script_cve_id("CVE-2011-4107", "CVE-2011-4634", "CVE-2011-4782", "CVE-2011-4780");
   script_name("Mandriva Update for phpmyadmin MDVSA-2011:198 (phpmyadmin)");

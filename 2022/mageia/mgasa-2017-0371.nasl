@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2017.0371");
   script_cve_id("CVE-2017-0898", "CVE-2017-10784", "CVE-2017-14033", "CVE-2017-14064");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-05-13 18:48:00 +0000 (Mon, 13 May 2019)");
+  script_tag(name:"severity_date", value:"2017-10-04 17:31:57 +0000 (Wed, 04 Oct 2017)");
 
   script_name("Mageia: Security Advisory (MGASA-2017-0371)");
   script_category(ACT_GATHER_INFO);
@@ -27,13 +27,13 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2017-0371");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2017-0371.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=21678");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/65IMHHGWAQTSEIF7HZMQVPVRGFTO7YA3/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/UFJE2REXNRTPGIHSNPRSAWTVCLFMRJZT/");
+  script_xref(name:"URL", value:"https://www.ruby-lang.org/en/news/2017/09/14/json-heap-exposure-cve-2017-14064/");
+  script_xref(name:"URL", value:"https://www.ruby-lang.org/en/news/2017/09/14/openssl-asn1-buffer-underrun-cve-2017-14033/");
+  script_xref(name:"URL", value:"https://www.ruby-lang.org/en/news/2017/09/14/ruby-2-2-8-released/");
   script_xref(name:"URL", value:"https://www.ruby-lang.org/en/news/2017/09/14/sprintf-buffer-underrun-cve-2017-0898/");
   script_xref(name:"URL", value:"https://www.ruby-lang.org/en/news/2017/09/14/webrick-basic-auth-escape-sequence-injection-cve-2017-10784/");
-  script_xref(name:"URL", value:"https://www.ruby-lang.org/en/news/2017/09/14/openssl-asn1-buffer-underrun-cve-2017-14033/");
-  script_xref(name:"URL", value:"https://www.ruby-lang.org/en/news/2017/09/14/json-heap-exposure-cve-2017-14064/");
-  script_xref(name:"URL", value:"https://www.ruby-lang.org/en/news/2017/09/14/ruby-2-2-8-released/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/UFJE2REXNRTPGIHSNPRSAWTVCLFMRJZT/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/65IMHHGWAQTSEIF7HZMQVPVRGFTO7YA3/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'ruby, ruby-json' package(s) announced via the MGASA-2017-0371 advisory.");
 

@@ -9,18 +9,17 @@ CPE = "cpe:/a:dokuwiki:dokuwiki";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800989");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2010-02-19 11:58:13 +0100 (Fri, 19 Feb 2010)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_cve_id("CVE-2010-0289");
-  script_name("DokuWiki Multiple Cross Site Request Forgery Vulnerabilities");
+  script_name("DokuWiki Multiple CSRF Vulnerabilities");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_dokuwiki_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("dokuwiki/installed");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/38205");
@@ -46,8 +45,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_less( version:vers, test_version:"2009-12-25c" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"2009-12-25c" );

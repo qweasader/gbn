@@ -7,7 +7,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803640");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-02-28T05:05:37+0000");
   script_cve_id("CVE-2012-4188", "CVE-2012-4187", "CVE-2012-4186", "CVE-2012-4185",
                 "CVE-2012-4184", "CVE-2012-3982", "CVE-2012-3990", "CVE-2012-3988",
                 "CVE-2012-3986", "CVE-2012-3991", "CVE-2012-3992", "CVE-2012-4183",
@@ -15,9 +15,9 @@ if(description)
                 "CVE-2012-3995", "CVE-2012-3994", "CVE-2012-3993", "CVE-2012-3983");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-28 05:05:37 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-10-15 17:43:07 +0530 (Mon, 15 Oct 2012)");
-  script_name("Mozilla Thunderbird ESR Multiple Vulnerabilities-01 (Windows)");
+  script_name("Mozilla Thunderbird ESR Multiple Vulnerabilities - 01 - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/50856");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/55856");
   script_xref(name:"URL", value:"http://secunia.com/advisories/50935");

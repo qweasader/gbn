@@ -9,8 +9,8 @@ CPE = "cpe:/a:imagemagick:imagemagick";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107205");
-  script_version("2023-10-27T16:11:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_version("2024-02-15T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-05-23 19:30:51 +0200 (Tue, 23 May 2017)");
   script_cve_id("CVE-2017-9144");
 
@@ -21,7 +21,7 @@ if(description)
   script_tag(name:"severity_date", value:"2020-10-15 16:12:00 +0000 (Thu, 15 Oct 2020)");
 
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("ImageMagick coders/rle.c Denial of Service Vulnerability (Mac OS X)");
+  script_name("ImageMagick coders/rle.c Denial of Service Vulnerability - Mac OS X");
 
   script_tag(name:"summary", value:"ImageMagick is prone to a denial of service (DoS) vulnerability.");
 

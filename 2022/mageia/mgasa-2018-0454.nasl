@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2018.0454");
   script_cve_id("CVE-2017-12122", "CVE-2017-14440", "CVE-2017-14441", "CVE-2017-14442", "CVE-2017-14448", "CVE-2017-14449", "CVE-2017-14450", "CVE-2018-3837", "CVE-2018-3838", "CVE-2018-3839", "CVE-2018-3977");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
+  script_tag(name:"severity_date", value:"2018-12-13 20:39:36 +0000 (Thu, 13 Dec 2018)");
 
   script_name("Mageia: Security Advisory (MGASA-2018-0454)");
   script_category(ACT_GATHER_INFO);
@@ -27,6 +27,7 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2018-0454");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2018-0454.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=22769");
+  script_xref(name:"URL", value:"https://hg.libsdl.org/SDL/file/8feb5da6f2fb/WhatsNew.txt");
   script_xref(name:"URL", value:"https://talosintelligence.com/vulnerability_reports/TALOS-2017-0488");
   script_xref(name:"URL", value:"https://talosintelligence.com/vulnerability_reports/TALOS-2017-0489");
   script_xref(name:"URL", value:"https://talosintelligence.com/vulnerability_reports/TALOS-2017-0490");
@@ -38,7 +39,6 @@ if(description)
   script_xref(name:"URL", value:"https://talosintelligence.com/vulnerability_reports/TALOS-2018-0520");
   script_xref(name:"URL", value:"https://talosintelligence.com/vulnerability_reports/TALOS-2018-0521");
   script_xref(name:"URL", value:"https://talosintelligence.com/vulnerability_reports/TALOS-2018-0645");
-  script_xref(name:"URL", value:"https://hg.libsdl.org/SDL/file/8feb5da6f2fb/WhatsNew.txt");
   script_xref(name:"URL", value:"https://www.libsdl.org/projects/SDL_image/");
   script_xref(name:"URL", value:"https://www.libsdl.org/projects/SDL_mixer/");
 

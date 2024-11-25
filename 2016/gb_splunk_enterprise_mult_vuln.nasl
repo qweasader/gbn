@@ -9,8 +9,8 @@ CPE = 'cpe:/a:splunk:splunk';
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106263");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-01-25T14:38:15+0000");
+  script_tag(name:"last_modification", value:"2024-01-25 14:38:15 +0000 (Thu, 25 Jan 2024)");
   script_tag(name:"creation_date", value:"2016-09-19 11:58:34 +0700 (Mon, 19 Sep 2016)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
@@ -24,28 +24,29 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Splunk Enterprise Multiple Vulnerabilities");
+  script_name("Splunk 5.x - 6.4.x Multiple Vulnerabilities");
 
   script_category(ACT_GATHER_INFO);
+
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_splunk_detect.nasl");
-  script_mandatory_keys("Splunk/installed");
+  script_dependencies("gb_splunk_http_detect.nasl");
+  script_mandatory_keys("splunk/detected");
 
   script_tag(name:"summary", value:"Splunk Enterprise is prone to multiple vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"Splunk Enterprise is affected by multiple vulnerabilities:
+  script_tag(name:"insight", value:"The following vulnerabilities exist:
 
-Splunk Enterprise is affected by multiple vulnerabilities in libarchive (CVE-2016-1541, CVE-2015-2304,
-CVE-2013-0211).
+  - CVE-2016-1541, CVE-2015-2304, CVE-2013-0211: Multiple vulnerabilities in libarchive
 
-Splunk Enterprise contains a cross-site scripting vulnerability");
+  - Cross-site scripting (XSS)");
 
-  script_tag(name:"affected", value:"Splunk Enterprise 6.4.x, 6.3.x, 6.2.x, 6.1.x, 6.0.x and 5.0.x");
+  script_tag(name:"affected", value:"Splunk Enterprise 5.0.x through 6.4.x.");
 
-  script_tag(name:"solution", value:"Update to version 6.4.2, 6.3.6, 6.2.10, 6.1.11, 6.0.12, 5.0.16 or later.");
+  script_tag(name:"solution", value:"Update to version 5.0.16, 6.0.12, 6.1.11, 6.2.10, 6.3.6, 6.4.2
+  or later.");
 
   script_xref(name:"URL", value:"https://www.splunk.com/view/SP-CAAAPQM");
 
@@ -58,12 +59,15 @@ include("version_func.inc");
 if (!port = get_app_port(cpe: CPE))
   exit(0);
 
-if (!version = get_app_version(cpe: CPE, port: port))
+if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE))
   exit(0);
+
+version = infos["version"];
+location = infos["location"];
 
 if (version =~ "^6\.4") {
   if (version_is_less(version: version, test_version: "6.4.2")) {
-    report = report_fixed_ver(installed_version: version, fixed_version: "6.4.2");
+    report = report_fixed_ver(installed_version: version, fixed_version: "6.4.2", install_path: location);
     security_message(port: port, data: report);
     exit(0);
   }
@@ -71,7 +75,7 @@ if (version =~ "^6\.4") {
 
 if (version =~ "^6\.3") {
   if (version_is_less(version: version, test_version: "6.3.6")) {
-    report = report_fixed_ver(installed_version: version, fixed_version: "6.3.6");
+    report = report_fixed_ver(installed_version: version, fixed_version: "6.3.6", install_path: location);
     security_message(port: port, data: report);
     exit(0);
   }
@@ -80,7 +84,7 @@ if (version =~ "^6\.3") {
 
 if (version =~ "^6\.2") {
   if (version_is_less(version: version, test_version: "6.2.10")) {
-    report = report_fixed_ver(installed_version: version, fixed_version: "6.2.10");
+    report = report_fixed_ver(installed_version: version, fixed_version: "6.2.10", install_path: location);
     security_message(port: port, data: report);
     exit(0);
   }
@@ -88,7 +92,7 @@ if (version =~ "^6\.2") {
 
 if (version =~ "^6\.1") {
   if (version_is_less(version: version, test_version: "6.1.11")) {
-    report = report_fixed_ver(installed_version: version, fixed_version: "6.1.11");
+    report = report_fixed_ver(installed_version: version, fixed_version: "6.1.11", install_path: location);
     security_message(port: port, data: report);
     exit(0);
   }
@@ -96,16 +100,16 @@ if (version =~ "^6\.1") {
 
 if (version =~ "^6\.0") {
   if (version_is_less(version: version, test_version: "6.0.12")) {
-    report = report_fixed_ver(installed_version: version, fixed_version: "6.0.12");
+    report = report_fixed_ver(installed_version: version, fixed_version: "6.0.12", install_path: location);
     security_message(port: port, data: report);
     exit(0);
   }
 }
 
 if (version_is_less(version: version, test_version: "5.0.16")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "5.0.16");
+  report = report_fixed_ver(installed_version: version, fixed_version: "5.0.16", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }
 
-exit(0);
+exit(99);

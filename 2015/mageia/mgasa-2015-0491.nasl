@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131167");
   script_cve_id("CVE-2015-8612");
   script_tag(name:"creation_date", value:"2015-12-29 09:15:49 +0000 (Tue, 29 Dec 2015)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-01-17 11:29:00 +0000 (Thu, 17 Jan 2019)");
+  script_tag(name:"severity_date", value:"2016-01-14 15:30:29 +0000 (Thu, 14 Jan 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2015-0491)");
   script_category(ACT_GATHER_INFO);
@@ -26,8 +26,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2015-0491");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2015-0491.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17361");
   script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2015/12/19/1");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17361");
   script_xref(name:"URL", value:"https://github.com/blueman-project/blueman/issues/416");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'blueman' package(s) announced via the MGASA-2015-0491 advisory.");

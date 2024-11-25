@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.130032");
   script_cve_id("CVE-2015-1291", "CVE-2015-1292", "CVE-2015-1293", "CVE-2015-1294", "CVE-2015-1295", "CVE-2015-1296", "CVE-2015-1297", "CVE-2015-1298", "CVE-2015-1299", "CVE-2015-1300", "CVE-2015-1301");
   script_tag(name:"creation_date", value:"2015-10-15 07:41:47 +0000 (Thu, 15 Oct 2015)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
@@ -23,12 +23,12 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2015-0356");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2015-0356.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16688");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2015/07/stable-channel-update_28.html");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2015/08/stable-channel-update.html");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2015/08/stable-channel-update_11.html");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2015/08/stable-channel-update_20.html");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2015/09/stable-channel-update.html");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16688");
   script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2015-1712.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'chromium-browser-stable' package(s) announced via the MGASA-2015-0356 advisory.");

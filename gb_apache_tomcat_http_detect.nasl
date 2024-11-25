@@ -7,16 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800371");
-  script_version("2023-11-10T05:05:18+0000");
+  script_version("2024-06-11T05:05:40+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-11-10 05:05:18 +0000 (Fri, 10 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-06-11 05:05:40 +0000 (Tue, 11 Jun 2024)");
   script_tag(name:"creation_date", value:"2009-03-18 14:25:01 +0100 (Wed, 18 Mar 2009)");
   script_name("Apache Tomcat Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Product detection");
-  script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "httpver.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 8080);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
@@ -183,6 +184,14 @@ if( identified ) {
 
   vers = "unknown";
   install = port + "/tcp";
+
+  # nb:
+  # - To tell http_can_host_asp and http_can_host_php from http_func.inc that the service is
+  #   supporting these
+  # - External resources seems to indicate that Tomcat supports both (either directly or via some
+  #   external integration or if used as some kind of proxy)
+  replace_kb_item( name:"www/" + port + "/can_host_php", value:"yes" );
+  replace_kb_item( name:"www/" + port + "/can_host_asp", value:"yes" );
 
   version = eregmatch( pattern:verPattern, string:res );
 

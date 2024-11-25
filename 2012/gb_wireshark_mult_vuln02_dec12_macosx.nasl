@@ -4,16 +4,18 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
+CPE = "cpe:/a:wireshark:wireshark";
+
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803135");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-07-23T05:05:30+0000");
   script_cve_id("CVE-2012-4295", "CVE-2012-4294", "CVE-2012-4287");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-23 05:05:30 +0000 (Tue, 23 Jul 2024)");
   script_tag(name:"creation_date", value:"2012-12-28 14:58:22 +0530 (Fri, 28 Dec 2012)");
-  script_name("Wireshark Multiple Vulnerabilities-02 Dec 2012 (Mac OS X)");
+  script_name("Wireshark Multiple Vulnerabilities-02 (Dec 2012) - Mac OS X");
   script_xref(name:"URL", value:"http://secunia.com/advisories/50276/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/55035");
   script_xref(name:"URL", value:"http://securitytracker.com/id/1027404");
@@ -26,7 +28,7 @@ if(description)
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("General");
   script_dependencies("gb_wireshark_detect_macosx.nasl");
-  script_mandatory_keys("Wireshark/MacOSX/Version");
+  script_mandatory_keys("wireshark/macosx/detected");
   script_tag(name:"impact", value:"Successful exploitation will allow remote attackers to execute arbitrary code
   in the context of the application, crash affected application or to consume
   excessive CPU resources.");
@@ -45,15 +47,17 @@ if(description)
   exit(0);
 }
 
+include("host_details.inc");
 include("version_func.inc");
 
-sharkVer = get_kb_item("Wireshark/MacOSX/Version");
-if(!sharkVer){
+if(!infos = get_app_version_and_location(cpe:CPE, exit_no_version:TRUE))
   exit(0);
-}
 
-if(version_in_range(version:sharkVer, test_version:"1.8.0", test_version2:"1.8.1")) {
-  report = report_fixed_ver(installed_version:sharkVer, vulnerable_range:"1.8.0 - 1.8.1");
+version = infos["version"];
+location = infos["location"];
+
+if(version_in_range(version:version, test_version:"1.8.0", test_version2:"1.8.1")) {
+  report = report_fixed_ver(installed_version:version, vulnerable_range:"1.8.0 - 1.8.1", install_path:location);
   security_message(port:0, data:report);
   exit(0);
 }

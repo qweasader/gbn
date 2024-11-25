@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.703265");
   script_cve_id("CVE-2014-2681", "CVE-2014-2682", "CVE-2014-2683", "CVE-2014-2684", "CVE-2014-2685", "CVE-2014-4914", "CVE-2014-8088", "CVE-2014-8089", "CVE-2015-3154");
   script_tag(name:"creation_date", value:"2015-05-19 22:00:00 +0000 (Tue, 19 May 2015)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-02T05:06:05+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:05 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-02-20 15:04:00 +0000 (Thu, 20 Feb 2020)");
+  script_tag(name:"severity_date", value:"2020-02-20 15:04:53 +0000 (Thu, 20 Feb 2020)");
 
   script_name("Debian: Security Advisory (DSA-3265-1)");
   script_category(ACT_GATHER_INFO);

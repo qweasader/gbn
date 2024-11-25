@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2015.0277");
   script_cve_id("CVE-2015-2590", "CVE-2015-2601", "CVE-2015-2621", "CVE-2015-2625", "CVE-2015-2628", "CVE-2015-2632", "CVE-2015-2808", "CVE-2015-4000", "CVE-2015-4731", "CVE-2015-4732", "CVE-2015-4733", "CVE-2015-4748", "CVE-2015-4749", "CVE-2015-4760");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-01-20 15:15:00 +0000 (Wed, 20 Jan 2021)");
+  script_tag(name:"severity_date", value:"2024-07-16 17:43:11 +0000 (Tue, 16 Jul 2024)");
 
   script_name("Mageia: Security Advisory (MGASA-2015-0277)");
   script_category(ACT_GATHER_INFO);
@@ -26,12 +26,12 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2015-0277");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2015-0277.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16388");
-  script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=1207101#c11");
-  script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=1223211#c33");
   script_xref(name:"URL", value:"http://blog.fuseyism.com/index.php/2015/07/19/icedtea-2-6-0-for-openjdk-7-released/");
   script_xref(name:"URL", value:"http://blog.fuseyism.com/index.php/2015/07/21/security-icedtea-2-6-1-for-openjdk-7-released/");
   script_xref(name:"URL", value:"http://www.oracle.com/technetwork/topics/security/cpujul2015-2367936.html");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16388");
+  script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=1207101#c11");
+  script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=1223211#c33");
   script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2015-1229.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'java-1.7.0-openjdk' package(s) announced via the MGASA-2015-0277 advisory.");
@@ -98,6 +98,8 @@ address resolves rather than for the IP address (CVE-2015-2625)");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

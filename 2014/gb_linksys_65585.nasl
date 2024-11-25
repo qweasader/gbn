@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103909");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-02-18 12:42:30 +0100 (Tue, 18 Feb 2014)");
 
-  script_name("Multiple Linksys Devices Multiple Remote Code Execution Vulnerabilities");
+  script_name("Multiple Linksys Devices Multiple RCE Vulnerabilities");
 
   script_category(ACT_ATTACK);
   script_family("Web application abuses");
@@ -31,8 +31,8 @@ if(description)
 
   script_tag(name:"solution", value:"Ask the Vendor for an update.");
 
-  script_tag(name:"summary", value:"Multiple Linksys devices are prone to multiple remote code-execution
-  vulnerabilities.");
+  script_tag(name:"summary", value:"Multiple Linksys devices are prone to multiple remote code
+  execution (RCE) vulnerabilities.");
 
   script_tag(name:"affected", value:"Linksys E4200, E3200, E3000, E2500, E2100L, E2000, E1550, E1500, E1200,
   E1000, E900, E300, WAG320N, WAP300N, WAP610N, WES610N, WET610N, WRT610N, WRT600N, WRT400N, WRT320N, WRT160N,

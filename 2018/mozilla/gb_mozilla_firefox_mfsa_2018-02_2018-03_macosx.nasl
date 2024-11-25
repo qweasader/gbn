@@ -1,29 +1,15 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mozilla:firefox";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812669");
-  script_version("2021-09-09T12:52:45+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2018-5091", "CVE-2018-5092", "CVE-2018-5093", "CVE-2018-5094",
                 "CVE-2018-5095", "CVE-2018-5097", "CVE-2018-5098", "CVE-2018-5099",
                 "CVE-2018-5100", "CVE-2018-5101", "CVE-2018-5102", "CVE-2018-5103",
@@ -34,12 +20,12 @@ if(description)
                 "CVE-2018-5121", "CVE-2018-5122", "CVE-2018-5090", "CVE-2018-5089");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-09-09 12:52:45 +0000 (Thu, 09 Sep 2021)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-06-25 17:28:00 +0000 (Mon, 25 Jun 2018)");
   script_tag(name:"creation_date", value:"2018-01-24 12:35:29 +0530 (Wed, 24 Jan 2018)");
-  script_name("Mozilla Firefox Security Update (mfsa_2018-02_2018-03) - Mac OS X");
+  script_name("Mozilla Firefox Security Advisories (MFSA2018-02, MFSA2018-03) - Mac OS X");
 
   script_tag(name:"summary", value:"Mozilla Firefox is prone to multiple vulnerabilities.");
 
@@ -97,7 +83,7 @@ if(description)
   script_tag(name:"qod_type", value:"executable_version");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2018-02/");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("General");
   script_dependencies("gb_mozilla_prdts_detect_macosx.nasl");
   script_mandatory_keys("Mozilla/Firefox/MacOSX/Version");

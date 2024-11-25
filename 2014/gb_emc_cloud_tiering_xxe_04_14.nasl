@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103931");
-  script_version("2023-07-13T05:06:09+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2014-0644");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-13 05:06:09 +0000 (Thu, 13 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-04-01 11:51:50 +0200 (Tue, 01 Apr 2014)");
   script_name("EMC Cloud Tiering Appliance v10.0 Unauthenticated XXE Arbitrary File Read Vulnerability - Active Check");
   script_category(ACT_ATTACK);
@@ -26,7 +26,7 @@ if(description)
   script_xref(name:"URL", value:"https://seclists.org/fulldisclosure/2014/Mar/426");
 
   script_tag(name:"summary", value:"EMC Cloud Tiering Appliance (CTA) is susceptible to an
-  unauthenticated XML External Entity (XXE) vulnerability.");
+  unauthenticated XML external entity (XXE) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Sends a crafted HTTP POST request and checks the response.");
 

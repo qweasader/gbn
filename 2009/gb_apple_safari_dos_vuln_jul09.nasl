@@ -9,13 +9,13 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800656");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-07-12 15:16:55 +0200 (Sun, 12 Jul 2009)");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:P");
   script_cve_id("CVE-2009-2420", "CVE-2009-2421");
-  script_name("Apple Safari Denial Of Service Vulnerability - Jul09");
+  script_name("Apple Safari Denial Of Service Vulnerability (Jul 2009)");
   script_xref(name:"URL", value:"http://www.securityfocus.com/archive/1/504479");
 
   script_category(ACT_GATHER_INFO);

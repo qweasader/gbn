@@ -9,8 +9,8 @@ CPE = "cpe:/a:advancedcustomfields:advanced_custom_fields";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127681");
-  script_version("2024-01-12T16:12:12+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-10-31T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-10-31 05:05:48 +0000 (Thu, 31 Oct 2024)");
   script_tag(name:"creation_date", value:"2024-01-09 12:20:45 +0000 (Tue, 09 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
@@ -33,8 +33,8 @@ if (description)
   script_dependencies("gb_wordpress_plugin_http_detect.nasl");
   script_mandatory_keys("wordpress/plugin/advanced-custom-fields/detected");
 
-  script_tag(name:"summary", value:"The WordPress plugin 'Advanced Custom Fields' is prone to a
-  cross-site scripting (XSS) vulnerability.");
+  script_tag(name:"summary", value:"The WordPress plugin 'Advanced Custom Fields' plugin is prone to
+  a cross-site scripting (XSS) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
@@ -45,7 +45,7 @@ if (description)
   script_tag(name:"insight", value:"Insufficient input sanitization and output escaping of
   'post_status'.");
 
-  script_tag(name:"affected", value:"WordPress Advanced Custom Fields versions 5.8.10 through
+  script_tag(name:"affected", value:"WordPress Advanced Custom Fields plugin versions 5.8.10 through
   5.12.5.");
 
   script_tag(name:"solution", value:"Update to version 5.12.6 or later.");

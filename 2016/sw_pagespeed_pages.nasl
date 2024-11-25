@@ -7,34 +7,39 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111076");
-  script_version("2023-07-26T05:05:09+0000");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_version("2024-03-08T15:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-08 15:37:10 +0000 (Fri, 08 Mar 2024)");
   script_tag(name:"creation_date", value:"2016-01-16 16:00:00 +0100 (Sat, 16 Jan 2016)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
+
+  script_tag(name:"qod_type", value:"remote_banner");
+
+  script_tag(name:"solution_type", value:"Mitigation");
+
   script_name("PageSpeed Modules (mod_pagespeed/ngx_pagespeed) Admin Pages accessible");
+
   script_category(ACT_GATHER_INFO);
+
   script_copyright("Copyright (C) 2016 SCHUTZWERK GmbH");
   script_family("Web application abuses");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
-  script_tag(name:"summary", value:"The script attempts to identify Admin Pages of the
-  PageSpeed Modules (mod_pagespeed/ngx_pagespeed)");
+  script_tag(name:"summary", value:"The script attempts to identify Admin Pages of the PageSpeed
+  Modules (mod_pagespeed/ngx_pagespeed).");
 
   script_tag(name:"vuldetect", value:"Check the response if Admin Pages are enabled.");
 
-  script_tag(name:"impact", value:"Based on the information shown an attacker might be able to gather additional info about
-  the structure of the system and its applications.");
+  script_tag(name:"impact", value:"Based on the information shown an attacker might be able to
+  gather additional info about the structure of the system and its applications.");
 
-  script_tag(name:"affected", value:"Webservers with a PageSpeed Module (mod_pagespeed/ngx_pagespeed) loaded and
-  missing restrictions to the Admin Pages.");
+  script_tag(name:"affected", value:"Webservers with a PageSpeed Module
+  (mod_pagespeed/ngx_pagespeed) loaded and missing restrictions to the Admin Pages.");
 
-  script_tag(name:"solution", value:"Restrict access to the Admin Pages for authorized systems only.");
-
-  script_tag(name:"solution_type", value:"Mitigation");
-  script_tag(name:"qod_type", value:"remote_banner");
+  script_tag(name:"solution", value:"Restrict access to the Admin Pages for authorized systems
+  only.");
 
   exit(0);
 }

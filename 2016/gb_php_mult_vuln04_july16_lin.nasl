@@ -1,38 +1,24 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:php:php";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808604");
-  script_version("2022-04-13T13:17:10+0000");
+  script_version("2024-02-23T14:36:45+0000");
   script_cve_id("CVE-2015-8867", "CVE-2015-8876", "CVE-2015-8873", "CVE-2015-8835");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-04-13 13:17:10 +0000 (Wed, 13 Apr 2022)");
+  script_tag(name:"last_modification", value:"2024-02-23 14:36:45 +0000 (Fri, 23 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-02-14 18:48:00 +0000 (Thu, 14 Feb 2019)");
   script_tag(name:"creation_date", value:"2016-07-14 12:14:00 +0530 (Thu, 14 Jul 2016)");
-  script_name("PHP Multiple Vulnerabilities - 04 - Jul16 (Linux)");
+  script_name("PHP < 5.4.44, 5.5.x < 5.5.28, 5.6.x < 5.6.12 Multiple Vulnerabilities (Jul 2016) - Linux");
 
   script_tag(name:"summary", value:"PHP is prone to multiple vulnerabilities.");
 
@@ -54,8 +40,7 @@ if(description)
   script_tag(name:"affected", value:"PHP versions prior to 5.4.44, 5.5.x before
   5.5.28, and 5.6.x before 5.6.12 on Linux");
 
-  script_tag(name:"solution", value:"Update to PHP version 5.4.44,
-  or 5.5.28, or 5.6.12, or later.");
+  script_tag(name:"solution", value:"Update to version 5.4.44, 5.5.28, 5.6.12 or later.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
@@ -66,7 +51,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/84426");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/90712");
 
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Web application abuses");
   script_dependencies("gb_php_ssh_login_detect.nasl", "gb_php_http_detect.nasl", "os_detection.nasl");

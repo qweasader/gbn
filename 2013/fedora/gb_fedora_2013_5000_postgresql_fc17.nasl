@@ -7,13 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.865544");
-  script_version("2023-06-22T10:34:15+0000");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_version("2024-02-16T05:06:55+0000");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-04-08 10:35:21 +0530 (Mon, 08 Apr 2013)");
   script_cve_id("CVE-2013-1899", "CVE-2013-1900", "CVE-2013-1901", "CVE-2013-0255",
                 "CVE-2012-3488", "CVE-2012-3489", "CVE-2012-2143", "CVE-2012-2655");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-15 03:22:42 +0000 (Thu, 15 Feb 2024)");
   script_name("Fedora Update for postgresql FEDORA-2013-5000");
   script_xref(name:"FEDORA", value:"2013-5000");
   script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2013-April/101519.html");

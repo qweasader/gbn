@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113228");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-02-15T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2018-07-12 10:10:32 +0200 (Thu, 12 Jul 2018)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -22,7 +22,7 @@ if( description )
 
   script_cve_id("CVE-2018-10890", "CVE-2018-10891");
 
-  script_name("Moodle CMS <= 3.1.12, 3.2.x, 3.3.x <= 3.3.6, 3.4.x <= 3.4.3, 3.5.0 Multiple Vulnerabilities (Linux)");
+  script_name("Moodle CMS <= 3.1.12, 3.2.x, 3.3.x <= 3.3.6, 3.4.x <= 3.4.3, 3.5.0 Multiple Vulnerabilities - Linux");
 
   script_category(ACT_GATHER_INFO);
 

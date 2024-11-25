@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2005 Michel Arboi
+# SPDX-FileCopyrightText: New / improved code since 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -9,8 +10,8 @@ include("plugin_feed_info.inc");
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11154");
-  script_version("2023-12-13T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_version("2024-08-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-08-28 05:05:33 +0000 (Wed, 28 Aug 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -67,16 +68,16 @@ if(description)
                       "kerio_firewall_admin_port.nasl", "kerio_mailserver_admin_port.nasl",
                       "kerio_winroute_admin_port.nasl", "landesk_detect.nasl",
                       "lcdproc_detect.nasl", "ldap_detect.nasl",
-                      "ms_rdp_detect.nasl", "mssqlserver_detect.nasl",
+                      "ms_rdp_detect.nasl", "gb_microsoft_sql_server_tcp_ip_listener_detect.nasl",
                       "mysql_version.nasl", "nagios_statd_detect.nasl",
                       "napster_detect.nasl",
                       "nessus_detect.nasl", "nntpserver_detect.nasl",
                       "ntp_open.nasl", "oracle_tnslsnr_version.nasl",
                       "ossim_server_detect.nasl", "PC_anywhere_tcp.nasl",
                       "perforce_detect.nasl", "gb_pcl_pjl_detect.nasl",
-                      "postgresql_detect.nasl",
+                      "gb_postgresql_tcp_detect.nasl",
                       "pptp_detect.nasl", "qmtp_detect.nasl",
-                      "radmin_detect.nasl", "remote-detect-filemaker.nasl",
+                      "radmin_detect.nasl", "filemaker_tcp_detect.nasl",
                       "remote-detect-firebird.nasl", "rexecd.nasl", "rpcinfo.nasl",
                       "rsh.nasl", "rtsp_detect.nasl", "gb_rsync_remote_detect.nasl",
                       "gb_rpc_portmap_tcp_detect.nasl", "SHN_discard.nasl",
@@ -91,7 +92,7 @@ if(description)
                       "xtelw_detect.nasl", "yahoo_msg_running.nasl",
                       "zabbix_detect.nasl", "gb_slp_tcp_detect.nasl");
 
-  if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
+  if(FEED_NAME == "GSF" || FEED_NAME == "GEF" || FEED_NAME == "SCM")
     script_dependencies("gsf/gb_sap_gateway_detect.nasl", "gsf/gb_atg_service_detect.nasl",
                         "gsf/gb_dicom_service_detection.nasl", "gsf/gb_hp_imc_dbman_detect.nasl",
                         "gsf/gb_pcom_detect.nasl", "gsf/gb_drda_detect.nasl", "gsf/gb_iec_104_detect.nasl",
@@ -104,7 +105,10 @@ if(description)
                         "gsf/gb_apache_rocketmq_broker_detect.nasl",
                         "gsf/gb_apache_rocketmq_nameserver_detect.nasl",
                         "gsf/gb_redlion_crimson_service_tcp_detect.nasl",
-                        "gsf/gb_tacacs_tcp_detect.nasl");
+                        "gsf/gb_anydesk_tcp_detect.nasl",
+                        "gsf/gb_tacacs_tcp_detect.nasl",
+                        "gsf/gb_fortinet_fortisiem_phmonitor_detect.nasl",
+                        "gsf/gb_delta_electronics_diaenergie_cebc_detect.nasl");
 
   script_require_ports("Services/unknown");
 

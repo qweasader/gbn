@@ -1,38 +1,24 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apple:itunes";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.816615");
-  script_version("2021-10-05T11:36:17+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2020-3861");
   script_tag(name:"cvss_base", value:"3.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2021-10-05 11:36:17 +0000 (Tue, 05 Oct 2021)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-03-04 17:20:00 +0000 (Wed, 04 Mar 2020)");
   script_tag(name:"creation_date", value:"2020-01-29 12:22:35 +0530 (Wed, 29 Jan 2020)");
-  script_name("Apple iTunes Security Update(HT210923)");
+  script_name("Apple iTunes Security Update (HT210923)");
 
   script_tag(name:"summary", value:"Apple iTunes is prone to an access bypass vulnerability.");
 
@@ -54,7 +40,7 @@ if(description)
   script_xref(name:"URL", value:"https://support.apple.com/en-us/HT210923");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("General");
   script_dependencies("secpod_apple_itunes_detection_win_900123.nasl");
   script_mandatory_keys("iTunes/Win/Ver");

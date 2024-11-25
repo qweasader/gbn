@@ -1,30 +1,16 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:boonex:dolphin";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140061");
-  script_version("2022-03-03T08:50:37+0000");
-  script_tag(name:"last_modification", value:"2022-03-03 08:50:37 +0000 (Thu, 03 Mar 2022)");
+  script_version("2024-11-08T15:39:48+0000");
+  script_tag(name:"last_modification", value:"2024-11-08 15:39:48 +0000 (Fri, 08 Nov 2024)");
   script_tag(name:"creation_date", value:"2016-11-15 12:20:21 +0100 (Tue, 15 Nov 2016)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -33,11 +19,11 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Dolphin < 7.3.3 RCE Vulnerability");
+  script_name("Boonex Dolphin < 7.3.3 RCE Vulnerability - Active Check");
 
   script_category(ACT_ATTACK);
 
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_dolphin_http_detect.nasl");
   script_require_ports("Services/www", 80);
@@ -46,9 +32,10 @@ if(description)
   script_tag(name:"summary", value:"Boonex Dolphin is prone to a remote code execution (RCE)
   vulnerability in '/administration/modules.php'.");
 
-  script_tag(name:"vuldetect", value:"Uploads a php file within a zip file and tries to execute it.");
+  script_tag(name:"vuldetect", value:"Uploads a .php file within a .zip file via a crafted HTTP POST
+  request and tries to execute it.");
 
-  script_tag(name:"solution", value:"Update to 7.3.3 or later.");
+  script_tag(name:"solution", value:"Update to version 7.3.3 or later.");
 
   script_xref(name:"URL", value:"https://www.boonex.com/n/dolphinpro-7-3-3-released-important-security-upda");
   script_xref(name:"URL", value:"https://www.exploit-db.com/exploits/40756/");

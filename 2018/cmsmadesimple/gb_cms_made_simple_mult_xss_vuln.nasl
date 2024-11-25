@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113132");
-  script_version("2023-10-24T05:06:28+0000");
-  script_tag(name:"last_modification", value:"2023-10-24 05:06:28 +0000 (Tue, 24 Oct 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-03-14 10:38:33 +0100 (Wed, 14 Mar 2018)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
@@ -34,7 +34,7 @@ if( description )
   script_tag(name:"summary", value:"CMS Made Simple is prone to multiple stored cross-site scripting
   (XSS) vulnerabilities.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"CMS Made Simple has stored XSS vulnerabilities in
   admin/moduleinterface.php via following parameters:

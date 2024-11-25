@@ -1,36 +1,22 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140051");
-  script_version("2022-12-21T10:12:09+0000");
+  script_version("2024-11-08T15:39:48+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-12-21 10:12:09 +0000 (Wed, 21 Dec 2022)");
+  script_tag(name:"last_modification", value:"2024-11-08 15:39:48 +0000 (Fri, 08 Nov 2024)");
   script_tag(name:"creation_date", value:"2016-11-04 14:34:52 +0100 (Fri, 04 Nov 2016)");
   script_cve_id("CVE-2011-3556");
-  script_name("Java RMI Server Insecure Default Configuration RCE Vulnerability");
+  script_name("Java RMI Server Insecure Default Configuration RCE Vulnerability - Active Check");
   script_category(ACT_ATTACK);
   script_family("Gain a shell remotely");
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("gb_rmi_registry_detect.nasl");
   script_require_ports("Services/rmi_registry", 1099);
   script_mandatory_keys("rmi_registry/detected");
@@ -43,8 +29,8 @@ if(description)
   vulnerability that could allow an unauthenticated, remote attacker to execute arbitrary code
   (remote code execution/RCE) on a targeted system with elevated privileges.");
 
-  script_tag(name:"vuldetect", value:"Sends a crafted JRMI request and checks if the target tries to
-  load a Java class via a remote HTTP URL.
+  script_tag(name:"vuldetect", value:"Sends a crafted JRMI request and checks if the target is
+  connecting back to the scanner host.
 
   Note: For a successful detection of this flaw the target host needs to be able to reach the
   scanner host on a TCP port randomly generated during the runtime of the VT (currently in the range
@@ -74,9 +60,14 @@ include("port_service_func.inc");
 
 port = service_get_port( default:1099, proto:"rmi_registry" );
 
-# nb: This might fork on multiple hostnames so it needs to be before opening any socket
 src_filter = pcap_src_ip_filter_from_hostnames();
 
+# nb: Always keep open_sock_tcp() after the first call of a function forking on multiple hostnames /
+# vhosts (e.g. http_get(), http_post_put_req(), http_host_name(), get_host_name(), ...). Reason: If
+# the fork would be done after calling open_sock_tcp() the child's would share the same socket
+# causing race conditions and similar.
+#
+# In this case this also includes pcap_src_ip_filter_from_hostnames() from above.
 if( ! soc = open_sock_tcp( port ) )
   exit( 0 );
 
@@ -158,4 +149,6 @@ if( res ) {
   }
 }
 
-exit( 99 );
+# nb: Don't use exit(99); as we can't be sure that the target isn't affected if e.g. the scanner
+# host isn't reachable by the target host.
+exit( 0 );

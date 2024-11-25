@@ -1,39 +1,25 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.118288");
-  script_version("2022-04-07T14:44:55+0000");
-  script_tag(name:"last_modification", value:"2022-04-07 14:44:55 +0000 (Thu, 07 Apr 2022)");
+  script_version("2024-07-24T05:06:37+0000");
+  script_tag(name:"last_modification", value:"2024-07-24 05:06:37 +0000 (Wed, 24 Jul 2024)");
   script_tag(name:"creation_date", value:"2021-12-15 14:19:09 +0100 (Wed, 15 Dec 2021)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_name("Apache Log4j Detection (Windows SMB Login)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("Product detection");
   script_dependencies("smb_reg_service_pack.nasl", "lsc_options.nasl");
   script_mandatory_keys("SMB/WindowsVersion");
   script_require_ports(139, 445);
-  script_exclude_keys("win/lsc/disable_wmi_search");
+  script_exclude_keys("win/lsc/disable_wmi_search", "win/lsc/disable_win_cmd_exec");
 
   script_tag(name:"summary", value:"SMB login-based detection of Apache Log4j.");
 
@@ -49,12 +35,14 @@ if(description)
 
 include("smb_nt.inc");
 include("policy_functions.inc");
-include("misc_func.inc");
 include("host_details.inc");
 include("version_func.inc");
 include("wmi_file.inc");
 
 if( wmi_file_is_file_search_disabled() )
+  exit( 0 );
+
+if( get_kb_item( "win/lsc/disable_win_cmd_exec" ) )
   exit( 0 );
 
 # Run powershell commands based on version

@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2023.3265.1");
   script_cve_id("CVE-2023-37327", "CVE-2023-37328");
   script_tag(name:"creation_date", value:"2023-08-11 04:21:37 +0000 (Fri, 11 Aug 2023)");
-  script_version("2023-08-11T05:05:41+0000");
-  script_tag(name:"last_modification", value:"2023-08-11 05:05:41 +0000 (Fri, 11 Aug 2023)");
+  script_version("2024-05-09T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-05-09 05:05:43 +0000 (Thu, 09 May 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 

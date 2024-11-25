@@ -9,14 +9,14 @@ CPE = "cpe:/a:ibm:websphere_mq";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805577");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2015-0189");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-05-29 12:42:21 +0530 (Fri, 29 May 2015)");
 
-  script_name("IBM WebSphere MQ Denial of Service Vulnerability - May 2015");
+  script_name("IBM WebSphere MQ Denial of Service Vulnerability (May 2015)");
 
   script_tag(name:"summary", value:"IBM WebSphere MQ is prone to a denial of service (DoS) vulnerability.");
 

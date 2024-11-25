@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2022.0353");
   script_cve_id("CVE-2021-46822");
   script_tag(name:"creation_date", value:"2022-10-03 04:31:23 +0000 (Mon, 03 Oct 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-06-28 16:08:00 +0000 (Tue, 28 Jun 2022)");
+  script_tag(name:"severity_date", value:"2022-06-28 16:08:25 +0000 (Tue, 28 Jun 2022)");
 
   script_name("Mageia: Security Advisory (MGASA-2022-0353)");
   script_category(ACT_GATHER_INFO);
@@ -27,8 +27,8 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2022-0353");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2022-0353.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=30886");
-  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5631-1");
   script_xref(name:"URL", value:"https://github.com/libjpeg-turbo/libjpeg-turbo/blob/2.0.8-esr/ChangeLog.md");
+  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5631-1");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'libjpeg' package(s) announced via the MGASA-2022-0353 advisory.");
 

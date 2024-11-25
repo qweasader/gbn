@@ -9,8 +9,8 @@ include("plugin_feed_info.inc");
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.151042");
-  script_version("2023-09-26T05:05:30+0000");
-  script_tag(name:"last_modification", value:"2023-09-26 05:05:30 +0000 (Tue, 26 Sep 2023)");
+  script_version("2024-07-10T05:05:27+0000");
+  script_tag(name:"last_modification", value:"2024-07-10 05:05:27 +0000 (Wed, 10 Jul 2024)");
   script_tag(name:"creation_date", value:"2023-09-25 07:26:43 +0000 (Mon, 25 Sep 2023)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -24,7 +24,7 @@ if (description)
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_moxa_edr_devices_http_detect.nasl");
-  if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
+  if(FEED_NAME == "GSF" || FEED_NAME == "GEF" || FEED_NAME == "SCM")
     script_dependencies("gsf/gb_moxa_edr_devices_snmp_detect.nasl");
   script_mandatory_keys("moxa/edr/detected");
 
@@ -118,7 +118,7 @@ if (snmp_ports = get_kb_list("moxa/edr/snmp/port")) {
     conclVers = get_kb_item("moxa/edr/snmp/" + port + "/concludedVers");
     conclVersOID = get_kb_item("moxa/edr/snmp/" + port + "/concludedVersOID");
     if (conclVers && conclVersOID)
-      extra += '  Version concluded from "' + conclMod + '" via OID: ' + conclModOID + '\n';
+      extra += '  Version concluded from "' + conclVers + '" via OID: ' + conclVersOID + '\n';
 
     register_product(cpe: os_cpe, location: location, port: port, service: "snmp", proto: "udp");
     register_product(cpe: hw_cpe, location: location, port: port, service: "snmp", proto: "udp");

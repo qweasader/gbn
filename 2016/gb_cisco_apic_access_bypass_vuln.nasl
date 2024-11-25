@@ -10,10 +10,10 @@ if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809051");
   script_cve_id("CVE-2015-6424");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2016-09-21 19:23:26 +0530 (Wed, 21 Sep 2016)");
   script_tag(name:"qod_type", value:"remote_banner");
   script_name("Cisco Application Policy Infrastructure Controller Access Bypass Vulnerability");
@@ -45,24 +45,23 @@ if (description)
   script_family("CISCO");
   script_dependencies("gb_cisco_apic_web_detect.nasl");
   script_mandatory_keys("cisco/application_policy_infrastructure_controller/installed");
-  script_require_ports("Services/www", 80, 443);
+
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!ciscoPort = get_app_port(cpe:CPE)){
-  exit( 0 );
-}
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
 
-if(!vers = get_app_version(cpe:CPE, port:ciscoPort)){
-  exit( 0 );
-}
+if(!vers = get_app_version(cpe:CPE, port:port))
+  exit(0);
 
-if(version_is_equal(version:vers, test_version:'1.1(0.920a)'))
-{
+if(version_is_equal(version:vers, test_version:"1.1(0.920a)")) {
   report = report_fixed_ver(installed_version:vers, fixed_version:"See vendor advisory");
-  security_message(port:ciscoPort, data:report);
+  security_message(port:port, data:report);
   exit(0);
 }
+
+exit(99);

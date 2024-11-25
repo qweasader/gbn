@@ -7,18 +7,18 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810930");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-02-19T14:37:31+0000");
   script_cve_id("CVE-2010-1373", "CVE-2010-1816", "CVE-2010-1320", "CVE-2010-0283",
                 "CVE-2010-1821", "CVE-2010-1376", "CVE-2010-1377", "CVE-2010-1379",
                 "CVE-2010-1380");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 14:37:31 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-04-21 15:16:00 +0000 (Fri, 21 Apr 2017)");
   script_tag(name:"creation_date", value:"2017-04-18 11:40:44 +0530 (Tue, 18 Apr 2017)");
-  script_name("Apple Mac OS X Multiple Vulnerabilities-02 April-2017");
+  script_name("Apple Mac OS X Multiple Vulnerabilities-02 (Apr 2017)");
 
   script_tag(name:"summary", value:"Apple Mac OS X is prone to multiple vulnerabilities.");
 

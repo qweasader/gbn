@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.53309");
-  script_version("2023-07-19T05:05:15+0000");
-  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2008-01-17 22:28:10 +0100 (Thu, 17 Jan 2008)");
   script_cve_id("CVE-2003-0026");
   script_tag(name:"cvss_base", value:"7.5");
@@ -20,7 +20,7 @@ if(description)
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB3\.0");
   script_xref(name:"URL", value:"https://secure1.securityspace.com/smysecure/catid.html?in=DSA%20231-1");
-  script_tag(name:"insight", value:"The Internet Software Consortium discoverd several vulnerabilities
+  script_tag(name:"insight", value:"The Internet Software Consortium discovered several vulnerabilities
 during an audit of the ISC DHCP Daemon.  The vulnerabilities exist in
 error handling routines within the minires library and may be
 exploitable as stack overflows.  This could allow a remote attacker to

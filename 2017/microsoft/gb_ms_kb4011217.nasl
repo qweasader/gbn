@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811863");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-07-17T05:05:38+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2017-11826");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2024-07-17 05:05:38 +0000 (Wed, 17 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2017-12-12 02:29:00 +0000 (Tue, 12 Dec 2017)");
+  script_tag(name:"severity_date", value:"2024-07-16 17:25:46 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2017-10-11 10:16:39 +0530 (Wed, 11 Oct 2017)");
   script_name("Microsoft SharePoint Enterprise Server 2016 Remote Code Execution Vulnerability (KB4011217)");
 

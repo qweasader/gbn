@@ -7,18 +7,18 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811538");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-16T14:37:06+0000");
   script_cve_id("CVE-2017-7021", "CVE-2017-7031", "CVE-2017-7009", "CVE-2017-7022",
                 "CVE-2017-7024", "CVE-2017-7023", "CVE-2017-7028", "CVE-2017-7029",
                 "CVE-2017-7067", "CVE-2017-7032", "CVE-2017-7010", "CVE-2017-7013");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 14:37:06 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-07-24 13:09:00 +0000 (Mon, 24 Jul 2017)");
   script_tag(name:"creation_date", value:"2017-07-20 12:23:38 +0530 (Thu, 20 Jul 2017)");
-  script_name("Apple Mac OS X Code Execution And Information Disclosure Vulnerabilities HT207922");
+  script_name("Apple Mac OS X Code Execution and Information Disclosure Vulnerabilities (HT207922)");
 
   script_tag(name:"summary", value:"Apple Mac OS X is prone to code execution and information disclosure vulnerabilities.");
 

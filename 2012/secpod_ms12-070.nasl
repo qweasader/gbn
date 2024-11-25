@@ -1,31 +1,19 @@
-# Copyright (C) 2012 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2012 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
+
+CPE = "cpe:/a:microsoft:sql_server";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902689");
-  script_version("2022-05-25T07:40:23+0000");
+  script_version("2024-07-11T05:05:33+0000");
   script_cve_id("CVE-2012-2552");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2022-05-25 07:40:23 +0000 (Wed, 25 May 2022)");
+  script_tag(name:"last_modification", value:"2024-07-11 05:05:33 +0000 (Thu, 11 Jul 2024)");
   script_tag(name:"creation_date", value:"2012-10-10 09:46:39 +0530 (Wed, 10 Oct 2012)");
   script_name("Microsoft SQL Server Report Manager Cross Site Scripting Vulnerability (2754849)");
   script_xref(name:"URL", value:"http://support.microsoft.com/kb/2754849");
@@ -34,11 +22,11 @@ if(description)
   script_xref(name:"URL", value:"https://docs.microsoft.com/en-us/security-updates/securitybulletins/2012/ms12-070");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
-  script_dependencies("smb_reg_service_pack.nasl");
+  script_dependencies("gb_microsoft_sql_server_consolidation.nasl");
   script_require_ports(139, 445);
-  script_mandatory_keys("SMB/WindowsVersion");
+  script_mandatory_keys("microsoft/sqlserver/smb-login/detected");
 
   script_tag(name:"impact", value:"Successful exploitation could allow remote attackers to gain sensitive
   information or execute arbitrary code in the context of the current user.");
@@ -71,6 +59,20 @@ include("smb_nt.inc");
 include("secpod_reg.inc");
 include("version_func.inc");
 include("secpod_smb_func.inc");
+include("host_details.inc");
+
+if(isnull(port = get_app_port(cpe:CPE, service:"smb-login")))
+  exit(0);
+
+if(!infos = get_app_full(cpe:CPE, port:port, exit_no_version:TRUE))
+  exit(0);
+
+if(!vers = infos["internal_version"])
+  exit(0);
+
+# nb: 2008 (10.x) and earlier should be only affected
+if(vers !~ "^([1-9]|10)\.")
+  exit(99);
 
 key = "SOFTWARE\Microsoft\Microsoft SQL Server\Reporting Services\Version";
 if(registry_key_exists(key:key))
@@ -81,7 +83,7 @@ if(registry_key_exists(key:key))
   {
     if(version_is_less(version:exeVer, test_version:"8.0.1077.0"))
     {
-      security_message( port: 0, data: "The target host was found to be vulnerable" );
+      security_message(port:port, data:"The target host was found to be vulnerable");
       exit(0);
     }
   }
@@ -124,7 +126,7 @@ if(registry_key_exists(key:key))
 #           version_in_range(version:sysVer, test_version:"11.0.2100", test_version2:"11.0.2217")||
 #           version_in_range(version:sysVer, test_version:"11.0.2300", test_version2:"11.0.2375"))
         {
-          security_message( port: 0, data: "The target host was found to be vulnerable" );
+          security_message(port:port, data:"The target host was found to be vulnerable");
           exit(0);
         }
       }

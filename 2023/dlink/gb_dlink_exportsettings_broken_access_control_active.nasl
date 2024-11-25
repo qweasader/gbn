@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.104827");
-  script_version("2023-10-12T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_version("2024-07-31T05:05:34+0000");
+  script_tag(name:"last_modification", value:"2024-07-31 05:05:34 +0000 (Wed, 31 Jul 2024)");
   script_tag(name:"creation_date", value:"2023-07-10 08:27:07 +0000 (Mon, 10 Jul 2023)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -20,7 +20,7 @@ if(description)
 
   script_tag(name:"qod_type", value:"exploit");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"WillNotFix");
 
   script_name("D-Link / TOTOLINK Devices 'ExportSettings.sh' Broken Access Control Vulnerability - Active Check");
 
@@ -54,7 +54,7 @@ if(description)
 
   script_tag(name:"affected", value:"The following devices are known to be affected:
 
-  - CVE-2018-17786: D-Link DIR-923G with hardware version A1 and firmware version 1.02B03
+  - CVE-2018-17786: D-Link DIR-823G with hardware version A1 and firmware version 1.02B03
 
   - CVE-2022-32993: TOTOLINK A7000R with firmware version 4.1cu.4134
 
@@ -65,14 +65,14 @@ if(description)
 
   Other devices, versions and/or vendors might be affected as well.");
 
-  # nb: CVE-2018-17786 would be "WillNotFix" but the flaw without a CVE might receive a fix...
-  script_tag(name:"solution", value:"No known solution is available as of 10th July, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.");
 
   exit(0);
 }
 
-include("misc_func.inc");
 include("http_func.inc");
 include("http_keepalive.inc");
 include("port_service_func.inc");

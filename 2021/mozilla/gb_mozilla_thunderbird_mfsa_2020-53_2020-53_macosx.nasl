@@ -9,16 +9,16 @@ CPE = "cpe:/a:mozilla:thunderbird";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.817544");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2020-26970");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-12-10 18:52:00 +0000 (Thu, 10 Dec 2020)");
   script_tag(name:"creation_date", value:"2021-01-29 08:42:23 +0530 (Fri, 29 Jan 2021)");
-  script_name("Mozilla Thunderbird Security Updates (mfsa_2020-53_2020-53) - Mac OS X");
+  script_name("Mozilla Thunderbird Security Advisories (MFSA2020-53, MFSA2020-53) - Mac OS X");
 
   script_tag(name:"summary", value:"Mozilla Thunderbird is prone to multiple vulnerabilities.");
 

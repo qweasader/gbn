@@ -11,10 +11,10 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.103976");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-02-22 22:53:14 +0700 (Sat, 22 Feb 2014)");
-  script_version("2023-07-26T05:05:09+0000");
-  script_name("Kloxo SQL Injection and Remote Code Execution Vulnerability");
+  script_version("2024-06-28T05:05:33+0000");
+  script_name("Kloxo SQLi and RCE Vulnerability");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2014 Greenbone AG");
@@ -25,8 +25,8 @@ if(description)
   script_xref(name:"URL", value:"http://www.webhostingtalk.com/showthread.php?p=8996984");
   script_xref(name:"URL", value:"https://vpsboard.com/topic/3384-kloxo-installations-compromised/");
 
-  script_tag(name:"summary", value:"There is an SQL Injection and remote code execution vulnerability
-  in Kloxo running on this host.");
+  script_tag(name:"summary", value:"Kloxo is prone to SQL injection (SQLi) and remote code execution
+  (RCE) vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if webcommand.php is available and if a basic SQL Injection
   can be conducted.");

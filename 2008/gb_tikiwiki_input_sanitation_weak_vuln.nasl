@@ -9,8 +9,8 @@ CPE = "cpe:/a:tiki:tikiwiki_cms/groupware";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800315");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2008-12-15 15:44:51 +0100 (Mon, 15 Dec 2008)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
@@ -20,7 +20,6 @@ if(description)
   script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("secpod_tikiwiki_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("TikiWiki/installed");
 
   script_tag(name:"impact", value:"Successful exploitation could allow arbitrary code execution in the context
@@ -54,9 +53,9 @@ if( ! vers = get_app_version( cpe:CPE, port:port ) )
   exit( 0 );
 
 if( version_is_less( version:vers, test_version:"2.2" ) ) {
-   report = report_fixed_ver( installed_version:vers, fixed_version:"2.2" );
-   security_message( port:port, data:report );
-   exit( 0 );
+  report = report_fixed_ver( installed_version:vers, fixed_version:"2.2" );
+  security_message( port:port, data:report );
+  exit( 0 );
 }
 
 exit( 99 );

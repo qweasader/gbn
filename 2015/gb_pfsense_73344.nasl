@@ -12,9 +12,9 @@ if (description)
   script_cve_id("CVE-2015-2294", "CVE-2015-2295");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-06-28T05:05:33+0000");
 
-  script_name("pfSense Cross Site Scripting and Cross Site Request Forgery Vulnerabilities");
+  script_name("pfSense XSS and CSRF Vulnerabilities");
 
   script_xref(name:"URL", value:"https://www.pfsense.org/security/advisories/pfSense-SA-15_04.webgui.asc");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/73344");
@@ -32,13 +32,14 @@ can lead to arbitrary file deletion. A remote attacker can trick a log-in admini
 arbitrary files on the target system with root privileges.");
 
   script_tag(name:"solution", value:"Upgrade to pfSense 2.2.1 or later.");
-  script_tag(name:"summary", value:"pfSense is prone to multiple cross-site scripting vulnerabilities and a cross-site request-forgery vulnerability.");
+  script_tag(name:"summary", value:"pfSense is prone to multiple cross-site scripting (XSS)
+  vulnerabilities and a cross-site request forgery (CSRF) vulnerability.");
   script_tag(name:"affected", value:"pfSense < 2.2.1");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2015-08-21 15:06:51 +0200 (Fri, 21 Aug 2015)");
   script_category(ACT_GATHER_INFO);
   script_family("General");

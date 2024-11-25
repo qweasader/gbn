@@ -7,17 +7,18 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800109");
-  script_version("2023-12-14T05:05:32+0000");
+  script_version("2024-06-12T05:05:44+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-12-14 05:05:32 +0000 (Thu, 14 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-12 05:05:44 +0000 (Wed, 12 Jun 2024)");
   script_tag(name:"creation_date", value:"2008-10-07 16:11:33 +0200 (Tue, 07 Oct 2008)");
   script_name("PHP Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Product detection");
-  script_dependencies("find_service.nasl", "gb_phpinfo_output_detect.nasl", "no404.nasl", "webmirror.nasl",
-                      "DDI_Directory_Scanner.nasl", "sw_apcu_info.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "gb_phpinfo_output_detect.nasl", "no404.nasl",
+                      "webmirror.nasl", "DDI_Directory_Scanner.nasl", "sw_apcu_info.nasl",
+                      "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
@@ -33,7 +34,6 @@ include("port_service_func.inc");
 include("list_array_func.inc");
 include("cpe.inc");
 include("host_details.inc");
-include("misc_func.inc");
 
 checkFiles = make_list();
 
@@ -49,6 +49,7 @@ foreach dir( make_list_unique( "/", "/admin", http_cgi_dirs( port:port ) ) ) {
   checkFiles = make_list( checkFiles, dir + "/", dir + "/index.php", dir + "/login.php" );
 }
 
+# TBD: Generally mark as "found" (e.g. after a specific count of found .php files)?
 phpFilesList = http_get_kb_file_extensions( port:port, host:host, ext:"php" );
 if( phpFilesList && is_array( phpFilesList ) ) {
   count = 0;
@@ -125,7 +126,7 @@ if( version || phpSessId ) {
                                             cpe:cpe,
                                             concludedUrl:conclUrl,
                                             concluded:phpInfo ),
-                                            port:port );
+               port:port );
 }
 
 exit( 0 );

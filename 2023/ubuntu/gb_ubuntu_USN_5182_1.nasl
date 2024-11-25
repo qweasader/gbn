@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.12.2022.5182.1");
   script_cve_id("CVE-2020-12625", "CVE-2020-12626", "CVE-2020-12640", "CVE-2020-12641", "CVE-2020-13964", "CVE-2020-13965", "CVE-2020-15562", "CVE-2020-16145", "CVE-2020-35730", "CVE-2021-44025", "CVE-2021-44026", "CVE-2021-46144");
   script_tag(name:"creation_date", value:"2023-01-27 04:10:43 +0000 (Fri, 27 Jan 2023)");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-11-23 00:08:00 +0000 (Tue, 23 Nov 2021)");
+  script_tag(name:"severity_date", value:"2021-11-23 00:08:35 +0000 (Tue, 23 Nov 2021)");
 
   script_name("Ubuntu: Security Advisory (USN-5182-1)");
   script_category(ACT_GATHER_INFO);
@@ -89,6 +89,8 @@ Ubuntu 18.04 ... [Please see the references for more information on the vulnerab
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

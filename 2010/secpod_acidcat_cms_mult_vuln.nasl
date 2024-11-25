@@ -1,28 +1,14 @@
-# Copyright (C) 2010 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2010 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900750");
-  script_version("2022-02-18T13:05:59+0000");
-  script_tag(name:"last_modification", value:"2022-02-18 13:05:59 +0000 (Fri, 18 Feb 2022)");
+  script_version("2024-06-13T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-13 05:05:46 +0000 (Thu, 13 Jun 2024)");
   script_tag(name:"creation_date", value:"2010-03-23 15:59:14 +0100 (Tue, 23 Mar 2010)");
   script_cve_id("CVE-2010-0976", "CVE-2010-0984");
   script_name("Acidcat CMS Multiple Vulnerabilities");
@@ -34,10 +20,12 @@ if(description)
   script_xref(name:"URL", value:"http://www.exploit-db.com/exploits/10972");
 
   script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("Web application abuses");
   script_require_ports("Services/www", 80);
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "global_settings.nasl",
+                      "gb_microsoft_iis_http_detect.nasl");
   script_exclude_keys("Settings/disable_cgi_scanning");
 
   script_tag(name:"insight", value:"The flaws are due to:

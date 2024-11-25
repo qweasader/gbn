@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.104824");
-  script_version("2023-10-12T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_version("2024-07-31T05:05:34+0000");
+  script_tag(name:"last_modification", value:"2024-07-31 05:05:34 +0000 (Wed, 31 Jul 2024)");
   script_tag(name:"creation_date", value:"2023-07-06 15:03:24 +0000 (Thu, 06 Jul 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -20,7 +20,7 @@ if(description)
 
   script_tag(name:"qod_type", value:"exploit");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"WillNotFix");
 
   script_name("D-Link DIR-823G 'EXCU_SHELL' RCE Vulnerability - Active Check");
 
@@ -51,8 +51,10 @@ if(description)
   script_tag(name:"affected", value:"D-Link DIR-823G Routers with firmware version 1.0.2B05 are
   known to be affected. Other devices and vendors might be affected as well.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 06th July, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.");
 
   exit(0);
 }

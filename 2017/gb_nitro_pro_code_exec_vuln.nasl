@@ -9,16 +9,16 @@ CPE = "cpe:/a:nitro_software:nitro_pro";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811274");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2017-7442");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-08-04 13:57:00 +0000 (Tue, 04 Aug 2020)");
   script_tag(name:"creation_date", value:"2017-08-08 14:54:42 +0530 (Tue, 08 Aug 2017)");
-  script_name("Nitro Pro 'saveAs and launchURL' Code Execution Vulnerability (Windows)");
+  script_name("Nitro Pro 'saveAs and launchURL' Code Execution Vulnerability - Windows");
 
   script_tag(name:"summary", value:"Nitro Pro is prone to a code execution vulnerability.");
 

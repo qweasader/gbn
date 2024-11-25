@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100945");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2010-12-14 13:08:24 +0100 (Tue, 14 Dec 2010)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
 
-  script_name("Helix Server Administration Interface Cross Site Request Forgery Vulnerability");
+  script_name("Helix Server Administration Interface CSRF Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/45340");
 
@@ -43,7 +43,6 @@ if(description)
 }
 
 include("version_func.inc");
-include("misc_func.inc");
 include("port_service_func.inc");
 
 port = service_get_port(default:554, proto:"rtsp");

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2023.2783.1");
   script_cve_id("CVE-2018-1000518", "CVE-2020-25659", "CVE-2020-36242", "CVE-2021-22569", "CVE-2021-22570", "CVE-2022-1941", "CVE-2022-3171");
   script_tag(name:"creation_date", value:"2023-07-06 04:21:10 +0000 (Thu, 06 Jul 2023)");
-  script_version("2023-07-06T05:05:36+0000");
-  script_tag(name:"last_modification", value:"2023-07-06 05:05:36 +0000 (Thu, 06 Jul 2023)");
+  script_version("2024-05-09T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-05-09 05:05:43 +0000 (Thu, 09 May 2024)");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-02-19 17:23:00 +0000 (Fri, 19 Feb 2021)");
+  script_tag(name:"severity_date", value:"2021-02-09 14:36:26 +0000 (Tue, 09 Feb 2021)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2023:2783-1)");
   script_category(ACT_GATHER_INFO);
@@ -79,7 +79,7 @@ python-google-api-core:
 - Update to 0.8.0 python-opencensus-context:
 - Include in SLE-15 (bsc#1199282, jsc#PM-3243, ... [Please see the references for more information on the vulnerabilities]");
 
-  script_tag(name:"affected", value:"'grpc, protobuf, pyt, python-Deprecated, python-PyGithub, python-aiocontextvars, python-avro, python-bcrypt, python-cryptography, python-cryptography-vectors, python-google-api-core' package(s) on SUSE CaaS Platform 4.0, SUSE Enterprise Storage 7, SUSE Enterprise Storage 7.1, SUSE Linux Enterprise High Performance Computing 15-SP1, SUSE Linux Enterprise High Performance Computing 15-SP2, SUSE Linux Enterprise High Performance Computing 15-SP3, SUSE Linux Enterprise Real Time 15-SP3, SUSE Linux Enterprise Server 15-SP1, SUSE Linux Enterprise Server 15-SP2, SUSE Linux Enterprise Server 15-SP3, SUSE Linux Enterprise Server for SAP Applications 15-SP1, SUSE Linux Enterprise Server for SAP Applications 15-SP2, SUSE Linux Enterprise Server for SAP Applications 15-SP3, SUSE Manager Proxy 4.2, SUSE Manager Retail Branch Server 4.2, SUSE Manager Server 4.2, SUSE Package Hub 15.");
+  script_tag(name:"affected", value:"'grpc, protobuf, pyt, python-Deprecated, python-PyGithub, python-aiocontextvars, python-avro, python-bcrypt, python-cryptography, python-cryptography-vectors, python-google-api-core' package(s) on SUSE Linux Enterprise High Performance Computing 15-SP1, SUSE Linux Enterprise High Performance Computing 15-SP2, SUSE Linux Enterprise High Performance Computing 15-SP3, SUSE Linux Enterprise Real Time 15-SP3, SUSE Linux Enterprise Server 15-SP1, SUSE Package Hub 15.");
 
   script_tag(name:"solution", value:"Please install the updated package(s).");
 
@@ -102,130 +102,6 @@ report = "";
 if(release == "SLES15.0SP1") {
 
   if(!isnull(res = isrpmvuln(pkg:"libprotobuf-lite20", rpm:"libprotobuf-lite20~3.9.2~150100.8.3.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"libprotobuf-lite20-debuginfo", rpm:"libprotobuf-lite20-debuginfo~3.9.2~150100.8.3.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"libprotobuf20", rpm:"libprotobuf20~3.9.2~150100.8.3.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"libprotobuf20-debuginfo", rpm:"libprotobuf20-debuginfo~3.9.2~150100.8.3.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"libprotoc20", rpm:"libprotoc20~3.9.2~150100.8.3.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"libprotoc20-debuginfo", rpm:"libprotoc20-debuginfo~3.9.2~150100.8.3.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"protobuf-debugsource", rpm:"protobuf-debugsource~3.9.2~150100.8.3.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"protobuf-devel", rpm:"protobuf-devel~3.9.2~150100.8.3.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"protobuf-devel-debuginfo", rpm:"protobuf-devel-debuginfo~3.9.2~150100.8.3.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python-cryptography-debuginfo", rpm:"python-cryptography-debuginfo~3.3.2~150100.7.15.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python-cryptography-debugsource", rpm:"python-cryptography-debugsource~3.3.2~150100.7.15.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python-psutil-debuginfo", rpm:"python-psutil-debuginfo~5.9.1~150100.6.6.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python-psutil-debugsource", rpm:"python-psutil-debugsource~5.9.1~150100.6.6.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python2-cryptography", rpm:"python2-cryptography~3.3.2~150100.7.15.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python2-cryptography-debuginfo", rpm:"python2-cryptography-debuginfo~3.3.2~150100.7.15.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python2-psutil", rpm:"python2-psutil~5.9.1~150100.6.6.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python2-psutil-debuginfo", rpm:"python2-psutil-debuginfo~5.9.1~150100.6.6.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python2-requests", rpm:"python2-requests~2.25.1~150100.6.13.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python3-Automat", rpm:"python3-Automat~0.6.0~150000.3.4.1", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python3-Twisted", rpm:"python3-Twisted~17.9.0~150000.3.8.1", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python3-Twisted-debuginfo", rpm:"python3-Twisted-debuginfo~17.9.0~150000.3.8.1", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python3-constantly", rpm:"python3-constantly~15.1.0~150000.3.4.1", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python3-cryptography", rpm:"python3-cryptography~3.3.2~150100.7.15.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python3-cryptography-debuginfo", rpm:"python3-cryptography-debuginfo~3.3.2~150100.7.15.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python3-hyperlink", rpm:"python3-hyperlink~17.2.1~150000.3.4.1", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python3-incremental", rpm:"python3-incremental~17.5.0~150000.3.4.1", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python3-psutil", rpm:"python3-psutil~5.9.1~150100.6.6.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python3-psutil-debuginfo", rpm:"python3-psutil-debuginfo~5.9.1~150100.6.6.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python3-requests", rpm:"python3-requests~2.25.1~150100.6.13.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python3-websocket-client", rpm:"python3-websocket-client~1.3.2~150100.6.7.3", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python3-zope.interface", rpm:"python3-zope.interface~4.4.2~150000.3.4.1", rls:"SLES15.0SP1"))) {
-    report += res;
-  }
-
-  if(!isnull(res = isrpmvuln(pkg:"python3-zope.interface-debuginfo", rpm:"python3-zope.interface-debuginfo~4.4.2~150000.3.4.1", rls:"SLES15.0SP1"))) {
     report += res;
   }
 

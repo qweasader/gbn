@@ -9,11 +9,11 @@ CPE = "cpe:/a:sonatype:nexus";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805330");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2014-2034");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2015-01-27 13:00:12 +0530 (Tue, 27 Jan 2015)");
   script_name("Sonatype Nexus OSS/Pro Security Bypass Vulnerability");
 
@@ -43,27 +43,23 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_sonatype_nexus_detect.nasl");
   script_mandatory_keys("nexus/installed");
-  script_require_ports("Services/www", 8081);
-  script_xref(name:"URL", value:"http://www.sonatype.org");
+
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-if(!http_port = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_in_range(version:version, test_version:"2.4.0", test_version2:"2.7.1")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"2.7.2");
+  security_message(port:port, data:report);
   exit(0);
 }
 
-if(!nexusVer = get_app_version(cpe:CPE, port:http_port)){
-  exit(0);
-}
-
-if(version_in_range(version:nexusVer, test_version:"2.4.0", test_version2:"2.7.1"))
-{
-  report = 'Installed version: ' + nexusVer + '\n' +
-           'Fixed version: 2.7.2\n';
-
-  security_message(port:http_port, data:report);
-  exit(0);
-}
+exit(99);

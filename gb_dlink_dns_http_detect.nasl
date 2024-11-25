@@ -7,25 +7,27 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106015");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-04-10T05:05:22+0000");
+  script_tag(name:"last_modification", value:"2024-04-10 05:05:22 +0000 (Wed, 10 Apr 2024)");
   script_tag(name:"creation_date", value:"2015-07-10 14:32:27 +0700 (Fri, 10 Jul 2015)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_name("D-Link DNS NAS Devices Detection");
+
+  script_tag(name:"qod_type", value:"remote_banner");
+
+  script_name("D-Link DNS NAS Devices Detection (HTTP)");
+
   script_category(ACT_GATHER_INFO);
+
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_get_http_banner.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("D-LinkDNS/banner");
 
-  script_tag(name:"summary", value:"Detection of D-Link DNS NAS Devices.
+  script_tag(name:"summary", value:"HTTP based detection of D-Link DNS NAS devices.");
 
-  The script sends a connection request to the server and attempts to
-  determine if the remote host is a D-Link DNS NAS device from the reply.");
-
-  script_tag(name:"qod_type", value:"remote_banner");
+  script_xref(name:"URL", value:"https://www.dlink.com/");
 
   exit(0);
 }
@@ -49,7 +51,8 @@ port = http_get_port( default:80 );
 banner = http_get_remote_headers( port:port );
 
 # DNS-320, DNS-320L, DNS-325, DNS-327L, DNS-345
-if( "Server: lighttpd/" >< banner ) {
+# nb: We might want to reconsider this as the banner might be not always there...
+if( egrep( string:banner, pattern:"^Server\s*:\s*lighttpd/", icase:TRUE ) ) {
 
   res = http_get_cache( item:"/", port:port );
   if( ! res ) exit( 0 );
@@ -115,6 +118,52 @@ if( "Server: lighttpd/" >< banner ) {
         conclUrl = http_report_vuln_url( port:port, url:url, url_only:TRUE );
     }
 
+    url = "/cgi-bin/info.cgi";
+
+    res = http_get_cache( port:port, item:url );
+
+    # Product=nas
+    # Model=DNS-320B
+    # Version=1.03.0322.2019
+    # Build=
+    # Macaddr=D1:F1:E1:51:61:41
+    # Wireless=NO
+    # Ptz=
+
+    if( model == "unknown" ) {
+      mo = eregmatch( pattern:"Model\s*=\s*(DNS-[0-9A-Z]+)", string: res);
+      if( ! isnull( mo[1] ) ) {
+        model = mo[1];
+        if( concluded )
+          concluded += '\n';
+        concluded += mo[0];
+        os_app += "-" + model + " Firmware";
+        os_cpe += "-" + tolower( model ) + "_firmware";
+        hw_app += "-" + model + " Device";
+        hw_cpe += "-" + tolower( model );
+        set_kb_item( name:"d-link/dns/model", value:model );
+      }
+    }
+
+    if( fw_version == "unknown" ) {
+      fw_ver = eregmatch( pattern:"Version\s*=\s*([0-9.]+)", string:res );
+      if( ! isnull( fw_ver[1] ) ) {
+        os_cpe += ":" + fw_ver[1];
+        fw_version = fw_ver[1];
+        if( concluded )
+          concluded += '\n';
+        concluded = fw_ver[0];
+        conclUrl += '\n' + http_report_vuln_url( port:port, url:url, url_only:TRUE );
+      }
+    }
+
+    mac = eregmatch( pattern:"Macaddr\s*=\s*([0-9A-F:]{17})", string:res );
+    if( ! isnull( mac[1] ) ) {
+      register_host_detail( name:"MAC", value:mac[1], desc:"D-Link DNS NAS Devices Detection (HTTP)" );
+      replace_kb_item( name:"Host/mac_address", value:mac[1] );
+      extra = "MAC address: " + mac[1];
+    }
+
     if( model == "unknown" ) {
       os_app += " Unknown Model Firmware";
       os_cpe += "-unknown_model_firmware";
@@ -126,7 +175,7 @@ if( "Server: lighttpd/" >< banner ) {
 
 # TODO: At least the check here seems to be quite unreliable, this should be updated if possible...
 # DNS-321, DNS-323, DNS-343
-else if ("Server: GoAhead-Webs" >< banner ) {
+else if( egrep( string:banner, pattern:"^Server\s*:\s*GoAhead-Webs", icase:TRUE ) ) {
 
   res = http_get_cache( item:"/web/login.asp", port:port );
 
@@ -146,21 +195,15 @@ if( found ) {
   set_kb_item( name:"d-link/dns/detected", value:TRUE );
   set_kb_item( name:"d-link/dns/http/detected", value:TRUE );
 
-  os_register_and_report( os:os_app, cpe:os_cpe, banner_type:"D-Link DNS Device Login Page", port:port, desc:"D-Link DNS Devices Detection", runs_key:"unixoide" );
+  os_register_and_report( os:os_app, cpe:os_cpe, banner_type:"D-Link DNS Device Login Page", port:port,
+                          desc:"D-Link DNS Devices Detection", runs_key:"unixoide" );
   register_product( cpe:os_cpe, location:install, port:port, service:"www" );
   register_product( cpe:hw_cpe, location:install, port:port, service:"www" );
 
-  report = build_detection_report( app:os_app,
-                                   version:fw_version,
-                                   concludedUrl:conclUrl,
-                                   concluded:concluded,
-                                   install:install,
-                                   cpe:os_cpe );
+  report = build_detection_report( app:os_app, version:fw_version, concludedUrl:conclUrl,
+                                   concluded:concluded, install:install, cpe:os_cpe, extra:extra );
 
-  report += '\n\n' + build_detection_report( app:hw_app,
-                                             skip_version:TRUE,
-                                             install:install,
-                                             cpe:hw_cpe );
+  report += '\n\n' + build_detection_report( app:hw_app, skip_version:TRUE, install:install, cpe:hw_cpe );
 
   log_message( port:port, data:report );
 }

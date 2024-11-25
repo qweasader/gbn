@@ -9,15 +9,16 @@ CPE = "cpe:/a:adobe:acrobat_reader";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804376");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2007-5020", "CVE-2007-3896");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-04-10 10:20:46 +0530 (Thu, 10 Apr 2014)");
-  script_name("Adobe Reader URI Handler Remote Code Execution Vulnerabilities Oct07 (Windows)");
+  script_name("Adobe Reader URI Handler Remote Code Execution Vulnerabilities (Oct 2007) - Windows");
 
-  script_tag(name:"summary", value:"Adobe Reader is prone to remote code execution vulnerabilities.");
+  script_tag(name:"summary", value:"Adobe Reader is prone to remote code execution (RCE)
+  vulnerabilities.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
   script_tag(name:"insight", value:"Flaws are due to an input validation error when handling specially crafted
 URIs with registered URI handlers.");

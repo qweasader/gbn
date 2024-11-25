@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.844033");
   script_cve_id("CVE-2019-11191");
   script_tag(name:"creation_date", value:"2019-06-05 02:00:31 +0000 (Wed, 05 Jun 2019)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-02-02T05:06:07+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:07 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"1.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:P/I:N/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-06-17 16:15:00 +0000 (Mon, 17 Jun 2019)");
+  script_tag(name:"severity_date", value:"2019-04-12 00:29:00 +0000 (Fri, 12 Apr 2019)");
 
   script_name("Ubuntu: Security Advisory (USN-4007-2)");
   script_category(ACT_GATHER_INFO);

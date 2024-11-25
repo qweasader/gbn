@@ -9,16 +9,16 @@ CPE = "cpe:/a:oracle:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805928");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2015-4772", "CVE-2015-4771", "CVE-2015-4769", "CVE-2015-4761",
                 "CVE-2015-4767", "CVE-2015-2641", "CVE-2015-2611", "CVE-2015-2617",
                 "CVE-2015-2639", "CVE-2015-2661");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-07-20 17:39:57 +0530 (Mon, 20 Jul 2015)");
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("Oracle MySQL Multiple Unspecified Vulnerabilities-01 Jul15");
+  script_name("Oracle MySQL Multiple Unspecified Vulnerabilities-01 (Jul 2015)");
 
   script_tag(name:"summary", value:"Oracle MySQL is prone to multiple unspecified vulnerabilities.");
 
@@ -56,8 +56,8 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_family("Databases");
   script_dependencies("mysql_version.nasl", "os_detection.nasl");
-  script_require_ports("Services/mysql", 3306);
   script_mandatory_keys("MySQL/installed", "Host/runs_windows");
+
   exit(0);
 }
 

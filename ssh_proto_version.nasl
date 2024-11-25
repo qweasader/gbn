@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100259");
-  script_version("2023-09-27T05:05:31+0000");
-  script_tag(name:"last_modification", value:"2023-09-27 05:05:31 +0000 (Wed, 27 Sep 2023)");
+  script_version("2024-06-17T08:31:37+0000");
+  script_tag(name:"last_modification", value:"2024-06-17 08:31:37 +0000 (Mon, 17 Jun 2024)");
   script_tag(name:"creation_date", value:"2009-08-25 21:06:41 +0200 (Tue, 25 Aug 2009)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -226,6 +226,23 @@ if( supported_versions ) {
         }
       }
     }
+
+    # nb:
+    # - We can register a more generic CPE for the protocol itself which can be used for e.g.:
+    #   - CVE scans / the CVE scanner
+    #   - storing the reference from this one to some VTs in the future which could use the info
+    #     collected here to show a cross-reference within the reports
+    # - NVD seems to use these two CPEs for the generic SSH protocol
+    # - 1.99 seems to be some kind of "compatibility" version and is not registered here
+    if( supported == "2.0" )
+      register_product( cpe:"cpe:/a:ietf:secure_shell_protocol:2.0", location:port + "/tcp", port:port, service:"ssh" );
+
+    if( supported == "1.5" )
+      register_product( cpe:"cpe:/a:ietf:secure_shell_protocol:1.5", location:port + "/tcp", port:port, service:"ssh" );
+
+    if( supported == "1.33" )
+      register_product( cpe:"cpe:/a:ietf:secure_shell_protocol:1.33", location:port + "/tcp", port:port, service:"ssh" );
+
     info += string( "\n", chomp( supported ) );
   }
 

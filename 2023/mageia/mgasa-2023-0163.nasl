@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2023.0163");
   script_cve_id("CVE-2023-25652", "CVE-2023-25815", "CVE-2023-29007");
   script_tag(name:"creation_date", value:"2023-05-08 04:13:35 +0000 (Mon, 08 May 2023)");
-  script_version("2023-06-20T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:25 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-05-04 21:19:00 +0000 (Thu, 04 May 2023)");
+  script_tag(name:"severity_date", value:"2023-05-04 21:19:21 +0000 (Thu, 04 May 2023)");
 
   script_name("Mageia: Security Advisory (MGASA-2023-0163)");
   script_category(ACT_GATHER_INFO);
@@ -27,8 +27,8 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2023-0163");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2023-0163.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=31856");
-  script_xref(name:"URL", value:"https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.30.9.txt");
   script_xref(name:"URL", value:"https://lore.kernel.org/git/xmqqa5yv3n93.fsf@gitster.g/T/");
+  script_xref(name:"URL", value:"https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.30.9.txt");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'git' package(s) announced via the MGASA-2023-0163 advisory.");
 

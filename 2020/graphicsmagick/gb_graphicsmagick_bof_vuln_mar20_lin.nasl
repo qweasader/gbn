@@ -1,28 +1,14 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107808");
-  script_version("2021-07-22T11:01:40+0000");
-  script_tag(name:"last_modification", value:"2021-07-22 11:01:40 +0000 (Thu, 22 Jul 2021)");
+  script_version("2024-02-22T05:06:55+0000");
+  script_tag(name:"last_modification", value:"2024-02-22 05:06:55 +0000 (Thu, 22 Feb 2024)");
   script_tag(name:"creation_date", value:"2020-04-22 12:15:06 +0200 (Wed, 22 Apr 2020)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -36,11 +22,11 @@ if(description)
 
   script_cve_id("CVE-2020-10938");
 
-  script_name("GraphicsMagick < 1.3.35 heap-based Buffer Overflow vulnerability (Linux)");
+  script_name("GraphicsMagick < 1.3.35 Heap-Based Buffer Overflow Vulnerability - Linux");
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Denial of Service");
   script_dependencies("os_detection.nasl", "gb_graphicsmagick_detect_lin.nasl");
   script_mandatory_keys("Host/runs_unixoide", "GraphicsMagick/Linux/Ver");
@@ -60,7 +46,7 @@ if(description)
 
   script_tag(name:"affected", value:"GraphicsMagick prior to version 1.3.35.");
 
-  script_tag(name:"solution", value:"Update to GraphicsMagick version 1.3.35 or later.");
+  script_tag(name:"solution", value:"Update to version 1.3.35 or later.");
 
   script_xref(name:"URL", value:"https://sourceforge.net/p/graphicsmagick/code/ci/5b4dd7c6674140a115ec9424c8d19c6a458fac3e/");
 
@@ -72,10 +58,7 @@ CPE = "cpe:/a:graphicsmagick:graphicsmagick";
 include("host_details.inc");
 include("version_func.inc");
 
-if( isnull( port = get_app_port( cpe:CPE ) ) )
-  exit( 0 );
-
-if( ! infos = get_app_version_and_location( cpe:CPE, port:port, exit_no_version:TRUE ) )
+if( ! infos = get_app_version_and_location( cpe:CPE, exit_no_version:TRUE ) )
   exit( 0 );
 
 vers = infos["version"];
@@ -83,7 +66,7 @@ path = infos["location"];
 
 if( version_is_less( version:vers, test_version:"1.3.35" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"1.3.35", install_path:path );
-  security_message( data:report, port:port );
+  security_message( data:report, port:0 );
   exit( 0 );
 }
 

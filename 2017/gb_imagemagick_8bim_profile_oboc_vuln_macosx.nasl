@@ -9,17 +9,17 @@ CPE = "cpe:/a:imagemagick:imagemagick";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810508");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2014-9915");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-03-24 14:04:00 +0000 (Fri, 24 Mar 2017)");
   script_tag(name:"creation_date", value:"2017-01-18 11:29:40 +0530 (Wed, 18 Jan 2017)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("ImageMagick 8BIM Profile Parsing Off-By-One Count Vulnerability (Mac OS X)");
+  script_name("ImageMagick 8BIM Profile Parsing Off-By-One Count Vulnerability - Mac OS X");
 
   script_tag(name:"summary", value:"ImageMagick is prone to an Off-by-one count vulnerability.");
 

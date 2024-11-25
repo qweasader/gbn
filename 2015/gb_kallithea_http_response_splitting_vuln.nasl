@@ -9,11 +9,11 @@ CPE = "cpe:/a:kallithea:kallithea";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806613");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2015-5285");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2015-11-06 12:57:52 +0530 (Fri, 06 Nov 2015)");
   script_tag(name:"qod_type", value:"remote_banner");
   script_name("Kallithea 'came_from' parameter HTTP Response Splitting Vulnerability");
@@ -43,28 +43,24 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_kallithea_detect.nasl");
   script_mandatory_keys("Kallithea/Installed");
-  script_require_ports("Services/www", 5000);
-  script_xref(name:"URL", value:"https://kallithea-scm.org");
+
   exit(0);
 }
-
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!kalPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_is_equal( version:version, test_version:"0.2.9") ||
+   version_is_equal( version:version, test_version:"0.2.2")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"0.3");
+  security_message(port:port, data:report);
   exit(0);
 }
 
-if(!kalVer = get_app_version(cpe:CPE, port:kalPort)){
-  exit(0);
-}
-
-
-if(version_is_equal( version:kalVer, test_version:"0.2.9")||
-   version_is_equal( version:kalVer, test_version:"0.2.2"))
-{
-  report = 'Installed Version: ' + kalVer + '\nFixed Version: 0.3\n';
-  security_message(port:kalPort, data:report);
-  exit(0);
-}
+exit(99);

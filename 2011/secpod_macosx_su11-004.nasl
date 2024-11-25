@@ -21,8 +21,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902466");
-  script_version("2022-04-28T13:38:57+0000");
-  script_tag(name:"last_modification", value:"2022-04-28 13:38:57 +0000 (Thu, 28 Apr 2022)");
+  script_version("2024-02-09T14:47:30+0000");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-08-19 15:17:22 +0200 (Fri, 19 Aug 2011)");
   script_cve_id("CVE-2011-0196", "CVE-2011-0197", "CVE-2011-0198", "CVE-2011-0199",
                 "CVE-2011-0200", "CVE-2011-0201", "CVE-2011-0202", "CVE-2011-0203",
@@ -36,6 +36,9 @@ if(description)
                 "CVE-2011-0719", "CVE-2011-0212", "CVE-2011-0715");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-09 03:18:23 +0000 (Fri, 09 Feb 2024)");
   script_name("Mac OS X v10.6.8 Multiple Vulnerabilities (2011-004)");
   script_xref(name:"URL", value:"http://support.apple.com/kb/HT1222");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/38562");

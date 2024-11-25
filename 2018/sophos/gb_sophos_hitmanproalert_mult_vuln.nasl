@@ -7,9 +7,9 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107360");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-09-25T05:06:11+0000");
   script_cve_id("CVE-2018-3970", "CVE-2018-3971");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-11-01 14:04:55 +0100 (Thu, 01 Nov 2018)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
@@ -18,7 +18,7 @@ if(description)
   script_tag(name:"severity_date", value:"2023-02-02 13:43:00 +0000 (Thu, 02 Feb 2023)");
   script_tag(name:"qod_type", value:"registry");
   script_tag(name:"solution_type", value:"VendorFix");
-  script_name("Sophos HitmanPro.Alert Multiple Vulnerabilities (Windows)");
+  script_name("Sophos HitmanPro.Alert Multiple Vulnerabilities - Windows");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("General");
@@ -27,7 +27,7 @@ if(description)
 
   script_tag(name:"summary", value:"Sophos HitmanPro.Alert version 3.7.6.744 is prone to multiple vulnerabilities.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"- An exploitable arbitrary write vulnerability exists in the 0x2222CC IOCTL handler functionality of Sophos HitmanPro.Alert 3.7.6.744.
 

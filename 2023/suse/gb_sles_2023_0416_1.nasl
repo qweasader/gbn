@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2023.0416.1");
   script_cve_id("CVE-2017-13695", "CVE-2018-7755", "CVE-2019-3837", "CVE-2019-3900", "CVE-2020-15393", "CVE-2020-16119", "CVE-2020-36557", "CVE-2020-36558", "CVE-2021-26341", "CVE-2021-33655", "CVE-2021-33656", "CVE-2021-34981", "CVE-2021-39713", "CVE-2021-45868", "CVE-2022-1011", "CVE-2022-1048", "CVE-2022-1353", "CVE-2022-1462", "CVE-2022-1652", "CVE-2022-1679", "CVE-2022-20132", "CVE-2022-20166", "CVE-2022-20368", "CVE-2022-20369", "CVE-2022-21123", "CVE-2022-21125", "CVE-2022-21127", "CVE-2022-21166", "CVE-2022-21180", "CVE-2022-21385", "CVE-2022-21499", "CVE-2022-2318", "CVE-2022-2663", "CVE-2022-28356", "CVE-2022-29900", "CVE-2022-29901", "CVE-2022-3028", "CVE-2022-3303", "CVE-2022-33981", "CVE-2022-3424", "CVE-2022-3524", "CVE-2022-3565", "CVE-2022-3566", "CVE-2022-3586", "CVE-2022-3621", "CVE-2022-3635", "CVE-2022-3646", "CVE-2022-3649", "CVE-2022-36879", "CVE-2022-36946", "CVE-2022-3903", "CVE-2022-39188", "CVE-2022-40768", "CVE-2022-4095", "CVE-2022-41218", "CVE-2022-41848", "CVE-2022-41850", "CVE-2022-41858", "CVE-2022-43750", "CVE-2022-44032", "CVE-2022-44033", "CVE-2022-45934");
   script_tag(name:"creation_date", value:"2023-02-16 04:21:52 +0000 (Thu, 16 Feb 2023)");
-  script_version("2023-06-20T05:05:26+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:26 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-02T14:37:51+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 14:37:51 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-12-01 19:46:00 +0000 (Thu, 01 Dec 2022)");
+  script_tag(name:"severity_date", value:"2022-12-01 19:46:15 +0000 (Thu, 01 Dec 2022)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2023:0416-1)");
   script_category(ACT_GATHER_INFO);

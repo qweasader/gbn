@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105355");
-  script_version("2023-12-19T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
+  script_version("2024-04-24T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-04-24 05:05:32 +0000 (Wed, 24 Apr 2024)");
   script_tag(name:"creation_date", value:"2015-09-15 15:57:03 +0200 (Tue, 15 Sep 2015)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -419,6 +419,17 @@ if( "Welcome to Honeywell Printer" >< banner ) {
   exit( 0 );
 }
 
+# 220 Bitvise SSH Server 9.32
+# 220 Bitvise SSH Server 9.32: free only for personal non-commercial use
+# 220 Bitvise SSH Server 8.43
+# 220 Bitvise SSH Server
+#
+# nb: Keep the pattern "in sync" with gsf/gb_bitvise_ssh_server_ftp_detect.nasl and ftpserver_detect_type_nd_version.nasl
+if( egrep( string:banner, pattern:"220[- ]Bitvise SSH Server", icase:FALSE ) ) {
+  os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
+  exit( 0 );
+}
+
 syst_banner = get_kb_item( "ftp/fingerprints/" + port + "/syst_banner_noauth" );
 
 # e.g. 215 UNIX Type: L8 Version: BSD-44
@@ -444,6 +455,10 @@ if( banner =~ "^220 (JD )?FTP Server Ready" ) {
 # 220 Wing FTP Server ready... (Wing FTP Server Free Edition)
 # 220 Wing FTP Server 7.2.8 ready...
 if( "220 Wing FTP Server " >< banner )
+  exit( 0 );
+
+# Cross-platform (Java) and running on Windows, Linux and Mac OS X
+if( "220 CrushFTP Server Ready!" >< banner )
   exit( 0 );
 
 os_register_unknown_banner( banner:banner, banner_type_name:BANNER_TYPE, banner_type_short:"ftp_banner", port:port );

@@ -9,19 +9,18 @@ CPE = "cpe:/a:mediawiki:mediawiki";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108091");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-07-16T05:05:43+0000");
   script_cve_id("CVE-2015-6727", "CVE-2015-6728", "CVE-2015-6729", "CVE-2015-6730", "CVE-2013-7444");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2017-03-09 10:45:17 +0100 (Thu, 09 Mar 2017)");
-  script_name("MediaWiki Multiple Vulnerabilities - Sep15 (Windows)");
+  script_name("MediaWiki Multiple Vulnerabilities (Sep 2015) - Windows");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "os_detection.nasl", "secpod_mediawiki_detect.nasl");
-  script_require_ports("Services/www", 80);
-  script_mandatory_keys("mediawiki/installed", "Host/runs_windows");
+  script_dependencies("gb_mediawiki_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("mediawiki/detected", "Host/runs_windows");
 
   script_tag(name:"summary", value:"MediaWiki is prone to multiple vulnerabilities.");
 
@@ -55,8 +54,11 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_less( version:vers, test_version:"1.23.10" ) ) {
   fix = "1.23.10";

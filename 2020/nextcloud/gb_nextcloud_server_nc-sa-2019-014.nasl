@@ -9,8 +9,8 @@ CPE = "cpe:/a:nextcloud:nextcloud_server";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.143464");
-  script_version("2023-05-15T09:08:55+0000");
-  script_tag(name:"last_modification", value:"2023-05-15 09:08:55 +0000 (Mon, 15 May 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2020-02-06 01:22:42 +0000 (Thu, 06 Feb 2020)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
@@ -33,8 +33,8 @@ if (description)
   script_dependencies("gb_nextcloud_detect.nasl");
   script_mandatory_keys("nextcloud/installed");
 
-  script_tag(name:"summary", value:"Nextcloud Server is prone to a server-side request forgery vulnerability in the
-  New-Subscription feature of the calendar app.");
+  script_tag(name:"summary", value:"Nextcloud Server is prone to a server-side request forgery
+  (SSRF) vulnerability in the New-Subscription feature of the calendar app.");
 
   script_tag(name:"insight", value:"An authenticated server-side request forgery allowed to detect local and
   remote services when adding a new subscription in the calendar application.");

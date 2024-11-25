@@ -8,8 +8,8 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.53839");
   script_cve_id("CVE-2002-0044");
-  script_version("2023-07-19T05:05:15+0000");
-  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2008-01-17 22:24:46 +0100 (Thu, 17 Jan 2008)");
   script_tag(name:"cvss_base", value:"3.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:N");
@@ -23,7 +23,7 @@ if(description)
   script_tag(name:"insight", value:"The version of enscript (a tool to convert ASCII text to different
 formats) has been found to create temporary files insecurely.
 
-This has been fixed in version 1.6.2-4.1 .");
+This has been fixed in version 1.6.2-4.1.");
   script_tag(name:"summary", value:"The remote host is missing an update to enscript
 announced via advisory DSA 105-1.");
   script_tag(name:"qod_type", value:"package");

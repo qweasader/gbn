@@ -9,8 +9,8 @@ CPE = "cpe:/a:vmware:player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107210");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2017-05-30 11:31:00 +0200 (Tue, 30 May 2017)");
   script_cve_id("CVE-2017-4915", "CVE-2017-4916");
 
@@ -21,9 +21,9 @@ if(description)
   script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
 
   script_tag(name:"qod_type", value:"registry");
-  script_name("Multiple VMware Workstation Products DLL Loading Local Privilege Escalation Vulnerability (Linux)");
-  script_tag(name:"summary", value:"VMware Workstation and Horizon View Client are prone to a remote code-execution
-  vulnerability (Windows).");
+  script_name("Multiple VMware Workstation Products DLL Loading Local Privilege Escalation Vulnerability - Linux");
+  script_tag(name:"summary", value:"VMware Workstation and Horizon View Client are prone to a remote
+  code execution (RCE) vulnerability (Windows).");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
   script_tag(name:"insight", value:"VMware Workstation Pro/Player contains an insecure library loading vulnerability
   via ALSA sound driver configuration files. Successful exploitation of this issue may allow unprivileged host users
@@ -40,7 +40,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
 
-  script_family("General");
+  script_family("Privilege escalation");
 
   script_dependencies("gb_vmware_prdts_detect_win.nasl");
   script_mandatory_keys("VMware/Player/Win/Ver");

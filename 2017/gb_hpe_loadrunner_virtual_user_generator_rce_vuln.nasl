@@ -9,13 +9,13 @@ CPE = "cpe:/a:hp:loadrunner";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810936");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2013-6213");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-04-21 10:33:34 +0530 (Fri, 21 Apr 2017)");
-  script_name("HPE LoadRunner Virtual User Generator Remote Code Execution Vulnerability");
+  script_name("HPE LoadRunner Virtual User Generator RCE Vulnerability");
 
   script_tag(name:"summary", value:"HPE LoadRunner is prone to a remote code execution (RCE) vulnerability.");
 

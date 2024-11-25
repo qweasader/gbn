@@ -12,7 +12,7 @@ if (description)
   script_cve_id("CVE-2015-4236");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
-  script_version("2023-10-27T16:11:32+0000");
+  script_version("2024-06-28T05:05:33+0000");
 
   script_name("Cisco AsyncOS for Email Security Appliance Denial of Service Vulnerability");
 
@@ -30,12 +30,12 @@ the affected system to become unresponsive on the clustering and SSH configured 
 
   script_tag(name:"solution", value:"Updates are available. Please see the vendor advisory for more information.");
   script_tag(name:"summary", value:"Cisco AsyncOS for Email Security Appliance is prone to a denial of service (DoS) vulnerability.");
-  script_tag(name:"affected", value:"This issue is tracked by Cisco Bug IDs CSCur13704, CSCuq05636, CSCuv43307, and CSCuv99383 .");
+  script_tag(name:"affected", value:"This issue is tracked by Cisco Bug IDs CSCur13704, CSCuq05636, CSCuv43307, and CSCuv99383.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2015-09-01 11:09:10 +0200 (Tue, 01 Sep 2015)");
   script_category(ACT_GATHER_INFO);
   script_family("CISCO");
@@ -63,4 +63,3 @@ foreach af ( affected )
 }
 
 exit( 99 );
-

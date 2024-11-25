@@ -9,18 +9,19 @@ CPE = "cpe:/a:novell:iprint";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810592");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2010-4314");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-03-15 17:25:00 +0000 (Wed, 15 Mar 2017)");
   script_tag(name:"creation_date", value:"2017-03-14 13:19:08 +0530 (Tue, 14 Mar 2017)");
-  script_name("Novell iPrint Client 'Plugin' Parameter Code Execution Vulnerability (Windows)");
+  script_name("Novell iPrint Client 'Plugin' Parameter Code Execution Vulnerability - Windows");
 
-  script_tag(name:"summary", value:"Novell iPrint Client is prone to a remote code execution vulnerability.");
+  script_tag(name:"summary", value:"Novell iPrint Client is prone to a remote code execution (RCE)
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

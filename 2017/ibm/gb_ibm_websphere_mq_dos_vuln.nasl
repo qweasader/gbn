@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113066");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2017-12-08 14:11:12 +0100 (Fri, 08 Dec 2017)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
@@ -34,7 +34,7 @@ if( description )
   script_tag(name:"summary", value:"IBM WebSphere MQ 7.5, 8.0, and 9.0 could allow an authenticated user to insert
   messages with a corrupt RFH header into the channel which would cause it to restart.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"affected", value:"IBM WebSphere MQ 7.5.0.0 through 7.5.0.8, 8.0.0.0 through 8.0.0.7 and 9.0.0.0
   through 9.0.0.1.");

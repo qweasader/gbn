@@ -9,7 +9,7 @@ CPE = "cpe:/a:foxitsoftware:reader";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813263");
-  script_version("2023-11-03T16:10:08+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2018-11617", "CVE-2018-11618", "CVE-2018-11619", "CVE-2018-11620",
                 "CVE-2018-11621", "CVE-2018-11622", "CVE-2018-11623", "CVE-2018-14241",
                 "CVE-2018-14242", "CVE-2018-14243", "CVE-2018-14244", "CVE-2018-14245",
@@ -36,12 +36,12 @@ if(description)
                 "CVE-2018-17616");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-02-02 22:14:00 +0000 (Thu, 02 Feb 2023)");
   script_tag(name:"creation_date", value:"2018-07-20 15:00:12 +0530 (Fri, 20 Jul 2018)");
-  script_name("Foxit Reader 'JavaScript' Remote Code Execution Vulnerabilities (Windows)");
+  script_name("Foxit Reader 'JavaScript' Remote Code Execution Vulnerabilities - Windows");
 
   script_tag(name:"summary", value:"Foxit Reader is prone to multiple code execution vulnerabilities.");
 

@@ -9,12 +9,12 @@ CPE = "cpe:/a:disksavvy:disksavvy_enterprise_web_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107130");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-29T05:05:39+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-29 05:05:39 +0000 (Thu, 29 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-02-02 12:21:46 +0100 (Thu, 02 Feb 2017)");
-  script_name("DiskSavvy Enterprise GET Buffer Overflow (Windows)");
+  script_name("DiskSavvy Enterprise 9.1.14, 9.3.14 GET Buffer Overflow Vulnerability - Windows");
 
   script_tag(name:"summary", value:"DiskSavvy Enterprise is prone to a GET buffer overflow vulnerability.");
 

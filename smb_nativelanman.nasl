@@ -8,10 +8,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.102011");
-  script_version("2024-01-09T05:06:46+0000");
+  script_version("2024-06-25T05:05:27+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2024-01-09 05:06:46 +0000 (Tue, 09 Jan 2024)");
+  script_tag(name:"last_modification", value:"2024-06-25 05:05:27 +0000 (Tue, 25 Jun 2024)");
   script_tag(name:"creation_date", value:"2009-09-18 16:06:42 +0200 (Fri, 18 Sep 2009)");
   script_name("SMB NativeLanMan");
   script_category(ACT_GATHER_INFO);
@@ -189,7 +189,7 @@ for( x = l-3; x > 0 && c < 3; x = x - 2 ) {
           } else if( "Samba 4.13.13-Debian" >< smb_str ) {
             os_str = "Debian GNU/Linux 11";
             os_register_and_report( os:"Debian GNU/Linux", version:"11", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
-          } else if( "Samba 4.17.8-Debian" >< smb_str ) {
+          } else if( "Samba 4.17.8-Debian" >< smb_str || "Samba 4.17.12-Debian" >< smb_str ) {
             os_str = "Debian GNU/Linux 12";
             os_register_and_report( os:"Debian GNU/Linux", version:"12", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
           } else {
@@ -308,6 +308,12 @@ for( x = l-3; x > 0 && c < 3; x = x - 2 ) {
           } else if( "Samba 4.17.7-Ubuntu" >< smb_str ) {
             os_str = "Ubuntu 23.04";
             os_register_and_report( os:"Ubuntu", version:"23.04", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+          } else if( "Samba 4.18.6-Ubuntu" >< smb_str ) {
+            os_str = "Ubuntu 23.10";
+            os_register_and_report( os:"Ubuntu", version:"23.10", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+          } else if( "Samba 4.19.5-Ubuntu" >< smb_str ) {
+            os_str = "Ubuntu 24.04";
+            os_register_and_report( os:"Ubuntu", version:"24.04", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
           } else {
             # nb: Versions without the -Ubuntu pattern:
             # Dapper and Edgy: Samba 3.0.22
@@ -406,7 +412,65 @@ for( x = l-3; x > 0 && c < 3; x = x - 2 ) {
           #smb_str: Windows XP 5.2, os_str: Windows XP 3790 Service Pack 2 -> Windows XP SP2, 64bit
           #smb_str: Windows Server 2016 Standard 6.3, os_str: Windows Server 2016 Standard 14393
           #smb_str: Windows 10 Enterprise 2016 LTSB 6.3, os_str: Windows 10 Enterprise 2016 LTSB 14393
-          if( "windows 10 " >< os_str_lo ) {
+          #smb_str: Windows 10 Enterprise 6.3, os_str: Windows 10 Enterprise 22000
+          #n.b. Filter out the build version from os_str to identify Windows 11 systems
+          build = eregmatch(string:os_str_lo, pattern:"[0-9]{5}");
+          if(max_index(build) == 1) {
+            build = build[0];
+          } else {
+            build = 0;
+          }
+          if( "windows 10 " >< os_str_lo && build >= 22000 ) {
+            cpe = "cpe:/o:microsoft:windows_11";
+
+            if( ver = get_version_from_build( string:os_str, win_name:"win11" ) )
+              cpe += ":" + tolower( ver );
+            else
+              cpe += ":";
+
+            if( "ltsb" >< os_str_lo )
+              cpe += ":ltsb";
+            else if( "ltsc" >< os_str_lo )
+              cpe += ":ltsc";
+            else
+              cpe += ":cb";
+
+            if( "enterprise" >< os_str_lo )
+              cpe += ":enterprise";
+            else if( "education" >< os_str_lo )
+              cpe += ":education";
+            else if( "home" >< os_str_lo )
+              cpe += ":home";
+            else if( "pro" >< os_str_lo )
+              cpe += ":pro";
+            else
+              cpe += ":unknown_edition";
+
+            # nb: os_str still contains "Windows 10" on Windows 11 (because given like this from the response)
+            # so we need to rewrite this here before passing the info to the user.
+            os_str = str_replace( string:os_str, find:"Windows 10", replace:"Windows 11" );
+
+            os_register_and_report( os:os_str, version:ver, cpe:cpe, full_cpe:TRUE, banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
+          }
+
+          #smb_str: Windows Server 2022 Standard 6.3, os_str: Windows Server 2022 Standard 20348
+          else if( "windows server 2022" >< os_str_lo ) {
+            cpe = "cpe:/o:microsoft:windows_server_2022";
+            cpe += "::";
+
+            if( "datacenter" >< os_str_lo )
+              cpe += ":datacenter";
+            else if( "standard" >< os_str_lo )
+              cpe += ":standard";
+            else if ("azure" >< os_str_lo )
+              cpe += ":azure";
+            else
+              cpe += ":unknown_edition";
+
+            os_register_and_report( os:os_str, version:ver, cpe:cpe, full_cpe:TRUE, banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
+          }
+
+          else if( "windows 10 " >< os_str_lo ) {
             cpe = "cpe:/o:microsoft:windows_10";
 
             if( ver = get_version_from_build( string:os_str, win_name:"win10" ) )

@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804195");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-02-20T14:37:13+0000");
   script_cve_id("CVE-2014-0404", "CVE-2014-0405", "CVE-2014-0406", "CVE-2014-0407");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-01-23 11:44:12 +0530 (Thu, 23 Jan 2014)");
-  script_name("Oracle VM VirtualBox Multiple Unspecified Vulnerabilities-01 Jan2014 (Windows)");
+  script_name("Oracle VM VirtualBox Multiple Unspecified Vulnerabilities-01 (Jan 2014) - Windows");
 
   script_tag(name:"summary", value:"Oracle VM VirtualBox is prone to multiple unspecified vulnerabilities.");
 

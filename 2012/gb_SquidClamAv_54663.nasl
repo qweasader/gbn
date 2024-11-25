@@ -12,13 +12,13 @@ if(description)
   script_cve_id("CVE-2012-3501");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_version("2023-10-27T16:11:32+0000");
+  script_version("2024-06-27T05:05:29+0000");
 
-  script_name("SquidClamav URL Parsing Denial of Service Vulnerability");
+  script_name("SquidClamav URL Parsing DoS Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/54663");
 
-  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-09-17 12:15:00 +0200 (Mon, 17 Sep 2012)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");

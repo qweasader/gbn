@@ -9,8 +9,8 @@ CPE = "cpe:/a:mediawiki:mediawiki";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141567");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-07-16T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2018-10-05 10:37:17 +0700 (Fri, 05 Oct 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -24,14 +24,14 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("MediaWiki 1.31.0 .htaccess Vulnerability (Windows)");
+  script_name("MediaWiki 1.31.0 .htaccess Vulnerability - Windows");
 
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("secpod_mediawiki_detect.nasl", "os_detection.nasl");
-  script_mandatory_keys("mediawiki/installed", "Host/runs_windows");
+  script_dependencies("gb_mediawiki_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("mediawiki/detected", "Host/runs_windows");
 
   script_tag(name:"summary", value:"Mediawiki misses .htaccess files in the provided tarball used to protect some
 directories that shouldn't be web accessible.");

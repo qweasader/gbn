@@ -9,8 +9,8 @@ CPE = "cpe:/a:check_mk_project:check_mk";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126358");
-  script_version("2024-01-11T05:05:45+0000");
-  script_tag(name:"last_modification", value:"2024-01-11 05:05:45 +0000 (Thu, 11 Jan 2024)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-02-22 10:31:26 +0000 (Wed, 22 Feb 2023)");
   script_tag(name:"cvss_base", value:"1.7");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:P/I:N/A:N");
@@ -33,7 +33,7 @@ if (description)
   script_dependencies("gb_check_mk_web_detect.nasl");
   script_mandatory_keys("check_mk/detected");
 
-  script_tag(name:"summary", value:"Checkmk is prone to a server side request forgery (SSRF)
+  script_tag(name:"summary", value:"Checkmk is prone to a server-side request forgery (SSRF)
   vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");

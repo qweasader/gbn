@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802710");
-  script_version("2023-12-13T05:05:23+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_cve_id("CVE-2012-6520", "CVE-2012-2099");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-03-16 13:30:44 +0530 (Fri, 16 Mar 2012)");
-  script_name("Wikidforum Multiple XSS and SQL Injection Vulnerabilities");
+  script_name("Wikidforum Multiple XSS and SQLi Vulnerabilities");
   script_xref(name:"URL", value:"http://seclists.org/oss-sec/2012/q2/75");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/52425");
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/73985");

@@ -9,7 +9,7 @@ CPE = "cpe:/a:adobe:adobe_air";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805957");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2015-5124", "CVE-2015-5125", "CVE-2015-5127", "CVE-2015-5129",
                 "CVE-2015-5130", "CVE-2015-5131", "CVE-2015-5132", "CVE-2015-5133",
                 "CVE-2015-5134", "CVE-2015-5539", "CVE-2015-5540", "CVE-2015-5541",
@@ -21,9 +21,9 @@ if(description)
                 "CVE-2015-5564", "CVE-2015-5565", "CVE-2015-5566");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-08-18 09:38:37 +0530 (Tue, 18 Aug 2015)");
-  script_name("Adobe Air Multiple Vulnerabilities-01 Aug15 (Windows)");
+  script_name("Adobe Air Multiple Vulnerabilities-01 (Aug 2015) - Windows");
 
   script_tag(name:"summary", value:"Adobe Air is prone to multiple vulnerabilities.");
 

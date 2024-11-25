@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.96029");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-22T14:37:29+0000");
+  script_tag(name:"last_modification", value:"2024-02-22 14:37:29 +0000 (Thu, 22 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-10-23 12:32:24 +0200 (Fri, 23 Oct 2009)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_name("Test over WMI, if Microsoft IIS installed and list open ports (Win)");
+  script_name("Test over WMI, if Microsoft IIS installed and list open ports - Windows");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("IT-Grundschutz");
@@ -26,7 +26,6 @@ if(description)
   exit(0);
 }
 
-include("misc_func.inc");
 include("port_service_func.inc");
 include("smb_nt.inc");
 

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.2599");
   script_cve_id("CVE-2014-4608", "CVE-2014-5206", "CVE-2014-5207", "CVE-2015-1350", "CVE-2015-3332", "CVE-2015-8816", "CVE-2015-8844", "CVE-2015-8845", "CVE-2015-9289", "CVE-2016-2184", "CVE-2016-2185", "CVE-2016-2186", "CVE-2016-2187", "CVE-2016-2384", "CVE-2016-3138", "CVE-2016-3139", "CVE-2016-3140", "CVE-2016-3689", "CVE-2016-4569", "CVE-2016-4578", "CVE-2016-6130", "CVE-2016-6197", "CVE-2016-7425", "CVE-2017-1000253", "CVE-2017-1000379", "CVE-2017-13168", "CVE-2017-18509", "CVE-2017-18551", "CVE-2017-18595", "CVE-2017-5753", "CVE-2018-14617", "CVE-2019-0136", "CVE-2019-17075", "CVE-2019-17133", "CVE-2019-17666");
   script_tag(name:"creation_date", value:"2020-01-23 13:08:20 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-09-11T05:05:55+0000");
+  script_tag(name:"last_modification", value:"2024-09-11 05:05:55 +0000 (Wed, 11 Sep 2024)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-06-14 18:15:00 +0000 (Mon, 14 Jun 2021)");
+  script_tag(name:"severity_date", value:"2019-10-21 18:30:04 +0000 (Mon, 21 Oct 2019)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2019-2599)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROS\-2\.0SP3");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-2599");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-2599");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-2599");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2019-2599 advisory.");
 
@@ -55,6 +55,8 @@ Double free vulnerability in the snd_usbmidi_create function in sound/usb/midi.c
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

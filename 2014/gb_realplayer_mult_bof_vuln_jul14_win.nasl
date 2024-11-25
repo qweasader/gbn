@@ -9,13 +9,13 @@ CPE = "cpe:/a:realnetworks:realplayer";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804678");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-02-16T05:06:55+0000");
   script_cve_id("CVE-2014-3113");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-07-14 16:18:41 +0530 (Mon, 14 Jul 2014)");
-  script_name("RealNetworks RealPlayer Multiple Buffer Overflow Vulnerabilities July14 (Windows)");
+  script_name("RealNetworks RealPlayer Multiple Buffer Overflow Vulnerabilities (Jul 2014) - Windows");
 
   script_tag(name:"summary", value:"RealPlayer is prone to multiple buffer overflow vulnerabilities.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");

@@ -9,16 +9,17 @@ CPE = "cpe:/a:adobe:illustrator";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813495");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2008-3961");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-07-12 15:41:49 +0530 (Thu, 12 Jul 2018)");
   script_tag(name:"qod_type", value:"executable_version");
   script_name("Adobe Illustrator Remote Code Execution Vulnerability-Mac OS X (apsa08-07)");
 
-  script_tag(name:"summary", value:"Adobe Illustrator is prone to a remote code execution vulnerability.");
+  script_tag(name:"summary", value:"Adobe Illustrator is prone to a remote code execution (RCE)
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

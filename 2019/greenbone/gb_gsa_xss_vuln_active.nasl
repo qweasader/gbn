@@ -9,8 +9,8 @@ CPE = "cpe:/a:greenbone:greenbone_security_assistant";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108640");
-  script_version("2023-10-27T05:05:28+0000");
-  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
+  script_version("2024-06-12T05:05:44+0000");
+  script_tag(name:"last_modification", value:"2024-06-12 05:05:44 +0000 (Wed, 12 Jun 2024)");
   script_tag(name:"creation_date", value:"2019-09-10 07:01:39 +0000 (Tue, 10 Sep 2019)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -30,8 +30,8 @@ if(description)
 
   script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_gsa_detect.nasl", "gb_greenbone_os_consolidation.nasl");
-  script_mandatory_keys("greenbone_security_assistant/80plus/detected");
+  script_dependencies("gb_greenbone_gsa_http_detect.nasl", "gb_greenbone_os_consolidation.nasl");
+  script_mandatory_keys("greenbone/gsa/80plus/http/detected");
   script_exclude_keys("greenbone/gos/detected");
 
   script_tag(name:"summary", value:"Greenbone Security Assistant (GSA) is prone to a reflected

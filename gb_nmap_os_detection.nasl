@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108021");
-  script_version("2023-06-22T10:34:15+0000");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-11-21 12:08:04 +0100 (Mon, 21 Nov 2016)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -35,7 +35,7 @@ if(description)
 
   - Depending on the exposed services on the target it might take a considerable amount of time to complete
 
-  - It needs to conntect to TCP ports which might be not within the configured port list of this target
+  - It needs to connect to TCP ports which might be not within the configured port list of this target
 
   - It might interfere with other service detection methods of the scanner
 

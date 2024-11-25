@@ -9,13 +9,13 @@ CPE = "cpe:/a:piwik:piwik";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900992");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2009-12-31 08:44:14 +0100 (Thu, 31 Dec 2009)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_cve_id("CVE-2009-4140");
-  script_name("Piwik PHP Code Execution Vulnerability");
+  script_name("Piwik 0.2.35 - 0.4.3 PHP Code Execution Vulnerability");
   script_xref(name:"URL", value:"http://secunia.com/advisories/37078");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/37314");
   script_xref(name:"URL", value:"http://www.openwall.com/lists/oss-security/2009/12/14/1");
@@ -32,9 +32,10 @@ if(description)
   code to compromise the remote machine running the vulnerable application.");
 
   script_tag(name:"affected", value:"Open Flash Chart version 2 Beta 1 through 2.x
-  Piwik version 0.2.35 through 0.4.3 on all platforms.");
 
-  script_tag(name:"insight", value:"This flaw is due to improper validatin of data passed into 'name' and
+  Piwik version 0.2.35 through 0.4.3 on all platforms");
+
+  script_tag(name:"insight", value:"This flaw is due to improper validation of data passed into 'name' and
   'HTTP_RAW_POST_DATA' parameters in ofc_upload_image.php which can be exploited
   to create php files containing malicious php code.");
 

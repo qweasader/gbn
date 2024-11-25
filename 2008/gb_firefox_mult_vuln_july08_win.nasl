@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800011");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-16T05:06:55+0000");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2008-10-06 13:07:14 +0200 (Mon, 06 Oct 2008)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -17,7 +17,7 @@ if(description)
                 "CVE-2008-2807", "CVE-2008-2808", "CVE-2008-2809", "CVE-2008-2810",
                 "CVE-2008-2811");
   script_xref(name:"CB-A", value:"08-0109");
-  script_name("Mozilla Firefox Multiple Vulnerabilities July-08 (Windows)");
+  script_name("Mozilla Firefox Multiple Vulnerabilities (Jul 2008) - Windows");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("General");

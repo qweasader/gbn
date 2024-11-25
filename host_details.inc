@@ -95,17 +95,18 @@ function register_host_detail( name, value, desc ) {
 # @brief Registers a specific product as an "App" HostDetails to the scanner/manager for later
 #        use by other VTs and internal functions.
 #
-# @param cpe      The (mandatory) cpe to assign to the registered product.
-# @param location The (optional) location to assign to the registered product, e.g. 80/tcp or /path/to/folder. Defaults to "/" if none given.
-# @param port     The (optional) port to assign to the registered product, e.g. 80 or 443. Defaults to "0" if none given.
-# @param proto    The (optional) protocol to assign to the registered product, e.g. "tcp" or "udp". Defaults to "tcp" if none given.
-# @param service  The (optional) service to assign to the registered product, e.g. "www", "mysql" or "local". No default is used if none given.
+# @param cpe              The (mandatory) cpe to assign to the registered product.
+# @param location         The (optional) location to assign to the registered product, e.g. 80/tcp or /path/to/folder. Defaults to "/" if none given.
+# @param port             The (optional) port to assign to the registered product, e.g. 80 or 443. Defaults to "0" if none given.
+# @param proto            The (optional) protocol to assign to the registered product, e.g. "tcp" or "udp". Defaults to "tcp" if none given.
+# @param service          The (optional) service to assign to the registered product, e.g. "www", "mysql" or "local". No default is used if none given.
+# @param internal_version The (optional) version to assign to the registered product if the version can not be stored within the cpe. No default is used if none given.
 #
 # @return NULL
 #
-function register_product( cpe, location, port, proto, service ) {
+function register_product( cpe, location, port, proto, service, internal_version ) {
 
-  local_var cpe, location, port, proto, service;
+  local_var cpe, location, port, proto, service, internal_version;
   local_var base_cpe, kb_e;
 
   if( ! cpe ) {
@@ -135,8 +136,12 @@ function register_product( cpe, location, port, proto, service ) {
   if( isnull( port ) )
     port = 0;
 
-  if( service )
+  if( service && internal_version )
+    kb_e = get_script_oid() + "#-#" + cpe + "#-#" + location + "#-#" + port + "#-#" + proto + "#-#" + service + "#-#" + internal_version;
+  else if( service )
     kb_e = get_script_oid() + "#-#" + cpe + "#-#" + location + "#-#" + port + "#-#" + proto + "#-#" + service;
+  else if( internal_version )
+    kb_e = get_script_oid() + "#-#" + cpe + "#-#" + location + "#-#" + port + "#-#" + proto + "#-##-#" + internal_version;
   else
     kb_e = get_script_oid() + "#-#" + cpe + "#-#" + location + "#-#" + port + "#-#" + proto;
 
@@ -182,24 +187,24 @@ function report_host_detail_single( name, value, nvt, desc ) {
   if( ! value ) set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#value#-#report_host_detail_single" );
   if( ! nvt ) set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#nvt#-#report_host_detail_single" );
 
-  report = '';
+  report = "";
 
-  report += xml_open_tag( tag:'host' );
-  report += xml_open_tag( tag:'detail' );
-  report += xml_tagline( tag:'name', value:name );
-  report += xml_tagline( tag:'value', value:value );
-  report += xml_open_tag( tag:'source' );
-  report += xml_tagline( tag:'type', value:"nvt" );
-  report += xml_tagline( tag:'name', value:nvt );
+  report += xml_open_tag( tag:"host" );
+  report += xml_open_tag( tag:"detail" );
+  report += xml_tagline( tag:"name", value:name );
+  report += xml_tagline( tag:"value", value:value );
+  report += xml_open_tag( tag:"source" );
+  report += xml_tagline( tag:"type", value:"nvt" );
+  report += xml_tagline( tag:"name", value:nvt );
 
   if( ! isnull( desc ) )
-    report += xml_tagline( tag:'description', value:desc );
+    report += xml_tagline( tag:"description", value:desc );
   else
-    report += '<description/>';
+    report += "<description/>";
 
-  report += xml_close_tag( tag:'source' );
-  report += xml_close_tag( tag:'detail' );
-  report += xml_close_tag( tag:'host' );
+  report += xml_close_tag( tag:"source" );
+  report += xml_close_tag( tag:"detail" );
+  report += xml_close_tag( tag:"host" );
 
   log_message( proto:"Host_Details", data:report );
 }
@@ -300,7 +305,7 @@ function get_app( cpe, loc ) {
       res = make_array();
 
       res["OID"] = host_values[2];
-      res["CPE"] = 'cpe:/' +  host_values[4];
+      res["CPE"] = "cpe:/" + host_values[4];
 
       port = get_kb_item( "HostDetails/NVT/" + res["OID"] + "/port" ); # nb: this could fork
 
@@ -329,46 +334,46 @@ function get_app( cpe, loc ) {
   return NULL;
 }
 
-# register_product( cpe:'cpe:/a:foo:bar:1.1.0', location:"/foo", port: 80);
-# register_product( cpe:'cpe:/a:foo:bar:1.2.0', location:"/bar", port: 80);
-# register_product( cpe:'cpe:/a:foo:bar:1.3.0', location:"/foobar", port: 8080);
+# register_product( cpe:"cpe:/a:foo:bar:1.1.0", location:"/foo", port: 80);
+# register_product( cpe:"cpe:/a:foo:bar:1.2.0", location:"/bar", port: 80);
+# register_product( cpe:"cpe:/a:foo:bar:1.3.0", location:"/foobar", port: 8080);
 #                                                                                                                          ,--[1.1.0]
-#                                                 ,--[ 80 ] -> get_app_version( cpe:'cpe:/a:foo:bar', port:80 ) -> fork -> |
+#                                                 ,--[ 80 ] -> get_app_version( cpe:"cpe:/a:foo:bar", port:80 ) -> fork -> |
 #                                                 |                                                                        `--[1.2.0]
-# get_app_port( cpe:'cpe:/a:foo:bar' ) -> fork -> |
-#                                                 `--[8080] -> get_app_version( cpe:'cpe:/a:foo:bar', port:8080 ) -> [1.3.0]
+# get_app_port( cpe:"cpe:/a:foo:bar" ) -> fork -> |
+#                                                 `--[8080] -> get_app_version( cpe:"cpe:/a:foo:bar", port:8080 ) -> [1.3.0]
 # Without port:
 #
 #                                                    ,--[1.1.0]
-# get_app_version( cpe:'cpe:/a:foo:bar' ) -> fork -> |
+# get_app_version( cpe:"cpe:/a:foo:bar" ) -> fork -> |
 #                                                    |--[1.2.0]
 #                                                    |
 #                                                    `--[1.3.0]
 #
 #
 #                                                                                                                           ,--[/foo]
-#                                                 ,--[ 80 ] -> get_app_location( cpe:'cpe:/a:foo:bar', port:80 ) -> fork -> |
+#                                                 ,--[ 80 ] -> get_app_location( cpe:"cpe:/a:foo:bar", port:80 ) -> fork -> |
 #                                                 |                                                                         `--[/bar]
-# get_app_port( cpe:'cpe:/a:foo:bar' ) -> fork -> |
-#                                                 `--[8080] -> get_app_location( cpe:'cpe:/a:foo:bar', port:8080 ) -> [/foobar]
+# get_app_port( cpe:"cpe:/a:foo:bar" ) -> fork -> |
+#                                                 `--[8080] -> get_app_location( cpe:"cpe:/a:foo:bar", port:8080 ) -> [/foobar]
 #
 # Without port:
 #                                                     ,--[/foo]
-# get_app_location( cpe:'cpe:/a:foo:bar' ) -> fork -> |
+# get_app_location( cpe:"cpe:/a:foo:bar" ) -> fork -> |
 #                                                     |--[/bar]
 #                                                     |
 #                                                     `--[/foobar]
 #
 #
 #                                                                                                                                       ,-> array -> ( [version:1.1.0] [location:/foo] )
-#                                                 ,--[ 80 ] -> get_app_version_and_location( cpe:'cpe:/a:foo:bar', port:80 ) -> fork -> |
+#                                                 ,--[ 80 ] -> get_app_version_and_location( cpe:"cpe:/a:foo:bar", port:80 ) -> fork -> |
 #                                                 |                                                                                     `-> array -> ( [version:1.2.0] [location:bar] )
-# get_app_port( cpe:'cpe:/a:foo:bar' ) -> fork -> |
-#                                                 `--[8080] -> get_app_version_and_location( cpe:'cpe:/a:foo:bar', port:8080 ) -> array -> ( [version:1.3.0] [location:/foobar] )
+# get_app_port( cpe:"cpe:/a:foo:bar" ) -> fork -> |
+#                                                 `--[8080] -> get_app_version_and_location( cpe:"cpe:/a:foo:bar", port:8080 ) -> array -> ( [version:1.3.0] [location:/foobar] )
 # Without port:
 #
 #                                                                 ,-> array -> ( [version:1.1.0] [location:/foo] )
-# get_app_version_and_location( cpe:'cpe:/a:foo:bar' ) -> fork -> |
+# get_app_version_and_location( cpe:"cpe:/a:foo:bar" ) -> fork -> |
 #                                                                 |-> array -> ( [version:1.2.0] [location:/bar] )
 #                                                                 |
 #                                                                 `-> array -> ( [version:1.3.0] [location:/foobar] )
@@ -703,7 +708,9 @@ function get_app_location_from_list( cpe_list, port, nofork ) {
 #
 # @param cpe_list         A list of CPEs to evaluate.
 # @param port             The (optional) port of the application to get the version and location for, e.g. "80".
-# @param exit_no_version  If the function should exit if no version was found. Note: The function still return if a version but no location was found.
+# @param exit_no_version  If the function should exit if no version was found. Note: The function
+#                         still returns data (means it doesn't exit) if a version but no location
+#                         was found.
 # @param version_regex    A regex to restrict the returned version to. E.g. if a version "1.2" was registered but a
 #                         regex like "^[0-9]+\.[0-9]+\.[0-9]+" is specified the function won't return the version.
 # @param default_location The default location to return in the case "optimize_test" is set to "no" and no location was found for the given CPE.
@@ -828,15 +835,17 @@ function get_app_port( cpe, service, default ) {
 #
 # @param cpe              The CPE to get the version and location for.
 # @param port             The port of the application to get the version and location for, e.g. "80".
-# @param exit_no_version  If the function should exit if no version was found. Note: The function still return if a version but no location was found.
+# @param exit_no_version  If the function should exit if no version was found. Note: The function
+#                         still returns data (means it doesn't exit) if a version but no location
+#                         was found.
 # @param version_regex    A regex to restrict the returned version to. E.g. if a version "1.2" was registered but a
 #                         regex like "^[0-9]+\.[0-9]+\.[0-9]+" is specified the function won't return the version.
 # @param default_location The default location to return in the case "optimize_test" is set to "no" and no location was found for the given CPE.
 #
 # @return An array containing the info about the application matching the specified data in a form of the following array keys:
 #
-#         ['version']
-#         ['location']
+#         ["version"]
+#         ["location"]
 #
 #         or NULL in the case no CPE was passed or no matching info was found.
 #
@@ -874,8 +883,8 @@ function get_app_version_and_location( cpe, port, exit_no_version, version_regex
 #
 # @return An array containing the info about the application matching the specified data in a form of the following array keys:
 #
-#         ['location']
-#         ['proto']
+#         ["location"]
+#         ["proto"]
 #
 #         or NULL in the case no CPE was passed or no matching info was found.
 #
@@ -895,13 +904,15 @@ function get_app_location_and_proto( cpe, port, default_location, default_proto 
 #
 # @param cpe             The CPE to get the version and protocol for.
 # @param port            The port of the application to get the version and protocol for, e.g. "80".
-# @param exit_no_version If the function should exit if no version was found. Note: The function still return if a version but no protocol was found.
+# @param exit_no_version If the function should exit if no version was found. Note: The function
+#                        still returns data (means it doesn't exit) if a version but no protocol was
+#                        found.
 # @param default_proto   The default protocol to return in the case "optimize_test" is set to "no" and no protocol was found for the given CPE.
 #
 # @return An array containing the info about the application matching the specified data in a form of the following array keys:
 #
-#         ['version']
-#         ['proto']
+#         ["version"]
+#         ["proto"]
 #
 #         or NULL in the case no CPE was passed or no matching info was found.
 #
@@ -932,17 +943,20 @@ function get_app_version_and_proto( cpe, port, exit_no_version, default_proto ) 
 #
 # @param cpe             The CPE to get the information for.
 # @param port            The port of the application to get the information for, e.g. "80".
-# @param exit_no_version If the function should exit if no version was found.
+# @param exit_no_version If the function should exit if no version was found. Note: The function
+#                        still returns data (means it doesn't exit) if a version but e.g. no
+#                        protocol or location was found.
 #
 # @return An array containing the info about the application matching the specified data in a form of the following array keys:
 #
-#         ['version']
-#         ['location']
-#         ['full_cpe']
-#         ['port']
-#         ['proto']
-#         ['service']
-#         ['detected_by']
+#         ["version"]
+#         ["location"]
+#         ["full_cpe"]
+#         ["port"]
+#         ["proto"]
+#         ["service"]
+#         ["detected_by"]
+#         ["internal_version"]
 #
 #         or NULL in the case no CPE was passed or no matching info was found.
 #
@@ -987,7 +1001,7 @@ function get_app_port_from_cpe_prefix( cpe, default, service, first_cpe_only ) {
     return;
   }
 
-  data = get_kb_list( "get_app/ports/" + cpe + '*' );
+  data = get_kb_list( "get_app/ports/" + cpe + "*" );
   if( ! data )
     return;
 
@@ -1003,10 +1017,10 @@ function get_app_port_from_cpe_prefix( cpe, default, service, first_cpe_only ) {
     if( max_index( parts ) < 4 )
       continue;
 
-    if( parts[2] != 'cpe:' )
+    if( parts[2] != "cpe:" )
       continue;
 
-    _cpe = parts[2] + '/' + parts[3];
+    _cpe = parts[2] + "/" + parts[3];
 
     if( cpe >!< _cpe )
       continue;
@@ -1024,7 +1038,7 @@ function get_app_details( cpe, type, port, exit_no_version, service, nofork, ver
 
   local_var cpe, type, port, exit_no_version, service, nofork, version_regex, default, default_location, default_proto;
   local_var base_cpe, version_list, ap, _dt, t, t_cpe, t_port, app_versions, app_locations;
-  local_var t_oid, t_loc, app_details, ret_arr, x, x_oid, x_cpe, x_loc, x_port, x_proto, x_service;
+  local_var t_oid, t_loc, app_details, ret_arr, x, x_oid, x_cpe, x_loc, x_port, x_proto, x_service, x_internal_version;
 
   if( ! cpe ) {
     set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#cpe#-#get_app_details" );
@@ -1139,23 +1153,23 @@ function get_app_details( cpe, type, port, exit_no_version, service, nofork, ver
     if( type == "location" && default ) {
       return default;
     } else if( type == "version_location" && default_location ) {
-      ret_arr['version']  = '';
-      ret_arr['location'] = default_location;
+      ret_arr["version"]  = "";
+      ret_arr["location"] = default_location;
       return ret_arr;
     } else if( type == "version_proto" && default_proto ) {
-      ret_arr['version'] = '';
-      ret_arr['proto']   = default_proto;
+      ret_arr["version"] = "";
+      ret_arr["proto"]   = default_proto;
       return ret_arr;
     } else if( type == "location_proto" && ( default_proto || default_location ) ) {
       if( default_proto )
-        ret_arr['proto'] = default_proto;
+        ret_arr["proto"] = default_proto;
       else
-        ret_arr['proto'] = 'tcp';
+        ret_arr["proto"] = "tcp";
 
       if( default_location )
-        ret_arr['location'] = default_location;
+        ret_arr["location"] = default_location;
       else
-        ret_arr['location'] = '';
+        ret_arr["location"] = "";
 
       return ret_arr;
     } else {
@@ -1165,7 +1179,7 @@ function get_app_details( cpe, type, port, exit_no_version, service, nofork, ver
     return;
   }
 
-  x = split( app_details, sep:'#-#', keep:FALSE );
+  x = split( app_details, sep:"#-#", keep:FALSE );
 
   x_oid       = x[0];
   x_cpe       = x[1];
@@ -1174,6 +1188,8 @@ function get_app_details( cpe, type, port, exit_no_version, service, nofork, ver
   x_proto     = x[4];
   if( x[5] )
     x_service = x[5];
+  if( x[6] )
+    x_internal_version = x[6];
 
   if( service && x_service != service )
     return;
@@ -1223,15 +1239,15 @@ function get_app_details( cpe, type, port, exit_no_version, service, nofork, ver
       if( version_regex && ! ereg( pattern:version_regex, string:app_versions ) )
         return;
 
-      ret_arr['version'] = app_versions;
+      ret_arr["version"] = app_versions;
     } else {
-      ret_arr['version'] = '';
+      ret_arr["version"] = "";
     }
 
     if( x_loc )
-      ret_arr['location'] = x_loc;
+      ret_arr["location"] = x_loc;
     else
-      ret_arr['location'] = '';
+      ret_arr["location"] = "";
 
     register_host_detail( name:"detected_by", value:x_oid );
     if( x_loc )
@@ -1251,14 +1267,14 @@ function get_app_details( cpe, type, port, exit_no_version, service, nofork, ver
       return;
 
     if( app_versions )
-      ret_arr['version'] = app_versions;
+      ret_arr["version"] = app_versions;
     else
-      ret_arr['version'] = '';
+      ret_arr["version"] = "";
 
     if( x_proto )
-      ret_arr['proto'] = x_proto;
+      ret_arr["proto"] = x_proto;
     else
-      ret_arr['proto'] = 'tcp';
+      ret_arr["proto"] = "tcp";
 
     register_host_detail( name:"detected_by", value:x_oid );
     if( x_proto && x_port )
@@ -1270,14 +1286,14 @@ function get_app_details( cpe, type, port, exit_no_version, service, nofork, ver
   if( type == "location_proto" ) {
 
     if( x_proto )
-      ret_arr['proto'] = x_proto;
+      ret_arr["proto"] = x_proto;
     else
-      ret_arr['proto'] = 'tcp';
+      ret_arr["proto"] = "tcp";
 
     if( x_loc )
-      ret_arr['location'] = x_loc;
+      ret_arr["location"] = x_loc;
     else
-      ret_arr['location'] = '';
+      ret_arr["location"] = "";
 
     register_host_detail( name:"detected_by", value:x_oid );
     if( x_loc )
@@ -1292,14 +1308,16 @@ function get_app_details( cpe, type, port, exit_no_version, service, nofork, ver
     if( ! app_versions && exit_no_version == TRUE )
       exit( 0 );
 
-    ret_arr['version']     = app_versions;
-    ret_arr['location']    = x_loc;
-    ret_arr['full_cpe']    = x_cpe;
-    ret_arr['port']        = x_port;
-    ret_arr['proto']       = x_proto;
+    ret_arr["version"]     = app_versions;
+    ret_arr["location"]    = x_loc;
+    ret_arr["full_cpe"]    = x_cpe;
+    ret_arr["port"]        = x_port;
+    ret_arr["proto"]       = x_proto;
     if( x_service )
-      ret_arr['service']   = x_service;
-    ret_arr['detected_by'] = x_oid;
+      ret_arr["service"]   = x_service;
+    ret_arr["detected_by"] = x_oid;
+    if( x_internal_version )
+      ret_arr["internal_version"] = x_internal_version;
 
     register_host_detail( name:"detected_by", value:x_oid );
     if( x_loc )
@@ -1405,14 +1423,14 @@ function get_base_cpe( cpe ) {
   if( ! cpe )
     return;
 
-  bc = split( cpe, sep:':', keep:FALSE );
+  bc = split( cpe, sep:":", keep:FALSE );
   if( ! bc || max_index( bc ) < 4 )
     return;
 
-  if( bc[0] != 'cpe' || bc[1] !~ '/(a|o|h)$' )
+  if( bc[0] != "cpe" || bc[1] !~ "/(a|o|h)$" )
     return;
 
-  base_cpe = bc[0] + ':' + bc[1] + ':' + bc[2] + ':' + bc[3];
+  base_cpe = bc[0] + ":" + bc[1] + ":" + bc[2] + ":" + bc[3];
 
   return base_cpe;
 }
@@ -1441,11 +1459,11 @@ function build_detection_report( app, version, patch, build, install, regpath, c
 
   if( isnull( app ) ) set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#app#-#build_detection_report" );
 
-  report = 'Detected ' + app + '\n';
+  report = "Detected " + app + '\n';
 
   if( ! skip_version ) {
     if( ! version )
-      version = 'unknown';
+      version = "unknown";
     report += '\nVersion:       ' + version;
   }
 

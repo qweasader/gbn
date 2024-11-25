@@ -9,14 +9,14 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804177");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2013-5195", "CVE-2013-5196", "CVE-2013-5197", "CVE-2013-5198",
                 "CVE-2013-5199", "CVE-2013-5225", "CVE-2013-5227", "CVE-2013-5228");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-12-24 11:34:57 +0530 (Tue, 24 Dec 2013)");
-  script_name("Apple Safari Multiple Vulnerabilities Dec13 (Mac OS X)");
+  script_name("Apple Safari Multiple Vulnerabilities (Dec 2013) - Mac OS X");
 
 
   script_tag(name:"impact", value:"Successful exploitation will allow local users to obtain sensitive user

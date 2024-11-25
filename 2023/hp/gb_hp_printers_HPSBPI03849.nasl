@@ -9,8 +9,8 @@ CPE_PREFIX = "cpe:/o:hp:";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.149825");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-11-14T05:05:31+0000");
+  script_tag(name:"last_modification", value:"2024-11-14 05:05:31 +0000 (Thu, 14 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-06-21 05:17:33 +0000 (Wed, 21 Jun 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -185,7 +185,7 @@ if (cpe == "cpe:/o:hp:laserjet_mfp_m528_firmware") {
 }
 
 if (cpe =~ "^cpe:/o:hp:laserjet_mfp_m63[1-6]_firmware" ||
-    cpe == "^cpe:/o:hp:laserjet_flow_mfp_m63[1-6]_firmware") {
+    cpe =~ "^cpe:/o:hp:laserjet_flow_mfp_m63[1-6]_firmware") {
   if (version_is_less(version: version, test_version: "2506649.040442")) {
     report = report_fixed_ver(installed_version: version, fixed_version: "2506649_040442 (5.6.0.2)");
     security_message(port: 0, data: report);

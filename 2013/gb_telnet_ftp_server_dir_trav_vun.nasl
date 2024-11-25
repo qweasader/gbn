@@ -7,51 +7,59 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803736");
-  script_version("2023-12-20T05:05:58+0000");
-  script_cve_id("CVE-2006-6240", "CVE-2006-6241");
+  script_version("2024-08-09T15:39:05+0000");
+  script_tag(name:"last_modification", value:"2024-08-09 15:39:05 +0000 (Fri, 09 Aug 2024)");
+  script_tag(name:"creation_date", value:"2013-08-19 10:32:03 +0530 (Mon, 19 Aug 2013)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
-  script_tag(name:"creation_date", value:"2013-08-19 10:32:03 +0530 (Mon, 19 Aug 2013)");
-  script_name("Telnet-Ftp Server Directory Traversal Vulnerability");
+
+  script_cve_id("CVE-2006-6240", "CVE-2006-6241");
+
+  script_tag(name:"qod_type", value:"remote_vul");
+
+  script_tag(name:"solution_type", value:"WillNotFix");
+
+  script_name("Telnet-Ftp Server <= 1.0 Directory Traversal Vulnerability - Active Check");
+
   script_category(ACT_ATTACK);
+
   script_copyright("Copyright (C) 2013 Greenbone AG");
   script_family("FTP");
   script_dependencies("ftpserver_detect_type_nd_version.nasl", "os_detection.nasl", "logins.nasl");
   script_require_ports("Services/ftp", 21);
   script_mandatory_keys("ftp/telnet_ftp/detected", "Host/runs_windows");
 
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/21339");
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/21340");
+  script_tag(name:"summary", value:"Telnet-Ftp server is prone to directory traversal
+  vulnerabilities.");
 
-  script_tag(name:"summary", value:"Telnet-Ftp server is prone to directory traversal vulnerabilities.");
+  script_tag(name:"vuldetect", value:"Sends the crafted directory traversal attack request and
+  checks whether it is able to read the system file or not.");
 
-  script_tag(name:"vuldetect", value:"Send the crafted directory traversal attack request and check whether it
-  is able to read the system file or not.");
+  script_tag(name:"insight", value:"The flaw exists due to error in handling of file names. It does
+  not properly sanitise filenames containing directory traversal sequences that are received from
+  an FTP server.");
+
+  script_tag(name:"impact", value:"Successful exploitation will allow attackers to read arbitrary
+  files on the affected application.");
+
+  script_tag(name:"affected", value:"Telnet-Ftp Server version 1.0 (Build 1.218) and probably
+  prior.");
 
   script_tag(name:"solution", value:"No known solution was made available for at least one year
   since the disclosure of this vulnerability. Likely none will be provided anymore.
   General solution options are to upgrade to a newer release, disable respective
   features, remove the product or replace the product by another one.");
 
-  script_tag(name:"insight", value:"The flaw exists due to error in handling of file names. It does not properly
-  sanitise filenames containing directory traversal sequences that are received from an FTP server.");
-
-  script_tag(name:"affected", value:"Telnet-Ftp Server version 1.0 (Build 1.218)");
-
-  script_tag(name:"impact", value:"Successful exploitation will allow attackers to read arbitrary files on the
-  affected application.");
-
-  script_tag(name:"solution_type", value:"WillNotFix");
-  script_tag(name:"qod_type", value:"remote_vul");
+  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/21339");
+  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/21340");
 
   exit(0);
 }
 
-include("ftp_func.inc");
 include("host_details.inc");
-include("os_func.inc");
+include("ftp_func.inc");
 include("misc_func.inc");
+include("os_func.inc");
 include("port_service_func.inc");
 
 port = ftp_get_port( default:21 );

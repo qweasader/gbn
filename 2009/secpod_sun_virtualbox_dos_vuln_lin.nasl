@@ -1,40 +1,26 @@
-# Copyright (C) 2009 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.901055");
-  script_version("2022-05-09T13:48:18+0000");
-  script_tag(name:"last_modification", value:"2022-05-09 13:48:18 +0000 (Mon, 09 May 2022)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-11-26 06:39:46 +0100 (Thu, 26 Nov 2009)");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:P");
   script_cve_id("CVE-2009-3940");
-  script_name("Sun VirtualBox or xVM VirtualBox Denial Of Service Vulnerability (Linux)");
+  script_name("Sun VirtualBox or xVM VirtualBox Denial Of Service Vulnerability - Linux");
   script_xref(name:"URL", value:"http://secunia.com/advisories/37363/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/37024");
   script_xref(name:"URL", value:"http://en.securitylab.ru/nvd/387766.php");
   script_xref(name:"URL", value:"http://sunsolve.sun.com/search/document.do?assetkey=1-66-271149-1");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Denial of Service");
   script_dependencies("secpod_sun_virtualbox_detect_lin.nasl");
   script_mandatory_keys("Sun/VirtualBox/Lin/Ver");

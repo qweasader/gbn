@@ -10,16 +10,16 @@ CPE = "cpe:/a:oracle:vm_virtualbox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810509");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2017-3316", "CVE-2017-3332", "CVE-2017-3290", "CVE-2016-5545");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-03-04 17:55:00 +0000 (Mon, 04 Mar 2019)");
   script_tag(name:"creation_date", value:"2017-01-19 10:28:03 +0530 (Thu, 19 Jan 2017)");
-  script_name("Oracle Virtualbox Multiple Unspecified Vulnerabilities - 01 Jan17 (Windows)");
+  script_name("Oracle Virtualbox Multiple Unspecified Vulnerabilities - 01 (Jan 2017) - Windows");
 
   script_tag(name:"summary", value:"Oracle VM VirtualBox is prone to multiple unspecified vulnerabilities.");
 

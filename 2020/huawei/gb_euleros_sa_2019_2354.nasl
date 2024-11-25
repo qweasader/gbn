@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.2354");
   script_cve_id("CVE-2014-8354", "CVE-2014-8355", "CVE-2014-8562", "CVE-2014-8716", "CVE-2014-9821", "CVE-2014-9822", "CVE-2014-9823", "CVE-2014-9824", "CVE-2014-9825", "CVE-2014-9837", "CVE-2014-9852", "CVE-2014-9853", "CVE-2014-9854", "CVE-2014-9907", "CVE-2015-8900", "CVE-2015-8901", "CVE-2015-8902", "CVE-2015-8903", "CVE-2015-8957", "CVE-2015-8958", "CVE-2016-10046", "CVE-2016-10047", "CVE-2016-10049", "CVE-2016-10052", "CVE-2016-10053", "CVE-2016-10054", "CVE-2016-10055", "CVE-2016-10056", "CVE-2016-10057", "CVE-2016-10058", "CVE-2016-10059", "CVE-2016-10060", "CVE-2016-10061", "CVE-2016-10062", "CVE-2016-10063", "CVE-2016-10064", "CVE-2016-10065", "CVE-2016-10066", "CVE-2016-10067", "CVE-2016-10068", "CVE-2016-10069", "CVE-2016-10070", "CVE-2016-10071", "CVE-2016-10144", "CVE-2016-10145", "CVE-2016-10252", "CVE-2016-4562", "CVE-2016-4563", "CVE-2016-4564", "CVE-2016-5687", "CVE-2016-5688", "CVE-2016-5689", "CVE-2016-5690", "CVE-2016-5691", "CVE-2016-6491", "CVE-2016-6823", "CVE-2016-7101", "CVE-2016-7515", "CVE-2016-7516", "CVE-2016-7517", "CVE-2016-7518", "CVE-2016-7519", "CVE-2016-7520", "CVE-2016-7525", "CVE-2016-7526", "CVE-2016-7528", "CVE-2016-7529", "CVE-2016-7530", "CVE-2016-7531", "CVE-2016-7533", "CVE-2016-7534", "CVE-2016-7539", "CVE-2016-7799", "CVE-2016-7906", "CVE-2016-8677", "CVE-2016-8707", "CVE-2016-8866", "CVE-2016-9559", "CVE-2017-11478", "CVE-2017-11505", "CVE-2017-11523", "CVE-2017-11524", "CVE-2017-11525", "CVE-2017-11526", "CVE-2017-11527", "CVE-2017-11528", "CVE-2017-11529", "CVE-2017-11530", "CVE-2017-12427", "CVE-2017-13139", "CVE-2017-13140", "CVE-2017-13141", "CVE-2017-13142", "CVE-2017-13143", "CVE-2017-13144", "CVE-2017-13145", "CVE-2017-13146", "CVE-2017-13658", "CVE-2017-17499", "CVE-2017-17504", "CVE-2017-5507", "CVE-2017-5508", "CVE-2017-5509", "CVE-2017-5510", "CVE-2017-6497", "CVE-2017-6498", "CVE-2017-6499", "CVE-2017-6500", "CVE-2017-6501", "CVE-2017-6502", "CVE-2017-7941", "CVE-2017-7942", "CVE-2017-7943", "CVE-2018-16323", "CVE-2018-16328", "CVE-2018-20467", "CVE-2018-6405", "CVE-2019-7175");
   script_tag(name:"creation_date", value:"2020-01-23 12:49:27 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-10-15 16:08:00 +0000 (Thu, 15 Oct 2020)");
+  script_tag(name:"severity_date", value:"2018-10-25 16:23:02 +0000 (Thu, 25 Oct 2018)");
 
   script_name("Huawei EulerOS: Security Advisory for ImageMagick (EulerOS-SA-2019-2354)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROS\-2\.0SP2");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-2354");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-2354");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-2354");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'ImageMagick' package(s) announced via the EulerOS-SA-2019-2354 advisory.");
 

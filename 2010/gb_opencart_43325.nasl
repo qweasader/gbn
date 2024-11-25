@@ -9,38 +9,43 @@ CPE = "cpe:/a:opencart:opencart";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100816");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-07-12T15:38:44+0000");
+  script_tag(name:"last_modification", value:"2024-07-12 15:38:44 +0000 (Fri, 12 Jul 2024)");
   script_tag(name:"creation_date", value:"2010-09-21 16:24:40 +0200 (Tue, 21 Sep 2010)");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:S/C:P/I:P/A:P");
 
-  script_name("OpenCart 'fckeditor' Arbitrary File Upload Vulnerability");
+  script_name("OpenCart <= 1.3.2 'fckeditor' Arbitrary File Upload Vulnerability");
 
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/43325");
+  script_tag(name:"solution_type", value:"VendorFix");
+
+  script_tag(name:"qod_type", value:"remote_app");
 
   script_category(ACT_ATTACK);
+
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2010 Greenbone AG");
-  script_dependencies("opencart_detect.nasl");
+  script_dependencies("gb_opencart_http_detect.nasl");
   script_require_ports("Services/www", 80);
-  script_mandatory_keys("OpenCart/installed");
+  script_mandatory_keys("opencart/http/detected");
 
-  script_tag(name:"summary", value:"OpenCart is prone to an arbitrary-file-upload vulnerability
+  script_tag(name:"summary", value:"OpenCart is prone to an arbitrary file upload vulnerability
   because it fails to properly sanitize user-supplied input.");
+
+  script_tag(name:"vuldetect", value:"Sends multiple crafted HTTP requests and checks the
+  responses.");
 
   script_tag(name:"impact", value:"An attacker may leverage this issue to upload arbitrary files to
   the affected host. This can result in arbitrary code execution within the context of the
   vulnerable application.");
 
-  script_tag(name:"affected", value:"OpenCart versions up to 1.3.2 are vulnerable. Other versions
-  may also be affected.");
+  script_tag(name:"affected", value:"OpenCart versions up to 1.3.2 are known to be affected. Other
+  versions may also be affected.");
 
-  script_tag(name:"solution", value:"Update OpenCart to version 1.3.3 or above. Make sure the
-  directory /admin/view/javascript/fckeditor/ is deleted during the update.");
+  script_tag(name:"solution", value:"Update to version 1.3.3 or later. Make sure the directory
+  /admin/view/javascript/fckeditor/ is deleted during the update.");
 
-  script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_app");
+  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/43325");
 
   exit(0);
 }
@@ -49,7 +54,7 @@ include("host_details.inc");
 include("http_func.inc");
 include("http_keepalive.inc");
 
-if (!port = get_app_port(cpe: CPE))
+if (!port = get_app_port(cpe: CPE, service: "www"))
   exit(0);
 
 if (!dir = get_app_location(cpe: CPE, port: port))

@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800752");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-22T05:06:55+0000");
+  script_tag(name:"last_modification", value:"2024-02-22 05:06:55 +0000 (Thu, 22 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-04-13 16:55:19 +0200 (Tue, 13 Apr 2010)");
   script_cve_id("CVE-2010-0174", "CVE-2010-0176");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_name("Mozilla Products Multiple Code Execution vulnerabilities (Windows)");
+  script_name("Mozilla Products Multiple Code Execution Vulnerabilities - Windows");
 
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/57393");
   script_xref(name:"URL", value:"http://www.vupen.com/english/advisories/2010/0748");

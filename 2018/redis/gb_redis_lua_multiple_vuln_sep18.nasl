@@ -9,12 +9,12 @@ CPE = "cpe:/a:redis:redis";
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.814022");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-02-20T14:37:13+0000");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2018-09-19 12:54:11 +0530 (Wed, 19 Sep 2018)");
-  script_name("Redis LUA Multiple Vulnerabilities-Sep 2018 (Linux)");
+  script_name("Redis LUA Multiple Vulnerabilities (Sep 2018) - Linux");
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
 
@@ -40,14 +40,13 @@ if( description )
   or 5.0rc2 or later. Please see the references for more information.");
 
   script_xref(name:"URL", value:"http://antirez.com/news/119");
-  script_xref(name:"URL", value:"http://download.redis.io");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Databases");
   script_dependencies("gb_redis_detect.nasl");
   script_mandatory_keys("redis/installed");
-  script_require_ports("Services/redis", 6379);
+
   exit(0);
 }
 

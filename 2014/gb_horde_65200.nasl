@@ -12,16 +12,16 @@ if(description)
   script_cve_id("CVE-2014-1691");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_version("2023-07-14T16:09:26+0000");
+  script_version("2024-06-28T15:38:46+0000");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Horde '_formvars' Form Input Remote Code Execution Vulnerability");
+  script_name("Horde '_formvars' Form Input RCE Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/65200");
   script_xref(name:"URL", value:"http://www.horde.org");
 
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:26 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-03-21 11:45:12 +0100 (Fri, 21 Mar 2014)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");
@@ -42,7 +42,8 @@ caused by the improper validation of _formvars form input.");
 
   script_tag(name:"solution", value:"Updates are available.");
 
-  script_tag(name:"summary", value:"Horde is prone to a remote code-execution vulnerability.");
+  script_tag(name:"summary", value:"Horde is prone to a remote code execution (RCE)
+  vulnerability.");
 
   script_tag(name:"affected", value:"Horde 3.1.x through versions 5.1.1 are vulnerable, other versions may
 also be affected.");

@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.885010");
-  script_version("2023-10-20T16:09:12+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2022-48064");
   script_tag(name:"cvss_base", value:"4.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-08-26 02:15:00 +0000 (Sat, 26 Aug 2023)");
@@ -31,9 +31,8 @@ if(description)
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
-  script_tag(name:"insight", value:"&#39, gdb&#39, package is only a stub to install gcc-gdb-plugin for &#39, compile&#39,
-commands.
-See package &#39, gdb-headless&#39, .");
+  script_tag(name:"insight", value:"'gdb' package is only a stub to install gcc-gdb-plugin for
+  'compile' commands. See package 'gdb-headless'.");
 
   script_tag(name:"affected", value:"'gdb' package(s) on Fedora 37.");
 

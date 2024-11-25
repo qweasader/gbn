@@ -9,11 +9,11 @@ CPE = "cpe:/a:bea:weblogic_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809711");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2016-5535", "CVE-2017-3248");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-30 16:27:00 +0000 (Tue, 30 Oct 2018)");
@@ -21,9 +21,10 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
 
-  script_name("Oracle WebLogic Server Remote Code Execution Vulnerability - Nov16");
+  script_name("Oracle WebLogic Server Remote Code Execution Vulnerability (Nov 2016)");
 
-  script_tag(name:"summary", value:"Oracle WebLogic Server is prone to multiple remote code execution vulnerabilities.");
+  script_tag(name:"summary", value:"Oracle WebLogic Server is prone to multiple remote code
+  execution (RCE) vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

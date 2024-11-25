@@ -7,36 +7,35 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.101007");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-07-23T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2024-07-23 05:05:30 +0000 (Tue, 23 Jul 2024)");
   script_tag(name:"creation_date", value:"2009-03-15 21:21:09 +0100 (Sun, 15 Mar 2009)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
-  script_name("Microsoft dotNET version grabber");
+  script_name("Microsoft dotNET (.NET) Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2009 Christian Eric Edjenguele <christian.edjenguele@owasp.org>");
   script_family("Product detection");
-  script_dependencies("find_service.nasl", "httpver.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "httpver.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "global_settings.nasl",
+                      "gb_microsoft_iis_http_detect.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
-  script_tag(name:"solution", value:"It's recommended to disable verbose error displaying to avoid version detection.
-  this can be done through the IIS management console.");
-  script_tag(name:"summary", value:"The remote host seems to have Microsoft .NET installed.");
+  script_tag(name:"summary", value:"HTTP based detection of Microsoft dotNET (.NET).");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
   exit(0);
 }
 
-include("misc_func.inc");
 include("http_func.inc");
 include("http_keepalive.inc");
 include("port_service_func.inc");
 include("cpe.inc");
 include("host_details.inc");
 
-SCRIPT_DESC = "Microsoft dotNET version grabber";
+SCRIPT_DESC = "Microsoft dotNET (.NET) Detection (HTTP)";
 
 port = http_get_port(default:80);
 if( ! http_can_host_asp( port:port ) )
@@ -66,7 +65,7 @@ if(('Version Information' >< response) && dotNet_header){
     register_host_detail(name:"App", value:cpe, desc:SCRIPT_DESC);
 
   if(aspNet_header >< response){
-    report +=  " and " + aspNet_header[0];
+    report += " and " + aspNet_header[0];
 
     set_kb_item(name:"aspNET/installed", value:TRUE);
     set_kb_item(name:"aspNET/version", value:aspNet_header[1]);

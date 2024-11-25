@@ -9,13 +9,13 @@ CPE = "cpe:/a:videolan:vlc_media_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804125");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2013-6283");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2013-11-05 12:38:13 +0530 (Tue, 05 Nov 2013)");
-  script_name("VLC Media Player M3U Denial of Service Vulnerability (Windows)");
+  script_name("VLC Media Player M3U DoS Vulnerability - Windows");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attackers to cause denial of service
 and possibly execute arbitrary remote code.");
@@ -23,7 +23,8 @@ and possibly execute arbitrary remote code.");
   script_tag(name:"insight", value:"The flaw exists due to improper handling of a specially crafted M3U file.");
   script_tag(name:"solution", value:"Upgrade to VLC media player version 2.1.0 or later.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
-  script_tag(name:"summary", value:"VLC Media Player is prone to denial of service and remote code execution vulnerability.");
+  script_tag(name:"summary", value:"VLC Media Player is prone to denial of service (DoS) and remote
+  code execution (RCE) vulnerabilities.");
   script_tag(name:"qod_type", value:"registry");
   script_tag(name:"solution_type", value:"VendorFix");
 

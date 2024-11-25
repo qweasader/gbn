@@ -9,8 +9,8 @@ CPE = "cpe:/a:wordpress:wordpress";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107200");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-02-22T14:37:29+0000");
+  script_tag(name:"last_modification", value:"2024-02-22 14:37:29 +0000 (Thu, 22 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-05-22 17:40:57 +0200 (Mon, 22 May 2017)");
   script_cve_id("CVE-2017-9061", "CVE-2017-9062", "CVE-2017-9063", "CVE-2017-9064", "CVE-2017-9065", "CVE-2017-9066");
 
@@ -22,7 +22,7 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_name("WordPress < 4.7.5 Multiple Security Vulnerabilities (Win)");
+  script_name("WordPress < 4.7.5 Multiple Security Vulnerabilities - Windows");
   script_tag(name:"summary", value:"WordPress is prone to the following security vulnerabilities.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

@@ -9,8 +9,8 @@ CPE = "cpe:/a:progress:whatsupgold";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106163");
-  script_version("2023-11-03T05:05:46+0000");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_version("2024-09-04T05:16:32+0000");
+  script_tag(name:"last_modification", value:"2024-09-04 05:16:32 +0000 (Wed, 04 Sep 2024)");
   script_tag(name:"creation_date", value:"2016-08-02 08:27:33 +0700 (Tue, 02 Aug 2016)");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
@@ -30,7 +30,7 @@ if (description)
 
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_progress_whatsup_http_detect.nasl");
+  script_dependencies("gb_progress_whatsup_consolidation.nasl");
   script_mandatory_keys("progress/whatsup_gold/detected");
 
   script_tag(name:"summary", value:"Ipswitch WhatsUp Gold is prone to multiple vulnerabilities.");

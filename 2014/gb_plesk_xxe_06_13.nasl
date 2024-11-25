@@ -1,30 +1,16 @@
-# Copyright (C) 2014 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2014 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:parallels:parallels_plesk_panel";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105046");
-  script_version("2021-07-28T09:20:09+0000");
-  script_tag(name:"last_modification", value:"2021-07-28 09:20:09 +0000 (Wed, 28 Jul 2021)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-06-13 14:56:42 +0200 (Fri, 13 Jun 2014)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
@@ -37,7 +23,7 @@ if(description)
 
   script_category(ACT_ATTACK);
 
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_plesk_http_detect.nasl", "os_detection.nasl");
   script_require_ports("Services/www", 8443);
@@ -50,8 +36,8 @@ if(description)
 
   script_tag(name:"solution", value:"Ask the vendor for an update.");
 
-  script_tag(name:"summary", value:"Plesk is prone to an XML External Entity (XXE)
-  injection vulnerability.");
+  script_tag(name:"summary", value:"Plesk is prone to an XML external entity (XXE) injection
+  vulnerability.");
 
   script_tag(name:"affected", value:"Plesk versions 10.4.4 and 11.0.9. Other versions may also be
   affected.");

@@ -1,30 +1,16 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 include("plugin_feed_info.inc");
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106149");
-  script_version("2021-10-11T10:01:25+0000");
-  script_tag(name:"last_modification", value:"2021-10-11 10:01:25 +0000 (Mon, 11 Oct 2021)");
+  script_version("2024-07-03T06:48:05+0000");
+  script_tag(name:"last_modification", value:"2024-07-03 06:48:05 +0000 (Wed, 03 Jul 2024)");
   script_tag(name:"creation_date", value:"2016-07-22 14:30:27 +0700 (Fri, 22 Jul 2016)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -38,15 +24,16 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("SAP NetWeaver AS Java Information Disclosure Vulnerability (2255990)");
+  script_name("SAP NetWeaver AS Java Information Disclosure Vulnerability (2255990) - Active Check");
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web Servers");
   script_dependencies("gb_sap_netweaver_as_java_http_detect.nasl");
-  if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
-    script_dependencies("gsf/gb_sap_netweaver_portal_http_detect.nasl", "gsf/gb_sap_netweaver_as_http_detect.nasl");
+  if(FEED_NAME == "GSF" || FEED_NAME == "GEF" || FEED_NAME == "SCM")
+    script_dependencies("gsf/gb_sap_netweaver_portal_http_detect.nasl",
+                        "gsf/gb_sap_netweaver_as_http_detect.nasl");
   script_mandatory_keys("sap/netweaver/as/http/detected");
 
   script_tag(name:"summary", value:"SAP NetWeaver Application Server (AS) Java is prone to an
@@ -60,7 +47,8 @@ if(description)
   script_tag(name:"impact", value:"An unauthenticated attacker can get information about SAP
   NetWeaver AS Java users.");
 
-  script_tag(name:"affected", value:"SAP NetWeaver AS Java version 7.10 (7.1) through 7.50 (7.5).");
+  script_tag(name:"affected", value:"SAP NetWeaver AS Java version 7.10 (7.1) through
+  7.50 (7.5).");
 
   script_tag(name:"solution", value:"See the referenced vendor advisories for a solution.");
 
@@ -77,7 +65,9 @@ include("http_keepalive.inc");
 # NetWeaver Portal is running on NetWeaver AS Java. We want to check / use both just to be sure if
 # e.g. the AS Java banner is hidden. cpe:/a:sap:netweaver_as is used as a last fallback to throw all
 # AS / Portal related active VTs against all possible deployments.
-cpe_list = make_list("cpe:/a:sap:netweaver_application_server_java", "cpe:/a:sap:netweaver_portal", "cpe:/a:sap:netweaver_as");
+cpe_list = make_list("cpe:/a:sap:netweaver_application_server_java",
+                     "cpe:/a:sap:netweaver_portal",
+                     "cpe:/a:sap:netweaver_as");
 
 if (!infos = get_app_port_from_list(cpe_list: cpe_list, service: "www", first_cpe_only: TRUE))
   exit(0);
@@ -85,7 +75,7 @@ if (!infos = get_app_port_from_list(cpe_list: cpe_list, service: "www", first_cp
 port = infos["port"];
 cpe = infos["cpe"];
 
-if (!infos = get_app_version_and_location(cpe: cpe, port: port, exit_no_version:FALSE))
+if (!infos = get_app_version_and_location(cpe: cpe, port: port, exit_no_version: FALSE))
   exit(0);
 
 version = infos["version"];

@@ -1,69 +1,58 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105838");
-  script_cve_id("CVE-2016-1291");
+  script_version("2024-03-08T15:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-08 15:37:10 +0000 (Fri, 08 Mar 2024)");
+  script_tag(name:"creation_date", value:"2016-07-31 16:10:11 +0200 (Sun, 31 Jul 2016)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_version("2021-10-14T08:01:30+0000");
+  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2019-07-29 17:47:00 +0000 (Mon, 29 Jul 2019)");
 
-  script_name("Cisco Prime Infrastructure Remote Code Execution Vulnerability - Active Check");
+  script_cve_id("CVE-2016-1291");
 
-  script_xref(name:"URL", value:"https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20160406-remcode");
+  script_tag(name:"qod_type", value:"remote_active");
 
-  script_tag(name:"impact", value:"An attacker could exploit this vulnerability by sending an HTTP
-  POST with crafted deserialized user data. An exploit could allow the attacker to execute arbitrary
-  code with root-level privileges on the affected system, which could be used to conduct further
-  attacks.");
+  script_tag(name:"solution_type", value:"VendorFix");
 
-  script_tag(name:"vuldetect", value:"Try to execute a command by sending a special crafted java
-  object via HTTP POST request.");
+  script_name("Cisco Prime Infrastructure Remote Code Execution Vulnerability (cisco-sa-20160406-remcode) - Active Check");
 
-  script_tag(name:"insight", value:"The vulnerability is due to insufficient sanitization of HTTP
-  user-supplied input.");
+  script_category(ACT_ATTACK);
 
-  script_tag(name:"solution", value:"Update to Cisco Prime Infrastructure 3.0.2/2.2.3 Update 4 or
-  later.");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
+  script_family("CISCO");
+  script_dependencies("gb_cisco_pis_web_detect.nasl");
+  script_mandatory_keys("cisco/pis/http/port");
+  script_require_ports("Services/www", 443);
 
   script_tag(name:"summary", value:"A vulnerability in the web interface of Cisco Prime
   Infrastructure could allow an unauthenticated, remote attacker to execute arbitrary code on a
   targeted system.");
 
-  script_tag(name:"affected", value:"Cisco Prime Infrastructure prior to 3.0.2/2.2.3 Update 4.");
+  script_tag(name:"vuldetect", value:"Try to execute a command by sending a special crafted java
+  object via HTTP POST request.");
 
-  script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_active");
+  script_tag(name:"insight", value:"The vulnerability is due to insufficient sanitization of HTTP
+  user-supplied input. An attacker could exploit this vulnerability by sending an HTTP POST with
+  crafted deserialized user data.");
 
-  script_tag(name:"last_modification", value:"2021-10-14 08:01:30 +0000 (Thu, 14 Oct 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
-  script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-07-29 17:47:00 +0000 (Mon, 29 Jul 2019)");
-  script_tag(name:"creation_date", value:"2016-07-31 16:10:11 +0200 (Sun, 31 Jul 2016)");
-  script_category(ACT_ATTACK);
-  script_family("CISCO");
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
-  script_dependencies("gb_cisco_pis_web_detect.nasl");
-  script_mandatory_keys("cisco/pis/http/port");
-  script_require_ports("Services/www", 443);
+  script_tag(name:"impact", value:"An exploit could allow the attacker to execute arbitrary code
+  with root-level privileges on the affected system, which could be used to conduct further
+  attacks.");
+
+  script_tag(name:"affected", value:"Cisco Prime Infrastructure prior to version 3.0.2 / 2.2.3
+  Update 4.");
+
+  script_tag(name:"solution", value:"Update to version  3.0.2 / 2.2.3 Update 4 or later.");
+
+  script_xref(name:"URL", value:"https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20160406-remcode");
 
   exit(0);
 }

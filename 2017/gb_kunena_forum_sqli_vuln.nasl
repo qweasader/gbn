@@ -9,11 +9,11 @@ CPE = "cpe:/a:kunena:kunena";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108108");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2009-4550");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-03-23 09:57:33 +0100 (Thu, 23 Mar 2017)");
   script_name("Kunena Forum Extension 'CVE-2009-4550' SQL Injection Vulnerability");
   script_copyright("Copyright (C) 2017 Greenbone AG");
@@ -21,7 +21,6 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_kunena_forum_detect.nasl");
   script_mandatory_keys("kunena_forum/installed");
-  script_require_ports("Services/www", 80);
 
   script_tag(name:"summary", value:"the Kunena Forum Extension for Joomla is prone to a SQL injection vulnerability.");
 
@@ -31,7 +30,7 @@ if(description)
   attacker to compromise the application, access or modify data, or exploit latent vulnerabilities
   in the underlying database.");
 
-  script_tag(name:"affected", value:"Kunena Forum Extension version 1.5.3 and 1.5.4 .");
+  script_tag(name:"affected", value:"Kunena Forum Extension version 1.5.3 and 1.5.4.");
 
   script_tag(name:"solution", value:"Update the Kunena Forum Extension to version 1.5.5 or higher.");
 
@@ -44,8 +43,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_in_range( version:vers, test_version:"1.5.3", test_version2:"1.5.4" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"1.5.5" );

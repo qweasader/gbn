@@ -9,8 +9,8 @@ CPE = "cpe:/a:proftpd:proftpd";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801639");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-04T05:10:24+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 05:10:24 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2010-11-30 12:42:12 +0100 (Tue, 30 Nov 2010)");
   script_cve_id("CVE-2010-3867", "CVE-2010-4221");
   script_tag(name:"cvss_base", value:"10.0");
@@ -20,7 +20,6 @@ if(description)
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("FTP");
   script_dependencies("secpod_proftpd_server_detect.nasl");
-  script_require_ports("Services/ftp", 21);
   script_mandatory_keys("ProFTPD/Installed");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/42052");
@@ -52,8 +51,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( isnull( port = get_app_port( cpe:CPE ) ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( isnull( port = get_app_port( cpe:CPE ) ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_less( version:vers, test_version:"1.3.3c" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"1.3.3c" );

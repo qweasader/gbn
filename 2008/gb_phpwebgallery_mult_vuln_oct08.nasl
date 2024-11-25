@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800115");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2008-10-21 16:25:40 +0200 (Tue, 21 Oct 2008)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_cve_id("CVE-2008-4591", "CVE-2008-4702");
-  script_name("Multiple XSS Vulnerabilities in PHPWebGallery - Oct08");
+  script_name("Multiple XSS Vulnerabilities in PHPWebGallery (Oct 2008)");
   script_xref(name:"URL", value:"http://www.milw0rm.com/exploits/6425");
 
   script_category(ACT_MIXED_ATTACK);

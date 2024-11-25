@@ -9,15 +9,16 @@ CPE = "cpe:/a:mcafee:vulnerability_manager";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806611");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2015-7612");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2015-11-05 15:43:08 +0530 (Thu, 05 Nov 2015)");
-  script_name("McAfee Vulnerability Manager Multiple Cross Site Request Forgery Vulnerabilities");
+  script_name("McAfee Vulnerability Manager Multiple CSRF Vulnerabilities");
 
-  script_tag(name:"summary", value:"McAfee Vulnerability Manager is prone to multiple cross site request forgery vulnerabilities.");
+  script_tag(name:"summary", value:"McAfee Vulnerability Manager is prone to multiple cross-site
+  request forgery (CSRF) vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

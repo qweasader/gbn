@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2023 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -8,8 +9,8 @@ CPE = "cpe:/a:wpclever:wpc_smart_wishlist_for_woocommerce";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127618");
-  script_version("2023-11-16T05:05:14+0000");
-  script_tag(name:"last_modification", value:"2023-11-16 05:05:14 +0000 (Thu, 16 Nov 2023)");
+  script_version("2024-08-30T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-08-30 05:05:38 +0000 (Fri, 30 Aug 2024)");
   script_tag(name:"creation_date", value:"2023-11-14 08:30:07 +0000 (Tue, 14 Nov 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");

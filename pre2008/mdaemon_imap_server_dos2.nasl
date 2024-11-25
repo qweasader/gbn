@@ -9,19 +9,21 @@ CPE = "cpe:/a:alt-n:mdaemon";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.14827");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-02-26T14:36:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-26 14:36:40 +0000 (Mon, 26 Feb 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:P");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/2508");
   script_cve_id("CVE-2001-0584");
-  script_name("MDaemon IMAP Server DoS(2)");
+  script_name("MDaemon IMAP Server DoS Vulnerability (CVE-2001-0584)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2004 David Maciejak");
   script_family("Denial of Service");
   script_dependencies("gb_altn_mdaemon_consolidation.nasl");
   script_mandatory_keys("altn/mdaemon/detected");
+
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"solution", value:"Upgrade to the newest version of this software.");
 

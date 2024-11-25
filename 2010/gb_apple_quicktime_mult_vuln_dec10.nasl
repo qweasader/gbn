@@ -9,14 +9,14 @@ CPE = "cpe:/a:apple:quicktime";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801680");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-08T14:36:53+0000");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-12-29 07:31:27 +0100 (Wed, 29 Dec 2010)");
   script_cve_id("CVE-2010-1508", "CVE-2010-0530", "CVE-2010-3800",
                 "CVE-2010-3801", "CVE-2010-3802", "CVE-2010-4009");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("Apple QuickTime Multiple vulnerabilities - Dec10 (Windows)");
+  script_name("Apple QuickTime Multiple Vulnerabilities (Dec 2010) - Windows");
   script_xref(name:"URL", value:"http://support.apple.com/kb/HT4447");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/45236");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/45237");

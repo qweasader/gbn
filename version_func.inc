@@ -392,10 +392,18 @@ function version_test( version, test_version, less, icase, debug ) {
     test_version = tolower( test_version );
   }
 
-  if( debug ) display( 'DEBUG: Initial version: ' + version + ' and test_version: ' + test_version );
+  if( debug ) display( "DEBUG: Initial version: " + version + " and test_version: " + test_version );
 
   # set / use a standard separator for the version and test_version parameter
   ver_sep = "."; # Set Standard Separator
+
+  # nb: Call these before the generic replace to avoid having multiple compare fields for the prerelease fields, which would lead to false results.
+  version = ereg_replace( pattern:"rc-", string:version, replace:"rc" );
+  version = ereg_replace( pattern:"milestone-", string:version, replace:"milestone" );
+  test_version = ereg_replace( pattern:"rc-", string:test_version, replace:"rc" );
+  test_version = ereg_replace( pattern:"milestone-", string:test_version, replace:"milestone" );
+
+  if( debug ) display( "DEBUG: Updated version: " + version + " and test_version: " + test_version );
 
   # Replace commonly used version separators (e.g. 1.0 rc1, or 1.0-rc1) with the standard separator.
   # nb: The "\.\." replacement is a fallback for VTs passing doubled dots to the version comparison functions.
@@ -403,6 +411,7 @@ function version_test( version, test_version, less, icase, debug ) {
   # For Java VTs updated regex, 'update_' to be replaced by '.'. 1.8.0_151 , 1.8.0update_51, 1.7.0update1
   # Replace as well brackets in the version like seen in Cisco products, e.g. '9.8(4)41'
   version = ereg_replace( pattern:"( |\-|\.\.|_|update_|\(|\))", string:version, replace:"." );
+
   # nb: Also make sure that we don't have any trailing dots (like "9.8.41.4." from e.g. the ()
   # replacement above).
   version = ereg_replace( pattern:"\.$", string:version, replace:"" );
@@ -417,13 +426,13 @@ function version_test( version, test_version, less, icase, debug ) {
 
   test_version = ereg_replace( pattern:"( |\-|\.\.|_)", string:test_version, replace:"." );
 
-  if( debug ) display( 'DEBUG: version: ' + version + ' and test_version: ' + test_version + ' after applying standard separator' );
+  if( debug ) display( "DEBUG: version: " + version + " and test_version: " + test_version + " after applying standard separator" );
 
   # Some versions have e.g. 1.0.0g or 1.0.0beta1 so add a dot between them
   version = ereg_replace( pattern:"([0-9])([A-Za-z])", string:version, replace:"\1.\2" );
   test_version = ereg_replace( pattern:"([0-9])([A-Za-z])", string:test_version, replace:"\1.\2" );
 
-  if( debug ) display( 'DEBUG: version: ' + version + ' and test_version: ' + test_version + ' after adding dots' );
+  if( debug ) display( "DEBUG: version: " + version + " and test_version: " + test_version + " after adding dots" );
 
   # Split the versions into an array based on the ver_sep above
   ver_ary = split( version, sep:ver_sep, keep:FALSE );
@@ -437,45 +446,81 @@ function version_test( version, test_version, less, icase, debug ) {
     test_ary[max_index( test_ary )] = "0";
   }
 
+  if( debug ) display( "Test array: " + test_ary );
+  if( debug ) display( "Version array: " + ver_ary );
+
   foreach _i( keys( test_ary ) ) {
 
+    #-----------------------------------------
+    # Preparation of test_array compare value
+    #-----------------------------------------
     r = eregmatch( pattern:"([0-9]+)", string:test_ary[_i] );
     s = eregmatch( pattern:"([A-Za-z])", string:test_ary[_i] );
-    test_prerelease = eregmatch( pattern:"(rc|alpha|beta)([0-9]+)", string:test_ary[_i], icase:TRUE );
+    test_prerelease = eregmatch( pattern:"(rc|alpha|beta|pre|a|b)([0-9]+)", string:test_ary[_i], icase:TRUE );
 
+    # No characters in test_version part
     if( isnull( s ) ) {
       test_ary[_i] = int( r[0] ) * 128; # Changed to * 128 so if a char follows a number the number is more significant
       char_found = FALSE;
-    } else {
-      if( isnull( test_prerelease ) ) {
-        test_ary[_i] = ( int( r[0] ) * 128 ) + ord( s[0] );
-      } else {
-        test_ary[_i] = test_prerelease[2];
+    }
+    # Characters found in test_version part
+    else {
+      if( isnull( test_prerelease ) ) {                                   # test_version is no prerelease
+        test_ary[_i] = ( int( r[0] ) * 128 ) + ord( s[0] );               # Include first character to calculate compare value
+      } else {                                                            # test_version is prerelease
+        test_ary[_i] = ( int( test_prerelease[2] ) * 128 ) + ord( s[0] ); # Include first character and prerelease value to calculate compare value
       }
       char_found = TRUE;
     }
 
+    #--------------------------------------
+    # Preparation of version compare value
+    #--------------------------------------
     r = eregmatch( pattern:"([0-9]+)", string:ver_ary[_i] );
     s = eregmatch( pattern:"([A-Za-z])", string:ver_ary[_i] );
-    ver_prerelease = eregmatch( pattern:"(rc|alpha|beta)([0-9]+)", string:ver_ary[_i], icase:TRUE );
+    ver_prerelease = eregmatch( pattern:"(rc|alpha|beta|pre|a|b)([0-9]+)", string:ver_ary[_i], icase:TRUE );
 
-    if( isnull( s ) ) {
+    # No characters found in version and none found in test_version
+    if( isnull( s ) && ! char_found ) {
       ver_ary[_i] = int( r[0] ) * 128;
-    } else if( char_found ) {
-      if( isnull( ver_prerelease ) ) {
-        ver_ary[_i] = ( int( r[0] ) * 128 ) + ord( s[0] );
-      } else {
-        ver_ary[_i] = ver_prerelease[2];
+    }
+
+    # No characters found in version
+    else if( isnull( s ) ) {
+      if( ! isnull( test_prerelease ) ) # Only force this if the characters are part of a prerelease string
+        ver_ary[_i] = 99999;            # Static value for 0 so e.g. 1.0 is marked greater than 1.0beta1
+      else
+        ver_ary[_i] = int( r[0] ) * 128;
+    }
+
+    # Characters found in test_version and version
+    else if( char_found ) {
+      if( isnull( ver_prerelease ) && ! isnull( test_prerelease ) )
+        ver_ary[_i] = 99999;                                              # Static value for 0 so e.g. 1.0.s is marked greater than 1.0beta1
+      else if( ! isnull( ver_prerelease ) && isnull( test_prerelease ) )
+        test_ary[_i] = 99999;                                             # Static value for 0 so e.g. 1.0.s is marked greater than 1.0beta1
+      if( isnull( ver_prerelease ) ) {                                    # version is no prerelease
+        ver_ary[_i] = ( int( r[0] ) * 128 ) + ord( s[0] );                # Include first character to calculate compare value
+      } else {                                                            # version is prerelease
+        ver_ary[_i] = ( int( ver_prerelease[2] ) * 128 ) + ord( s[0] );   # Include first character and prerelease value to calculate compare value
       }
-    } else {
-      if( isnull( r ) ) {
+    }
+    # Characters found only in version but not in test_version
+    else {
+      if( isnull( r ) ) {                    # version doesn't include integer (e.g. 1.1.a)
         ver_ary[_i] = ord( s[0] );
       } else {
         if( ! less )
-          return FALSE; # If char found in test_version and no char in version it is not equal
-        ver_ary[_i] = int( r[0] ) * 128; # No chars if test_version has no chars on this position else 1.1.1a is > 1.1.2
+          return FALSE;                      # If char found in test_version and no char in version it is not equal
+        ver_ary[_i] = int( r[0] ) * 128;     # No chars if test_version has no chars on this position else 1.1.1a is > 1.1.2
+        if( ! isnull( ver_prerelease ) ) {   # nb: Only apply this when the string is a prerelease string
+          test_ary[_i] = 99999;              # Static value so e.g. test_version 1.1.0 is greater than version 1.1.0.beta2
+        }
       }
     }
+
+    if( debug ) display( "Test part: " + test_ary[_i] );
+    if( debug ) display( "Version part: " + ver_ary[_i] );
 
     if( less ) {
       if( ver_ary[_i] < test_ary[_i] )

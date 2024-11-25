@@ -9,15 +9,15 @@ CPE = "cpe:/a:ibm:db2";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803766");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-15T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-09-30 17:51:03 +0530 (Mon, 30 Sep 2013)");
   script_tag(name:"cvss_base", value:"1.5");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:S/C:N/I:N/A:P");
 
   script_cve_id("CVE-2011-1373");
 
-  script_name("IBM Db2 STMM Denial Of Service Vulnerability (Linux)");
+  script_name("IBM Db2 STMM Denial Of Service Vulnerability - Linux");
 
   script_tag(name:"summary", value:"IBM DB2 is prone to a denial of service vulnerability.");
 

@@ -2,24 +2,24 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807551");
-  script_version("2023-05-18T09:08:59+0000");
+  script_version("2024-07-01T05:05:39+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2016-0695", "CVE-2016-0687", "CVE-2016-0686", "CVE-2016-3443",
                 "CVE-2016-3427", "CVE-2016-3425", "CVE-2016-3422", "CVE-2016-3449");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-05-18 09:08:59 +0000 (Thu, 18 May 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2024-07-01 05:05:39 +0000 (Mon, 01 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-09-08 12:30:00 +0000 (Tue, 08 Sep 2020)");
+  script_tag(name:"severity_date", value:"2024-06-27 19:23:19 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-04-22 10:41:22 +0530 (Fri, 22 Apr 2016)");
-  script_name("Oracle Java SE Multiple Vulnerabilities April 2016 (Windows)");
+  script_name("Oracle Java SE Multiple Vulnerabilities (Apr 2016) - Windows");
 
   script_tag(name:"summary", value:"Oracle Java SE is prone to multiple vulnerabilities.");
 

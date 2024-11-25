@@ -9,16 +9,16 @@ CPE = "cpe:/a:microsoft:powershell";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813040");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2018-0875");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
   script_tag(name:"creation_date", value:"2018-03-16 11:09:04 +0530 (Fri, 16 Mar 2018)");
-  script_name("Microsoft PowerShell Core Denial of Service Vulnerability (Windows)");
+  script_name("Microsoft PowerShell Core Denial of Service Vulnerability - Windows");
 
   script_tag(name:"summary", value:"This host is missing an important security
   update for PowerShell Core according to Microsoft security update March 2018.");

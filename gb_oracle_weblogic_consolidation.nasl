@@ -1,30 +1,16 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 include("plugin_feed_info.inc");
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.143747");
-  script_version("2022-03-28T10:48:38+0000");
-  script_tag(name:"last_modification", value:"2022-03-28 10:48:38 +0000 (Mon, 28 Mar 2022)");
+  script_version("2024-07-03T06:48:05+0000");
+  script_tag(name:"last_modification", value:"2024-07-03 06:48:05 +0000 (Wed, 03 Jul 2024)");
   script_tag(name:"creation_date", value:"2020-04-22 08:45:56 +0000 (Wed, 22 Apr 2020)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -33,18 +19,18 @@ if (description)
 
   script_name("Oracle WebLogic Server Detection Consolidation");
 
-  script_tag(name:"summary", value:"Consolidation of Oracle WebLogic detections.");
-
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_oracle_weblogic_http_detect.nasl");
-  if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
+  if(FEED_NAME == "GSF" || FEED_NAME == "GEF" || FEED_NAME == "SCM")
     script_dependencies("gsf/gb_oracle_weblogic_t3_detect.nasl");
   script_mandatory_keys("oracle/weblogic/detected");
 
   script_xref(name:"URL", value:"https://www.oracle.com/middleware/weblogic/");
+
+  script_tag(name:"summary", value:"Consolidation of Oracle WebLogic detections.");
 
   exit(0);
 }
@@ -92,15 +78,15 @@ if (detected_version != "unknown") {
 
 if (http_ports = get_kb_list("oracle/weblogic/http/port")) {
   foreach port (http_ports) {
-    extra += 'HTTP(s) on port ' + port + '/tcp\n';
+    extra += "HTTP(s) on port " + port + '/tcp\n';
 
     concluded = get_kb_item("oracle/weblogic/http/" + port + "/concluded");
     if (concluded)
-      extra += '  Concluded from version/product identification result: ' + concluded + '\n';
+      extra += "  Concluded from version/product identification result: " + concluded + '\n';
 
     concUrl = get_kb_item("oracle/weblogic/http/" + port + "/concludedUrl");
     if (concUrl)
-      extra += '  Concluded from version/product identification location: ' + concUrl + '\n';
+      extra += "  Concluded from version/product identification location: " + concUrl + '\n';
 
     found_services_urls = get_kb_list("oracle/weblogic/http/" + port + "/found_service_urls");
     if (!isnull(found_services_urls)) {
@@ -117,11 +103,11 @@ if (http_ports = get_kb_list("oracle/weblogic/http/port")) {
 
 if (t3_ports = get_kb_list("oracle/weblogic/t3/port")) {
   foreach port (t3_ports) {
-    extra += 'T3(S) on port ' + port + '/tcp\n';
+    extra += "T3(S) on port " + port + '/tcp\n';
 
     concluded = get_kb_item("oracle/weblogic/t3/" + port + "/concluded");
     if (concluded)
-      extra += '  Concluded from version/product identification result: ' + concluded + '\n';
+      extra += '  Concluded from version/product identification result:\n' + concluded + '\n';
 
     register_product(cpe: cpe1, location: location, port: port, service: "weblogic-t3");
     register_product(cpe: cpe2, location: location, port: port, service: "weblogic-t3");
@@ -133,7 +119,7 @@ report  = build_detection_report(app: "Oracle WebLogic Server", version: detecte
 
 if (extra) {
   report += '\n\nDetection methods:\n';
-  report += '\n' + extra;
+  report += '\n' + chomp(extra);
 }
 
 log_message(port: 0, data: report);

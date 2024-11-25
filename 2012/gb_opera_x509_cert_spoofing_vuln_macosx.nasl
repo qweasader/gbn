@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802437");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2012-1251");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-06-12 16:35:11 +0530 (Tue, 12 Jun 2012)");
-  script_name("Opera 'X.509' Certificates Spoofing Vulnerability (Mac OS X)");
+  script_name("Opera 'X.509' Certificates Spoofing Vulnerability - Mac OS X");
   script_xref(name:"URL", value:"http://jvn.jp/en/jp/JVN39707339/index.html");
   script_xref(name:"URL", value:"http://www.opera.com/docs/changelogs/mac/963/");
   script_xref(name:"URL", value:"http://jvndb.jvn.jp/en/contents/2012/JVNDB-2012-000049.html");

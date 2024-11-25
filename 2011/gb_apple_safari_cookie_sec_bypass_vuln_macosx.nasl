@@ -9,13 +9,13 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802238");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-08-18 14:57:45 +0200 (Thu, 18 Aug 2011)");
   script_cve_id("CVE-2008-7296");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:P");
-  script_name("Apple Safari Secure Cookie Security Bypass Vulnerability (Mac OS X)");
+  script_name("Apple Safari Secure Cookie Security Bypass Vulnerability - Mac OS X");
   script_xref(name:"URL", value:"http://michael-coates.blogspot.com/2010/01/cookie-forcing-trust-your-cookies-no.html");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/49136");
   script_xref(name:"URL", value:"http://scarybeastsecurity.blogspot.com/2011/02/some-less-obvious-benefits-of-hsts.html");

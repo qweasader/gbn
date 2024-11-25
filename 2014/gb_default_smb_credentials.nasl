@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804449");
-  script_version("2023-09-12T05:05:19+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-1999-0503", "CVE-1999-0504", "CVE-1999-0505", "CVE-1999-0506", "CVE-2000-0222",
                 "CVE-2005-3595");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-09-12 05:05:19 +0000 (Tue, 12 Sep 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-07-04 17:14:10 +0530 (Fri, 04 Jul 2014)");
   script_name("SMB Brute Force Logins With Default Credentials");
   script_category(ACT_ATTACK);
@@ -116,7 +116,7 @@ login_defined = remote_login( smbLogin:"", passwd:"", smbDomain:"", smbName:smbN
 if( login_defined )
   exit( 0 );
 
-# nb: For currently unknown reasons a Samba Server on MacOS is accepting logins for the 'Guest' user with an empty password
+# nb: For currently unknown reasons a Samba Server on Mac OS X is accepting logins for the 'Guest' user with an empty password
 # as well as with any of the Guest passwords defined in smb_default_credentials.inc. Both checks here should test this
 # behavior to only report one single log entry or prevent having 50+ entries within the report.
 login_defined = remote_login( smbLogin:"Guest", passwd:"", smbDomain:"", smbName:smbName, smbPort:smbPort );

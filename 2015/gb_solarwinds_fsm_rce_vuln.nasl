@@ -9,8 +9,8 @@ CPE = 'cpe:/a:solarwinds:firewall_security_manager';
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106014");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2015-06-30 10:54:34 +0700 (Tue, 30 Jun 2015)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -21,7 +21,7 @@ if (description)
 
   script_cve_id("CVE-2015-2284");
 
-  script_name("Solarwinds FSM Remote Code Execution Vulnerability");
+  script_name("Solarwinds FSM RCE Vulnerability");
 
   script_category(ACT_ATTACK);
 
@@ -31,7 +31,7 @@ if (description)
   script_mandatory_keys("solarwinds_fsm/installed");
 
   script_tag(name:"summary", value:"Solarwinds Firewall Security Manager is prone to a remote code
-execution vulnerability");
+  execution (RCE) vulnerability");
 
   script_tag(name:"vuldetect", value:"Send a special crafted HTTP GET request and check the response.");
 

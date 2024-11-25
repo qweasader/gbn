@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.872073");
-  script_version("2023-06-22T10:34:15+0000");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_version("2024-11-05T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-11-05 05:05:33 +0000 (Tue, 05 Nov 2024)");
   script_tag(name:"creation_date", value:"2016-12-07 05:26:30 +0100 (Wed, 07 Dec 2016)");
   script_cve_id("CVE-2016-6298");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2016-11-28 20:31:00 +0000 (Mon, 28 Nov 2016)");
+  script_tag(name:"severity_date", value:"2024-11-01 14:36:23 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"qod_type", value:"package");
   script_name("Fedora Update for python-jwcrypto FEDORA-2016-385de3ac17");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'python-jwcrypto'

@@ -9,17 +9,17 @@ CPE = "cpe:/a:openssl:openssl";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813793");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_cve_id("CVE-2016-7056");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-09 23:19:00 +0000 (Wed, 09 Oct 2019)");
   script_tag(name:"creation_date", value:"2018-09-11 11:49:25 +0530 (Tue, 11 Sep 2018)");
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("OpenSSL: Information Disclosure Vulnerability (CVE-2016-7056) (Windows)");
+  script_name("OpenSSL: Information Disclosure Vulnerability (CVE-2016-7056) - Windows");
 
   script_tag(name:"summary", value:"OpenSSL is prone to an information disclosure vulnerability.");
 

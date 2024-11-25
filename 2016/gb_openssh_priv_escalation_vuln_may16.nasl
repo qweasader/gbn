@@ -9,19 +9,19 @@ CPE = "cpe:/a:openbsd:openssh";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807574");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2015-8325");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-06-30 01:29:00 +0000 (Sat, 30 Jun 2018)");
   script_tag(name:"creation_date", value:"2016-05-02 15:45:55 +0530 (Mon, 02 May 2016)");
-  script_name("OpenSSH Privilege Escalation Vulnerability - May16");
+  script_name("OpenSSH Privilege Escalation Vulnerability (May 2016)");
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_category(ACT_GATHER_INFO);
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_openssh_consolidation.nasl");
   script_mandatory_keys("openssh/detected");
 

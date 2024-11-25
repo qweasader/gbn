@@ -9,13 +9,13 @@ CPE = "cpe:/a:sun:java_system_web_proxy_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800866");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-02-15T05:05:39+0000");
   script_cve_id("CVE-2009-2597");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-08-12 19:54:51 +0200 (Wed, 12 Aug 2009)");
-  script_name("Sun Java System Web Proxy Server Denial Of Service Vulnerability (Linux)");
+  script_name("Sun Java System Web Proxy Server Denial Of Service Vulnerability - Linux");
 
   script_tag(name:"summary", value:"Java Web Proxy Server is prone to a denial of service (DoS) vulnerability.");
 

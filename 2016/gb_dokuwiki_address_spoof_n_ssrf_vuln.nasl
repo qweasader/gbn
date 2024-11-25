@@ -9,11 +9,11 @@ CPE = "cpe:/a:dokuwiki:dokuwiki";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809084");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-03-01T14:37:10+0000");
   script_cve_id("CVE-2016-7964", "CVE-2016-7965");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-12-02 23:09:00 +0000 (Fri, 02 Dec 2016)");
@@ -23,7 +23,6 @@ if(description)
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("gb_dokuwiki_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("dokuwiki/installed");
 
   script_xref(name:"URL", value:"https://github.com/splitbrain/dokuwiki/issues/1708");
@@ -60,8 +59,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_less_equal( version:vers, test_version:"2016-06-26a" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"Mitigation" );

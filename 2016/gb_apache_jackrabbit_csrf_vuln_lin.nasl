@@ -10,18 +10,19 @@ if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807898");
   script_cve_id("CVE-2016-6801");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-10-04 17:36:00 +0000 (Tue, 04 Oct 2016)");
   script_tag(name:"creation_date", value:"2016-10-06 16:01:40 +0530 (Thu, 06 Oct 2016)");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
-  script_name("Apache Jackrabbit Cross-Site Request Forgery (CSRF) Vulnerability (Linux)");
+  script_name("Apache Jackrabbit Cross-Site Request Forgery (CSRF) Vulnerability - Linux");
 
-  script_tag(name:"summary", value:"Apache Jackrabbit is prone to a cross-site request forgery vulnerability.");
+  script_tag(name:"summary", value:"Apache Jackrabbit is prone to a cross-site request forgery
+  (CSRF) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

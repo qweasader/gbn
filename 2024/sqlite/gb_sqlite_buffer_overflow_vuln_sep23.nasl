@@ -9,8 +9,8 @@ CPE = "cpe:/a:sqlite:sqlite";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126572");
-  script_version("2024-01-18T05:07:09+0000");
-  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2024-01-11 10:28:38 +0000 (Thu, 11 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -28,7 +28,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2024 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2024 Greenbone AG");
   script_family("General");
   script_dependencies("gb_sqlite_ssh_login_detect.nasl");
   script_mandatory_keys("sqlite/detected");

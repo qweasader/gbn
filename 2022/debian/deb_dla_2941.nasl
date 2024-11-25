@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.892941");
   script_cve_id("CVE-2020-29374", "CVE-2020-36322", "CVE-2021-20317", "CVE-2021-20321", "CVE-2021-20322", "CVE-2021-22600", "CVE-2021-28711", "CVE-2021-28712", "CVE-2021-28713", "CVE-2021-28714", "CVE-2021-28715", "CVE-2021-28950", "CVE-2021-3640", "CVE-2021-3744", "CVE-2021-3752", "CVE-2021-3760", "CVE-2021-3764", "CVE-2021-3772", "CVE-2021-38300", "CVE-2021-39685", "CVE-2021-39686", "CVE-2021-39698", "CVE-2021-39713", "CVE-2021-4002", "CVE-2021-4083", "CVE-2021-4135", "CVE-2021-4155", "CVE-2021-41864", "CVE-2021-4203", "CVE-2021-42739", "CVE-2021-43389", "CVE-2021-43975", "CVE-2021-43976", "CVE-2021-44733", "CVE-2021-45095", "CVE-2021-45469", "CVE-2021-45480", "CVE-2022-0001", "CVE-2022-0002", "CVE-2022-0322", "CVE-2022-0330", "CVE-2022-0435", "CVE-2022-0487", "CVE-2022-0492", "CVE-2022-0617", "CVE-2022-22942", "CVE-2022-24448", "CVE-2022-24959", "CVE-2022-25258", "CVE-2022-25375");
   script_tag(name:"creation_date", value:"2022-03-10 02:00:49 +0000 (Thu, 10 Mar 2022)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-04-07 19:43:00 +0000 (Thu, 07 Apr 2022)");
+  script_tag(name:"severity_date", value:"2022-04-07 19:43:55 +0000 (Thu, 07 Apr 2022)");
 
   script_name("Debian: Security Advisory (DLA-2941-1)");
   script_category(ACT_GATHER_INFO);
@@ -85,6 +85,8 @@ It was discovered that hugetlbfs, the virtual filesystem used by applications to
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

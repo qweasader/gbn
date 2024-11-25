@@ -7,11 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.880634");
-  script_version("2023-07-12T05:05:04+0000");
-  script_tag(name:"last_modification", value:"2023-07-12 05:05:04 +0000 (Wed, 12 Jul 2023)");
+  script_version("2024-01-29T05:05:18+0000");
+  script_tag(name:"last_modification", value:"2024-01-29 05:05:18 +0000 (Mon, 29 Jan 2024)");
   script_tag(name:"creation_date", value:"2011-08-09 08:20:34 +0200 (Tue, 09 Aug 2011)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-01-26 17:47:00 +0000 (Fri, 26 Jan 2024)");
   script_xref(name:"CESA", value:"2010:0044");
   script_cve_id("CVE-2010-0013");
   script_name("CentOS Update for finch CESA-2010:0044 centos5 i386");

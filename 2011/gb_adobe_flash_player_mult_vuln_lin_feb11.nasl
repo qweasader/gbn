@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801848");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-20T14:37:13+0000");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-02-15 08:14:35 +0100 (Tue, 15 Feb 2011)");
   script_cve_id("CVE-2011-0558", "CVE-2011-0559", "CVE-2011-0560",
                 "CVE-2011-0561", "CVE-2011-0571", "CVE-2011-0572",
@@ -17,7 +17,7 @@ if(description)
                 "CVE-2011-0608");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("Adobe Flash Player Multiple Vulnerabilities February-2011 (Linux)");
+  script_name("Adobe Flash Player Multiple Vulnerabilities (Feb 2011) - Linux");
   script_xref(name:"URL", value:"http://www.vupen.com/english/advisories/2011/0336");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/46186");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/46188");

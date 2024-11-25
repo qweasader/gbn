@@ -8,8 +8,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10662");
-  script_version("2023-12-19T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
+  script_version("2024-09-27T05:05:23+0000");
+  script_tag(name:"last_modification", value:"2024-09-27 05:05:23 +0000 (Fri, 27 Sep 2024)");
   script_tag(name:"creation_date", value:"2009-10-02 19:48:14 +0200 (Fri, 02 Oct 2009)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -19,7 +19,7 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("find_service.nasl", "httpver.nasl", "no404.nasl",
                       "DDI_Directory_Scanner.nasl", "global_settings.nasl",
-                      "gb_ssl_sni_supported.nasl"); # SNI support should be determined first
+                      "gb_ssl_tls_sni_supported.nasl"); # SNI support should be determined first
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
@@ -739,7 +739,7 @@ function parse_form( elements, current, port, host ) {
 function pre_parse( src_page, data, port, host ) {
 
   local_var src_page, data, port, host;
-  local_var js_data, js_src, concl, data2, php_path, fp_save;
+  local_var js_data, js_src, js_url, concl, data2, php_path, fp_save;
 
   # nb: If no data has been passed (e.g. the retr() call in the parent while() loop might have
   # returned no data) there is no need to call all the functions below.
@@ -778,16 +778,33 @@ function pre_parse( src_page, data, port, host ) {
     }
   }
 
-  if( js_src = eregmatch( string:data, pattern:'<script [^>]+src=["\']([^"\']+)["\']', icase:TRUE ) ) {
+  #  e.g.
+  # <script type="text/javascript" src="http://example.com/example.js"></script>
+  # <script src="http://example.com/example.js"></script>
+  if( js_src = eregmatch( string:data, pattern:'<script [^>]*src=["\']([^"\']+)["\']', icase:TRUE ) ) {
 
-    # https://gwillem.gitlab.io/2018/08/30/magentocore.net_skimmer_most_aggressive_to_date/
-    # Examples seen in the wild:
-    # <script type="text/javascript" src="https://magentocore.net/mage/mage.js"></script>
-    # <script type='text/javascript' src='https://magentocore.net/mage/mage.js'></script>
-    # <script type="text/javascript" src="https://magentocore.net/mage/poter/poter1.30.js"></script>
-    if( js_src[1] =~ "^https?://" && ( "mage.js" >< js_src[1] || js_src[1] =~ "poter[0-9.]+\.js" ) ) {
-      set_kb_item( name:"www/compromised_webapp/detected", value:TRUE );
-      set_kb_item( name:"www/" + host + "/" + port + "/content/compromised_webapp", value:http_report_vuln_url( port:port, url:src_page, url_only:TRUE ) + "#----#" + js_src[0] + "#----#Magentocore.net Skimmer, https://gwillem.gitlab.io/2018/08/30/magentocore.net_skimmer_most_aggressive_to_date/" );
+    if( js_src[1] =~ "^https?://" ) {
+
+      js_url = js_src[1];
+
+      # https://gwillem.gitlab.io/2018/08/30/magentocore.net_skimmer_most_aggressive_to_date/
+      # Examples seen in the wild:
+      # <script type="text/javascript" src="https://magentocore.net/mage/mage.js"></script>
+      # <script type='text/javascript' src='https://magentocore.net/mage/mage.js'></script>
+      # <script type="text/javascript" src="https://magentocore.net/mage/poter/poter1.30.js"></script>
+      if( "mage.js" >< js_url || js_url =~ "poter[0-9.]+\.js" ) {
+        set_kb_item( name:"www/compromised_webapp/detected", value:TRUE );
+        set_kb_item( name:"www/" + host + "/" + port + "/content/compromised_webapp", value:http_report_vuln_url( port:port, url:src_page, url_only:TRUE ) + "#----#" + js_src[0] + "#----#Magentocore.net Skimmer, https://gwillem.gitlab.io/2018/08/30/magentocore.net_skimmer_most_aggressive_to_date/" );
+      }
+
+      # All URLs / domains mentioned in https://sansec.io/research/polyfill-supply-chain-attack
+      # including the ones from June 2023.
+      if( "cdn.polyfill.io/" >< js_url || "bootcdn.net/" >< js_url || "bootcss.com/" >< js_url || "staticfile.net/" >< js_url ||
+          "staticfile.org/" >< js_url || "unionadjs.com/" >< js_url || "xhsbpza.com/" >< js_url || "union.macoms.la/" >< js_url ||
+          "newcrbpc.com/" >< js_url || "cdn.polyfill.com/" >< js_url ) {
+        set_kb_item( name:"www/webapp_using_polyfill/detected", value:TRUE );
+        set_kb_item( name:"www/" + host + "/" + port + "/content/webapp_using_polyfill", value:http_report_vuln_url( port:port, url:src_page, url_only:TRUE ) + "#----#" + js_src[0] );
+      }
     }
   }
 
@@ -811,6 +828,16 @@ function pre_parse( src_page, data, port, host ) {
     set_kb_item( name:"php/phpinfo/" + host + "/" + port + "/detected", value:TRUE );
     set_kb_item( name:"www/" + host + "/" + port + "/content/phpinfo_script/plain", value:src_page );
     set_kb_item( name:"www/" + host + "/" + port + "/content/phpinfo_script/reporting", value:http_report_vuln_url( port:port, url:src_page, url_only:TRUE ) + '\nConcluded from:\n' + concl );
+  }
+
+  # class="label">Lucee 5.3.7.48 Error (expression)</td>
+  # class="label">Lucee 5.4.4.38 Error (missinginclude)</td>
+  # class="label">Lucee 5.3.4.45-SNAPSHOT Error (expression)</td>
+  # class="label">Lucee 6.0.0.585-SNAPSHOT Error (missinginclude)</td>
+  if( lucee_error_vers_banner = eregmatch( string:data, pattern:'class="label">Lucee [0-9.]+[^ ]* Error \\([^)]+\\)</td>', icase:FALSE ) ) {
+    set_kb_item( name:"www/lucee_error_vers_banner/detected", value:TRUE );
+    set_kb_item( name:"www/" + host + "/" + port + "/lucee_error_vers_banner/detected", value:TRUE );
+    set_kb_item( name:"www/" + host + "/" + port + "/content/lucee_error_vers_banner", value:http_report_vuln_url( port:port, url:src_page, url_only:TRUE ) + "#----#" + lucee_error_vers_banner[0] );
   }
 
   if( "Fatal" >< data || "Warning" >< data ) {

@@ -9,7 +9,7 @@ CPE = "cpe:/a:apple:icloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811789");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2017-7127", "CVE-2017-7081", "CVE-2017-7087", "CVE-2017-7091",
                 "CVE-2017-7092", "CVE-2017-7093", "CVE-2017-7094", "CVE-2017-7095",
                 "CVE-2017-7096", "CVE-2017-7098", "CVE-2017-7099", "CVE-2017-7100",
@@ -18,12 +18,12 @@ if(description)
                 "CVE-2017-7106", "CVE-2017-7109");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-03-08 16:06:00 +0000 (Fri, 08 Mar 2019)");
   script_tag(name:"creation_date", value:"2017-09-26 10:42:35 +0530 (Tue, 26 Sep 2017)");
-  script_name("Apple iCloud Security Updates(HT208142)");
+  script_name("Apple iCloud Security Updates (HT208142)");
 
   script_tag(name:"summary", value:"Apple iCloud is prone to multiple vulnerabilities.");
 

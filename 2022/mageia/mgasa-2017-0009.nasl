@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2017.0009");
   script_cve_id("CVE-2016-8734");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-10-20 22:15:00 +0000 (Tue, 20 Oct 2020)");
+  script_tag(name:"severity_date", value:"2017-11-07 18:23:28 +0000 (Tue, 07 Nov 2017)");
 
   script_name("Mageia: Security Advisory (MGASA-2017-0009)");
   script_category(ACT_GATHER_INFO);
@@ -26,10 +26,10 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2017-0009");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2017-0009.html");
+  script_xref(name:"URL", value:"http://subversion.apache.org/security/CVE-2016-8734-advisory.txt");
+  script_xref(name:"URL", value:"http://svn.apache.org/repos/asf/subversion/tags/1.8.17/CHANGES");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=19877");
   script_xref(name:"URL", value:"https://lists.apache.org/thread.html/ecf3400585d1fd2ffc754bc348a4f7d9a4863573e11d551b3b287640@%3Cannounce.subversion.apache.org%3E");
-  script_xref(name:"URL", value:"http://svn.apache.org/repos/asf/subversion/tags/1.8.17/CHANGES");
-  script_xref(name:"URL", value:"http://subversion.apache.org/security/CVE-2016-8734-advisory.txt");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'subversion' package(s) announced via the MGASA-2017-0009 advisory.");
 

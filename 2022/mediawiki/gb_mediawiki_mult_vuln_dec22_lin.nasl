@@ -9,8 +9,8 @@ CPE = "cpe:/a:mediawiki:mediawiki";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126278");
-  script_version("2023-12-20T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
+  script_version("2024-07-16T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2022-12-23 13:58:43 +0000 (Fri, 23 Dec 2022)");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
@@ -31,8 +31,8 @@ if(description)
 
   script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("secpod_mediawiki_detect.nasl", "os_detection.nasl");
-  script_mandatory_keys("mediawiki/installed", "Host/runs_unixoide");
+  script_dependencies("gb_mediawiki_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("mediawiki/detected", "Host/runs_unixoide");
 
   script_tag(name:"summary", value:"MediaWiki is prone to an information disclosure vulnerability.");
 

@@ -1,28 +1,14 @@
-# Copyright (C) 2015 SCHUTZWERK GmbH
+# SPDX-FileCopyrightText: 2015 SCHUTZWERK GmbH
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111027");
-  script_version("2023-12-13T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_version("2024-02-19T14:37:31+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 14:37:31 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-08-21 16:00:00 +0200 (Fri, 21 Aug 2015)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -95,6 +81,7 @@ foreach dir( make_list_unique( "/", "/roundcube", "/webmail", "/mail", http_cgi_
         )
         continue;
 
+      # ## Release 1.6.6
       # ## Release 1.6.1
       # RELEASE 1.4.13
       # RELEASE 0.4.1

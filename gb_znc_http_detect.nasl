@@ -1,28 +1,14 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.144110");
-  script_version("2020-08-24T15:18:35+0000");
-  script_tag(name:"last_modification", value:"2020-08-24 15:18:35 +0000 (Mon, 24 Aug 2020)");
+  script_version("2024-07-16T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2020-06-16 02:30:35 +0000 (Tue, 16 Jun 2020)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -35,7 +21,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Product detection");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 6667);
@@ -57,6 +43,20 @@ if (concl = eregmatch(string: res, pattern: '(Server\\s*:\\s*ZNC|ZNC - Web Front
   version = "unknown";
   concluded = chomp(concl[0]);
 
+  # nb:
+  # - To tell http_can_host_asp and http_can_host_php from http_func.inc that the service is
+  #   NOT supporting these
+  # - There is a slight chance that a system is configured in a way that it acts as a proxy and
+  #   exposes the product on the known endpoints and an additional web server supporting e.g. PHP
+  #   on a different endpoint. Thus the following is only set if the port are the default ones
+  #   6667, 6668 and 6697 (see e.g. gb_znc_http_detect.nasl as well)
+  # - The "Server: ZNC" is already included in the two http_func.inc functions, this is only for
+  #   non-default systems like mentioned previously
+  if (port == 6667 || port == 6668 || port == 6697) {
+    replace_kb_item(name: "www/" + port + "/can_host_php", value: "no");
+    replace_kb_item(name: "www/" + port + "/can_host_asp", value: "no");
+  }
+
   set_kb_item(name: "znc/detected", value: TRUE);
   set_kb_item(name: "znc/http/detected", value: TRUE);
   set_kb_item(name: "znc/http/port", value: port);
@@ -69,7 +69,9 @@ if (concl = eregmatch(string: res, pattern: '(Server\\s*:\\s*ZNC|ZNC - Web Front
   # Server: ZNC 1.9.x-git-9-84d8375a - https://znc.in
   # Server: ZNC 1.7.0+deb0+trusty1 - https://znc.in
   # Server: ZNC - 1.6.0 - http://znc.in
-  vers = eregmatch(pattern: "Server\s*:\s*ZNC( \-)? ([0-9.]+)[^ ]* - http", string: res);
+  # Server: ZNC 1.8.2+deb3.1 - https://znc.in
+  # Server: ZNC 1.8.2+deb3.1+deb12u1 - https://znc.in
+  vers = eregmatch(pattern: "[Ss]erver\s*:\s*ZNC( \-)? ([0-9.]+)[^ ]* - http", string: res);
   if (!isnull(vers[2])) {
     version = vers[2];
     concluded = vers[0];

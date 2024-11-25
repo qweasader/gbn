@@ -21,11 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.901097");
-  script_version("2022-05-25T07:40:23+0000");
-  script_tag(name:"last_modification", value:"2022-05-25 07:40:23 +0000 (Wed, 25 May 2022)");
+  script_version("2024-02-16T05:06:55+0000");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-01-22 16:43:14 +0100 (Fri, 22 Jan 2010)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-15 21:06:48 +0000 (Thu, 15 Feb 2024)");
   script_cve_id("CVE-2009-4074", "CVE-2010-0027", "CVE-2010-0244", "CVE-2010-0245",
                 "CVE-2010-0246", "CVE-2010-0247", "CVE-2010-0248", "CVE-2010-0249");
   script_name("Microsoft Internet Explorer Multiple Vulnerabilities (978207)");

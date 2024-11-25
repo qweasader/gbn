@@ -9,11 +9,11 @@ CPE = "cpe:/a:novell:open_enterprise_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809480");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-03-01T14:37:10+0000");
   script_cve_id("CVE-2016-5763");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-11-28 20:29:00 +0000 (Mon, 28 Nov 2016)");
@@ -55,7 +55,6 @@ if(description)
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("gb_novell_open_enterprise_server_remote_detect.nasl");
   script_mandatory_keys("Novell/Open/Enterprise/Server/Installed");
-  script_require_ports("Services/www", 80);
 
   exit(0);
 }
@@ -63,17 +62,17 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if(!novellPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if((version =~ "^11\." && version_is_less_equal(version:version, test_version:"11.SP3")) ||
+   (version =~ "^2015\." && version_is_less_equal(version:version, test_version:"2015.SP1"))){
+  report = report_fixed_ver(installed_version:version, fixed_version:"Upgrade to Appropriate Scheduled Maintenance Update");
+  security_message(data:report, port:port);
   exit(0);
 }
 
-if(!novellVer = get_app_version(cpe:CPE, port:novellPort)){
-  exit(0);
-}
-
-if((novellVer =~ "^11\." && version_is_less_equal(version:novellVer, test_version:"11.SP3")) ||
-   (novellVer =~ "^2015\." && version_is_less_equal(version:novellVer, test_version:"2015.SP1"))){
-  report = report_fixed_ver(installed_version:novellVer, fixed_version:"Upgrade to Appropriate Scheduled Maintenance Update");
-  security_message(data:report, port:novellPort);
-  exit(0);
-}
+exit(99);

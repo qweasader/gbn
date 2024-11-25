@@ -9,8 +9,8 @@ CPE = "cpe:/a:chamilo:chamilo_lms";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126550");
-  script_version("2023-12-06T05:06:11+0000");
-  script_tag(name:"last_modification", value:"2023-12-06 05:06:11 +0000 (Wed, 06 Dec 2023)");
+  script_version("2024-01-24T05:06:24+0000");
+  script_tag(name:"last_modification", value:"2024-01-24 05:06:24 +0000 (Wed, 24 Jan 2024)");
   script_tag(name:"creation_date", value:"2023-12-01 13:07:25 +0000 (Fri, 01 Dec 2023)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -38,7 +38,7 @@ if (description)
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"impact", value:"The following vulnerabilities exist:
+  script_tag(name:"insight", value:"The following vulnerabilities exist:
 
   - CVE-2023-4220: Unauthenticated users could exploit a vulnerability in the upload of files,
   leading to a cross-site scripting (XSS) and a remote code execution (RCE).
@@ -87,9 +87,9 @@ version = infos["version"];
 location = infos["location"];
 
 if (version_in_range_exclusive(version: version, test_version_lo: "1.11.0", test_version_up: "1.11.24")) {
-    report = report_fixed_ver(installed_version: version, fixed_version: "1.11.24", install_path: location);
-    security_message(port: port, data: report);
-    exit(0);
+  report = report_fixed_ver(installed_version: version, fixed_version: "1.11.24", install_path: location);
+  security_message(port: port, data: report);
+  exit(0);
 }
 
 exit(99);

@@ -1,4 +1,3 @@
-
 # SPDX-FileCopyrightText: 2012 E-Soft Inc.
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
@@ -11,8 +10,8 @@ if(description)
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_cve_id("CVE-2011-2082", "CVE-2011-2083", "CVE-2011-2084", "CVE-2011-2085", "CVE-2011-4458", "CVE-2011-4459", "CVE-2011-4460", "CVE-2011-0009");
-  script_version("2023-06-29T08:15:14+0000");
-  script_tag(name:"last_modification", value:"2023-06-29 08:15:14 +0000 (Thu, 29 Jun 2023)");
+  script_version("2024-08-30T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-08-30 05:05:38 +0000 (Fri, 30 Aug 2024)");
   script_tag(name:"creation_date", value:"2012-05-31 11:52:03 -0400 (Thu, 31 May 2012)");
   script_name("Debian Security Advisory DSA 2480-1 (request-tracker3.8)");
   script_category(ACT_GATHER_INFO);

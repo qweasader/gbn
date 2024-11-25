@@ -1,35 +1,21 @@
-# Copyright (C) 2009 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:wordpress:wordpress";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900915");
-  script_version("2023-03-01T10:20:04+0000");
-  script_tag(name:"last_modification", value:"2023-03-01 10:20:04 +0000 (Wed, 01 Mar 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-08-20 09:27:17 +0200 (Thu, 20 Aug 2009)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2009-2853", "CVE-2009-2854");
-  script_name("WordPress 'wp-admin' Multiple Vulnerabilities - Aug09");
+  script_name("WordPress 'wp-admin' Multiple Vulnerabilities (Aug 2009)");
   script_xref(name:"URL", value:"http://core.trac.wordpress.org/changeset/11768");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/35935");
   script_xref(name:"URL", value:"http://core.trac.wordpress.org/changeset/11769");
@@ -37,7 +23,7 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_wordpress_http_detect.nasl");
   script_mandatory_keys("wordpress/detected");

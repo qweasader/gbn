@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805138");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_cve_id("CVE-2015-1479", "CVE-2015-1480");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-02-12 17:19:03 +0530 (Thu, 12 Feb 2015)");
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("ZOHO ManageEngine ServiceDesk Plus (SDP) Multiple Vulnerabilities - Feb15");
+  script_name("ZOHO ManageEngine ServiceDesk Plus (SDP) Multiple Vulnerabilities (Feb 2015)");
 
   script_tag(name:"summary", value:"ZOHO ManageEngine ServiceDesk Plus (SDP) is prone to multiple vulnerabilities.");
 

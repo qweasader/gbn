@@ -9,13 +9,13 @@ CPE = "cpe:/a:pro_softnet_corporation:ibackup";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805200");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2014-5507");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2014-12-01 12:04:33 +0530 (Mon, 01 Dec 2014)");
-  script_name("iBackup Local Privilege Escalation Vulnerability (Windows)");
+  script_name("iBackup Local Privilege Escalation Vulnerability - Windows");
 
   script_tag(name:"summary", value:"iBackup is prone to a local privilege escalation vulnerability.");
 
@@ -45,7 +45,7 @@ if(description)
 
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_category(ACT_GATHER_INFO);
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_ibackup_detect_win.nasl");
   script_mandatory_keys("iBackup/Win/Ver");
   exit(0);

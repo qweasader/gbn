@@ -7,15 +7,22 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105593");
-  script_version("2023-12-20T05:05:58+0000");
+  script_version("2024-03-08T15:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-08 15:37:10 +0000 (Fri, 08 Mar 2024)");
+  script_tag(name:"creation_date", value:"2016-04-01 15:59:09 +0200 (Fri, 01 Apr 2016)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+
+  script_tag(name:"qod_type", value:"exploit");
+
+  script_tag(name:"solution_type", value:"Workaround");
+
   script_name("Apache Karaf Default Credentials (SSH)");
-  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
-  script_tag(name:"creation_date", value:"2016-04-01 15:59:09 +0200 (Fri, 01 Apr 2016)");
+
   script_category(ACT_ATTACK);
-  script_family("Default Accounts");
+
   script_copyright("Copyright (C) 2016 Greenbone AG");
+  script_family("Default Accounts");
   script_dependencies("ssh_detect.nasl", "os_detection.nasl", "gb_default_credentials_options.nasl");
   script_require_ports("Services/ssh", 8101);
   script_require_keys("Host/runs_unixoide");
@@ -24,28 +31,27 @@ if(description)
 
   script_tag(name:"summary", value:"The remote Apache Karaf is using known default credentials.");
 
-  script_tag(name:"impact", value:"This issue may be exploited by a remote attacker to gain access to sensitive information or modify system configuration.");
-
   script_tag(name:"vuldetect", value:"Try to login with default credentials.");
 
-  script_tag(name:"insight", value:"It was possible to login with default credentials: 'karaf/karaf'.");
+  script_tag(name:"insight", value:"It was possible to login with default credentials:
+  'karaf/karaf'.");
+
+  script_tag(name:"impact", value:"This issue may be exploited by a remote attacker to gain access
+  to sensitive information or modify system configuration.");
 
   script_tag(name:"solution", value:"Change the password.");
-
-  script_tag(name:"solution_type", value:"Workaround");
-  script_tag(name:"qod_type", value:"exploit");
 
   exit(0);
 }
 
-if(get_kb_item("default_credentials/disable_default_account_checks"))
-  exit(0);
+if( get_kb_item( "default_credentials/disable_default_account_checks" ) )
+  exit( 0 );
 
 include("host_details.inc");
-include("os_func.inc");
-include("ssh_func.inc");
 include("misc_func.inc");
+include("os_func.inc");
 include("port_service_func.inc");
+include("ssh_func.inc");
 
 port = ssh_get_port( default:8101 );
 
@@ -74,13 +80,17 @@ if( login == 0 ) {
     cmd = ssh_cmd( socket:soc, cmd:"cat /" + file, nosh:TRUE );
 
     if( egrep( string:cmd, pattern:pattern ) ) {
-      if( soc ) close( soc );
-      report = 'It was possible to login as user `karaf` with password `karaf` and to execute `cat /' + file + '`. Result:\n\n' + cmd;
+      if( soc )
+        close( soc );
+      report = 'It was possible to login as user `karaf` with password `karaf` and to execute `cat /' +
+               file + '`. Result:\n\n' + cmd;
       security_message( port:port, data:report );
       exit( 0 );
     }
   }
 }
 
-if( soc ) close( soc );
+if( soc )
+  close( soc );
+
 exit( 99 );

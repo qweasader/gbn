@@ -8,12 +8,12 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802069");
   script_cve_id("CVE-2014-1216");
-  script_version("2023-10-12T05:05:32+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-03-17 10:20:42 +0530 (Mon, 17 Mar 2014)");
-  script_name("Fitnesse Wiki Remote Command Execution Vulnerability");
+  script_name("Fitnesse Wiki RCE Vulnerability");
 
   script_tag(name:"summary", value:"Fitnesse Wiki is prone to a remote command execution (RCE) vulnerability.");
 

@@ -9,14 +9,14 @@ CPE = "cpe:/a:mozilla:firefox_esr";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805910");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-10-10T07:25:31+0000");
   script_cve_id("CVE-2015-2725", "CVE-2015-2727", "CVE-2015-2729", "CVE-2015-2731",
                 "CVE-2015-2741");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"creation_date", value:"2015-07-08 17:49:58 +0530 (Wed, 08 Jul 2015)");
-  script_name("Mozilla Firefox ESR Multiple Vulnerabilities-02 July15 (Mac OS X)");
+  script_name("Mozilla Firefox ESR Multiple Vulnerabilities-02 (Jul 2015) - Mac OS X");
 
   script_tag(name:"summary", value:"Mozilla Firefox ESR is prone to multiple vulnerabilities.");
 
@@ -27,7 +27,7 @@ if(description)
   - Multiple unspecified memory related errors.
 
   - An error within the 'AudioParamTimeline::AudioNodeInputValue' function in the
-  Web Audio implementation .
+  Web Audio implementation.
 
   - An use-after-free error.
 

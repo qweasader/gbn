@@ -9,8 +9,8 @@ CPE = "cpe:/a:tufat:flashchat";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800616");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-03-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2009-05-13 10:01:19 +0200 (Wed, 13 May 2009)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -20,7 +20,6 @@ if(description)
   script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_flashchat_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("flashchat/installed");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/32350");

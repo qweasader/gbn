@@ -1,30 +1,16 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:proftpd:proftpd";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.142662");
-  script_version("2023-03-02T10:19:53+0000");
-  script_tag(name:"last_modification", value:"2023-03-02 10:19:53 +0000 (Thu, 02 Mar 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2019-07-24 03:20:49 +0000 (Wed, 24 Jul 2019)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -41,13 +27,14 @@ if (description)
   script_name("ProFTPD <= 1.3.6 'mod_copy' Vulnerability");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("FTP");
   script_dependencies("secpod_proftpd_server_detect.nasl");
   script_mandatory_keys("ProFTPD/Installed");
 
-  script_tag(name:"summary", value:"An arbitrary file copy vulnerability in mod_copy in ProFTPD allows for remote
-  code execution and information disclosure without authentication, a related issue to CVE-2015-3306.");
+  script_tag(name:"summary", value:"An arbitrary file copy vulnerability in mod_copy in ProFTPD
+  allows for remote code execution (RCE) and information disclosure without authentication, a
+  related issue to CVE-2015-3306.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

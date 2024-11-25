@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:hp:comware';
+CPE = "cpe:/a:hp:comware";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106412");
-  script_version("2023-11-03T05:05:46+0000");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_version("2024-09-30T08:38:05+0000");
+  script_tag(name:"last_modification", value:"2024-09-30 08:38:05 +0000 (Mon, 30 Sep 2024)");
   script_tag(name:"creation_date", value:"2016-11-25 13:11:53 +0700 (Fri, 25 Nov 2016)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -24,14 +24,17 @@ if (description)
 
   script_tag(name:"solution_type", value:"Mitigation");
 
-  script_name("HPE Network Products Multiple Remote Vulnerabilities");
+  script_name("HPE Network Products Multiple Remote Vulnerabilities (HPSBHF03673)");
 
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("General");
-  script_dependencies("gb_hp_comware_platform_detect_snmp.nasl", "gb_hp_comware_platform_detect_ssh.nasl", "secpod_ssl_ciphers.nasl");
-  script_mandatory_keys("hp/comware_device", "secpod_ssl_ciphers/supported_ciphers", "ssl_tls/port");
+  script_dependencies("gb_hp_comware_platform_detect_snmp.nasl",
+                      "gb_hp_comware_platform_detect_ssh.nasl",
+                      "gb_ssl_tls_ciphers_gathering.nasl");
+  script_mandatory_keys("hp/comware_device", "ssl_tls/port",
+                        "ssl_tls/ciphers/supported_ciphers");
 
   script_tag(name:"summary", value:"HPE Comware 5 and Comware 7 network products are prone to multiple
   vulnerabilities.");
@@ -50,7 +53,7 @@ if (description)
 
   script_tag(name:"solution", value:"For mitigation HPE recommends disabling RC2 and RC4 ciphers.");
 
-  script_xref(name:"URL", value:"https://h20564.www2.hpe.com/hpsc/doc/public/display?docId=emr_na-c05336888");
+  script_xref(name:"URL", value:"https://support.hpe.com/hpesc/public/docDisplay?docId=c05336888&docLocale=en_US");
 
   exit(0);
 }
@@ -66,7 +69,7 @@ if (version =~ "^[57]") {
   if (!port)
     exit(0);
 
-  weakciphers = get_kb_list("secpod_ssl_ciphers/*/" + port + "/supported_ciphers");
+  weakciphers = get_kb_list("ssl_tls/ciphers/*/" + port + "/supported_ciphers");
   if (weakciphers =~ "_RC[24]_") {
     security_message(port: port);
     exit(0);

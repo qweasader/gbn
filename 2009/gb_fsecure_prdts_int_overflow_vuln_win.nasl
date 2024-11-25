@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800356");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-26T14:36:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-26 14:36:40 +0000 (Mon, 26 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-03-13 14:39:10 +0100 (Fri, 13 Mar 2009)");
   script_tag(name:"cvss_base", value:"7.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2008-6085");
-  script_name("F-Secure Product(s) Integer Overflow Vulnerability (Windows)");
+  script_name("F-Secure Products Integer Overflow Vulnerability (Oct 2008) - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/32352");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/31846");
   script_xref(name:"URL", value:"http://securitytracker.com/alerts/2008/Oct/1021073.html");

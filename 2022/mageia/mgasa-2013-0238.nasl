@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2013.0238");
   script_cve_id("CVE-2013-4995", "CVE-2013-4996", "CVE-2013-4997", "CVE-2013-4998", "CVE-2013-5000", "CVE-2013-5002", "CVE-2013-5003");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
 
@@ -23,12 +23,12 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2013-0238");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2013-0238.html");
-  script_xref(name:"URL", value:"http://www.phpmyadmin.net/home_page/security/PMASA-2013-8.php");
-  script_xref(name:"URL", value:"http://www.phpmyadmin.net/home_page/security/PMASA-2013-9.php");
   script_xref(name:"URL", value:"http://www.phpmyadmin.net/home_page/security/PMASA-2013-11.php");
   script_xref(name:"URL", value:"http://www.phpmyadmin.net/home_page/security/PMASA-2013-12.php");
   script_xref(name:"URL", value:"http://www.phpmyadmin.net/home_page/security/PMASA-2013-14.php");
   script_xref(name:"URL", value:"http://www.phpmyadmin.net/home_page/security/PMASA-2013-15.php");
+  script_xref(name:"URL", value:"http://www.phpmyadmin.net/home_page/security/PMASA-2013-8.php");
+  script_xref(name:"URL", value:"http://www.phpmyadmin.net/home_page/security/PMASA-2013-9.php");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=10872");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'phpmyadmin' package(s) announced via the MGASA-2013-0238 advisory.");

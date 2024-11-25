@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.844287");
   script_cve_id("CVE-2017-14165", "CVE-2017-14314", "CVE-2017-14504", "CVE-2017-14649", "CVE-2017-14733", "CVE-2017-14994", "CVE-2017-14997", "CVE-2017-15277", "CVE-2017-15930", "CVE-2017-16352", "CVE-2017-16353");
   script_tag(name:"creation_date", value:"2020-01-09 11:03:48 +0000 (Thu, 09 Jan 2020)");
-  script_version("2023-06-21T05:06:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:21 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-02-02T05:06:07+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:07 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-01-08 20:15:00 +0000 (Wed, 08 Jan 2020)");
+  script_tag(name:"severity_date", value:"2017-11-13 16:14:48 +0000 (Mon, 13 Nov 2017)");
 
   script_name("Ubuntu: Security Advisory (USN-4232-1)");
   script_category(ACT_GATHER_INFO);

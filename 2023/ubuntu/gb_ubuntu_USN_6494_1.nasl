@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.12.2023.6494.1");
   script_cve_id("CVE-2023-31085", "CVE-2023-39189", "CVE-2023-39192", "CVE-2023-39193", "CVE-2023-39194", "CVE-2023-42754", "CVE-2023-45862", "CVE-2023-45871", "CVE-2023-5717");
   script_tag(name:"creation_date", value:"2023-11-22 04:08:57 +0000 (Wed, 22 Nov 2023)");
-  script_version("2024-01-08T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2024-01-08 05:05:17 +0000 (Mon, 08 Jan 2024)");
+  script_version("2024-02-27T05:06:31+0000");
+  script_tag(name:"last_modification", value:"2024-02-27 05:06:31 +0000 (Tue, 27 Feb 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-11-04 03:24:00 +0000 (Sat, 04 Nov 2023)");
+  script_tag(name:"severity_date", value:"2023-11-04 03:24:15 +0000 (Sat, 04 Nov 2023)");
 
   script_name("Ubuntu: Security Advisory (USN-6494-1)");
   script_category(ACT_GATHER_INFO);
@@ -151,6 +151,10 @@ if(release == "UBUNTU16.04 LTS") {
 
 if(release == "UBUNTU18.04 LTS") {
 
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.15.0-1126-oracle", ver:"4.15.0-1126.137", rls:"UBUNTU18.04 LTS"))) {
+    report += res;
+  }
+
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-4.15.0-1147-kvm", ver:"4.15.0-1147.152", rls:"UBUNTU18.04 LTS"))) {
     report += res;
   }
@@ -180,6 +184,10 @@ if(release == "UBUNTU18.04 LTS") {
   }
 
   if(!isnull(res = isdpkgvuln(pkg:"linux-image-lowlatency", ver:"4.15.0.220.204", rls:"UBUNTU18.04 LTS"))) {
+    report += res;
+  }
+
+  if(!isnull(res = isdpkgvuln(pkg:"linux-image-oracle-lts-18.04", ver:"4.15.0.1126.131", rls:"UBUNTU18.04 LTS"))) {
     report += res;
   }
 

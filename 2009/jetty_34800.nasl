@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100183");
-  script_version("2023-12-20T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
+  script_version("2024-06-11T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-06-11 05:05:40 +0000 (Tue, 11 Jun 2024)");
   script_tag(name:"creation_date", value:"2009-05-04 20:25:02 +0200 (Mon, 04 May 2009)");
   script_cve_id("CVE-2009-1523");
   script_tag(name:"cvss_base", value:"5.0");
@@ -22,7 +22,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_family("Web Servers");
   script_copyright("Copyright (C) 2009 Greenbone AG");
-  script_dependencies("gb_jetty_detect.nasl");
+  script_dependencies("gb_jetty_http_detect.nasl");
   script_mandatory_keys("jetty/detected");
 
   script_tag(name:"solution", value:"The vendor has released an update.");

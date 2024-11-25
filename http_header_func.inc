@@ -1,22 +1,8 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 # @brief Returns an array of common (client-side) HTTP headers having the given value added to each
 #        of the header (created internally by @ref http_hdr_get_common_list). This function can be
@@ -116,7 +102,7 @@ function http_hdr_get_common_list( exclude_hdr_list ) {
     "Referer",
     "Upgrade-Insecure-Requests",
     "User-Agent",
-    "X-Api-Version",
+    "X-Api-Version",                  # nb: Seen in various Log4Shell PoCs
     "X-CSRF-Token",
     "X-Druid-Comment",
     "X-Forwarded-Prefix",
@@ -124,6 +110,7 @@ function http_hdr_get_common_list( exclude_hdr_list ) {
     "X-Forwarded-Host",
     "X-Forwarded-Server",
     "X-Forwarded-Scheme",
+    "X-Log",                          # As used in e.g. https://github.com/tothi/log4shell-vulnerable-app
     "X-Origin",
     "X-Original-URL"
   );

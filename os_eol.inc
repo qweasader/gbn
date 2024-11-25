@@ -416,6 +416,11 @@ eol_cpes["cpe:/o:centos:centos_stream:8"] = "2024-05-31";
 # Fedora (https://fedoraproject.org/wiki/End_of_life?rd=LifeCycle/EOL)
 eol_urls["cpe:/o:fedoraproject:fedora"] = "https://fedoraproject.org/wiki/End_of_life?rd=LifeCycle/EOL";
 eol_names["cpe:/o:fedoraproject:fedora"] = "Fedora";
+eol_cpes["cpe:/o:fedoraproject:fedora:40"] = "2025-05-13";
+eol_cpes["cpe:/o:fedoraproject:fedora:39"] = "2024-11-12";
+eol_cpes["cpe:/o:fedoraproject:fedora:38"] = "2024-05-21";
+eol_cpes["cpe:/o:fedoraproject:fedora:37"] = "2023-12-05";
+eol_cpes["cpe:/o:fedoraproject:fedora:36"] = "2023-05-16";
 eol_cpes["cpe:/o:fedoraproject:fedora:35"] = "2022-12-13";
 eol_cpes["cpe:/o:fedoraproject:fedora:34"] = "2022-06-07";
 eol_cpes["cpe:/o:fedoraproject:fedora:33"] = "2021-11-30";

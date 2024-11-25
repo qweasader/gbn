@@ -9,7 +9,7 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806762");
-  script_version("2023-11-02T05:05:26+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2015-6764", "CVE-2015-6765", "CVE-2015-6766", "CVE-2015-6767",
                 "CVE-2015-6768", "CVE-2015-6770", "CVE-2015-6771", "CVE-2015-6772",
                 "CVE-2015-6773", "CVE-2015-6774", "CVE-2015-6775", "CVE-2015-6776",
@@ -19,12 +19,12 @@ if(description)
                 "CVE-2015-8480", "CVE-2015-6769");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-08-16 13:22:00 +0000 (Tue, 16 Aug 2022)");
   script_tag(name:"creation_date", value:"2015-12-07 16:07:20 +0530 (Mon, 07 Dec 2015)");
-  script_name("Google Chrome Multiple Vulnerabilities-01 Dec15 (Linux)");
+  script_name("Google Chrome Multiple Vulnerabilities-01 (Dec 2015) - Linux");
 
   script_tag(name:"summary", value:"google chrome is prone to multiple vulnerabilities.");
 

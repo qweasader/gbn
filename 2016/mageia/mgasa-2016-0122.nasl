@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131276");
   script_cve_id("CVE-2016-2151", "CVE-2016-2152", "CVE-2016-2153", "CVE-2016-2154", "CVE-2016-2155", "CVE-2016-2156", "CVE-2016-2157", "CVE-2016-2158", "CVE-2016-2159", "CVE-2016-2190");
   script_tag(name:"creation_date", value:"2016-03-31 05:05:01 +0000 (Thu, 31 Mar 2016)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-12-01 14:54:00 +0000 (Tue, 01 Dec 2020)");
+  script_tag(name:"severity_date", value:"2016-05-23 18:46:30 +0000 (Mon, 23 May 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0122)");
   script_category(ACT_GATHER_INFO);
@@ -27,6 +27,8 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0122");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0122.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=18048");
+  script_xref(name:"URL", value:"https://docs.moodle.org/dev/Moodle_2.8.11_release_notes");
+  script_xref(name:"URL", value:"https://moodle.org/mod/forum/discuss.php?d=329783");
   script_xref(name:"URL", value:"https://moodle.org/mod/forum/discuss.php?d=330173");
   script_xref(name:"URL", value:"https://moodle.org/mod/forum/discuss.php?d=330174");
   script_xref(name:"URL", value:"https://moodle.org/mod/forum/discuss.php?d=330175");
@@ -37,8 +39,6 @@ if(description)
   script_xref(name:"URL", value:"https://moodle.org/mod/forum/discuss.php?d=330180");
   script_xref(name:"URL", value:"https://moodle.org/mod/forum/discuss.php?d=330181");
   script_xref(name:"URL", value:"https://moodle.org/mod/forum/discuss.php?d=330182");
-  script_xref(name:"URL", value:"https://docs.moodle.org/dev/Moodle_2.8.11_release_notes");
-  script_xref(name:"URL", value:"https://moodle.org/mod/forum/discuss.php?d=329783");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'moodle' package(s) announced via the MGASA-2016-0122 advisory.");
 

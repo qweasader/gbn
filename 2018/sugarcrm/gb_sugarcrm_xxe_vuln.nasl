@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113111");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-02-14 10:40:00 +0100 (Wed, 14 Feb 2018)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -31,8 +31,9 @@ if( description )
   script_dependencies("gb_sugarcrm_detect.nasl");
   script_mandatory_keys("sugarcrm/installed");
 
-  script_tag(name:"summary", value:"SugarCRM is prone to an XML external entity vulnerability.");
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"summary", value:"SugarCRM is prone to an XML external entity (XXE)
+  vulnerability.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
   script_tag(name:"insight", value:"The vulnerability exists within the RSSDashlet dashlet.");
   script_tag(name:"impact", value:"Successful exploitation allows remote attackers to read arbitrary files or potentially execute arbitrary code via a crafted DTD in an XML request.");
   script_tag(name:"affected", value:"SugarCRM through version 6.5.16.");

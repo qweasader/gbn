@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131106");
   script_cve_id("CVE-2015-4477", "CVE-2015-4483", "CVE-2015-4490", "CVE-2015-4500", "CVE-2015-4501", "CVE-2015-4502", "CVE-2015-4504", "CVE-2015-4507", "CVE-2015-4508", "CVE-2015-4509", "CVE-2015-4510", "CVE-2015-4511", "CVE-2015-4512", "CVE-2015-4516", "CVE-2015-4517", "CVE-2015-4519", "CVE-2015-4520", "CVE-2015-4521", "CVE-2015-4522", "CVE-2015-7174", "CVE-2015-7175", "CVE-2015-7176", "CVE-2015-7177");
   script_tag(name:"creation_date", value:"2015-10-27 10:54:49 +0000 (Tue, 27 Oct 2015)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
@@ -24,11 +24,6 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2015-0414");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2015-0414.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16842");
-  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-81/");
-  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-86/");
-  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-91/");
-  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-96/");
-  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-98/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-102/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-103/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-104/");
@@ -40,6 +35,11 @@ if(description)
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-110/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-111/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-112/");
+  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-81/");
+  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-86/");
+  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-91/");
+  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-96/");
+  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-98/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'iceape, sqlite3' package(s) announced via the MGASA-2015-0414 advisory.");
 

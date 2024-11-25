@@ -1,22 +1,8 @@
-# Copyright (C) 2013 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2013 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apache:http_server";
 
@@ -26,16 +12,16 @@ if (description)
   script_cve_id("CVE-2013-2751", "CVE-2013-2752");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2022-04-25T14:50:49+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_name("NetGear RAIDiator (ReadyNAS) Cross Site Request Forgery and Command Injection Vulnerabilities");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/62059");
 
-  script_tag(name:"last_modification", value:"2022-04-25 14:50:49 +0000 (Mon, 25 Apr 2022)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2013-10-25 15:00:37 +0200 (Fri, 25 Oct 2013)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");
   script_family("Web application abuses");
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   script_dependencies("gb_apache_http_server_consolidation.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("apache/http_server/http/detected");
@@ -59,8 +45,8 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_tag(name:"summary", value:"NetGear RAIDiator is prone to a cross-site request-forgery
-  vulnerability and a command-injection vulnerability.");
+  script_tag(name:"summary", value:"NetGear RAIDiator is prone to a cross-site request forgery
+  (CSRF) vulnerability and a command-injection vulnerability.");
 
   script_tag(name:"affected", value:"The following versions are vulnerable:
 

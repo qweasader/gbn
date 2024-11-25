@@ -9,13 +9,13 @@ CPE = "cpe:/a:apache:tomcat";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802385");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-15T05:05:39+0000");
   script_cve_id("CVE-2011-3375");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-01-20 13:19:54 +0530 (Fri, 20 Jan 2012)");
-  script_name("Apache Tomcat Request Object Security Bypass Vulnerability (Windows)");
+  script_name("Apache Tomcat Request Object Security Bypass Vulnerability - Windows");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Web Servers");

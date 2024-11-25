@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801536");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-11-04 14:21:53 +0100 (Thu, 04 Nov 2010)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
   script_cve_id("CVE-2010-3711");
-  script_name("Pidgin Libpurple 'purple_base64_decode()' DoS Vulnerabilities (Windows)");
+  script_name("Pidgin Libpurple 'purple_base64_decode()' DoS Vulnerabilities - Windows");
   script_xref(name:"URL", value:"http://pidgin.im/news/security/?id=48");
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/62708");
   script_xref(name:"URL", value:"http://www.vupen.com/english/advisories/2010/2753");

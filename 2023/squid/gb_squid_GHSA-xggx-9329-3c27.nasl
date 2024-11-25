@@ -9,8 +9,8 @@ CPE = "cpe:/a:squid-cache:squid";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.114208");
-  script_version("2023-12-12T05:05:39+0000");
-  script_tag(name:"last_modification", value:"2023-12-12 05:05:39 +0000 (Tue, 12 Dec 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   # nb: This was initially a single VT which got split into multiple later. As we covered all flaws
   # at this time the original creation_date has been kept in all later created VTs.
   script_tag(name:"creation_date", value:"2023-10-20 08:47:30 +0000 (Fri, 20 Oct 2023)");
@@ -40,16 +40,21 @@ if(description)
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"Due to an Incorrect Check of Function Return Value bug Squid is
-  vulnerable to a Denial of Service attack against its Helper process management.");
+  vulnerable to a Denial of Service attack against its Helper process management.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'Assertion in Squid Helper Process Creator'.");
 
   script_tag(name:"affected", value:"Squid versions prior to 6.5.");
 
   script_tag(name:"solution", value:"Update to version 6.5 or later.");
 
+  script_xref(name:"URL", value:"https://github.com/squid-cache/squid/security/advisories/GHSA-xggx-9329-3c27");
   script_xref(name:"URL", value:"https://megamansec.github.io/Squid-Security-Audit/");
   script_xref(name:"URL", value:"https://joshua.hu/squid-security-audit-35-0days-45-exploits");
   script_xref(name:"URL", value:"https://www.openwall.com/lists/oss-security/2023/10/11/3");
-  script_xref(name:"URL", value:"https://github.com/squid-cache/squid/security/advisories/GHSA-xggx-9329-3c27");
+  script_xref(name:"URL", value:"https://gist.github.com/rousskov/9af0d33d2a1f4b5b3b948b2da426e77d");
+  script_xref(name:"URL", value:"https://megamansec.github.io/Squid-Security-Audit/ipc-assert.html");
 
   exit(0);
 }

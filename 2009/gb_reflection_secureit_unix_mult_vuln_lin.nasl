@@ -9,8 +9,8 @@ CPE = "cpe:/a:attachmate:reflection_for_secure_it";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800228");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-03-04T05:10:24+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 05:10:24 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2009-02-06 13:48:17 +0100 (Fri, 06 Feb 2009)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -20,7 +20,6 @@ if(description)
   script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Buffer overflow");
   script_dependencies("gb_reflection_secureit_unix_detect_lin.nasl");
-  script_require_ports("Services/ssh", 22);
   script_mandatory_keys("attachmate/reflection_for_secure_it/detected");
 
   script_xref(name:"URL", value:"http://support.attachmate.com/techdocs/2288.html");

@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813790");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-09-25T05:06:11+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-09-10 12:21:10 +0530 (Mon, 10 Sep 2018)");
   script_name("Google Chrome MEGA Extension Trojan - Linux");
 
   script_tag(name:"summary", value:"Detection of a trojaned MEGA extension for Google Chrome.");
 
-  script_tag(name:"vuldetect", value:"Check if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"The flaw exists as a trojaned version of MEGA extension was
   available in the Google Chrome webstore for installation and update.");

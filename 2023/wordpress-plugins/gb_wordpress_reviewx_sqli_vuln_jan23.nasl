@@ -9,8 +9,8 @@ CPE = "cpe:/a:wpdeveloper:reviewx";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126522");
-  script_version("2023-10-13T16:09:03+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-09-12 08:08:12 +0000 (Tue, 12 Sep 2023)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -24,7 +24,7 @@ if(description)
 
   script_cve_id("CVE-2023-26325");
 
-  script_name("WordPress ReviewX Plugin < 1.6.9 SQL Injection Vulnerability");
+  script_name("WordPress ReviewX Plugin < 1.6.9 SQLi Vulnerability");
 
   script_category(ACT_GATHER_INFO);
 

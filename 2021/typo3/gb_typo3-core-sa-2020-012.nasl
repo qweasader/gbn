@@ -9,8 +9,8 @@ CPE = "cpe:/a:typo3:typo3";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.145958");
-  script_version("2023-04-05T10:19:45+0000");
-  script_tag(name:"last_modification", value:"2023-04-05 10:19:45 +0000 (Wed, 05 Apr 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2021-05-17 06:51:47 +0000 (Mon, 17 May 2021)");
   script_tag(name:"cvss_base", value:"3.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:S/C:P/I:N/A:P");
@@ -33,7 +33,7 @@ if (description)
   script_dependencies("gb_typo3_http_detect.nasl");
   script_mandatory_keys("typo3/detected");
 
-  script_tag(name:"summary", value:"TYPO3 is prone to an XML External Entity (XXE) vulnerability in
+  script_tag(name:"summary", value:"TYPO3 is prone to an XML external entity (XXE) vulnerability in
   the Dashboard widget.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");

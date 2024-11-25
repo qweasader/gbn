@@ -9,10 +9,10 @@ CPE = "cpe:/a:diskpulse:diskpulse_enterprise_web_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809484");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-03-01T14:37:10+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2016-12-02 15:54:40 +0530 (Fri, 02 Dec 2016)");
   script_name("Disk Pulse Enterprise Server Buffer Overflow Vulnerability");
   script_category(ACT_GATHER_INFO);
@@ -20,7 +20,6 @@ if(description)
   script_family("Buffer overflow");
   script_dependencies("gb_disk_pulse_enterprise_server_detect.nasl");
   script_mandatory_keys("DiskPulse/Enterprise/Server/installed");
-  script_require_ports("Services/www", 80);
 
   script_xref(name:"URL", value:"http://www.diskpulse.com");
   script_xref(name:"URL", value:"https://www.exploit-db.com/exploits/40835/");
@@ -53,8 +52,11 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_less_equal( version:vers, test_version:"9.1.16" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"None Available" );

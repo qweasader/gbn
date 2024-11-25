@@ -9,8 +9,8 @@ CPE = "cpe:/a:sybase:adaptive_server_enterprise";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.80018");
-  script_version("2023-07-07T05:05:26+0000");
-  script_tag(name:"last_modification", value:"2023-07-07 05:05:26 +0000 (Fri, 07 Jul 2023)");
+  script_version("2024-07-23T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2024-07-23 05:05:30 +0000 (Tue, 23 Jul 2024)");
   script_tag(name:"creation_date", value:"2008-10-24 19:51:47 +0200 (Fri, 24 Oct 2008)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -69,6 +69,7 @@ if(strlen(r) > 10 && ord(r[8]) == 0xE3) {
 
   set_kb_item(name:"sybase/version", value:strver);
   security_message(port:port);
+  exit(0);
 }
 
-exit(0);
+exit(99);

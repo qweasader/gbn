@@ -1,34 +1,23 @@
-# Copyright (C) 2012 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2012 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2
-# (or any later version), as published by the Free Software Foundation.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802444");
-  script_version("2022-04-27T12:01:52+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2012-0276", "CVE-2012-0277", "CVE-2012-0282");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-04-27 12:01:52 +0000 (Wed, 27 Apr 2022)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-07-24 15:21:56 +0530 (Tue, 24 Jul 2012)");
 
-  script_name("XnView Multiple Image Decompression Heap Overflow Vulnerabilities (Windows)");
+  script_name("XnView Multiple Image Decompression Heap Overflow Vulnerabilities - Windows");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Buffer overflow");
   script_dependencies("secpod_xnview_detect_win.nasl");
   script_mandatory_keys("XnView/Win/Ver");

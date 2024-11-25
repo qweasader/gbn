@@ -9,8 +9,8 @@ CPE = "cpe:/a:atlassian:fisheye";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140588");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-12-07 11:26:13 +0700 (Thu, 07 Dec 2017)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
@@ -32,8 +32,8 @@ if (description)
   script_dependencies("gb_atlassian_fisheye_crucible_detect.nasl");
   script_mandatory_keys("atlassian_fisheye_crucible/installed");
 
-  script_tag(name:"summary", value:"Atlassian FishEye and Crucible is prone to a remote command execution
-vulnerability.");
+  script_tag(name:"summary", value:"Atlassian FishEye and Crucible is prone to a remote command
+  execution (RCE) vulnerability.");
 
   script_tag(name:"insight", value:"Fisheye and Crucible does not check that the name of a file in a Mercurial
 repository contained argument parameters. An attacker who has permission to add a repository or commit to a

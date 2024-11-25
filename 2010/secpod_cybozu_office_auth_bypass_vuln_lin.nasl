@@ -1,40 +1,26 @@
-# Copyright (C) 2010 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2010 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902065");
-  script_version("2022-02-18T13:05:59+0000");
-  script_tag(name:"last_modification", value:"2022-02-18 13:05:59 +0000 (Fri, 18 Feb 2022)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-06-01 15:40:11 +0200 (Tue, 01 Jun 2010)");
   script_cve_id("CVE-2010-2029");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
-  script_name("Cybozu Office Authentication Bypass Vulnerability (Linux)");
+  script_name("Cybozu Office Authentication Bypass Vulnerability - Linux");
   script_xref(name:"URL", value:"http://secunia.com/advisories/39508");
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/57976");
   script_xref(name:"URL", value:"http://jvn.jp/en/jp/JVN87730223/index.html");
   script_xref(name:"URL", value:"http://www.ipa.go.jp/security/english/vuln/201004_cybozu_en.html");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("General");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("login/SSH/success");

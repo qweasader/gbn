@@ -9,8 +9,8 @@ CPE = "cpe:/a:ultimatelysocial:social_media_share_buttons_%26_social_sharing_ico
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127598");
-  script_version("2023-11-01T05:05:34+0000");
-  script_tag(name:"last_modification", value:"2023-11-01 05:05:34 +0000 (Wed, 01 Nov 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-10-25 08:00:00 +0000 (Wed, 25 Oct 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -71,7 +71,7 @@ location = infos["location"];
 
 if( version_is_less( version: version, test_version: "2.8.6" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "2.8.6", install_path: location );
-  security_message( data: report, port: port );
+  security_message( port: port, data: report );
   exit( 0 );
 }
 

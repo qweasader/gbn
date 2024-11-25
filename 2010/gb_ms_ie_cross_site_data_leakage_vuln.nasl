@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801330");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-07-25T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-07-25 05:05:41 +0000 (Thu, 25 Jul 2024)");
   script_tag(name:"creation_date", value:"2010-05-13 09:36:55 +0200 (Thu, 13 May 2010)");
   script_cve_id("CVE-2010-1852");
   script_tag(name:"cvss_base", value:"4.3");
@@ -26,7 +26,7 @@ if(description)
   script_tag(name:"impact", value:"Successful exploitation will allow the remote web servers to
   identify specific  persons and their product searches via 'HTTP' request login.");
 
-  script_tag(name:"affected", value:"Microsoft Internet Explorer version 8 and proir.");
+  script_tag(name:"affected", value:"Microsoft Internet Explorer version 8 and prior.");
 
   script_tag(name:"insight", value:"The flaw is due to an error in handling background 'HTTP'
   requests. It uses cookies in possibly unexpected manner when the

@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2013.0185");
   script_cve_id("CVE-2013-1500", "CVE-2013-1571", "CVE-2013-2407", "CVE-2013-2412", "CVE-2013-2443", "CVE-2013-2444", "CVE-2013-2445", "CVE-2013-2446", "CVE-2013-2447", "CVE-2013-2448", "CVE-2013-2449", "CVE-2013-2450", "CVE-2013-2452", "CVE-2013-2453", "CVE-2013-2454", "CVE-2013-2455", "CVE-2013-2456", "CVE-2013-2457", "CVE-2013-2458", "CVE-2013-2459", "CVE-2013-2460", "CVE-2013-2461", "CVE-2013-2463", "CVE-2013-2465", "CVE-2013-2469", "CVE-2013-2470", "CVE-2013-2471", "CVE-2013-2472", "CVE-2013-2473");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
@@ -24,9 +24,9 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2013-0185");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2013-0185.html");
   script_xref(name:"URL", value:"http://www.oracle.com/technetwork/topics/security/javacpujun2013-1899847.html");
-  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2013-0957.html");
-  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHBA-2013-0959.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=10564");
+  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHBA-2013-0959.html");
+  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2013-0957.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'icedtea-web, java-1.7.0-openjdk' package(s) announced via the MGASA-2013-0185 advisory.");
 
@@ -93,6 +93,8 @@ phishing attack by providing frame content that spoofed a login ... [Please see 
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

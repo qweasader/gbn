@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800852");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-09-11 18:01:06 +0200 (Fri, 11 Sep 2009)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_cve_id("CVE-2009-2620");
-  script_name("Firebird SQL 'op_connect_request' Denial Of Service Vulnerability (Windows)");
+  script_name("Firebird SQL 'op_connect_request' Denial Of Service Vulnerability - Windows");
   script_xref(name:"URL", value:"http://tracker.firebirdsql.org/browse/CORE-2563");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/35842");
   script_xref(name:"URL", value:"http://www.coresecurity.com/content/firebird-sql-dos");
@@ -38,7 +38,6 @@ if(description)
   exit(0);
 }
 
-include("http_func.inc");
 include("version_func.inc");
 
 firebird_port = 3050;

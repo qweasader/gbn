@@ -12,16 +12,16 @@ if (description)
   script_cve_id("CVE-2012-2762");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-06-27T05:05:29+0000");
 
-  script_name("Serendipity 'functions_trackbacks.inc.php' SQL Injection Vulnerability");
+  script_name("Serendipity 'functions_trackbacks.inc.php' SQLi Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/53620");
   script_xref(name:"URL", value:"https://github.com/s9y/Serendipity/commit/87153991d06bc18fe4af05f97810487c4a340a92#diff-1");
   script_xref(name:"URL", value:"http://blog.s9y.org/archives/241-Serendipity-1.6.2-released.html");
   script_xref(name:"URL", value:"https://www.htbridge.com/advisory/HTB23092");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-07-25 14:02:47 +0200 (Wed, 25 Jul 2012)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_active");
@@ -33,9 +33,8 @@ if (description)
   script_mandatory_keys("Serendipity/installed");
 
   script_tag(name:"solution", value:"Updates are available, please see the references for details.");
-  script_tag(name:"summary", value:"Serendipity is prone to an SQL-injection vulnerability because it
-fails to sufficiently sanitize user-supplied data before using it in
-an SQL query.");
+  script_tag(name:"summary", value:"Serendipity is prone to an SQL injection (SQLi) vulnerability
+  because it fails to sufficiently sanitize user-supplied data before using it in an SQL query.");
 
   script_tag(name:"impact", value:"A successful exploit may allow an attacker to compromise the
 application, access or modify data, or exploit latent vulnerabilities

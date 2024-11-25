@@ -9,14 +9,14 @@ CPE = "cpe:/a:mozilla:thunderbird";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805222");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2014-1594", "CVE-2014-1593", "CVE-2014-1592", "CVE-2014-1590",
                 "CVE-2014-1587", "CVE-2014-1595");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-12-16 11:16:58 +0530 (Tue, 16 Dec 2014)");
-  script_name("Mozilla Thunderbird Multiple Vulnerabilities-01 Dec14 (Mac OS X)");
+  script_name("Mozilla Thunderbird Multiple Vulnerabilities-01 (Dec 2014) - Mac OS X");
 
   script_tag(name:"summary", value:"Mozilla Thunderbird is prone to multiple vulnerabilities.");
 

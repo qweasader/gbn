@@ -9,8 +9,8 @@ CPE = "cpe:/a:php:php";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.143723");
-  script_version("2023-10-27T16:11:33+0000");
-  script_tag(name:"last_modification", value:"2023-10-27 16:11:33 +0000 (Fri, 27 Oct 2023)");
+  script_version("2024-02-08T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2020-04-17 06:35:41 +0000 (Fri, 17 Apr 2020)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -24,7 +24,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("PHP < 7.2.30, 7.3 < 7.3.17, 7.4 < 7.4.5 DoS Vulnerability - Apr20 (Windows)");
+  script_name("PHP < 7.2.30, 7.3 < 7.3.17, 7.4 < 7.4.5 DoS Vulnerability (Apr 2020) - Windows");
 
   script_category(ACT_GATHER_INFO);
 

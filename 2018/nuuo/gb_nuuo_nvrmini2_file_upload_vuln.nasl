@@ -9,8 +9,8 @@ CPE = "cpe:/a:nuuo:nuuo";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141124");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-04-03T05:05:20+0000");
+  script_tag(name:"last_modification", value:"2024-04-03 05:05:20 +0000 (Wed, 03 Apr 2024)");
   script_tag(name:"creation_date", value:"2018-05-30 13:34:16 +0700 (Wed, 30 May 2018)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -20,11 +20,11 @@ if(description)
 
   script_cve_id("CVE-2018-11523");
 
-  script_tag(name:"qod_type", value:"exploit");
+  script_tag(name:"qod_type", value:"remote_vul");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("NUUO NVRmini 2 File Upload Vulnerability");
+  script_name("NUUO NVRmini 2 < 3.9.1 File Upload Vulnerability - Active Check");
 
   script_category(ACT_ATTACK);
 
@@ -32,11 +32,16 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_nuuo_devices_web_detect.nasl");
   script_mandatory_keys("nuuo/web/detected");
+  script_require_ports("Services/www", 80);
 
-  script_tag(name:"summary", value:"upload.php on NUUO NVRmini 2 devices allows Arbitrary File Upload, such as
-  upload of .php files.");
+  script_tag(name:"summary", value:"NUUO NVRmini 2 devices are prone to a file upload
+  vulnerability.");
 
-  script_tag(name:"vuldetect", value:"Tries to upload a PHP file and checks if phpinfo() can be executed.");
+  script_tag(name:"vuldetect", value:"Tries to upload a PHP file and checks if phpinfo() can be
+  executed.");
+
+  script_tag(name:"insight", value:"upload.php on NUUO NVRmini 2 devices allows arbitrary file
+  upload, such as the upload of .php files.");
 
   script_tag(name:"solution", value:"Update to version 3.9.1 or later.");
 
@@ -67,11 +72,11 @@ data = '--' + bound + '\r\n' +
        '<?php phpinfo(); unlink(__FILE__); ?>\r\n' +
        '--' + bound + '--\r\n';
 
-req = http_post_put_req(port: port, url: '/upload.php', data: data,
-                    add_headers: make_array("Content-Type", "multipart/form-data; boundary=" + bound));
+req = http_post_put_req(port: port, url: "/upload.php", data: data,
+                        add_headers: make_array("Content-Type", "multipart/form-data; boundary=" + bound));
 res = http_keepalive_send_recv(port: port, data: req);
 
-url = '/' + file;
+url = "/" + file;
 
 if (http_vuln_check(port: port, url: url, pattern: "PHP Version", check_header: TRUE, extra_check: "PHP API")) {
   report = "It was possible to upload a PHP file and execute phpinfo().";

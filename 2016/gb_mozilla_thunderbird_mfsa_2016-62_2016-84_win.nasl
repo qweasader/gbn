@@ -1,38 +1,24 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mozilla:thunderbird";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808678");
-  script_version("2022-04-13T13:17:10+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2016-2836", "CVE-2016-2835");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-04-13 13:17:10 +0000 (Wed, 13 Apr 2022)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-08-16 01:29:00 +0000 (Wed, 16 Aug 2017)");
   script_tag(name:"creation_date", value:"2016-09-07 11:06:51 +0530 (Wed, 07 Sep 2016)");
-  script_name("Mozilla Thunderbird Security Update (mfsa_2016-62_2016-84) - Windows");
+  script_name("Mozilla Thunderbird Security Advisories (MFSA2016-62, MFSA2016-84) - Windows");
 
   script_tag(name:"summary", value:"Mozilla Thunderbird is prone to multiple vulnerabilities.");
 
@@ -57,7 +43,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/92261");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("General");
   script_dependencies("gb_thunderbird_detect_portable_win.nasl");
   script_mandatory_keys("Thunderbird/Win/Ver");

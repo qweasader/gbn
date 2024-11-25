@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.1531");
   script_cve_id("CVE-2013-4343", "CVE-2013-4511", "CVE-2014-4171", "CVE-2014-5077", "CVE-2015-5156", "CVE-2015-6252", "CVE-2016-2068", "CVE-2016-7042", "CVE-2016-9919", "CVE-2017-12190", "CVE-2017-18224", "CVE-2017-7277", "CVE-2017-7477", "CVE-2017-9075", "CVE-2018-1095", "CVE-2018-13405", "CVE-2018-18397", "CVE-2018-19854", "CVE-2018-6412", "CVE-2019-6974");
   script_tag(name:"creation_date", value:"2020-01-23 12:06:32 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-01-24 15:07:00 +0000 (Tue, 24 Jan 2023)");
+  script_tag(name:"severity_date", value:"2022-04-05 20:40:45 +0000 (Tue, 05 Apr 2022)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2019-1531)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.1\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-1531");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-1531");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-1531");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2019-1531 advisory.");
 

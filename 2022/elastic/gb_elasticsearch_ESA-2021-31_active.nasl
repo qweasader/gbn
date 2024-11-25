@@ -1,30 +1,16 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:elastic:elasticsearch";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.148545");
-  script_version("2022-11-28T10:12:42+0000");
-  script_tag(name:"last_modification", value:"2022-11-28 10:12:42 +0000 (Mon, 28 Nov 2022)");
+  script_version("2024-11-08T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2024-11-08 05:05:30 +0000 (Fri, 08 Nov 2024)");
   script_tag(name:"creation_date", value:"2022-07-29 06:38:03 +0000 (Fri, 29 Jul 2022)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
@@ -32,8 +18,6 @@ if(description)
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-12-14 01:15:00 +0000 (Tue, 14 Dec 2021)");
 
-  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
-  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2021-44228", "CVE-2021-45046");
 
   script_tag(name:"qod_type", value:"exploit");
@@ -44,7 +28,7 @@ if(description)
 
   script_category(ACT_ATTACK);
 
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_elastic_elasticsearch_detect_http.nasl");
   script_mandatory_keys("elastic/elasticsearch/http/detected");
@@ -53,7 +37,8 @@ if(description)
   script_tag(name:"summary", value:"Elastic Elasticsearch is prone to multiple vulnerabilities in
   the Apache Log4j library.");
 
-  script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks the response.
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks if the target is
+  connecting back to the scanner host.
 
   Note: For a successful detection of this flaw the target host needs to be able to reach the
   scanner host on a TCP port randomly generated during the runtime of the VT (currently in the range
@@ -90,6 +75,8 @@ if(description)
   script_xref(name:"URL", value:"https://www.lunasec.io/docs/blog/log4j-zero-day/");
   script_xref(name:"URL", value:"https://www.lunasec.io/docs/blog/log4j-zero-day-update-on-cve-2021-45046/");
   script_xref(name:"URL", value:"https://www.horizon3.ai/the-long-tail-of-log4shell-exploitation/");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
 
   exit(0);
 }
@@ -116,6 +103,8 @@ src_filter = pcap_src_ip_filter_from_hostnames();
 rnd_port = rand_int_range(min: 10000, max: 32000);
 dst_filter = string("(dst host ", ownip, " or dst host ", ownhostname, ")");
 filter = string("tcp and dst port ", rnd_port, " and ", src_filter, " and ", dst_filter);
+# nb: We're only interested in TCP SYN packets and want to ignore all others (e.g. ACK, RST, ...)
+filter = string(filter, " and tcp[tcpflags] & (tcp-syn) != 0");
 
 payloads = make_list(
   # Original PoC for CVE-2021-44228
@@ -139,19 +128,27 @@ data = "{";
 foreach payload (payloads) {
   url = "/_search?a=" + payload;
 
-  # nb: Always keep http_post_put_req() before open_sock_tcp() as the first could fork with multiple
-  # vhosts and the child's would share the same socket causing race conditions and similar.
   req = http_post_put_req(port: port, url: url, data: data, add_headers: headers);
   # We need to convert it to a GET request
   req = str_replace(string: req, find: "POST ", replace: "GET ", count: 1);
 
+  # nb: Always keep open_sock_tcp() after the first call of a function forking on multiple hostnames
+  # / vhosts (e.g. http_get(), http_post_put_req(), http_host_name(), get_host_name(), ...). Reason:
+  # If the fork would be done after calling open_sock_tcp() the child's would share the same socket
+  # causing race conditions and similar.
   if (!soc = open_sock_tcp(port))
     continue;
 
   res = send_capture(socket: soc, data: req, timeout: 5, pcap_filter: filter);
   close(soc);
 
-  if (res) {
+  if (!res)
+    continue;
+
+  # nb: See note above on the reason of this check. This is just another fallback if something is
+  # going wrong in the send_capture() call above.
+  flags = get_tcp_element(tcp: res, element: "th_flags");
+  if (flags & TH_SYN) {
 
     info["HTTP Method"] = "GET";
     info["Affected URL"] = http_report_vuln_url(port: port, url: url, url_only: TRUE);

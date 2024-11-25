@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131233");
   script_cve_id("CVE-2013-7447");
   script_tag(name:"creation_date", value:"2016-02-18 05:27:39 +0000 (Thu, 18 Feb 2016)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2016-12-03 03:00:00 +0000 (Sat, 03 Dec 2016)");
+  script_tag(name:"severity_date", value:"2016-03-11 16:28:51 +0000 (Fri, 11 Mar 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0070)");
   script_category(ACT_GATHER_INFO);
@@ -26,14 +26,14 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0070");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0070.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17739");
-  script_xref(name:"URL", value:"https://github.com/mate-desktop/eom/issues/93");
-  script_xref(name:"URL", value:"https://bugs.launchpad.net/ubuntu/+source/gtk+2.0/+bug/1540811");
+  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2016/02/10/2");
   script_xref(name:"URL", value:"https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=799275");
+  script_xref(name:"URL", value:"https://bugs.launchpad.net/ubuntu/+source/gtk+2.0/+bug/1540811");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17731");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17739");
   script_xref(name:"URL", value:"https://bugzilla.gnome.org/show_bug.cgi?id=703220");
   script_xref(name:"URL", value:"https://git.gnome.org/browse/gtk+/commit?id=894b1ae76a32720f4bb3d39cf460402e3ce331d6");
-  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2016/02/10/2");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17731");
+  script_xref(name:"URL", value:"https://github.com/mate-desktop/eom/issues/93");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'eom' package(s) announced via the MGASA-2016-0070 advisory.");
 

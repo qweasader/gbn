@@ -9,8 +9,8 @@ CPE = "cpe:/a:wpexperts:post_smtp";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126437");
-  script_version("2023-10-13T16:09:03+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-07-20 10:32:43 +0000 (Thu, 20 Jul 2023)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
@@ -34,7 +34,7 @@ if(description)
   script_mandatory_keys("wordpress/plugin/post-smtp/detected");
 
   script_tag(name:"summary", value:"The WordPress plugin 'Post SMTP Mailer/Email Log' is prone to a
-  cross-side sequest forgery (CSRF) vulnerability.");
+  cross-site request forgery (CSRF) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

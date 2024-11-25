@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.891127");
   script_cve_id("CVE-2017-14628", "CVE-2017-14629", "CVE-2017-14630", "CVE-2017-14631", "CVE-2017-14636", "CVE-2017-14637");
   script_tag(name:"creation_date", value:"2018-02-06 23:00:00 +0000 (Tue, 06 Feb 2018)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-02T05:06:06+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:06 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2017-09-27 17:43:00 +0000 (Wed, 27 Sep 2017)");
+  script_tag(name:"severity_date", value:"2017-09-27 17:43:10 +0000 (Wed, 27 Sep 2017)");
 
   script_name("Debian: Security Advisory (DLA-1127-1)");
   script_category(ACT_GATHER_INFO);

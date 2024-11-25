@@ -2,17 +2,22 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103691");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-08-14T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2024-08-14 05:05:52 +0000 (Wed, 14 Aug 2024)");
   script_tag(name:"creation_date", value:"2013-04-09 12:07:13 +0200 (Tue, 09 Apr 2013)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-08-13 19:12:35 +0000 (Tue, 13 Aug 2024)");
 
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2014-100005");
 
   script_tag(name:"qod_type", value:"remote_analysis");
@@ -31,6 +36,9 @@ if(description)
   script_require_ports("Services/www", 80, 8080);
 
   script_tag(name:"summary", value:"D-Link devices are prone to multiple vulnerabilities.");
+
+  script_tag(name:"vuldetect", value:"Sends multiple crafted HTTP POST requests and checks the
+  responses.");
 
   script_tag(name:"impact", value:"Exploiting these issues could allow an attacker to gain access to
   potentially sensitive information and execute arbitrary commands in the context of the affected
@@ -94,7 +102,7 @@ foreach sleep (make_list(3, 5, 10)){
   start = unixtime();
   result = http_send_recv(port:port, data:req);
   stop = unixtime();
-  if(stop - start < sleep || stop - start > (sleep+5))
+  if(stop - start < sleep || stop - start > (sleep + 5))
     continue;
   else
     count++;
@@ -103,6 +111,7 @@ foreach sleep (make_list(3, 5, 10)){
 if(count > 1) {
   report = http_report_vuln_url(port:port, url:url);
   security_message(port:port, data:report);
+  exit(0);
 }
 
-exit(0);
+exit(99);

@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804753");
-  script_version("2023-12-13T05:05:23+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-08-26 10:58:06 +0530 (Tue, 26 Aug 2014)");
-  script_name("HybridAuth 'install.php' Remote Code Execution Vulnerability");
+  script_name("HybridAuth 'install.php' RCE Vulnerability");
   script_category(ACT_DESTRUCTIVE_ATTACK); # nb: The original version of the script was in ACT_ATTACK and exited if safe_checks was enabled.
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Web application abuses");

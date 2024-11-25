@@ -7,36 +7,44 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108447");
-  script_version("2023-10-25T11:49:00+0000");
-  script_tag(name:"last_modification", value:"2023-10-25 11:49:00 +0000 (Wed, 25 Oct 2023)");
+  script_version("2024-05-03T05:05:25+0000");
+  script_tag(name:"last_modification", value:"2024-05-03 05:05:25 +0000 (Fri, 03 May 2024)");
   script_tag(name:"creation_date", value:"2018-07-03 15:09:21 +0200 (Tue, 03 Jul 2018)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
+
+  script_tag(name:"qod_type", value:"remote_banner");
+
   script_name("Android Debug Bridge (ADB) Protocol Detection");
+
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
   script_dependencies("find_service.nasl");
   script_require_ports("5555");
 
-  script_tag(name:"summary", value:"The script tries to identify services supporting
-  the Android Debug Bridge (ADB) Protocol.");
-
-  script_tag(name:"qod_type", value:"remote_banner");
+  script_tag(name:"summary", value:"The script tries to identify services supporting the Android
+  Debug Bridge (ADB) Protocol.");
 
   exit(0);
 }
 
+include("dump.inc");
 include("host_details.inc");
+include("misc_func.inc");
 include("os_func.inc");
 include("port_service_func.inc");
-include("misc_func.inc");
-include("dump.inc");
 
 port = 5555; # nb: Default port. Currently not possible to change this in Android
-if( ! get_port_state( port ) ) exit( 0 );
-if( ! service_is_unknown( port:port ) ) exit( 0 );
-if( ! soc = open_sock_tcp( port ) ) exit( 0 );
+
+if( ! get_port_state( port ) )
+  exit( 0 );
+
+if( ! service_is_unknown( port:port ) )
+  exit( 0 );
+
+if( ! soc = open_sock_tcp( port ) )
+  exit( 0 );
 
 # https://github.com/cstyan/adbDocumentation
 # https://android.googlesource.com/platform/system/core/+/master/adb/protocol.txt
@@ -52,7 +60,8 @@ res = recv( socket:soc, length:512 );
 close( soc );
 
 # nb: The AUTH response has 44 bytes, the CNXN without device info 33 and with way more...
-if( strlen( res ) < 33 ) exit( 0 );
+if( strlen( res ) < 33 )
+  exit( 0 );
 
 hexres = hexstr( res );
 strres = bin2string( ddata:res, noprint_replacement:' ' ); # nb: eregmatch isn't binary safe...
@@ -98,7 +107,6 @@ cnxnpattern = "^434e584e0000000100100000..000000....0000bcb1a7b1";
 
 # AUTH required
 if( eregmatch( string:hexres, pattern:authpattern ) ) {
-
   found   = TRUE;
   reqauth = TRUE;
   extra   = '\nAuthentication is required.';
@@ -106,7 +114,6 @@ if( eregmatch( string:hexres, pattern:authpattern ) ) {
 # No AUTH required and device info
 } else if( eregmatch( string:hexres, pattern:cnxnpattern ) &&
            infos = eregmatch( string:strres, pattern:"ro\.product\.name=([^;]+);ro\.product\.model=([^;]+);ro\.product\.device=([^;]+);(features=([^\0x00]+))?" ) ) {
-
   found   = TRUE;
   reqauth = FALSE;
   noauth  = TRUE;
@@ -118,9 +125,10 @@ if( eregmatch( string:hexres, pattern:authpattern ) ) {
   if( infos[5] )
     extra += '\nFeatures:       ' + infos[5];
 
+  set_kb_item( name:"adb/" + port + "/product_model", value:infos[2] );
+
 # No AUTH required and no device info
 } else if( eregmatch( string:hexres, pattern:cnxnpattern ) && strres =~ "(bootloader|device|host):.*:" ) {
-
   found   = TRUE;
   reqauth = FALSE;
   noauth  = TRUE;
@@ -128,9 +136,8 @@ if( eregmatch( string:hexres, pattern:authpattern ) ) {
 }
 
 if( found ) {
-
   cpe     = "cpe:/o:google:android";
-  install = port + "/tcp";
+  install = "/";
   version = "unknown";
 
   set_kb_item( name:"adb/" + port + "/version", value:version );
@@ -148,16 +155,15 @@ if( found ) {
   }
 
   service_register( port:port, proto:"adb" );
-  register_product( cpe:cpe, location:install, port:port );
-  os_register_and_report( os:"Android", cpe:cpe, desc:"Android Debug Bridge (ADB) Protocol Detection", runs_key:"unixoide" );
 
-  log_message( data:build_detection_report( app:"Android Debug Bridge (ADB) Protocol",
-                                            version:version,
-                                            install:install,
-                                            extra:extra,
-                                            concluded:strres,
-                                            cpe:cpe ),
-                                            port:port );
+  register_product( cpe:cpe, location:install, port:port );
+
+  os_register_and_report( os:"Android", cpe:cpe, desc:"Android Debug Bridge (ADB) Protocol Detection",
+                          runs_key:"unixoide" );
+
+  log_message( data:build_detection_report( app:"Android Debug Bridge (ADB) Protocol", version:version,
+                                            install:install, extra:extra, concluded:strres, cpe:cpe ),
+               port:port );
 }
 
 exit( 0 );

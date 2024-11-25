@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808020");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2016-0186", "CVE-2016-0191", "CVE-2016-0192", "CVE-2016-0193");
   script_tag(name:"cvss_base", value:"7.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-12 22:11:00 +0000 (Fri, 12 Oct 2018)");
@@ -29,7 +29,7 @@ if(description)
   - The Microsoft Edge improperly accesses objects in memory.
 
   - The Microsoft Edge does not properly validate Chakra JavaScript engine
-    while handling objects in memory .");
+    while handling objects in memory.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow remote
   attackers to execute arbitrary code, gain sensitive information and could take
@@ -99,4 +99,3 @@ if(VULN)
   security_message(data:report);
   exit(0);
 }
-

@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.12.2005.82.1");
-  script_cve_id("CVE-2004-0176", "CVE-2005-0176", "CVE-2005-0177", "CVE-2005-0178");
+  script_cve_id("CVE-2005-0176", "CVE-2005-0177", "CVE-2005-0178");
   script_tag(name:"creation_date", value:"2022-08-26 07:43:23 +0000 (Fri, 26 Aug 2022)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
 
@@ -23,7 +23,6 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"USN-82-1");
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-82-1");
-  script_xref(name:"URL", value:"http://oss.sgi.com/archives/netdev/2005-01/msg01036.html:");
   script_xref(name:"URL", value:"http://oss.sgi.com/archives/netdev/2005-01/msg01036.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'linux-source-2.6.8.1' package(s) announced via the USN-82-1 advisory.");
@@ -54,7 +53,7 @@ CAN-2005-0178:
  A race condition was found in the terminal handling of the
  'setsid()' function, which is used to start new process sessions.
 
-[link moved to references]
+[link moved to references]:
 
  David Coulson noticed a design flaw in the netfilter/iptables module.
  By sending specially crafted packets, a remote attacker could exploit

@@ -9,13 +9,13 @@ CPE = "cpe:/a:oracle:vm_virtualbox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804355");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2014-0981", "CVE-2014-0983");
   script_tag(name:"cvss_base", value:"6.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-04-03 15:56:53 +0530 (Thu, 03 Apr 2014)");
-  script_name("Oracle VM VirtualBox Multiple Memory Corruption Vulnerabilities (Windows)");
+  script_name("Oracle VM VirtualBox Multiple Memory Corruption Vulnerabilities - Windows");
 
   script_tag(name:"summary", value:"Oracle VM VirtualBox is prone to multiple memory corruption vulnerabilities.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");

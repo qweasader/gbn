@@ -9,8 +9,8 @@ CPE = "cpe:/a:apache:solr";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108885");
-  script_version("2024-01-18T05:07:09+0000");
-  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-10-25 15:03:04 +0200 (Wed, 25 Oct 2017)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -24,7 +24,7 @@ if(description)
 
   script_cve_id("CVE-2017-12629");
 
-  script_name("Apache Solr XEE and RCE Vulnerability (SOLR-11477) (Windows)");
+  script_name("Apache Solr XEE and RCE Vulnerability (SOLR-11477) - Windows");
 
   script_category(ACT_GATHER_INFO);
 
@@ -34,7 +34,7 @@ if(description)
   script_mandatory_keys("apache/solr/detected", "Host/runs_windows");
 
   script_tag(name:"summary", value:"Apache Solr is vulnerable to an XML Entity Expansion (XEE)
-  vulnerability leading to Remote Code Execution (RCE).");
+  vulnerability leading to remote code execution (RCE).");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the host.");
 

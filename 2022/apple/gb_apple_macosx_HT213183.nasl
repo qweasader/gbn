@@ -7,7 +7,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.819818");
-  script_version("2023-10-18T05:05:17+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2022-22633", "CVE-2022-22669", "CVE-2022-22665", "CVE-2022-22631",
                 "CVE-2022-22625", "CVE-2022-22648", "CVE-2022-22626", "CVE-2022-22627",
                 "CVE-2022-22597", "CVE-2021-22946", "CVE-2021-22947", "CVE-2022-22582",
@@ -27,12 +27,12 @@ if(description)
                 "CVE-2022-26690", "CVE-2022-26691", "CVE-2022-22630");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-06-08 17:51:00 +0000 (Wed, 08 Jun 2022)");
   script_tag(name:"creation_date", value:"2022-03-17 11:44:49 +0530 (Thu, 17 Mar 2022)");
-  script_name("Apple MacOSX Security Update (HT213183)");
+  script_name("Apple Mac OS X Security Update (HT213183)");
 
   script_tag(name:"summary", value:"Apple Mac OS X is prone to multiple
   vulnerabilities.");

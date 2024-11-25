@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811965");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-08T14:36:53+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-11-03 11:30:51 +0530 (Fri, 03 Nov 2017)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("Xcode Version Detection (Mac OS X)");
+  script_name("Xcode Detection (Mac OS X SSH Login)");
 
   script_tag(name:"summary", value:"Detects the installed version of
   Xcode on Mac OS X.

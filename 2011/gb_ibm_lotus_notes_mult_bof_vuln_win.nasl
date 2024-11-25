@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801945");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-06-07 13:29:28 +0200 (Tue, 07 Jun 2011)");
   script_cve_id("CVE-2011-1213", "CVE-2011-1214", "CVE-2011-1215", "CVE-2011-1216",
                 "CVE-2011-1217", "CVE-2011-1218", "CVE-2011-1512");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("IBM Lotus Notes File Viewers Multiple BOF Vulnerabilities (Windows)");
+  script_name("IBM Lotus Notes File Viewers Multiple BOF Vulnerabilities - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/44624");
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/67621");
   script_xref(name:"URL", value:"https://www-304.ibm.com/support/docview.wss?uid=swg21500034");

@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100388");
-  script_version("2023-12-22T16:09:03+0000");
-  script_tag(name:"last_modification", value:"2023-12-22 16:09:03 +0000 (Fri, 22 Dec 2023)");
+  script_version("2024-03-08T15:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-08 15:37:10 +0000 (Fri, 08 Mar 2024)");
   script_tag(name:"creation_date", value:"2009-12-10 18:09:58 +0100 (Thu, 10 Dec 2009)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -23,8 +23,8 @@ if (description)
 
   script_category(ACT_ATTACK);
 
-  script_family("Web application abuses");
   script_copyright("Copyright (C) 2009 Greenbone AG");
+  script_family("Web application abuses");
   script_dependencies("gb_get_http_banner.nasl");
   script_require_ports("Services/www", 8888);
   script_mandatory_keys("dwhttpd/banner");
@@ -74,9 +74,9 @@ if (!banner || "dwhttpd" >!< banner)
 
 url = "/ab2/Help_C/@Ab2HelpSearch?scope=HELP&DwebQuery=%3Cscript%3Ealert(%27VT-XSS-Test%27)%3C/script%3E&Search=+Search+";
 
-req = http_get(port: port, item:url);
-buf = http_keepalive_send_recv(port:port, data:req);
-if(!buf)
+req = http_get(port: port, item: url);
+buf = http_keepalive_send_recv(port: port, data: req);
+if (!buf)
   exit(0);
 
 if (buf =~ "^HTTP/1\.[01] 200" &&

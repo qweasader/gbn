@@ -9,8 +9,8 @@ CPE = "cpe:/a:squid-cache:squid";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.151071");
-  script_version("2023-11-16T05:05:14+0000");
-  script_tag(name:"last_modification", value:"2023-11-16 05:05:14 +0000 (Thu, 16 Nov 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-09-29 05:06:35 +0000 (Fri, 29 Sep 2023)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
@@ -44,7 +44,11 @@ if(description)
   The gopher protocol is always available and enabled in Squid prior to Squid 6.0.1.
 
   Responses triggering this bug are possible to be received from any gopher server, even those
-  without malicious intent.");
+  without malicious intent.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'Null Pointer Dereference in Gopher Response
+  Handling'.");
 
   script_tag(name:"affected", value:"Squid version 2.x and later prior to version 6.0.1.");
 
@@ -57,6 +61,11 @@ if(description)
   vulnerability.");
 
   script_xref(name:"URL", value:"https://github.com/squid-cache/squid/security/advisories/GHSA-cg5h-v6vc-w33f");
+  script_xref(name:"URL", value:"https://megamansec.github.io/Squid-Security-Audit/");
+  script_xref(name:"URL", value:"https://joshua.hu/squid-security-audit-35-0days-45-exploits");
+  script_xref(name:"URL", value:"https://www.openwall.com/lists/oss-security/2023/10/11/3");
+  script_xref(name:"URL", value:"https://gist.github.com/rousskov/9af0d33d2a1f4b5b3b948b2da426e77d");
+  script_xref(name:"URL", value:"https://megamansec.github.io/Squid-Security-Audit/gopher-nullpointer.html");
 
   exit(0);
 }

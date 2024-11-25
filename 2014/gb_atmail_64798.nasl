@@ -12,7 +12,7 @@ if (description)
   script_cve_id("CVE-2013-5034", "CVE-2013-5033", "CVE-2013-5032", "CVE-2013-5031");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-03-04T14:37:58+0000");
 
   script_name("Atmail Multiple Unspecified Security Vulnerabilities.");
 
@@ -21,16 +21,14 @@ if (description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/64796");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/64789");
   script_xref(name:"URL", value:"http://blog.atmail.com/2013/atmail-7-1-2-security-hotfix/");
-  script_xref(name:"URL", value:"http://atmail.com/");
 
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2014-01-14 12:23:14 +0100 (Tue, 14 Jan 2014)");
   script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"remote_banner");
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_dependencies("atmail_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("Atmail/installed");
 
   script_tag(name:"impact", value:"Impact and attack vectors are unknown.");
@@ -51,16 +49,19 @@ if (description)
 include("host_details.inc");
 include("version_func.inc");
 
-if (!port = get_app_port( cpe:CPE) ) exit(0);
-if (!vers = get_app_version( cpe:CPE, port:port ) ) exit(0);
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
 
-if ( vers  =~ "^6\." )
-  check_version = '6.6.4';
+if(!vers = get_app_version(cpe:CPE, port:port))
+  exit(0);
 
-if ( vers  =~ "^7\." )
-  check_version = '7.1.2';
+if(vers  =~ "^6\.")
+  check_version = "6.6.4";
 
-if( check_version ) {
+if(vers  =~ "^7\.")
+  check_version = "7.1.2";
+
+if(check_version) {
   if(version_is_less(version: vers, test_version: check_version)) {
     report = report_fixed_ver(installed_version:vers, fixed_version:check_version);
     security_message(port:port, data:report);

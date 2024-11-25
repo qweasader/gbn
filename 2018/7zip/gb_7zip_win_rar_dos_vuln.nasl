@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107312");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-05-11 16:37:09 +0200 (Fri, 11 May 2018)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
@@ -18,14 +18,14 @@ if (description)
   script_tag(name:"qod_type", value:"registry");
   script_tag(name:"solution_type", value:"VendorFix");
   script_cve_id("CVE-2018-10115");
-  script_name("7zip RAR Denial of Service Vulnerability (Windows)");
+  script_name("7zip RAR Denial of Service Vulnerability - Windows");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Denial of Service");
   script_dependencies("gb_7zip_detect_portable_win.nasl");
   script_mandatory_keys("7zip/Win/Ver");
   script_tag(name:"summary", value:"7zip is prone to a RAR Denial of Service Vulnerability.");
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
   script_tag(name:"insight", value:"Incorrect initialization logic of RAR decoder objects in 7-Zip 18.03 and before
   can lead to usage of uninitialized memory, allowing remote attackers to cause a denial of service (segmentation fault)
   or execute arbitrary code via a crafted RAR archive.");

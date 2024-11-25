@@ -7,9 +7,9 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.104146");
-  script_version("2023-07-28T16:09:07+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_cve_id("CVE-2010-0533");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2011-06-01 16:32:46 +0200 (Wed, 01 Jun 2011)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -22,24 +22,8 @@ if(description)
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Nmap NSE net");
 
-  script_tag(name:"solution", value:"The vendor has released updates. Please see the references for more information.");
-
-  script_tag(name:"summary", value:"Detects the Mac OS X AFP directory traversal vulnerability, CVE-2010-0533.
-
-This script attempts to iterate over all AFP shares on the remote host. For each share it attempts
-to access the parent directory by exploiting the directory traversal vulnerability as described in
-CVE-2010-0533.
-
-The script reports whether the system is vulnerable or not. In addition it lists the contents of the
-parent and child directories to a max depth of 2. When running in verbose mode, all items in the
-listed directories are shown.  In non verbose mode, output is limited to the first 5 items. If the
-server is not vulnerable, the script will not return any information.
-
-SYNTAX:
-
-afp.password:  The password to use for authentication. (If unset it first attempts to use credentials found by 'afp-brute' then no credentials)
-
-afp.username:  The username to use for authentication. (If unset it first attempts to use credentials found by 'afp-brute' then no credentials)");
+  script_tag(name:"summary", value:"This VT has been deprecated and is therefore no longer
+  functional.");
 
   script_tag(name:"solution_type", value:"Mitigation");
 

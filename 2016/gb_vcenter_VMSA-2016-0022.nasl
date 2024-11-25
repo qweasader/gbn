@@ -1,22 +1,8 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:vmware:vcenter_server";
 
@@ -26,7 +12,7 @@ if(description)
   script_cve_id("CVE-2016-7458", "CVE-2016-7459", "CVE-2016-7460");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:P");
-  script_version("2021-10-11T11:01:22+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_name("VMware vCenter Server XML External Entity (XXE) Vulnerability (VMSA-2016-0022)");
 
   script_xref(name:"URL", value:"http://www.vmware.com/security/advisories/VMSA-2016-0022.html");
@@ -38,7 +24,7 @@ if(description)
 
   script_tag(name:"solution", value:"Update to version 6.0U2a/5.5U3e or later.");
 
-  script_tag(name:"summary", value:"VMware vCenter Server contains an XML External Entity (XXE)
+  script_tag(name:"summary", value:"VMware vCenter Server contains an XML external entity (XXE)
   vulnerability in the Log Browser, the Distributed Switch setup, and the Content Library.");
 
   script_tag(name:"affected", value:"VMware vCenter Server 6.0/5.5.");
@@ -46,14 +32,14 @@ if(description)
   script_tag(name:"qod_type", value:"remote_banner");
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_tag(name:"last_modification", value:"2021-10-11 11:01:22 +0000 (Mon, 11 Oct 2021)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-07-28 01:29:00 +0000 (Fri, 28 Jul 2017)");
   script_tag(name:"creation_date", value:"2016-11-23 10:16:32 +0100 (Wed, 23 Nov 2016)");
   script_category(ACT_GATHER_INFO);
   script_family("Web application abuses");
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("gb_vmware_vcenter_server_consolidation.nasl");
   script_mandatory_keys("vmware/vcenter/server/detected", "vmware/vcenter/server/build");
 

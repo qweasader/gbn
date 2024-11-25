@@ -9,13 +9,13 @@ CPE = "cpe:/a:microsoft:internet_information_services";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802439");
-  script_version("2023-10-10T05:05:41+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_cve_id("CVE-2000-0408");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_tag(name:"creation_date", value:"2012-07-03 16:55:41 +0530 (Tue, 03 Jul 2012)");
-  script_tag(name:"last_modification", value:"2023-10-10 05:05:41 +0000 (Tue, 10 Oct 2023)");
-  script_name("Microsoft IIS Malformed File Extension Denial of Service Vulnerability");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
+  script_name("Microsoft IIS Malformed File Extension DoS Vulnerability");
   script_xref(name:"URL", value:"http://www.ussrback.com/labs40.html");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/1190");
   script_xref(name:"URL", value:"https://docs.microsoft.com/en-us/security-updates/securitybulletins/2000/ms00-030");

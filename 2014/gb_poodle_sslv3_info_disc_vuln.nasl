@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802087");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-09-30T08:38:05+0000");
   script_cve_id("CVE-2014-3566");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-09-30 08:38:05 +0000 (Mon, 30 Sep 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:L/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-06-16 12:15:00 +0000 (Wed, 16 Jun 2021)");
@@ -20,8 +20,8 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("SSL and TLS");
-  script_dependencies("secpod_ssl_ciphers.nasl", "gb_tls_fallback_scsv_enabled.nasl");
-  script_mandatory_keys("secpod_ssl_ciphers/supported_ciphers", "ssl_tls/port");
+  script_dependencies("gb_ssl_tls_ciphers_gathering.nasl", "gb_tls_fallback_scsv_enabled.nasl");
+  script_mandatory_keys("ssl_tls/ciphers/supported_ciphers", "ssl_tls/port");
 
   script_xref(name:"URL", value:"https://www.openssl.org/~bodo/ssl-poodle.pdf");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/70574");
@@ -54,6 +54,7 @@ if(description)
 include("ssl_funcs.inc");
 include("misc_func.inc");
 include("list_array_func.inc");
+include("host_details.inc");
 
 if( ! port = tls_ssl_get_port() )
   exit( 0 );
@@ -65,7 +66,7 @@ if( "SSLv3" >!< tls_versions )
   exit( 0 );
 
 # If SSLv3 is supported then check if CBC ciphers are supported and exit if not
-if( ! cipherList = get_kb_list( "secpod_ssl_ciphers/sslv3/" + port + "/supported_ciphers" ) )
+if( ! cipherList = get_kb_list( "ssl_tls/ciphers/sslv3/" + port + "/supported_ciphers" ) )
   exit( 0 );
 
 if( ! in_array( search:"_CBC_", array:cipherList, part_match:TRUE ) )
@@ -81,6 +82,14 @@ if( "TLSv" >< tls_versions ) {
 }
 
 if( VULN ) {
+
+  # nb:
+  # - Store the reference from this one to gb_ssl_tls_ciphers_report.nasl to show a cross-reference within the
+  #   reports
+  # - We don't want to use get_app_* functions as we're only interested in the cross-reference here
+  register_host_detail( name:"detected_by", value:"1.3.6.1.4.1.25623.1.0.802067" ); # gb_ssl_tls_ciphers_report.nasl
+  register_host_detail( name:"detected_at", value:port + "/tcp" );
+
   security_message( port:port );
   exit( 0 );
 }

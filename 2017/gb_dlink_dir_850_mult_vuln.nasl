@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140304");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-07-23T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2024-07-23 05:05:30 +0000 (Tue, 23 Jul 2024)");
   script_tag(name:"creation_date", value:"2017-08-16 16:49:52 +0700 (Wed, 16 Aug 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -17,7 +17,7 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("D-Link DIR-850L Multiple Vulnerabilities");
+  script_name("D-Link DIR-850L < 1.14B07 BETA Multiple Vulnerabilities");
 
   script_category(ACT_ATTACK);
 
@@ -27,12 +27,11 @@ if(description)
                       "gb_dlink_dir_consolidation.nasl", "gb_dlink_dwr_detect.nasl");
   script_mandatory_keys("d-link/http/detected"); # nb: Experiences in the past have shown that various different devices could be affected
 
-  script_tag(name:"summary", value:"D-Link DIR 850L is prone to multiple vulnerabilities.
+  script_tag(name:"summary", value:"D-Link DIR-850L is prone to multiple vulnerabilities.
 
   This vulnerability was known to be exploited by the IoT Botnet 'Reaper' in 2017.");
 
-  script_tag(name:"vuldetect", value:"Sends a crafted request via HTTP POST and checks whether
-  it is possible to read a local file.");
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP POST request and checks the response.");
 
   script_tag(name:"insight", value:"D-Link DIR 850L is prone to multiple vulnerabilities:
 
@@ -42,7 +41,7 @@ if(description)
 
   - Unauthorized Remote Code Execution as root via LAN");
 
-  script_tag(name:"affected", value:"DIR-850L.
+  script_tag(name:"affected", value:"D-Link DIR-850L devices are known to be affected.
 
   Other devices and models might be affected as well.");
 
@@ -83,14 +82,14 @@ data = '<?xml version="1.0" encoding="utf-8"?>\n' +
        '</postxml>';
 cookie = "uid=vt-test";
 
-req = http_post_put_req(port: port, url: url, data: data, add_headers: make_array("Cookie", cookie,
-                                                                              "Content-Type", "text/xml"));
+req = http_post_put_req(port: port, url: url, data: data, add_headers: make_array("Cookie", cookie, "Content-Type", "text/xml"));
 res = http_keepalive_send_recv(port: port, data: req, bodyonly: TRUE);
 
 if (res && egrep(pattern: "<result>OK</result>", string: res) &&
     egrep(pattern: "<password>.*</password>", string: res)) {
   report = "It was possible to access the configuration without authenticating which contains sensitive information.\n\nResponse:\n\n" + res;
   security_message(port: port, data: report);
+  exit(0);
 }
 
-exit(0);
+exit(99);

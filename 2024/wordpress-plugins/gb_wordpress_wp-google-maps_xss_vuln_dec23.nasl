@@ -9,8 +9,8 @@ CPE = "cpe:/a:codecabin:wp_go_maps";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127683");
-  script_version("2024-01-18T05:07:09+0000");
-  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
+  script_version("2024-10-31T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-10-31 05:05:48 +0000 (Thu, 31 Oct 2024)");
   script_tag(name:"creation_date", value:"2024-01-10 08:10:45 +0000 (Wed, 10 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
@@ -41,7 +41,7 @@ if (description)
   script_tag(name:"insight", value:"The plugin does not properly protect most of its REST API
   routes, which attackers can abuse to store malicious HTML/Javascript on the site.");
 
-  script_tag(name:"affected", value:"WordPress WP Google Maps prior to version 9.0.28.");
+  script_tag(name:"affected", value:"WordPress WP Google Maps plugin prior to version 9.0.28.");
 
   script_tag(name:"solution", value:"Update to version 9.0.28 or later.");
 

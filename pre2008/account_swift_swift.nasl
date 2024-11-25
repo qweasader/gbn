@@ -7,11 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.12116");
-  script_version("2023-08-03T05:05:16+0000");
-  script_tag(name:"last_modification", value:"2023-08-03 05:05:16 +0000 (Thu, 03 Aug 2023)");
+  script_version("2024-04-24T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-04-24 05:05:32 +0000 (Wed, 24 Apr 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_cve_id("CVE-1999-0501", "CVE-1999-0502");
   script_name("Default password 'swift' for account 'swift' (SSH/Telnet)");
   script_category(ACT_ATTACK);
   script_family("Default Accounts");
@@ -22,9 +23,13 @@ if(description)
 
   script_tag(name:"summary", value:"The account 'swift' has the password 'swift'.");
 
-  script_tag(name:"solution", value:"Set a strong password for this account or disable it.");
+  script_tag(name:"vuldetect", value:"Tries to login via SSH or Telnet with known default
+  credentials.");
 
-  script_tag(name:"impact", value:"An attacker may use it to gain further privileges on this system.");
+  script_tag(name:"impact", value:"An attacker may use it to gain further privileges on this
+  system.");
+
+  script_tag(name:"solution", value:"Set a strong password for this account or disable it.");
 
   script_tag(name:"solution_type", value:"Mitigation");
   script_tag(name:"qod_type", value:"remote_vul");

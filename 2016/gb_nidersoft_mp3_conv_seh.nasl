@@ -9,10 +9,10 @@ CPE = "cpe:/a:nidesoft:mp3_converter";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107108");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-12-19 11:19:11 +0530 (Mon, 19 Dec 2016)");
 
   script_name("Nidesoft MP3 Converter SEH Local Buffer Overflow Vulnerability - Windows");
@@ -23,7 +23,7 @@ if(description)
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"impact", value:"A successful exploit could allow the attacker to execute
-  arbitrary code on the system .");
+  arbitrary code on the system.");
 
   script_tag(name:"affected", value:"Nidesoft MP3 Converter 2.6.18 and prior on Windows.");
 

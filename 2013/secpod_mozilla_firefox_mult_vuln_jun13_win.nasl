@@ -1,29 +1,15 @@
-# Copyright (C) 2013 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2013 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mozilla:firefox";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.903214");
-  script_version("2023-11-02T05:05:26+0000");
+  script_version("2024-07-10T05:05:27+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2013-1683", "CVE-2013-1684", "CVE-2013-1685", "CVE-2013-1686",
@@ -33,12 +19,12 @@ if(description)
                 "CVE-2013-1682", "CVE-2013-1689");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
+  script_tag(name:"last_modification", value:"2024-07-10 05:05:27 +0000 (Wed, 10 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-12-13 00:22:00 +0000 (Fri, 13 Dec 2019)");
+  script_tag(name:"severity_date", value:"2024-07-09 18:25:57 +0000 (Tue, 09 Jul 2024)");
   script_tag(name:"creation_date", value:"2013-06-26 16:34:51 +0530 (Wed, 26 Jun 2013)");
-  script_name("Mozilla Firefox Multiple Vulnerabilities (June 2013) - Windows");
+  script_name("Mozilla Firefox Multiple Vulnerabilities (Jun 2013) - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/53970");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/60765");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/60766");
@@ -61,7 +47,7 @@ if(description)
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2013-50/");
   script_xref(name:"URL", value:"https://bugzilla.mozilla.org/show_bug.cgi?id=817219");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2013 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2013 Greenbone AG");
   script_family("General");
   script_dependencies("gb_firefox_detect_portable_win.nasl");
   script_mandatory_keys("Firefox/Win/Ver");

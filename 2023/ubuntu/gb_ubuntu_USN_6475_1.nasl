@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.12.2023.6475.1");
   script_cve_id("CVE-2014-3225", "CVE-2017-1000469", "CVE-2018-1000225", "CVE-2018-1000226", "CVE-2018-10931", "CVE-2021-40323", "CVE-2021-40324", "CVE-2021-40325", "CVE-2021-45082", "CVE-2021-45083", "CVE-2022-0860");
   script_tag(name:"creation_date", value:"2023-11-14 04:08:31 +0000 (Tue, 14 Nov 2023)");
-  script_version("2023-11-15T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-11-15 05:05:25 +0000 (Wed, 15 Nov 2023)");
+  script_version("2024-02-02T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:10 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");

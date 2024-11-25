@@ -9,10 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2024.0136.1");
   script_cve_id("CVE-2024-22365");
   script_tag(name:"creation_date", value:"2024-01-19 04:20:29 +0000 (Fri, 19 Jan 2024)");
-  script_version("2024-01-19T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2024-01-19 05:06:16 +0000 (Fri, 19 Jan 2024)");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
+  script_version("2024-02-14T05:07:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-14 05:07:39 +0000 (Wed, 14 Feb 2024)");
+  script_tag(name:"cvss_base", value:"4.6");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:N/I:N/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-14 00:27:40 +0000 (Wed, 14 Feb 2024)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2024:0136-1)");
   script_category(ACT_GATHER_INFO);

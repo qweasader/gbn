@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.12.2023.6241.1");
   script_cve_id("CVE-2023-2088");
   script_tag(name:"creation_date", value:"2023-07-25 08:33:44 +0000 (Tue, 25 Jul 2023)");
-  script_version("2023-07-26T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:08 +0000 (Wed, 26 Jul 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:N/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-05-26 18:00:00 +0000 (Fri, 26 May 2023)");
+  script_tag(name:"severity_date", value:"2023-05-26 18:00:46 +0000 (Fri, 26 May 2023)");
 
   script_name("Ubuntu: Security Advisory (USN-6241-1)");
   script_category(ACT_GATHER_INFO);
@@ -26,9 +26,9 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"USN-6241-1");
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-6241-1");
-  script_xref(name:"URL", value:"https://security.openstack.org/ossa/OSSA-2023-003.html");
   script_xref(name:"URL", value:"https://discourse.ubuntu.com/t/cve-2023-2088-for-charmed-openstack/37051");
   script_xref(name:"URL", value:"https://lists.openstack.org/pipermail/openstack-discuss/2023-July/034439.html");
+  script_xref(name:"URL", value:"https://security.openstack.org/ossa/OSSA-2023-003.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'cinder, ironic, nova, python-glance-store, python-os-brick' package(s) announced via the USN-6241-1 advisory.");
 

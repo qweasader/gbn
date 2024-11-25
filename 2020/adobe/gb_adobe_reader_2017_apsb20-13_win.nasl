@@ -1,36 +1,22 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:adobe:acrobat_reader";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.816806");
-  script_version("2021-10-05T11:36:17+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2020-3804", "CVE-2020-3806", "CVE-2020-3795", "CVE-2020-3799",
                 "CVE-2020-3792", "CVE-2020-3793", "CVE-2020-3801", "CVE-2020-3802",
                 "CVE-2020-3805", "CVE-2020-3800", "CVE-2020-3807", "CVE-2020-3797",
                 "CVE-2020-3803");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-10-05 11:36:17 +0000 (Tue, 05 Oct 2021)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-03-27 14:24:00 +0000 (Fri, 27 Mar 2020)");
@@ -65,8 +51,7 @@ if(description)
   attackers to gain access to sensitive information, gain escalated privileges
   and execute arbitrary code.");
 
-  script_tag(name:"affected", value:"Adobe Reader 2017 before 2017.011.30166
- .");
+  script_tag(name:"affected", value:"Adobe Reader 2017 before 2017.011.30166.");
 
   script_tag(name:"solution", value:"Update to Adobe Reader 2017 version
   2017.011.30166 or later.");
@@ -75,7 +60,7 @@ if(description)
   script_tag(name:"qod_type", value:"registry");
   script_xref(name:"URL", value:"https://helpx.adobe.com/security/products/acrobat/apsb20-13.html");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("General");
   script_dependencies("secpod_adobe_prdts_detect_win.nasl");
   script_mandatory_keys("Adobe/Reader/Win/Ver");

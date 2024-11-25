@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2022.4067.1");
   script_cve_id("CVE-2015-9253", "CVE-2017-8923", "CVE-2017-9120", "CVE-2018-1000222", "CVE-2018-12882", "CVE-2018-14851", "CVE-2018-17082", "CVE-2018-19935", "CVE-2018-20783", "CVE-2019-11034", "CVE-2019-11035", "CVE-2019-11036", "CVE-2019-11039", "CVE-2019-11040", "CVE-2019-11041", "CVE-2019-11042", "CVE-2019-11043", "CVE-2019-11045", "CVE-2019-11046", "CVE-2019-11047", "CVE-2019-11048", "CVE-2019-11050", "CVE-2019-9020", "CVE-2019-9021", "CVE-2019-9022", "CVE-2019-9023", "CVE-2019-9024", "CVE-2019-9637", "CVE-2019-9638", "CVE-2019-9640", "CVE-2019-9641", "CVE-2019-9675", "CVE-2020-7059", "CVE-2020-7060", "CVE-2020-7062", "CVE-2020-7063", "CVE-2020-7064", "CVE-2020-7066", "CVE-2020-7068", "CVE-2020-7069", "CVE-2020-7070", "CVE-2020-7071", "CVE-2021-21702", "CVE-2021-21703", "CVE-2021-21704", "CVE-2021-21705", "CVE-2021-21707", "CVE-2022-31625", "CVE-2022-31626", "CVE-2022-31628", "CVE-2022-31629", "CVE-2022-37454");
   script_tag(name:"creation_date", value:"2022-11-21 04:25:19 +0000 (Mon, 21 Nov 2022)");
-  script_version("2023-06-20T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:25 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-10-25 15:23:00 +0000 (Tue, 25 Oct 2022)");
+  script_tag(name:"severity_date", value:"2022-10-25 15:23:16 +0000 (Tue, 25 Oct 2022)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2022:4067-1)");
   script_category(ACT_GATHER_INFO);
@@ -45,6 +45,8 @@ Fix integer overflow in PHP_SHA3##bits (bsc#1204577#c26).");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

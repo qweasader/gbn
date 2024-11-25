@@ -9,14 +9,14 @@ CPE = "cpe:/a:hp:power_manager";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100346");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2009-11-13 18:49:45 +0100 (Fri, 13 Nov 2009)");
   script_cve_id("CVE-2009-2685");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
-  script_name("HP Power Manager Management Web Server Login Remote Code Execution Vulnerability");
+  script_name("HP Power Manager Management Web Server Login RCE Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/36933");
   script_xref(name:"URL", value:"http://h18000.www1.hp.com/products/servers/proliantstorage/power-protection/software/power-manager/index.html");

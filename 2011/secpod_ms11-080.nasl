@@ -21,14 +21,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902482");
-  script_version("2022-08-09T10:11:17+0000");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
+  script_version("2024-07-10T05:05:27+0000");
+  script_tag(name:"last_modification", value:"2024-07-10 05:05:27 +0000 (Wed, 10 Jul 2024)");
   script_tag(name:"creation_date", value:"2011-10-12 16:01:32 +0200 (Wed, 12 Oct 2011)");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2011-2005");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-07-09 18:23:38 +0000 (Tue, 09 Jul 2024)");
   script_name("Microsoft Windows Ancillary Function Driver Privilege Elevation Vulnerability (2592799)");
   script_xref(name:"URL", value:"http://support.microsoft.com/kb/2592799");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/49941");

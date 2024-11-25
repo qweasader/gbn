@@ -9,8 +9,8 @@ CPE = "cpe:/a:exim:exim";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106485");
-  script_version("2024-01-10T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2016-12-23 10:52:32 +0700 (Fri, 23 Dec 2016)");
   script_tag(name:"cvss_base", value:"2.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:P/I:N/A:N");
@@ -30,7 +30,6 @@ if (description)
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("SMTP problems");
   script_dependencies("gb_exim_smtp_detect.nasl");
-  script_require_ports("Services/smtp", 25);
   script_mandatory_keys("exim/detected");
 
   script_tag(name:"summary", value:"Exim is prone to an information disclosure vulnerability.");

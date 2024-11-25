@@ -9,15 +9,16 @@ CPE = "cpe:/a:owncloud:owncloud";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804364");
-  script_version("2023-12-01T16:11:30+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2013-7344", "CVE-2013-0303");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-04-07 10:17:33 +0530 (Mon, 07 Apr 2014)");
-  script_name("ownCloud PHP Remote Code Execution Vulnerabilities Apr14");
+  script_name("ownCloud PHP Remote Code Execution Vulnerabilities (Apr 2014)");
 
-  script_tag(name:"summary", value:"ownCloud is prone to remote code execution vulnerabilities.");
+  script_tag(name:"summary", value:"ownCloud is prone to remote code execution (RCE)
+  vulnerabilities.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
   script_tag(name:"insight", value:"Multiple flaws exist due to:
 

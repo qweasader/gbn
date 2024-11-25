@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:splunk:light';
+CPE = "cpe:/a:splunk:light";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106269");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-09-19 11:58:34 +0700 (Mon, 19 Sep 2016)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:N");
@@ -19,7 +19,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Splunk Light XSS Vulnerability");
+  script_name("Splunk Light 6.3.x < 6.3.5 XSS Vulnerability");
 
   script_category(ACT_GATHER_INFO);
 
@@ -28,16 +28,17 @@ if (description)
   script_dependencies("gb_splunk_light_detect.nasl");
   script_mandatory_keys("SplunkLight/installed");
 
-  script_tag(name:"summary", value:"Splunk Light is prone to a cross-site scriptin vulnerability.");
+  script_tag(name:"summary", value:"Splunk Light is prone to a cross-site scripting (XSS)
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"Splunk Light is affected by a cross-site scripting vulnerability
-in the Splunk Web.");
+  script_tag(name:"insight", value:"Splunk Light is affected by an XSS vulnerability in the Splunk
+  Web.");
 
   script_tag(name:"impact", value:"An arbitrary script may be executed on the user's web browser.");
 
-  script_tag(name:"affected", value:"Splunk Light 6.3.x");
+  script_tag(name:"affected", value:"Splunk Light versions 6.3.x.");
 
   script_tag(name:"solution", value:"Update to version 6.3.5 or later.");
 
@@ -63,4 +64,4 @@ if (version =~ "^6\.3") {
   }
 }
 
-exit(0);
+exit(99);

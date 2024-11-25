@@ -9,16 +9,16 @@ CPE = "cpe:/a:schneider_electric:indusoft_web_studio";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811264");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2017-7968");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-09 23:30:00 +0000 (Wed, 09 Oct 2019)");
   script_tag(name:"creation_date", value:"2017-08-01 17:07:48 +0530 (Tue, 01 Aug 2017)");
-  script_name("InduSoft Web Studio Privilege Escalation Vulnerability Aug17 (Windows)");
+  script_name("InduSoft Web Studio Privilege Escalation Vulnerability (Aug 2017) - Windows");
 
   script_tag(name:"summary", value:"InduSoft Web Studio is prone to a privilege escalation vulnerability.");
 
@@ -47,7 +47,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_schneider_indusoft_consolidation.nasl");
   script_mandatory_keys("schneider_indusoft/installed");
   script_xref(name:"URL", value:"http://www.indusoft.com/");

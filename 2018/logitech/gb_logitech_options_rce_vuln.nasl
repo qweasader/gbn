@@ -1,43 +1,28 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
-#
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112467");
-  script_version("2022-07-05T11:37:00+0000");
-  script_tag(name:"last_modification", value:"2022-07-05 11:37:00 +0000 (Tue, 05 Jul 2022)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-12-18 14:34:11 +0100 (Tue, 18 Dec 2018)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_tag(name:"qod_type", value:"registry");
   script_tag(name:"solution_type", value:"VendorFix");
-  script_name("Logitech Options < 7.10.3 Remote Command Execution Vulnerability (Windows)");
+  script_name("Logitech Options < 7.10.3 Remote Command Execution Vulnerability - Windows");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("General");
   script_dependencies("gb_logitech_options_detect_win.nasl");
   script_mandatory_keys("logitech/options/win/detected");
 
-  script_tag(name:"summary", value:"Logitech Options is prone to a remote command execution
-vulnerability.");
+  script_tag(name:"summary", value:"Logitech Options is prone to a remote command execution (RCE)
+  vulnerability.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
   script_tag(name:"insight", value:"Upon installation of Logitech Options a WebSocket server is
 being opened that any website can connect to, without any origin checking at all.

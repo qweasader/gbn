@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809088");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2014-7136");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2016-11-07 14:25:26 +0530 (Mon, 07 Nov 2016)");
   script_tag(name:"qod_type", value:"registry");
-  script_name("K7Firewall Packet Driver Privilege Escalation Vulnerability");
+  script_name("K7Firewall < 14.0.1.16 Packet Driver Privilege Escalation Vulnerability");
 
   script_tag(name:"summary", value:"K7 Computing product is prone to a privilege escalation vulnerability.");
 
@@ -42,7 +42,7 @@ if(description)
 
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_category(ACT_GATHER_INFO);
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("smb_reg_service_pack.nasl", "gb_wmi_access.nasl", "lsc_options.nasl");
   script_mandatory_keys("SMB/WindowsVersion", "WMI/access_successful");
   script_require_ports(139, 445);
@@ -53,7 +53,6 @@ if(description)
 
 include("smb_nt.inc");
 include("version_func.inc");
-include("misc_func.inc");
 include("wmi_file.inc");
 include("list_array_func.inc");
 

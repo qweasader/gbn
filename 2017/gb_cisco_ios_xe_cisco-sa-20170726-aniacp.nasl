@@ -12,7 +12,7 @@ if (description)
   script_cve_id("CVE-2017-6665");
   script_tag(name:"cvss_base", value:"3.3");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:P/I:N/A:N");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-05T05:05:54+0000");
 
   script_name("Cisco IOS XE Software Autonomic Control Plane Channel Information Disclosure Vulnerability");
 
@@ -36,10 +36,10 @@ packets, which should have been encrypted over the ACP, in clear text.");
   script_tag(name:"solution", value:"No known solution was made available for at least one year since the disclosure of this vulnerability. Likely none will be provided anymore. General solution options are to upgrade to a newer release, disable respective features, remove the product or replace the product by another one.");
   script_tag(name:"solution_type", value:"WillNotFix");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"last_modification", value:"2024-03-05 05:05:54 +0000 (Tue, 05 Mar 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
+  script_tag(name:"severity_date", value:"2024-03-04 22:59:22 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2017-07-28 08:48:54 +0700 (Fri, 28 Jul 2017)");
   script_category(ACT_GATHER_INFO);
   script_family("CISCO");

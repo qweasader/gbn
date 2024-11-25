@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900710");
-  script_version("2023-12-14T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-12-14 05:05:32 +0000 (Thu, 14 Dec 2023)");
+  script_version("2024-06-11T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-06-11 05:05:40 +0000 (Tue, 11 Jun 2024)");
   script_tag(name:"creation_date", value:"2009-05-20 10:26:22 +0200 (Wed, 20 May 2009)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -16,11 +16,12 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Product detection");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
   # nb: Don't add a IIS/banner script_mandatory_keys because the VT is also doing a detection based
-  # on redirects.
+  # on standard/404 pages or redirects.
 
   script_tag(name:"summary", value:"HTTP based detection of Microsoft Internet Information Services
   (IIS) and the underlying Microsoft Windows operating system version.");
@@ -101,7 +102,8 @@ if( detected ) {
   set_kb_item( name:"microsoft/iis/detected", value:TRUE );
   set_kb_item( name:"microsoft/iis/http/detected", value:TRUE );
 
-  # nb: To tell http_can_host_asp and http_can_host_php from http_func.inc that the service is supporting these.
+  # nb: To tell http_can_host_asp and http_can_host_php from http_func.inc that the service is
+  # supporting these.
   replace_kb_item( name:"www/" + port + "/can_host_php", value:"yes" );
   replace_kb_item( name:"www/" + port + "/can_host_asp", value:"yes" );
 

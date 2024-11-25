@@ -9,10 +9,10 @@ CPE = "cpe:/a:openssl:openssl";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107048");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-02-16T05:06:55+0000");
   script_cve_id("CVE-2016-6306", "CVE-2016-6303", "CVE-2016-2181", "CVE-2016-6302", "CVE-2016-2182",
                 "CVE-2016-2180", "CVE-2016-2179");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
   script_tag(name:"creation_date", value:"2016-09-26 06:40:16 +0200 (Mon, 26 Sep 2016)");
   script_tag(name:"cvss_base", value:"7.5");
@@ -21,7 +21,7 @@ if(description)
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-08-16 13:17:00 +0000 (Tue, 16 Aug 2022)");
 
-  script_name("OpenSSL 1.0.2 and 1.0.1 Multiple Vulnerabilities Sep 16 (Linux)");
+  script_name("OpenSSL 1.0.2 and 1.0.1 Multiple Vulnerabilities (Sep 2016) - Linux");
 
   script_xref(name:"URL", value:"https://www.openssl.org/news/secadv/20160922.txt");
   script_category(ACT_GATHER_INFO);

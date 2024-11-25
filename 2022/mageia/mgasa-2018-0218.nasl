@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2018.0218");
   script_cve_id("CVE-2018-2790", "CVE-2018-2794", "CVE-2018-2795", "CVE-2018-2796", "CVE-2018-2797", "CVE-2018-2798", "CVE-2018-2799", "CVE-2018-2800", "CVE-2018-2814", "CVE-2018-2815");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-11-24T05:05:36+0000");
-  script_tag(name:"last_modification", value:"2023-11-24 05:05:36 +0000 (Fri, 24 Nov 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-11-22 19:35:00 +0000 (Wed, 22 Nov 2023)");
+  script_tag(name:"severity_date", value:"2018-04-27 13:47:18 +0000 (Fri, 27 Apr 2018)");
 
   script_name("Mageia: Security Advisory (MGASA-2018-0218)");
   script_category(ACT_GATHER_INFO);
@@ -26,9 +26,9 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2018-0218");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2018-0218.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=22929");
   script_xref(name:"URL", value:"http://www.oracle.com/technetwork/security-advisory/cpuapr2018-3678067.html");
   script_xref(name:"URL", value:"https://access.redhat.com/errata/RHSA-2018:1191");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=22929");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'copy-jdk-configs, java-1.8.0-openjdk' package(s) announced via the MGASA-2018-0218 advisory.");
 

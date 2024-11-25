@@ -9,13 +9,13 @@ CPE = "cpe:/a:mysql:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100436");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2010-01-11 11:18:50 +0100 (Mon, 11 Jan 2010)");
   script_cve_id("CVE-2009-4484");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_name("MySQL 5.0.51a Unspecified Remote Code Execution Vulnerability");
+  script_name("MySQL 5.0.51a Unspecified RCE Vulnerability");
   script_category(ACT_GATHER_INFO);
   script_family("Databases");
   script_copyright("Copyright (C) 2010 Greenbone AG");

@@ -9,14 +9,14 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832608");
-  script_version("2024-01-22T05:07:31+0000");
+  script_version("2024-01-29T05:05:18+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2023-40417", "CVE-2023-40451", "CVE-2023-41074", "CVE-2023-35074",
-                "CVE-2023-41993");
+                "CVE-2023-41993", "CVE-2023-40414", "CVE-2023-40385", "CVE-2023-42833");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2024-01-22 05:07:31 +0000 (Mon, 22 Jan 2024)");
+  script_tag(name:"last_modification", value:"2024-01-29 05:05:18 +0000 (Mon, 29 Jan 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-09-25 16:47:00 +0000 (Mon, 25 Sep 2023)");
@@ -32,7 +32,9 @@ if(description)
 
   - Improper memory handling, state management, checks.
 
-  - Improper iframe sandbox enforcement.");
+  - Improper iframe sandbox enforcement.
+
+  For more information about the vulnerabilities refer to Reference links.");
 
   script_tag(name:"impact", value:"Successful exploitation of these vulnerabilities
   will allow attackers to conduct arbitrary code execution and spoofing attack.");

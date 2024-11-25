@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2022.2573");
   script_cve_id("CVE-2021-27928", "CVE-2021-46657", "CVE-2021-46658", "CVE-2021-46659", "CVE-2021-46661", "CVE-2021-46662", "CVE-2021-46663", "CVE-2021-46664", "CVE-2021-46665", "CVE-2021-46666", "CVE-2021-46667", "CVE-2021-46668", "CVE-2022-27377", "CVE-2022-27378", "CVE-2022-27380", "CVE-2022-27381", "CVE-2022-27383", "CVE-2022-27384", "CVE-2022-27385", "CVE-2022-27386", "CVE-2022-27387", "CVE-2022-27445", "CVE-2022-27448", "CVE-2022-27455", "CVE-2022-27457", "CVE-2022-31621", "CVE-2022-31622", "CVE-2022-31623", "CVE-2022-31624");
   script_tag(name:"creation_date", value:"2022-10-12 04:41:33 +0000 (Wed, 12 Oct 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-05T14:36:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:57 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-04-21 13:54:00 +0000 (Thu, 21 Apr 2022)");
+  script_tag(name:"severity_date", value:"2022-04-21 13:54:58 +0000 (Thu, 21 Apr 2022)");
 
   script_name("Huawei EulerOS: Security Advisory for mariadb (EulerOS-SA-2022-2573)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.6\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2022-2573");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2022-2573");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2022-2573");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'mariadb' package(s) announced via the EulerOS-SA-2022-2573 advisory.");
 

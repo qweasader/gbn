@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801498");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-12T14:37:47+0000");
+  script_tag(name:"last_modification", value:"2024-02-12 14:37:47 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-12-27 09:55:05 +0100 (Mon, 27 Dec 2010)");
   script_cve_id("CVE-2010-3766", "CVE-2010-3767", "CVE-2010-3770", "CVE-2010-3771",
                 "CVE-2010-3773", "CVE-2010-3772", "CVE-2010-3774", "CVE-2010-3775");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("Mozilla Products Multiple Vulnerabilities (mfsa2010-76, mfsa2010-80, mfsa2010-81, mfsa2010-84) - Windows");
+  script_name("Mozilla Products Multiple Vulnerabilities (MFSA2010-76, MFSA2010-80, MFSA2010-81, MFSA2010-84) - Windows");
 
   script_xref(name:"URL", value:"http://www.mozilla.org/security/announce/2010/mfsa2010-80.html");
   script_xref(name:"URL", value:"http://www.mozilla.org/security/announce/2010/mfsa2010-81.html");

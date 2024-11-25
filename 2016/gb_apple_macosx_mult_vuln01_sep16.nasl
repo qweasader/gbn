@@ -7,7 +7,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807888");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-19T14:37:31+0000");
   script_cve_id("CVE-2016-4694", "CVE-2016-5768", "CVE-2016-5769", "CVE-2016-5770",
                 "CVE-2016-5771", "CVE-2016-5772", "CVE-2016-5773", "CVE-2016-6174",
                 "CVE-2016-6288", "CVE-2016-6289", "CVE-2016-6290", "CVE-2016-6291",
@@ -27,12 +27,12 @@ if(description)
                 "CVE-2016-4710");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 14:37:31 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-03-13 14:34:00 +0000 (Wed, 13 Mar 2019)");
   script_tag(name:"creation_date", value:"2016-09-28 12:22:55 +0530 (Wed, 28 Sep 2016)");
-  script_name("Apple Mac OS X Multiple Vulnerabilities-01 September-2016");
+  script_name("Apple Mac OS X Multiple Vulnerabilities-01 (Sep 2016)");
 
   script_tag(name:"summary", value:"Apple Mac OS X is prone to multiple vulnerabilities.");
 

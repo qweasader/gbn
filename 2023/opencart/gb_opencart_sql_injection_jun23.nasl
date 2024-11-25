@@ -9,8 +9,8 @@ CPE = "cpe:/a:opencart:opencart";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126419");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-07-12T15:38:44+0000");
+  script_tag(name:"last_modification", value:"2024-07-12 15:38:44 +0000 (Fri, 12 Jul 2024)");
   script_tag(name:"creation_date", value:"2023-06-26 21:10:42 +0000 (Mon, 26 Jun 2023)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:M/C:C/I:C/A:C");
@@ -24,16 +24,16 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("OpenCart 2.2.0 < 3.0.3.6 SQL Injection Vulnerability");
+  script_name("OpenCart 2.2.0 < 3.0.3.6 SQLi Vulnerability");
 
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("opencart_detect.nasl");
-  script_mandatory_keys("OpenCart/installed");
+  script_dependencies("gb_opencart_http_detect.nasl");
+  script_mandatory_keys("opencart/detected");
 
-  script_tag(name:"summary", value:"OpenCart is prone to an SQL injection vulnerability.");
+  script_tag(name:"summary", value:"OpenCart is prone to an SQL injection (SQLi) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
@@ -49,8 +49,8 @@ if (description)
   exit(0);
 }
 
-include( "host_details.inc" );
-include( "version_func.inc" );
+include("host_details.inc");
+include("version_func.inc");
 
 if( ! port = get_app_port( cpe: CPE ) )
   exit( 0 );

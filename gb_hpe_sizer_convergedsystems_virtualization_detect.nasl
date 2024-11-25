@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809437");
-  script_version("2023-03-24T10:19:42+0000");
+  script_version("2024-02-08T14:36:53+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-03-24 10:19:42 +0000 (Fri, 24 Mar 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-10-10 12:19:36 +0530 (Mon, 10 Oct 2016)");
-  script_name("HPE Sizer ConvergedSystems Virtualization Version Detection (Windows)");
+  script_name("HPE Sizer ConvergedSystems Virtualization Detection (Windows SMB Login)");
 
   script_tag(name:"summary", value:"Detects the installed version of
   HPE Sizer for ConvergedSystems Virtualization.

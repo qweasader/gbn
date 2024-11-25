@@ -9,8 +9,8 @@ include("plugin_feed_info.inc");
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105659");
-  script_version("2023-10-24T14:40:27+0000");
-  script_tag(name:"last_modification", value:"2023-10-24 14:40:27 +0000 (Tue, 24 Oct 2023)");
+  script_version("2024-07-03T06:48:05+0000");
+  script_tag(name:"last_modification", value:"2024-07-03 06:48:05 +0000 (Wed, 03 Jul 2024)");
   script_tag(name:"creation_date", value:"2016-05-09 15:46:47 +0200 (Mon, 09 May 2016)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -24,7 +24,7 @@ if(description)
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_cisco_ios_xe_ssh_login_detect.nasl");
-  if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
+  if(FEED_NAME == "GSF" || FEED_NAME == "GEF" || FEED_NAME == "SCM")
     script_dependencies("gsf/gb_cisco_ios_xe_snmp_detect.nasl",
                         "gsf/gb_cisco_ios_xe_http_detect.nasl");
   script_mandatory_keys("cisco/ios_xe/detected");

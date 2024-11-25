@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803095");
-  script_version("2023-12-20T05:05:58+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2012-4350");
-  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2013-01-08 13:22:57 +0530 (Tue, 08 Jan 2013)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_name("Symantec Enterprise Security Manager/Agent Privilege Escalation Vulnerability");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2013 Greenbone AG");
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("secpod_symantec_prdts_detect.nasl");
   script_mandatory_keys("Symantec/ESM/Ver");
 

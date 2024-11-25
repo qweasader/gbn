@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108031");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-09-30T08:38:05+0000");
   script_cve_id("CVE-2016-2183", "CVE-2016-6329", "CVE-2020-12872");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-09-30 08:38:05 +0000 (Mon, 30 Sep 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-07-28 11:27:00 +0000 (Thu, 28 Jul 2022)");
@@ -20,9 +20,9 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("SSL and TLS");
-  script_dependencies("secpod_ssl_ciphers.nasl");
+  script_dependencies("gb_ssl_tls_ciphers_gathering.nasl");
   script_require_ports("Services/www", 443);
-  script_mandatory_keys("secpod_ssl_ciphers/supported_ciphers", "ssl_tls/port");
+  script_mandatory_keys("ssl_tls/ciphers/supported_ciphers", "ssl_tls/port");
 
   script_xref(name:"URL", value:"https://bettercrypto.org/");
   script_xref(name:"URL", value:"https://mozilla.github.io/server-side-tls/ssl-config-generator/");
@@ -50,6 +50,7 @@ if(description)
 
 include("http_func.inc");
 include("port_service_func.inc");
+include("host_details.inc");
 
 cipherText = "'Vulnerable' cipher suites";
 
@@ -62,7 +63,7 @@ sup_ssl = get_kb_item( "tls/supported/" + port );
 if( ! sup_ssl ) exit( 0 );
 
 if( "SSLv3" >< sup_ssl ) {
-  sslv3CipherList = get_kb_list( "secpod_ssl_ciphers/sslv3/" + port + "/supported_ciphers" );
+  sslv3CipherList = get_kb_list( "ssl_tls/ciphers/sslv3/" + port + "/supported_ciphers" );
 
   if( ! isnull( sslv3CipherList ) ) {
 
@@ -83,7 +84,7 @@ if( "SSLv3" >< sup_ssl ) {
 }
 
 if( "TLSv1.0" >< sup_ssl ) {
-  tlsv1_0CipherList = get_kb_list( "secpod_ssl_ciphers/tlsv1/" + port + "/supported_ciphers" );
+  tlsv1_0CipherList = get_kb_list( "ssl_tls/ciphers/tlsv1/" + port + "/supported_ciphers" );
 
   if( ! isnull( tlsv1_0CipherList ) ) {
 
@@ -104,7 +105,7 @@ if( "TLSv1.0" >< sup_ssl ) {
 }
 
 if( "TLSv1.1" >< sup_ssl ) {
-  tlsv1_1CipherList = get_kb_list( "secpod_ssl_ciphers/tlsv1_1/" + port + "/supported_ciphers" );
+  tlsv1_1CipherList = get_kb_list( "ssl_tls/ciphers/tlsv1_1/" + port + "/supported_ciphers" );
 
   if( ! isnull( tlsv1_1CipherList ) ) {
 
@@ -125,7 +126,7 @@ if( "TLSv1.1" >< sup_ssl ) {
 }
 
 if( "TLSv1.2" >< sup_ssl ) {
-  tlsv1_2CipherList = get_kb_list( "secpod_ssl_ciphers/tlsv1_2/" + port + "/supported_ciphers" );
+  tlsv1_2CipherList = get_kb_list( "ssl_tls/ciphers/tlsv1_2/" + port + "/supported_ciphers" );
 
   if( ! isnull( tlsv1_2CipherList ) ) {
 
@@ -146,6 +147,14 @@ if( "TLSv1.2" >< sup_ssl ) {
 }
 
 if( report ) {
+
+  # nb:
+  # - Store the reference from this one to gb_ssl_tls_ciphers_report.nasl to show a cross-reference within the
+  #   reports
+  # - We don't want to use get_app_* functions as we're only interested in the cross-reference here
+  register_host_detail( name:"detected_by", value:"1.3.6.1.4.1.25623.1.0.802067" ); # gb_ssl_tls_ciphers_report.nasl
+  register_host_detail( name:"detected_at", value:port + "/tcp" );
+
   security_message( port:port, data:report );
   exit( 0 );
 }

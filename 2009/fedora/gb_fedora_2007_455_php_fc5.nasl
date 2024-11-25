@@ -8,11 +8,14 @@ if(description)
 {
   script_xref(name:"URL", value:"https://www.redhat.com/archives/fedora-package-announce/2007-April/msg00056.html");
   script_oid("1.3.6.1.4.1.25623.1.0.861278");
-  script_version("2023-07-04T05:05:35+0000");
-  script_tag(name:"last_modification", value:"2023-07-04 05:05:35 +0000 (Tue, 04 Jul 2023)");
+  script_version("2024-02-05T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 05:05:38 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-02-27 16:27:46 +0100 (Fri, 27 Feb 2009)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-02 14:03:24 +0000 (Fri, 02 Feb 2024)");
   script_xref(name:"FEDORA", value:"2007-455");
   script_cve_id("CVE-2007-1285", "CVE-2007-1583", "CVE-2007-1718", "CVE-2007-1001", "CVE-2007-0455", "CVE-2007-0906", "CVE-2007-0907", "CVE-2007-0908", "CVE-2007-0909", "CVE-2007-0910", "CVE-2007-0988", "CVE-2006-5465", "CVE-2006-4812");
   script_name("Fedora Update for php FEDORA-2007-455");

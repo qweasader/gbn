@@ -7,16 +7,16 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103656");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_name("D-Link DIR-600/DIR 300 Remote Code Execution Vulnerabilities");
+  script_name("D-Link DIR-600/DIR 300 RCE Vulnerabilities");
 
   script_xref(name:"URL", value:"http://packetstormsecurity.com/files/120052/D-Link-DIR-600-DIR-300-Command-Execution-Bypass-Disclosure.html");
   script_xref(name:"URL", value:"http://www.s3cur1ty.de/m1adv2013-003");
   script_xref(name:"URL", value:"http://blog.netlab.360.com/iot_reaper-a-rappid-spreading-new-iot-botnet-en/");
 
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2013-02-05 16:00:07 +0100 (Tue, 05 Feb 2013)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");
@@ -29,8 +29,8 @@ if (description)
   script_tag(name:"solution", value:"Vendor updates are available.");
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_tag(name:"summary", value:"D-Link DIR-600 and DIR 300 products are prone to a remote code-
-  execution vulnerability.
+  script_tag(name:"summary", value:"D-Link DIR-600 and DIR 300 products are prone to a remote code
+  execution (RCE) vulnerability.
 
   This vulnerability was known to be exploited by the IoT Botnet 'Reaper' in 2017.");
 

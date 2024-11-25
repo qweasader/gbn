@@ -12,13 +12,13 @@ if(description)
   script_cve_id("CVE-2013-6955");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-06-28T15:38:46+0000");
 
-  script_name("Synology DiskStation Manager 'imageSelector.cgi' Remote Command Execution Vulnerability");
+  script_name("Synology DiskStation Manager (DSM) 'imageSelector.cgi' RCE Vulnerability - Active Check");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/64516");
 
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-01-07 14:57:33 +0100 (Tue, 07 Jan 2014)");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");
@@ -27,25 +27,25 @@ if(description)
   script_mandatory_keys("synology/dsm/http/detected");
   script_require_ports("Services/www", 5000);
 
-  script_tag(name:"impact", value:"An attacker can exploit this issue to execute arbitrary commands with
-  root privileges.");
+  script_tag(name:"summary", value:"Synology DiskStation Manager (DSM) is prone to a remote command
+  execution (RCE) vulnerability.");
 
-  script_tag(name:"vuldetect", value:"This script tries to execute the 'id' command on the remote host using specially crafted requests.");
+  script_tag(name:"vuldetect", value:"This script tries to execute the 'id' command on the remote
+  host using specially crafted requests.");
 
-  script_tag(name:"insight", value:"Synology DiskStation Manager (DSM) contains a flaw in the
-  SliceUpload functionality provided by /webman/imageSelector.cgi. With a specially crafted request, a
-  remote attacker can append data to files, allowing for the execution of arbitrary commands.");
+  script_tag(name:"insight", value:"Synology DSM contains a flaw in the SliceUpload functionality
+  provided by /webman/imageSelector.cgi. With a specially crafted request, a remote attacker can
+  append data to files, allowing for the execution of arbitrary commands.");
 
-  script_tag(name:"solution", value:"Updates are available.");
-
-  script_tag(name:"solution_type", value:"VendorFix");
-
-  script_tag(name:"summary", value:"Synology DiskStation Manager is prone to a remote command-execution
-  vulnerability.");
+  script_tag(name:"impact", value:"An attacker can exploit this issue to execute arbitrary commands
+  with root privileges.");
 
   script_tag(name:"affected", value:"Synology DiskStation Manager 4.x are vulnerable. Other versions may
   also be affected.");
 
+  script_tag(name:"solution", value:"Updates are available.");
+
+  script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_app");
 
   exit(0);

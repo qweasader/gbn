@@ -9,13 +9,13 @@ CPE = "cpe:/a:joomla:joomla";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803850");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-08-06 12:51:57 +0530 (Tue, 06 Aug 2013)");
 
-  script_name("Joomla 'lang' Parameter Cross Site Scripting Vulnerability-August13");
+  script_name("Joomla 'lang' Parameter Cross Site Scripting Vulnerability (Aug 2013)");
 
   script_cve_id("CVE-2013-5583");
 

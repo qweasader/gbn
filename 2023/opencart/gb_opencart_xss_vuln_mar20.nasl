@@ -9,8 +9,8 @@ CPE = "cpe:/a:opencart:opencart";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126479");
-  script_version("2023-09-01T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-09-01 05:05:17 +0000 (Fri, 01 Sep 2023)");
+  script_version("2024-07-12T15:38:44+0000");
+  script_tag(name:"last_modification", value:"2024-07-12 15:38:44 +0000 (Fri, 12 Jul 2024)");
   script_tag(name:"creation_date", value:"2023-08-25 09:03:24 +0000 (Fri, 25 Aug 2023)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
@@ -30,8 +30,8 @@ if (description)
 
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("opencart_detect.nasl");
-  script_mandatory_keys("OpenCart/installed");
+  script_dependencies("gb_opencart_http_detect.nasl");
+  script_mandatory_keys("opencart/detected");
 
   script_tag(name:"summary", value:"OpenCart is prone to a cross-site scripting (XSS)
   vulnerability.");

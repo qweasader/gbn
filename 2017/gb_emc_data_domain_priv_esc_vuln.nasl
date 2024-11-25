@@ -9,8 +9,8 @@ CPE = "cpe:/a:emc:data_domain_os";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106806");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2017-05-16 16:28:36 +0700 (Tue, 16 May 2017)");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
@@ -28,7 +28,7 @@ if (description)
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_emc_data_domain_version.nasl");
   script_mandatory_keys("emc/data_domain/version");
 

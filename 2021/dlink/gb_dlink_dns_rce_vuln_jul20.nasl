@@ -9,8 +9,8 @@ CPE_PREFIX = "cpe:/o:dlink:dns";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.145297");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2021-02-03 04:52:42 +0000 (Wed, 03 Feb 2021)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -37,7 +37,7 @@ if (description)
   script_require_ports("Services/www", 80);
 
   script_tag(name:"summary", value:"D-Link DNS-320 devices are prone to a remote code execution
-  vulnerability.");
+  (RCE) vulnerability.");
 
   script_tag(name:"impact", value:"D-Link DNS-320 is affected by command injection in the
   system_mgr.cgi component, which can lead to remote arbitrary code execution.");

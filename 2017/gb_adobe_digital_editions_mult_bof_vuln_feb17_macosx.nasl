@@ -9,19 +9,19 @@ CPE = "cpe:/a:adobe:digital_editions";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810601");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2017-2973", "CVE-2017-2974", "CVE-2017-2975", "CVE-2017-2976",
                 "CVE-2017-2977", "CVE-2017-2978", "CVE-2017-2979", "CVE-2017-2980",
                 "CVE-2017-2981");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-07-25 01:29:00 +0000 (Tue, 25 Jul 2017)");
   script_tag(name:"creation_date", value:"2017-02-15 09:38:58 +0530 (Wed, 15 Feb 2017)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("Adobe Digital Editions Multiple Buffer Overflow Vulnerabilities Feb17 (Mac OS X)");
+  script_name("Adobe Digital Editions Multiple Buffer Overflow Vulnerabilities (Feb 2017) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Digital Edition is prone to multiple buffer overflow vulnerabilities.");
 

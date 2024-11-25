@@ -12,11 +12,11 @@ if (description)
   script_cve_id("CVE-2014-7236");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
-  script_version("2023-07-27T05:05:09+0000");
+  script_version("2024-06-28T15:38:46+0000");
 
-  script_name("TWiki 'debugenableplugins' Parameter Remote Code Execution Vulnerability");
+  script_name("TWiki 'debugenableplugins' Parameter RCE Vulnerability");
 
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-02-20 15:23:00 +0000 (Thu, 20 Feb 2020)");
@@ -40,7 +40,8 @@ if (description)
 'debugenableplugins=' parameter with a specially crafted value.");
 
   script_tag(name:"solution", value:"Updates are available.");
-  script_tag(name:"summary", value:"TWiki is prone to remote code-execution vulnerability.");
+  script_tag(name:"summary", value:"TWiki is prone to a remote code execution (RCE)
+  vulnerability.");
 
   script_tag(name:"affected", value:"TWiki 6.0.0, 5.1.0-5.1.4, 5.0.0-5.0.2, 4.3.0-4.3.2, 4.2.0-4.2.4, 4.1.0-4.1.2,
 4.0.0-4.0.5.");

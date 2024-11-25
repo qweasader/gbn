@@ -9,15 +9,15 @@ CPE = "cpe:/a:apple:itunes";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804484");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2014-1347");
   script_tag(name:"cvss_base", value:"4.4");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2014-09-18 14:45:02 +0530 (Thu, 18 Sep 2014)");
 
 
-  script_name("Apple iTunes Insecure Permissions Privilege Escalation Vulnerability (Mac OS X)");
+  script_name("Apple iTunes Insecure Permissions Privilege Escalation Vulnerability - Mac OS X");
 
   script_tag(name:"summary", value:"Apple iTunes is prone to a privilege escalation vulnerability.");
 
@@ -42,7 +42,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"executable_version");
   script_copyright("Copyright (C) 2014 Greenbone AG");
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("secpod_itunes_detect_macosx.nasl");
   script_mandatory_keys("Apple/iTunes/MacOSX/Version");
 

@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800112");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2008-10-17 14:35:03 +0200 (Fri, 17 Oct 2008)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_cve_id("CVE-2008-4558");
-  script_name("VLC Media Player XSPF Playlist Memory Corruption Vulnerability (Windows)");
+  script_name("VLC Media Player XSPF Playlist Memory Corruption Vulnerability - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/32267/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/31758");
   script_xref(name:"URL", value:"http://www.frsirt.com/english/advisories/2008/2826/products");

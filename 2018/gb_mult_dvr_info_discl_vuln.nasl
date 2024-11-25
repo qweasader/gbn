@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141062");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-01-30T14:37:03+0000");
+  script_tag(name:"last_modification", value:"2024-01-30 14:37:03 +0000 (Tue, 30 Jan 2024)");
   script_tag(name:"creation_date", value:"2018-05-03 14:37:44 +0700 (Thu, 03 May 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -22,24 +22,25 @@ if (description)
 
   script_tag(name:"solution_type", value:"WillNotFix");
 
-  script_name("Multiple DVR Products Information Disclosure Vulnerability");
+  script_name("Multiple DVR Products Information Disclosure Vulnerability (May 2018) - Active Check");
 
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
-  script_require_ports("Services/www", 80, 88, 81, 82, 8080);
+  script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
-  script_tag(name:"summary", value:"Multiple DVR devices allow remote attackers to download a file and obtain
-sensitive credential information via a direct request for the download.rsp URI.");
+  script_tag(name:"summary", value:"Multiple DVR devices allow remote attackers to download a file
+  and obtain sensitive credential information via a direct request for the download.rsp URI.");
 
   script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks the response.");
 
-  script_tag(name:"solution", value:"No known solution was made available for at least one year since the disclosure of
-  this vulnerability. Likely none will be provided anymore. General solution options are to upgrade to a newer release,
-  disable respective features, remove the product or replace the product by another one.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General
+  solution options are to upgrade to a newer release, disable respective features, remove the
+  product or replace the product by another one.");
 
   script_xref(name:"URL", value:"https://misteralfa-hack.blogspot.com/2018/05/0day-dvr-multivendor.html");
 
@@ -56,13 +57,12 @@ banner = http_get_remote_headers(port: port, file: "/login.rsp");
 if ("Server: GNU rsp/" >!< banner)
   exit(0);
 
-url = '/download.rsp';
+url = "/download.rsp";
 
 req = http_get(port: port, item: url);
 res = http_keepalive_send_recv(port: port, data: req, bodyonly: TRUE);
 
-
-if ('Cruise1' >< res && 'admin' >< res) {
+if ("Cruise1" >< res && "admin" >< res) {
   report = http_report_vuln_url(port: port, url: url);
   security_message(port: port, data: report);
   exit(0);

@@ -9,20 +9,20 @@ CPE = "cpe:/a:openafs:openafs";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808078");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2015-3284");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-06-08 19:45:07 +0530 (Wed, 08 Jun 2016)");
-  script_name("OpenAFS Kernel Memory Leak Vulnerability (Windows)");
+  script_name("OpenAFS Kernel Memory Leak Vulnerability - Windows");
 
   script_tag(name:"summary", value:"OpenAFS is prone to kernel memory leak vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"The flaw exists due to improper handling
-  of kernel's pioctl calls .");
+  of kernel's pioctl calls.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow local
   users to read kernel memory via crafted commands.");

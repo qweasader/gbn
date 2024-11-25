@@ -1,28 +1,14 @@
-# Copyright (C) 2009 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900945");
-  script_version("2023-01-05T10:12:14+0000");
-  script_tag(name:"last_modification", value:"2023-01-05 10:12:14 +0000 (Thu, 05 Jan 2023)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2009-09-22 10:03:41 +0200 (Tue, 22 Sep 2009)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -33,15 +19,16 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Product detection");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 8080);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
   script_tag(name:"summary", value:"HTTP based detection of GeoServer.");
 
-  script_xref(name:"URL", value:"http://geoserver.org/");
+  script_xref(name:"URL", value:"https://geoserver.org/");
 
   exit(0);
 }
@@ -55,8 +42,6 @@ include("port_service_func.inc");
 
 port = http_get_port(default: 8080);
 
-dirs = make_list_unique("/", "/geoserver", http_cgi_dirs(port: port));
-
 foreach dir (make_list_unique("/", "/geoserver", http_cgi_dirs(port: port))) {
   install = dir;
   if (dir == "/")
@@ -65,10 +50,36 @@ foreach dir (make_list_unique("/", "/geoserver", http_cgi_dirs(port: port))) {
   url = dir + "/web/wicket/bookmarkable/org.geoserver.web.AboutGeoServerPage";
 
   res = http_get_cache(port: port, item: url);
+
+  if (res =~ "^HTTP/1\.[01] 302") {
+    # nb: Need to check both variants as it *might* depend on the server configuration
+    current_dirs = make_list(install, dir + "/web/wicket/bookmarkable");
+    foreach current_dir (current_dirs) {
+      loc = http_extract_location_from_redirect(port: port, data: res, current_dir: current_dir);
+      if (loc) {
+        url = loc;
+        res2 = http_get_cache(port: port, item: loc);
+        if (res2 && res2 =~ "^HTTP/1\.[01] 200") {
+          res = res2;
+          break;
+        }
+      }
+    }
+  }
+
   if ("<title>GeoServer: About GeoServer" >!< res) {
-    url = dir + "/welcome.do";
-    if ("My GeoServer" >!< res || "Welcome to GeoServer" >!< res)
-      continue;
+    url = dir + "/web/?wicket:bookmarkablePage=:org.geoserver.web.AboutGeoServerPage";
+
+    res = http_get_cache(port: port, item: url);
+
+    if ("<title>GeoServer: About GeoServer" >!< res) {
+      url = dir + "/welcome.do";
+
+      res = http_get_cache(port: port, item: url);
+
+      if ("My GeoServer" >!< res || "Welcome to GeoServer" >!< res)
+        continue;
+    }
   }
 
   version = "unknown";
@@ -91,7 +102,7 @@ foreach dir (make_list_unique("/", "/geoserver", http_cgi_dirs(port: port))) {
   set_kb_item(name: "geoserver/detected", value: TRUE);
   set_kb_item(name: "geoserver/http/detected", value: TRUE);
 
-  cpe = build_cpe(value: version, exp: "^([0-9.]+(a-zA-Z0-9-)?)", base: "cpe:/a:geoserver:geoserver:");
+  cpe = build_cpe(value: tolower(version), exp: "^([0-9.]+)-?([a-zA-Z0-9]+)?", base: "cpe:/a:geoserver:geoserver:");
   if (!cpe)
     cpe = "cpe:/a:geoserver:geoserver";
 

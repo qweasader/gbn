@@ -9,17 +9,17 @@ CPE = "cpe:/a:adobe:creative_cloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813879");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-27T14:36:53+0000");
   script_cve_id("CVE-2018-12829");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-27 14:36:53 +0000 (Tue, 27 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-11-05 17:31:00 +0000 (Mon, 05 Nov 2018)");
   script_tag(name:"creation_date", value:"2018-08-29 10:55:52 +0530 (Wed, 29 Aug 2018)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("Adobe Creative Cloud Security Update APSB18-32 (Mac OS X)");
+  script_name("Adobe Creative Cloud Security Update (APSB18-32) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Creative cloud is prone to a privilege escalation vulnerability");
 
@@ -53,8 +53,8 @@ include("host_details.inc");
 include("version_func.inc");
 
 if(!infos = get_app_version_and_location(cpe:CPE, exit_no_version:TRUE)) exit(0);
-cloudVer = infos['version'];
-cloudPath = infos['location'];
+cloudVer = infos["version"];
+cloudPath = infos["location"];
 
 if(version_is_less(version:cloudVer, test_version:"4.6.1"))
 {

@@ -9,17 +9,17 @@ CPE = "cpe:/a:ilias:ilias";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108428");
-  script_version("2023-11-17T16:10:13+0000");
+  script_version("2024-02-28T14:37:42+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-11-17 16:10:13 +0000 (Fri, 17 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-28 14:37:42 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2018-03-12 08:45:04 +0100 (Mon, 12 Mar 2018)");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("ILIAS End Of Life Detection");
+  script_name("ILIAS End of Life (EOL) Detection");
 
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_category(ACT_GATHER_INFO);
@@ -28,16 +28,16 @@ if(description)
   script_mandatory_keys("ilias/detected");
 
   script_tag(name:"summary", value:"The ILIAS version on the remote host has reached the end of life
-  and should not be used anymore.");
+  (EOL) and should not be used anymore.");
 
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if an EOL version is present on the target host.");
 
-  script_tag(name:"impact", value:"An end of life version of ILIAS is not receiving any security
-  updates from the vendor. Unfixed security vulnerabilities might be leveraged by an attacker to
-  compromise the security of this host.");
+  script_tag(name:"impact", value:"An EOL version of ILIAS is not receiving any security updates
+  from the vendor. Unfixed security vulnerabilities might be leveraged by an attacker to compromise
+  the security of this host.");
 
-  script_tag(name:"solution", value:"Update the ILIAS version on the remote host to a still supported
-  version.");
+  script_tag(name:"solution", value:"Update the ILIAS version on the remote host to a still
+  supported version.");
 
   script_xref(name:"URL", value:"https://www.ilias.de/docu/goto.php?target=wiki_1357&client_id=docu#ilPageTocA115");
   script_xref(name:"URL", value:"https://www.ilias.de/docu/ilias.php?ref_id=1719&obj_id=6543&cmd=layout&cmdClass=illmpresentationgui&cmdNode=wc&baseClass=ilLMPresentationGUI");
@@ -79,7 +79,7 @@ if( version =~ "^6\.[0-9]+" ) {
                               version:version,
                               location:location,
                               eol_version:"6.x",
-                              eol_date: "2023-04-30",
+                              eol_date:"2023-04-30",
                               eol_type:"prod" );
   security_message( port:port, data:report );
   exit( 0 );

@@ -9,17 +9,17 @@ CPE = "cpe:/a:apache:wicket";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807585");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2015-5347", "CVE-2015-7520");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-02-12 18:23:00 +0000 (Tue, 12 Feb 2019)");
   script_tag(name:"creation_date", value:"2016-05-16 10:44:34 +0530 (Mon, 16 May 2016)");
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("Apache Wicket Multiple Cross-site scripting Vulnerabilities May16");
+  script_name("Apache Wicket Multiple Cross-site scripting Vulnerabilities (May 2016)");
 
   script_tag(name:"summary", value:"Apache Wicket is prone to multiple cross site scripting vulnerabilities.");
 
@@ -53,7 +53,7 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_apache_wicket_detect.nasl");
   script_mandatory_keys("Apache/Wicket/Installed");
-  script_require_ports("Services/www", 8080);
+
   exit(0);
 }
 

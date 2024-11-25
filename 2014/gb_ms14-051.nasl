@@ -9,7 +9,7 @@ CPE = "cpe:/a:microsoft:ie";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804739");
-  script_version("2023-11-02T05:05:26+0000");
+  script_version("2024-07-01T05:05:39+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2014-2774", "CVE-2014-2784", "CVE-2014-2796", "CVE-2014-2808",
@@ -22,10 +22,10 @@ if(description)
                 "CVE-2014-4145", "CVE-2014-8985", "CVE-2014-4112", "CVE-2014-4066");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2024-07-01 05:05:39 +0000 (Mon, 01 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-10-12 22:06:00 +0000 (Fri, 12 Oct 2018)");
+  script_tag(name:"severity_date", value:"2024-06-28 17:29:38 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-08-13 07:44:02 +0530 (Wed, 13 Aug 2014)");
   script_tag(name:"solution_type", value:"VendorFix");
   script_name("Microsoft Internet Explorer Multiple Vulnerabilities (2976627)");

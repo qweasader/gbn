@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.1524");
   script_cve_id("CVE-2013-7026", "CVE-2014-4699", "CVE-2014-6416", "CVE-2014-7970", "CVE-2014-9584", "CVE-2014-9892", "CVE-2014-9922", "CVE-2015-0275", "CVE-2015-2925", "CVE-2016-2548", "CVE-2016-2782", "CVE-2016-9756", "CVE-2017-11472", "CVE-2017-17975", "CVE-2017-6346", "CVE-2017-7889", "CVE-2018-14617", "CVE-2018-18559", "CVE-2018-5953", "CVE-2018-5995");
   script_tag(name:"creation_date", value:"2020-01-23 12:04:13 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-05-16 11:14:00 +0000 (Tue, 16 May 2023)");
+  script_tag(name:"severity_date", value:"2018-12-06 14:08:58 +0000 (Thu, 06 Dec 2018)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2019-1524)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.1\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-1524");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-1524");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-1524");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2019-1524 advisory.");
 

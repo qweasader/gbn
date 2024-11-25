@@ -9,18 +9,19 @@ CPE = "cpe:/a:vbulletin:vbulletin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809158");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_cve_id("CVE-2016-6483");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-09-03 01:29:00 +0000 (Sun, 03 Sep 2017)");
   script_tag(name:"creation_date", value:"2016-08-29 14:43:57 +0530 (Mon, 29 Aug 2016)");
-  script_name("vBulletin Preauth Server Side Request Forgery (SSRF) Vulnerability");
+  script_name("vBulletin 3.0.x <= 3.8.9, 4.0.x <= 4.2.3, 5.0.x <= 5.2.2 Preauth SSRF Vulnerability");
 
-  script_tag(name:"summary", value:"vBulletin is prone to server side request forgery vulnerability.");
+  script_tag(name:"summary", value:"vBulletin is prone to a server-side request forgery (SSRF)
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
@@ -61,21 +62,21 @@ if(!port = get_app_port(cpe:CPE))
 if(!infos = get_app_version_and_location(cpe:CPE, port:port, exit_no_version:TRUE))
   exit(0);
 
-vers = infos['version'];
-path = infos['location'];
+vers = infos["version"];
+path = infos["location"];
 
 if(version_in_range(version:vers, test_version:"5.0.0", test_version2:"5.2.2")) {
-  fix = '5.2.3';
+  fix = "5.2.3";
   VULN = TRUE;
 }
 
 else if(version_in_range(version:vers, test_version:"4.0.0", test_version2:"4.2.3")) {
-  fix = '4.2.4 Beta';
+  fix = "4.2.4 Beta";
   VULN = TRUE;
 }
 
 else if(version_in_range(version:vers, test_version:"3.0.0", test_version2:"3.8.9")) {
-  fix = '3.8.10 Beta';
+  fix = "3.8.10 Beta";
   VULN = TRUE;
 }
 

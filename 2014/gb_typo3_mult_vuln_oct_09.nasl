@@ -2,22 +2,22 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:typo3:typo3";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803990");
-  script_version("2023-04-05T10:19:45+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2009-3628", "CVE-2009-3629", "CVE-2009-3630", "CVE-2009-3631",
                 "CVE-2009-3632", "CVE-2009-3633", "CVE-2009-3635", "CVE-2009-3636");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:C/I:C/A:C");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
-  script_tag(name:"last_modification", value:"2023-04-05 10:19:45 +0000 (Wed, 05 Apr 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-12-27 12:45:17 +0530 (Fri, 27 Dec 2013)");
-  script_name("TYPO3 Multiple Vulnerabilities Oct09");
+  script_name("TYPO3 Multiple Vulnerabilities (Oct 2009)");
 
   script_tag(name:"impact", value:"Successful exploitation will allow remote attackers to steal the
 victim's cookie-based authentication credentials or execute arbitrary code.");

@@ -12,8 +12,8 @@ if(description)
   script_cve_id("CVE-2013-3214");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_version("2023-07-27T05:05:09+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-01-31 19:07:00 +0000 (Fri, 31 Jan 2020)");
@@ -30,7 +30,6 @@ if(description)
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_dependencies("gb_vtiger_crm_detect.nasl");
   script_mandatory_keys("vtiger/detected");
-  script_require_ports("Services/www", 80);
 
   script_tag(name:"summary", value:"vTiger CRM PHP Code Injection Vulnerability");
 
@@ -55,12 +54,14 @@ if(description)
   exit(0);
 }
 
-
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port(cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port(cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if (version_in_range( version:vers, test_version:"5.0.0", test_version2:"5.4.0" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"6.0" );

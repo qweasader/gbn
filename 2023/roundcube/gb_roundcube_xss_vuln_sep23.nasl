@@ -9,8 +9,8 @@ CPE = "cpe:/a:roundcube:webmail";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.151035");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-02-23T14:36:45+0000");
+  script_tag(name:"last_modification", value:"2024-02-23 14:36:45 +0000 (Fri, 23 Feb 2024)");
   script_tag(name:"creation_date", value:"2023-09-25 03:02:08 +0000 (Mon, 25 Sep 2023)");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
@@ -18,6 +18,8 @@ if (description)
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-09-26 15:42:00 +0000 (Tue, 26 Sep 2023)");
 
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2023-43770");
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");

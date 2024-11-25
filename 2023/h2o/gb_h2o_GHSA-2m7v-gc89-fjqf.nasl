@@ -9,8 +9,8 @@ CPE = "cpe:/a:h2o_project:h2o";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170600");
-  script_version("2023-10-17T05:05:34+0000");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_version("2024-10-16T05:05:34+0000");
+  script_tag(name:"last_modification", value:"2024-10-16 05:05:34 +0000 (Wed, 16 Oct 2024)");
   script_tag(name:"creation_date", value:"2023-10-12 12:29:42 +0000 (Thu, 12 Oct 2023)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
@@ -22,7 +22,7 @@ if (description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"WillNotFix");
 
   script_name("H2O HTTP Server HTTP/2 Protocol DoS Vulnerability (GHSA-2m7v-gc89-fjqf)");
 
@@ -30,8 +30,8 @@ if (description)
 
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Denial of Service");
-  script_dependencies("gb_h2o_http_server_detect.nasl");
-  script_mandatory_keys("h2o/installed");
+  script_dependencies("gb_h2o_http_server_http_detect.nasl");
+  script_mandatory_keys("h2o/detected");
 
   script_tag(name:"summary", value:"H2O is prone to a denial of service (DoS) vulnerability in the
   HTTP/2 protocol.");
@@ -49,8 +49,7 @@ if (description)
 
   script_tag(name:"affected", value:"H2O version 2.2.6 and prior.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 12th October, 2023.
-  Information regarding this issue will be updated once solution details are available.
+  script_tag(name:"solution", value:"No solution was made available by the vendor.
 
   Note: The vendor has added a fix into the master repository with commit '28fe151'.");
 

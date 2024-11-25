@@ -9,14 +9,14 @@ CPE = "cpe:/a:videolan:vlc_media_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806088");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2015-5949");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-10-13 16:16:33 +0530 (Tue, 13 Oct 2015)");
   script_tag(name:"qod_type", value:"executable_version_unreliable");
-  script_name("VLC Media Player 3GP File Denial of Service Vulnerability Oct15 (Mac OS X)");
+  script_name("VLC Media Player 3GP File Denial of Service Vulnerability (Oct 2015) - Mac OS X");
 
   script_tag(name:"summary", value:"VLC media player is prone to a denial of service (DoS) vulnerability.");
 

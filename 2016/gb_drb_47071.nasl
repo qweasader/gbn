@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108010");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-10-28 11:47:00 +0200 (Fri, 28 Oct 2016)");
-  script_name("Distributed Ruby (dRuby/DRb) Multiple Remote Code Execution Vulnerabilities");
+  script_name("Distributed Ruby (dRuby/DRb) Multiple RCE Vulnerabilities");
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_category(ACT_ATTACK);
   script_family("Gain a shell remotely");

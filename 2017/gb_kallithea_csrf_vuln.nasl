@@ -9,11 +9,11 @@ CPE = "cpe:/a:kallithea:kallithea";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112059");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2015-0276");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-05-28 16:58:00 +0000 (Thu, 28 May 2020)");
@@ -22,7 +22,7 @@ if(description)
   script_name("Kallithea < 0.2 CSRF Vulnerability");
 
   script_tag(name:"summary", value:"A vulnerability has been found in Kallithea,
-      allowing attackers to gain unauthorised access to the account of a logged in user.");
+  allowing attackers to gain unauthorised access to the account of a logged in user.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
@@ -54,25 +54,23 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_kallithea_detect.nasl");
   script_mandatory_keys("Kallithea/Installed");
-  script_require_ports("Services/www", 5000);
+
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!port = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!ver = get_app_version(cpe:CPE, port:port)){
+if(!ver = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-if(version_is_less(version:ver, test_version:"0.2"))
-{
+if(version_is_less(version:ver, test_version:"0.2")) {
   report = report_fixed_ver(installed_version:ver, fixed_version:"0.2");
   security_message(port:port, data:report);
   exit(0);
 }
+
 exit(99);

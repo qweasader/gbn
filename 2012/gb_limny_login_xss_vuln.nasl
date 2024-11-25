@@ -9,13 +9,13 @@ CPE = "cpe:/a:limny:limny";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802983");
-  script_version("2023-10-27T05:05:28+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_cve_id("CVE-2012-5343");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-10-12 14:16:51 +0530 (Fri, 12 Oct 2012)");
-  script_name("Limny 'login.php' Script Cross Site Scripting Vulnerability");
+  script_name("Limny 'login.php' Script XSS Vulnerability");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Web application abuses");

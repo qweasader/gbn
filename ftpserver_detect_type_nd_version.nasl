@@ -8,8 +8,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10092");
-  script_version("2023-12-19T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
+  script_version("2024-06-07T15:38:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-07 15:38:39 +0000 (Fri, 07 Jun 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -361,9 +361,9 @@ foreach port( ports ) {
     guess += '\n- ManageUPSNET FTP';
   }
 
-  if( "Isilon OneFS" >< banner ) {
+  if( banner =~ "(Isilon|PowerScale) OneFS" ) {
     set_kb_item( name:"ftp/emc/isilon_onefs/detected", value:TRUE );
-    guess += '\n- EMC Isilon OneFS';
+    guess += '\n- EMC PowerScale / Isilon OneFS';
   }
 
   if( "SurgeFTP" >< banner ) {
@@ -646,6 +646,17 @@ foreach port( ports ) {
   if( banner =~ "AP[0-9A-Z]+ Network Management Card AOS" ) {
     set_kb_item( name:"ftp/apc/ups/detected", value:TRUE );
     guess += '\n- APC UPS / Network Management Card';
+  }
+
+  # 220 Bitvise SSH Server 9.32
+  # 220 Bitvise SSH Server 9.32: free only for personal non-commercial use
+  # 220 Bitvise SSH Server 8.43
+  # 220 Bitvise SSH Server
+  #
+  # nb: Keep the pattern "in sync" with gb_ftp_os_detection.nasl and gsf/gb_bitvise_ssh_server_ftp_detect.nasl
+  if( banner =~ "220[- ]Bitvise SSH Server" ) {
+    set_kb_item( name:"ftp/bitvise/ssh_server/detected", value:TRUE );
+    guess += '\n- Bitvise SSH Server';
   }
 
   report = 'Remote FTP server banner:\n\n' + banner;

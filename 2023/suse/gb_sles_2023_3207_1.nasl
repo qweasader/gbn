@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2023.3207.1");
   script_cve_id("CVE-2023-24607", "CVE-2023-32762", "CVE-2023-33285", "CVE-2023-34410", "CVE-2023-38197");
   script_tag(name:"creation_date", value:"2023-08-08 04:21:26 +0000 (Tue, 08 Aug 2023)");
-  script_version("2023-08-08T05:06:11+0000");
-  script_tag(name:"last_modification", value:"2023-08-08 05:06:11 +0000 (Tue, 08 Aug 2023)");
+  script_version("2024-05-09T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-05-09 05:05:43 +0000 (Thu, 09 May 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-07-25 14:10:00 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"severity_date", value:"2023-07-25 14:10:05 +0000 (Tue, 25 Jul 2023)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2023:3207-1)");
   script_category(ACT_GATHER_INFO);
@@ -39,7 +39,7 @@ CVE-2023-32762: Fixed Qt Network incorrectly parses the strict-transport-securit
 CVE-2023-38197: Fixed infinite loops in QXmlStreamReader(bsc#1213326).
 CVE-2023-24607: Fixed Qt SQL ODBC driver plugin DOS (bsc#1209616).");
 
-  script_tag(name:"affected", value:"'libqt5-qtbase' package(s) on SUSE Enterprise Storage 7, SUSE Enterprise Storage 7.1, SUSE Linux Enterprise High Performance Computing 15-SP2, SUSE Linux Enterprise High Performance Computing 15-SP3, SUSE Linux Enterprise Server 15-SP2, SUSE Linux Enterprise Server 15-SP3, SUSE Linux Enterprise Server for SAP Applications 15-SP2, SUSE Linux Enterprise Server for SAP Applications 15-SP3, SUSE Manager Proxy 4.2, SUSE Manager Retail Branch Server 4.2, SUSE Manager Server 4.2.");
+  script_tag(name:"affected", value:"'libqt5-qtbase' package(s) on SUSE Linux Enterprise High Performance Computing 15-SP2, SUSE Linux Enterprise High Performance Computing 15-SP3, SUSE Linux Enterprise Server 15-SP2, SUSE Linux Enterprise Server 15-SP3, SUSE Linux Enterprise Server for SAP Applications 15-SP2, SUSE Linux Enterprise Server for SAP Applications 15-SP3.");
 
   script_tag(name:"solution", value:"Please install the updated package(s).");
 

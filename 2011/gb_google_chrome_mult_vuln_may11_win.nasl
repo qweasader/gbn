@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801878");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-08T14:36:53+0000");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-05-11 15:50:14 +0200 (Wed, 11 May 2011)");
   script_cve_id("CVE-2011-1303", "CVE-2011-1305", "CVE-2011-1434", "CVE-2011-1435",
                 "CVE-2011-1437", "CVE-2011-1438", "CVE-2011-1440", "CVE-2011-1441",
@@ -18,7 +18,7 @@ if(description)
                 "CVE-2011-1456");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_name("Google Chrome multiple vulnerabilities - May11 (Windows)");
+  script_name("Google Chrome Multiple Vulnerabilities (May 2011) - Windows");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2011/04/chrome-stable-update.html");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/47604");
 

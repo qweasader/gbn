@@ -9,8 +9,8 @@ CPE = "cpe:/a:callnowbutton:call_now_button";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127573");
-  script_version("2024-01-09T05:06:46+0000");
-  script_tag(name:"last_modification", value:"2024-01-09 05:06:46 +0000 (Tue, 09 Jan 2024)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-10-04 16:30:00 +0000 (Wed, 04 Oct 2023)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -65,7 +65,7 @@ location = infos["location"];
 
 if( version_is_less( version: version, test_version: "1.1.2" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "1.1.2", install_path: location );
-  security_message( data: report, port: port );
+  security_message( port: port, data: report );
   exit( 0 );
 }
 

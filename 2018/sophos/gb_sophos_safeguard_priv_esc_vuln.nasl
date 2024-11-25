@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107327");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2018-07-04 11:36:43 +0200 (Wed, 04 Jul 2018)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
@@ -18,16 +18,16 @@ if(description)
   script_tag(name:"qod_type", value:"registry");
   script_tag(name:"solution_type", value:"VendorFix");
   script_cve_id("CVE-2018-6851", "CVE-2018-6852", "CVE-2018-6853", "CVE-2018-6854", "CVE-2018-6855", "CVE-2018-6856", "CVE-2018-6857");
-  script_name("Sophos SafeGuard Privilege Escalation Vulnerability (Windows)");
+  script_name("Sophos SafeGuard Privilege Escalation Vulnerability - Windows");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_sophos_safeguard_detect_win.nasl");
   script_mandatory_keys("Sophos/SafeGuard/Win/Installed");
 
   script_tag(name:"summary", value:"Sophos SafeGuard Client Products are prone to privilege escalation vulnerabilities.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"The vulnerabilities are present within all configurations of SafeGuard Enterprise
   (SGN), SafeGuard Easy (SGE) and SafeGuard LAN Crypt (SGLC) clients running on Windows. Exploitation of those

@@ -9,8 +9,8 @@ CPE = "cpe:/a:woocommerce:woocommerce";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127684");
-  script_version("2024-01-12T16:12:12+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-10-31T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-10-31 05:05:48 +0000 (Thu, 31 Oct 2024)");
   script_tag(name:"creation_date", value:"2024-01-10 12:40:45 +0000 (Wed, 10 Jan 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -41,7 +41,7 @@ if (description)
   script_tag(name:"impact", value:"A malicious actor could force higher privileged users to execute
   unwanted actions under their current authentication.");
 
-  script_tag(name:"affected", value:"WordPress WooCommerce prior to version 8.3.0.");
+  script_tag(name:"affected", value:"WordPress WooCommerce plugin prior to version 8.3.0.");
 
   script_tag(name:"solution", value:"Update to version 8.3.0 or later.");
 

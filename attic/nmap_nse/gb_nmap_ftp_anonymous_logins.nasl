@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801260");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2010-08-30 16:16:51 +0200 (Mon, 30 Aug 2010)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -18,9 +18,8 @@ if(description)
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("Nmap NSE");
 
-  script_tag(name:"summary", value:"This script attempts to check if an FTP server allows anonymous logins.
-
-  This is a wrapper on the Nmap Security Scanner's ftp-anon.nse");
+  script_tag(name:"summary", value:"This VT has been deprecated and is therefore no longer
+  functional.");
 
   script_tag(name:"solution_type", value:"Mitigation");
 

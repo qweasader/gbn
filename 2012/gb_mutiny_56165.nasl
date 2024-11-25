@@ -12,7 +12,7 @@ if (description)
   script_cve_id("CVE-2012-3001");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:C/I:C/A:C");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-04T14:37:58+0000");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
@@ -20,14 +20,13 @@ if (description)
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/56165");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2012-10-23 10:29:30 +0200 (Tue, 23 Oct 2012)");
   script_tag(name:"qod_type", value:"remote_banner");
   script_category(ACT_GATHER_INFO);
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_dependencies("gb_mutiny_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("Mutiny/installed");
 
   script_tag(name:"solution", value:"Updates are available. Please see the references for details.");
@@ -44,8 +43,11 @@ Mutiny versions prior to 4.5-1.12 are vulnerable.");
 include("host_details.inc");
 include("version_func.inc");
 
-if(!port = get_app_port(cpe:CPE))exit(0);
-if(!vers = get_app_version(cpe:CPE, port:port))exit(0);
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!vers = get_app_version(cpe:CPE, port:port))
+  exit(0);
 
 if (version_is_less(version:vers, test_version:"4.5-1.12")) {
   report = report_fixed_ver(installed_version: vers, fixed_version: "4.5-1.12");
@@ -53,4 +55,4 @@ if (version_is_less(version:vers, test_version:"4.5-1.12")) {
   exit(0);
 }
 
-exit(0);
+exit(99);

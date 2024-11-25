@@ -9,8 +9,8 @@ CPE = "cpe:/a:bigtreecms:bigtree_cms";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108143");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-11-08T15:39:48+0000");
+  script_tag(name:"last_modification", value:"2024-11-08 15:39:48 +0000 (Fri, 08 Nov 2024)");
   script_tag(name:"creation_date", value:"2017-04-19 07:57:33 +0200 (Wed, 19 Apr 2017)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
@@ -28,18 +28,18 @@ if(description)
   script_xref(name:"URL", value:"https://www.cdxy.me/?p=765");
   script_xref(name:"URL", value:"https://github.com/bigtreecms/BigTree-CMS/commit/7761481ac40d83ac29fef42bc6b3c07c86694b56");
 
-  script_tag(name:"summary", value:"BigTree CMS is prone to a CSRF vulnerability.");
+  script_tag(name:"summary", value:"BigTree CMS is prone to a cross-site request forgery (CSRF)
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"BigTree CMS is prone to a CSRF vulnerability because it
-  relies on a substring check for CSRF protection, which allows remote attackers to bypass
-  this check by placing the required admin/developer/ URI within a query string in an HTTP
-  Referer header.");
+  script_tag(name:"insight", value:"BigTree CMS is prone to a CSRF vulnerability because it relies
+  on a substring check for CSRF protection, which allows remote attackers to bypass this check by
+  placing the required admin/developer/ URI within a query string in an HTTP Referer header.");
 
   script_tag(name:"affected", value:"BigTree CMS versions through 4.2.17.");
 
-  script_tag(name:"solution", value:"Update to 4.2.18 or later.");
+  script_tag(name:"solution", value:"Update to version 4.2.18 or later.");
 
   script_tag(name:"qod_type", value:"remote_banner");
   script_tag(name:"solution_type", value:"VendorFix");

@@ -9,8 +9,8 @@ CPE = "cpe:/a:ftpshell:ftpshell";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107084");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-11-15 16:34:55 +0700 (Tue, 15 Nov 2016)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:C");
@@ -24,7 +24,7 @@ if(description)
   script_dependencies("secpod_ftpshell_client_detect.nasl");
   script_mandatory_keys("FTPShell/Client/Ver");
   script_tag(name:"impact", value:"Successful exploitation will let the attacker execute arbitrary code and cause a stack overflow in the application.");
-  script_tag(name:"affected", value:"FTPShell Client 4.1 RC2 .");
+  script_tag(name:"affected", value:"FTPShell Client 4.1 RC2.");
   script_tag(name:"solution", value:"Update to version 5.24 or later.");
   script_tag(name:"summary", value:"FTPShell Client is prone to a stack overflow vulnerability.");
   script_tag(name:"solution_type", value:"VendorFix");

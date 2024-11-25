@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2017.0162");
   script_cve_id("CVE-2016-10140", "CVE-2016-10201", "CVE-2016-10202", "CVE-2016-10203", "CVE-2016-10204", "CVE-2016-10205", "CVE-2016-10206", "CVE-2017-5367", "CVE-2017-5368", "CVE-2017-5595", "CVE-2017-7203");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2017-03-29 01:59:00 +0000 (Wed, 29 Mar 2017)");
+  script_tag(name:"severity_date", value:"2017-03-07 12:58:43 +0000 (Tue, 07 Mar 2017)");
 
   script_name("Mageia: Security Advisory (MGASA-2017-0162)");
   script_category(ACT_GATHER_INFO);
@@ -27,13 +27,12 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2017-0162");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2017-0162.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=20215");
-  script_xref(name:"URL", value:"https://github.com/ZoneMinder/ZoneMinder/releases/tag/1.30.2");
-  script_xref(name:"URL", value:"https://github.com/ZoneMinder/ZoneMinder/releases");
-  script_xref(name:"URL", value:"https://github.com/ZoneMinder/ZoneMinder/commit/c5906a5d4f9adc7bdaabcf035fe223997883018b");
-  script_xref(name:"URL", value:"https://github.com/ZoneMinder/ZoneMinder/pull/1764");
-  script_xref(name:"URL", value:"https://github.com/ZoneMinder/ZoneMinder/pull/1764");
-  script_xref(name:"URL", value:"https://github.com/ZoneMinder/ZoneMinder/commit/ea5342abd2ef3b7dfb1b05e59ccf420196264340");
   script_xref(name:"URL", value:"https://github.com/ZoneMinder/ZoneMinder/commit/8b19fca9927cdec07cc9dd09bdcf2496a5ae69b3");
+  script_xref(name:"URL", value:"https://github.com/ZoneMinder/ZoneMinder/commit/c5906a5d4f9adc7bdaabcf035fe223997883018b");
+  script_xref(name:"URL", value:"https://github.com/ZoneMinder/ZoneMinder/commit/ea5342abd2ef3b7dfb1b05e59ccf420196264340");
+  script_xref(name:"URL", value:"https://github.com/ZoneMinder/ZoneMinder/pull/1764");
+  script_xref(name:"URL", value:"https://github.com/ZoneMinder/ZoneMinder/releases");
+  script_xref(name:"URL", value:"https://github.com/ZoneMinder/ZoneMinder/releases/tag/1.30.2");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'perl-Sys-MemInfo, zoneminder' package(s) announced via the MGASA-2017-0162 advisory.");
 

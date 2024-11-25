@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.104703");
-  script_version("2023-08-16T05:05:28+0000");
-  script_tag(name:"last_modification", value:"2023-08-16 05:05:28 +0000 (Wed, 16 Aug 2023)");
+  script_version("2024-06-14T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-06-14 05:05:48 +0000 (Fri, 14 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-08-10 08:02:02 +0000 (Thu, 10 Aug 2023)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -105,14 +105,14 @@ os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", 
 
 service_register( port:port, proto:"msmq", ipproto:proto );
 
-# Store link between this VT and 2023/microsoft/gb_msmq_service_wan_access.nasl
 # nb:
-# - We don't use the host_details.inc functions in both so we need to call this directly
-# - There is no dedicated CPE for this service available, it is just part of Windows and thus we're
-#   using the Windows CPE below
-register_host_detail( name:"Microsoft Message Queuing (MSMQ) Detection (TCP)", value:"cpe:/o:microsoft:windows" );
-register_host_detail( name:"cpe:/o:microsoft:windows", value:port + "/" + proto );
-register_host_detail( name:"port", value:port + "/" + proto );
+# - We can register a more generic CPE for the protocol itself which can be used for e.g.:
+#   - CVE scans / the CVE scanner
+#   - storing the reference from this one to some VTs like e.g. gb_msmq_service_wan_access.nasl
+#     using the info collected here to show a cross-reference within the reports
+# - If changing the syntax of e.g. the "location" below make sure to update VTs like e.g. the
+#   gb_msmq_service_wan_access.nasl accordingly
+register_product( cpe:"cpe:/a:microsoft:message_queuing", location:port + "/" + proto, port:port, proto:proto, service:"msmq" );
 
 report = "A service supporting the Microsoft Message Queuing (MSMQ) protocol is running at this port.";
 

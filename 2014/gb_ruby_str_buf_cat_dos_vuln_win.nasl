@@ -9,13 +9,13 @@ CPE = "cpe:/a:ruby-lang:ruby";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804888");
-  script_version("2023-07-27T05:05:09+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2014-3916");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-11-21 11:58:24 +0530 (Fri, 21 Nov 2014)");
-  script_name("Ruby 'str_buf_cat' function Denial-of-Service Vulnerability (Windows)");
+  script_name("Ruby 'str_buf_cat' function Denial-of-Service Vulnerability - Windows");
 
   script_tag(name:"summary", value:"Ruby is prone to a denial of service (DoS) vulnerability.");
 

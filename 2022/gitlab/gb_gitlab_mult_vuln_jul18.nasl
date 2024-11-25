@@ -9,8 +9,8 @@ CPE = "cpe:/a:gitlab:gitlab";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170055");
-  script_version("2023-12-06T05:06:11+0000");
-  script_tag(name:"last_modification", value:"2023-12-06 05:06:11 +0000 (Wed, 06 Dec 2023)");
+  script_version("2024-11-15T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-15 05:05:36 +0000 (Fri, 15 Nov 2024)");
   script_tag(name:"creation_date", value:"2022-03-25 19:01:02 +0000 (Fri, 25 Mar 2022)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
@@ -20,7 +20,8 @@ if (description)
 
   script_cve_id("CVE-2017-0919", "CVE-2017-0921");
 
-  script_tag(name:"qod_type", value:"executable_version_unreliable"); # nb: Backported on Debian, see https://www.debian.org/security/2018/dsa-4145
+  # nb: Backported on Debian, see https://www.debian.org/security/2018/dsa-4145
+  script_tag(name:"qod_type", value:"executable_version_unreliable");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
@@ -43,7 +44,7 @@ if (description)
   component resulting in an attacker being able to perform operations under a group in which they
   were previously unauthorized.
 
-  - CVE-2017-0921: Gitlab is vulnerable to an unverified password change issue in the
+  - CVE-2017-0921: GitLab is vulnerable to an unverified password change issue in the
   PasswordsController component resulting in potential account takeover if a victim's session is
   compromised.");
 

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2023.0251");
   script_cve_id("CVE-2022-40982", "CVE-2023-1206", "CVE-2023-20569", "CVE-2023-34319", "CVE-2023-4004", "CVE-2023-4147");
   script_tag(name:"creation_date", value:"2023-08-24 04:11:47 +0000 (Thu, 24 Aug 2023)");
-  script_version("2023-08-24T05:06:01+0000");
-  script_tag(name:"last_modification", value:"2023-08-24 05:06:01 +0000 (Thu, 24 Aug 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-08-15 14:27:00 +0000 (Tue, 15 Aug 2023)");
+  script_tag(name:"severity_date", value:"2023-08-15 14:27:55 +0000 (Tue, 15 Aug 2023)");
 
   script_name("Mageia: Security Advisory (MGASA-2023-0251)");
   script_category(ACT_GATHER_INFO);
@@ -27,13 +27,13 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2023-0251");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2023-0251.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=32169");
-  script_xref(name:"URL", value:"https://www.amd.com/en/resources/product-security/bulletin/amd-sb-7005.html");
-  script_xref(name:"URL", value:"https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00828.html");
-  script_xref(name:"URL", value:"https://xenbits.xen.org/xsa/advisory-432.html");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.15.123");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.15.124");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.15.125");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.15.126");
+  script_xref(name:"URL", value:"https://www.amd.com/en/resources/product-security/bulletin/amd-sb-7005.html");
+  script_xref(name:"URL", value:"https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00828.html");
+  script_xref(name:"URL", value:"https://xenbits.xen.org/xsa/advisory-432.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'kernel-linus' package(s) announced via the MGASA-2023-0251 advisory.");
 

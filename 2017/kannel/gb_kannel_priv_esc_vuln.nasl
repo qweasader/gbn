@@ -9,8 +9,8 @@ CPE = 'cpe:/a:kannel:kannel';
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140386");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2017-09-21 15:08:29 +0700 (Thu, 21 Sep 2017)");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
@@ -26,7 +26,7 @@ if (description)
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_kannel_detect.nasl");
   script_mandatory_keys("kannel/installed");
 

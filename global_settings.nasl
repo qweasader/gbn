@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2005 Michel Arboi
+# SPDX-FileCopyrightText: New code / functionality since 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -7,8 +8,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.12288");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-07-03T06:48:05+0000");
+  script_tag(name:"last_modification", value:"2024-07-03 06:48:05 +0000 (Wed, 03 Jul 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -32,22 +33,38 @@ if(description)
   script_add_preference(name:"Log verbosity", type:"radio", value:"Normal;Quiet;Verbose;Debug", id:10);
   script_add_preference(name:"Debug level", type:"entry", value:"0", id:11);
   script_add_preference(name:"HTTP User-Agent", type:"entry", value:"", id:12);
-  script_add_preference(name:"Strictly unauthenticated", type:"checkbox", value:"no", id:1); # nb: Don't change this name and id, these are hardcoded / used in GVMd
+
+  # nb: Don't change this name and id, these are hardcoded / used in GVMd
+  script_add_preference(name:"Strictly unauthenticated", type:"checkbox", value:"no", id:1);
+
   script_add_preference(name:"Exclude printers from scan", type:"checkbox", value:"yes", id:13);
   script_add_preference(name:"Exclude known fragile devices/ports from scan", type:"checkbox", value:"yes", id:14);
   script_add_preference(name:"Enable SSH Debug", type:"checkbox", value:"no", id:15);
-  script_add_preference(name:"Mark host as dead if going offline (failed ICMP ping) during scan", type:"checkbox", value:"no", id:16);
+
+  # nb: Kept here on purpose so that we can warn about the usage of a deprecated function via the
+  # log_message() below.
+  script_add_preference(name:"Mark host as dead if going offline (failed ICMP ping) during scan (deprecated)", type:"checkbox", value:"no", id:16);
+
   script_add_preference(name:"Service discovery on non-default UDP ports (slow)", type:"checkbox", value:"no", id:17);
   script_add_preference(name:"External out-of-band server", type:"entry", value:"oast.live", id:20);
 
   script_tag(name:"summary", value:"This plugin configures miscellaneous global variables for NASL scripts.
   It does not perform any security check but may disable or change the behaviour of others.");
 
-  script_tag(name:"insight", value:"External out-of-band server:
+  script_tag(name:"insight", value:"- External out-of-band server:
 
   Used for out-of-band (OOB) interactions in specific active checks where an external systems is
   required. Currently this system needs to be accessible to the target via HTTP(s) and respond to
-  all HTTP requests (including e.g. POST methods) with a 200 (Found) HTTP status code.");
+  all HTTP requests (including e.g. POST methods) with a 200 (Found) HTTP status code.
+
+  Note: The 'Mark host as dead if going offline (failed ICMP ping) during scan (deprecated)'
+  functionality is deprecated and therefore no longer functional. Please:
+
+  - Update the software on the scanner host to version 22.04 or later
+
+  - Configure the system to use Boreas (already configured if using the Greenbone Operating System 22.04+)
+
+  - Use / configure the 'max_vts_timeouts' scanner preference accordingly");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -63,10 +80,9 @@ opt = script_get_preference( "Service discovery on non-default UDP ports (slow)"
 if( opt == "yes" )
   set_kb_item( name:"global_settings/non-default_udp_service_discovery", value:TRUE );
 
-opt = script_get_preference( "Mark host as dead if going offline (failed ICMP ping) during scan", id:16 );
+opt = script_get_preference( "Mark host as dead if going offline (failed ICMP ping) during scan (deprecated)", id:16 );
 if( opt == "yes" ) {
-  set_kb_item( name:"global_settings/mark_host_dead_failed_icmp", value:TRUE );
-  report  = "IMPORTANT: The 'Mark host as dead if going offline (failed ICMP ping) during scan' setting is deprecated and will be removed soon. Please:";
+  report  = "IMPORTANT: The 'Mark host as dead if going offline (failed ICMP ping) during scan (deprecated)' setting is deprecated and the relevant functionality has been removed. Please:";
   report += '\n - Update the software on the scanner host to version 22.04 or later';
   report += '\n - Configure the system to use Boreas (already configured if using the Greenbone Operating System 22.04+)';
   report += '\n - Use / configure the "max_vts_timeouts" scanner preference accordingly';
@@ -185,11 +201,25 @@ opt = script_get_preference( "External out-of-band server", id:20 );
 if( opt )
   set_kb_item( name:"global_settings/out-of-band_server", value:opt );
 
-# Mainly used in / for gb_outdated_scan_engine.nasl.
-if( FEED_NAME == "GSF" || FEED_NAME == "SCM" )
-  set_kb_item( name:"keys/is_gsf", value:TRUE );
+# nb: We have seen some race conditions if a feed update was done during scans where this constant
+# was empty. This was probably because the plugin_feed_info.inc file just got overwritten by the
+# sync process at the time the info was read from it. As this constant should be always there and we
+# don't have any control over the feed sync process we're just sleeping for a second and try again
+# afterwards as some kind of workaround until the feed sync process was made more resilient.
+if( ! FEED_NAME )
+  sleep( 1 );
 
-if( FEED_NAME == "GCF" )
+# nb:
+# - Mainly used in / for gb_outdated_scan_engine.nasl
+# - The info about the content of this constant is getting added as a host detail (to e.g. reports)
+#   separately in / via host_scan_end.nasl
+if( FEED_NAME == "GSF" || FEED_NAME == "GEF" || FEED_NAME == "SCM" )
+  set_kb_item( name:"keys/is_gef", value:TRUE );
+
+else if( FEED_NAME == "GCF" )
   set_kb_item( name:"keys/is_gcf", value:TRUE );
+
+else
+  set_kb_item( name:"keys/is_unknown_feed", value:TRUE );
 
 exit( 0 );

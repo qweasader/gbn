@@ -9,13 +9,13 @@ CPE = "cpe:/a:libreoffice:libreoffice";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805109");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2014-9093");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-11-28 19:08:34 +0530 (Fri, 28 Nov 2014)");
-  script_name("LibreOffice RTF File Handling Multiple Vulnerabilities Nov14 (Mac OS X)");
+  script_name("LibreOffice RTF File Handling Multiple Vulnerabilities (Nov 2014) - Mac OS X");
 
   script_tag(name:"summary", value:"LibreOffice is prone to multiple vulnerabilities.");
 

@@ -662,13 +662,22 @@ function traversal_files() {
                        "; for 16-bit app support", "windows/win.ini" );
   } else if( res == "no" ) {
     # TBD: Also check e.g. etc/hosts for basic IDS?
-    # nb: At least a QNAP NAS doesn't have a root account, hence the other two checks as well.
-    # nb2: Historically, the user "nobody" was assigned UID -2 by several operating systems.
-    return make_array( "(root|admin|nobody):[^:]*:[0-9]+:(-2|[0-9]+):([^:]*:){2}", "etc/passwd" );
+    # nb:
+    # - At least on a QNAP NAS no "root" account exists, hence "admin" and "nobody" is checked as well
+    # - Historically, the user "nobody" was assigned UID -2 by several operating systems
+    # - CVE-2024-20767 returns the content of the file in reverse order (root as the last entry on
+    #   Linux systems). As we never know if this is happening for other flaws where the response
+    #   might be even truncated (means no "root" included) additional well known accounts from Linux
+    #   and Mac OS X systems are included as well. The Mac OS X ones have been taken from here:
+    #   - https://vulners.com/zdt/1337DAY-ID-37968
+    #   - https://ma4ter.oss-cn-beijing.aliyuncs.com/typecho/2024/03/18/1710767606.png (From https://jeva.cc/2973.html)
+    return make_array( "(root|admin|nobody|_apt|www-data|_avphidbridge|_darwindaemon|_launchservices|_backgroundassets):[^:]*:[0-9]+:(-2|[0-9]+):([^:]*:){2}", "etc/passwd" );
   }
 
-  # "unknown"
-  return make_array( "(root|admin|nobody):[^:]*:[0-9]+:(-2|[0-9]+):([^:]*:){2}", "etc/passwd", # nb: See QNAP NAS note above.
+  # nb:
+  # - "unknown" operating system so checking all variants
+  # - see the note on the different account names above
+  return make_array( "(root|admin|nobody|_apt|www-data|_avphidbridge|_darwindaemon|_launchservices|_backgroundassets):[^:]*:[0-9]+:(-2|[0-9]+):([^:]*:){2}", "etc/passwd",
                      "\[boot loader\]", "boot.ini",
                      "; for 16-bit app supporT", "winnt/win.ini",
                      "; for 16-bit app support", "windows/win.ini" );
@@ -679,6 +688,11 @@ function traversal_files() {
 #
 # @param extra_pattern_list A list of additional pattern to be added to the internal default list.
 # @param depth              The depth to traverse back. Defaults to 6 if not given.
+#
+# @note Explanation for some of the pattern can be found at e.g.
+#       - https://web.archive.org/web/20170713175925/https://www.sans.org/security-resources/idfaq/what-are-unicode-vulnerabilities-on-internet-information-server-iis/9/15
+#       - https://security.stackexchange.com/questions/48879/why-does-directory-traversal-attack-c0af-work
+#       - https://owasp.org/www-community/attacks/Path_Traversal
 #
 # @return A list of default traversal pattern.
 
@@ -702,6 +716,7 @@ function traversal_pattern( extra_pattern_list, depth ) {
     "//",
     "///",
 
+    crap( data:"./", length:2 * depth ),
     crap( data:"../", length:3 * depth ),
     crap( data:".../", length:4 * depth ),
     crap( data:"....//", length:6 * depth ),
@@ -739,6 +754,7 @@ function traversal_pattern( extra_pattern_list, depth ) {
     "\\",
     "\\\",
 
+    crap( data:".\", length:2 * depth ),
     crap( data:"..\", length:3 * depth ),
     crap( data:"...\", length:4 * depth ),
     crap( data:"....\\", length:6 * depth ),
@@ -759,6 +775,7 @@ function traversal_pattern( extra_pattern_list, depth ) {
     crap( data:"%252e%252e%255c", length:15 * depth ),
     crap( data:".%252e\", length:7 * depth ),
     crap( data:"%c0%ae%c0%ae\", length:13 * depth ),
+    crap( data:"C:../", length:5 * depth ),
     crap( data:"..\\\\\\\..\\\\..\\\\\\", length:23 * ( rounded_up_depth / 2 ) ), # nb: Length calculation is a special case
     "\" + crap( data:"%2F..\", length:6 * depth ), # nb: Special case to start with a trailing backslash and a follow up slash (%2F = /)
     ".%2e\" + crap( data:"%2e%2e\", length:7 * depth ), # nb: Backward slash case for CVE-2021-41773 but other environments / technologies might be affected as well
@@ -768,7 +785,19 @@ function traversal_pattern( extra_pattern_list, depth ) {
     crap( data:"..\", length:3 * ( rounded_up_depth / 2 ) ) + "a\" + crap( data:"..\", length:3 * ( rounded_up_depth / 2 ) ), # See CVE-2017-14849 case above, just using backward slash for possible increased coverage
     crap( data:"..;\", length:4 * depth ),
     crap( data:".%00.\", length:6 * depth ),
-    crap( data:".%00%00.\", length:9 * depth ) );
+    crap( data:".%00%00.\", length:9 * depth ),
+
+    # Few additional special cases with mixed forward / backward slash cases
+    crap( data:"..\../", length:6 * depth ),
+    crap( data:"../..\", length:6 * depth ),
+    crap( data:".\\./", length:5 * depth ),
+    crap( data:".//.\", length:5 * depth ),
+    crap( data:"..%c0%af../", length:11 * depth ),
+    crap( data:"..%c0%af..\", length:11 * depth ),
+    crap( data:"..%c1%9c../", length:11 * depth ),
+    crap( data:"..%c1%9c..\", length:11 * depth )
+
+  );
 
   if( extra_pattern_list && ! is_array( extra_pattern_list ) ) {
     set_kb_item( name:"vt_debug_misc/" + get_script_oid(), value:get_script_oid() + "#-#traversal_pattern(): No list passed in 'extra_pattern_list' parameter" );

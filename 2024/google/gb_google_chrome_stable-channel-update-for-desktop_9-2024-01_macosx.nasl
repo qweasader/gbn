@@ -9,16 +9,16 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832779");
-  script_version("2024-01-19T16:09:33+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2024-0333");
   script_tag(name:"cvss_base", value:"5.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:N/I:C/A:N");
-  script_tag(name:"last_modification", value:"2024-01-19 16:09:33 +0000 (Fri, 19 Jan 2024)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2024-01-18 19:39:00 +0000 (Thu, 18 Jan 2024)");
   script_tag(name:"creation_date", value:"2024-01-11 11:13:23 +0530 (Thu, 11 Jan 2024)");
-  script_name("Google Chrome Security Update (stable-channel-update-for-desktop_9-2024-01) - MAC OS X");
+  script_name("Google Chrome Security Update (stable-channel-update-for-desktop_9-2024-01) - Mac OS X");
 
   script_tag(name:"summary", value:"Google Chrome is prone to a data
   validation vulnerability.");
@@ -33,7 +33,7 @@ if(description)
   attackers to install a malicious extension via a crafted HTML page.");
 
   script_tag(name:"affected", value:"Google Chrome versions prior to
-  120.0.6099.216 on MAC OS X");
+  120.0.6099.216 on Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade to version 120.0.6099.216 or
   later. Please see the references for more information.");

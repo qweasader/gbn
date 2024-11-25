@@ -9,8 +9,8 @@ CPE = "cpe:/a:exim:exim";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.151116");
-  script_version("2024-01-10T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
+  script_version("2024-10-03T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-10-03 05:05:33 +0000 (Thu, 03 Oct 2024)");
   # nb: This was initially a single VT but got split later into multiple due to different affected /
   # fixed versions. To avoid wrong stats about CVE coverage the "creation_date" of the original VT
   # has been kept here because all CVEs had been covered at this time.
@@ -20,9 +20,10 @@ if (description)
 
   script_cve_id("CVE-2023-42118");
 
-  script_tag(name:"qod_type", value:"remote_banner"); # TODO: needs to be adjusted once a fix is available, see also note below.
+  # TODO: needs to be adjusted once a fix is available, see also note below.
+  script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"WillNotFix");
 
   script_name("Exim <= 4.96.2 libspf2 RCE Vulnerability (Sep 2023)");
 
@@ -43,13 +44,14 @@ if (description)
   in an integer underflow before writing to memory. An attacker can leverage this vulnerability to
   execute code in the context of the service account.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 09th January, 2024.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.");
 
   script_xref(name:"URL", value:"https://www.exim.org/static/doc/security/CVE-2023-zdi.txt");
   script_xref(name:"URL", value:"https://www.zerodayinitiative.com/advisories/ZDI-23-1472/");
-  # nb: This mention that it is not even clear if this is an issue in Exim, should be cross-checked
-  # when raising the "No known solution" date above:
+  # nb: This thread should be re-checked in the future but so far it is not clear even what / where is the actual problem
   script_xref(name:"URL", value:"https://github.com/shevek/libspf2/issues/45");
 
   exit(0);
@@ -64,10 +66,6 @@ if (!port = get_app_port(cpe: CPE))
 if (!version = get_app_version(cpe: CPE, port: port))
   exit(0);
 
-if (version_is_less_equal(version: version, test_version: "4.96.2")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "None");
-  security_message(port: port, data: report);
-  exit(0);
-}
-
+report = report_fixed_ver(installed_version: version, fixed_version: "None");
+security_message(port: port, data: report);
 exit(0);

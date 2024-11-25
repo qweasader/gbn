@@ -9,13 +9,13 @@ CPE = "cpe:/a:openafs:openafs";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808077");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-28T05:05:37+0000");
   script_cve_id("CVE-2015-3285");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-28 05:05:37 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-06-08 19:35:27 +0530 (Wed, 08 Jun 2016)");
-  script_name("OpenAFS Denial of Service Vulnerability-01 (Windows)");
+  script_name("OpenAFS Denial of Service Vulnerability - 01 - Windows");
 
   script_tag(name:"summary", value:"OpenAFS is prone to a denial of service (DoS) vulnerability.");
 

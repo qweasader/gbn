@@ -8,8 +8,8 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.53789");
   script_cve_id("CVE-2001-0010", "CVE-2001-0012");
-  script_version("2023-07-19T05:05:15+0000");
-  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2008-01-17 14:24:38 +0100 (Thu, 17 Jan 2008)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -25,7 +25,7 @@ construct an inverse query that allows the stack to be read remotely
 exposing environment variables.  CERT has disclosed information about
 these issues.  A new upstream version fixes this.  Due to the
 complexity of BIND we have decided to make an exception to our rule by
-releasin the new upstream source to our stable distribution.
+releasing the new upstream source to our stable distribution.
 
 We recommend you upgrade your bind packages immediately.");
   script_tag(name:"summary", value:"The remote host is missing an update to bind

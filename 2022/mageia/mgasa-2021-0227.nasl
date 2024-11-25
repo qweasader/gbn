@@ -8,8 +8,8 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.10.2021.0227");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 
@@ -23,10 +23,10 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2021-0227");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2021-0227.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=28930");
-  script_xref(name:"URL", value:"https://www.videolan.org/security/sb-vlc3013.html");
-  script_xref(name:"URL", value:"https://www.videolan.org/vlc/releases/3.0.13.html");
   script_xref(name:"URL", value:"https://code.videolan.org/videolan/vlc-3.0/-/raw/master/NEWS");
   script_xref(name:"URL", value:"https://git.videolan.org/?p=vlc/vlc-3.0.git;a=blob;f=NEWS;h=e5dd1855e797179ec3a0bee2cae4ac68705a70cc;hb=41878ff4f2a4b566cf0a1bd15f72037b2be98a18");
+  script_xref(name:"URL", value:"https://www.videolan.org/security/sb-vlc3013.html");
+  script_xref(name:"URL", value:"https://www.videolan.org/vlc/releases/3.0.13.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'vlc' package(s) announced via the MGASA-2021-0227 advisory.");
 

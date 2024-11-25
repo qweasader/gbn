@@ -9,17 +9,17 @@ CPE = "cpe:/a:videolan:vlc_media_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808222");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-02-16T05:06:55+0000");
   script_cve_id("CVE-2016-5108");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-07-01 01:29:00 +0000 (Sat, 01 Jul 2017)");
   script_tag(name:"creation_date", value:"2016-06-13 14:25:45 +0530 (Mon, 13 Jun 2016)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("VLC Media Player QuickTime IMA File Denial of Service Vulnerability June16 (Mac OS X)");
+  script_name("VLC Media Player QuickTime IMA File Denial of Service Vulnerability (Jun 2016) - Mac OS X");
 
   script_tag(name:"summary", value:"VLC media player is prone to a denial of service (DoS) vulnerability.");
 

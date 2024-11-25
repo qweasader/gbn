@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.1520");
   script_cve_id("CVE-2013-7269", "CVE-2014-2309", "CVE-2014-3647", "CVE-2014-7826", "CVE-2015-2922", "CVE-2015-4036", "CVE-2015-7550", "CVE-2016-3136", "CVE-2016-4482", "CVE-2016-4485", "CVE-2016-8630", "CVE-2016-8646", "CVE-2017-18221", "CVE-2017-18261", "CVE-2017-7294", "CVE-2018-10881", "CVE-2018-1120", "CVE-2018-13099", "CVE-2018-14612", "CVE-2018-20784");
   script_tag(name:"creation_date", value:"2020-01-23 12:02:59 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-06-02 15:28:00 +0000 (Wed, 02 Jun 2021)");
+  script_tag(name:"severity_date", value:"2019-02-22 19:39:28 +0000 (Fri, 22 Feb 2019)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2019-1520)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.1\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-1520");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-1520");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-1520");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2019-1520 advisory.");
 

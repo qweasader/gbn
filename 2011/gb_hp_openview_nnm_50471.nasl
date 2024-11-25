@@ -12,19 +12,17 @@ if(description)
   script_cve_id("CVE-2011-3166", "CVE-2011-3167");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-07-28T05:05:23+0000");
-  script_name("HP OpenView Network Node Manager Multiple Remote Code Execution Vulnerabilities");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_name("HP OpenView Network Node Manager Multiple RCE Vulnerabilities");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2011-12-14 09:14:18 +0100 (Wed, 14 Dec 2011)");
   script_category(ACT_GATHER_INFO);
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_dependencies("secpod_hp_openview_nnm_detect.nasl");
-  script_require_ports("Services/www", 7510);
   script_mandatory_keys("HP/OVNNM/installed");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/50471");
-  script_xref(name:"URL", value:"http://www.openview.hp.com/products/nnm/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/archive/1/520349");
 
   script_tag(name:"summary", value:"HP OpenView Network Node Manager (NNM) is prone to multiple remote
@@ -46,9 +44,14 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-get_app_version( cpe:CPE, port:port );
-if( ! vers = get_kb_item( "www/"+ port + "/HP/OVNNM/Ver" ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! get_app_version( cpe:CPE, port:port, nofork:TRUE ) )
+  exit( 0 );
+
+if( ! vers = get_kb_item( "www/"+ port + "/HP/OVNNM/Ver" ) )
+  exit( 0 );
 
 if( version_is_equal( version:vers, test_version:"B.07.51" ) ||
     version_is_equal( version:vers, test_version:"B.07.53" ) ) {

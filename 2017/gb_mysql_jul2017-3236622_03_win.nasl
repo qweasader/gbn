@@ -9,11 +9,11 @@ CPE = "cpe:/a:oracle:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811434");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-29T14:37:57+0000");
   script_cve_id("CVE-2017-3636");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-29 14:37:57 +0000 (Thu, 29 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-08-04 19:59:00 +0000 (Thu, 04 Aug 2022)");
@@ -47,27 +47,25 @@ if(description)
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Databases");
   script_dependencies("mysql_version.nasl", "os_detection.nasl");
-  script_require_ports("Services/mysql", 3306);
   script_mandatory_keys("MySQL/installed", "Host/runs_windows");
+
   exit(0);
 }
-
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!sqlPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_in_range(version:version, test_version:"5.5.0", test_version2:"5.5.56") ||
+   version_in_range(version:version, test_version:"5.6.0", test_version2:"5.6.36")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"Apply the patch");
+  security_message(port:port, data:report);
   exit(0);
 }
 
-if(!mysqlVer = get_app_version(cpe:CPE, port:sqlPort)){
-  exit(0);
-}
-
-if(version_in_range(version:mysqlVer, test_version:"5.5.0", test_version2:"5.5.56") ||
-   version_in_range(version:mysqlVer, test_version:"5.6.0", test_version2:"5.6.36"))
-{
-  report = report_fixed_ver(installed_version:mysqlVer, fixed_version: "Apply the patch");
-  security_message(data:report, port:sqlPort);
-  exit(0);
-}
+exit(99);

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.12241");
-  script_version("2023-12-28T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-12-28 05:05:25 +0000 (Thu, 28 Dec 2023)");
+  script_version("2024-07-16T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -179,11 +179,11 @@ if( sysdesc = snmp_get_sysdescr( port:port ) ) {
     is_printer = TRUE;
   }
 
-  if( sysdesc =~ "^RICOH" && "RICOH Network Printer" >< sysdesc ) {
+  if( sysdesc =~ "^(RICOH|LANIER|SAVIN|NRG)" && sysdesc =~ "(RICOH|LANIER|SAVIN|NRG) Network Printer" ) {
     is_printer = TRUE;
   }
 
-  if( sysdesc =~ "^TOSHIBA e-STUDIO" ) {
+  if( sysdesc =~ "^TOSHIBA (e-STUDIO|TEC)" ) {
     is_printer = TRUE;
   }
 
@@ -250,7 +250,7 @@ if( model ) {
     is_printer = TRUE;
   }
 
-  if( model =~ "^RICOH" && "Network Printer" >< model ) {
+  if( model =~ "^(RICOH|LANIER|SAVIN|NRG)" && "Network Printer" >< model ) {
     is_printer = TRUE;
   }
 
@@ -355,7 +355,7 @@ if( get_port_state( port ) ) {
     is_printer = TRUE;
   } else if( "220 Dell Laser Printer " >< banner ) {
     is_printer = TRUE;
-  } else if( "220 RICOH" >< banner ) {
+  } else if( banner =~ "^220 (RICOH|LANIER|SAVIN|Gestetner|NRG) (Aficio |Pro)?([A-Z]+)? [^ ]+ (\([^)]+\) )?FTP server" ) {
     is_printer = TRUE;
   } else if( "220 FTP print service" >< banner ) {
     is_printer = TRUE;

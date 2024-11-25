@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2013.0242");
   script_cve_id("CVE-2013-4206", "CVE-2013-4207", "CVE-2013-4208", "CVE-2013-4852");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
 
@@ -23,12 +23,12 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2013-0242");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2013-0242.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=10925");
-  script_xref(name:"URL", value:"http://www.chiark.greenend.org.uk/~sgtatham/putty/wishlist/vuln-modmul.html");
-  script_xref(name:"URL", value:"http://www.chiark.greenend.org.uk/~sgtatham/putty/wishlist/vuln-bignum-division-by-zero.html");
   script_xref(name:"URL", value:"http://www.chiark.greenend.org.uk/~sgtatham/putty/wishlist/private-key-not-wiped.html");
+  script_xref(name:"URL", value:"http://www.chiark.greenend.org.uk/~sgtatham/putty/wishlist/vuln-bignum-division-by-zero.html");
+  script_xref(name:"URL", value:"http://www.chiark.greenend.org.uk/~sgtatham/putty/wishlist/vuln-modmul.html");
   script_xref(name:"URL", value:"http://www.openwall.com/lists/oss-security/2013/08/06/13");
   script_xref(name:"URL", value:"http://www.search-lab.hu/advisories/secadv-20130722");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=10925");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'filezilla, putty' package(s) announced via the MGASA-2013-0242 advisory.");
 

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2018.0446");
   script_cve_id("CVE-2018-1058", "CVE-2018-10915", "CVE-2018-10925", "CVE-2018-1115");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-01-19 20:11:00 +0000 (Thu, 19 Jan 2023)");
+  script_tag(name:"severity_date", value:"2018-06-14 18:03:19 +0000 (Thu, 14 Jun 2018)");
 
   script_name("Mageia: Security Advisory (MGASA-2018-0446)");
   script_category(ACT_GATHER_INFO);
@@ -27,16 +27,16 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2018-0446");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2018-0446.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=22687");
-  script_xref(name:"URL", value:"https://www.postgresql.org/docs/9.4/static/release-9-4-17.html");
-  script_xref(name:"URL", value:"https://www.postgresql.org/docs/9.4/static/release-9-4-18.html");
-  script_xref(name:"URL", value:"https://www.postgresql.org/docs/9.4/static/release-9-4-19.html");
-  script_xref(name:"URL", value:"https://www.postgresql.org/docs/9.6/static/release-9-6-8.html");
-  script_xref(name:"URL", value:"https://www.postgresql.org/docs/9.6/static/release-9-6-9.html");
-  script_xref(name:"URL", value:"https://www.postgresql.org/docs/9.6/static/release-9-6-10.html");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2018/dsa-4269");
   script_xref(name:"URL", value:"https://www.postgresql.org/about/news/1834/");
   script_xref(name:"URL", value:"https://www.postgresql.org/about/news/1851/");
   script_xref(name:"URL", value:"https://www.postgresql.org/about/news/1878/");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2018/dsa-4269");
+  script_xref(name:"URL", value:"https://www.postgresql.org/docs/9.4/static/release-9-4-17.html");
+  script_xref(name:"URL", value:"https://www.postgresql.org/docs/9.4/static/release-9-4-18.html");
+  script_xref(name:"URL", value:"https://www.postgresql.org/docs/9.4/static/release-9-4-19.html");
+  script_xref(name:"URL", value:"https://www.postgresql.org/docs/9.6/static/release-9-6-10.html");
+  script_xref(name:"URL", value:"https://www.postgresql.org/docs/9.6/static/release-9-6-8.html");
+  script_xref(name:"URL", value:"https://www.postgresql.org/docs/9.6/static/release-9-6-9.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'postgresql9.4, postgresql9.6' package(s) announced via the MGASA-2018-0446 advisory.");
 

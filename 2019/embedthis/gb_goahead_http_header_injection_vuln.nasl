@@ -1,28 +1,16 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
+
+CPE = "cpe:/a:embedthis:goahead";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.114133");
-  script_version("2021-08-31T13:01:28+0000");
-  script_tag(name:"last_modification", value:"2021-08-31 13:01:28 +0000 (Tue, 31 Aug 2021)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2019-09-23 15:56:48 +0200 (Mon, 23 Sep 2019)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
@@ -36,45 +24,51 @@ if (description)
 
   script_tag(name:"solution_type", value:"WillNotFix");
 
-  script_name("GoAhead Server HTTP Header Injection Vulnerability");
+  script_name("Embedthis GoAhead 2.5.0 HTTP Header Injection Vulnerability - Active Check");
 
   script_category(ACT_ATTACK);
 
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("Web Servers");
-  script_dependencies("gb_goahead_detect.nasl");
+  script_dependencies("gb_embedthis_goahead_http_detect.nasl");
   script_require_ports("Services/www", 80);
-  script_mandatory_keys("embedthis/goahead/detected");
+  script_mandatory_keys("embedthis/goahead/http/detected");
 
-  script_tag(name:"summary", value:"Embedthis GoAhead is prone to an HTTP header injection vulnerability.");
+  script_tag(name:"summary", value:"Embedthis GoAhead is prone to an HTTP header injection
+  vulnerability.");
 
-  script_tag(name:"insight", value:"For certain pages, Embedthis GoAhead creates links containing a hostname
-  obtained from an arbitrary HTTP Host header sent by an attacker.");
+  script_tag(name:"vuldetect", value:"Send multiple crafted HTTP POST requests and checks the
+  responses.");
 
-  script_tag(name:"impact", value:"An attacker can potentially use this vulnerability in a phishing attack.");
+  script_tag(name:"insight", value:"For certain pages, Embedthis GoAhead creates links containing a
+  hostname obtained from an arbitrary HTTP Host header sent by an attacker.");
 
-  script_tag(name:"vuldetect", value:"Checks if such a manipulated link can be created.");
+  script_tag(name:"impact", value:"An attacker can potentially use this vulnerability in a phishing
+  attack.");
 
-  script_tag(name:"affected", value:"At least GoAhead version 2.5.0.");
+  script_tag(name:"affected", value:"Embedthis GoAhead version 2.5.0 is known to be affected. Other
+  versions might be affected as well.");
 
-  script_tag(name:"solution", value:"No known solution was made available for at least one year since the disclosure
-  of this vulnerability. Likely none will be provided anymore. General solution options are to upgrade to a newer
-  release, disable respective features, remove the product or replace the product by another one.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
+  options are to upgrade to a newer release, disable respective features, remove the product or
+  replace the product by another one.");
 
   script_xref(name:"URL", value:"https://github.com/Ramikan/Vulnerabilities/blob/master/GoAhead%20Web%20server%20HTTP%20Header%20Injection");
 
   exit(0);
 }
 
-CPE = "cpe:/a:embedthis:goahead";
-
 include("http_func.inc");
 include("misc_func.inc");
 include("host_details.inc");
 include("http_keepalive.inc");
 
-if(!port = get_app_port(cpe: CPE)) exit(0);
-get_app_location(cpe: CPE, port: port);
+if(!port = get_app_port(cpe:CPE, service:"www"))
+  exit(0);
+
+if(!get_app_location(cpe:CPE, port:port, nofork:TRUE))
+  exit(0);
 
 vuln_urls = make_array();
 
@@ -89,12 +83,12 @@ foreach poc_url (poc_urls) {
   host_header = vt_strings["lowercase_rand"];
 
   req = http_post_put_req(port: port, url: poc_url, data: "testdata");
-  req = ereg_replace(string: req, pattern: '(Host: [^\r\n]+)', replace: "Host: " + host_header);
+  req = ereg_replace(string: req, pattern: '(Host\\s*: [^\r\n]+)', replace: "Host: " + host_header);
   res = http_keepalive_send_recv(port: port, data: req);
   if(!res)
     continue;
 
-  if(match = egrep(string: res, pattern: "(^Location:|This document has moved to a new).+" + host_header, icase: TRUE)) {
+  if(match = egrep(string: res, pattern: "(^Location\s*:|This document has moved to a new).+" + host_header, icase: TRUE)) {
     vuln_urls[poc_url] = chomp(match);
     VULN = TRUE;
   }

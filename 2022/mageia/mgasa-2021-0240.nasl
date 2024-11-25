@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2021.0240");
   script_cve_id("CVE-2021-29457", "CVE-2021-29458", "CVE-2021-29463", "CVE-2021-29464", "CVE-2021-29470", "CVE-2021-29473", "CVE-2021-29623", "CVE-2021-32617", "CVE-2021-3482");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-05-10 15:31:00 +0000 (Mon, 10 May 2021)");
+  script_tag(name:"severity_date", value:"2021-05-10 15:31:36 +0000 (Mon, 10 May 2021)");
 
   script_name("Mageia: Security Advisory (MGASA-2021-0240)");
   script_category(ACT_GATHER_INFO);
@@ -27,10 +27,10 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2021-0240");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2021-0240.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=29008");
-  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-4941-1");
-  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-4964-1");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/2XQT5F5IINTDYDAFGVGQZ7PMMLG7I5ZZ/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/5I3RRZUGSBIUYZ5TIHLN55PKMAWCSJ5G/");
+  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-4941-1");
+  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-4964-1");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'exiv2' package(s) announced via the MGASA-2021-0240 advisory.");
 

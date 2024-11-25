@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802275");
-  script_version("2023-07-28T05:05:23+0000");
+  script_version("2024-02-26T14:36:40+0000");
   script_cve_id("CVE-2011-3545", "CVE-2011-3549");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-26 14:36:40 +0000 (Mon, 26 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-11-15 14:34:22 +0530 (Tue, 15 Nov 2011)");
-  script_name("Oracle Java SE Multiple Vulnerabilities - October 2011 (Windows03)");
+  script_name("Oracle Java SE 1.4, 5, 6 Multiple Vulnerabilities (cpuoct2011) - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/46512");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/50220");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/50223");
@@ -41,7 +41,6 @@ if(description)
   script_tag(name:"summary", value:"Oracle Java SE is prone to multiple vulnerabilities.");
   exit(0);
 }
-
 
 include("version_func.inc");
 

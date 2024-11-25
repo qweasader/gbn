@@ -1,253 +1,180 @@
-# Copyright (C) 2015 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2015 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105939");
-  script_version("2022-07-08T10:11:49+0000");
-  script_tag(name:"last_modification", value:"2022-07-08 10:11:49 +0000 (Fri, 08 Jul 2022)");
+  script_version("2024-07-04T05:05:37+0000");
+  script_tag(name:"last_modification", value:"2024-07-04 05:05:37 +0000 (Thu, 04 Jul 2024)");
   script_tag(name:"creation_date", value:"2015-01-21 09:55:57 +0700 (Wed, 21 Jan 2015)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
 
   script_cve_id("CVE-2014-8272");
 
-  script_name("Dell iDRAC Weak SessionID Vulnerability");
+  script_tag(name:"qod_type", value:"remote_vul");
+
+  script_tag(name:"solution_type", value:"VendorFix");
+
+  script_name("Dell iDRAC Weak SessionID Vulnerability (IPMI Protocol) - Active Check");
 
   script_category(ACT_ATTACK);
-  script_tag(name:"qod_type", value:"remote_vul");
-  script_tag(name:"solution_type", value:"VendorFix");
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("General");
   script_dependencies("gb_ipmi_detect.nasl", "gb_ipmi_default_pw.nasl");
   script_require_udp_ports("Services/udp/ipmi", 623);
-  script_mandatory_keys("ipmi/credentials");
+  script_mandatory_keys("ipmi/credentials", "ipmi/version/1.5");
 
-  script_tag(name:"summary", value:"IPMI v1.5 SessionID's are not randomized sufficiently across
-  different channels.");
+  script_tag(name:"summary", value:"Intelligent Platform Management Interface (IPMI) v1.5
+  SessionID's are not randomized sufficiently across different channels.");
 
-  script_tag(name:"vuldetect", value:"Checks randomness of the session ID's by activating sessions.");
+  script_tag(name:"vuldetect", value:"Checks randomness of the session ID's by activating
+  sessions.
 
-  script_tag(name:"insight", value:"Dell iDRAC6 and iDRAC7 does not properly randomize session ID values,
-  which makes it easier for remote attackers to execute arbitrary commands via a brute-force attack.");
+  Note: Default credentials needs to be found / available previously for a successful detection of
+  this flaw.");
 
-  script_tag(name:"impact", value:"A remote attacker might be able to execute arbitrary commands via a
+  script_tag(name:"insight", value:"Dell iDRAC6 and iDRAC7 does not properly randomize session ID
+  values, which makes it easier for remote attackers to execute arbitrary commands via a
   brute-force attack.");
 
-  script_tag(name:"affected", value:"Dell iDRAC6 modular before 3.65, iDRAC6 monolithic before 1.98 and
-  iDRAC7 before 1.57.57.");
+  script_tag(name:"impact", value:"A remote attacker might be able to execute arbitrary commands
+  via a brute-force attack.");
 
-  script_tag(name:"solution", value:"Updates from Dell are available which will disable IPMI v1.5. As
-  a workaround disable IPMI v1.5.");
+  script_tag(name:"affected", value:"Dell iDRAC6 modular before 3.65, iDRAC6 monolithic before 1.98
+  and iDRAC7 before 1.57.57. Other models / vendors might be affected as well.");
 
-  script_xref(name:"URL", value:"https://labs.mwrinfosecurity.com/blog/2015/01/08/cve-2014-8272/");
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/71750");
+  script_tag(name:"solution", value:"- Updates from Dell are available which will disable IPMI v1.5.
+
+  - As a workaround disable IPMI v1.5. Please contact the vendor / consult the device manual for
+  more information.");
+
+  script_xref(name:"URL", value:"https://web.archive.org/web/20150618103158/https://labs.mwrinfosecurity.com/blog/2015/01/08/cve-2014-8272/");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20201108110204/https://labs.f-secure.com/archive/cve-2014-8272/");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210122092256/https://www.securityfocus.com/bid/71750/");
+  script_xref(name:"URL", value:"https://www.cisa.gov/news-events/alerts/2013/07/26/risks-using-intelligent-platform-management-interface-ipmi");
+  script_xref(name:"URL", value:"http://fish2.com/ipmi/");
 
   exit(0);
 }
 
+include("dump.inc");
 include("byte_func.inc");
 include("http_func.inc");
+include("ipmi_func.inc");
 include("port_service_func.inc");
+include("host_details.inc");
 
-function checksum(data) {
-  checksum = 0;
-  for (i=0; i<strlen(data); i++) {
-     checksum = (checksum + ord(data[i])) % 256;
-  }
-  return 0x100 - checksum;
+debug = FALSE;
+
+port = service_get_port(default: 623, ipproto: "udp", proto: "ipmi");
+
+if (!get_kb_item("ipmi/" + port + "/version/1.5"))
+  exit(0);
+
+if (!creds = get_kb_item("ipmi/" + port + "/credentials"))
+  exit(0);
+
+if (!soc = open_sock_udp(port))
+  exit(0);
+
+getChannelAuthCap = ipmi_v1_5_create_get_channel_auth_cap(debug: debug);
+send(socket: soc, data: getChannelAuthCap);
+
+if (!recv = recv(socket: soc, length: 1024)) {
+  close(soc);
+  exit(0);
 }
 
-function createHash(alg, password, sessionid, data, seqnr) {
-  if (alg == "MD5") {
-    return MD5(password + sessionid + data + seqnr + password);
-  } else {
-    return password;
-  }
-}
+if (debug) display('IPMI v1.5 Get Channel Authentication Capabilities Response:\n' + hexdump(ddata: recv));
 
-port = service_get_port(default:623, ipproto:"udp", proto:"ipmi");
-
-creds = get_kb_item("ipmi/" + port + "/credentials");
-if (!creds)
-  exit(0);
-
-creds = split(creds, sep:"/", keep:FALSE);
-username = creds[0];
-password = creds[1];
-if (!username || !password)
-  exit(0);
-
-if(!soc = open_sock_udp(port))
-  exit(0);
-
-getChannelAuthCap = raw_string(0x06, 0x00, 0xff, 0x07,        # RMCP
-                               0x00,                          # Auth Type = NONE
-                               0x00, 0x00, 0x00, 0x00,        # Session Seq Number
-                               0x00, 0x00, 0x00, 0x00,        # Session ID
-                               0x09,                          # Message Length
-                               # IPMI Message
-                               0x20,                          # Responder Address
-                               0x18,                          # netFn/rsLUN
-                               checksum(data:raw_string(0x20, 0x18)),
-                               0x81,                          # Requester Address
-                               0x04,                          # reqSeq, reqLUN
-                               0x38,                          # Get Channel Auth Capabilities (command)
-                               0x0e,                          # Channel Number (this channel)
-                               0x04,                          # Request Administrator level
-                               checksum(data:raw_string(0x81, 0x04, 0x38, 0x0e, 0x04))
-                              );
-send(socket:soc, data:getChannelAuthCap);
-recv = recv(socket:soc, length:1024);
-if (!recv)
-  exit(0);
-
-auth_support = dec2bin(dec:ord(recv[22]));
+auth_support = dec2bin(dec: ord(recv[22]));
 
 if (auth_support[5] == 1) {
-  authAlg = "MD5";
-  authType = raw_string(0x02);
+  authAlg = IPMI_1_5_AUTHENTICATION_ALG_MD5;
+  authType = IPMI_1_5_AUTHENTICATION_TYPE_MD5;
 }
 else if (auth_support[3] == 1) {
-  authAlg = "PW";
-  authType = raw_string(0x04);
+  authAlg = IPMI_1_5_AUTHENTICATION_ALG_PW;
+  authType = IPMI_1_5_AUTHENTICATION_TYPE_PW;
 }
 else {
+  close(soc);
   exit(0); # No suitable authentication algorithm so just exit
 }
 
-for (j=0; j<10; j++) {
+creds = split(creds, sep: "/", keep: FALSE);
+username = creds[0];
+password = creds[1];
+
+for (j = 0; j < 10; j++) {
   paddedUsername = username;
-  while (strlen(paddedUsername) < 16) {
+  while (strlen(paddedUsername) < 16) { # nb: Password needs to be padded to 16 bytes
     paddedUsername = paddedUsername + raw_string(0x00);
   }
 
-  getSessChallenge = raw_string(0x06, 0x00, 0xff, 0x07,     # RMCP
-                                0x00,                       # Auth Type = NONE
-                                0x00, 0x00, 0x00, 0x00,     # Session Seq Number
-                                0x00, 0x00, 0x00, 0x00,     # Session ID
-                                0x18,                       # Message Length
-                                # IPMI Message
-                                0x20,                       # Responder Address
-                                0x18,                       # netFn/rsLUN
-                                0xc8,                       # checksum
-                                0x81,                       # Requester Address
-                                0x08,                       # reqSeq, reqLUN
-                                0x39,                       # Get Session Challenge (command)
-                                authType,                   # Auth Type for Challenge
-                                paddedUsername,
-                                checksum(data:raw_string(0x81, 0x08, 0x39, authType, paddedUsername))
-                               );
+  getSessChallenge = ipmi_v1_5_create_get_session_challenge(auth_type: authType, username: paddedUsername,
+                                                            debug: debug);
+  if (isnull(getSessChallenge))
+    break;
 
-  send(socket:soc, data:getSessChallenge);
+  send(socket:soc, data: getSessChallenge);
   recv = recv(socket:soc, length:1024);
 
+  if (debug) display('IPMI v1.5 Get Session Challenge Response:\n' + hexdump(ddata: recv));
+
   # Error Checking
-  if (!recv || hexstr(recv[20]) != "00") {
+  if (!recv || hexstr(recv[20]) != "00")
     break;
-  }
 
   tmp_sessionID = substr(recv, 21, 24);
   challenge = substr(recv, 25, 40);
-  sequenceNum = raw_string(0x00, 0x00, 0x00, 0x00);
-  # Activate Session
-  paddedPassword = password;
-  while (strlen(paddedPassword) < 16) {
-    paddedPassword = paddedPassword + raw_string(0x00);
-  }
 
-  chksum = checksum(data:raw_string(0x81, 0x0c, 0x3a, authType, 0x04, challenge, 0xaa, 0x9b, 0x59, 0x3a));
-  data = raw_string(0x20, 0x18, 0xc8, 0x81, 0x0c, 0x3a, authType, 0x04, challenge,
-                    0xaa, 0x9b, 0x59, 0x3a, chksum);
-  authCode = createHash(alg:authAlg, password:paddedPassword, sessionid:tmp_sessionID,
-                        data:data, seqnr:sequenceNum);
+  activateSession = ipmi_v1_5_create_activate_session_request(auth_type: authType, auth_alg: authAlg,
+                                                              challenge: challenge, password: password,
+                                                              session_id: tmp_sessionID, debug: debug);
+  if (isnull(activateSession))
+    break;
 
-  activateSession = raw_string(0x06, 0x00, 0xff, 0x07,      # RMCP
-                               authType,                    # Auth Type
-                               0x00, 0x00, 0x00, 0x00,      # Session Seq Number
-                               tmp_sessionID,
-                               authCode,                    # AuthCode
-                               0x1d,                        # Message Length
-                               # IPMI Message
-                               0x20,                        # Responder Address
-                               0x18,                        # netFn/rsLUN
-                               0xc8,                        # checksum
-                               0x81,                        # Requester Address
-                               0x0c,                        # reqSeq/reqLUN
-                               0x3a,                        # Activate Session (command)
-                               authType,                    # Auth Type
-                               0x04,                        # Max Priv Level (Administrator level)
-                               challenge,
-                               0xaa, 0x9b, 0x59, 0x3a,      # initial outbound seq number
-                               chksum
-                              );
+  send(socket: soc, data: activateSession);
+  recv = recv(socket: soc, length: 1024);
 
-  send(socket:soc, data:activateSession);
-  recv = recv(socket:soc, length:1024);
+  if (debug) display('IPMI v1.5 Activate Session Response:\n' + hexdump(ddata: recv));
 
   # Error checking
-  if (!recv) {
+  if (!recv)
     continue;
-  }
+
   if (strlen(recv) > 41 && hexstr(recv[36]) == "00") {
     sessionid = substr(recv, 38, 41);
     sessionids[j] = raw_string(hexstr(sessionid[3]), hexstr(sessionid[2]), hexstr(sessionid[1]),
                                hexstr(sessionid[0]));
-  }
-  else {
+  } else {
     continue;
   }
 
-  sequenceNum = raw_string(0x01, 0x00, 0x00, 0x00);
-  chksum = checksum(data:raw_string(0x81, 0x10, 0x3c, sessionid));
-  data = raw_string(0x20, 0x18, 0xc8, 0x81, 0x10, 0x3c, sessionid, chksum);
-  authCode = createHash(alg:authAlg, password:paddedPassword, sessionid:sessionid,
-                        data:data, seqnr:sequenceNum);
-
   # Close the session (some devices have very limited session slots available)
-  closeSession = raw_string(0x06, 0x00, 0xff, 0x07,     # RMCP
-                            authType,                   # Auth Type
-                            0x01, 0x00, 0x00, 0x00,     # Session Seq Number
-                            sessionid,                  # Session ID
-                            authCode,                   # AuthCode
-                            0x0b,                       # Message Length
-                            # IPMI Message
-                            0x20,                       # Responder Address
-                            0x18,                       # netFn/rsLUN
-                            0xc8,                       # checksum
-                            0x81,                       # Requester Address
-                            0x10,                       # reqSeq, reqLUN
-                            0x3c,                       # Close Session (command)
-                            sessionid,                  # SessionID
-                            chksum
-                           );
-  send(socket:soc, data:closeSession);
-  recv = recv(socket:soc, length:1024);
+  closeSession = ipmi_v1_5_create_close_session_request(auth_type: authType, auth_alg: authAlg,
+                                                        password: password, session_id: sessionid,
+                                                        debug: debug);
+  if (isnull(closeSession))
+    break;
+
+  send(socket: soc, data: closeSession);
+  recv = recv(socket: soc, length: 1024);
+  if (debug) display('IPMI v1.5 Close Session Response:\n' + hexdump(ddata: recv));
 }
 
 close(soc);
 
 const_diff = 0;
-for (i=1; i<10; i++) {
-  id1 = hex2dec(xvalue:sessionids[i-1]);
-  id2 = hex2dec(xvalue:sessionids[i]);
+for (i = 1; i < 10; i++) {
+  id1 = hex2dec(xvalue: sessionids[i - 1]);
+  id2 = hex2dec(xvalue: sessionids[i]);
   if (id1 < id2) {
     const_diff = id2 - id1;
     break;
@@ -258,18 +185,31 @@ if (const_diff > 0) {
   vulnerable = TRUE;
   notmatched = 0;
 
-  for (i=1; i<10; i++) {
-    if (hex2dec(xvalue:sessionids[i]) - hex2dec(xvalue:sessionids[i-1]) != const_diff) {
+  for (i = 1; i < 10; i++) {
+    if (hex2dec(xvalue: sessionids[i]) - hex2dec(xvalue: sessionids[i - 1]) != const_diff) {
       if (notmatched < 2)
         notmatched++;
       else
         vulnerable = FALSE;
     }
+
+    ids += hex2dec(xvalue: sessionids[i]) + '\n';
   }
 }
 
 if (vulnerable) {
-  security_message(port:port);
+
+  # nb:
+  # - Store the reference from this one to gb_ipmi_detect.nasl to show a cross-reference within the
+  #   reports
+  # - We don't want to use get_app_* functions as we're only interested in the cross-reference here
+  register_host_detail(name: "detected_by", value: "1.3.6.1.4.1.25623.1.0.103835"); # gb_ipmi_detect.nasl
+  register_host_detail(name: "detected_at", value: port + "/udp");
+
+  report = "The randomness of the session ID is not sufficiently randomized." +
+           '\n\nSession IDs:\n\n' + chomp(ids);
+  security_message(port: port, data: report, proto: "udp");
+  exit(0);
 }
 
-exit(0);
+exit(99);

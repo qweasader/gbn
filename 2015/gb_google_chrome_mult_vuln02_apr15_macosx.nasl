@@ -9,16 +9,16 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805469");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2015-3335", "CVE-2015-3334", "CVE-2015-3333", "CVE-2015-1249",
                 "CVE-2015-1247", "CVE-2015-1246", "CVE-2015-1244", "CVE-2015-1242",
                 "CVE-2015-1241", "CVE-2015-1240", "CVE-2015-1238", "CVE-2015-1237",
                 "CVE-2015-1236", "CVE-2015-1235", "CVE-2015-3336");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-04-21 18:47:21 +0530 (Tue, 21 Apr 2015)");
-  script_name("Google Chrome Multiple Vulnerabilities-02 Apr15 (Mac OS X)");
+  script_name("Google Chrome Multiple Vulnerabilities-02 (Apr 2015) - Mac OS X");
 
   script_tag(name:"summary", value:"Google Chrome is prone to multiple vulnerabilities.");
 

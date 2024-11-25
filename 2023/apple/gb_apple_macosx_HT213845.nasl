@@ -8,22 +8,24 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832338");
-  script_version("2023-10-31T05:06:37+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2023-35983", "CVE-2023-28319", "CVE-2023-28320", "CVE-2023-28321",
                 "CVE-2023-28322", "CVE-2023-36854", "CVE-2023-32418", "CVE-2023-32381",
                 "CVE-2023-32433", "CVE-2023-35993", "CVE-2023-38606", "CVE-2023-32441",
                 "CVE-2023-38565", "CVE-2023-38593", "CVE-2023-2953", "CVE-2023-38259",
-                "CVE-2023-38602", "CVE-2023-32443", "CVE-2023-40442", "CVE-2023-41990");
+                "CVE-2023-38602", "CVE-2023-32443", "CVE-2023-40442", "CVE-2023-41990",
+                "CVE-2023-42829", "CVE-2023-42831", "CVE-2023-42832", "CVE-2023-38603",
+                "CVE-2023-1801", "CVE-2023-2426", "CVE-2023-2609", "CVE-2023-2610");
   script_tag(name:"cvss_base", value:"9.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-10-31 05:06:37 +0000 (Tue, 31 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-08-03 18:16:00 +0000 (Thu, 03 Aug 2023)");
   script_tag(name:"creation_date", value:"2023-07-25 15:52:56 +0530 (Tue, 25 Jul 2023)");
-  script_name("Apple MacOSX Security Update (HT213845)");
+  script_name("Apple Mac OS X Security Update (HT213845)");
 
   script_tag(name:"summary", value:"Apple Mac OS X is prone to multiple
   vulnerabilities.");
@@ -41,7 +43,9 @@ if(description)
 
   - A use-after-free in memory management.
 
-  - An improper bounds checking and input validation.");
+  - An improper bounds checking and input validation.
+
+  For more information about the vulnerabilities refer to Reference links.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attackers to
   execute arbitrary code with kernel privileges and disclose sensitive information
@@ -79,7 +83,6 @@ if(!osVer || osVer !~ "^11\." || "Mac OS X" >!< osName) {
 
 if(version_is_less(version:osVer, test_version:"11.7.9")) {
   report = report_fixed_ver(installed_version:osVer, fixed_version:"11.7.9");
-
   security_message(port:0, data:report);
   exit(0);
 }

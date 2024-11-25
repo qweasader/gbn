@@ -1,34 +1,20 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141398");
-  script_version("2022-08-09T10:11:17+0000");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
+  script_version("2024-07-26T05:05:35+0000");
+  script_tag(name:"last_modification", value:"2024-07-26 05:05:35 +0000 (Fri, 26 Jul 2024)");
   script_tag(name:"creation_date", value:"2018-08-27 13:07:39 +0700 (Mon, 27 Aug 2018)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-02-24 12:15:00 +0000 (Wed, 24 Feb 2021)");
+  script_tag(name:"severity_date", value:"2024-07-25 13:58:42 +0000 (Thu, 25 Jul 2024)");
 
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
@@ -42,7 +28,7 @@ if(description)
 
   script_category(ACT_ATTACK);
 
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("find_service.nasl", "httpver.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "os_detection.nasl", "gb_vmware_vcenter_server_http_detect.nasl");
   script_require_ports("Services/www", 8080);
@@ -53,11 +39,11 @@ if(description)
 
   script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks the response.");
 
-  script_tag(name:"insight", value:"The flaw exists due to errors in conditions when namespace value
-  isn't set for a result defined in underlying configurations and in same time, its upper action(s)
-  configurations have no or wildcard namespace. Same possibility when using url tag which doesn't
-  have value and action set and in same time, its upper action(s) configurations have no or wildcard
-  namespace.");
+  script_tag(name:"insight", value:"The flaw exists due to errors in conditions when namespace
+  value isn't set for a result defined in underlying configurations and in same time, its upper
+  action(s) configurations have no or wildcard namespace. Same possibility when using url tag which
+  doesn't have value and action set and in same time, its upper action(s) configurations have no or
+  wildcard namespace.");
 
   script_tag(name:"affected", value:"Apache Struts 2.3 through 2.3.34 and 2.5 through 2.5.16.");
 

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112503");
-  script_version("2023-10-17T05:05:34+0000");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_version("2024-02-13T05:06:26+0000");
+  script_tag(name:"last_modification", value:"2024-02-13 05:06:26 +0000 (Tue, 13 Feb 2024)");
   script_tag(name:"creation_date", value:"2019-01-28 14:49:12 +0100 (Mon, 28 Jan 2019)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -18,7 +18,7 @@ if(description)
 
   script_cve_id("CVE-2019-6798");
 
-  script_name("phpMyAdmin 4.5.0 <= 4.8.4 SQL Injection Vulnerability - PMASA-2019-2 (Windows)");
+  script_name("phpMyAdmin 4.5.0 <= 4.8.4 SQL Injection Vulnerability (PMASA-2019-2) - Windows");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2019 Greenbone AG");

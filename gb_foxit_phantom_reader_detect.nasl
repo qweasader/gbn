@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805362");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-06-21T15:40:03+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-21 15:40:03 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"creation_date", value:"2015-04-08 10:37:27 +0530 (Wed, 08 Apr 2015)");
   script_name("Foxit PhantomPDF Version Detection");
 
@@ -40,22 +40,27 @@ if(!os_arch){
 }
 
 if("x86" >< os_arch){
-  key_list = make_list("SOFTWARE\Foxit Software\Foxit PhantomPDF");
+  key_list = make_list("SOFTWARE\Foxit Software\Foxit PhantomPDF", "SOFTWARE\Foxit Software\Foxit PDF Editor");
 }
 
 else if("x64" >< os_arch)
 {
-  key_list =  make_list("SOFTWARE\Wow6432Node\Foxit Software\Foxit PhantomPDF");
+  key_list =  make_list("SOFTWARE\Wow6432Node\Foxit Software\Foxit PhantomPDF", "SOFTWARE\Wow6432Node\Foxit Software\Foxit PDF Editor");
 }
 
 if(isnull(key_list)){
   exit(0);
 }
 
-if(!registry_key_exists(key:"SOFTWARE\Foxit Software\Foxit PhantomPDF")){
-  if(!registry_key_exists(key:"SOFTWARE\Wow6432Node\Foxit Software\Foxit PhantomPDF")){
-    exit(0);
+foreach key(key_list){
+  if(registry_key_exists(key: key)){
+    found = TRUE;
+    break;
   }
+}
+
+if(!found){
+  exit(0);
 }
 
 foreach key (key_list)
@@ -73,6 +78,9 @@ foreach key (key_list)
        if(!foxitVer){
          foxitVer = fetch_file_version(sysPath:foxitPath, file_name:"FoxitPhantomPDF.exe");
        }
+       if(!foxitVer){
+         foxitVer = fetch_file_version(sysPath:foxitPath, file_name:"FoxitPDFEditor.exe");
+       }
      }
     else
     {
@@ -83,6 +91,9 @@ foreach key (key_list)
         foxitVer = fetch_file_version(sysPath:foxitPath, file_name:"Foxit PhantomPDF.exe");
         if(!foxitVer){
          foxitVer = fetch_file_version(sysPath:foxitPath, file_name:"FoxitPhantomPDF.exe");
+       }
+       if(!foxitVer){
+         foxitVer = fetch_file_version(sysPath:foxitPath, file_name:"FoxitPDFEditor.exe");
        }
 
       }

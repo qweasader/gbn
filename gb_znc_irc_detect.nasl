@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100243");
-  script_version("2023-07-26T05:05:09+0000");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_version("2024-06-13T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-13 05:05:46 +0000 (Thu, 13 Jun 2024)");
   script_tag(name:"creation_date", value:"2009-07-26 19:54:54 +0200 (Sun, 26 Jul 2009)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -20,8 +20,9 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
   script_copyright("Copyright (C) 2009 Greenbone AG");
-  script_dependencies("find_service.nasl", "find_service1.nasl", "find_service2.nasl", "gb_znc_http_detect.nasl");
-  script_require_ports("Services/irc", "Services/www", 6667, 6697);
+  script_dependencies("find_service.nasl", "find_service1.nasl",
+                      "find_service2.nasl", "gb_znc_http_detect.nasl");
+  script_require_ports("Services/irc", "Services/www", 6667, 6668, 6697);
 
   script_tag(name:"summary", value:"IRC based detection ZNC.");
 
@@ -35,7 +36,7 @@ include("http_func.inc");
 include("http_keepalive.inc");
 
 ports = make_list();
-irc_ports = service_get_ports( default_port_list:make_list( 6667, 6697 ), proto:"irc" );
+irc_ports = service_get_ports( default_port_list:make_list( 6667, 6668, 6697 ), proto:"irc" );
 if( irc_ports )
   ports = make_list( ports, irc_ports );
 
@@ -63,7 +64,7 @@ if( irc_ports )
 # nb: Don't use http_get_ports because we want to check the IRC service even if the HTTP service
 #     is marked as e.g. "broken" or CGI scanning is disabled.
 #
-http_ports = service_get_ports( default_port_list:make_list( 6667, 6697 ), proto:"www" );
+http_ports = service_get_ports( default_port_list:make_list( 6667, 6668, 6697 ), proto:"www" );
 if( http_ports ) {
   foreach http_port( http_ports ) {
 
@@ -80,8 +81,8 @@ if( http_ports ) {
 ports = make_list_unique( ports );
 
 foreach port( ports ) {
-  soc = open_sock_tcp( port );
-  if( ! soc )
+
+  if( ! soc = open_sock_tcp( port ) )
     continue;
 
   req = string( "USER\r\n" );
@@ -93,6 +94,15 @@ foreach port( ports ) {
   if( egrep( pattern:"irc\.znc\.in NOTICE AUTH", string:buf, icase:TRUE ) ||
       ( "irc.znc.in" >< buf && "Password required" >< buf ) ) {
     version = "unknown";
+
+    # nb:
+    # - To tell http_can_host_asp and http_can_host_php from http_func.inc that the service is
+    #   NOT supporting these
+    # - While this detection is about the IRC service it might be also respond like a HTTP service
+    #   (See "Web Access is not enabled" above) and thus we're setting this accordingly now
+    # - We can also do this for all ports and don't need to do this port specific
+    replace_kb_item( name:"www/" + port + "/can_host_php", value:"no" );
+    replace_kb_item( name:"www/" + port + "/can_host_asp", value:"no" );
 
     # nb: If the service was detected as "www" we need to register it as "irc" again.
     service_register( port:port, proto:"irc", message:"An IRC server seems to be running on this port." );

@@ -10,11 +10,11 @@ if(description)
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2009-3295", "CVE-2009-4212", "CVE-2010-0283", "CVE-2010-0629", "CVE-2010-1320", "CVE-2010-1321", "CVE-2010-1322", "CVE-2010-1323", "CVE-2010-1324", "CVE-2010-4020", "CVE-2010-4021", "CVE-2010-4022", "CVE-2011-0281", "CVE-2011-0282", "CVE-2011-0283", "CVE-2011-0284", "CVE-2011-0285", "CVE-2011-1527", "CVE-2011-1528", "CVE-2011-1529", "CVE-2011-1530", "CVE-2011-4151");
-  script_version("2023-11-02T05:05:26+0000");
-  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L");
+  script_version("2024-02-05T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 05:05:38 +0000 (Mon, 05 Feb 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-01-21 15:46:00 +0000 (Tue, 21 Jan 2020)");
+  script_tag(name:"severity_date", value:"2024-02-02 16:52:02 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-02-12 10:04:42 -0500 (Sun, 12 Feb 2012)");
   script_name("Gentoo Security Advisory GLSA 201201-13 (mit-krb5)");
   script_category(ACT_GATHER_INFO);

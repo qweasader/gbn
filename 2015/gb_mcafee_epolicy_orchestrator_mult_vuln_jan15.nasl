@@ -9,13 +9,13 @@ CPE = "cpe:/a:mcafee:epolicy_orchestrator";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805238");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-08T15:37:10+0000");
   script_cve_id("CVE-2015-0922", "CVE-2015-0921");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-08 15:37:10 +0000 (Fri, 08 Mar 2024)");
   script_tag(name:"creation_date", value:"2015-01-12 20:02:18 +0530 (Mon, 12 Jan 2015)");
-  script_name("McAfee ePolicy Orchestrator Multiple Vulnerabilities - Jan15");
+  script_name("McAfee ePolicy Orchestrator Multiple Vulnerabilities (Jan 2015)");
 
   script_tag(name:"summary", value:"McAfee ePolicy Orchestrator is prone to multiple vulnerabilities.");
 
@@ -48,25 +48,24 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_mcafee_epolicy_orchestrator_detect.nasl");
   script_mandatory_keys("mcafee_ePO/installed");
-  script_require_ports("Services/www", 8443);
+
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
 
-if(!mcaPort = get_app_port(cpe:CPE)){
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_is_less(version:version, test_version:"4.6.9")||
+   version_in_range(version:version, test_version:"5.0.0", test_version2:"5.1.1")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"4.6.9/5.1.2");
+  security_message(port:port, data:report);
   exit(0);
 }
 
-if(!mcaVer = get_app_version(cpe:CPE, port:mcaPort)){
-  exit(0);
-}
-
-if(version_is_less(version:mcaVer, test_version:"4.6.9")||
-   version_in_range(version:mcaVer, test_version:"5.0.0", test_version2:"5.1.1"))
-{
-  security_message(port:mcaPort);
-  exit(0);
-}
+exit(99);

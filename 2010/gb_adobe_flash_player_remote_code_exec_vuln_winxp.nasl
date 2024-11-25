@@ -9,13 +9,16 @@ CPE = "cpe:/a:adobe:flash_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800420");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-22T14:37:29+0000");
+  script_tag(name:"last_modification", value:"2024-02-22 14:37:29 +0000 (Thu, 22 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-01-13 15:42:20 +0100 (Wed, 13 Jan 2010)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-03 02:21:08 +0000 (Sat, 03 Feb 2024)");
   script_cve_id("CVE-2010-0378", "CVE-2010-0379");
-  script_name("Adobe Flash Player Remote Code Execution Vulnerability (WinXP)");
+  script_name("Adobe Flash Player < 10.0.42.34 Remote Code Execution Vulnerability - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/27105");
   script_xref(name:"URL", value:"http://secunia.com/secunia_research/2007-77/");
   script_xref(name:"URL", value:"http://securitytracker.com/alerts/2010/Jan/1023435.html");

@@ -4,42 +4,39 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
+CPE = "cpe:/a:embedthis:goahead";
+
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108491");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-09-25T05:06:11+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-11-29 09:14:30 +0100 (Thu, 29 Nov 2018)");
-  script_name("D-Link DAP Devices Detection");
+  script_name("D-Link DAP Devices Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Product detection");
-  script_dependencies("gb_goahead_detect.nasl");
+  script_dependencies("gb_embedthis_goahead_http_detect.nasl");
   script_require_ports("Services/www", 8080);
-  script_mandatory_keys("embedthis/goahead/detected");
+  script_mandatory_keys("embedthis/goahead/http/detected");
 
   script_xref(name:"URL", value:"http://en.intelbras.com.br");
 
-  script_tag(name:"summary", value:"Detection of Intelbras NCLOUD devices.
-
-  The script sends a connection request to the server and attempts to
-  determine if the remote host is a Intelbras NCLOUD device from the reply.");
+  script_tag(name:"summary", value:"HTTP based detection of Intelbras NCLOUD devices.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
   exit(0);
 }
 
-CPE = "cpe:/a:embedthis:goahead";
-
 include("http_func.inc");
 include("http_keepalive.inc");
 include("host_details.inc");
 include("os_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) )
+if( ! port = get_app_port( cpe:CPE, service: "www" ) )
   exit( 0 );
 
 buf = http_get_cache( item:"/login.asp", port:port );

@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103686");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-03-07T05:06:18+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-07 05:06:18 +0000 (Thu, 07 Mar 2024)");
   script_tag(name:"creation_date", value:"2013-03-28 11:51:27 +0100 (Thu, 28 Mar 2013)");
 
   script_name("Unprotected Lexmark Printer (HTTP)");
@@ -19,7 +19,9 @@ if(description)
 
   script_family("Default Accounts");
   script_copyright("Copyright (C) 2013 Greenbone AG");
-  script_dependencies("gb_lexmark_printer_consolidation.nasl", "gb_default_credentials_options.nasl");
+  # nb: No need to disable via default_credentials/disable_default_account_checks or
+  # gb_default_credentials_options.nasl because this isn't doing any login (at least currently)...
+  script_dependencies("gb_lexmark_printer_consolidation.nasl");
   script_mandatory_keys("lexmark_printer/http/detected", "lexmark_printer/model");
 
   script_tag(name:"summary", value:"The remote Lexmark Printer is not protected by a password and/or permissions

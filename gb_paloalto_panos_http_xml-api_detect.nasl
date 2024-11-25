@@ -1,28 +1,14 @@
-# Copyright (C) 2015 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2015 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105262");
-  script_version("2022-12-22T10:19:23+0000");
-  script_tag(name:"last_modification", value:"2022-12-22 10:19:23 +0000 (Thu, 22 Dec 2022)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2015-04-22 13:23:32 +0200 (Wed, 22 Apr 2015)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -33,7 +19,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_paloalto_panos_http_detect.nasl");
   script_mandatory_keys("palo_alto/http/detected");
@@ -84,7 +70,12 @@ if( "success" >!< res || "<key>" >!< res ) {
   if( reason = egrep( pattern:"<msg>.*</msg>", string:res ) )
     exit_and_report_fail( port:port, reason:reason );
 
-  exit_and_report_fail( port:port, reason:"Unknown error occurred while trying to generate an Access Key via '/api/?type=keygen'." );
+  if( ! res )
+    reason = "Empty response received while trying to generate an Access Key via '/api/?type=keygen'.";
+  else
+    reason = "Unknown error occurred while trying to generate an Access Key via '/api/?type=keygen'.";
+
+  exit_and_report_fail( port:port, reason:reason );
 }
 
 match = eregmatch( pattern:"<key>([^<]+)</key>", string:res );
@@ -101,7 +92,12 @@ if( "success" >!< res || "<result>" >!< res ) {
   if( reason = egrep( pattern:"<msg>.*</msg>", string:res ) )
     exit_and_report_fail( port:port, reason:reason );
 
-  exit_and_report_fail( port:port, reason:"Unknown error occurred while trying to access '/api/?type=op' via the previously generated Access Key." );
+  if( ! res )
+    reason = "Empty response received while trying to access '/api/?type=op' via the previously generated Access Key.";
+  else
+    reason = "Unknown error occurred while trying to access '/api/?type=op' via the previously generated Access Key.";
+
+  exit_and_report_fail( port:port, reason:reason );
 }
 
 model = "unknown";
@@ -121,6 +117,7 @@ if( ! isnull( mod[1] ) ) {
   concluded = '\n    ' + mod[0];
 }
 
+# <sw-version>10.2.10-h9</sw-version>
 # <sw-version>10.0.0</sw-version>
 # <sw-version>8.1.21-h1</sw-version>
 vers = eregmatch( pattern:"<sw-version>([^<]+)</sw-version>", string:res );

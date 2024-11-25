@@ -10,14 +10,14 @@ if (description)
   script_cve_id("CVE-2013-5093");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-06-28T15:38:46+0000");
 
-  script_name("Graphite Remote Code Execution Vulnerability");
+  script_name("Graphite RCE Vulnerability");
 
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/61894");
 
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2013-08-22 17:46:22 +0200 (Thu, 22 Aug 2013)");
   script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"VendorFix");
@@ -39,7 +39,8 @@ between servers. However due to no explicit safety measures having been
 implemented to limit the types of objects that can be unpickled, this creates
 a condition where arbitrary code can be executed");
   script_tag(name:"solution", value:"Ask the Vendor for an update.");
-  script_tag(name:"summary", value:"Graphite is prone to a remote code-execution vulnerability.");
+  script_tag(name:"summary", value:"Graphite is prone to a remote code execution (RCE)
+  vulnerability.");
   script_tag(name:"affected", value:"Graphite versions 0.9.5 through 0.9.10 are vulnerable.");
 
   exit(0);

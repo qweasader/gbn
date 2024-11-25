@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805444");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-06T05:05:53+0000");
   script_cve_id("CVE-2014-10036", "CVE-2014-10002");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-06 05:05:53 +0000 (Wed, 06 Mar 2024)");
   script_tag(name:"creation_date", value:"2015-04-07 10:25:40 +0530 (Tue, 07 Apr 2015)");
   script_tag(name:"qod_type", value:"remote_banner");
   script_name("JetBrains TeamCity < 8.1 Multiple Vulnerabilities");
@@ -45,7 +45,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_jetbrains_teamcity_detect.nasl");
+  script_dependencies("gb_jetbrains_teamcity_http_detect.nasl");
   script_mandatory_keys("jetbrains/teamcity/detected");
 
   exit(0);

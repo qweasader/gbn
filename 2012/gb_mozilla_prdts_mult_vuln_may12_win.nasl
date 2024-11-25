@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802840");
-  script_version("2023-10-17T05:05:34+0000");
+  script_version("2024-02-08T05:05:59+0000");
   script_cve_id("CVE-2012-0467", "CVE-2012-0469", "CVE-2012-0468", "CVE-2012-0470",
                 "CVE-2012-0471", "CVE-2012-0472", "CVE-2012-0474", "CVE-2012-0477",
                 "CVE-2012-0478", "CVE-2012-0479");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-05-02 10:29:17 +0530 (Wed, 02 May 2012)");
-  script_name("Mozilla Products Multiple Vulnerabilities - May12 (Windows)");
+  script_name("Mozilla Products Multiple Vulnerabilities (May 2012) - Windows");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/48972/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/53218");

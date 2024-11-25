@@ -1,31 +1,15 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
-#
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107372");
-  script_version("2021-06-25T02:00:34+0000");
+  script_version("2024-09-25T05:06:11+0000");
   script_cve_id("CVE-2018-17890");
-  script_tag(name:"last_modification", value:"2021-06-25 02:00:34 +0000 (Fri, 25 Jun 2021)");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-11-19 15:08:41 +0100 (Mon, 19 Nov 2018)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -34,28 +18,28 @@ if(description)
   script_tag(name:"severity_date", value:"2020-09-18 16:21:00 +0000 (Fri, 18 Sep 2020)");
   script_tag(name:"qod_type", value:"registry");
   script_tag(name:"solution_type", value:"VendorFix");
-  script_name("NoMachine for Windows Trojan File Remote Code Execution Vulnerability (Windows)");
+  script_name("NoMachine for Windows <= 5.3.26, 6.x < 6.3.6 Trojan File RCE Vulnerability - Windows");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("General");
   script_dependencies("gb_nomachine_for_windows_detect.nasl");
   script_mandatory_keys("nomachine/win/detected");
 
-  script_tag(name:"summary", value:"NoMachine for Windows <= version 5.3.26 or < 6.3.6 is prone to a
-Trojan File Remeote Code Execution vulnerability.");
+  script_tag(name:"summary", value:"NoMachine for Windows is prone to a remote code execution (RCE)
+  vulnerability.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the
-target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"Possible arbitrary code execution when opening a '.nxs'
-nomachine file type on client's wintab32.dll preload.
+  nomachine file type on client's wintab32.dll preload.
 
-This issue regards the client part of all NoMachine installations on Windows (NoMachine free,
-NoMachine Enterprise Client, NoMachine Enteprise Desktop and NoMachine Cloud Server).");
+  This issue regards the client part of all NoMachine installations on Windows (NoMachine free,
+  NoMachine Enterprise Client, NoMachine Enteprise Desktop and NoMachine Cloud Server).");
 
-  script_tag(name:"affected", value:"NoMachine for Windows <= 5.3.26 or < 6.3.6.");
+  script_tag(name:"affected", value:"NoMachine for Windows version 5.3.26 and prior and 6.x prior to
+  6.3.6.");
 
-  script_tag(name:"solution", value:"Upgrade to NoMachine for Windows version 5.3.27, 6.3.6 or later.");
+  script_tag(name:"solution", value:"Update to version 5.3.27, 6.3.6 or later.");
 
   script_xref(name:"URL", value:"http://hyp3rlinx.altervista.org/advisories/NOMACHINE-TROJAN-FILE-REMOTE-CODE-EXECUTION.txt");
   script_xref(name:"URL", value:"https://www.nomachine.com/SU10P00199");

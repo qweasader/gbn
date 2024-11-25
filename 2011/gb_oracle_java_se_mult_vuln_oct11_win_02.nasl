@@ -7,16 +7,19 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802274");
-  script_version("2023-07-28T05:05:23+0000");
+  script_version("2024-07-25T05:05:41+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2011-3544", "CVE-2011-3546", "CVE-2011-3550", "CVE-2011-3551",
                 "CVE-2011-3553", "CVE-2011-3558", "CVE-2011-3561");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-25 05:05:41 +0000 (Thu, 25 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-07-24 14:29:45 +0000 (Wed, 24 Jul 2024)");
   script_tag(name:"creation_date", value:"2011-11-15 14:34:22 +0530 (Tue, 15 Nov 2011)");
-  script_name("Oracle Java SE Multiple Vulnerabilities - October 2011 (Windows02)");
+  script_name("Oracle Java SE 6, 7 Multiple Vulnerabilities (cpuoct2011) - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/46512");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/50218");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/50224");
@@ -55,7 +58,6 @@ if(description)
   script_tag(name:"summary", value:"Oracle Java SE is prone to multiple vulnerabilities.");
   exit(0);
 }
-
 
 include("version_func.inc");
 

@@ -9,8 +9,8 @@ CPE = "cpe:/a:bea:weblogic_server";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100494");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2010-02-14 12:35:00 +0100 (Sun, 14 Feb 2010)");
   script_cve_id("CVE-2010-0073");
   script_tag(name:"cvss_base", value:"10.0");
@@ -18,7 +18,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Oracle WebLogic Server Node Manager 'beasvc.exe' Remote Command Execution Vulnerability");
+  script_name("Oracle WebLogic Server Node Manager 'beasvc.exe' RCE Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/37926");
   script_xref(name:"URL", value:"http://intevydis.blogspot.com/2010/01/oracle-weblogic-1032-node-manager-fun.html");

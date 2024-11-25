@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805321");
-  script_version("2023-12-13T05:05:23+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-01-13 13:48:08 +0530 (Tue, 13 Jan 2015)");
-  script_name("PHPads Authentication Bypass Vulnerabilities - Jan15");
+  script_name("PHPads Authentication Bypass Vulnerabilities (Jan 2015)");
 
   script_tag(name:"summary", value:"PHPads is prone to Authentication Bypass vulnerabilities.");
 

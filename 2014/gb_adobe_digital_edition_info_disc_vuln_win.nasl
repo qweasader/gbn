@@ -9,14 +9,14 @@ CPE = "cpe:/a:adobe:digital_editions";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804867");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2014-8068");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-10-22 10:42:59 +0530 (Wed, 22 Oct 2014)");
 
-  script_name("Adobe Digital Edition Information Disclosure Vulnerability (Windows)");
+  script_name("Adobe Digital Edition Information Disclosure Vulnerability - Windows");
 
   script_tag(name:"summary", value:"Adobe Digital Edition is prone to an information disclosure vulnerability.");
 

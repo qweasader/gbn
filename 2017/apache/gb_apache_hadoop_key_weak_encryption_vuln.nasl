@@ -9,11 +9,11 @@ CPE = "cpe:/a:apache:hadoop";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811969");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-04T05:10:24+0000");
   script_cve_id("CVE-2012-4449");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 05:10:24 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-11-21 15:53:00 +0000 (Tue, 21 Nov 2017)");
@@ -45,37 +45,38 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_apache_hadoop_detect.nasl");
   script_mandatory_keys("Apache/Hadoop/Installed");
-  script_require_ports("Services/www", 50070);
+
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!hadoopPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!infos = get_app_version_and_location(cpe:CPE, port:hadoopPort, exit_no_version:TRUE)) exit(0);
-hadoopVer = infos['version'];
-hadoopPath = infos['location'];
+if(!infos = get_app_version_and_location(cpe:CPE, port:port, exit_no_version:TRUE))
+  exit(0);
 
-if(hadoopVer =~ "^(2\.0)" && version_is_less(version:hadoopVer, test_version:"2.0.2")){
+version = infos["version"];
+path = infos["location"];
+
+if(version =~ "^2\.0" && version_is_less(version:version, test_version:"2.0.2")) {
   fix = "2.0.2";
 }
 
-else if(version_in_range(version:hadoopVer, test_version:"1.0", test_version2:"1.0.3")){
+else if(version_in_range(version:version, test_version:"1.0", test_version2:"1.0.3")) {
   fix = "1.0.4";
 }
 
-else if(version_is_less(version:hadoopVer, test_version:"0.23.4")){
+else if(version_is_less(version:version, test_version:"0.23.4")) {
   fix = "0.23.4";
 }
 
-if(fix)
-{
-  report = report_fixed_ver(installed_version:hadoopVer, fixed_version:fix, install_path:hadoopPath);
-  security_message(data:report, port:hadoopPort);
+if(fix) {
+  report = report_fixed_ver(installed_version:version, fixed_version:fix, install_path:path);
+  security_message(data:report, port:port);
   exit(0);
 }
-exit(0);
+
+exit(99);

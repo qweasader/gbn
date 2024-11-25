@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.12.2006.320.1");
-  script_cve_id("CVE-2006-0996", "CVE-2006-1490", "CVE-2006-1494", "CVE-2006-1608", "CVE-2006-1990", "CVE-2006-1991", "CVE-2006-2563", "CVE-2006-2660", "CVE-2006-3011", "CVE-2006-3016", "CVE-2006-3017", "CVE-2006-3018");
+  script_cve_id("CVE-2006-0996", "CVE-2006-1490", "CVE-2006-1494", "CVE-2006-1608", "CVE-2006-1990", "CVE-2006-1991", "CVE-2006-2563", "CVE-2006-2660", "CVE-2006-3011", "CVE-2006-3016", "CVE-2006-3018");
   script_tag(name:"creation_date", value:"2022-08-26 07:43:23 +0000 (Fri, 26 Aug 2022)");
-  script_version("2023-06-21T05:06:22+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:22 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-02-28T14:37:42+0000");
+  script_tag(name:"last_modification", value:"2024-02-28 14:37:42 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
 

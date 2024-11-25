@@ -8,7 +8,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832337");
-  script_version("2023-10-12T05:05:32+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2023-38580", "CVE-2023-36862", "CVE-2023-32364", "CVE-2023-35983",
@@ -26,20 +26,25 @@ if(description)
                 "CVE-2023-38590", "CVE-2023-38598", "CVE-2023-36495", "CVE-2023-37285",
                 "CVE-2023-38604", "CVE-2023-38571", "CVE-2023-29491", "CVE-2023-38601",
                 "CVE-2023-32444", "CVE-2023-38609", "CVE-2023-32654", "CVE-2023-38605",
-                "CVE-2023-40397", "CVE-2023-38599", "CVE-2023-32445", "CVE-2023-38592");
+                "CVE-2023-40397", "CVE-2023-38599", "CVE-2023-32445", "CVE-2023-38592",
+                "CVE-2023-40437", "CVE-2023-40439", "CVE-2023-42828", "CVE-2023-42866",
+                "CVE-2023-40440", "CVE-2023-1916", "CVE-2023-42829", "CVE-2023-42831",
+                "CVE-2023-42832", "CVE-2023-1801", "CVE-2023-2426", "CVE-2023-2609",
+                "CVE-2023-2610");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-09-12 12:02:00 +0000 (Tue, 12 Sep 2023)");
   script_tag(name:"creation_date", value:"2023-07-25 15:52:56 +0530 (Tue, 25 Jul 2023)");
-  script_name("Apple MacOSX Security Updates (HT213843)");
+  script_name("Apple Mac OS X Security Update (HT213843)");
 
   script_tag(name:"summary", value:"Apple Mac OS X is prone to multiple
   vulnerabilities.");
 
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present
+  on the target host.");
 
   script_tag(name:"insight", value:"Multiple flaws exist due to,
 
@@ -51,7 +56,7 @@ if(description)
 
   - Error in memory addressing.
 
-  Please see the references for more information.");
+  For more information about the vulnerabilities refer to Reference links.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attackers
   to conduct arbitrary code execution, bypass security restrictions and disclose

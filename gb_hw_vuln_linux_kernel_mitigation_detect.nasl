@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108765");
-  script_version("2023-08-14T05:05:34+0000");
-  script_tag(name:"last_modification", value:"2023-08-14 05:05:34 +0000 (Mon, 14 Aug 2023)");
+  script_version("2024-04-30T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2024-04-30 05:05:26 +0000 (Tue, 30 Apr 2024)");
   script_tag(name:"creation_date", value:"2020-06-02 05:50:19 +0000 (Tue, 02 Jun 2020)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -39,8 +39,7 @@ uname = get_kb_item( "ssh/login/uname" );
 if( ! uname || ! eregmatch( string:uname, pattern:"^Linux ", icase:FALSE ) ) # nb: Currently only Linux Kernel supported
   exit( 0 );
 
-sock = ssh_login_or_reuse_connection();
-if( ! sock )
+if( ! sock = ssh_login_or_reuse_connection() )
   exit( 0 );
 
 path = "/sys/devices/system/cpu/vulnerabilities/";
@@ -101,7 +100,8 @@ known_mitigations = make_list(
   "srbds",
   "tsx_async_abort",
   "spec_rstack_overflow",
-  "gather_data_sampling"
+  "gather_data_sampling",
+  "reg_file_data_sampling"
 );
 
 info = make_array();
@@ -142,20 +142,37 @@ foreach known_mitigation( known_mitigations ) {
     res = "sysfs file missing (" + res + ")";
     set_kb_item( name:"ssh/hw_vulns/kernel_mitigations/missing_or_vulnerable", value:TRUE );
     set_kb_item( name:"ssh/hw_vulns/kernel_mitigations/missing_or_vulnerable/" + known_mitigation, value:res );
-  } else if( res =~ "vulnerable" ) { # nb: case insensitive match because there is "Vulnerable" vs. "SMT vulnerable"
+  }
+
+  # nb: case insensitive match because there is "Vulnerable" vs. "SMT vulnerable"
+  else if( res =~ "vulnerable" ) {
     set_kb_item( name:"ssh/hw_vulns/kernel_mitigations/missing_or_vulnerable", value:TRUE );
     set_kb_item( name:"ssh/hw_vulns/kernel_mitigations/missing_or_vulnerable/" + known_mitigation, value:res );
-  } else if( res =~ "Mitigation: " ) {
+  }
+
+  else if( res =~ "Mitigation: .+" ) {
     set_kb_item( name:"ssh/hw_vulns/kernel_mitigations/available", value:TRUE );
     set_kb_item( name:"ssh/hw_vulns/kernel_mitigations/available/" + known_mitigation, value:res );
-  } else if( res =~ "Not affected" ) {
+  }
+
+  # e.g.:
+  # Unknown: No mitigations
+  else if( res =~ "^Unknown: .+" ) {
+    set_kb_item( name:"ssh/hw_vulns/kernel_mitigations/unknown/" + known_mitigation, value:res );
+  }
+
+  else if( res =~ "Not affected" ) {
     set_kb_item( name:"ssh/hw_vulns/kernel_mitigations/not_affected", value:TRUE );
     set_kb_item( name:"ssh/hw_vulns/kernel_mitigations/not_affected/" + known_mitigation, value:res );
+  }
+
   # nb: On EulerOS with a non-privileged user we're allowed to do a directly listing (the initial check) but not reading the files itself.
-  } else if( res =~ ": Permission denied" ) {
+  else if( res =~ ": Permission denied" ) {
     set_kb_item( name:"ssh/hw_vulns/kernel_mitigations/permission_denied", value:TRUE );
     set_kb_item( name:"ssh/hw_vulns/kernel_mitigations/permission_denied/" + known_mitigation, value:res );
-  } else {
+  }
+
+  else {
     set_kb_item( name:"ssh/hw_vulns/kernel_mitigations/unknown", value:TRUE );
     if( ! res ) {
       res = 'Unknown: No answer received to command "' + cmd + '"';

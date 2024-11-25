@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113561");
-  script_version("2023-07-05T05:06:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:18 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-02-15T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2019-11-11 15:10:49 +0000 (Mon, 11 Nov 2019)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -22,7 +22,7 @@ if(description)
 
   script_cve_id("CVE-2019-5010");
 
-  script_name("Python 2.x <= 2.7.11, 3.x <= 3.6.6 Denial of Service (DoS) Vulnerability (Windows)");
+  script_name("Python 2.x <= 2.7.11, 3.x <= 3.6.6 Denial of Service (DoS) Vulnerability - Windows");
 
   script_category(ACT_GATHER_INFO);
 

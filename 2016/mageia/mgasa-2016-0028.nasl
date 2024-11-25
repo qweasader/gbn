@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131191");
   script_cve_id("CVE-2015-8605");
   script_tag(name:"creation_date", value:"2016-01-21 05:32:03 +0000 (Thu, 21 Jan 2016)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.7");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:M/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:A/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-04-01 13:59:00 +0000 (Wed, 01 Apr 2020)");
+  script_tag(name:"severity_date", value:"2016-01-19 17:07:20 +0000 (Tue, 19 Jan 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0028)");
   script_category(ACT_GATHER_INFO);
@@ -26,11 +26,10 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0028");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0028.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17490");
-  script_xref(name:"URL", value:"https://kb.isc.org/article/AA-01334");
-  script_xref(name:"URL", value:"https://kb.isc.org/article/AA-01329");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17177");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17490");
+  script_xref(name:"URL", value:"https://kb.isc.org/article/AA-01329");
+  script_xref(name:"URL", value:"https://kb.isc.org/article/AA-01334");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'dhcp' package(s) announced via the MGASA-2016-0028 advisory.");
 

@@ -9,18 +9,18 @@ CPE = "cpe:/a:adobe:flash_player_chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811191");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-12T05:05:32+0000");
   script_cve_id("CVE-2017-3075", "CVE-2017-3081", "CVE-2017-3083", "CVE-2017-3084",
                 "CVE-2017-3076", "CVE-2017-3077", "CVE-2017-3078", "CVE-2017-3079",
                 "CVE-2017-3082");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-12 05:05:32 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-01-05 02:31:00 +0000 (Fri, 05 Jan 2018)");
   script_tag(name:"creation_date", value:"2017-06-14 08:19:40 +0530 (Wed, 14 Jun 2017)");
-  script_name("Adobe Flash Player Within Google Chrome Security Update (apsb17-17)-Windows");
+  script_name("Adobe Flash Player Within Google Chrome Security Update (APSB17-17) - Windows");
 
   script_tag(name:"summary", value:"Adobe Flash Player is prone to multiple vulnerabilities.");
 

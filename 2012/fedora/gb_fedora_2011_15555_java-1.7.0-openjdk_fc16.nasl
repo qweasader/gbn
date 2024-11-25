@@ -8,14 +8,17 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2011-November/069027.html");
   script_oid("1.3.6.1.4.1.25623.1.0.863798");
-  script_version("2023-06-23T16:09:17+0000");
-  script_tag(name:"last_modification", value:"2023-06-23 16:09:17 +0000 (Fri, 23 Jun 2023)");
+  script_version("2024-07-25T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-07-25 05:05:41 +0000 (Thu, 25 Jul 2024)");
   script_tag(name:"creation_date", value:"2012-03-19 12:17:23 +0530 (Mon, 19 Mar 2012)");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2011-3547", "CVE-2011-3548", "CVE-2011-3551", "CVE-2011-3552", "CVE-2011-3544", "CVE-2011-3521", "CVE-2011-3554", "CVE-2011-3389", "CVE-2011-3558", "CVE-2011-3556", "CVE-2011-3557", "CVE-2011-3560");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-07-24 14:29:45 +0000 (Wed, 24 Jul 2024)");
   script_xref(name:"FEDORA", value:"2011-15555");
   script_name("Fedora Update for java-1.7.0-openjdk FEDORA-2011-15555");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'java-1.7.0-openjdk'

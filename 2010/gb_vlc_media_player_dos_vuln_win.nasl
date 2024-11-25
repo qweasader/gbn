@@ -9,13 +9,13 @@ CPE = "cpe:/a:videolan:vlc_media_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801429");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-08-19 10:23:11 +0200 (Thu, 19 Aug 2010)");
   script_cve_id("CVE-2010-2937");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_name("VLC Media Player Meta-Information Denial of Service Vulnerability (Windows)");
+  script_name("VLC Media Player Meta-Information Denial of Service Vulnerability - Windows");
   script_xref(name:"URL", value:"http://www.videolan.org/security/sa1004.html");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/42386");
 

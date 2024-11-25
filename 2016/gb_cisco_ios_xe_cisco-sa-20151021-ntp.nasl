@@ -14,9 +14,9 @@ if (description)
                 "CVE-2015-7701", "CVE-2015-7855", "CVE-2015-7691", "CVE-2015-7692", "CVE-2015-7702");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-02-19T14:37:31+0000");
 
-  script_name("Multiple Vulnerabilities in ntpd Affecting Cisco Products - October 2015");
+  script_name("Multiple Vulnerabilities in ntpd Affecting Cisco Products (Oct 2015)");
 
   script_xref(name:"URL", value:"http://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20151021-ntp");
   script_xref(name:"URL", value:"http://tools.cisco.com/security/center/viewAlert.x?alertId=41653");
@@ -73,7 +73,7 @@ if (description)
   script_tag(name:"qod_type", value:"package");
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 14:37:31 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-07-16 13:15:00 +0000 (Fri, 16 Jul 2021)");

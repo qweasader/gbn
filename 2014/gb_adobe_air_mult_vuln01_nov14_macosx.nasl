@@ -9,7 +9,7 @@ CPE = "cpe:/a:adobe:flash_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804797");
-  script_version("2023-03-24T10:19:42+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2014-0573", "CVE-2014-0574", "CVE-2014-0576", "CVE-2014-0577",
                 "CVE-2014-0581", "CVE-2014-0582", "CVE-2014-0583", "CVE-2014-0584",
                 "CVE-2014-0585", "CVE-2014-0586", "CVE-2014-0588", "CVE-2014-0589",
@@ -17,9 +17,9 @@ if(description)
                 "CVE-2014-8441", "CVE-2014-8442");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-03-24 10:19:42 +0000 (Fri, 24 Mar 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-11-14 11:58:00 +0530 (Fri, 14 Nov 2014)");
-  script_name("Adobe AIR Multiple Vulnerabilities(APSB14-24)-(Mac OS X)");
+  script_name("Adobe AIR Multiple Vulnerabilities (APSB14-24) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe AIR is prone to multiple vulnerabilities.");
 

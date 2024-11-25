@@ -9,11 +9,11 @@ CPE = "cpe:/a:mongodb:mongodb";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803950");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2013-3969");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2013-10-07 12:56:33 +0530 (Mon, 07 Oct 2013)");
   script_name("MongoDB engine_v8 Denial of Service Vulnerability");
 
@@ -40,7 +40,6 @@ if (description)
   script_family("Databases");
   script_copyright("Copyright (C) 2013 Greenbone AG");
   script_dependencies("gb_mongodb_detect.nasl", "os_detection.nasl");
-  script_require_ports("Services/mongodb", 27017);
   script_mandatory_keys("mongodb/installed", "Host/runs_windows");
   exit(0);
 }
@@ -48,16 +47,18 @@ if (description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!port = get_app_port(cpe:CPE))exit(0);
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
 
-if(!ver = get_app_version(cpe:CPE, port:port))exit(0);
+if(!ver = get_app_version(cpe:CPE, port:port))
+  exit(0);
 
-if(ver =~ "^2\.4")
-{
-  if(version_in_range(version:ver, test_version:"2.4.0", test_version2:"2.4.4"))
-  {
+if(ver =~ "^2\.4") {
+  if(version_in_range(version:ver, test_version:"2.4.0", test_version2:"2.4.4")) {
     report = report_fixed_ver(installed_version:ver, fixed_version:"2.4.5");
     security_message(data:report, port:port);
     exit(0);
   }
 }
+
+exit(99);

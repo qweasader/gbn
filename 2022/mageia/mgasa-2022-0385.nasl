@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2022.0385");
   script_cve_id("CVE-2021-46790", "CVE-2022-30783", "CVE-2022-30784", "CVE-2022-30785", "CVE-2022-30786", "CVE-2022-30787", "CVE-2022-30788", "CVE-2022-30789");
   script_tag(name:"creation_date", value:"2022-10-24 04:53:32 +0000 (Mon, 24 Oct 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-09-28 18:47:00 +0000 (Wed, 28 Sep 2022)");
+  script_tag(name:"severity_date", value:"2022-06-08 03:05:45 +0000 (Wed, 08 Jun 2022)");
 
   script_name("Mageia: Security Advisory (MGASA-2022-0385)");
   script_category(ACT_GATHER_INFO);
@@ -27,14 +27,14 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2022-0385");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2022-0385.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=30479");
-  script_xref(name:"URL", value:"https://www.openwall.com/lists/oss-security/2022/05/26/1");
-  script_xref(name:"URL", value:"https://www.openwall.com/lists/oss-security/2022/05/26/2");
-  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5452-1");
-  script_xref(name:"URL", value:"https://www.openwall.com/lists/oss-security/2022/06/07/4");
-  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5463-1");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2022/dsa-5160");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/7JPX6OUCQKZX4PN5DQPVDUFZCOOZUX7Z/");
   script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/CUCIRAD67WWT3IZWCVN25JFFBTDANX5J/");
+  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5452-1");
+  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5463-1");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2022/dsa-5160");
+  script_xref(name:"URL", value:"https://www.openwall.com/lists/oss-security/2022/05/26/1");
+  script_xref(name:"URL", value:"https://www.openwall.com/lists/oss-security/2022/05/26/2");
+  script_xref(name:"URL", value:"https://www.openwall.com/lists/oss-security/2022/06/07/4");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'ntfs-3g' package(s) announced via the MGASA-2022-0385 advisory.");
 

@@ -9,16 +9,16 @@ CPE = "cpe:/a:mozilla:firefox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.814046");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2018-12385");
   script_tag(name:"cvss_base", value:"4.4");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-12-06 19:03:00 +0000 (Thu, 06 Dec 2018)");
   script_tag(name:"creation_date", value:"2018-09-25 11:40:16 +0530 (Tue, 25 Sep 2018)");
-  script_name("Mozilla Firefox Security Update (mfsa_2018-22_2018-23) - Windows");
+  script_name("Mozilla Firefox Security Advisories (MFSA2018-22, MFSA2018-23) - Windows");
 
   script_tag(name:"summary", value:"Mozilla Firefox is prone to a denial of service (DoS) vulnerability.");
 

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.13.2023.325.01");
   script_cve_id("CVE-2022-40982", "CVE-2022-45886", "CVE-2022-45887", "CVE-2022-45919", "CVE-2022-48502", "CVE-2023-1206", "CVE-2023-20569", "CVE-2023-20588", "CVE-2023-20593", "CVE-2023-2124", "CVE-2023-2898", "CVE-2023-31085", "CVE-2023-3117", "CVE-2023-31248", "CVE-2023-3212", "CVE-2023-3338", "CVE-2023-3390", "CVE-2023-34255", "CVE-2023-34324", "CVE-2023-35001", "CVE-2023-35788", "CVE-2023-35827", "CVE-2023-3609", "CVE-2023-3610", "CVE-2023-3611", "CVE-2023-3772", "CVE-2023-3776", "CVE-2023-3777", "CVE-2023-38432", "CVE-2023-3863", "CVE-2023-3865", "CVE-2023-3866", "CVE-2023-39189", "CVE-2023-39192", "CVE-2023-39193", "CVE-2023-39194", "CVE-2023-4004", "CVE-2023-4015", "CVE-2023-40283", "CVE-2023-4128", "CVE-2023-4132", "CVE-2023-4147", "CVE-2023-4206", "CVE-2023-4207", "CVE-2023-4208", "CVE-2023-4244", "CVE-2023-4273", "CVE-2023-42752", "CVE-2023-42753", "CVE-2023-42754", "CVE-2023-42755", "CVE-2023-44466", "CVE-2023-4563", "CVE-2023-4569", "CVE-2023-45871", "CVE-2023-4623", "CVE-2023-46813", "CVE-2023-4881", "CVE-2023-4921", "CVE-2023-5158", "CVE-2023-5178", "CVE-2023-5197", "CVE-2023-5717");
   script_tag(name:"creation_date", value:"2023-11-22 04:19:47 +0000 (Wed, 22 Nov 2023)");
-  script_version("2024-01-18T05:07:09+0000");
-  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
-  script_tag(name:"cvss_base", value:"10.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_version("2024-06-19T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-06-19 05:05:42 +0000 (Wed, 19 Jun 2024)");
+  script_tag(name:"cvss_base", value:"9.4");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2024-01-16 19:43:00 +0000 (Tue, 16 Jan 2024)");
+  script_tag(name:"severity_date", value:"2023-07-27 16:02:08 +0000 (Thu, 27 Jul 2023)");
 
   script_name("Slackware: Security Advisory (SSA:2023-325-01)");
   script_category(ACT_GATHER_INFO);

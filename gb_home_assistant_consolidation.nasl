@@ -9,8 +9,8 @@ include("plugin_feed_info.inc");
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170464");
-  script_version("2023-05-18T09:08:59+0000");
-  script_tag(name:"last_modification", value:"2023-05-18 09:08:59 +0000 (Thu, 18 May 2023)");
+  script_version("2024-07-03T06:48:05+0000");
+  script_tag(name:"last_modification", value:"2024-07-03 06:48:05 +0000 (Wed, 03 Jul 2024)");
   script_tag(name:"creation_date", value:"2023-04-28 16:43:11 +0000 (Fri, 28 Apr 2023)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -23,7 +23,7 @@ if(description)
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_home_assistant_http_detect.nasl");
-  if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
+  if(FEED_NAME == "GSF" || FEED_NAME == "GEF" || FEED_NAME == "SCM")
     script_dependencies("gsf/gb_home_assistant_mdns_detect.nasl",
                         "gsf/gb_home_assistant_ssh_login_detect.nasl");
   script_mandatory_keys("home_assistant/detected");

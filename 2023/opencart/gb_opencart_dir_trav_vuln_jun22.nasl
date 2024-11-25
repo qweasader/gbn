@@ -9,8 +9,8 @@ CPE = "cpe:/a:opencart:opencart";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126421");
-  script_version("2023-07-10T08:07:43+0000");
-  script_tag(name:"last_modification", value:"2023-07-10 08:07:43 +0000 (Mon, 10 Jul 2023)");
+  script_version("2024-07-12T15:38:44+0000");
+  script_tag(name:"last_modification", value:"2024-07-12 15:38:44 +0000 (Fri, 12 Jul 2024)");
   script_tag(name:"creation_date", value:"2023-06-26 22:10:42 +0000 (Mon, 26 Jun 2023)");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:N");
@@ -30,8 +30,8 @@ if (description)
 
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("opencart_detect.nasl");
-  script_mandatory_keys("OpenCart/installed");
+  script_dependencies("gb_opencart_http_detect.nasl");
+  script_mandatory_keys("opencart/detected");
 
   script_tag(name:"summary", value:"OpenCart is prone to a directory traversal vulnerability.");
 
@@ -48,8 +48,8 @@ if (description)
   exit(0);
 }
 
-include( "host_details.inc" );
-include( "version_func.inc" );
+include("host_details.inc");
+include("version_func.inc");
 
 if( ! port = get_app_port( cpe: CPE ) )
   exit( 0 );

@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808196");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-02-26T14:36:40+0000");
   script_cve_id("CVE-2016-3287");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-26 14:36:40 +0000 (Mon, 26 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-12 22:12:00 +0000 (Fri, 12 Oct 2018)");
   script_tag(name:"creation_date", value:"2016-07-13 12:13:04 +0530 (Wed, 13 Jul 2016)");
-  script_name("Microsoft Windows Secure Boot Security Feature Bypass Vulnerability(3177404)");
+  script_name("Microsoft Windows Secure Boot Security Feature Bypass Vulnerability (3177404)");
 
   script_tag(name:"summary", value:"This host is missing an important security
   update according to Microsoft Bulletin MS16-094");

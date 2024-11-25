@@ -9,13 +9,13 @@ CPE = "cpe:/a:barracudadrive:barracudadrive";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804612");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2014-3807", "CVE-2014-4335");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-06-02 13:48:59 +0530 (Mon, 02 Jun 2014)");
-  script_name("BarracudaDrive Multiple XSS Vulnerabilities -03 June14");
+  script_name("BarracudaDrive Multiple XSS Vulnerabilities -03 (Jun 2014)");
 
   script_tag(name:"summary", value:"BarracudaDrive is prone to multiple XSS vulnerabilities.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");

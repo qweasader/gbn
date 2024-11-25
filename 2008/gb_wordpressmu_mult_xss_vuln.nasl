@@ -9,13 +9,13 @@ CPE = "cpe:/a:wordpress:wordpress_mu";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800125");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2008-11-05 06:52:23 +0100 (Wed, 05 Nov 2008)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
   script_cve_id("CVE-2008-4671");
-  script_name("WordPress MU Multiple XSS Vulnerabilities - Oct08");
+  script_name("WordPress MU Multiple XSS Vulnerabilities (Oct 2008)");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/32060");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/31482");

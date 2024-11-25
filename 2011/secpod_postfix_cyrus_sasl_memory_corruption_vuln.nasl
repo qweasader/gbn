@@ -9,8 +9,8 @@ CPE = "cpe:/a:postfix:postfix";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902517");
-  script_version("2024-01-10T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
+  script_version("2024-03-04T05:10:24+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 05:10:24 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2011-05-26 10:47:46 +0200 (Thu, 26 May 2011)");
   script_cve_id("CVE-2011-1720");
   script_tag(name:"cvss_base", value:"6.8");
@@ -27,7 +27,6 @@ if(description)
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("SMTP problems");
   script_dependencies("sw_postfix_smtp_detect.nasl");
-  script_require_ports("Services/smtp", 25, 465, 587);
   script_mandatory_keys("postfix/smtp/detected", "smtp/auth_methods/available");
 
   script_tag(name:"summary", value:"Postfix SMTP server is prone to a memory corruption
@@ -55,7 +54,6 @@ if(description)
 
 include("version_func.inc");
 include("host_details.inc");
-include("misc_func.inc");
 include("list_array_func.inc");
 
 if( ! port = get_app_port( cpe:CPE, service:"smtp" ) )

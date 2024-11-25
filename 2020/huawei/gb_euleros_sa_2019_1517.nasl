@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.1517");
   script_cve_id("CVE-2013-4312", "CVE-2014-2673", "CVE-2014-3185", "CVE-2014-7841", "CVE-2015-0568", "CVE-2015-2830", "CVE-2015-7884", "CVE-2015-8569", "CVE-2016-10741", "CVE-2016-4951", "CVE-2016-5340", "CVE-2016-8633", "CVE-2017-1000111", "CVE-2017-13694", "CVE-2017-15306", "CVE-2017-16535", "CVE-2017-5986", "CVE-2017-6348", "CVE-2017-7541", "CVE-2018-15471");
   script_tag(name:"creation_date", value:"2020-01-23 12:01:53 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-10-05T05:05:26+0000");
-  script_tag(name:"last_modification", value:"2023-10-05 05:05:26 +0000 (Thu, 05 Oct 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-10-03 15:39:00 +0000 (Tue, 03 Oct 2023)");
+  script_tag(name:"severity_date", value:"2018-11-01 14:11:24 +0000 (Thu, 01 Nov 2018)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2019-1517)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.1\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-1517");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-1517");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-1517");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2019-1517 advisory.");
 

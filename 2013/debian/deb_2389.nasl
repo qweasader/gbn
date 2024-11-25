@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.702389");
   script_cve_id("CVE-2011-2183", "CVE-2011-2213", "CVE-2011-2898", "CVE-2011-3353", "CVE-2011-4077", "CVE-2011-4110", "CVE-2011-4127", "CVE-2011-4611", "CVE-2011-4622", "CVE-2011-4914");
   script_tag(name:"creation_date", value:"2013-09-18 09:53:02 +0000 (Wed, 18 Sep 2013)");
-  script_version("2024-01-12T16:12:10+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:10 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-02-01 14:37:10 +0000 (Thu, 01 Feb 2024)");
   script_tag(name:"cvss_base", value:"6.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-07-29 17:33:00 +0000 (Wed, 29 Jul 2020)");
+  script_tag(name:"severity_date", value:"2012-05-25 17:42:00 +0000 (Fri, 25 May 2012)");
 
   script_name("Debian: Security Advisory (DSA-2389-1)");
   script_category(ACT_GATHER_INFO);

@@ -9,14 +9,14 @@ CPE = "cpe:/a:rubyonrails:rails";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807383");
-  script_version("2023-12-20T05:05:58+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2015-3227");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-10-13 16:29:50 +0530 (Thu, 13 Oct 2016)");
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("Ruby on Rails Active Support Denial of Service Vulnerability (Windows)");
+  script_name("Ruby on Rails Active Support Denial of Service Vulnerability - Windows");
 
   script_tag(name:"summary", value:"Ruby on Rails is prone to a denial of service (DoS) vulnerability.");
 

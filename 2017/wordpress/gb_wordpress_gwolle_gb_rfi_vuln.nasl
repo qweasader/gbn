@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112042");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2017-09-12 11:05:31 +0200 (Tue, 12 Sep 2017)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
@@ -19,6 +19,7 @@ if (description)
   script_cve_id("CVE-2015-8351");
 
   script_tag(name:"qod_type", value:"remote_banner");
+
   script_tag(name:"solution_type", value:"VendorFix");
 
   script_name("WordPress Gwolle Guestbook Plugin < 1.5.4 RFI Vulnerability");
@@ -32,6 +33,8 @@ if (description)
 
   script_tag(name:"summary", value:"The WordPress plugin 'Gwolle Guestbook' is prone to a remote file
   inclusion (RFI) vulnerability.");
+
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"HTTP GET parameter 'abspath' of frontend/captcha/ajaxresponse.php
   is not being properly sanitized before being used in PHP require() function leading to a PHP remote
@@ -48,10 +51,8 @@ if (description)
   In order to exploit this vulnerability 'allow_url_include' shall be set to 1. Otherwise, attacker
   may still include local files and also execute arbitrary code.");
 
-  script_tag(name:"impact", value:"Successful exploitation of this vulnerability will lead to entire WordPress installation compromise,
-  and may even lead to the entire web server compromise.");
-
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+  script_tag(name:"impact", value:"Successful exploitation of this vulnerability will lead to entire
+  WordPress installation compromise, and may even lead to the entire web server compromise.");
 
   script_tag(name:"affected", value:"WordPress Gwolle Guestbook plugin before 1.5.4.");
 
@@ -68,13 +69,16 @@ CPE = "cpe:/a:gwolle_guestbook_project:gwolle_guestbook";
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe: CPE ) ) exit( 0 );
-if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) ) exit( 0 );
+if( ! port = get_app_port( cpe: CPE ) )
+  exit( 0 );
+
+if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) )
+  exit( 0 );
 
 version = infos["version"];
 location = infos["location"];
 
-if ( version_is_less( version: version, test_version: "1.5.4" )) {
+if( version_is_less( version: version, test_version: "1.5.4" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "1.5.4", install_path: location );
   security_message( port: port, data: report );
   exit( 0 );

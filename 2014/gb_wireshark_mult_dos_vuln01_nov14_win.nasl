@@ -9,13 +9,13 @@ CPE = "cpe:/a:wireshark:wireshark";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804895");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-07-22T05:05:40+0000");
   script_cve_id("CVE-2014-8714", "CVE-2014-8713", "CVE-2014-8712", "CVE-2014-8711");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-22 05:05:40 +0000 (Mon, 22 Jul 2024)");
   script_tag(name:"creation_date", value:"2014-11-28 11:48:46 +0530 (Fri, 28 Nov 2014)");
-  script_name("Wireshark Multiple Denial-of-Service Vulnerability-01 Nov14 (Windows)");
+  script_name("Wireshark Multiple Denial-of-Service Vulnerability-01 (Nov 2014) - Windows");
 
   script_tag(name:"summary", value:"Wireshark is prone to multiple denial of service vulnerability.");
 
@@ -53,7 +53,7 @@ if(description)
   script_family("Denial of Service");
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_dependencies("gb_wireshark_detect_win.nasl");
-  script_mandatory_keys("Wireshark/Win/Ver");
+  script_mandatory_keys("wireshark/windows/detected");
   exit(0);
 }
 
@@ -67,6 +67,6 @@ if(!version = get_app_version(cpe:CPE)){
 if(version_in_range(version:version, test_version:"1.10.0", test_version2:"1.10.10") ||
    version_in_range(version:version, test_version:"1.12.0", test_version2:"1.12.1"))
 {
-  security_message( port: 0, data: "The target host was found to be vulnerable" );
+  security_message(port:0, data:"The target host was found to be vulnerable");
   exit(0);
 }

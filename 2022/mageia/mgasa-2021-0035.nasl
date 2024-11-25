@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2021.0035");
   script_cve_id("CVE-2018-12179", "CVE-2018-12182", "CVE-2018-12183", "CVE-2019-0160", "CVE-2019-0161", "CVE-2019-14553", "CVE-2019-14558", "CVE-2019-14559", "CVE-2019-14562", "CVE-2019-14563", "CVE-2019-14575", "CVE-2019-14584", "CVE-2019-14586", "CVE-2019-14587");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-04-05 20:36:00 +0000 (Tue, 05 Apr 2022)");
+  script_tag(name:"severity_date", value:"2019-03-28 15:25:14 +0000 (Thu, 28 Mar 2019)");
 
   script_name("Mageia: Security Advisory (MGASA-2021-0035)");
   script_category(ACT_GATHER_INFO);
@@ -26,13 +26,13 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2021-0035");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2021-0035.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=25939");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/TQYVZRFEXSN3KS43AVH4D7QX553EZQYP/");
   script_xref(name:"URL", value:"https://access.redhat.com/errata/RHSA-2020:1712");
-  script_xref(name:"URL", value:"https://usn.ubuntu.com/4349-1/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/A23OH3MXQU7WURSP4PC66EXMG6INYFH6/");
-  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-4684-1");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=25939");
   script_xref(name:"URL", value:"https://github.com/tianocore/edk2/releases");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/A23OH3MXQU7WURSP4PC66EXMG6INYFH6/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/TQYVZRFEXSN3KS43AVH4D7QX553EZQYP/");
+  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-4684-1");
+  script_xref(name:"URL", value:"https://usn.ubuntu.com/4349-1/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'edk2' package(s) announced via the MGASA-2021-0035 advisory.");
 

@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108000");
-  script_version("2023-06-16T14:09:42+0000");
-  script_tag(name:"last_modification", value:"2023-06-16 14:09:42 +0000 (Fri, 16 Jun 2023)");
+  script_version("2024-06-12T05:05:44+0000");
+  script_tag(name:"last_modification", value:"2024-06-12 05:05:44 +0000 (Wed, 12 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-09-15 09:00:00 +0200 (Thu, 15 Sep 2016)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -16,7 +16,8 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
   script_copyright("Copyright (C) 2016 Greenbone AG");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 9980);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
@@ -70,11 +71,23 @@ foreach dir( make_list_unique( "/", http_cgi_dirs( port:port ) ) ) {
   # User-Agent: COOLWSD HTTP Agent 21.11.0.3
   # User-Agent: LOOLWSD WOPI Agent
   # Server: COOLWSD HTTP Server 21.11.0.3
+  # Server: COOLWSD HTTP Server 23.05.9.1
   if( buf =~ "^HTTP/1\.[01] 200" && ( buf =~ "(User-Agent|Server)\s*:\s*[CL]OOLWSD (WOPI|HTTP) (Agent|Server)" ||
       ( "wopi-discovery" >< buf && "application/vnd." >< buf && buf =~ "(cool|loleaflet)\.html" ) ) ) {
 
     version = "unknown";
     concludedUrl = http_report_vuln_url( port:port, url:url, url_only:TRUE );
+
+    # nb:
+    # - To tell http_can_host_asp and http_can_host_php from http_func.inc that the service is
+    #   NOT supporting these
+    # - There is a slight chance that a system is configured in a way that it acts as a proxy and
+    #   exposes the product on the known endpoints and an additional web server supporting e.g. PHP
+    #   on a different endpoint. Thus the following is only set if the port is the default 9980.
+    if( port == 9980 ) {
+      replace_kb_item( name:"www/" + port + "/can_host_php", value:"no" );
+      replace_kb_item( name:"www/" + port + "/can_host_asp", value:"no" );
+    }
 
     # nb: Newer versions are only using a hash in the URL like
     # <action default="true" ext="odt" name="edit" urlsrc="https://127.0.0.1:9980/loleaflet/078e8b8/loleaflet.html?"/>
@@ -90,6 +103,7 @@ foreach dir( make_list_unique( "/", http_cgi_dirs( port:port ) ) ) {
       buf = http_get_cache( item:url, port:port );
       if( buf && buf =~ "^HTTP/1\.[01] 200" ) {
 
+        # {"convert-to":{"available":false},"hasMobileSupport":true,"hasProxyPrefix":false,"hasTemplateSaveAs":false,"hasTemplateSource":true,"hasWASMSupport":false,"hasZoteroSupport":true,"productName":"Collabora Online Development Edition","productVersion":"23.05.9.1","productVersionHash":"619c3e6","serverId":"<redacted>"}
         # {"convert-to":{"available":true,"endpoint":"/cool/convert-to"},"hasMobileSupport":true,"hasProxyPrefix":false,"hasTemplateSaveAs":false,"hasTemplateSource":true,"productName":"Collabora Online","productVersion":"21.11.0.3snapshot","productVersionHash":"3caec5a"}
         # {"convert-to":{"available":true,"endpoint":"/cool/convert-to"},"hasMobileSupport":true,"hasProxyPrefix":false,"hasTemplateSaveAs":false,"hasTemplateSource":true,"productName":"Collabora Online Development Edition","productVersion":"21.11.0.3","productVersionHash":"b5534c4"}
         # {"convert-to":{"available":true},"hasMobileSupport":true,"hasProxyPrefix":false,"hasTemplateSaveAs":false,"hasTemplateSource":true,"productName":"Collabora Online Development Edition","productVersion":"6.4.13","productVersionHash":"078e8b8"}

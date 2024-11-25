@@ -9,18 +9,19 @@ CPE = "cpe:/a:metasploit:metasploit_framework";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811589");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2017-5244");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:N/A:L");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-09 23:28:00 +0000 (Wed, 09 Oct 2019)");
   script_tag(name:"creation_date", value:"2017-08-30 17:12:23 +0530 (Wed, 30 Aug 2017)");
   script_name("Metasploit Cross Site Request Forgery Vulnerability - Windows");
 
-  script_tag(name:"summary", value:"Metasploit is prone to a cross-site request forgery vulnerability.");
+  script_tag(name:"summary", value:"Metasploit is prone to a cross-site request forgery (CSRF)
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

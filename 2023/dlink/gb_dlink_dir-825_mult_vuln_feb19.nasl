@@ -9,8 +9,8 @@ CPE = "cpe:/o:dlink:dir-825_firmware";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170305");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-07-23T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2024-07-23 05:05:30 +0000 (Tue, 23 Jul 2024)");
   script_tag(name:"creation_date", value:"2023-02-06 15:32:27 +0000 (Mon, 06 Feb 2023)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -82,15 +82,17 @@ if ( ! infos = get_app_version_and_location( cpe:CPE, port:port, exit_no_version
 version = infos["version"];
 location = infos["location"];
 
-hw_version = get_kb_item( "d-link/dir/hw_version" );
-if ( ! hw_version )
+if ( ! hw_version = get_kb_item( "d-link/dir/hw_version" ) )
   exit( 0 );
+
 # nb: some of the versions might contain _Beta or other suffixes, using revcomp to be on the safe side
 if ( hw_version =~ "B" ) {
   if ( revcomp( a:version, b:"2.10" ) <= 0 ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"None", install_path:location, extra:"Hardware revision: " + hw_version );
     security_message( port:port, data:report );
+    exit( 0 );
   }
-  exit( 0 );
-} else #nb: Revisions like Gx, Rx are not affected
-  exit( 99 );
+}
+
+#nb: Revisions like Gx, Rx are not affected
+exit( 99 );

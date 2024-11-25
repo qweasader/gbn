@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.1.2023.5396");
   script_cve_id("CVE-2022-0108", "CVE-2022-32885", "CVE-2023-27932", "CVE-2023-27954", "CVE-2023-28198", "CVE-2023-28205", "CVE-2023-32370", "CVE-2023-32393", "CVE-2023-32435", "CVE-2023-35074");
   script_tag(name:"creation_date", value:"2023-05-04 04:24:15 +0000 (Thu, 04 May 2023)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-09-27 19:05:00 +0000 (Wed, 27 Sep 2023)");
+  script_tag(name:"severity_date", value:"2023-09-27 19:05:29 +0000 (Wed, 27 Sep 2023)");
 
   script_name("Debian: Security Advisory (DSA-5396-1)");
   script_category(ACT_GATHER_INFO);
@@ -67,6 +67,8 @@ For the detailed security status of webkit2gtk please refer to its security trac
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

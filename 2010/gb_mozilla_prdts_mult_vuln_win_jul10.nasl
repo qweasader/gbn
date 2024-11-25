@@ -7,15 +7,18 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801385");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-12T14:37:47+0000");
+  script_tag(name:"last_modification", value:"2024-02-12 14:37:47 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-07-26 16:14:51 +0200 (Mon, 26 Jul 2010)");
   script_cve_id("CVE-2010-1211", "CVE-2010-1212", "CVE-2010-1213",
                 "CVE-2010-2752", "CVE-2010-2753", "CVE-2010-2754",
                 "CVE-2010-0654");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("Mozilla Products Multiple Vulnerabilities (mfsa2010-34, mfsa2010-39, mfsa2010-40, mfsa2010-42, mfsa2010-46, mfsa2010-47) - Windows");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-03 02:26:59 +0000 (Sat, 03 Feb 2024)");
+  script_name("Mozilla Products Multiple Vulnerabilities (MFSA2010-34, MFSA2010-39, MFSA2010-40, MFSA2010-42, MFSA2010-46, MFSA2010-47) - Windows");
 
   script_xref(name:"URL", value:"http://www.mozilla.org/security/announce/2010/mfsa2010-34.html");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/41824");

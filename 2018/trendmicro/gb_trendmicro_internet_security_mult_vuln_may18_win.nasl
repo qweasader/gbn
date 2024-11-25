@@ -9,20 +9,20 @@ CPE = "cpe:/a:trendmicro:internet_security";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813335");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2018-6232", "CVE-2018-6233", "CVE-2018-6234", "CVE-2018-6235",
                 "CVE-2018-6236", "CVE-2018-3608", "CVE-2018-10513", "CVE-2018-10514",
                 "CVE-2018-15363");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-08-28 16:19:00 +0000 (Tue, 28 Aug 2018)");
   script_tag(name:"creation_date", value:"2018-05-08 13:30:09 +0530 (Tue, 08 May 2018)");
   ## Patched version is not available from registry or anywhere, so it can result in FP for 12.0 patched versions
   script_tag(name:"qod", value:"30");
-  script_name("Trend Micro Internet Security Multiple Vulnerabilities May18 (Windows)");
+  script_name("Trend Micro Internet Security Multiple Vulnerabilities (May 2018) - Windows");
 
   script_tag(name:"summary", value:"Trend Micro Internet Security is prone to multiple vulnerabilities.");
 

@@ -1,28 +1,14 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.143679");
-  script_version("2021-03-03T13:25:21+0000");
-  script_tag(name:"last_modification", value:"2021-03-03 13:25:21 +0000 (Wed, 03 Mar 2021)");
+  script_version("2024-05-24T19:38:34+0000");
+  script_tag(name:"last_modification", value:"2024-05-24 19:38:34 +0000 (Fri, 24 May 2024)");
   script_tag(name:"creation_date", value:"2020-04-08 02:12:28 +0000 (Wed, 08 Apr 2020)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -34,26 +20,33 @@ if(description)
   script_category(ACT_GATHER_INFO);
 
   script_family("Product detection");
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_dependencies("gather-package-list.nasl");
-  script_mandatory_keys("huawei/vrp/display_version");
+  script_mandatory_keys("ssh-login/huawei/vrp/detected");
 
-  script_tag(name:"summary", value:"SSH login-based detection of Huawei Versatile Routing Platform (VRP) network devices.");
+  script_tag(name:"summary", value:"SSH login-based detection of Huawei Versatile Routing Platform
+  (VRP) network devices.");
 
   exit(0);
 }
 
-if (!display_version = get_kb_item("huawei/vrp/display_version"))
+if (!port = get_kb_item("ssh-login/huawei/vrp/port"))
   exit(0);
 
-port = get_kb_item("huawei/vrp/ssh/port");
+if (!display_version = get_kb_item("ssh-login/huawei/vrp/" + port + "/display_version"))
+  exit(0);
+
+if (!login_banner = get_kb_item("ssh-login/huawei/vrp/" + port + "/login_banner"))
+  exit(0);
 
 set_kb_item(name: "huawei/vrp/detected", value: TRUE);
+set_kb_item(name: "huawei/vrp/ssh-login/" + port + "/detected", value: TRUE);
 set_kb_item(name: "huawei/vrp/ssh-login/port", value: port);
 
 model = "unknown";
 version = "unknown";
 patch_version = "unknown";
+concluded = '\n  - Login banner:    ' + login_banner;
 
 # HUAWEI S5735-S24T4X Routing Switch uptime
 # HUAWEI NE05E-SQ uptime
@@ -63,13 +56,13 @@ patch_version = "unknown";
 # nb: Some devices seems to not support "display device" so we're first trying this one...
 mod = eregmatch(pattern: "HUAWEI ([^ ]+) ((Terabit )?Routing Switch |Router )?uptime( is)?", string: display_version, icase: TRUE);
 if (!isnull(mod[1])) {
-  concluded = '\n  - Model:           ' + mod[0] + " (truncated)";
+  concluded += '\n  - Model:           ' + mod[0] + " (truncated)";
   model = mod[1];
 }
 
 # ... and falling back to display device if the extraction above failed.
 if (model == "unknown") {
-  display_device = get_kb_item("huawei/vrp/display_device");
+  display_device = get_kb_item("ssh-login/huawei/vrp/" + port + "/display_device");
   if (display_device) {
 
     # S7712's Device status:
@@ -79,7 +72,7 @@ if (model == "unknown") {
     if (device) {
       mod = eregmatch(pattern: "(.+)'s Device status:", string: device, icase: FALSE);
       if (!isnull(mod[1])) {
-        concluded = '\n  - Model:           ' + mod[0];
+        concluded += '\n  - Model:           ' + mod[0];
         model = mod[1];
       }
     }
@@ -97,7 +90,7 @@ if (!isnull(vers[2])) {
   concluded += '\n  - Version:         ' + vers[0];
 }
 
-patch_info = get_kb_item("huawei/vrp/patch-information");
+patch_info = get_kb_item("ssh-login/huawei/vrp/" + port + "/patch-information");
 
 # Patch version    :    V200R010C00SPH
 # Patch Package Version:V200R013SPH

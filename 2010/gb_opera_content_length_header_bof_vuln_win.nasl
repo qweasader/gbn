@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801317");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-04-13 16:55:19 +0200 (Tue, 13 Apr 2010)");
   script_cve_id("CVE-2010-1349");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_name("Opera Browser 'Content-Length' Header Buffer Overflow Vulnerability (Windows)");
+  script_name("Opera Browser 'Content-Length' Header Buffer Overflow Vulnerability - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/38820");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/38519");
   script_xref(name:"URL", value:"http://www.exploit-db.com/exploits/11622");

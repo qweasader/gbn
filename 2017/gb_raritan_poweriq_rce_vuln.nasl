@@ -9,8 +9,8 @@ CPE = "cpe:/a:raritan:power_iq";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106818");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-05-22 15:05:20 +0700 (Mon, 22 May 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -28,7 +28,8 @@ if (description)
   script_dependencies("gb_raritan_poweriq_detect.nasl");
   script_mandatory_keys("raritan_poweriq/detected");
 
-  script_tag(name:"summary", value:"Raritan PowerIQ is prone to a remote code execution vulnerability.");
+  script_tag(name:"summary", value:"Raritan PowerIQ is prone to a remote code execution (RCE)
+  vulnerability.");
 
   script_tag(name:"insight", value:"Raritan PowerIQ versions 4.1, 4.2, and 4.3 ship with a Rails 2 web interface
   with a hardcoded session secret of 8e238c9702412d475a4c44b7726a0537.");
@@ -49,7 +50,6 @@ if (description)
 include("host_details.inc");
 include("http_func.inc");
 include("http_keepalive.inc");
-include("misc_func.inc");
 include("url_func.inc");
 include("string_hex_func.inc");
 

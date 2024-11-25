@@ -1,43 +1,29 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.114072");
-  script_version("2022-12-02T10:11:16+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_tag(name:"cvss_base", value:"8.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-12-02 10:11:16 +0000 (Fri, 02 Dec 2022)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2019-02-13 15:39:42 +0100 (Wed, 13 Feb 2019)");
   script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("Web application abuses");
-  script_name("Beward IP Camera Root Remote Code Execution Vulnerability");
+  script_name("Beward IP Camera Root RCE Vulnerability");
   script_dependencies("gb_beward_ip_camera_consolidation.nasl", "gb_beward_ip_cameras_default_credentials.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("beward/ip_camera/detected", "beward/ip_camera/credentials");
 
   script_xref(name:"URL", value:"https://www.zeroscience.mk/en/vulnerabilities/ZSL-2019-5512.php");
 
-  script_tag(name:"summary", value:"The remote installation of Beward's IP camera software is prone to
-  a post-authentication root remote code execution vulnerability.");
+  script_tag(name:"summary", value:"The remote installation of Beward's IP camera software is prone
+  to a post-authentication root remote code execution (RCE) vulnerability.");
 
   script_tag(name:"impact", value:"This issue may be exploited by a remote attacker to
   inject arbitrary system commands and gain root remote code execution.");

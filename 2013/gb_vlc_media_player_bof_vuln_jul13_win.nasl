@@ -9,13 +9,13 @@ CPE = "cpe:/a:videolan:vlc_media_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803698");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-02-08T14:36:53+0000");
   script_cve_id("CVE-2013-1954");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-07-16 13:35:48 +0530 (Tue, 16 Jul 2013)");
-  script_name("VLC Media Player Buffer Overflow Vulnerability - July 13 (Windows)");
+  script_name("VLC Media Player Buffer Overflow Vulnerability (Jul 2013) - Windows");
 
   script_tag(name:"impact", value:"Successful exploitation could allow attackers to execute arbitrary code or
 cause denial of service condition in the context of affected application via

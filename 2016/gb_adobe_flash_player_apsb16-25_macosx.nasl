@@ -9,7 +9,7 @@ CPE = "cpe:/a:adobe:flash_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808580");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-12T05:05:32+0000");
   script_cve_id("CVE-2016-4172", "CVE-2016-4173", "CVE-2016-4174", "CVE-2016-4175",
                 "CVE-2016-4176", "CVE-2016-4177", "CVE-2016-4178", "CVE-2016-4179",
                 "CVE-2016-4180", "CVE-2016-4181", "CVE-2016-4182", "CVE-2016-4183",
@@ -26,12 +26,12 @@ if(description)
                 "CVE-2016-7020");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-12 05:05:32 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-01-20 02:50:00 +0000 (Fri, 20 Jan 2023)");
   script_tag(name:"creation_date", value:"2016-07-13 08:56:34 +0530 (Wed, 13 Jul 2016)");
-  script_name("Adobe Flash Player Security Update (apsb16-25) - Mac OS X");
+  script_name("Adobe Flash Player Security Update (APSB16-25) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Flash Player is prone to multiple vulnerabilities.");
 

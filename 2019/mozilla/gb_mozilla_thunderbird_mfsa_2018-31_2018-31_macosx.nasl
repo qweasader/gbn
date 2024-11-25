@@ -9,17 +9,17 @@ CPE = "cpe:/a:mozilla:thunderbird";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.814824");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2018-17466", "CVE-2018-18492", "CVE-2018-18493", "CVE-2018-18494",
                 "CVE-2018-18498", "CVE-2018-12405");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-03-11 15:00:00 +0000 (Mon, 11 Mar 2019)");
   script_tag(name:"creation_date", value:"2019-01-25 15:38:27 +0530 (Fri, 25 Jan 2019)");
-  script_name("Mozilla Thunderbird Security Updates (mfsa_2018-31) - Mac OS X");
+  script_name("Mozilla Thunderbird Security Advisory (MFSA2018-31) - Mac OS X");
 
   script_tag(name:"summary", value:"Mozilla Thunderbird is prone to multiple vulnerabilities.");
 

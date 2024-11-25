@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131278");
   script_cve_id("CVE-2014-1748", "CVE-2015-1071", "CVE-2015-1076", "CVE-2015-1081", "CVE-2015-1083", "CVE-2015-1120", "CVE-2015-1122", "CVE-2015-1127", "CVE-2015-1153", "CVE-2015-1155", "CVE-2015-3658", "CVE-2015-3659", "CVE-2015-3727", "CVE-2015-3731", "CVE-2015-3741", "CVE-2015-3743", "CVE-2015-3745", "CVE-2015-3747", "CVE-2015-3748", "CVE-2015-3749", "CVE-2015-3752", "CVE-2015-5788", "CVE-2015-5794", "CVE-2015-5801", "CVE-2015-5809", "CVE-2015-5822", "CVE-2015-5928");
   script_tag(name:"creation_date", value:"2016-03-31 05:05:03 +0000 (Thu, 31 Mar 2016)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
 
@@ -23,9 +23,9 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0120");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0120.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=18018");
   script_xref(name:"URL", value:"http://webkitgtk.org/security/WSA-2015-0002.html");
   script_xref(name:"URL", value:"http://www.webkitgtk.org/2016/03/14/webkitgtk2.4.10-released.html");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=18018");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'webkit' package(s) announced via the MGASA-2016-0120 advisory.");
 

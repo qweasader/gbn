@@ -7,14 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806776");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-07-03T06:48:05+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2015-6171", "CVE-2015-6173", "CVE-2015-6174", "CVE-2015-6175",
                 "CVE-2015-6106", "CVE-2015-6107", "CVE-2015-6108");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-03 06:48:05 +0000 (Wed, 03 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-07-01 17:41:28 +0000 (Mon, 01 Jul 2024)");
   script_tag(name:"creation_date", value:"2015-12-09 08:11:32 +0530 (Wed, 09 Dec 2015)");
   script_name("Microsoft Windows Kernel-Mode Drivers Code Execution Vulnerability (3119075)");
 

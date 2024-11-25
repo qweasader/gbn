@@ -9,10 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.12.2005.149.3");
   script_cve_id("CVE-2004-1156", "CVE-2004-1381", "CVE-2005-0141", "CVE-2005-0142", "CVE-2005-0143", "CVE-2005-0144", "CVE-2005-0145", "CVE-2005-0146", "CVE-2005-0147", "CVE-2005-0150", "CVE-2005-0230", "CVE-2005-0231", "CVE-2005-0232", "CVE-2005-0233", "CVE-2005-0255", "CVE-2005-0399", "CVE-2005-0401", "CVE-2005-0402", "CVE-2005-0578", "CVE-2005-0584", "CVE-2005-0585", "CVE-2005-0586", "CVE-2005-0587", "CVE-2005-0588", "CVE-2005-0589", "CVE-2005-0590", "CVE-2005-0591", "CVE-2005-0592", "CVE-2005-0593", "CVE-2005-0752", "CVE-2005-0989", "CVE-2005-1153", "CVE-2005-1154", "CVE-2005-1155", "CVE-2005-1156", "CVE-2005-1157", "CVE-2005-1158", "CVE-2005-1159", "CVE-2005-1160", "CVE-2005-1531", "CVE-2005-1532", "CVE-2005-1937", "CVE-2005-2260", "CVE-2005-2261", "CVE-2005-2262", "CVE-2005-2263", "CVE-2005-2264", "CVE-2005-2265", "CVE-2005-2266", "CVE-2005-2267", "CVE-2005-2268", "CVE-2005-2269", "CVE-2005-2270");
   script_tag(name:"creation_date", value:"2022-08-26 07:43:23 +0000 (Fri, 26 Aug 2022)");
-  script_version("2023-07-05T05:06:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:17 +0000 (Wed, 05 Jul 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-02 02:03:45 +0000 (Fri, 02 Feb 2024)");
 
   script_name("Ubuntu: Security Advisory (USN-149-3)");
   script_category(ACT_GATHER_INFO);
@@ -23,8 +26,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"USN-149-3");
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-149-3");
-  script_xref(name:"URL", value:"http://www.ubuntulinux.org/support/documentation/usn/usn-149-1");
   script_xref(name:"URL", value:"http://www.mozilla.org/projects/security/known-vulnerabilities.html");
+  script_xref(name:"URL", value:"http://www.ubuntulinux.org/support/documentation/usn/usn-149-1");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'mozilla-firefox, mozilla-firefox-locale-ca, mozilla-firefox-locale-de, mozilla-firefox-locale-es, mozilla-firefox-locale-fr, mozilla-firefox-locale-it, mozilla-firefox-locale-ja, mozilla-firefox-locale-nb, mozilla-firefox-locale-pl, mozilla-firefox-locale-tr, mozilla-firefox-locale-uk' package(s) announced via the USN-149-3 advisory.");
 

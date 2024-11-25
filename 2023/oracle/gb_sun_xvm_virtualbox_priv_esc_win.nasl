@@ -23,13 +23,16 @@ CPE = "cpe:/a:sun:xvm_virtualbox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826955");
-  script_version("2023-05-18T09:08:59+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2008-3431");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-05-18 09:08:59 +0000 (Thu, 18 May 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-07-16 17:23:12 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2023-03-29 11:22:17 +0530 (Wed, 29 Mar 2023)");
   script_name("Sun xVM VirtualBox Privilege Escalation Vulnerability - Windows");
 
@@ -61,7 +64,7 @@ if(description)
   script_xref(name:"URL", value:"https://www.exploit-db.com/exploits/6218");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("secpod_sun_virtualbox_detect_win.nasl");
   script_mandatory_keys("Sun/xVM-VirtualBox/Win/Ver");
   exit(0);

@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802579");
-  script_version("2023-10-17T05:05:34+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2011-3670");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-02-03 17:51:59 +0530 (Fri, 03 Feb 2012)");
-  script_name("Mozilla Products IPv6 Literal Syntax Cross Domain Information Disclosure Vulnerability (Windows)");
+  script_name("Mozilla Products IPv6 Literal Syntax Cross Domain Information Disclosure Vulnerability - Windows");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/47839/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51786");

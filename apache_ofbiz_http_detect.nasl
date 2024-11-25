@@ -1,5 +1,5 @@
 # Copyright (C) 2009 Christian Eric Edjenguele
-# New NASL / detection code since 2018 Copyright (C) 2018 Greenbone Networks GmbH
+# Copyright (C) New NASL / detection code sinde 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -22,8 +22,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.101019");
-  script_version("2022-01-13T16:09:14+0000");
-  script_tag(name:"last_modification", value:"2022-01-13 16:09:14 +0000 (Thu, 13 Jan 2022)");
+  script_version("2024-08-30T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-08-30 05:05:38 +0000 (Fri, 30 Aug 2024)");
   script_tag(name:"creation_date", value:"2009-04-18 23:46:40 +0200 (Sat, 18 Apr 2009)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");

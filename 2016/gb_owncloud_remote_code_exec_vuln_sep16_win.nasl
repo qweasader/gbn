@@ -9,13 +9,13 @@ CPE = "cpe:/a:owncloud:owncloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809284");
-  script_version("2023-12-01T16:11:30+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2015-7699");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-09-23 12:35:00 +0530 (Fri, 23 Sep 2016)");
-  script_name("ownCloud Remote Code Execution Vulnerability Sep16 (Windows)");
+  script_name("ownCloud Remote Code Execution Vulnerability (Sep 2016) - Windows");
 
   script_tag(name:"summary", value:"ownCloud is prone to a remote code execution (RCE) vulnerability.");
 

@@ -9,13 +9,13 @@ CPE = "cpe:/a:oracle:jre";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805728");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-20T14:37:13+0000");
   script_cve_id("CVE-2015-2596");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-07-20 17:10:19 +0530 (Mon, 20 Jul 2015)");
-  script_name("Oracle Java SE JRE Unspecified Vulnerability-03 July 2015 (Windows)");
+  script_name("Oracle Java SE JRE Unspecified Vulnerability-03 (Jul 2015) - Windows");
 
   script_tag(name:"summary", value:"Oracle Java SE JRE is prone to an unspecified vulnerability.");
 

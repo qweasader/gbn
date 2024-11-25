@@ -9,13 +9,13 @@ CPE = "cpe:/a:ibm:spss_samplepower";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802600");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-15T05:05:39+0000");
   script_cve_id("CVE-2012-0189");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-02-01 11:11:11 +0530 (Wed, 01 Feb 2012)");
-  script_name("IBM SPSS SamplePower 'VsVIEW6' ActiveX Control Multiple Code Execution Vulnerabilities (Windows)");
+  script_name("IBM SPSS SamplePower 'VsVIEW6' ActiveX Control Multiple Code Execution Vulnerabilities - Windows");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/47605");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51448");

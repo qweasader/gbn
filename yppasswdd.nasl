@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.80035");
-  script_version("2023-09-08T05:06:21+0000");
-  script_tag(name:"last_modification", value:"2023-09-08 05:06:21 +0000 (Fri, 08 Sep 2023)");
+  script_version("2024-07-23T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2024-07-23 05:05:30 +0000 (Tue, 23 Jul 2024)");
   script_tag(name:"creation_date", value:"2008-10-24 20:15:31 +0200 (Fri, 24 Oct 2008)");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/2763");
   script_cve_id("CVE-2001-0779");
@@ -73,8 +73,10 @@ if(r) {
   sleep(1);
   newport = rpc_get_port(program:100009, protocol:IPPROTO_UDP);
   set_kb_item(name:"rpc/yppasswd/sun_overflow", value:TRUE);
-  if(!newport)
+  if(!newport) {
     security_message(port:port, protocol:"udp");
+    exit(0);
+  }
 }
 
-exit(0);
+exit(99);

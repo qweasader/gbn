@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2022.0446");
   script_cve_id("CVE-2021-20224", "CVE-2021-20309", "CVE-2021-20311", "CVE-2021-20312", "CVE-2021-20313", "CVE-2021-3574", "CVE-2021-4219", "CVE-2022-0284", "CVE-2022-1114", "CVE-2022-1270", "CVE-2022-2719", "CVE-2022-28463", "CVE-2022-3213", "CVE-2022-32545", "CVE-2022-32546", "CVE-2022-32547");
   script_tag(name:"creation_date", value:"2022-12-07 04:12:01 +0000 (Wed, 07 Dec 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-06-30 18:14:00 +0000 (Thu, 30 Jun 2022)");
+  script_tag(name:"severity_date", value:"2022-06-30 18:14:45 +0000 (Thu, 30 Jun 2022)");
 
   script_name("Mageia: Security Advisory (MGASA-2022-0446)");
   script_category(ACT_GATHER_INFO);
@@ -27,21 +27,21 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2022-0446");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2022-0446.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=29054");
-  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/QPPJFFJWUIW3K6NB472QVFG522DWQZET/");
-  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5158-1");
-  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/ZUE6OO6UE5NEQ2LYEJSEB2AXREVWZVMB/");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2022/dla-3007");
-  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/U4SLHXE2O3IXMI4KAK7QSBITGXIK6OW2/");
-  script_xref(name:"URL", value:"https://lists.suse.com/pipermail/sle-security-updates/2022-May/011200.html");
-  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5456-1");
-  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/FYRR2QY5S3HG4B4EAPF6BVV54BZQPUX5/");
-  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5534-1");
-  script_xref(name:"URL", value:"https://lists.suse.com/pipermail/sle-security-updates/2022-September/012065.html");
-  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/DQYFWVB5WL5D7BG6DWWI7RKZDHYKRQR6/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/LNVDNM4ZEIYPT3SLZHPYN7OG4CZLEXZJ/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/T6VPXZJUL64MXAMQ4JA6V6TYNOXDC6SQ/");
   script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/65CCSW6TK2CGQU6OYUEHQBBH6OSPKUJP/");
+  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/DQYFWVB5WL5D7BG6DWWI7RKZDHYKRQR6/");
+  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/FYRR2QY5S3HG4B4EAPF6BVV54BZQPUX5/");
+  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/QPPJFFJWUIW3K6NB472QVFG522DWQZET/");
+  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/U4SLHXE2O3IXMI4KAK7QSBITGXIK6OW2/");
+  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/ZUE6OO6UE5NEQ2LYEJSEB2AXREVWZVMB/");
+  script_xref(name:"URL", value:"https://lists.suse.com/pipermail/sle-security-updates/2022-May/011200.html");
+  script_xref(name:"URL", value:"https://lists.suse.com/pipermail/sle-security-updates/2022-September/012065.html");
+  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5158-1");
+  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5456-1");
+  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5534-1");
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5736-1");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2022/dla-3007");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'abydos, converseen, digikam, imagemagick, libopenshot, php-imagick, synfig, transcode, windowmaker, xine-lib1.2, zbar' package(s) announced via the MGASA-2022-0446 advisory.");
 

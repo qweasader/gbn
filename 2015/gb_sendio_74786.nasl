@@ -12,7 +12,7 @@ if (description)
   script_cve_id("CVE-2014-0999", "CVE-2014-8391");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-01T14:37:10+0000");
 
   script_name("Sendio ESP Multiple Information Disclosure Vulnerabilities");
 
@@ -31,25 +31,28 @@ sessions by reading the jsessionid parameter in the Referrer HTTP header.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2015-06-10 11:20:38 +0200 (Wed, 10 Jun 2015)");
   script_category(ACT_GATHER_INFO);
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_dependencies("gb_sendio_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("sendio/installed");
 
   exit(0);
 }
 
-include("http_func.inc");
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
-if( ! typ = get_kb_item("sendio/" + port + "/typ") ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
+
+if( ! typ = get_kb_item("sendio/" + port + "/typ") )
+  exit( 0 );
 
 if( int( typ ) < 7 ) VULN = TRUE;
 
@@ -65,7 +68,6 @@ if( VULN )
 {
   report = 'Installed version: Sendio ' + typ + ' (' + vers + ')\n' +
            'Fixed version:     7.2.4';
-
   security_message( port:port, data:report );
   exit( 0 );
 }

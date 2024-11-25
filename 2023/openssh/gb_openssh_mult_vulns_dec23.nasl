@@ -9,8 +9,8 @@ CPE = "cpe:/a:openbsd:openssh";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.118572");
-  script_version("2024-01-05T16:09:35+0000");
-  script_tag(name:"last_modification", value:"2024-01-05 16:09:35 +0000 (Fri, 05 Jan 2024)");
+  script_version("2024-03-15T05:06:15+0000");
+  script_tag(name:"last_modification", value:"2024-03-15 05:06:15 +0000 (Fri, 15 Mar 2024)");
   script_tag(name:"creation_date", value:"2023-12-20 08:49:28 +0000 (Wed, 20 Dec 2023)");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
@@ -24,7 +24,7 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("OpenBSD OpenSSH < 9.6 Multiple Vulnerabilities");
+  script_name("OpenBSD OpenSSH < 9.6 Multiple Vulnerabilities (Terrapin Attack)");
 
   script_category(ACT_GATHER_INFO);
 
@@ -55,7 +55,10 @@ if(description)
 
   script_tag(name:"affected", value:"OpenBSD OpenSSH prior to version 9.6.");
 
-  script_tag(name:"solution", value:"Update to version 9.6 or later.");
+  script_tag(name:"solution", value:"Update to version 9.6 or later.
+
+  Note: Client and Server implementations need to run a fixed version to mitigate the Terrapin
+  flaw.");
 
   script_xref(name:"URL", value:"https://www.openssh.com/txt/release-9.6");
   script_xref(name:"URL", value:"https://terrapin-attack.com");

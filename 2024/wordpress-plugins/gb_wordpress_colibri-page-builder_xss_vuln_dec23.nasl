@@ -9,8 +9,8 @@ CPE = "cpe:/a:extendthemes:colibri_page_builder";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126560");
-  script_version("2024-01-12T05:05:56+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 05:05:56 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-10-31T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-10-31 05:05:48 +0000 (Thu, 31 Oct 2024)");
   script_tag(name:"creation_date", value:"2024-01-03 05:00:45 +0000 (Wed, 03 Jan 2024)");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:N");
@@ -34,14 +34,15 @@ if (description)
   script_mandatory_keys("wordpress/plugin/colibri-page-builder/detected");
 
   script_tag(name:"summary", value:"The WordPress plugin 'Colibri Page Builder' is prone to a
-  cross-site scripting vulnerability.");
+  cross-site scripting (XSS) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"Stored cross-site scripting (XSS), due to insufficient input
   sanitization and output escaping.");
 
-  script_tag(name:"affected", value:"WordPress Colibri Page Builder prior to version 1.0.241.");
+  script_tag(name:"affected", value:"WordPress Colibri Page Builder plugin prior to version
+  1.0.241.");
 
   script_tag(name:"solution", value:"Update to version 1.0.241 or later.");
 
@@ -62,7 +63,7 @@ if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_versio
 version = infos["version"];
 location = infos["location"];
 
-if ( version_is_less( version: version, test_version: "1.0.241" ) ) {
+if( version_is_less( version: version, test_version: "1.0.241" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "1.0.241", install_path: location );
   security_message( port: port, data: report );
   exit( 0 );

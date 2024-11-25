@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802337");
-  script_version("2023-07-28T05:05:23+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2011-0419");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2011-11-15 12:35:07 +0530 (Tue, 15 Nov 2011)");
-  script_name("CA Gateway Security Remote Code Execution Vulnerability");
+  script_name("CA Gateway Security RCE Vulnerability");
   script_xref(name:"URL", value:"http://secunia.com/advisories/45332");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/48813");
   script_xref(name:"URL", value:"http://securitytracker.com/id?1025812");

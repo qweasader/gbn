@@ -9,8 +9,8 @@ CPE = "cpe:/a:getshortcodes:shortcodes_ultimate";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127644");
-  script_version("2023-12-07T05:05:41+0000");
-  script_tag(name:"last_modification", value:"2023-12-07 05:05:41 +0000 (Thu, 07 Dec 2023)");
+  script_version("2024-01-24T05:06:24+0000");
+  script_tag(name:"last_modification", value:"2024-01-24 05:06:24 +0000 (Wed, 24 Jan 2024)");
   script_tag(name:"creation_date", value:"2023-11-29 08:40:51 +0000 (Wed, 29 Nov 2023)");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:N");
@@ -33,12 +33,12 @@ if (description)
   script_dependencies("gb_wordpress_plugin_http_detect.nasl");
   script_mandatory_keys("wordpress/plugin/shortcodes-ultimate/detected");
 
-  script_tag(name:"summary", value:"The WordPress plugin 'Shortcodes Ultimate' is
-  prone to multiple vulnerabilities.");
+  script_tag(name:"summary", value:"The WordPress plugin 'Shortcodes Ultimate' is prone to multiple
+  vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"impact", value:"The following vulnerabilities exist:
+  script_tag(name:"insight", value:"The following vulnerabilities exist:
 
   - CVE-2023-6225: Authenticated attackers are able to inject arbitrary web scripts in pages that
   will execute whenever a user accesses an injected page due to insufficient input sanitization and
@@ -48,8 +48,7 @@ if (description)
   may contain sensitive information due to missing validation on the user controlled keys 'key' and
   'post_id' in the su_meta shortcode.");
 
-  script_tag(name:"affected", value:"WordPress Shortcodes Ultimate plugin prior to version
-  7.0.0.");
+  script_tag(name:"affected", value:"WordPress Shortcodes Ultimate plugin prior to version 7.0.0.");
 
   script_tag(name:"solution", value:"Update to version 7.0.0 or later.");
 

@@ -10,8 +10,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10660");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-10-29T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2024-10-29 05:05:46 +0000 (Tue, 29 Oct 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -19,9 +19,9 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_family("Databases");
   script_copyright("Copyright (C) 2001 James W. Abendschan <jwa@jammed.com>");
-  script_dependencies("oracle_tnslsnr_version.nasl");
+  script_dependencies("gb_oracle_database_consolidation.nasl");
   script_require_ports("Services/oracle_tnslsnr", 1521);
-  script_require_keys("OracleDatabaseServer/installed");
+  script_require_keys("oracle/database/detected");
 
   script_tag(name:"summary", value:"The remote Oracle tnslsnr has no password assigned.");
 
@@ -36,7 +36,6 @@ if(description)
   exit(0);
 }
 
-include("misc_func.inc");
 include("port_service_func.inc");
 
 function tnscmd(sock, command)

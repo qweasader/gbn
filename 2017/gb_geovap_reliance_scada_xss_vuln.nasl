@@ -9,8 +9,8 @@ CPE = "cpe:/a:geovap:reliance-scada";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112150");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2017-12-07 08:23:03 +0100 (Thu, 07 Dec 2017)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -31,7 +31,6 @@ if(description)
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_geovap_reliance_scada_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("geovap/reliance-scada/detected", "geovap/reliance-scada/version");
 
   script_tag(name:"summary", value:"Geovap Reliance SCADA is prone to a cross-site scripting (XSS) vulnerability.");
@@ -43,7 +42,6 @@ to inject arbitrary JavaScript in a specially crafted URL request that may allow
 
   script_xref(name:"URL", value:"https://ics-cert.us-cert.gov/advisories/ICSA-17-334-02");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/102031");
-  script_xref(name:"URL", value:"https://www.reliance-scada.com/en/download");
 
   exit(0);
 }
@@ -64,4 +62,3 @@ if (version_is_less(version: version, test_version: "4.7.3 Update 3")) {
 }
 
 exit(99);
-

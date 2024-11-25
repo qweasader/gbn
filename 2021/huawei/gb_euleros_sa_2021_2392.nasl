@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2021.2392");
   script_cve_id("CVE-2017-17741", "CVE-2017-18216", "CVE-2017-5549", "CVE-2017-5897", "CVE-2017-7346", "CVE-2017-7482", "CVE-2017-8069", "CVE-2017-8925", "CVE-2017-9725", "CVE-2018-13095", "CVE-2018-13406", "CVE-2018-14609", "CVE-2019-6974", "CVE-2020-0404", "CVE-2020-0427", "CVE-2020-0431", "CVE-2020-0433", "CVE-2020-0465", "CVE-2020-0466", "CVE-2020-25669", "CVE-2020-25670", "CVE-2020-25671", "CVE-2020-25672", "CVE-2020-25673", "CVE-2020-27815", "CVE-2020-35519", "CVE-2020-36322", "CVE-2021-20261", "CVE-2021-20265", "CVE-2021-20292", "CVE-2021-23134", "CVE-2021-27363", "CVE-2021-27364", "CVE-2021-27365", "CVE-2021-28964", "CVE-2021-28972", "CVE-2021-29154", "CVE-2021-29265", "CVE-2021-30002", "CVE-2021-3178", "CVE-2021-31916", "CVE-2021-32078", "CVE-2021-32399", "CVE-2021-33033", "CVE-2021-3347", "CVE-2021-3483", "CVE-2021-3564", "CVE-2021-3573", "CVE-2021-3609");
   script_tag(name:"creation_date", value:"2021-09-15 02:24:22 +0000 (Wed, 15 Sep 2021)");
-  script_version("2023-06-20T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:22 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-11-03 02:25:00 +0000 (Thu, 03 Nov 2022)");
+  script_tag(name:"severity_date", value:"2017-09-26 17:18:06 +0000 (Tue, 26 Sep 2017)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2021-2392)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROS\-2\.0SP2");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2021-2392");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2021-2392");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2021-2392");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2021-2392 advisory.");
 

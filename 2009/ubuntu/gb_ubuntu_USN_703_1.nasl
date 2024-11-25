@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.63103");
-  script_cve_id("CVE-2006-7236", "CVE-2008-2382", "CVE-2008-2383");
+  script_cve_id("CVE-2006-7236", "CVE-2008-2383");
   script_tag(name:"creation_date", value:"2009-01-07 22:16:01 +0000 (Wed, 07 Jan 2009)");
-  script_version("2023-06-21T05:06:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:20 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-02-28T14:37:42+0000");
+  script_tag(name:"last_modification", value:"2024-02-28 14:37:42 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
 

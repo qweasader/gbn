@@ -21,14 +21,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900054");
-  script_version("2022-05-25T07:40:23+0000");
-  script_tag(name:"last_modification", value:"2022-05-25 07:40:23 +0000 (Wed, 25 May 2022)");
+  script_version("2024-02-09T05:06:25+0000");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2008-10-15 19:56:48 +0200 (Wed, 15 Oct 2008)");
   script_cve_id("CVE-2008-2947", "CVE-2008-3472", "CVE-2008-3473",
                 "CVE-2008-3474", "CVE-2008-3475", "CVE-2008-3476");
   script_copyright("Copyright (C) 2008 Greenbone Networks GmbH");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-08 23:46:51 +0000 (Thu, 08 Feb 2024)");
   script_category(ACT_GATHER_INFO);
   script_family("Windows : Microsoft Bulletins");
   script_name("Cumulative Security Update for Internet Explorer (956390)");

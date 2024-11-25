@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802372");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_cve_id("CVE-2011-5032");
   script_tag(name:"cvss_base", value:"4.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-01-06 11:24:26 +0530 (Fri, 06 Jan 2012)");
-  script_name("WinMount 'WMDrive.sys' Driver IOCTL Handling Denial of Service Vulnerability");
+  script_name("WinMount 'WMDrive.sys' Driver IOCTL Handling DoS Vulnerability");
   script_xref(name:"URL", value:"http://secunia.com/advisories/46872/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51034");
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/71764");

@@ -4,20 +4,26 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 
+CPE = "cpe:/a:microsoft:sql_server";
+
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111057");
-  script_version("2023-07-07T05:05:26+0000");
-  script_tag(name:"last_modification", value:"2023-07-07 05:05:26 +0000 (Fri, 07 Jul 2023)");
+  script_version("2024-06-21T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"creation_date", value:"2015-11-24 10:00:00 +0100 (Tue, 24 Nov 2015)");
   script_cve_id("CVE-2010-2772");
   script_tag(name:"cvss_base", value:"6.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("Siemens WinCC Microsoft SQL (MSSQL) Server Default Credentials (Remote)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-13 16:44:42 +0000 (Tue, 13 Feb 2024)");
+  script_name("Siemens WinCC Microsoft SQL (MSSQL) Server Default Credentials (TCP/IP Listener)");
   script_category(ACT_ATTACK);
   script_family("Default Accounts");
   script_copyright("Copyright (C) 2015 SCHUTZWERK GmbH");
-  script_dependencies("mssqlserver_detect.nasl", "gb_default_credentials_options.nasl");
+  script_dependencies("gb_microsoft_sql_server_tcp_ip_listener_detect.nasl",
+                      "gb_default_credentials_options.nasl");
   script_require_ports("Services/mssql", 1116);
   script_mandatory_keys("microsoft/sqlserver/tcp_listener/detected");
   script_exclude_keys("default_credentials/disable_default_account_checks");
@@ -52,13 +58,17 @@ if(description)
 if(get_kb_item("default_credentials/disable_default_account_checks"))
   exit(0);
 
-include("port_service_func.inc");
+include("host_details.inc");
 include("mssql.inc");
 
-port = service_get_port(default:1116, proto:"mssql");
+if(!port = get_app_port(cpe:CPE, service:"tcp_listener"))
+  exit(0);
+
+if(!get_app_location(cpe:CPE, port:port, nofork:TRUE))
+  exit(0);
 
 VULN = FALSE;
-report = 'It was possible to login to the remote Microsoft SQL Server with following known credentials:\n';
+report = 'It was possible to login to the remote Microsoft SQL (MSSQL) Server with following known credentials:\n';
 
 creds = make_array("WinCCAdmin", "2WSXcde.",
                    "WinCCConnect", "2WSXcder");

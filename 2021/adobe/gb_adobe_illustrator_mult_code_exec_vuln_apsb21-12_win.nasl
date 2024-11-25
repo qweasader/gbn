@@ -1,38 +1,24 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:adobe:illustrator";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.817922");
-  script_version("2021-10-05T08:17:22+0000");
+  script_version("2024-02-12T05:05:32+0000");
   script_cve_id("CVE-2021-21054", "CVE-2021-21053");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-10-05 08:17:22 +0000 (Tue, 05 Oct 2021)");
+  script_tag(name:"last_modification", value:"2024-02-12 05:05:32 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-02-18 17:10:00 +0000 (Thu, 18 Feb 2021)");
   script_tag(name:"creation_date", value:"2021-02-11 10:38:28 +0530 (Thu, 11 Feb 2021)");
-  script_name("Adobe Illustrator Multiple Code Execution Vulnerabilities (APSB21-12)-Windows");
+  script_name("Adobe Illustrator Multiple Code Execution Vulnerabilities (APSB21-12) - Windows");
 
   script_tag(name:"summary", value:"Adobe Illustrator is prone to multiple code execution vulnerabilities.");
 
@@ -53,7 +39,7 @@ if(description)
   script_tag(name:"qod_type", value:"registry");
   script_tag(name:"solution_type", value:"VendorFix");
   script_xref(name:"URL", value:"https://helpx.adobe.com/security/products/illustrator/apsb21-12.html");
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("General");
   script_dependencies("gb_adobe_illustrator_detect_win.nasl");

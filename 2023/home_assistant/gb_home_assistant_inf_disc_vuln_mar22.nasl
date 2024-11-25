@@ -9,8 +9,8 @@ CPE = "cpe:/a:home-assistant:home-assistant";
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170486");
-  script_version("2023-06-16T14:09:42+0000");
-  script_tag(name:"last_modification", value:"2023-06-16 14:09:42 +0000 (Fri, 16 Jun 2023)");
+  script_version("2024-06-21T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-06-15 09:34:42 +0000 (Thu, 15 Jun 2023)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -22,7 +22,7 @@ if( description )
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable"); # nb: Current detection does not distinguish between Supervised and other installation types
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"WillNotFix");
 
   script_name("Home Assistant Information Disclosure Vulnerability (Mar 2022)");
 
@@ -44,8 +44,10 @@ if( description )
   script_tag(name:"affected", value:"Home Assistant OS and Home Assistant Supervised through version
   2023.6.2.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 16th June, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.");
 
   script_xref(name:"URL", value:"https://community.home-assistant.io/t/ha-os-dns-setting-configuration-not-respected/356572/35");
   script_xref(name:"URL", value:"https://github.com/home-assistant/supervisor/pull/3586");
@@ -74,5 +76,6 @@ location = infos["location"];
 
 report = report_fixed_ver( installed_version:version, fixed_version:"None", install_path:location );
 security_message( port:port, data:report );
+
 exit( 0 );
 

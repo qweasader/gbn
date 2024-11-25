@@ -8,12 +8,12 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103409");
   script_cve_id("CVE-2012-0834");
-  script_version("2023-06-27T05:05:30+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-02-02 12:25:56 +0100 (Thu, 02 Feb 2012)");
-  script_name("phpLDAPadmin 'base' Parameter Cross Site Scripting Vulnerability");
+  script_name("phpLDAPadmin 'base' Parameter XSS Vulnerability");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2012 Greenbone AG");
@@ -23,10 +23,10 @@ if(description)
 
   script_tag(name:"solution", value:"Updates are available. Please see the references for more details.");
 
-  script_tag(name:"summary", value:"phpLDAPadmin is prone to a cross-site scripting vulnerability because
-  it fails to properly sanitize user-supplied input.
+  script_tag(name:"summary", value:"phpLDAPadmin is prone to a cross-site scripting (XSS)
+  vulnerability  because it fails to properly sanitize user-supplied input.
 
-  This VT has been replaced by the VT 'phpLDAPadmin 'base' Parameter Cross Site Scripting Vulnerability'
+  This VT has been replaced by the VT 'phpLDAPadmin 'base' Parameter XSS Vulnerability'
   (OID: 1.3.6.1.4.1.25623.1.0.802602).");
 
   script_tag(name:"impact", value:"An attacker may leverage this issue to execute arbitrary script code

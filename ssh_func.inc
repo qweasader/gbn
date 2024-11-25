@@ -631,14 +631,22 @@ function ssh_cmd( socket, cmd, timeout, nosh, nosu, return_errors, return_linux_
         "Invalid input detected" >< ret_ssh_buf ||
         ": No such command" >< ret_ssh_buf ||
         "-----unknown keyword " >< ret_ssh_buf ||
-        "Unknown action 0" >< ret_ssh_buf ||
+        "Unknown action 0" >< ret_ssh_buf || # Fortinet/FortiOS products
         "Line has invalid autocommand" >< ret_ssh_buf || # Cisco IOS with invalid autocommand configuration
         "Error: Unrecognized command found" >< ret_ssh_buf || # Huawei VRP
         "Invalid command" >< ret_ssh_buf || # HP iLO 100
         "is not a recognized command" >< ret_ssh_buf || # NetApp Data ONTAP 9.x
         "not found.  Type '?' for a list of commands" >< ret_ssh_buf || # NetApp Data ONTAP 7.x
         "Syntax Error: unexpected argument" >< ret_ssh_buf || # NX-OS/IOS/Junos OS/F5
-        "> % Command not found" >< ret_ssh_buf # Zyxel USG and similar
+        "> % Command not found" >< ret_ssh_buf || # Zyxel USG and similar
+        # e.g.:
+        # -> /bin/sh command not support now.
+        # seen on Insyde SMASH-CLP System Management Shell (BMC related)
+        ret_ssh_buf =~ "-> [^ ]+ command not support now\." ||
+        # All three are Dell DRAC/iDRAC
+        "COMMAND PROCESSING FAILED" >< ret_ssh_buf ||
+        "COMMAND NOT RECOGNIZED" >< ret_ssh_buf ||
+        "ERROR: Invalid command specified." >< ret_ssh_buf
       ) {
 
       set_kb_item( name:"ssh/force/nosh", value:TRUE );
@@ -1383,12 +1391,15 @@ function ssh_find_bin( prog_name, sock ) {
 
 # @brief Searches for a file on the target SSH server
 #
-# @param file_name       The filename to search for (e.g. ssh, sshd, ...). Start with a "/" to exclude filenames like (.*)ssh (e.g. server-ssh).
-#                        Note: The search is done case sensitive.
-# @param useregex        If set to TRUE specifies if a regexp search in the locate (-r/--regexp) call is used. For the find search a -regex
-#                        is passed / used if set to TRUE.
-# @param sock            The socket for the connection to the remote SSH service.
-# @param follow_symlinks If set to TRUE symbolic links are being followed when using "find"
+# @param file_name                    The filename to search for (e.g. ssh, sshd, ...). Start with a
+#                                     "/" to exclude filenames like (.*)ssh (e.g. server-ssh).
+#                                     Note: The search is done case sensitive.
+# @param useregex                     If set to TRUE specifies if a regexp search in the locate
+#                                     (-r/--regexp) call is used. For the find search a -regex is
+#                                     passed / used if set to TRUE.
+# @param sock                         The socket for the connection to the remote SSH service.
+# @param follow_symlinks              If set to TRUE symbolic links are being followed when using "find"
+# @param remove_search_exclude_string An (optional) string to remove from the "search_exclude_paths" setting
 #
 # @example Example call to search for all (ssh and sshd) files:
 #          file_name:"/sshd?$"
@@ -1402,9 +1413,9 @@ function ssh_find_bin( prog_name, sock ) {
 #
 # @return A list containing the found files or NULL if none were found or the function was started against a non-linux system.
 
-function ssh_find_file( file_name, useregex, sock, follow_symlinks ) {
+function ssh_find_file( file_name, useregex, sock, follow_symlinks, remove_search_exclude_string ) {
 
-  local_var file_name, useregex, sock, follow_symlinks;
+  local_var file_name, useregex, sock, follow_symlinks, remove_search_exclude_string;
   local_var res, lparam, lparam_no_e, use_find, descend_directories, search_exclude_paths, cl, _res, tmp_list;
   local_var final_list, _item, maxdepth, cmd, check_pattern, start, end, current_timeout;
 
@@ -1446,6 +1457,9 @@ function ssh_find_file( file_name, useregex, sock, follow_symlinks ) {
     # will get the same default regex.
     search_exclude_paths = "^/(afs|dev|media|mnt|net|run|sfs|sys|tmp|udev|var/(backups|cache|lib|local|lock|log|lost\+found|mail|opt|run|spool|tmp)|etc/init\.d|usr/share/doc)";
   }
+
+  if( remove_search_exclude_string )
+    search_exclude_paths = str_replace( string:search_exclude_paths, find:remove_search_exclude_string, replace:"" );
 
   if( ! sock )
     sock = ssh_login_or_reuse_connection();
@@ -1616,8 +1630,10 @@ function ssh_get_bin_version( full_prog_name, version_argv, ver_pattern, sock ) 
     return;
   }
 
-  if( ! version_argv ) set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#version_argv#-#ssh_get_bin_version" );
-  if( ! ver_pattern )  set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#ver_pattern#-#ssh_get_bin_version" );
+  # nb: "isnull()" and not "!" is used here to allow an empty string passed
+  if( isnull( version_argv ) ) set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#version_argv#-#ssh_get_bin_version" );
+
+  if( ! ver_pattern ) set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#ver_pattern#-#ssh_get_bin_version" );
 
   full_prog_name = chomp( full_prog_name );
   version_argv = chomp( version_argv );
@@ -1625,8 +1641,14 @@ function ssh_get_bin_version( full_prog_name, version_argv, ver_pattern, sock ) 
   if( ! sock)
     sock = ssh_login_or_reuse_connection();
 
-  if( sock )
-    r = ssh_cmd( socket:sock, cmd:full_prog_name + " " + version_argv, timeout:60 );
+  if( sock ) {
+    if( strlen( version_argv ) > 0 )
+      r = ssh_cmd( socket:sock, cmd:full_prog_name + " " + version_argv, timeout:60 );
+    else
+      r = ssh_cmd( socket:sock, cmd:full_prog_name, timeout:60 );
+
+    r = chomp( r );
+  }
 
   if( ! r )
     return;

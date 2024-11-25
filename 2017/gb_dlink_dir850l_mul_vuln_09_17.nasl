@@ -9,8 +9,8 @@ CPE = "cpe:/o:dlink:dir-850l_firmware";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107242");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-09-12 17:47:21 +0200 (Tue, 12 Sep 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -37,9 +37,9 @@ if(description)
   script_dependencies("gb_dlink_dir_consolidation.nasl");
   script_mandatory_keys("d-link/dir/detected", "d-link/dir/hw_version");
 
-  script_tag(name:"summary", value:"D-Link DIR-850L devices suffer from cross-site scripting, access
-  bypass, backdoor, bruteforcing, information disclosure, remote code execution, and denial of service
-  vulnerabilities.");
+  script_tag(name:"summary", value:"D-Link DIR-850L devices suffer from cross-site scripting (XSS),
+  access bypass, backdoor, bruteforcing, information disclosure, remote code execution (RCE), and
+  denial of service (DoS) vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

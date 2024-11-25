@@ -1,28 +1,14 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170204");
-  script_version("2022-12-22T10:19:23+0000");
-  script_tag(name:"last_modification", value:"2022-12-22 10:19:23 +0000 (Thu, 22 Dec 2022)");
+  script_version("2024-09-06T15:39:29+0000");
+  script_tag(name:"last_modification", value:"2024-09-06 15:39:29 +0000 (Fri, 06 Sep 2024)");
   script_tag(name:"creation_date", value:"2022-10-28 12:56:06 +0000 (Fri, 28 Oct 2022)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -33,16 +19,16 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Service detection");
   script_dependencies("gb_upnp_udp_detect.nasl", "find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 52881);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
-  script_tag(name:"summary", value:"TCP-based detection of the UPnP protocol.
+  script_tag(name:"summary", value:"TCP based detection of the UPnP protocol.
 
-  The script sends a HTTP request to URLs for the root description XML, either based
-  on previously detected location or a list of known possible locations.");
+  The script sends a HTTP request to URLs for the root description XML, either based on previously
+  detected location or a list of known possible locations.");
 
   script_xref(name:"URL", value:"https://openconnectivity.org/foundation/faq/upnp-faq/");
 
@@ -56,8 +42,8 @@ include("http_keepalive.inc");
 
 function handleUPnPXML( xml, port ) {
 
-  local_var port, xml;
-  local_var extra, manufacturer, model_name, model_number, model_type, model_description, version;
+  local_var xml, port;
+  local_var extra, manufacturer, model_name, friendly_name, model_number, model_type, model_description, version, software_version, display_version, software_generation, hardware_version;
 
   extra = NULL;
 
@@ -82,6 +68,22 @@ function handleUPnPXML( xml, port ) {
   # <version>ir-mmi-FS2026-0500-0084_V2.11.16.EX69632-2A10</version>
   # <webfsapi>http://<redacted>:80/fsapi</webfsapi>
   # </netRemote>
+  #
+  # or:
+  #
+  #<device>
+  #<deviceType>urn:schemas-upnp-org:device:ZonePlayer:1</deviceType>
+  #<friendlyName>76.206.43.58 - Sonos Bridge</friendlyName>
+  #<manufacturer>Sonos, Inc.</manufacturer>
+  #<manufacturerURL>http://www.sonos.com</manufacturerURL>
+  #<modelNumber>ZB100</modelNumber>
+  #<modelDescription>Sonos Bridge</modelDescription>
+  #<modelName>Sonos Bridge</modelName>
+  #<modelURL>http://www.sonos.com/store/products/ZB100</modelURL>
+  #<softwareVersion>57.3-77280</softwareVersion>
+  #<swGen>1</swGen>
+  #<hardwareVersion>1.5.0.0-1.0</hardwareVersion>
+  #<displayVersion>11.2</displayVersion>
 
   manufacturer = eregmatch( pattern:"<manufacturer>([^<]+)</manufacturer>", string:xml );
   if ( ! isnull( manufacturer[1] ) ) {
@@ -134,7 +136,39 @@ function handleUPnPXML( xml, port ) {
     set_kb_item( name:"upnp/tcp/" + port + "/device/version", value:version[1] );
     if ( ! isnull( extra ) )
       extra += '\n';
-    extra += "  Version:       " + version[1];
+    extra += "  Version:    " + version[1];
+  }
+
+  software_version = eregmatch( pattern:"<softwareVersion>([0-9.-]+)(-manufacturing)?</softwareVersion>", string:xml );
+  if ( ! isnull( software_version[1] ) ) {
+    set_kb_item( name:"upnp/tcp/" + port + "/device/softwareVersion", value:software_version[1] );
+    if ( ! isnull( extra ) )
+      extra += '\n';
+    extra += "  Build Number:  " + software_version[1];
+  }
+
+  software_generation = eregmatch( pattern:"<swGen>([0-9])</swGen>", string:xml );
+  if ( ! isnull( software_generation[1] ) ) {
+    set_kb_item( name:"upnp/tcp/" + port + "/device/softwareGeneration", value:software_generation[1] );
+    if ( ! isnull( extra ) )
+      extra += '\n';
+    extra += "  Software Gen:  " + software_generation[1];
+  }
+
+  hardware_version = eregmatch( pattern:"<hardwareVersion>([0-9.-]+)</hardwareVersion>", string:xml );
+  if ( ! isnull( hardware_version[1] ) ) {
+    set_kb_item( name:"upnp/tcp/" + port + "/device/hardwareVersion", value:hardware_version[1] );
+    if ( ! isnull( extra ) )
+      extra += '\n';
+    extra += "  Hardware Ver:  " + hardware_version[1];
+  }
+
+  display_version = eregmatch( pattern:"<displayVersion>([0-9.]+)</displayVersion>", string:xml );
+  if ( ! isnull( display_version[1] ) ) {
+    set_kb_item( name:"upnp/tcp/" + port + "/device/displayVersion", value:display_version[1] );
+    if ( ! isnull( extra ) )
+      extra += '\n';
+    extra += "  App Ver:       " + display_version[1];
   }
 
   # nb: Save the full XML so that we can possible add more useful info in the KB if required.
@@ -205,6 +239,7 @@ xml_locations = make_list( "/simplecfg.xml",
                            "/ssdp/device-desc.xml",
                            "/XD/DeviceDescription.xml",
                            "/DeviceDescription.xml",
+                           "/xml/device_description.xml",
                            "/device-desc.xml",
                            "/IGD.xml",
                            "/ssdp/desc-DSM-eth0.xml",
@@ -226,7 +261,11 @@ xml_locations = make_list( "/simplecfg.xml",
                            "/desc/root.cs",
                            "/MediaServerDevDesc.xml",
                            "/UPnP/IGD.xml",
-                           "/gatedesc.xml" );
+                           "/gatedesc.xml",
+                           # From this:
+                           # https://cari.net/carisirt-yet-another-bmc-vulnerability-and-some-added-extras/
+                           "/IPMIdevicedesc.xml"
+);
 
 # nb: The TCP port depends on the vendor, currently the most commonly found port (Realtek) is used
 # as a default

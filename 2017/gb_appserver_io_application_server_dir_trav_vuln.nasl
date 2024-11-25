@@ -9,11 +9,11 @@ CPE = "cpe:/a:appserver:io";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811268");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2015-1847");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-08-04 17:00:00 +0000 (Fri, 04 Aug 2017)");
@@ -49,25 +49,23 @@ if(description)
   script_family("Web Servers");
   script_dependencies("gb_appserver_io_application_server_detect.nasl");
   script_mandatory_keys("appserver/io/ApplicationServer/ver");
-  script_require_ports("Services/www", 9080);
+
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-if(!appPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_is_less(version:version, test_version:"1.0.3")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"1.0.3");
+  security_message(data:report, port:port);
   exit(0);
 }
 
-if(!appVer = get_app_version(cpe:CPE, port:appPort)){
-  exit(0);
-}
-
-if(version_is_less(version:appVer, test_version:"1.0.3"))
-{
-  report = report_fixed_ver(installed_version:appVer, fixed_version:"1.0.3");
-  security_message(data:report, port:appPort);
-  exit(0);
-}
-exit(0);
+exit(99);

@@ -9,24 +9,23 @@ CPE = "cpe:/a:dboss:diskboss_enterprise";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107125");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-09-25T05:06:11+0000");
   script_tag(name:"cvss_base", value:"6.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2017-01-17 16:11:25 +0530 (Tue, 17 Jan 2017)");
-  script_name("DiskBoss Enterprise Server POST Buffer Overflow (Windows)");
+  script_name("DiskBoss Enterprise Server < 9.0 POST Buffer Overflow Vulnerability - Windows");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Denial of Service");
   script_dependencies("gb_diskboss_enterprise_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("Disk/Boss/Enterprise/installed", "Host/runs_windows");
-  script_require_ports("Services/www", 8080);
 
   script_xref(name:"URL", value:"https://www.exploit-db.com/exploits/41003/");
 
   script_tag(name:"summary", value:"DiskBoss Enterprise is prone to a buffer overflow vulnerability.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"The flaw is due to an improper validation of
   web requests passed via POST request.");

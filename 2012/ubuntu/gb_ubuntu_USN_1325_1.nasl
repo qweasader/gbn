@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.840860");
   script_cve_id("CVE-2011-1162", "CVE-2011-2203", "CVE-2011-3353", "CVE-2011-3359", "CVE-2011-4110");
   script_tag(name:"creation_date", value:"2012-01-13 05:19:09 +0000 (Fri, 13 Jan 2012)");
-  script_version("2023-06-21T05:06:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:20 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-02-02T05:06:04+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:04 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-07-27 23:43:00 +0000 (Mon, 27 Jul 2020)");
+  script_tag(name:"severity_date", value:"2012-05-25 19:56:00 +0000 (Fri, 25 May 2012)");
 
   script_name("Ubuntu: Security Advisory (USN-1325-1)");
   script_category(ACT_GATHER_INFO);

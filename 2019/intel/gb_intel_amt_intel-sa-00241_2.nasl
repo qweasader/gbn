@@ -2,15 +2,15 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/o:intel:active_management_technology_firmware";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.143287");
-  script_version("2023-08-18T16:09:48+0000");
-  script_tag(name:"last_modification", value:"2023-08-18 16:09:48 +0000 (Fri, 18 Aug 2023)");
+  script_version("2024-08-23T15:40:37+0000");
+  script_tag(name:"last_modification", value:"2024-08-23 15:40:37 +0000 (Fri, 23 Aug 2024)");
   script_tag(name:"creation_date", value:"2019-12-20 04:26:57 +0000 (Fri, 20 Dec 2019)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -29,26 +29,27 @@ if (description)
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2019 Greenbone AG");
-  script_family("Web application abuses");
-  script_dependencies("gb_intel_amt_webui_detect.nasl");
-  script_mandatory_keys("intel_amt/installed");
+  script_family("Privilege escalation");
+  script_dependencies("gb_intel_amt_http_detect.nasl");
+  script_mandatory_keys("intel/amt/detected");
 
-  script_tag(name:"summary", value:"Multiple potential security vulnerabilities in Intel Active Management
-  Technology (Intel AMT) may allow escalation of privilege.");
-
-  script_tag(name:"insight", value:"Intel Active Management Technology is prone to multiple vulnerabilities:
-
-  - Insufficient input validation may allow an unauthenticated user to potentially enable escalation of privilege
-    via network access (CVE-2019-11107)
-
-  - Insufficient input validation may allow an unauthenticated user to potentially enable escalation of privilege
-    via physical access (CVE-2019-11086)");
+  script_tag(name:"summary", value:"Multiple vulnerabilities in Intel Active Management Technology
+  (AMT) may allow escalation of privilege.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"affected", value:"Intel Active Management Technology 12.0 to 12.0.35.");
+  script_tag(name:"insight", value:"The following vulnerabilities exist:
 
-  script_tag(name:"solution", value:"Upgrade to version 12.0.45 or later.");
+  - CVE-2019-11107: Insufficient input validation may allow an unauthenticated user to potentially
+  enable escalation of privilege via network access
+
+  - CVE-2019-11086: Insufficient input validation may allow an unauthenticated user to potentially
+  enable escalation of privilege via physical access");
+
+  script_tag(name:"affected", value:"Intel Active Management Technology version 12.0 through
+  12.0.35.");
+
+  script_tag(name:"solution", value:"Update to version 12.0.45 or later.");
 
   script_xref(name:"URL", value:"https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00241.html");
 
@@ -61,14 +62,11 @@ include("version_func.inc");
 if (!port = get_app_port(cpe: CPE))
   exit(0);
 
-if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE))
+if (!version = get_app_version(cpe: CPE, port: port))
   exit(0);
 
-version = infos["version"];
-location = infos["location"];
-
 if (version_in_range(version: version, test_version: "12.0", test_version2: "12.0.35")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "12.0.45", install_path: location);
+  report = report_fixed_ver(installed_version: version, fixed_version: "12.0.45");
   security_message(port: port, data: report);
   exit(0);
 }

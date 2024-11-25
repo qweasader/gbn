@@ -9,8 +9,8 @@ CPE = "cpe:/a:ibm:db2";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811404");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-02-15T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-06-29 13:12:55 +0530 (Thu, 29 Jun 2017)");
   script_tag(name:"cvss_base", value:"3.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:P/A:P");
@@ -20,7 +20,7 @@ if(description)
 
   script_cve_id("CVE-2017-1105");
 
-  script_name("IBM Db2 'Exceptional Conditions' Buffer Overflow Vulnerability (Linux)");
+  script_name("IBM Db2 'Exceptional Conditions' Buffer Overflow Vulnerability - Linux");
 
   script_tag(name:"summary", value:"IBM DB2 is prone to a buffer overflow vulnerability.");
 

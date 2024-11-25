@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131260");
   script_cve_id("CVE-2015-4477", "CVE-2015-7207", "CVE-2016-1950", "CVE-2016-1952", "CVE-2016-1954", "CVE-2016-1957", "CVE-2016-1958", "CVE-2016-1960", "CVE-2016-1961", "CVE-2016-1962", "CVE-2016-1964", "CVE-2016-1965", "CVE-2016-1966", "CVE-2016-1974", "CVE-2016-1977", "CVE-2016-1979", "CVE-2016-2790", "CVE-2016-2791", "CVE-2016-2792", "CVE-2016-2793", "CVE-2016-2794", "CVE-2016-2795", "CVE-2016-2796", "CVE-2016-2797", "CVE-2016-2798", "CVE-2016-2799", "CVE-2016-2800", "CVE-2016-2801", "CVE-2016-2802");
   script_tag(name:"creation_date", value:"2016-03-10 05:17:42 +0000 (Thu, 10 Mar 2016)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-12-27 16:08:00 +0000 (Fri, 27 Dec 2019)");
+  script_tag(name:"severity_date", value:"2016-03-15 18:42:36 +0000 (Tue, 15 Mar 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0105)");
   script_category(ACT_GATHER_INFO);
@@ -27,8 +27,10 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0105");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0105.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17900");
-  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-81/");
+  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2016-0370.html");
+  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2016-0373.html");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-136/");
+  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-81/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2016-16/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2016-17/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2016-20/");
@@ -44,8 +46,6 @@ if(description)
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2016-36/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2016-37/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/known-vulnerabilities/firefox-esr/");
-  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2016-0370.html");
-  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2016-0373.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'firefox, firefox-l10n, nspr, nss' package(s) announced via the MGASA-2016-0105 advisory.");
 

@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801114");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-08T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-10-12 07:28:01 +0200 (Mon, 12 Oct 2009)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2009-3569", "CVE-2009-3570", "CVE-2009-3571");
-  script_name("OpenOffice.org Multiple Vulnerabilities - Oct09 (Windows)");
+  script_name("OpenOffice.org Multiple Vulnerabilities (Oct 2009) - Windows");
   script_xref(name:"URL", value:"http://intevydis.com/vd-list.shtml");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/36285");
   script_xref(name:"URL", value:"http://securitytracker.com/alerts/2009/Sep/1022832.html");

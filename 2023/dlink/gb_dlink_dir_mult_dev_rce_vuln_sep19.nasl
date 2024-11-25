@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170619");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-10-16T08:00:45+0000");
+  script_tag(name:"last_modification", value:"2024-10-16 08:00:45 +0000 (Wed, 16 Oct 2024)");
   script_tag(name:"creation_date", value:"2023-02-24 21:18:49 +0000 (Fri, 24 Feb 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -34,7 +34,7 @@ if(description)
   script_tag(name:"summary", value:"Multiple D-Link DIR devices are prone to a remote command
   execution (RCE) vulnerability.");
 
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if the target host is a vulnerable device.");
 
   script_tag(name:"insight", value:"Any arguments after a newline character sent as ping_ipaddr in a
   POST to /apply_sec.cgi are executed on the device with root privileges.");
@@ -71,14 +71,11 @@ cpe_list = make_list( "cpe:/o:dlink:dir-615_firmware",
                       "cpe:/o:dlink:dir-862l_firmware",
                       "cpe:/o:dlink:dir-866l_firmware" );
 
-if ( ! infos = get_app_port_from_list( cpe_list:cpe_list ) )
+if ( ! infos = get_app_version_from_list( cpe_list:cpe_list, nofork:TRUE ) )
   exit( 0 );
 
 cpe = infos["cpe"];
-port = infos["port"];
-
-if ( ! version = get_app_version( cpe:cpe, nofork:TRUE ) )
-  exit( 0 );
+version = infos["version"];
 
 # nb: For DIR-655, only revision C seems to be affected
 if ( cpe =~ "dir-655" ) {
@@ -90,5 +87,5 @@ if ( cpe =~ "dir-655" ) {
 }
 
 report = report_fixed_ver( installed_version:version, fixed_version:"None" );
-security_message( port:port, data:report );
+security_message( port:0, data:report );
 exit( 0 );

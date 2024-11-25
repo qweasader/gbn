@@ -1,0 +1,63 @@
+# SPDX-FileCopyrightText: 2024 Greenbone AG
+# Some text descriptions might be excerpted from (a) referenced
+# source(s), and are Copyright (C) by the respective right holder(s).
+#
+# SPDX-License-Identifier: GPL-2.0-only
+
+CPE = "cpe:/a:vmware:fusion";
+
+if(description)
+{
+  script_oid("1.3.6.1.4.1.25623.1.0.834073");
+  script_version("2024-06-21T05:05:42+0000");
+  script_cve_id("CVE-2024-22251");
+  script_tag(name:"cvss_base", value:"5.0");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
+  script_tag(name:"creation_date", value:"2024-06-18 05:22:20 +0530 (Tue, 18 Jun 2024)");
+  script_name("VMware Fusion Out-of-bounds read Vulnerability (VMSA-2024-0005) - Mac OS X");
+
+  script_tag(name:"summary", value:"VMware Fusion is prone to an out of bounds
+  read vulnerability.");
+
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present
+  on the target host.");
+
+  script_tag(name:"insight", value:"The flaw exists due to an out of bounds
+  read error in the USB CCID (chip card interface device).");
+
+  script_tag(name:"impact", value:"Successful exploitation allows an attacker
+  to disclose information.");
+
+  script_tag(name:"affected", value:"VMware Fusion 13.x before 13.5.1 on
+  Mac OS X.");
+
+  script_tag(name:"solution", value:"Update to version 13.5.1 or later.");
+
+  script_tag(name:"solution_type", value:"VendorFix");
+  script_tag(name:"qod_type", value:"executable_version");
+  script_xref(name:"URL", value:"https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/24265");
+  script_copyright("Copyright (C) 2024 Greenbone AG");
+  script_category(ACT_GATHER_INFO);
+  script_family("General");
+  script_dependencies("secpod_vmware_fusion_detect_macosx.nasl");
+  script_mandatory_keys("VMware/Fusion/MacOSX/Version");
+  exit(0);
+}
+
+include("host_details.inc");
+include("version_func.inc");
+
+if(!infos = get_app_version_and_location(cpe:CPE, exit_no_version:TRUE))
+  exit(0);
+
+vers = infos["version"];
+path = infos["location"];
+
+if(vers =~ "^13\." && version_is_less(version:vers, test_version:"13.5.1")) {
+  report = report_fixed_ver(installed_version:vers, fixed_version:"Upgrade to 13.5.1 or later", install_path:path);
+  security_message(port:0, data:report);
+  exit(0);
+}
+
+exit(99);

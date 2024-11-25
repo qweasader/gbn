@@ -9,17 +9,17 @@ CPE = "cpe:/a:videolan:vlc_media_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811053");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2017-8313", "CVE-2017-8312", "CVE-2017-8311", "CVE-2017-8310");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-04-27 01:29:00 +0000 (Fri, 27 Apr 2018)");
   script_tag(name:"creation_date", value:"2017-05-24 12:53:35 +0530 (Wed, 24 May 2017)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("VLC Media Player Subtitle Remote Code Execution Vulnerability (Mac OS X)");
+  script_name("VLC Media Player Subtitle Remote Code Execution Vulnerability - Mac OS X");
 
   script_tag(name:"summary", value:"VLC media player is prone to a heap overflow vulnerability.");
 

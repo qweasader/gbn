@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2023.0343");
   script_cve_id("CVE-2023-6204", "CVE-2023-6205", "CVE-2023-6206", "CVE-2023-6207", "CVE-2023-6208", "CVE-2023-6209", "CVE-2023-6212");
   script_tag(name:"creation_date", value:"2023-12-11 04:12:28 +0000 (Mon, 11 Dec 2023)");
-  script_version("2023-12-11T05:05:43+0000");
-  script_tag(name:"last_modification", value:"2023-12-11 05:05:43 +0000 (Mon, 11 Dec 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-11-28 19:30:00 +0000 (Tue, 28 Nov 2023)");
+  script_tag(name:"severity_date", value:"2023-11-28 19:30:41 +0000 (Tue, 28 Nov 2023)");
 
   script_name("Mageia: Security Advisory (MGASA-2023-0343)");
   script_category(ACT_GATHER_INFO);
@@ -27,9 +27,9 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2023-0343");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2023-0343.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=32552");
+  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2023-52/");
   script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/115.5.0/releasenotes/");
   script_xref(name:"URL", value:"https://www.thunderbird.net/en-US/thunderbird/115.5.1/releasenotes/");
-  script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2023-52/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'thunderbird, thunderbird-l10n' package(s) announced via the MGASA-2023-0343 advisory.");
 

@@ -9,11 +9,11 @@ CPE = "cpe:/a:joomla:joomla";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809765");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2016-9838");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-09-02 01:29:00 +0000 (Sat, 02 Sep 2017)");
@@ -48,7 +48,6 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("joomla_detect.nasl");
   script_mandatory_keys("joomla/installed");
-  script_require_ports("Services/www", 80);
 
   exit(0);
 }
@@ -56,17 +55,16 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!jPort = get_app_port(cpe:CPE))
+if(!port = get_app_port(cpe:CPE))
   exit(0);
 
-if(!jVer = get_app_version(cpe:CPE, port:jPort))
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
 
-if(version_in_range(version:jVer, test_version:"1.6.0", test_version2:"3.6.4"))
-{
-  report = report_fixed_ver( installed_version:jVer, fixed_version:"3.6.5");
-  security_message( data:report, port:jPort);
+if(version_in_range(version:version, test_version:"1.6.0", test_version2:"3.6.4")) {
+  report = report_fixed_ver( installed_version:version, fixed_version:"3.6.5");
+  security_message( data:report, port:port);
   exit(0);
 }
 
-exit(0);
+exit(99);

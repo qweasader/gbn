@@ -9,8 +9,8 @@ CPE = "cpe:/a:gitlab:gitlab";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170079");
-  script_version("2023-12-06T05:06:11+0000");
-  script_tag(name:"last_modification", value:"2023-12-06 05:06:11 +0000 (Wed, 06 Dec 2023)");
+  script_version("2024-11-15T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-15 05:05:36 +0000 (Fri, 15 Nov 2024)");
   script_tag(name:"creation_date", value:"2022-03-28 14:21:05 +0000 (Mon, 28 Mar 2022)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -39,11 +39,11 @@ if (description)
 
   script_tag(name:"insight", value:"The following vulnerabilities exist:
 
-  - CVE-2017-0922: Gitlab is vulnerable to an authorization bypass issue in the GitLab
+  - CVE-2017-0922: GitLab is vulnerable to an authorization bypass issue in the GitLab
   Projects::BoardsController component resulting in an information disclosure on any board object.
 
-  - CVE-2017-0923: Gitlab is vulnerable to lack of input validation in the IPython notebooks component
-  resulting in persistent cross site scripting.");
+  - CVE-2017-0923: GitLab is vulnerable to lack of input validation in the IPython notebooks
+  component resulting in persistent cross site scripting.");
 
   script_tag(name:"affected", value:"GitLab version 9.1.x through 9.5.10, 10.x through 10.1.5,
   10.2.x through 10.2.5 and 10.3.x through 10.3.3.");

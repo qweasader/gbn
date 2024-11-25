@@ -21,16 +21,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.852914");
-  script_version("2022-08-09T10:11:17+0000");
+  script_version("2024-07-04T05:05:37+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2019-11708");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2024-07-04 05:05:37 +0000 (Thu, 04 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-08-15 18:15:00 +0000 (Thu, 15 Aug 2019)");
+  script_tag(name:"severity_date", value:"2024-07-02 17:02:19 +0000 (Tue, 02 Jul 2024)");
   script_tag(name:"creation_date", value:"2020-01-09 09:45:14 +0000 (Thu, 09 Jan 2020)");
   script_name("openSUSE: Security Advisory for MozillaFirefox (openSUSE-SU-2019:1595-1)");
   script_category(ACT_GATHER_INFO);

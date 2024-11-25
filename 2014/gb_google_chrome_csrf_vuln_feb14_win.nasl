@@ -9,15 +9,16 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804316");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2013-6166");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-02-17 17:40:48 +0530 (Mon, 17 Feb 2014)");
-  script_name("Google Chrome Cross-Site Request Forgery (CSRF) Vulnerability (Windows)");
+  script_name("Google Chrome CSRF Vulnerability - Windows");
 
-  script_tag(name:"summary", value:"Google Chrome is prone to cross-site request forgery attack.");
+  script_tag(name:"summary", value:"Google Chrome is prone to a cross-site request forgery (CSRF)
+  attack.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
   script_tag(name:"insight", value:"The flaw is due to improper validation of 'HTTP Cookie headers' for
 restricted character-set.");

@@ -9,17 +9,17 @@ CPE = "cpe:/a:microsoft:office";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810695");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-28T05:05:37+0000");
   script_cve_id("CVE-2017-0027");
   script_tag(name:"cvss_base", value:"2.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-28 05:05:37 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-07-12 01:29:00 +0000 (Wed, 12 Jul 2017)");
   script_tag(name:"creation_date", value:"2017-04-13 15:05:06 +0530 (Thu, 13 Apr 2017)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("Microsoft Office Information Disclosure Vulnerability-4013241 (Mac OS X)");
+  script_name("Microsoft Office Information Disclosure Vulnerability (4013241) - Mac OS X");
 
   script_tag(name:"summary", value:"This host is missing an important security
   update according to Microsoft Bulletin MS17-014");

@@ -9,11 +9,11 @@ CPE = "cpe:/a:telaxus:epesi";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112083");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2017-14712", "CVE-2017-14713", "CVE-2017-14714", "CVE-2017-14715", "CVE-2017-14716", "CVE-2017-14717");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-10-06 01:29:00 +0000 (Fri, 06 Oct 2017)");
@@ -23,7 +23,6 @@ if(description)
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_dependencies("gb_epesi_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("epesi/installed", "epesi/revision");
 
   script_xref(name:"URL", value:"https://forum.epesibim.com/d/4956-security-issue-multiple-stored-xss-in-epesi-version-1-8-2-rev20170830");
@@ -48,8 +47,12 @@ to store persistently executable scripts inside the application.");
 include("host_details.inc");
 include("version_func.inc");
 
-if(!port = get_app_port(cpe:CPE)) exit(0);
-if(!vers = get_app_version(cpe:CPE, port:port)) exit(0);
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!vers = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
 rev = get_kb_item("epesi/revision");
 if (!rev)
   exit(0);

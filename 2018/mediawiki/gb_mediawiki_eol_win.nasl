@@ -4,11 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-if( description )
+CPE = "cpe:/a:mediawiki:mediawiki";
+
+if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.114002");
-  script_version("2023-09-19T05:06:03+0000");
-  script_tag(name:"last_modification", value:"2023-09-19 05:06:03 +0000 (Tue, 19 Sep 2023)");
+  script_version("2024-07-16T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2018-04-24 15:13:48 +0200 (Tue, 24 Apr 2018)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -17,30 +19,31 @@ if( description )
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Mediawiki End of Life (EOL) Detection (Windows)");
+  script_name("Mediawiki End of Life (EOL) Detection - Windows");
 
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("secpod_mediawiki_detect.nasl", "os_detection.nasl");
-  script_mandatory_keys("mediawiki/installed", "Host/runs_windows");
+  script_dependencies("gb_mediawiki_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("mediawiki/detected", "Host/runs_windows");
 
-  script_tag(name:"summary", value:"The Mediawiki version on the remote host has reached the End of Life (EOL) and should not be used anymore.");
-
-  script_tag(name:"impact", value:"An EOL version of Mediawiki is not receiving any security updates from the vendor. Unfixed security
-  vulnerabilities might be leveraged by an attacker to compromise the security of this host.");
-
-  script_tag(name:"solution", value:"Update the Mediawiki version on the remote host to a still supported version.");
+  script_tag(name:"summary", value:"The Mediawiki version on the remote host has reached the end of
+  life (EOL) and should not be used anymore.");
 
   script_tag(name:"vuldetect", value:"Checks if an EOL version is present on the target host.");
+
+  script_tag(name:"impact", value:"An EOL version of Mediawiki is not receiving any security updates
+  from the vendor. Unfixed security vulnerabilities might be leveraged by an attacker to compromise
+  the security of this host.");
+
+  script_tag(name:"solution", value:"Update the Mediawiki version on the remote host to a still
+  supported version.");
 
   script_xref(name:"URL", value:"https://www.mediawiki.org/wiki/Version_lifecycle");
 
   exit(0);
 }
-
-CPE = "cpe:/a:mediawiki:mediawiki";
 
 include("misc_func.inc");
 include("products_eol.inc");

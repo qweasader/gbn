@@ -9,16 +9,16 @@ CPE = "cpe:/a:mozilla:firefox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812296");
-  script_version("2023-11-03T16:10:08+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2017-5753", "CVE-2017-5715", "CVE-2017-5754");
   script_tag(name:"cvss_base", value:"4.7");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-05-05 11:31:00 +0000 (Tue, 05 May 2020)");
   script_tag(name:"creation_date", value:"2018-01-05 14:36:34 +0530 (Fri, 05 Jan 2018)");
-  script_name("Mozilla Firefox Security Updates (mfsa_2018-01_2018-01) - Mac OS X");
+  script_name("Mozilla Firefox Security Advisories (MFSA2018-01, MFSA2018-01) - Mac OS X");
 
   script_tag(name:"summary", value:"Mozilla Firefox is prone to multiple vulnerabilities.");
 

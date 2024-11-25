@@ -9,18 +9,18 @@ CPE = "cpe:/a:oracle:database_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802523");
-  script_version("2023-07-28T05:05:23+0000");
+  script_version("2024-10-29T05:05:45+0000");
   script_cve_id("CVE-2007-0272");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-10-29 05:05:45 +0000 (Tue, 29 Oct 2024)");
   script_tag(name:"creation_date", value:"2011-12-07 12:25:28 +0530 (Wed, 07 Dec 2011)");
-  script_name("Oracle Database Server MDSYS.MD Buffer Overflows and Denial of Service Vulnerabilities");
+  script_name("Oracle Database Server MDSYS.MD Buffer Overflows and DoS Vulnerabilities");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Databases");
-  script_dependencies("oracle_tnslsnr_version.nasl");
-  script_mandatory_keys("OracleDatabaseServer/installed");
+  script_dependencies("gb_oracle_database_consolidation.nasl");
+  script_mandatory_keys("oracle/database/detected");
 
   script_xref(name:"URL", value:"http://securitytracker.com/id?1017522");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/22083");
@@ -38,7 +38,8 @@ if(description)
   Oracle spatial component. The package has EXECUTE permissions set to PUBLIC, so
   any Oracle database user can exploit the vulnerability to execute arbitrary code.");
 
-  script_tag(name:"summary", value:"Oracle database is prone to a Buffer Overflow and Denial of Service vulnerabilities.");
+  script_tag(name:"summary", value:"Oracle database is prone to a Buffer Overflow and denial of
+  service (DoS) vulnerabilities.");
 
   script_tag(name:"solution", value:"Apply the patch from the referenced advisory.");
 
@@ -52,8 +53,14 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( isnull( port = get_app_port( cpe:CPE ) ) )
+  exit( 0 );
+
+if( ! infos = get_app_version_and_location( cpe:CPE, port:port, exit_no_version:TRUE ) )
+  exit( 0 );
+
+vers = infos["version"];
+path = infos["location"];
 
 if( version_in_range( version:vers, test_version:"8.1.0", test_version2:"8.1.7.3" ) ||
     version_in_range( version:vers, test_version:"10.1.0", test_version2:"10.1.0.3" ) ||
@@ -63,7 +70,7 @@ if( version_in_range( version:vers, test_version:"8.1.0", test_version2:"8.1.7.3
     version_is_equal( version:vers, test_version:"9.0.1.5" ) ||
     version_is_equal( version:vers, test_version:"10.1.0.4" ) ||
     version_is_equal( version:vers, test_version:"9.2.0.7" ) ) {
-  report = report_fixed_ver( installed_version:vers, fixed_version:"See references" );
+  report = report_fixed_ver( installed_version:vers, fixed_version:"See references", install_path:path );
   security_message( port:port, data:report );
   exit( 0 );
 }

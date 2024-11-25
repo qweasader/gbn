@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803676");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-21T05:06:27+0000");
   script_cve_id("CVE-2013-2866");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-21 05:06:27 +0000 (Wed, 21 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-06-24 12:10:48 +0530 (Mon, 24 Jun 2013)");
-  script_name("Google Chrome Clickjacking Vulnerability June13 - Mac OS X");
+  script_name("Google Chrome Clickjacking Vulnerability (Jun 2013) - Mac OS X");
   script_xref(name:"URL", value:"http://securitytracker.com/id/1028694");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.in/2013/06/stable-channel-update_18.html");
   script_copyright("Copyright (C) 2013 Greenbone AG");

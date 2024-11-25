@@ -1,30 +1,16 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:cisco:unified_communications_manager";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106441");
-  script_version("2022-03-10T09:57:15+0000");
-  script_tag(name:"last_modification", value:"2022-03-10 09:57:15 +0000 (Thu, 10 Mar 2022)");
+  script_version("2024-09-13T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2024-09-13 05:05:46 +0000 (Fri, 13 Sep 2024)");
   script_tag(name:"creation_date", value:"2016-12-08 13:24:06 +0700 (Thu, 08 Dec 2016)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -41,7 +27,7 @@ if (description)
   script_name("Cisco Unified Communications Manager Administration Page Cross-Site Scripting Vulnerability (cisco-sa-20161207-cucm)");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("CISCO");
   script_dependencies("gb_cisco_cucm_consolidation.nasl");
   script_mandatory_keys("cisco/cucm/detected");
@@ -77,7 +63,7 @@ if (!version = get_app_version(cpe: CPE, nofork: TRUE, version_regex: "^[0-9]+\.
 version = str_replace(string: version, find: "-", replace: ".");
 
 if (version == "11.5.1.10000.6") {
-  report = report_fixed_ver(installed_version: version, fixed_version: "See vendor advisory.");
+  report = report_fixed_ver(installed_version: version, fixed_version: "See vendor advisory");
   security_message(port: 0, data: report);
   exit(0);
 }

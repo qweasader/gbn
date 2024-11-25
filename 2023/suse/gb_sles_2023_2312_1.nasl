@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2023.2312.1");
   script_cve_id("CVE-2022-1705", "CVE-2022-1962", "CVE-2022-24675", "CVE-2022-27536", "CVE-2022-27664", "CVE-2022-28131", "CVE-2022-28327", "CVE-2022-2879", "CVE-2022-2880", "CVE-2022-29526", "CVE-2022-29804", "CVE-2022-30580", "CVE-2022-30629", "CVE-2022-30630", "CVE-2022-30631", "CVE-2022-30632", "CVE-2022-30633", "CVE-2022-30634", "CVE-2022-30635", "CVE-2022-32148", "CVE-2022-32189", "CVE-2022-41715", "CVE-2022-41716", "CVE-2022-41717", "CVE-2022-41720", "CVE-2022-41723", "CVE-2022-41724", "CVE-2022-41725");
   script_tag(name:"creation_date", value:"2023-05-31 04:21:14 +0000 (Wed, 31 May 2023)");
-  script_version("2023-06-20T05:05:26+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:26 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-02T14:37:52+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 14:37:52 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-08-12 20:46:00 +0000 (Fri, 12 Aug 2022)");
+  script_tag(name:"severity_date", value:"2022-08-12 20:46:04 +0000 (Fri, 12 Aug 2022)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2023:2312-1)");
   script_category(ACT_GATHER_INFO);

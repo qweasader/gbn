@@ -9,8 +9,8 @@ CPE = "cpe:/a:postgresql:postgresql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100158");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-07-19T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-07-19 05:05:32 +0000 (Fri, 19 Jul 2024)");
   script_tag(name:"creation_date", value:"2009-04-24 20:04:08 +0200 (Fri, 24 Apr 2009)");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:N/A:N");
@@ -18,7 +18,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_family("Databases");
   script_copyright("Copyright (C) 2009 Greenbone AG");
-  script_dependencies("postgresql_detect.nasl", "secpod_postgresql_detect_lin.nasl", "secpod_postgresql_detect_win.nasl");
+  script_dependencies("gb_postgresql_consolidation.nasl");
   script_mandatory_keys("postgresql/detected");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/34069");

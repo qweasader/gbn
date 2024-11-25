@@ -41,6 +41,11 @@ eol_cpes[ "cpe:/a:advantech:wise-paas%2frmm" ] = make_array(
   "version_regex", "^([0-9]+\.[0-9]+\.[0-9]+)"
 );
 
+# https://attic.apache.org/projects/archiva.html
+eol_cpes[ "cpe:/a:apache:archiva" ] = make_array(
+  "versions", "all:2024-02-01"
+);
+
 # https://en.wikipedia.org/wiki/Apache_HTTP_Server#Development
 eol_cpes[ "cpe:/a:apache:http_server" ] = make_array(
   "versions",      "2.2:2017-12-31;2.0:2013-07-10;1.3:2010-02-03",
@@ -80,6 +85,15 @@ eol_cpes[ "cpe:/a:apereo:central_authentication_service" ] = make_array(
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
+# Those are listed here as being "unsupported":
+# https://www.bitvise.com/ssh-server-version-history-7
+# https://www.bitvise.com/ssh-server-version-history-6
+# https://www.bitvise.com/ssh-server-version-history-5
+eol_cpes[ "cpe:/a:bitvise:winsshd" ] = make_array(
+  "versions",      "7:unknown;6:unknown;5:unknown",
+  "version_regex", "^([0-9]+)"
+);
+
 # https://dotcms.com/docs/latest/release-lifecycle
 eol_cpes[ "cpe:/a:dotcms:dotcms" ] = make_array(
   "versions",      "4:2019-09-31;3:2018-03-31;2:2015-12-31;1:2013-07-31",
@@ -99,6 +113,23 @@ eol_cpes[ "cpe:/a:ckeditor:ckeditor" ] = make_array(
   "version_regex", "^([0-9]+)"
 );
 
+# https://www.crushftp.com/download.html currently only lists:
+# > CrushFTP v9 support ended in October 2022.
+# > CrushFTP v10 support will end in March 2027.
+# > We only support v10 and v11 now.
+#
+# For both 9 and 10 versions the last day of the month have been taken.
+#
+eol_cpes[ "cpe:/a:crushftp:crushftp" ] = make_array(
+  "versions",      "10:2027-03-31;9:2022-10-31;8:unknown;7:unknown;6:unknown;5:unknown;4:unknown;3:unknown;2:unknown;1:unknown",
+  "version_regex", "^([0-9]+)"
+);
+
+# https://www.cisco.com/c/en/us/products/collateral/unified-communications/telepresence-video-communication-server-vcs/eos-eol-notice-c51-743969.html
+eol_cpes[ "cpe:/a:cisco:telepresence_video_communication_server_software" ] = make_array(
+  "versions", "all:2023-12-31"
+);
+
 # https://support.sophos.com/support/s/article/KB-000041566
 # nb: The date of the last model reached the EOL has been taken here...
 eol_cpes[ "cpe:/a:cyberoam:cyberoam_central_console" ] = make_array(
@@ -113,19 +144,28 @@ eol_cpes[ "cpe:/a:cyberoam:cyberoam_ssl_vpn" ] = make_array(
   "versions", "all:2014-05-31"
 );
 
+# https://www.drupal.org/psa-2023-11-01 # nb: Drupal 9 EOL notice
+# https://www.drupal.org/psa-2023-06-07 # nb: Drupal 7 final EOL extension to 05th Jan 2025
+# https://www.drupal.org/psa-2022-02-23 # nb: Drupal 7 second EOL extension to Nov 2023
+# https://www.drupal.org/psa-2021-11-30 # nb: Drupal 8 EOL notice
+# https://www.drupal.org/psa-2020-06-24 # nb: Drupal 7 first EOL extension to Nov 2022
+# https://www.drupal.org/psa-2019-02-25 # nb: Initial Drupal 7 EOL notice for Nov 2021
 # https://www.drupal.org/forum/general/news-and-announcements/2015-11-09/drupal-6-end-of-life-announcement
-# https://www.drupal.org/docs/8/understanding-drupal-version-numbers/drupal-release-history
-# https://www.drupal.org/psa-2020-06-24
-# https://www.drupal.org/psa-2021-11-30
+# https://www.drupal.org/docs/understanding-drupal/understanding-drupal-version-numbers/legacy-drupal-release-history
 eol_cpes[ "cpe:/a:drupal:drupal" ] = make_array(
-  "versions",      "8:2021-11-17;7:2022-11-28;6:2016-02-24;5:2007-01-15;4:unknown;3:unknown;2:unknown;1:unknown",
+  "versions",      "9:2023-11-01;8:2021-11-17;7:2025-01-05;6:2016-02-24;5:2007-01-15;4:unknown;3:unknown;2:unknown;1:unknown",
   "version_regex", "^([0-9]+)"
 );
 
-# https://www.eclipse.org/jetty/download.php
+# https://jetty.org/download.html#version-history
 # nb:
-# - Older version branches (e.g. the existence of 7.1 for 7.x) was taken from https://github.com/eclipse/jetty.project/blob/jetty-10.0.x/VERSION.txt
-# - 31.12. was taken as the EOL date for the "end year" in the "Years" column of https://www.eclipse.org/jetty/download.php
+# - Older version branches (e.g. the existence of 7.1 for 7.x) was taken from:
+#   https://github.com/jetty/jetty.project/blob/jetty-10.0.x/VERSION.txt
+# - 31.12. was taken as the EOL date for the "end year" in the "Years" column of:
+#   https://jetty.org/download.html#version-history
+# - Only add versions from the page above if the "Status" column contains e.g. "Deprecated" or
+#   similar. "EOL / Security Only" versions seems to still receive security updates and shouldn't be
+#   marked as EOL
 eol_cpes[ "cpe:/a:eclipse:jetty" ] = make_array(
   "versions",      "9.3:2020-12-31;9.2:2018-12-31;9.1:2014-12-31;9.0:2013-12-31;8.1:2014-12-31;8.0:2014-12-31;7.6:2014-12-31;7.5:2014-12-31;7.4:2014-12-31;7.3:2014-12-31;7.2:2014-12-31;7.1:2014-12-31;7.0:2014-12-31;6.1:2010-12-31;6.0:2010-12-31;5.1:2009-12-31;5.0:2009-12-31;4.2:2006-12-31;4.1:2006-12-31;4.0:2006-12-31;3.1:2002-12-31;3.0:2002-12-31;2.4:2000-12-31;2.3:2000-12-31;2.2:2000-12-31;2.1:2000-12-31;2.0:2000-12-31;1.3:1998-12-31;1.2:1998-12-31;1.1:1998-12-31;1.0:1998-12-31",
   "version_regex", "^([0-9]+\.[0-9]+)"
@@ -155,11 +195,30 @@ eol_cpes[ "cpe:/a:elastic:logstash" ] = make_array(
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
+# https://my.f5.com/manage/s/article/K5903
+# nb:
+# - End of Software Development (EoSD) = No security fixes
+# - Only versions down to 10.x has been added for now
+# - Some versions of older branches had a different EOL date (e.g. 11.5.0 = 2017, 11.5.1 = 2019,
+#   11.5.2+ = 2020) but as all versions are already EOL the newest one has been taken here
+eol_cpes[ "cpe:/h:f5:big-ip" ] = make_array(
+  "versions",      "17.1:2027-03-31;17.0:2023-07-31;16.1:2025-07-31;16.0:2021-10-07;15.1:2024-12-31;15.0:2020-08-23;14.1:2023-12-31;14.0:2019-11-09;13.1:2023-12-31;13.0:2019-05-22;12.1:2022-05-18;12.0:2017-12-02;11.6:2022-05-10;11.5:2020-04-08;11.4:2017-09-17;11.3:2015-12-17;11.2:2018-12-31;11.1:2014-11-28;11.0:2014-08-24;10.2:2016-12-31;10.1:2016-03-01;10.0:2013-08-31",
+  "version_regex", "^([0-9]+\.[0-9]+)"
+);
+
 # https://my.f5.com/manage/s/article/K15073
 # nb: End of Software Development (EoSD) = No security fixes
 eol_cpes[ "cpe:/a:f5:big-iq_centralized_management" ] = make_array(
   "versions",      "8.3.0:2025-04-13;8.2.0:2024-04-26;8.1.0:2023-06-30;8.0.0:2023-02-24;7.1.0:2022-04-22;7.0.0:2021-08-09;6.1.0:2020-12-07;6.0.1:2020-08-09;6.0.0:2020-05-31;5.4.0:2019-12-27;5.3.0:2019-07-13;5.2.0:2019-04-26;5.1.0:2018-09-21;5.0.0:2018-06-13;4.6.0:2017-11-23;4.5.0:2017-01-27;4.4.0:2016-09-10;4.3.0:2016-02-26;4.2.0:2015-12-20;4.1.0:2015-08-15;4.0.0:2015-04-29",
   "version_regex", "^([0-9]+\.[0-9]+\.[0-9]+)"
+);
+
+# https://my.f5.com/manage/s/article/K15280
+# https://my.f5.com/manage/s/article/K26270159
+# nb: All versions are EOL since 2018 so we're not maintaining a list of EOL dates here and just use
+# the latest one for the "all" string
+eol_cpes[ "cpe:/a:f5:linerate" ] = make_array(
+  "versions", "all:2018-06-30"
 );
 
 eol_cpes[ "cpe:/a:ftpdmin:ftpdmin" ] = make_array(
@@ -170,7 +229,7 @@ eol_cpes[ "cpe:/a:ftpdmin:ftpdmin" ] = make_array(
 # https://docs.github.com/en/enterprise-server@latest/admin/all-releases
 # Aged 11.10 hasn't been added here to not interfere with possible "new" 11.x releases in the future
 eol_cpes[ "cpe:/a:github:github_enterprise" ] = make_array(
-  "versions",      "3.10:2024-08-29;3.9:2024-06-29;3.8:2024-03-07;3.7:2023-11-08;3.6:2023-09-25;3.5:2023-06-29;3.4:2023-03-23;3.3:2023-01-18;3.2:2022-10-12;3.1:2022-06-30;3.0:2022-02-16;2.22:2021-09-23;2.21:2021-06-09;2.20:2021-03-02;2.19:2020-11-12;2.18:2020-08-20;2.17:2020-05-23;2.16:2020-01-22;2.15:2019-10-16;2.14:2019-07-12;2.13:2019-03-27;2.12:2018-12-12;2.11:2018-09-13;2.10:2018-06-05;2.9:2018-03-01;2.8:2017-11-09;2.7:2017-08-03;2.6:2017-04-26;2.5:2017-03-14;2.4:2017-02-09;2.3:2016-11-01;2.2:2016-08-03;2.1:2016-04-26;2.0:2016-02-09;",
+  "versions",      "3.13:2025-06-04;3.12:2025-03-05;3.11:2024-12-05;3.10:2024-08-29;3.9:2024-07-09;3.8:2024-03-26;3.7:2024-01-04;3.6:2023-09-25;3.5:2023-06-29;3.4:2023-03-23;3.3:2023-01-18;3.2:2022-10-12;3.1:2022-06-30;3.0:2022-02-16;2.22:2021-09-23;2.21:2021-06-09;2.20:2021-03-02;2.19:2020-11-12;2.18:2020-08-20;2.17:2020-05-23;2.16:2020-01-22;2.15:2019-10-16;2.14:2019-07-12;2.13:2019-03-27;2.12:2018-12-12;2.11:2018-09-13;2.10:2018-06-05;2.9:2018-03-01;2.8:2017-11-09;2.7:2017-08-03;2.6:2017-04-26;2.5:2017-03-14;2.4:2017-02-09;2.3:2016-11-01;2.2:2016-08-03;2.1:2016-04-26;2.0:2016-02-09;",
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
@@ -277,6 +336,17 @@ eol_cpes[ "cpe:/a:jquery:jquery" ] = make_array(
 eol_cpes[ "cpe:/o:juniper:junos" ] = make_array(
   "versions",      "22.4:2026-06-22;22.3:2025-03-28;22.2:2025-12-23;22.1:2024-09-24;21.4:2025-06-20;21.3:2024-03-23;21.2:2024-12-29;21.1:2023-09-25;20.4:2024-06-25;20.3:2023-03-29;20.2:2023-12-30;20.1:2022-09-27;19.4:2023-06-26;19.3:2023-03-26;19.2:2022-12-26;19.1:2022-09-27;18.4:2022-06-22;18.3:2022-03-26;18.2:2021-12-29;18.1:2021-09-28;17.4:2021-06-21;17.3:2021-02-25;17.2:2020-12-06;17.1:2020-09-03;16.2:2020-05-29;16.1:2020-01-25;15.1X53:2018-12-05;15.1X49:2021-06-30;15.1:2018-12-05;14.2:2018-05-05;14.1X53:2019-06-30;14.1:2018-06-13;13.3:2017-07-22;13.2X52:2017-06-30;13.2X51:2016-06-30;13.2X50:2014-12-28;13.2:2016-02-29;13.1X50:2015-12-30;13.1:2015-09-15;12.3X54:2018-07-18;12.3X52:2016-02-23;12.3X51:2015:09-15;12.3X50:2016-07-31;12.3X48:2022-06-30;12.3:2016-07-31;12.2X50:2015-07-31;12.2:2015-03-05;12.1X49:2014-10-19;12.1X48:2015-06-30;12.1X47:2017-02-18;12.1X46:2017-06-30;12.1X45:2015-01-17;12.1X44:2016-07-18;12.1:2014-09-28;11.4:2015-06-21;11.3:2013-03-15;11.2:2013-02-15;11.1:2012-05-15;10.4:2014-06-08;10.3:2011-12-21;10.2:2011-11-15;10.1:2011-05-15;10.0:2013-05-15;9.6:2010-11-06;9.5:2010-08-15;9.4:2010-05-11;9.3:2012-05-15;9.2:2009-11-12;9.1:2009-07-28;9.0:2009-05-15;8.5:2011-05-16;8.4:2008-11-09;8.3:2008-07-18;8.2:2008-05-15;8.1:2010-05-06;8.0:2007-11-15;7.6:2007-08-15;7.5:2007-05-08;7.4:2007-02-15;7.3:2006-11-16;7.2:2006-08-14;7.1:2006-05-14;7.0:2006-02-15;6.4:2005-11-12;6.3:2005-08-15;6.2:2005-05-15;6.1:2005-02-15;6.0:2004-11-15;5.7:2004-08-15;5.6:2004-05-15;5.5:2004-02-15;5.4:2003-11-15;5.3:2003-08-15;5.2:2003-05-15;5.2:2003-05-15;5.1:2003-02-15;5.0:2002-11-15;4.4:unknown",
   "version_regex", "^([0-9.]+)(X[0-9]+)?"
+);
+
+# https://dev.lucee.org/t/lucee-roadmap-update/12746 says:
+# > Lucee 5.3 is EOL, no more releases (aside from security fixes)
+# Older versions have been taken from:
+# - https://dev.lucee.org/c/news/release/8
+# - https://download.lucee.org/
+# - https://dev.lucee.org/t/end-of-life-for-lucee-4-5/4093
+eol_cpes[ "cpe:/a:lucee:lucee_server" ] = make_array(
+  "versions",      "5.2:unknown;5.1:unknown;5.0:unknown;4.5:unknown",
+  "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
 # https://magento.com/blog/magento-news/supporting-magento-1-through-june-2020
@@ -438,18 +508,14 @@ eol_cpes[ "cpe:/a:oracle:mysql" ] = make_array(
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
-# https://www.microfocus.com/lifecycle/
+# https://www.microfocus.com/productlifecycle/
 eol_cpes[ "cpe:/a:netiq:access_manager" ] = make_array(
-  "versions",      "4.5:2021-03-31;4.4:2020-03-31;4.3:2018-09-30;4.2:2017-11-30;4.1:2016-11-30;4.0:2016-05-31",
+  "versions",      "5.0:2025-04-30;4.5:2023-07-31;4.4:2020-07-31;4.3:2018-09-30;4.2:2017-11-30;4.1:2016-11-30;4.0:2016-05-31",
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
 # https://www.microfocus.com/lifecycle/
 eol_cpes[ "cpe:/a:netiq:edirectory" ] = make_array(
-  "versions",      "9.1:2020-09-30;9.0:2019-02-01;8.8:2017-10-31",
-  "version_regex", "^([0-9]+\.[0-9]+)"
-);
-eol_cpes[ "cpe:/a:novell:edirectory" ] = make_array(
   "versions",      "9.1:2020-09-30;9.0:2019-02-01;8.8:2017-10-31",
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
@@ -515,6 +581,11 @@ eol_cpes[ "cpe:/a:owncloud:owncloud" ] = make_array(
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
+# https://live.paloaltonetworks.com/t5/expedition-articles/important-update-end-of-life-announcement-for-palo-alto-networks/ta-p/589642
+eol_cpes[ "cpe:/a:paloaltonetworks:expedition" ] = make_array(
+  "versions", "all:2025-01-01"
+);
+
 # https://doc.pfsense.org/index.php/Versions_of_pfSense_and_FreeBSD
 # https://lists.pfsense.org/pipermail/list/2012-April/002017.html
 # EOL date is mainly the release date of the next release
@@ -525,7 +596,7 @@ eol_cpes[ "cpe:/a:pfsense:pfsense" ] = make_array(
 
 # https://secure.php.net/eol.php and https://secure.php.net/supported-versions.php
 eol_cpes[ "cpe:/a:php:php" ] = make_array(
-  "versions",      "7.4:2022-11-28;7.3:2021-12-06;7.2:2020-11-30;7.1:2019-12-01;7.0:2019-01-10;5.6:2018-12-31;5.5:2016-07-21;5.4:2015-09-03;5.3:2014-08-14;5.2:2011-01-06;5.1:2006-08-24;5.0:2005-09-05;4.4:2008-08-07;4.3:2005-03-31;4.2:2002-09-06;4.1:2002-03-12;4.0:2001-06-23;3.0:2000-10-20",
+  "versions",      "8.0:2023-11-26;7.4:2022-11-28;7.3:2021-12-06;7.2:2020-11-30;7.1:2019-12-01;7.0:2019-01-10;5.6:2018-12-31;5.5:2016-07-21;5.4:2015-09-03;5.3:2014-08-14;5.2:2011-01-06;5.1:2006-08-24;5.0:2005-09-05;4.4:2008-08-07;4.3:2005-03-31;4.2:2002-09-06;4.1:2002-03-12;4.0:2001-06-23;3.0:2000-10-20",
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
@@ -569,8 +640,8 @@ eol_cpes[ "cpe:/a:plesk:onyx" ] = make_array(
 # https://www.postgresql.org/support/versioning/
 # n.b. We are using a list for this EOL CPEs as the version naming changed. The first entry in versions uses the first entry in version_regex later on
 eol_cpes[ "cpe:/a:postgresql:postgresql" ] = make_array();
-tmp["versions"] = make_list("10:2022-11-10","9.6:2021-11-11;9.5:2021-02-11;9.4:2020-02-13;9.3:2018-11-08;9.2:2017-11-09;9.1:2016-10-27;9.0:2015-10-08;8.4:2014-07-24;8.3:2013-02-07;8.2:2011-12-05;8.1:2010-11-08;8.0:2010-10-01;7.4:2010-10-01;7.3:2007-11-27;7.2:2007-02-04;7.1:2006-04-13;7.0:2005-05-08;6.5:2004-06-09;6.4:2003-10-30;6.3:2003-03-01");
-tmp["version_regex"] = make_list("^([0-9]+)","^([0-9]+\.[0-9]+)");
+tmp["versions"] = make_list("17:2029-11-08;16:2028-11-09;15:2027-11-11;14:2026-11-12;13:2025-11-13;12:2024-11-14;11:2023-11-09;10:2022-11-10", "9.6:2021-11-11;9.5:2021-02-11;9.4:2020-02-13;9.3:2018-11-08;9.2:2017-11-09;9.1:2016-10-27;9.0:2015-10-08;8.4:2014-07-24;8.3:2013-02-07;8.2:2011-12-05;8.1:2010-11-08;8.0:2010-10-01;7.4:2010-10-01;7.3:2007-11-27;7.2:2007-02-04;7.1:2006-04-13;7.0:2005-05-08;6.5:2004-06-09;6.4:2003-10-30;6.3:2003-03-01");
+tmp["version_regex"] = make_list("^([0-9]+)", "^([0-9]+\.[0-9]+)");
 eol_cpes[ "cpe:/a:postgresql:postgresql" ] = tmp;
 
 # https://doc.powerdns.com/authoritative/appendices/EOL.html
@@ -600,13 +671,25 @@ eol_cpes[ "cpe:/a:progress:moveit_transfer" ] = make_array(
 # https://pve.proxmox.com/wiki/FAQ
 # nb: Usually only the EOL month is given and we're taking the first day of it.
 eol_cpes[ "cpe:/a:proxmox:virtual_environment" ] = make_array(
-  "versions",      "7:2024-07-01;6:2022-07-01;5:2020-07-01;4:2018-06-01;3:2017-02-01;2:2014-05-01;1:2013-01-01",
+  "versions",      "7:2024-07-01;6:2022-09-01;5:2020-07-01;4:2018-06-01;3:2017-02-01;2:2014-05-01;1:2013-01-01",
   "version_regex", "^([0-9]+)"
+);
+
+# nb: There seems to be no "real" EOL date or overview announced / published so the following has been assumed:
+# - Publishing date 19.09.2024 of https://www.ivanti.com/blog/cloud-service-appliance-4-6-security-update has been used for the EOL of 4.6
+# - 31.12.2021 based on the following mentioned on https://www.ivanti.com/blog/now-available-ivanti-cloud-service-appliance-csa-4-6 for 4.5:
+#   > Please note, the current CSA will continue to function after December 31. 2021. However, it will no longer receive patches and updates.
+# - For all 4.x versions an "unknown" date has been used
+# - all earlier versions are (at least currently) not taken into account
+eol_cpes[ "cpe:/a:ivanti:cloud_services_appliance" ] = make_array(
+  "versions",      "4.6:2024-09-19;4.5:2021-12-31;4.4:unknown;4.3:unknown;4.2:unknown;4.1:unknown;4.0:unknown",
+  "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
 # - https://forums.ivanti.com/s/article/Pulse-Connect-Secure-Software-Dates-Milestones
 # - https://web.archive.org/web/20230201133412/https://support.pulsesecure.net/product-service-policies/eol/software/pulse-connect-secure-software-dates-milestones/ (latest version from Pulse Secure before the docs got moved to ivanti.com)
 # - https://forums.ivanti.com/s/article/Granular-Software-Release-EOL-Timelines-and-Support-Matrix
+# - https://forums.ivanti.com/s/article/KB43892
 #
 # nb: A note on the last available security update is available in https://web.archive.org/web/20220529190704/https://support.pulsesecure.net/web/wp-content/uploads/2019/02/PulseSecure_EOL_v2.pdf:
 #
@@ -668,8 +751,9 @@ eol_cpes[ "cpe:/a:sensiolabs:symfony" ] = make_array(
 # - EOL EFFECTIVE DATE is used (at least for now)
 
 # https://support.solarwinds.com/SuccessCenter/s/article/Currently-supported-software-versions?language=en_US#DPA
+# https://documentation.solarwinds.com/en/success_center/dpa/content/release_notes/release_history.htm
 eol_cpes[ "cpe:/a:solarwinds:database_performance_analyzer" ] = make_array(
-  "versions",      "2022.2:2024-04-18;2022.1:2024-04-18;2021.3:2024-01-18;2021.1:2024-01-18;2020.2:2024-01-18;2019.4:2022-11-24;12.1:2022-11-24;12.0:2021-09-02;11.1:2021-09-02;11.0:2021-03-07;10.2:2019-11-26;10.1:2018-06-15;10.0:2018-06-15;9.2:2017-08-02;9.0:2017-05-02;8.3:2016-12-08",
+  "versions",      "2023.1:2025-05-19;2022.4:2025-05-19;2022.3:2025-04-14;2022.2:2024-04-18;2022.1:2024-04-18;2021.3:2024-01-18;2021.1:2024-01-18;2020.2:2024-01-18;2019.4:2022-11-24;12.1:2022-11-24;12.0:2021-09-02;11.1:2021-09-02;11.0:2021-03-07;10.2:2019-11-26;10.1:2018-06-15;10.0:2018-06-15;9.2:2017-08-02;9.0:2017-05-02;8.3:2016-12-08",
   "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
@@ -716,6 +800,12 @@ eol_cpes[ "cpe:/a:tenable:nessus" ] = make_array(
 eol_cpes[ "cpe:/a:tiki:tikiwiki_cms/groupware" ] = make_array(
   "versions",      "18:2023-01-31;15:2021-04-30;13:2015-11-30;12:2018-11-30;11:unknown;10:unknown;9:unknown;8:unknown;7:unknown;6:unknown;5:unknown;4:unknown;3:unknown;2:unknown;1:unknown",
   "version_regex", "^([0-9]+)"
+);
+
+# https://fluentbit.io/announcements/older-versions/
+eol_cpes[ "cpe:/a:treasuredata:fluent_bit" ] = make_array(
+  "versions",      "2.1:2024-02-06;2.0:2023-07-19;1.9:2022-12-05;1.8:2022-12-05;1.7:unknown;1.6:unknown;1.5:unknown;1.4:unknown;1.3:unknown;1.2:unknown;1.1:unknown;1.0:unknown;0.13:unknown;0.12:unknown;0.11:unknown;0.10:unknown",
+  "version_regex", "^([0-9]+\.[0-9]+)"
 );
 
 # https://typo3.org/typo3-cms/roadmap/
@@ -775,6 +865,19 @@ eol_cpes[ "cpe:/a:zarafa:webapp" ] = make_array(
   "versions",      "2:2017-05-01;1:2017-05-01",
   "version_regex", "^([0-9]+)"
 );
+
+# https://learn.microsoft.com/en-us/lifecycle/products/?terms=Silverlight
+eol_cpes[ "cpe:/a:microsoft:silverlight" ] = make_array(
+  "versions",      "5:2021-10-12;4:2013-01-08;3:2011-04-12;2:2010-10-12",
+  "version_regex", "^([0-9]+)"
+);
+
+# https://forums.ivanti.com/s/article/Product-End-of-Support-End-of-Engineering-Schedule-Pulse-Secure-Traffic-Manager-vTM
+eol_cpes[ "cpe:/a:ivanti:virtual_traffic_manager" ] = make_array(
+  "versions",      "22.7:2026-05-26;22.2:2026-07-19;22.6:2025-10-04;22.5:2025-07-20;22.3:2025-01-17;22.3:2024-10-24;22.1:2024-04-21;21.4:2024-01-18;21.3:2023-10-12;21.2:2023-08-02;21.1:2023-04-21;20.3:2023-02-08;20.2:2022-07-15;20.1:2024-03-16;19.3:2021-10-15;19.2:2023-07-15;19.1:2021-04-29;18.3:2020-11-26;18.2:2022-08-01;18.1:2020-03-02;17.4:2019-10-09;17.3:2019-07-03;17.2:2021-05-22;17.1:2019-01-23;11.1:2018-10-17;10.4:2020-03-29;10.3:2017-12-14;10.2:2017-10-26;10.1:2017-07-22;10.0:2017-04-13;9.9:2019-01-06;9.8:2016-03-22;9.7:2016-02-04;9.6:2016-01-28;9.5:2016-01-28;9.4:2016-01-28;9.3:2016-01-28;9.2:2015-10-28;9.1:2015-10-28;9.0:2015-10-28;8.1:2015-10-28;8.0:2015-10-28",
+  "version_regex", "^([0-9]+\.[0-9]+)"
+);
+
 
 # @brief Checks and reports if a specific given CPE and version has reached it's End of Life (EOL).
 #        To conduct the check check_version_string is called.

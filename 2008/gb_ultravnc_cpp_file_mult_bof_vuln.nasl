@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800131");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2008-11-14 10:43:16 +0100 (Fri, 14 Nov 2008)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2008-5001");
-  script_name("UltraVNC VNCViewer Multiple Buffer Overflow Vulnerabilities - Nov08");
+  script_name("UltraVNC VNCViewer Multiple Buffer Overflow Vulnerabilities (Nov 2008)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Denial of Service");

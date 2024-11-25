@@ -9,18 +9,18 @@ CPE = "cpe:/a:greenbone:greenbone_security_assistant";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105354");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-07-10T05:05:27+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-10 05:05:27 +0000 (Wed, 10 Jul 2024)");
   script_tag(name:"creation_date", value:"2015-09-14 14:47:11 +0200 (Mon, 14 Sep 2015)");
   script_name("Greenbone Security Assistant (GSA) Default Credentials (HTTP)");
   script_category(ACT_ATTACK);
   script_family("Default Accounts");
   script_copyright("Copyright (C) 2015 Greenbone AG");
-  script_dependencies("gb_gsa_detect.nasl", "gb_default_credentials_options.nasl");
+  script_dependencies("gb_greenbone_gsa_http_detect.nasl", "gb_default_credentials_options.nasl");
   script_require_ports("Services/www", 80, 443, 9392);
-  script_mandatory_keys("greenbone_security_assistant/detected");
+  script_mandatory_keys("greenbone/gsa/http/detected");
   script_exclude_keys("default_credentials/disable_default_account_checks");
 
   script_tag(name:"summary", value:"The remote Greenbone Security Assistant (GSA) is installed /
@@ -57,7 +57,7 @@ if( ! dir  = get_app_location( cpe:CPE, port:port ) )
 if( dir == "/" )
   dir = "";
 
-if( get_kb_item( "greenbone_security_assistant/" + port + "/gmp" ) ) {
+if( get_kb_item( "greenbone/gsa/" + port + "/gmp" ) ) {
   url = dir + "/gmp";
   is_omp = FALSE;
 } else {
@@ -65,15 +65,41 @@ if( get_kb_item( "greenbone_security_assistant/" + port + "/gmp" ) ) {
   is_omp = TRUE;
 }
 
-creds = make_array( "admin", "admin", # OpenVAS Virtual Appliance
-                    "sadmin", "changeme", # Docker image from https://github.com/falegk/openvas_pg#usage
-                    "Admin", "openvas", # nb: The username is "admin" but the uppercase "A" is used here to have a different array index. Docker image from https://github.com/mikesplain/openvas-docker#usage
-                    "aDmin", "adminpassword", # nb: The username is "admin" but the uppercase "D" is used here to have a different array index. Docker image from https://github.com/Secure-Compliance-Solutions-LLC/GVM-Docker
-                    "gvmadmin", "StrongPass", # Created by the following install script: https://github.com/yu210148/gvm_install
-                    "observer", "observer", # The ones below might be used from time to time out there.
-                    "webadmin", "webadmin",
-                    "gmp", "gmp",
-                    "omp", "omp" );
+# nb:
+# - Keep this list in sync with 2019/greenbone/gb_openvasmd_gvmd_omp_gmp_default_credentials.nasl
+# - We might want to use a list and a separator between the credentials (like e.g. #---#) in the
+#   future so that we don't need the "Admin", "aDmin" and similar handling below
+creds = make_array(
+
+  # OpenVAS Virtual Appliance
+  "admin", "admin",
+
+  # Docker image from https://github.com/falegk/openvas_pg#usage
+  "sadmin", "changeme",
+
+  # Docker image from https://github.com/mikesplain/openvas-docker#usage
+  # nb: The username is "admin" but the uppercase "A" is used here to have a different array index
+  "Admin", "openvas",
+
+  # Docker image from:
+  # - https://github.com/Secure-Compliance-Solutions-LLC/GVM-Docker
+  # - https://github.com/onvio/gvm-openvas-scanner/blob/main/README.md#usage
+  # nb: The username is "admin" but the uppercase "D" is used here to have a different array index
+  "aDmin", "adminpassword",
+
+  # Created by the following install script: https://github.com/itiligent/Easy-OpenVAS-Builder
+  # nb: The username is "admin" but the uppercase "M" is used here to have a different array index
+  "adMin", "password",
+
+  # Created by the following install script: https://github.com/yu210148/gvm_install
+  "gvmadmin", "StrongPass",
+
+  # The ones below might be used from time to time out there
+  "observer", "observer",
+  "webadmin", "webadmin",
+  "gmp", "gmp",
+  "omp", "omp"
+);
 
 report = 'It was possible to login using the following credentials (username:password):\n';
 

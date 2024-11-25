@@ -9,15 +9,15 @@ CPE = "cpe:/a:apple:itunes";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806609");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2015-5928", "CVE-2015-5929", "CVE-2015-5930", "CVE-2015-5931",
                 "CVE-2015-7002", "CVE-2015-7011", "CVE-2015-7012", "CVE-2015-7013",
                 "CVE-2015-7014", "CVE-2015-6975", "CVE-2015-6992", "CVE-2015-7017");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-11-03 14:51:27 +0530 (Tue, 03 Nov 2015)");
-  script_name("Apple iTunes Multiple Vulnerabilities Nov15 (Windows)");
+  script_name("Apple iTunes Multiple Vulnerabilities (Nov 2015) - Windows");
 
   script_tag(name:"summary", value:"Apple iTunes is prone to multiple vulnerabilities.");
 

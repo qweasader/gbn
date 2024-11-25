@@ -9,17 +9,17 @@ CPE = "cpe:/a:vmware:fusion";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810968");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2017-4902", "CVE-2017-4903", "CVE-2017-4904", "CVE-2017-4905");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-02-03 19:03:00 +0000 (Thu, 03 Feb 2022)");
   script_tag(name:"creation_date", value:"2017-07-03 15:15:42 +0530 (Mon, 03 Jul 2017)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("VMware Fusion Code Execution And Information Disclosure Vulnerabilities (Mac OS X)");
+  script_name("VMware Fusion Code Execution And Information Disclosure Vulnerabilities - Mac OS X");
 
   script_tag(name:"summary", value:"VMware Fusion is prone to information disclosure and multiple code execution vulnerabilities.");
 

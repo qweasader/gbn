@@ -9,8 +9,8 @@ CPE = "cpe:/a:microsoft:internet_information_services";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10357");
-  script_version("2023-10-10T05:05:41+0000");
-  script_tag(name:"last_modification", value:"2023-10-10 05:05:41 +0000 (Tue, 10 Oct 2023)");
+  script_version("2024-08-08T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:42 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/529");
   script_xref(name:"IAVA", value:"1999-a-0010");
@@ -19,7 +19,7 @@ if(description)
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-1999-1011");
   script_name("Microsoft RDS / MDAC Vulnerability (MS99-025, msadcs.dll) - Active Check");
-  script_category(ACT_GATHER_INFO);
+  script_category(ACT_ATTACK); # nb: Direct access to a .dll file might be already seen as an attack
   script_copyright("Copyright (C) 2000 Roelof Temmingh");
   script_family("Web Servers");
   script_dependencies("gb_microsoft_iis_http_detect.nasl");

@@ -4,18 +4,18 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:kaseya:virtual_system_administrator';
+CPE = "cpe:/a:kaseya:virtual_system_administrator";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805927");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-06-26T05:05:39+0000");
   script_cve_id("CVE-2015-2862", "CVE-2015-2863");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2015-07-17 11:50:12 +0530 (Fri, 17 Jul 2015)");
-  script_name("Kaseya Virtual System Administrator Multiple Vulnerabilities");
+  script_name("Kaseya Virtual System Administrator Multiple Vulnerabilities - Active Check");
 
   script_tag(name:"summary", value:"Kaseya Virtual System Administrator is prone to multiple vulnerabilities.");
 
@@ -54,10 +54,9 @@ if (description)
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_kaseya_vsa_detect.nasl");
-  script_require_ports("Services/www", 80);
-  script_mandatory_keys("kaseya_vsa/installed");
+  script_mandatory_keys("kaseya/vsa/http/detected");
+  script_require_ports("Services/www", 443);
 
-  script_xref(name:"URL", value:"http://www.kaseya.com");
   exit(0);
 }
 
@@ -65,13 +64,18 @@ include("host_details.inc");
 include("http_func.inc");
 include("http_keepalive.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit(0);
-if( ! dir = get_app_location( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE, service:"www" ) )
+  exit(0);
 
-if( dir == "/" ) dir = "";
+if( ! dir = get_app_location( cpe:CPE, port:port ) )
+  exit( 0 );
+
+if( dir == "/" )
+  dir = "";
+
 url = dir + "/inc/supportLoad.asp?urlToLoad=http://www.example.com";
 
-if( http_vuln_check( port:port, url:url, pattern:"(l|L)ocation.*http://www.example.com", extra_check:">Please wait" ) ) {
+if( http_vuln_check( port:port, url:url, pattern:"(l|L)ocation.*http://www\.example\.com", extra_check:">Please wait" ) ) {
   report = http_report_vuln_url( port:port, url:url );
   security_message( port:port, data:report );
   exit( 0 );

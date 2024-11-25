@@ -9,11 +9,11 @@ CPE = "cpe:/a:avg:anti-virus";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811525");
-  script_version("2023-06-23T16:09:17+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2017-9977");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-06-23 16:09:17 +0000 (Fri, 23 Jun 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
@@ -31,13 +31,13 @@ if(description)
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"The flaw is due to AVG AntiVirus for MacOS does not scan files
+  script_tag(name:"insight", value:"The flaw is due to AVG AntiVirus for Mac OS X does not scan files
   inside disk images (DMG) files in the on-demand scanner.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow remote attackers to bypass
   malware detection by leveraging failure to scan inside disk image (aka DMG) files.");
 
-  script_tag(name:"affected", value:"AVG AntiVirus version prior to 17.2 for MacOS.");
+  script_tag(name:"affected", value:"AVG AntiVirus version prior to 17.2 for Mac OS X.");
 
   script_tag(name:"solution", value:"Update to version 17.2 or later.");
 

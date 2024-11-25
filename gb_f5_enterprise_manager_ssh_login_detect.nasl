@@ -7,10 +7,10 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105303");
-  script_version("2023-08-10T05:05:53+0000");
+  script_version("2024-03-04T05:10:24+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-08-10 05:05:53 +0000 (Thu, 10 Aug 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 05:10:24 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2015-06-23 14:39:15 +0200 (Tue, 23 Jun 2015)");
   script_name("F5 Networks Enterprise Manager Detection (SSH Login)");
 
@@ -22,8 +22,8 @@ if (description)
   script_family("Product detection");
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_dependencies("gather-package-list.nasl");
-  script_require_ports("Services/ssh", 22);
   script_mandatory_keys("f5/f5_enterprise_manager/VERSION_RAW");
+
   exit(0);
 }
 

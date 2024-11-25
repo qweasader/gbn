@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113205");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-02-15T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2018-05-31 14:37:56 +0200 (Thu, 31 May 2018)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
@@ -22,7 +22,7 @@ if( description )
 
   script_cve_id("CVE-2018-11233", "CVE-2018-11235");
 
-  script_name("Git 2.13.x, 2.14.x, 2.15.x, 2.16.x, 2.17.x Multiple Vulnerabilities (Windows)");
+  script_name("Git 2.13.x, 2.14.x, 2.15.x, 2.16.x, 2.17.x Multiple Vulnerabilities - Windows");
 
   script_category(ACT_GATHER_INFO);
 

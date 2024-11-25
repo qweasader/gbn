@@ -12,9 +12,9 @@ if(description)
   script_cve_id("CVE-2014-0224");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-06-28T15:38:46+0000");
 
-  script_name("IBM Endpoint Manager XML External Entity Injection");
+  script_name("IBM Endpoint Manager XXE Injection Vulnerability");
 
   script_xref(name:"URL", value:"http://www-01.ibm.com/support/docview.wss?uid=swg21673961");
   script_xref(name:"URL", value:"http://www-01.ibm.com/support/docview.wss?uid=swg21673964");
@@ -37,13 +37,14 @@ if(description)
 
   All 8.2 releases of Web Reports and Server API earlier than 8.2.1445.0");
 
-  script_tag(name:"summary", value:"IBM Endpoint Manager is prone to a XML External Entity Injection");
+  script_tag(name:"summary", value:"IBM Endpoint Manager is prone to a XML external entity (XXE)
+  injection vulnerability.");
 
   script_tag(name:"solution", value:"Update to the latest version.");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-07-28 16:40:00 +0000 (Tue, 28 Jul 2020)");

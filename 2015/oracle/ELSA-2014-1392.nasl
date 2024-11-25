@@ -25,10 +25,13 @@ if(description)
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2013-2596", "CVE-2013-4483", "CVE-2014-0181", "CVE-2014-3122", "CVE-2014-3601", "CVE-2014-4608", "CVE-2014-4653", "CVE-2014-4654", "CVE-2014-4655", "CVE-2014-5045", "CVE-2014-5077");
   script_tag(name:"creation_date", value:"2015-10-06 11:01:35 +0000 (Tue, 06 Oct 2015)");
-  script_version("2022-10-26T10:12:44+0000");
-  script_tag(name:"last_modification", value:"2022-10-26 10:12:44 +0000 (Wed, 26 Oct 2022)");
+  script_version("2024-07-01T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-07-01 05:05:39 +0000 (Mon, 01 Jul 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-06-28 14:01:45 +0000 (Fri, 28 Jun 2024)");
 
   script_name("Oracle: Security Advisory (ELSA-2014-1392)");
   script_category(ACT_GATHER_INFO);

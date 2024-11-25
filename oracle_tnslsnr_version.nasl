@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10658");
-  script_version("2023-08-01T13:29:10+0000");
+  script_version("2024-10-29T05:05:46+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_tag(name:"last_modification", value:"2024-10-29 05:05:46 +0000 (Tue, 29 Oct 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_name("Oracle Database Detection (TNS service)");
   script_category(ACT_GATHER_INFO);
@@ -34,7 +34,6 @@ if(description)
 }
 
 include("byte_func.inc");
-include("cpe.inc");
 include("host_details.inc");
 include("port_service_func.inc");
 include("list_array_func.inc");
@@ -165,24 +164,19 @@ function oracle_version(port) {
       return 0;
 
     service_register(port: port, proto: "oracle_tnslsnr");
-    set_kb_item(name: "OracleDatabaseServer/installed", value: TRUE);
-    set_kb_item(name: "oracle_tnslsnr/" + port + "/version", value: version);
+    # n.b. used in gb_database_open_access_vuln.nasl
+    set_kb_item(name: "oracle_tnslsnr/" + port + "/version", value: ver[1]);
     set_kb_item(name: "OpenDatabase/found", value: TRUE);
-    set_kb_item(name: "oracle/tnslsnr_or_application_server/detected", value: TRUE);
 
-    cpe = build_cpe(value: ver[1], exp: "^([0-9.]+)", base: "cpe:/a:oracle:database_server:");
-    if (!cpe)
-      cpe = "cpe:/a:oracle:database_server";
-
-    register_product(cpe: cpe, location: port + "/tcp", port: port, service: "oracle_tnslsnr");
-
-    log_message(data: build_detection_report(app: "Oracle Database Server", version: ver[1],
-                                             install: port + "/tcp", cpe: cpe, concluded: ver[0]),
-                port: port);
+    set_kb_item( name: "oracle/database/detected", value: TRUE );
+    set_kb_item( name: "oracle/database/tnslsnr/detected", value: TRUE );
+    set_kb_item( name: "oracle/database/tnslsnr/port", value: port );
+    set_kb_item( name: "oracle/database/tnslsnr/" + port + "/installs",
+                 value:port + "#---#" + port + "/tcp" +"#---#" + ver[1] + "#---#" + ver[0] );
   }
 }
 
-ports = unknownservice_get_ports(default_port_list: make_list(1521, 1527));
+ports = unknownservice_get_ports(default_port_list: make_list(1521, 1527, 1522));
 foreach port(ports)
   oracle_version(port: port);
 

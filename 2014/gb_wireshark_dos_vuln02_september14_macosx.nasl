@@ -9,14 +9,14 @@ CPE = "cpe:/a:wireshark:wireshark";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804914");
-  script_version("2023-07-27T05:05:09+0000");
+  script_version("2024-07-22T05:05:40+0000");
   script_cve_id("CVE-2014-6426", "CVE-2014-6425");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-22 05:05:40 +0000 (Mon, 22 Jul 2024)");
   script_tag(name:"creation_date", value:"2014-09-24 15:46:59 +0530 (Wed, 24 Sep 2014)");
 
-  script_name("Wireshark DOS Vulnerability-02 Sep14 (Mac OS X)");
+  script_name("Wireshark DOS Vulnerability-02 (Sep 2014) - Mac OS X");
 
   script_tag(name:"summary", value:"Wireshark is prone to a denial of service (DoS) vulnerability.");
 
@@ -47,7 +47,7 @@ if(description)
   script_family("Denial of Service");
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_dependencies("gb_wireshark_detect_macosx.nasl");
-  script_mandatory_keys("Wireshark/MacOSX/Version");
+  script_mandatory_keys("wireshark/macosx/detected");
   exit(0);
 }
 

@@ -9,8 +9,8 @@ CPE = "cpe:/a:mybb:mybb";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.124418");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-08-30 09:45:46 +0000 (Wed, 30 Aug 2023)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:M/C:C/I:C/A:C");
@@ -33,7 +33,7 @@ if(description)
   script_dependencies("sw_mybb_detect.nasl");
   script_mandatory_keys("MyBB/installed");
 
-  script_tag(name:"summary", value:"MyBB is prone to a Remote Code Execution (RCE) vulnerability.");
+  script_tag(name:"summary", value:"MyBB is prone to a remote code execution (RCE) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

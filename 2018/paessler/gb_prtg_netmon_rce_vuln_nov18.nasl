@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113299");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-11-13 15:30:47 +0200 (Tue, 13 Nov 2018)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -22,7 +22,7 @@ if( description )
 
   script_cve_id("CVE-2018-19204");
 
-  script_name("PRTG Network Monitor <=18.3.43.2323 Remote Code Execution Vulnerability");
+  script_name("PRTG Network Monitor <=18.3.43.2323 RCE Vulnerability");
 
   script_category(ACT_GATHER_INFO);
 

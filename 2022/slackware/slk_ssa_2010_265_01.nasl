@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.13.2010.265.01");
   script_cve_id("CVE-2010-3081", "CVE-2010-3301");
   script_tag(name:"creation_date", value:"2022-04-21 12:12:27 +0000 (Thu, 21 Apr 2022)");
-  script_version("2023-06-20T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:25 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-01T14:37:13+0000");
+  script_tag(name:"last_modification", value:"2024-02-01 14:37:13 +0000 (Thu, 01 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-08-14 14:05:00 +0000 (Fri, 14 Aug 2020)");
+  script_tag(name:"severity_date", value:"2010-09-27 19:58:00 +0000 (Mon, 27 Sep 2010)");
 
   script_name("Slackware: Security Advisory (SSA:2010-265-01)");
   script_category(ACT_GATHER_INFO);

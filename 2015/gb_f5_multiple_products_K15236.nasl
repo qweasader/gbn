@@ -10,9 +10,9 @@ if(description)
   script_cve_id("CVE-2014-2927");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_version("2023-08-09T05:05:14+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_name("Multiple F5 Networks Products - ConfigSync IP Rsync full file system access vulnerability CVE-2014-2927 - Active Check");
-  script_tag(name:"last_modification", value:"2023-08-09 05:05:14 +0000 (Wed, 09 Aug 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2015-01-19 11:51:31 +0100 (Mon, 19 Jan 2015)");
   script_category(ACT_ATTACK);
   script_family("Gain a shell remotely");
@@ -24,8 +24,8 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/69461");
   script_xref(name:"URL", value:"https://my.f5.com/manage/s/article/K15236");
 
-  script_tag(name:"summary", value:"Multiple F5 Networks Products are prone to a remote
-  code-execution (RCE) vulnerability.");
+  script_tag(name:"summary", value:"Multiple F5 Networks Products are prone to a remote code
+  execution (RCE) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Tries to read the /VERSION file via a rsync request.");
 

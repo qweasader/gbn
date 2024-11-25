@@ -9,13 +9,13 @@ CPE = "cpe:/a:flexense:syncbreeze";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809481");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-11-29 12:58:33 +0530 (Tue, 29 Nov 2016)");
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("Sync Breeze Enterprise Server Buffer Overflow Vulnerability - Nov16");
+  script_name("Sync Breeze Enterprise Server Buffer Overflow Vulnerability (Nov 2016)");
 
   script_tag(name:"summary", value:"Sync Breeze Enterprise Server is prone to a buffer overflow vulnerability.");
 

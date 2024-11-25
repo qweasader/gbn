@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105042");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-09-27T05:05:23+0000");
   script_cve_id("CVE-2014-0224");
   script_name("SSL/TLS: OpenSSL CCS Man in the Middle Security Bypass Vulnerability");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-09-27 05:05:23 +0000 (Fri, 27 Sep 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-07-28 16:40:00 +0000 (Tue, 28 Jul 2020)");
@@ -20,7 +20,7 @@ if(description)
   script_category(ACT_ATTACK);
   script_family("SSL and TLS");
   script_copyright("Copyright (C) 2014 Greenbone AG");
-  script_dependencies("gb_tls_version_get.nasl");
+  script_dependencies("gb_ssl_tls_version_get.nasl");
   script_mandatory_keys("ssl_tls/port");
 
   script_xref(name:"URL", value:"https://www.openssl.org/news/secadv/20140605.txt");

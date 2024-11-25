@@ -9,13 +9,13 @@ CPE = "cpe:/a:adobe:acrobat_reader";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804371");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2008-0883");
   script_tag(name:"cvss_base", value:"3.7");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2014-04-08 18:15:57 +0530 (Tue, 08 Apr 2014)");
-  script_name("Adobe Reader 'acroread' Privilege Escalation Vulnerability (Linux)");
+  script_name("Adobe Reader 'acroread' Privilege Escalation Vulnerability - Linux");
 
   script_tag(name:"summary", value:"Adobe Reader is prone to a privilege escalation vulnerability.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
@@ -35,7 +35,7 @@ the system.");
   script_xref(name:"URL", value:"http://www.adobe.com/support/security/advisories/apsa08-02.html");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2014 Greenbone AG");
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_adobe_prdts_detect_lin.nasl");
   script_mandatory_keys("Adobe/Reader/Linux/Version");
   script_xref(name:"URL", value:"http://www.adobe.com/support/downloads/detail.jsp?ftpID=3992");

@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802394");
-  script_version("2023-12-13T05:05:23+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-02-08 12:53:59 +0530 (Wed, 08 Feb 2012)");
-  script_name("Brainkeeper Enterprise Wiki 'search.php' Cross-Site Scripting Vulnerability");
+  script_name("Brainkeeper Enterprise Wiki 'search.php' XSS Vulnerability");
   script_xref(name:"URL", value:"http://packetstormsecurity.org/files/109469/brainkeeper-xss.txt");
   script_xref(name:"URL", value:"http://st2tea.blogspot.in/2012/02/brainkeeper-enterprise-wiki-searchphp.html");
 

@@ -1,28 +1,14 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113692");
-  script_version("2021-05-27T07:09:59+0000");
-  script_tag(name:"last_modification", value:"2021-05-27 07:09:59 +0000 (Thu, 27 May 2021)");
+  script_version("2024-06-11T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-06-11 05:05:40 +0000 (Tue, 11 Jun 2024)");
   script_tag(name:"creation_date", value:"2020-05-20 12:00:00 +0200 (Wed, 20 May 2020)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -33,7 +19,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Product detection");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
@@ -72,7 +58,6 @@ if( banner && concl = egrep( string: banner, pattern: "^Server\s*:\s*Cherokee", 
   if( ! isnull( vers[1] ) )
     version = vers[1];
 }
-
 
 if( ! version || version == "unknown" ) {
 
@@ -116,6 +101,12 @@ if( detected ) {
 
   set_kb_item( name: "cherokee/detected", value: TRUE );
   set_kb_item( name: "cherokee/http/detected", value: TRUE );
+
+  # nb:
+  # - To tell http_can_host_php from http_func.inc that the service is supporting this
+  # - Product can definitely host PHP scripts (via some PHP-fpm/FastCGI integration)
+  # - TBD: replace_kb_item( name: "www/" + port + "/can_host_asp", value: "yes" ); ?
+  replace_kb_item( name: "www/" + port + "/can_host_php", value: "yes" );
 
   register_and_report_cpe( app: "Cherokee Web Server",
                            ver: version,

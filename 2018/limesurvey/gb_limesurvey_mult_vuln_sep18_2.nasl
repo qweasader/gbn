@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113263");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-07-16T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2018-09-05 11:15:05 +0200 (Wed, 05 Sep 2018)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -16,11 +16,11 @@ if( description )
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-11-09 17:53:00 +0000 (Fri, 09 Nov 2018)");
 
+  script_cve_id("CVE-2018-16397", "CVE-2018-17003");
+
   script_tag(name:"qod_type", value:"remote_banner");
 
   script_tag(name:"solution_type", value:"VendorFix");
-
-  script_cve_id("CVE-2018-16397", "CVE-2018-17003");
 
   script_name("LimeSurvey <= 3.14.7 Multiple Vulnerabilities");
 
@@ -29,19 +29,20 @@ if( description )
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("secpod_limesurvey_detect.nasl");
-  script_mandatory_keys("limesurvey/installed");
+  script_mandatory_keys("limesurvey/http/detected");
 
   script_tag(name:"summary", value:"LimeSurvey is prone to multiple vulnerabilities.");
 
   script_tag(name:"insight", value:"The following vulnerabilities exist:
 
-  - An admin user can leverage a file upload question to read an arbitrary file
+  - CVE-2018-16397: An admin user can leverage a file upload question to read an arbitrary file
 
-  - An authenticated stored XSS vulnerability can be exploited via /index.php?r=admin/survey/sa/insert");
+  - CVE-2018-17003: An authenticated stored XSS vulnerability can be exploited via
+  '/index.php?r=admin/survey/sa/insert'");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"affected", value:"LimeSurvey through version 3.14.7.");
+  script_tag(name:"affected", value:"LimeSurvey version 3.14.7 and prior.");
 
   script_tag(name:"solution", value:"Update to version 3.14.8 or later.");
 

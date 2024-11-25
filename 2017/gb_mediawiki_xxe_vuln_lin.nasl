@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113046");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-07-16T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2017-11-09 12:50:51 +0100 (Thu, 09 Nov 2017)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -22,17 +22,18 @@ if( description )
 
   script_cve_id("CVE-2014-9487");
 
-  script_name("MediaWiki XXE Vulnerability (Linux)");
+  script_name("MediaWiki XXE Vulnerability - Linux");
 
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("secpod_mediawiki_detect.nasl", "os_detection.nasl");
-  script_require_ports("Services/www", 80);
-  script_mandatory_keys("mediawiki/installed", "Host/runs_unixoide");
+  script_dependencies("gb_mediawiki_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("mediawiki/detected", "Host/runs_unixoide");
 
-  script_tag(name:"summary", value:"The getid3 library in MediaWiki before 1.24.1, 1.23.8, 1.22.15 and 1.19.23 allows remote attackers to read arbitrary files, cause a denial of service, or possibly have other impact via an XML External Entity (XXE) attack.");
+  script_tag(name:"summary", value:"The getid3 library in MediaWiki before 1.24.1, 1.23.8, 1.22.15
+  and 1.19.23 allows remote attackers to read arbitrary files, cause a denial of service (DoS), or
+  possibly have other impact via an XML external entity (XXE) attack.");
   script_tag(name:"vuldetect", value:"The script checks if the vulnerable version is installed on the host.");
   script_tag(name:"solution", value:"Upgrade MediaWiki to 1.24.1, 1.23.8, 1.22.15 or 1.19.23 respectively.");
 

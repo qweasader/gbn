@@ -9,11 +9,11 @@ CPE = "cpe:/a:ibm:tivoli_endpoint_manager";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809369");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2016-0293");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-11-28 19:52:00 +0000 (Mon, 28 Nov 2016)");
@@ -47,37 +47,33 @@ if (description)
   script_family("Web application abuses");
   script_dependencies("gb_ibm_endpoint_manager_web_detect.nasl");
   script_mandatory_keys("ibm_endpoint_manager/installed");
-  script_require_ports("Services/www", 52311);
+
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!tivPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!tivVer = get_app_version(cpe:CPE, port:tivPort)){
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-if(version_in_range(version:tivVer, test_version:"9.0", test_version2:"9.1.7"))
-{
+if(version_in_range(version:version, test_version:"9.0", test_version2:"9.1.7")) {
   fix = "9.1.8";
   VULN = TRUE;
 }
 
-else if(version_in_range(version:tivVer, test_version:"9.2", test_version2:"9.2.7"))
-{
+else if(version_in_range(version:version, test_version:"9.2", test_version2:"9.2.7")) {
   fix = "9.2.8";
   VULN = TRUE;
 }
 
-if(VULN)
-{
-  report = report_fixed_ver(installed_version:tivVer, fixed_version:fix);
-  security_message(port:tivPort, data:report);
+if(VULN) {
+  report = report_fixed_ver(installed_version:version, fixed_version:fix);
+  security_message(port:port, data:report);
   exit(0);
 }
 
+exit(99);

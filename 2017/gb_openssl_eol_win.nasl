@@ -4,11 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-if( description )
+CPE = "cpe:/a:openssl:openssl";
+
+if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113027");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-02-28T14:37:42+0000");
+  script_tag(name:"last_modification", value:"2024-02-28 14:37:42 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-10-16 13:33:34 +0200 (Mon, 16 Oct 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -17,7 +19,7 @@ if( description )
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("OpenSSL End of Life (EOL) Detection (Windows)");
+  script_name("OpenSSL End of Life (EOL) Detection - Windows");
 
   script_category(ACT_GATHER_INFO);
 
@@ -27,21 +29,21 @@ if( description )
   script_mandatory_keys("openssl/detected", "Host/runs_windows");
 
   script_tag(name:"summary", value:"The OpenSSL version on the remote host has reached the end of
-  life and should not be used anymore.");
-
-  script_tag(name:"impact", value:"An EOL version of OpenSSL is not receiving any security updates from the vendor. Unfixed security vulnerabilities
-  might be leveraged by an attacker to compromise the security of this host.");
-
-  script_tag(name:"solution", value:"Update the OpenSSL version on the remote host to a still supported version.");
+  life (EOL) and should not be used anymore.");
 
   script_tag(name:"vuldetect", value:"Checks if an EOL version is present on the target host.");
+
+  script_tag(name:"impact", value:"An EOL version of OpenSSL is not receiving any security updates
+  from the vendor. Unfixed security vulnerabilities might be leveraged by an attacker to compromise
+  the security of this host.");
+
+  script_tag(name:"solution", value:"Update the OpenSSL version on the remote host to a still
+  supported version.");
 
   script_xref(name:"URL", value:"https://www.openssl.org/policies/releasestrat.html");
 
   exit(0);
 }
-
-CPE = "cpe:/a:openssl:openssl";
 
 include("misc_func.inc");
 include("products_eol.inc");

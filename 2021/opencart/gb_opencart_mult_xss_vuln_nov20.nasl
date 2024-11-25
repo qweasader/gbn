@@ -1,30 +1,16 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:opencart:opencart";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.145133");
-  script_version("2022-01-14T07:01:10+0000");
-  script_tag(name:"last_modification", value:"2022-01-14 07:01:10 +0000 (Fri, 14 Jan 2022)");
+  script_version("2024-07-12T15:38:44+0000");
+  script_tag(name:"last_modification", value:"2024-07-12 15:38:44 +0000 (Fri, 12 Jul 2024)");
   script_tag(name:"creation_date", value:"2021-01-13 09:30:44 +0000 (Wed, 13 Jan 2021)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
@@ -42,21 +28,21 @@ if (description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("opencart_detect.nasl");
-  script_mandatory_keys("OpenCart/installed");
+  script_dependencies("gb_opencart_http_detect.nasl");
+  script_mandatory_keys("opencart/detected");
 
   script_tag(name:"summary", value:"OpenCart is prone to multiple cross-site scripting (XSS)
   vulnerabilities.");
+
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"The following vulnerabilities exist:
 
   - CVE-2020-29470: XSS in the Subject field of mail
 
   - CVE-2020-29471: XSS in the Profile Image");
-
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"affected", value:"OpenCart version 3.0.3.8 and prior.");
 
@@ -89,4 +75,4 @@ if (version_is_less_equal(version: version, test_version: "3.0.3.8")) {
   exit(0);
 }
 
-exit(99);
+exit(0);

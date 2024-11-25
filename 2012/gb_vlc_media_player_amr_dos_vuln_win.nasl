@@ -9,13 +9,13 @@ CPE = "cpe:/a:videolan:vlc_media_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802420");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2012-0904");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-01-23 15:30:49 +0530 (Mon, 23 Jan 2012)");
-  script_name("VLC Media Player '.amr' File Denial of Service Vulnerability (Windows)");
+  script_name("VLC Media Player '.amr' File Denial of Service Vulnerability - Windows");
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/72085");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51255");
   script_xref(name:"URL", value:"http://www.exploit-db.com/exploits/18309/");

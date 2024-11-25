@@ -9,11 +9,11 @@ CPE = "cpe:/a:vmware:tools";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826754");
-  script_version("2023-06-29T05:05:23+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2021-21999");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-06-29 05:05:23 +0000 (Thu, 29 Jun 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-06-30 00:34:00 +0000 (Wed, 30 Jun 2021)");
@@ -44,7 +44,7 @@ if(description)
   script_xref(name:"URL", value:"https://www.vmware.com/security/advisories/VMSA-2021-0013.html");
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_category(ACT_GATHER_INFO);
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_vmware_tools_detect_win.nasl");
   script_mandatory_keys("VMwareTools/Win/Ver");
 

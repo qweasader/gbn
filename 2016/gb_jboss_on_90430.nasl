@@ -1,22 +1,8 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:redhat:jboss_operations_network";
 
@@ -26,7 +12,7 @@ if(description)
   script_cve_id("CVE-2016-3737");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:C");
-  script_version("2022-12-05T10:11:03+0000");
+  script_version("2024-06-28T05:05:33+0000");
 
   script_name("Red Hat JBoss Operations Network (JON) < 3.3.6 Deserialization RCE Vulnerability");
 
@@ -46,7 +32,7 @@ if(description)
   script_tag(name:"solution", value:"Updates are available. Please see the references or vendor
   advisory for more information.");
 
-  script_tag(name:"summary", value:"Red Hat JBoss Operations Network (JON) is prone to a remote-code
+  script_tag(name:"summary", value:"Red Hat JBoss Operations Network (JON) is prone to a remote code
   execution (RCE) vulnerability.");
 
   script_tag(name:"affected", value:"Red Hat JON before version 3.3.6. Other versions and/or
@@ -56,14 +42,14 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_active");
 
-  script_tag(name:"last_modification", value:"2022-12-05 10:11:03 +0000 (Mon, 05 Dec 2022)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-11-03 01:29:00 +0000 (Fri, 03 Nov 2017)");
   script_tag(name:"creation_date", value:"2016-07-28 15:24:48 +0200 (Thu, 28 Jul 2016)");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("gb_jboss_on_detect.nasl");
   script_require_ports("Services/www", 7080);
   script_mandatory_keys("jboss_on/installed");

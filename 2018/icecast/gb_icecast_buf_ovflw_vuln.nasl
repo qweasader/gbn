@@ -9,8 +9,8 @@ CPE = 'cpe:/a:icecast:icecast';
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141647");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-11-06 08:48:35 +0700 (Tue, 06 Nov 2018)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
@@ -32,9 +32,10 @@ if(description)
   script_dependencies("gb_icecast_detect.nasl");
   script_mandatory_keys("icecast/detected");
 
-  script_tag(name:"summary", value:"A buffer overflow was discovered in the URL-authentication backend of the
-Icecast. If the backend is enabled, then any malicious HTTP client can send a request for that specific resource
-including a crafted header, leading to denial of service and potentially remote code execution.");
+  script_tag(name:"summary", value:"A buffer overflow was discovered in the URL-authentication
+  backend of the Icecast. If the backend is enabled, then any malicious HTTP client can send a
+  request for that specific resource including a crafted header, leading to denial of service (DoS)
+  and potentially remote code execution (RCE).");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

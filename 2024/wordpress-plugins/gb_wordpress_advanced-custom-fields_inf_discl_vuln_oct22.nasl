@@ -9,8 +9,8 @@ CPE = "cpe:/a:advancedcustomfields:advanced_custom_fields";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127680");
-  script_version("2024-01-12T16:12:12+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-10-31T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-10-31 05:05:48 +0000 (Thu, 31 Oct 2024)");
   script_tag(name:"creation_date", value:"2024-01-09 12:10:45 +0000 (Tue, 09 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
@@ -41,7 +41,7 @@ if (description)
   script_tag(name:"impact", value:"It may be possible with certain site configurations, that
   contributor-level users may extract sensitive user or configuration data.");
 
-  script_tag(name:"affected", value:"WordPress Advanced Custom Fields versions 3.1.1 through
+  script_tag(name:"affected", value:"WordPress Advanced Custom Fields plugin versions 3.1.1 through
   6.0.2.");
 
   script_tag(name:"solution", value:"Update to version 6.0.3 or later.");

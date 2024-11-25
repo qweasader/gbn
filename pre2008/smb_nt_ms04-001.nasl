@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11992");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-02-26T14:36:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-26 14:36:40 +0000 (Mon, 26 Feb 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_xref(name:"IAVA", value:"2004-B-0002");
   script_cve_id("CVE-2003-0819");
-  script_name("Vulnerability in Microsoft ISA Server 2000 H.323 Filter(816458)");
+  script_name("Vulnerability in Microsoft ISA Server 2000 H.323 Filter (816458)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2004 Jeff Adams");
   script_family("Windows : Microsoft Bulletins");

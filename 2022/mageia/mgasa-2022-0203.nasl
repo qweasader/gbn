@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2022.0203");
   script_cve_id("CVE-2022-0128", "CVE-2022-0213", "CVE-2022-0261", "CVE-2022-0318", "CVE-2022-0351", "CVE-2022-0359", "CVE-2022-0393", "CVE-2022-0408", "CVE-2022-0413", "CVE-2022-0417", "CVE-2022-0443", "CVE-2022-0554", "CVE-2022-0572", "CVE-2022-0629", "CVE-2022-0685", "CVE-2022-0696", "CVE-2022-0714", "CVE-2022-0729", "CVE-2022-0943", "CVE-2022-1154", "CVE-2022-1160", "CVE-2022-1381", "CVE-2022-1420", "CVE-2022-1616", "CVE-2022-1619", "CVE-2022-1620", "CVE-2022-1621", "CVE-2022-1629", "CVE-2022-1674", "CVE-2022-1733", "CVE-2022-1769");
   script_tag(name:"creation_date", value:"2022-05-26 04:31:19 +0000 (Thu, 26 May 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-01-27 14:17:00 +0000 (Thu, 27 Jan 2022)");
+  script_tag(name:"severity_date", value:"2022-01-27 14:17:44 +0000 (Thu, 27 Jan 2022)");
 
   script_name("Mageia: Security Advisory (MGASA-2022-0203)");
   script_category(ACT_GATHER_INFO);
@@ -27,24 +27,24 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2022-0203");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2022-0203.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=29972");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/7JBXG3MU6EZWJGJD6UTHHONHGJBYPQQT/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/UCWG5L6CRQWACGVP7CYGESUB3G6QJ3GS/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/UFXFAILMLUIK4MBUEZO4HNBNKYZRJ5AP/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/4GOY5YWTP5QUY2EFLCL7AUWA2CV57C37/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/UURGABNDL77YR5FRQKTFBYNBDQX2KO7Q/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/7ZLEHVP4LNAGER4ZDGUDS5V5YVQD6INF/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/HBUYQBZ6GWAWJRWP7AODJ4KHW5BCKDVP/");
-  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/FDNZ3N5S7UGKPUUKPGOQQGPJJK3YTW37/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/C3R36VSLO4TRX72SWB6IDJOD24BQXPX2/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/C2CQXRLBIC4S7JQVEIN5QXKQPYWB5E3J/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/X6E457NYOIRWBJHKB7ON44UY5AVTG4HU/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/A6BY5P7ERZS7KXSBCGFCOXLMLGWUUJIH/");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2022/dla-3011");
   script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=2083924");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/4GOY5YWTP5QUY2EFLCL7AUWA2CV57C37/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/7JBXG3MU6EZWJGJD6UTHHONHGJBYPQQT/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/7ZLEHVP4LNAGER4ZDGUDS5V5YVQD6INF/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/A6BY5P7ERZS7KXSBCGFCOXLMLGWUUJIH/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/C2CQXRLBIC4S7JQVEIN5QXKQPYWB5E3J/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/C3R36VSLO4TRX72SWB6IDJOD24BQXPX2/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/HBUYQBZ6GWAWJRWP7AODJ4KHW5BCKDVP/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/HIP7KG7TVS5YF3QREAY2GOGUT3YUBZAI/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/IUPOLEX5GXC733HL4EFYMHFU7NISJJZG/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/ODXVYZC5Z4XRRZK7CK6B6IURYVYHA25U/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/QKIX5HYKWXWG6QBCPPTPQ53GNOFHSAIS/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/IUPOLEX5GXC733HL4EFYMHFU7NISJJZG/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/UCWG5L6CRQWACGVP7CYGESUB3G6QJ3GS/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/UFXFAILMLUIK4MBUEZO4HNBNKYZRJ5AP/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/UURGABNDL77YR5FRQKTFBYNBDQX2KO7Q/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/X6E457NYOIRWBJHKB7ON44UY5AVTG4HU/");
+  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/FDNZ3N5S7UGKPUUKPGOQQGPJJK3YTW37/");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2022/dla-3011");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'vim' package(s) announced via the MGASA-2022-0203 advisory.");
 

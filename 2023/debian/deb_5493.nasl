@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.1.2023.5493");
   script_cve_id("CVE-2023-20867", "CVE-2023-20900");
   script_tag(name:"creation_date", value:"2023-09-11 04:19:40 +0000 (Mon, 11 Sep 2023)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:H/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-09-06 13:37:00 +0000 (Wed, 06 Sep 2023)");
+  script_tag(name:"severity_date", value:"2023-09-06 13:37:21 +0000 (Wed, 06 Sep 2023)");
 
   script_name("Debian: Security Advisory (DSA-5493-1)");
   script_category(ACT_GATHER_INFO);
@@ -49,6 +49,8 @@ For the detailed security status of open-vm-tools please refer to its security t
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

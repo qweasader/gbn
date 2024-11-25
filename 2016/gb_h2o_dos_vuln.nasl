@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:h2o_project:h2o';
+CPE = "cpe:/a:h2o_project:h2o";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106488");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-06-11T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-06-11 05:05:40 +0000 (Tue, 11 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-12-23 14:52:16 +0700 (Fri, 23 Dec 2016)");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:P");
@@ -24,13 +24,13 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("H2O HTTP Server DoS Vulnerability");
+  script_name("H2O HTTP Server < 2.0.5, 2.1.x < 2.1.0-beta4 DoS Vulnerability");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web Servers");
-  script_dependencies("gb_h2o_http_server_detect.nasl");
-  script_mandatory_keys("h2o/installed");
+  script_dependencies("gb_h2o_http_server_http_detect.nasl");
+  script_mandatory_keys("h2o/detected");
 
   script_tag(name:"summary", value:"H2O HTTP Server is prone to a denial of service vulnerability.");
 
@@ -76,4 +76,4 @@ if (version_in_range(version: check_vers, test_version: "2.1.0", test_version2: 
   exit(0);
 }
 
-exit(0);
+exit(99);

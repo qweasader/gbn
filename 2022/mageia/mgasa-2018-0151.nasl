@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2018.0151");
   script_cve_id("CVE-2018-7320", "CVE-2018-7321", "CVE-2018-7322", "CVE-2018-7323", "CVE-2018-7324", "CVE-2018-7325", "CVE-2018-7326", "CVE-2018-7327", "CVE-2018-7328", "CVE-2018-7329", "CVE-2018-7330", "CVE-2018-7331", "CVE-2018-7332", "CVE-2018-7333", "CVE-2018-7334", "CVE-2018-7335", "CVE-2018-7336", "CVE-2018-7417", "CVE-2018-7418", "CVE-2018-7419", "CVE-2018-7420", "CVE-2018-9256", "CVE-2018-9259", "CVE-2018-9260", "CVE-2018-9261", "CVE-2018-9262", "CVE-2018-9263", "CVE-2018-9264", "CVE-2018-9265", "CVE-2018-9266", "CVE-2018-9267", "CVE-2018-9268", "CVE-2018-9269", "CVE-2018-9270", "CVE-2018-9271", "CVE-2018-9272", "CVE-2018-9273", "CVE-2018-9274");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
+  script_tag(name:"severity_date", value:"2018-04-17 17:36:22 +0000 (Tue, 17 Apr 2018)");
 
   script_name("Mageia: Security Advisory (MGASA-2018-0151)");
   script_category(ACT_GATHER_INFO);
@@ -27,6 +27,11 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2018-0151");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2018-0151.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=22643");
+  script_xref(name:"URL", value:"https://lists.opensuse.org/opensuse-updates/2018-04/msg00015.html");
+  script_xref(name:"URL", value:"https://www.wireshark.org/docs/relnotes/wireshark-2.2.13.html");
+  script_xref(name:"URL", value:"https://www.wireshark.org/docs/relnotes/wireshark-2.2.14.html");
+  script_xref(name:"URL", value:"https://www.wireshark.org/news/20180223.html");
+  script_xref(name:"URL", value:"https://www.wireshark.org/news/20180403.html");
   script_xref(name:"URL", value:"https://www.wireshark.org/security/wnpa-sec-2018-05.html");
   script_xref(name:"URL", value:"https://www.wireshark.org/security/wnpa-sec-2018-06.html");
   script_xref(name:"URL", value:"https://www.wireshark.org/security/wnpa-sec-2018-07.html");
@@ -43,11 +48,6 @@ if(description)
   script_xref(name:"URL", value:"https://www.wireshark.org/security/wnpa-sec-2018-19.html");
   script_xref(name:"URL", value:"https://www.wireshark.org/security/wnpa-sec-2018-20.html");
   script_xref(name:"URL", value:"https://www.wireshark.org/security/wnpa-sec-2018-23.html");
-  script_xref(name:"URL", value:"https://www.wireshark.org/docs/relnotes/wireshark-2.2.13.html");
-  script_xref(name:"URL", value:"https://www.wireshark.org/docs/relnotes/wireshark-2.2.14.html");
-  script_xref(name:"URL", value:"https://www.wireshark.org/news/20180223.html");
-  script_xref(name:"URL", value:"https://www.wireshark.org/news/20180403.html");
-  script_xref(name:"URL", value:"https://lists.opensuse.org/opensuse-updates/2018-04/msg00015.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'wireshark' package(s) announced via the MGASA-2018-0151 advisory.");
 

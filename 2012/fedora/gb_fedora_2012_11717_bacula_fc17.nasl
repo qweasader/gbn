@@ -8,12 +8,15 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2012-August/085628.html");
   script_oid("1.3.6.1.4.1.25623.1.0.864656");
-  script_version("2023-06-22T10:34:14+0000");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:14 +0000 (Thu, 22 Jun 2023)");
+  script_version("2024-01-26T14:36:50+0000");
+  script_tag(name:"last_modification", value:"2024-01-26 14:36:50 +0000 (Fri, 26 Jan 2024)");
   script_tag(name:"creation_date", value:"2012-08-30 10:24:39 +0530 (Thu, 30 Aug 2012)");
   script_cve_id("CVE-2007-5626", "CVE-2008-5373");
   script_tag(name:"cvss_base", value:"6.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-01-25 21:00:00 +0000 (Thu, 25 Jan 2024)");
   script_xref(name:"FEDORA", value:"2012-11717");
   script_name("Fedora Update for bacula FEDORA-2012-11717");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'bacula'

@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113148");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-04-03 14:36:00 +0200 (Tue, 03 Apr 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -22,18 +22,18 @@ if( description )
 
   script_cve_id("CVE-2018-7171", "CVE-2018-7203");
 
-  script_name("Twonky Server < 8.5.1 Multiple Vulnerabilities (Version Check)");
+  script_name("Twonky Server 7.0.11 - 8.5 Multiple Vulnerabilities - Version Check");
 
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_twonky_server_detect.nasl");
-  script_mandatory_keys("twonky_server/installed");
+  script_mandatory_keys("twonky/server/detected");
 
   script_tag(name:"summary", value:"Twonky Server is prone to multiple vulnerabilities.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target system.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"The following vulnerabilities exist:
 
@@ -63,8 +63,11 @@ CPE = "cpe:/a:twonky:twonky_server";
 include( "host_details.inc" );
 include( "version_func.inc" );
 
-if( ! port = get_app_port( cpe: CPE ) ) exit( 0 );
-if( ! version = get_app_version( cpe: CPE, port: port ) ) exit( 0 );
+if( ! port = get_app_port( cpe: CPE ) )
+  exit( 0 );
+
+if( ! version = get_app_version( cpe: CPE, port: port ) )
+  exit( 0 );
 
 if( version_in_range( version: version, test_version: "7.0.11", test_version2: "8.5.0" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "8.5.1" );

@@ -9,23 +9,23 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.70237");
   script_cve_id("CVE-2009-4214", "CVE-2011-2930", "CVE-2011-2931", "CVE-2011-3186");
   script_tag(name:"creation_date", value:"2011-09-21 03:47:11 +0000 (Wed, 21 Sep 2011)");
-  script_version("2024-01-12T16:12:10+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:10 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-10-11T05:05:54+0000");
+  script_tag(name:"last_modification", value:"2024-10-11 05:05:54 +0000 (Fri, 11 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
-  script_name("Debian: Security Advisory (DSA-2301-1)");
+  script_name("Debian: Security Advisory (DSA-2301-2)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Debian Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB(5|6)");
 
-  script_xref(name:"Advisory-ID", value:"DSA-2301-1");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2011/DSA-2301-1");
+  script_xref(name:"Advisory-ID", value:"DSA-2301-2");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2011/DSA-2301-2");
   script_xref(name:"URL", value:"https://security-tracker.debian.org/tracker/DSA-2301");
 
-  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'rails' package(s) announced via the DSA-2301-1 advisory.");
+  script_tag(name:"summary", value:"The remote host is missing an update for the Debian 'rails' package(s) announced via the DSA-2301-2 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
@@ -77,7 +77,7 @@ report = "";
 
 if(release == "DEB5") {
 
-  if(!isnull(res = isdpkgvuln(pkg:"rails", ver:"2.1.0-7+lenny1", rls:"DEB5"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"rails", ver:"2.1.0-7+lenny2", rls:"DEB5"))) {
     report += res;
   }
 
@@ -91,63 +91,63 @@ if(release == "DEB5") {
 
 if(release == "DEB6") {
 
-  if(!isnull(res = isdpkgvuln(pkg:"libactionmailer-ruby", ver:"2.3.5-1.2+squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libactionmailer-ruby", ver:"2.3.5-1.2+squeeze2", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libactionmailer-ruby1.8", ver:"2.3.5-1.2+squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libactionmailer-ruby1.8", ver:"2.3.5-1.2+squeeze2", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libactionpack-ruby", ver:"2.3.5-1.2+squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libactionpack-ruby", ver:"2.3.5-1.2+squeeze2", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libactionpack-ruby1.8", ver:"2.3.5-1.2+squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libactionpack-ruby1.8", ver:"2.3.5-1.2+squeeze2", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libactiverecord-ruby", ver:"2.3.5-1.2+squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libactiverecord-ruby", ver:"2.3.5-1.2+squeeze2", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libactiverecord-ruby1.8", ver:"2.3.5-1.2+squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libactiverecord-ruby1.8", ver:"2.3.5-1.2+squeeze2", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libactiverecord-ruby1.9.1", ver:"2.3.5-1.2+squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libactiverecord-ruby1.9.1", ver:"2.3.5-1.2+squeeze2", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libactiveresource-ruby", ver:"2.3.5-1.2+squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libactiveresource-ruby", ver:"2.3.5-1.2+squeeze2", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libactiveresource-ruby1.8", ver:"2.3.5-1.2+squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libactiveresource-ruby1.8", ver:"2.3.5-1.2+squeeze2", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libactivesupport-ruby", ver:"2.3.5-1.2+squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libactivesupport-ruby", ver:"2.3.5-1.2+squeeze2", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libactivesupport-ruby1.8", ver:"2.3.5-1.2+squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libactivesupport-ruby1.8", ver:"2.3.5-1.2+squeeze2", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"libactivesupport-ruby1.9.1", ver:"2.3.5-1.2+squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"libactivesupport-ruby1.9.1", ver:"2.3.5-1.2+squeeze2", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"rails", ver:"2.3.5-1.2+squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"rails", ver:"2.3.5-1.2+squeeze2", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"rails-doc", ver:"2.3.5-1.2+squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"rails-doc", ver:"2.3.5-1.2+squeeze2", rls:"DEB6"))) {
     report += res;
   }
 
-  if(!isnull(res = isdpkgvuln(pkg:"rails-ruby1.8", ver:"2.3.5-1.2+squeeze1", rls:"DEB6"))) {
+  if(!isnull(res = isdpkgvuln(pkg:"rails-ruby1.8", ver:"2.3.5-1.2+squeeze2", rls:"DEB6"))) {
     report += res;
   }
 

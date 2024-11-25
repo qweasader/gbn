@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801541");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-08T14:36:53+0000");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-11-18 06:30:08 +0100 (Thu, 18 Nov 2010)");
   script_cve_id("CVE-2010-4197", "CVE-2010-4198", "CVE-2010-4199", "CVE-2010-4201",
                 "CVE-2010-4202", "CVE-2010-4203", "CVE-2010-4204", "CVE-2010-4205",
@@ -18,7 +18,7 @@ if(description)
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-07-31 18:24:00 +0000 (Fri, 31 Jul 2020)");
-  script_name("Google Chrome multiple vulnerabilities - November 10(Linux)");
+  script_name("Google Chrome Multiple Vulnerabilities (Nov 2010) - Linux");
   script_xref(name:"URL", value:"http://www.vupen.com/english/advisories/2010/2889");
   script_xref(name:"URL", value:"http://code.google.com/p/chromium/issues/detail?id=51602");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2010/11/stable-channel-update.html");

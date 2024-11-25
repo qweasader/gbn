@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:kaseya:virtual_system_administrator';
+CPE = "cpe:/a:kaseya:virtual_system_administrator";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106739");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-04-10 14:46:29 +0200 (Mon, 10 Apr 2017)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -19,14 +19,15 @@ if (description)
 
   script_tag(name:"solution_type", value:"WillNotFix");
 
-  script_name("Kaseya VSA Information Disclosure Vulnerability");
+  script_name("Kaseya VSA Information Disclosure Vulnerability - Active Check");
 
   script_category(ACT_ATTACK);
 
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_kaseya_vsa_detect.nasl");
-  script_mandatory_keys("kaseya_vsa/installed");
+  script_mandatory_keys("kaseya/vsa/http/detected");
+  script_require_ports("Services/www", 443);
 
   script_tag(name:"summary", value:"Kaseya VSA is prone to an information disclosure vulnerability.");
 
@@ -51,7 +52,7 @@ include("host_details.inc");
 include("http_func.inc");
 include("http_keepalive.inc");
 
-if (!port = get_app_port(cpe: CPE))
+if (!port = get_app_port(cpe: CPE, service: "www"))
   exit(0);
 
 if (!dir = get_app_location(cpe: CPE, port: port))

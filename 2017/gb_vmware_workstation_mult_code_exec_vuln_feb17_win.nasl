@@ -9,17 +9,17 @@ CPE = "cpe:/a:vmware:workstation";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810535");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2016-7081", "CVE-2016-7082", "CVE-2016-7083", "CVE-2016-7084",
                 "CVE-2016-7085", "CVE-2016-7086");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-07-30 01:29:00 +0000 (Sun, 30 Jul 2017)");
   script_tag(name:"creation_date", value:"2017-02-03 13:26:13 +0530 (Fri, 03 Feb 2017)");
-  script_name("VMware Workstation Multiple Code Execution Vulnerabilities Feb17 (Windows)");
+  script_name("VMware Workstation Multiple Code Execution Vulnerabilities (Feb 2017) - Windows");
 
   script_tag(name:"summary", value:"VMware Workstation is prone to multiple code execution vulnerabilities.");
 

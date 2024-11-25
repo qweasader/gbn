@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.841378");
-  script_cve_id("CVE-2012-2686", "CVE-2013-0169");
+  script_cve_id("CVE-2013-0169");
   script_tag(name:"creation_date", value:"2013-03-28 04:21:04 +0000 (Thu, 28 Mar 2013)");
-  script_version("2023-06-21T05:06:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:20 +0000 (Wed, 21 Jun 2023)");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
+  script_version("2024-02-28T14:37:42+0000");
+  script_tag(name:"last_modification", value:"2024-02-28 14:37:42 +0000 (Wed, 28 Feb 2024)");
+  script_tag(name:"cvss_base", value:"2.6");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:P/I:N/A:N");
 
   script_name("Ubuntu: Security Advisory (USN-1732-3)");
   script_category(ACT_GATHER_INFO);

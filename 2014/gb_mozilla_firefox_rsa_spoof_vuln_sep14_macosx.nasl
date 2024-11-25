@@ -9,14 +9,14 @@ CPE = "cpe:/a:mozilla:firefox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804924");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2014-1568");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-09-30 09:45:11 +0530 (Tue, 30 Sep 2014)");
 
-  script_name("Mozilla Firefox RSA Spoof Vulnerability September14 (Macosx)");
+  script_name("Mozilla Firefox RSA Spoof Vulnerability (Sep 2014) - Mac OS X");
 
   script_tag(name:"summary", value:"Mozilla Firefox is prone to spoofing vulnerability.");
 
@@ -28,7 +28,7 @@ if(description)
   script_tag(name:"impact", value:"Successful exploitation will allow attackers
   to conduct spoofing attacks.");
 
-  script_tag(name:"affected", value:"Mozilla Firefox before 32.0.3 on Macosx");
+  script_tag(name:"affected", value:"Mozilla Firefox before 32.0.3 on Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade to Mozilla Firefox version 32.0.3
   or later.");

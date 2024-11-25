@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2018.0012");
   script_cve_id("CVE-2016-9445", "CVE-2016-9446", "CVE-2016-9447", "CVE-2016-9809", "CVE-2016-9812", "CVE-2016-9813", "CVE-2017-5843", "CVE-2017-5848");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-01-05 02:31:00 +0000 (Fri, 05 Jan 2018)");
+  script_tag(name:"severity_date", value:"2017-01-17 19:13:15 +0000 (Tue, 17 Jan 2017)");
 
   script_name("Mageia: Security Advisory (MGASA-2018-0012)");
   script_category(ACT_GATHER_INFO);
@@ -26,17 +26,17 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2018-0012");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2018-0012.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=20238");
+  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2016/11/18/12");
+  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2016/11/18/13");
+  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2016/12/05/8");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=19802");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=19814");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2016/dsa-3713");
-  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2016/11/18/13");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2016/dsa-3717");
-  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2016/11/18/12");
-  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2016/12/05/8");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=20238");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/IQKP5AYCCUOV4CJ6YAVAIDLWZRXEY7JG/");
   script_xref(name:"URL", value:"https://lwn.net/Vulnerabilities/708524/");
   script_xref(name:"URL", value:"https://lwn.net/Vulnerabilities/708873/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/IQKP5AYCCUOV4CJ6YAVAIDLWZRXEY7JG/");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2016/dsa-3713");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2016/dsa-3717");
   script_xref(name:"URL", value:"https://www.debian.org/security/2017/dsa-3818");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'gstreamer0.10-plugins-bad, gstreamer1.0-plugins-bad' package(s) announced via the MGASA-2018-0012 advisory.");

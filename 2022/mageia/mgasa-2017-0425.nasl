@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2017.0425");
   script_cve_id("CVE-2017-13783", "CVE-2017-13784", "CVE-2017-13785", "CVE-2017-13788", "CVE-2017-13791", "CVE-2017-13792", "CVE-2017-13793", "CVE-2017-13794", "CVE-2017-13795", "CVE-2017-13796", "CVE-2017-13798", "CVE-2017-13802", "CVE-2017-13803", "CVE-2017-7081", "CVE-2017-7087", "CVE-2017-7089", "CVE-2017-7090", "CVE-2017-7091", "CVE-2017-7092", "CVE-2017-7093", "CVE-2017-7094", "CVE-2017-7095", "CVE-2017-7096", "CVE-2017-7098", "CVE-2017-7099", "CVE-2017-7100", "CVE-2017-7102", "CVE-2017-7104", "CVE-2017-7107", "CVE-2017-7109", "CVE-2017-7111", "CVE-2017-7117", "CVE-2017-7120", "CVE-2017-7142");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-03-08 16:06:00 +0000 (Fri, 08 Mar 2019)");
+  script_tag(name:"severity_date", value:"2017-10-26 14:58:18 +0000 (Thu, 26 Oct 2017)");
 
   script_name("Mageia: Security Advisory (MGASA-2017-0425)");
   script_category(ACT_GATHER_INFO);
@@ -27,11 +27,11 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2017-0425");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2017-0425.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=21894");
-  script_xref(name:"URL", value:"https://webkitgtk.org/security/WSA-2017-0008.html");
-  script_xref(name:"URL", value:"https://webkitgtk.org/security/WSA-2017-0009.html");
   script_xref(name:"URL", value:"https://webkitgtk.org/2017/10/18/webkitgtk2.18.1-released.html");
   script_xref(name:"URL", value:"https://webkitgtk.org/2017/10/27/webkitgtk2.18.2-released.html");
   script_xref(name:"URL", value:"https://webkitgtk.org/2017/11/10/webkitgtk2.18.3-released.html");
+  script_xref(name:"URL", value:"https://webkitgtk.org/security/WSA-2017-0008.html");
+  script_xref(name:"URL", value:"https://webkitgtk.org/security/WSA-2017-0009.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'webkit2' package(s) announced via the MGASA-2017-0425 advisory.");
 

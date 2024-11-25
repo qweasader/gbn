@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105566");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-03-15 10:52:54 +0100 (Tue, 15 Mar 2016)");
-  script_name("Zyxel NSA310 Remote Code Execution Vulnerability");
+  script_name("Zyxel NSA310 RCE Vulnerability");
 
   script_tag(name:"summary", value:"A remote unauthenticated code execution vulnerability in Zyxel
   NSA310 allows remote attackers to execute arbitrary code as a `root' user.");
@@ -46,7 +46,6 @@ if(description)
 }
 
 include("ftp_func.inc");
-include("misc_func.inc");
 include("port_service_func.inc");
 
 port = ftp_get_port( default:21 );

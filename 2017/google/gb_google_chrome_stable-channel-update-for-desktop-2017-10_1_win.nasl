@@ -9,16 +9,16 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811882");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2017-15396", "CVE-2017-15406");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-31 15:50:00 +0000 (Wed, 31 Oct 2018)");
   script_tag(name:"creation_date", value:"2017-10-27 11:02:06 +0530 (Fri, 27 Oct 2017)");
-  script_name("Google Chrome Security Updates(stable-channel-update-for-desktop-2017-10-1)-Windows");
+  script_name("Google Chrome Security Updates (stable-channel-update-for-desktop-2017-10-1) - Windows");
 
   script_tag(name:"summary", value:"Google Chrome is prone to multiple stack overflow vulnerabilities.");
 

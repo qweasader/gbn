@@ -9,8 +9,8 @@ CPE = "cpe:/a:nitropackinc:nitropack";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127678");
-  script_version("2024-01-12T16:12:12+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-10-31T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-10-31 05:05:48 +0000 (Thu, 31 Oct 2024)");
   script_tag(name:"creation_date", value:"2024-01-08 08:20:45 +0000 (Mon, 08 Jan 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -42,8 +42,8 @@ if (description)
   via a forged request granted they can trick a site administrator into performing an action such
   as clicking on a link.");
 
-  script_tag(name:"affected", value:"WordPress NitroPack - Cache & Speed Optimization prior to
-  version 1.10.3.");
+  script_tag(name:"affected", value:"WordPress NitroPack - Cache & Speed Optimization plugin prior
+  to version 1.10.3.");
 
   script_tag(name:"solution", value:"Update to version 1.10.3 or later.");
 

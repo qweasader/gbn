@@ -7,12 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.60448");
-  script_version("2023-07-14T16:09:26+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:26 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-02-09T05:06:25+0000");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2008-09-24 21:14:03 +0200 (Wed, 24 Sep 2008)");
   script_cve_id("CVE-2007-3762", "CVE-2007-3763", "CVE-2007-3764", "CVE-2007-4103");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-08 20:12:32 +0000 (Thu, 08 Feb 2024)");
   script_name("Gentoo Security Advisory GLSA 200802-11 (asterisk)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 E-Soft Inc.");

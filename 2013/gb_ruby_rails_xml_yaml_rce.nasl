@@ -9,9 +9,9 @@ CPE = "cpe:/a:rubyonrails:rails";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802050");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2013-0156");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2013-01-18 11:03:52 +0530 (Fri, 18 Jan 2013)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -40,7 +40,8 @@ if(description)
 
   script_tag(name:"solution", value:"Upgrade to Ruby on Rails 2.3.15, 3.0.19, 3.1.10, 3.2.11, or later.");
 
-  script_tag(name:"summary", value:"Ruby on Rails is prone to a remote command execution vulnerability.");
+  script_tag(name:"summary", value:"Ruby on Rails is prone to a remote command execution (RCE)
+  vulnerability.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_analysis");

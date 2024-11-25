@@ -9,17 +9,17 @@ CPE = "cpe:/a:xnview:xnview";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813820");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2018-15175", "CVE-2018-15176", "CVE-2018-15174");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-04 18:06:00 +0000 (Thu, 04 Oct 2018)");
   script_tag(name:"creation_date", value:"2018-08-10 10:11:02 +0530 (Fri, 10 Aug 2018)");
 
-  script_name("XnView Multiple Denial of Service Vulnerabilities Aug18");
+  script_name("XnView Multiple Denial of Service Vulnerabilities (Aug 2018)");
 
   script_tag(name:"summary", value:"XnView is prone to multiple denial of service vulnerabilities.");
 

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.704320");
   script_cve_id("CVE-2018-12227", "CVE-2018-17281", "CVE-2018-7284", "CVE-2018-7286");
   script_tag(name:"creation_date", value:"2018-10-15 22:00:00 +0000 (Mon, 15 Oct 2018)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-02T05:06:06+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:06 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-03-01 18:54:00 +0000 (Fri, 01 Mar 2019)");
+  script_tag(name:"severity_date", value:"2018-03-19 14:54:37 +0000 (Mon, 19 Mar 2018)");
 
   script_name("Debian: Security Advisory (DSA-4320-1)");
   script_category(ACT_GATHER_INFO);

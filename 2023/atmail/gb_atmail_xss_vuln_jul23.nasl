@@ -9,8 +9,8 @@ CPE = "cpe:/a:atmail:atmail";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.124382");
-  script_version("2023-10-12T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_version("2024-07-31T05:05:34+0000");
+  script_tag(name:"last_modification", value:"2024-07-31 05:05:34 +0000 (Wed, 31 Jul 2024)");
   script_tag(name:"creation_date", value:"2023-07-31 07:58:33 +0000 (Mon, 31 Jul 2023)");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
@@ -22,7 +22,7 @@ if (description)
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"WillNotFix");
 
   script_name("Atmail <= 5.62 XSS Vulnerability");
 
@@ -43,8 +43,10 @@ if (description)
 
   script_tag(name:"affected", value:"Atmail version 5.62 and probably prior.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 31th July, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.");
 
   script_xref(name:"URL", value:"https://medium.com/@rohitgautam26/cve-2022-31200-5117bac8d548");
 

@@ -9,13 +9,13 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802234");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-20T14:37:13+0000");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-08-12 14:44:50 +0200 (Fri, 12 Aug 2011)");
   script_cve_id("CVE-2011-1290", "CVE-2011-1344");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_name("Apple Safari Multiple Vulnerabilities - April 2011 (Mac OS X)");
+  script_name("Apple Safari Multiple Vulnerabilities (Apr 2011) - Mac OS X");
   script_xref(name:"URL", value:"http://support.apple.com/kb/HT4596");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/46822");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/46849");

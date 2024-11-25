@@ -9,14 +9,14 @@ CPE = "cpe:/a:vmware:workstation";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810744");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2015-2340", "CVE-2015-2339", "CVE-2015-2338", "CVE-2015-2337",
                 "CVE-2015-2336", "CVE-2012-0897");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-04-07 17:06:57 +0530 (Fri, 07 Apr 2017)");
-  script_name("VMware Workstation Code Execution And DoS Vulnerabilities Apr17 (Windows)");
+  script_name("VMware Workstation Code Execution And DoS Vulnerabilities (Apr 2017) - Windows");
 
   script_tag(name:"summary", value:"VMware Workstation Player is prone to code execution and denial-of-service vulnerabilities.");
 

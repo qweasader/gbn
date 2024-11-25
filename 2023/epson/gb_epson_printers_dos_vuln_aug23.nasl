@@ -4,11 +4,11 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-if( description )
+if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170544");
-  script_version("2023-10-12T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_version("2024-11-15T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-15 05:05:36 +0000 (Fri, 15 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-08-21 08:20:32 +0000 (Mon, 21 Aug 2023)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
@@ -31,17 +31,16 @@ if( description )
   script_dependencies("gb_epson_printer_consolidation.nasl");
   script_mandatory_keys("epson/printer/detected");
 
-  script_tag(name:"summary", value:"Epson Printers EP-801A, EP-802A, EP-901A, EP-901F, EP-902A,
+  script_tag(name:"summary", value:"Epson printers EP-801A, EP-802A, EP-901A, EP-901F, EP-902A,
   PA-TCU1, PM-T960, PM-T990, PX-201, PX-502A, PX-601F and PX-602F are prone to a denial of service
   (DoS) vulnerability.");
 
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable firmware version is present on the target
-  host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"If you access the product's Web Config with a specific URL that
   turns off the power of the printer product, the power of the product may be turned off.");
 
-  script_tag(name:"affected", value:"Epson Printers EP-801A, EP-802A, EP-901A, EP-901F, EP-902A,
+  script_tag(name:"affected", value:"Epson printers EP-801A, EP-802A, EP-901A, EP-901F, EP-902A,
   PA-TCU1, PM-T960, PM-T990, PX-201, PX-502A, PX-601F and PX-602F");
 
   script_tag(name:"solution", value:"The vendor advises to install and configure the printers

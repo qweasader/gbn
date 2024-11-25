@@ -9,21 +9,23 @@ if (description)
   script_oid("1.3.6.1.4.1.25623.1.0.140097");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_version("2023-07-26T05:05:09+0000");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_version("2024-06-20T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-20 05:05:33 +0000 (Thu, 20 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-12-12 13:59:50 +0100 (Mon, 12 Dec 2016)");
-  script_name("Check_MK Detection (HTTP)");
-
-  script_tag(name:"summary", value:"The script sends a connection request to the server and attempts to extract the version number from the reply.");
-
-  script_tag(name:"qod_type", value:"remote_banner");
-
+  script_name("Checkmk / Check_MK Detection (HTTP)");
   script_category(ACT_GATHER_INFO);
   script_family("Product detection");
   script_copyright("Copyright (C) 2016 Greenbone AG");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
+
+  script_xref(name:"URL", value:"https://checkmk.com");
+
+  script_tag(name:"summary", value:"HTTP based detection of Checkmk (formerly Check_MK).");
+
+  script_tag(name:"qod_type", value:"remote_banner");
 
   exit(0);
 }
@@ -34,38 +36,101 @@ include("port_service_func.inc");
 include("list_array_func.inc");
 include("host_details.inc");
 
-port = http_get_port( default:80 );
+port = http_get_port(default:80);
 
-dirs = make_list_unique("/", "/monitor", "/cmk", http_cgi_dirs( port:port ) );
+detection_patterns = make_list(
+  # <title>Check_MK Multisite Login</title>
+  # <title>Check_MK</title>
+  # <title>Checkmk $somestring</title>
+  "<title>Check(_MK|mk)[^<]*<",
 
-foreach dir ( dirs )
-{
+  # <a href="https://mathias-kettner.com">Mathias Kettner</a>
+  ">Mathias Kettner<",
+  '<a href="https?://mathias-kettner\\.com',
+
+  # <a href="https://checkmk.com" target="_blank">Checkmk GmbH</a>
+  # <a href="https://checkmk.com" target="_blank">tribe29 GmbH</a>
+  ">(Checkmk|tribe29) GmbH<",
+  '<a href="https?://checkmk\\.com',
+
+  # <script>cmk.visibility_detection.initialize();</script>
+  #
+  # but also on a separate line like e.g.:
+  #
+  # <script type="text/javascript">
+  # cmk.visibility_detection.initialize();
+  #
+  "cmk\.visibility_detection\.initialize\(\);",
+
+  "checkmk_logo\.svg",
+  "check_mk\.css");
+
+foreach dir (make_list_unique("/", "/monitor", "/cmk", "/check_mk", "/checkmk", http_cgi_dirs(port:port))) {
+
   install = dir;
-  if( dir == "/" ) dir = "";
+  if (dir == "/")
+    dir = "";
 
-  url = dir + '/check_mk/login.py';
-  req = http_get( item:url, port:port );
-  buf = http_keepalive_send_recv( port:port, data:req, bodyonly:FALSE );
+  foreach subdir (make_list("", "/check_mk")) {
 
-  if( "<title>Check_MK" >!< buf || "check_mk.css" >!< buf || ">Mathias Kettner<" >!< buf ) continue;
+    url = dir + subdir + "/login.py";
 
-  cpe = 'cpe:/a:check_mk_project:check_mk';
-  vers = 'unknown';
+    # nb: No need to check this as it is most likely duplicated
+    if ("/check_mk/check_mk" >< url)
+      continue;
 
-  set_kb_item( name:"check_mk/detected", value:TRUE );
+    buf = http_get_cache(item:url, port:port);
+    if (!buf || buf !~ "^HTTP/1\.[01] 200")
+      continue;
 
-  version = eregmatch( pattern:'>Version: ([0-9.]+(p[0-9]+)?)', string:buf );
-  if( ! isnull( version[1] ) )
-  {
-    vers = version[1];
-    cpe += ':' + vers;
+    found = 0;
+    concluded = "";
+
+    foreach pattern (detection_patterns) {
+
+      concl = eregmatch(string:buf, pattern:pattern, icase:TRUE);
+      if (concl[0]) {
+        found++;
+        if (concluded)
+          concluded += '\n';
+        concluded += "  " + concl[0];
+      }
+    }
+
+    if (found > 1) {
+
+      cpe = "cpe:/a:check_mk_project:check_mk";
+      version = "unknown";
+      conclUrl = "  " + http_report_vuln_url(port:port, url:url, url_only:TRUE);
+
+      set_kb_item(name:"check_mk/detected", value:TRUE);
+      set_kb_item(name:"check_mk/http/detected", value:TRUE);
+
+      # </div><div id="foot">Version: 2.3.0p3 - &copy; <a href="https://checkmk.com" target="_blank">Checkmk GmbH</a>
+      # </div><div id="foot">Version: 1.6.0p22 - &copy; <a href="https://checkmk.com" target="_blank">tribe29 GmbH</a>
+      # </div><div id="foot">Version: 1.5.0p5 - &copy; <a href="https://mathias-kettner.com">Mathias Kettner</a>
+      # </div><div id="foot">Version: 1.5.0p11 - &copy; <a href="https://mathias-kettner.com">Mathias Kettner</a>
+      # </div><div id="foot">Version: 1.4.0p23 - &copy; <a href="https://mathias-kettner.com">Mathias Kettner</a>
+      vers = eregmatch(pattern:">Version\s*:\s*([0-9.]+(p[0-9]+)?)", string:buf);
+      if (!isnull(vers[1])) {
+        version = vers[1];
+        cpe += ":" + version;
+        concluded += '\n  ' + vers[0];
+      }
+
+      register_product(cpe:cpe, location:install, port:port, service:"www");
+
+      log_message(data:build_detection_report(app:"Checkmk / Check_MK",
+                                              version:version,
+                                              install:install,
+                                              cpe:cpe,
+                                              concludedUrl:conclUrl,
+                                              concluded:concluded),
+                  port:port);
+
+      exit(0); # nb: Should be usually only installed once...
+    }
   }
-
-  register_product( cpe:cpe, location:url, port:port, service:"www" );
-
-  report = build_detection_report( app:"Check_MK", version:vers, install:url, cpe:cpe, concluded:version[0] );
-
-  log_message( port:port, data:report );
 }
 
-exit( 0 );
+exit(0);

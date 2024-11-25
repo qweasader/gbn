@@ -9,13 +9,13 @@ CPE = "cpe:/a:symantec:web_gateway";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805228");
-  script_version("2023-07-27T05:05:09+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2014-1651", "CVE-2014-1652");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-12-23 12:50:52 +0530 (Tue, 23 Dec 2014)");
-  script_name("Symantec Web Gateway Multiple Vulnerabilities -02 Dec14");
+  script_name("Symantec Web Gateway Multiple Vulnerabilities -02 (Dec 2014)");
 
   script_tag(name:"summary", value:"Symantec Web Gateway is prone to multiple vulnerabilities.");
 

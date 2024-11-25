@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804864");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-02-20T14:37:13+0000");
   script_cve_id("CVE-2014-6527", "CVE-2014-6519", "CVE-2014-6476", "CVE-2014-6456");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-10-20 13:23:18 +0530 (Mon, 20 Oct 2014)");
 
-  script_name("Oracle Java SE JRE Multiple Unspecified Vulnerabilities-03 Oct 2014 (Windows)");
+  script_name("Oracle Java SE JRE Multiple Unspecified Vulnerabilities-03 (Oct 2014) - Windows");
 
   script_tag(name:"summary", value:"Oracle Java SE JRE is prone to multiple unspecified vulnerabilities.");
 

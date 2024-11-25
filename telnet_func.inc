@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2002 Michel Arboi
+# SPDX-FileCopyrightText: New code/functions since 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -347,6 +348,8 @@ function telnet_close_socket( socket, data ) {
     send( socket:socket, data:'x\r\n' );
   } else if( "<CTRL>" >< data && "X-Logout" >< data ) { # nb: Rugged Operating System
     send( socket:socket, data:raw_string( 0x18 ) );
+  } else if( data =~ "\(q\)\s+Quit" ) { # nb: Moxa OnCell
+    send( socket:socket, data:'q\r\n' );
   } else if( "Huawei Versatile Routing Platform Software" >< data || "VRP (R) software" >< data || # nb: Huawei VRP
     data =~ "Welcome [^.]+\. HELP for a list of commands" ) { # nb: Apache James Remote Administration Tool
     send( socket:socket, data:'quit\r\n' );

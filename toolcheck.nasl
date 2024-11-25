@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810000");
-  script_version("2023-08-08T05:06:11+0000");
-  script_tag(name:"last_modification", value:"2023-08-08 05:06:11 +0000 (Tue, 08 Aug 2023)");
+  script_version("2024-05-08T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-05-08 05:05:32 +0000 (Wed, 08 May 2024)");
   script_tag(name:"creation_date", value:"2009-08-17 09:05:44 +0200 (Mon, 17 Aug 2009)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -141,7 +141,7 @@ if(find_in_path("ldapsearch")) {
   all_tools_available = FALSE;
 }
 
-# gb_host_alive_check* and sw_ssl_tls_cert_get_hostname.nasl
+# sw_ssl_tls_cert_get_hostname.nasl
 ping = find_in_path("ping");
 ping6 = find_in_path("ping6");
 if(ping || ping6) {

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106223");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-09-30T08:38:05+0000");
+  script_tag(name:"last_modification", value:"2024-09-30 08:38:05 +0000 (Mon, 30 Sep 2024)");
   script_tag(name:"creation_date", value:"2016-09-06 12:25:58 +0700 (Tue, 06 Sep 2016)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:P/I:P/A:N");
@@ -16,8 +16,8 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("SSL and TLS");
-  script_dependencies("secpod_ssl_ciphers.nasl");
-  script_mandatory_keys("secpod_ssl_ciphers/supported_ciphers", "ssl_tls/port");
+  script_dependencies("gb_ssl_tls_ciphers_gathering.nasl");
+  script_mandatory_keys("ssl_tls/ciphers/supported_ciphers", "ssl_tls/port");
 
   script_xref(name:"URL", value:"https://weakdh.org/");
   script_xref(name:"URL", value:"https://weakdh.org/sysadmin.html");
@@ -65,7 +65,7 @@ foreach tlsv( tls_versions ) {
   if( ! SSL_VER = version_kb_string_mapping[tlsv] )
     continue;
 
-  if( ! cipherList = get_kb_list( "secpod_ssl_ciphers/" + SSL_VER + "/" + port + "/supported_ciphers" ) )
+  if( ! cipherList = get_kb_list( "ssl_tls/ciphers/" + SSL_VER + "/" + port + "/supported_ciphers" ) )
     continue;
 
   dhe_ciphers = NULL;

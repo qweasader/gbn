@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802905");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-07-03 18:13:10 +0530 (Tue, 03 Jul 2012)");
-  script_name("PowerNet Twin Client 'RFSynC' Denial of Service Vulnerability");
+  script_name("PowerNet Twin Client 'RFSynC' DoS Vulnerability");
   script_category(ACT_DENIAL);
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Denial of Service");

@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902691");
-  script_version("2023-12-13T05:05:23+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_cve_id("CVE-2011-5213", "CVE-2011-5214");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-10-30 12:15:54 +0530 (Tue, 30 Oct 2012)");
-  script_name("BrowserCRM Multiple SQL Injection and XSS Vulnerabilities");
+  script_name("BrowserCRM Multiple SQLi and XSS Vulnerabilities");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/47217");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51060");
@@ -44,7 +44,8 @@ if(description)
 Likely none will be provided anymore.
 General solution options are to upgrade to a newer release, disable respective features, remove the product or replace the product by another one.");
 
-  script_tag(name:"summary", value:"BrowserCRM is prone to multiple sql injection and cross site scripting vulnerabilities.");
+  script_tag(name:"summary", value:"BrowserCRM is prone to multiple SQL injection (SQLi) and
+  cross-site scripting (XSS) vulnerabilities.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow remote attackers to execute
   arbitrary web script or HTML in a user's browser session in the context of an

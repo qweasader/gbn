@@ -9,15 +9,15 @@ CPE = "cpe:/a:apple:quicktime";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800578");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-06-04 10:49:28 +0200 (Thu, 04 Jun 2009)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2009-0951", "CVE-2009-0952", "CVE-2009-0953",
                 "CVE-2009-0954", "CVE-2009-0955", "CVE-2009-0956",
                 "CVE-2009-0957", "CVE-2009-0185", "CVE-2009-0188");
-  script_name("Apple QuickTime Multiple Vulnerabilities - Jun09");
+  script_name("Apple QuickTime Multiple Vulnerabilities (Jun 2009)");
 
   script_tag(name:"qod_type", value:"executable_version");
   script_category(ACT_GATHER_INFO);

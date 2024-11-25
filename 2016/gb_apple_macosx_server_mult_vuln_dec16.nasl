@@ -9,7 +9,7 @@ CPE = "cpe:/o:apple:os_x_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810232");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2013-3919", "CVE-2013-4854", "CVE-2014-0591", "CVE-2014-4424",
                 "CVE-2014-4406", "CVE-2014-0060", "CVE-2014-0061", "CVE-2014-0062",
                 "CVE-2014-0063", "CVE-2014-0064", "CVE-2014-0065", "CVE-2014-0066",
@@ -17,12 +17,12 @@ if(description)
                 "CVE-2014-3566");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-04-22 17:48:00 +0000 (Mon, 22 Apr 2019)");
   script_tag(name:"creation_date", value:"2016-12-05 14:52:33 +0530 (Mon, 05 Dec 2016)");
-  script_name("Apple OS X Server Multiple Vulnerabilities Dec16");
+  script_name("Apple OS X Server Multiple Vulnerabilities (Dec 2016)");
 
   script_tag(name:"summary", value:"Apple OS X Server is prone to multiple vulnerabilities.");
 

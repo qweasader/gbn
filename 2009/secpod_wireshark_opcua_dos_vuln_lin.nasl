@@ -1,40 +1,26 @@
-# Copyright (C) 2009 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:wireshark:wireshark';
+CPE = "cpe:/a:wireshark:wireshark";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.901032");
-  script_version("2022-05-09T13:48:18+0000");
-  script_tag(name:"last_modification", value:"2022-05-09 13:48:18 +0000 (Mon, 09 May 2022)");
+  script_version("2024-07-23T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2024-07-23 05:05:30 +0000 (Tue, 23 Jul 2024)");
   script_tag(name:"creation_date", value:"2009-09-24 10:05:51 +0200 (Thu, 24 Sep 2009)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_cve_id("CVE-2009-3241");
-  script_name("Wireshark OpcUa Dissector Denial of Service Vulnerability (Linux)");
+  script_name("Wireshark OpcUa Dissector Denial of Service Vulnerability - Linux");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Denial of Service");
   script_dependencies("gb_wireshark_detect_lin.nasl");
-  script_mandatory_keys("Wireshark/Linux/Ver");
+  script_mandatory_keys("wireshark/linux/detected");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/36754");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/36408");
@@ -62,13 +48,17 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!ver = get_app_version(cpe:CPE)) exit(0);
+if(!infos = get_app_version_and_location(cpe:CPE, exit_no_version:TRUE))
+  exit(0);
+
+version = infos["version"];
+location = infos["location"];
 
 # Alert for Wireshark version 0.96.6 to 1.0.8 and 1.2.0 to 1.2.1
-if(version_in_range(version:ver, test_version:"0.99.6", test_version2:"1.0.8")||
-   version_in_range(version:ver, test_version:"1.2.0", test_version2:"1.2.1")){
-  report = report_fixed_ver(installed_version:ver, fixed_version:"1.0.9 or 1.2.2");
-  security_message(data:report);
+if(version_in_range(version:version, test_version:"0.99.6", test_version2:"1.0.8")||
+   version_in_range(version:version, test_version:"1.2.0", test_version2:"1.2.1")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"1.0.9 or 1.2.2", install_path:location);
+  security_message(port:0, data:report);
   exit(0);
 }
 

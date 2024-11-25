@@ -9,13 +9,13 @@ CPE = "cpe:/a:adobe:acrobat_reader";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804631");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2006-3452");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2014-06-05 12:48:53 +0530 (Thu, 05 Jun 2014)");
-  script_name("Adobe Reader Privilege Escalation Vulnerability - Jul07 (Mac OS X)");
+  script_name("Adobe Reader Privilege Escalation Vulnerability (Jul 2007) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Reader is prone to a privilege escalation vulnerability.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
@@ -34,7 +34,7 @@ remove the files or replace them with malicious binaries.");
   script_xref(name:"URL", value:"http://www.adobe.com/support/security/bulletins/apsb06-08.html");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2014 Greenbone AG");
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("secpod_adobe_prdts_detect_macosx.nasl");
   script_mandatory_keys("Adobe/Reader/MacOSX/Version");
   exit(0);

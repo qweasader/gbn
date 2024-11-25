@@ -8,10 +8,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10267");
-  script_version("2023-12-20T05:05:58+0000");
+  script_version("2024-08-02T05:05:39+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-08-02 05:05:39 +0000 (Fri, 02 Aug 2024)");
   script_tag(name:"creation_date", value:"2006-03-26 17:55:15 +0200 (Sun, 26 Mar 2006)");
   script_name("SSH Server type and version");
   script_category(ACT_GATHER_INFO);
@@ -144,7 +144,8 @@ if( server_banner =~ "SSH-[0-9.]+-Comware" ) {
   guess += '\n- HP Comware Device';
 }
 
-if( "SSH-2.0-Go" >< server_banner ) {
+# nb: Don't report GoAnywhere as this Golang library
+if( "SSH-2.0-Go" >< server_banner && "SSH-2.0-GoAnywhere" >!< server_banner ) {
   set_kb_item( name:"ssh/golang/ssh/detected", value:TRUE );
   set_kb_item( name:"ssh/golang/ssh/" + port + "/detected", value:TRUE );
   guess += '\n- SSH implementation using the Golang SSH library';
@@ -168,6 +169,12 @@ if( egrep( pattern:"SSH.+WeOnlyDo", string:server_banner ) ) {
   guess += '\n- FreeSSHD';
 }
 
+# SSH-2.0-5.23 FlowSsh: Bitvise SSH Server (WinSSHD) 6.04
+# SSH-2.0-5.17 FlowSsh: Bitvise SSH Server (WinSSHD) 5.60: free only for personal non-commercial use
+# SSH-2.0-8.49 FlowSsh: Bitvise SSH Server (WinSSHD) 8.49
+# SSH-2.0-9.32 FlowSsh: Bitvise SSH Server (WinSSHD) 9.32: free only for personal non-commercial use
+#
+# nb: Keep the pattern "in sync" with gb_bitvise_ssh_server_ssh_banner_detect.nasl and gb_ssh_os_detection.nasl
 if( server_banner =~ "SSH.*Bitvise SSH Server \(WinSSHD\)" ) {
   set_kb_item( name:"ssh/bitvise/ssh_server/detected", value:TRUE );
   set_kb_item( name:"ssh/bitvise/ssh_server/" + port + "/detected", value:TRUE );
@@ -315,6 +322,13 @@ if( server_banner =~ "SSH-.+FortiSSH" ) {
   guess += '\n- Fortinet Device';
 }
 
+# SSH-2.0-GoAnywhere7.4.1
+if( server_banner =~ "SSH-.+GoAnywhere" ) {
+  set_kb_item( name:"ssh/goanywhere/mft/detected", value:TRUE );
+  set_kb_item( name:"ssh/goanywhere/mft/detected/" + port + "/detected", value:TRUE );
+  guess += '\n- GoAnywhere MFT';
+}
+
 # In addition it seems some (older?) Fortinet devices are also using random chars like e.g.:
 # SSH-2.0-wPfK8KZ9BAqqkX
 # SSH-2.0-OeDyjbv6FV
@@ -322,6 +336,21 @@ if( server_banner =~ "SSH-.+FortiSSH" ) {
 if( egrep( string:server_banner, pattern:"SSH-2\.0-[a-zA-Z0-9]{5,15}$", icase:FALSE ) ) {
   set_kb_item( name:"ssh/openssh_or_fortissh/detected", value:TRUE );
   set_kb_item( name:"ssh/openssh_or_fortissh/detected/" + port + "/detected", value:TRUE );
+}
+
+# SSH-2.0-CrushFTPSSHD_5
+# SSH-2.0-CrushFTPSSHD
+if( server_banner =~ "SSH-.+CrushFTPSSHD" ) {
+  set_kb_item( name:"ssh/crushftp/detected", value:TRUE );
+  set_kb_item( name:"ssh/crushftp/detected/" + port + "/detected", value:TRUE );
+  guess += '\n- CrushFTP';
+}
+
+# SSH-2.0-IPSSH-6.9.0 Easergy-P5
+if( server_banner =~ "SSH-.+ Easergy-P[0-9]" ) {
+  set_kb_item( name:"ssh/schneider/powerlogic/protection/detected", value:TRUE );
+  set_kb_item( name:"ssh/schneider/powerlogic/protection/" + port + "/detected", value:TRUE );
+  guess += '\n- Schneider Electric PowerLogic Protection Device';
 }
 
 if( login_banner ) {
@@ -362,10 +391,16 @@ if( login_banner ) {
     guess += '\n- Cisco SD-WAN vManage';
   }
 
-  if( "VMware vCenter Server Appliance" >< login_banner && "OpenSSH" >< server_banner ) {
+  # VMware vCenter Server Appliance 6.5.0.5100
+  # Type: vCenter Server with an embedded Platform Services Controller
+  #
+  # VMware vCenter Server 7.0.3.01800
+  # Type: vCenter Server with an embedded Platform Services Controller
+  if( ( "VMware vCenter Server " >< login_banner && "OpenSSH" >< server_banner ) ||
+        "Type: vCenter Server with " >< login_banner ) {
     set_kb_item( name:"ssh/vmware/vcenter/server/detected", value:TRUE );
     set_kb_item( name:"ssh/vmware/vcenter/server/" + port + "/detected", value:TRUE );
-    guess += '\n- VMware vCenter Server Appliance';
+    guess += '\n- VMware vCenter Server (Appliance)';
   }
 
   # VMware Site Recovery Manager Appliance 8.3.0.4135 build 15929234
@@ -373,6 +408,27 @@ if( login_banner ) {
     set_kb_item( name:"ssh/vmware/srm/detected", value:TRUE );
     set_kb_item( name:"ssh/vmware/srm/" + port + "/detected", value:TRUE );
     guess += '\n- VMware Site Recovery Manager (SRM)';
+  }
+
+  # Avi Cloud Controller
+  if( "Avi Cloud Controller" >< login_banner && "OpenSSH" >< server_banner ) {
+    set_kb_item( name:"ssh/vmware/avi/detected", value:TRUE );
+    set_kb_item( name:"ssh/vmware/avi/" + port + "/detected", value:TRUE );
+    guess += '\n- VMware Avi Load Balancer';
+  }
+
+  # Dell EMC SmartFabric OS10
+  if( "Dell EMC Networking Operating System (OS10)" >< login_banner ) {
+    set_kb_item( name:"ssh/dell/smartfabric/os10/detected", value:TRUE );
+    set_kb_item( name:"ssh/dell/smartfabric/os10/" + port + "/detected", value:TRUE );
+    guess += '\n- Dell EMC SmartFabric OS10';
+  }
+
+  # Vega Session Controller - 2.3.23-119 (GA)
+  if( "Vega Session Controller" >< login_banner ) {
+    set_kb_item( name:"ssh/sangoma/sbc/detected", value:TRUE );
+    set_kb_item( name:"ssh/sangoma/sbc/" + port + "/detected", value:TRUE );
+    guess += '\n- Sangoma Session Border Controller (SBC)';
   }
 }
 

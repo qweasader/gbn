@@ -1,49 +1,37 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108956");
-  script_version("2021-04-16T10:39:13+0000");
-  script_tag(name:"last_modification", value:"2021-04-16 10:39:13 +0000 (Fri, 16 Apr 2021)");
+  script_version("2024-02-28T14:37:42+0000");
+  script_tag(name:"last_modification", value:"2024-02-28 14:37:42 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2020-10-22 07:34:34 +0000 (Thu, 22 Oct 2020)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_name("Microsoft Windows 7 / Server 2008 End Of Life Detection");
+  script_name("Microsoft Windows 7 / Server 2008 End of Life (EOL) Detection");
   script_category(ACT_GATHER_INFO);
   script_family("General");
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_dependencies("os_detection.nasl");
   script_mandatory_keys("HostDetails/OS/BestMatchCPE", "Host/runs_windows");
 
   script_xref(name:"URL", value:"https://support.microsoft.com/en-us/windows/windows-7-support-ended-on-january-14-2020-b75d4580-2cc7-895a-2c9c-1466d9a53962");
   script_xref(name:"URL", value:"https://support.microsoft.com/en-us/help/4456235/end-of-support-for-windows-server-2008-and-windows-server-2008-r2");
 
-  script_tag(name:"summary", value:"The Windows 7 / Server 2008 Operating System on the
-  remote host has reached the end of life and should not be used anymore.
+  script_tag(name:"summary", value:"The Windows 7 / Server 2008 Operating System on the remote host
+  has reached the end of life (EOL) and should not be used anymore.
 
-  Note: Both Operating Systems might be covered by extended security updates (ESU) so
-  this VT is prone to false positives.");
+  Note: Both Operating Systems might be covered by extended security updates (ESU) so this VT is
+  prone to false positives.");
 
-  script_tag(name:"solution", value:"Upgrade the Operating System on the remote host
-  to a version which is still supported and receiving security updates by the vendor.");
+  script_tag(name:"vuldetect", value:"Checks if an EOL version is present on the target host.");
+
+  script_tag(name:"solution", value:"Update the Operating System on the remote host to a version
+  which is still supported and receiving security updates by the vendor.");
 
   script_tag(name:"solution_type", value:"Mitigation");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");

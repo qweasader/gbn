@@ -9,17 +9,17 @@ CPE = "cpe:/a:adobe:creative_cloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809450");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-27T14:36:53+0000");
   script_cve_id("CVE-2016-6935");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-27 14:36:53 +0000 (Tue, 27 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-11-28 20:35:00 +0000 (Mon, 28 Nov 2016)");
   script_tag(name:"creation_date", value:"2016-10-13 15:55:28 +0530 (Thu, 13 Oct 2016)");
   script_tag(name:"qod_type", value:"registry");
-  script_name("Adobe Creative Cloud Security Update APSB16-34 (Windows)");
+  script_name("Adobe Creative Cloud Security Update (APSB16-34) - Windows");
 
   script_tag(name:"summary", value:"Adobe Creative Cloud is prone to a local privilege
   escalation vulnerability.");

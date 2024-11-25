@@ -9,42 +9,44 @@ CPE = "cpe:/a:egroupware:egroupware";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108066");
-  script_version("2023-07-14T16:09:27+0000");
-  script_cve_id("CVE-2014-2987", "CVE-2014-2988");
+  script_version("2024-07-12T15:38:44+0000");
+  script_tag(name:"last_modification", value:"2024-07-12 15:38:44 +0000 (Fri, 12 Jul 2024)");
+  script_tag(name:"creation_date", value:"2017-02-01 09:00:00 +0100 (Wed, 01 Feb 2017)");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
-  script_tag(name:"creation_date", value:"2017-02-01 09:00:00 +0100 (Wed, 01 Feb 2017)");
-  script_name("EGroupware Multiple CSRF and Remote Code Execution Vulnerabilities");
+
+  script_cve_id("CVE-2014-2987", "CVE-2014-2988");
+
+  script_tag(name:"qod_type", value:"remote_banner_unreliable"); # Might only be the major version
+
+  script_tag(name:"solution_type", value:"VendorFix");
+
+  script_name("EGroupware Multiple Vulnerabilities (Feb 2017)");
+
   script_category(ACT_GATHER_INFO);
-  script_family("Web application abuses");
+
   script_copyright("Copyright (C) 2017 Greenbone AG");
-  script_dependencies("gb_egroupware_detect.nasl");
-  script_require_ports("Services/www", 80);
-  script_mandatory_keys("egroupware/installed");
+  script_family("Web application abuses");
+  script_dependencies("gb_egroupware_http_detect.nasl");
+  script_mandatory_keys("egroupware/detected");
+
+  script_tag(name:"summary", value:"EGroupware is prone to multiple cross-site request forgery
+  (CSRF) and remote PHP code execution vulnerabilities.");
+
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+
+  script_tag(name:"impact", value:"Successfully exploiting these issues will allow attackers to
+  execute arbitrary code within the context of the application.");
+
+  script_tag(name:"affected", value:"EGroupware Enterprise Line (EPL) before version 11.1.20140505,
+  EGroupware Community Edition before version 1.8.007.20140506 and EGroupware before version
+  14.1 beta.");
+
+  script_tag(name:"solution", value:"Update to version 11.1.20140505 (EPL), 1.8.007.20140506
+  (Community Edition), 14.1 beta or later.");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/67303");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/67409");
-  script_xref(name:"URL", value:"http://www.egroupware.org/");
-
-  script_tag(name:"summary", value:"EGroupware is prone to multiple CSRF and remote PHP code-execution vulnerabilities.");
-
-  script_tag(name:"impact", value:"Successfully exploiting these issues will allow attackers to execute arbitrary
-  code within the context of the application.");
-
-  script_tag(name:"affected", value:"EGroupware Enterprise Line (EPL) before 11.1.20140505, EGroupware Community Edition
-  before 1.8.007.20140506, and EGroupware before 14.1 beta.");
-
-  script_tag(name:"solution", value:"Upgrade to:
-
-  - EGroupware Enterprise Line (EPL) 11.1.20140505 or later
-
-  - EGroupware Community Edition 1.8.007.20140506 or later
-
-  - EGroupware 14.1 beta or later");
-
-  script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_banner_unreliable"); # The version exposed by the application is less detailed
 
   exit(0);
 }
@@ -52,23 +54,25 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! infos = get_app_version_and_location( cpe:CPE, port:port, exit_no_version:TRUE ) )
+  exit( 0 );
+
+version = infos["version"];
+location = infos["location"];
 
 # Version is only exposed as 1.8.007 without the date
-if( version_is_less( version:vers, test_version:"1.8.007" ) ) {
-  vuln = TRUE;
+if( version_is_less( version:version, test_version:"1.8.007" ) )
   fix = "1.8.007.20140506";
-}
 
 # CVE says the vulnerable EPL version is 1.1.20140505 but the "real" EPL versions are 9.2 - 11.1
-if( version_in_range( version:vers, test_version:"9", test_version2:"11.1.20140416" ) ) {
-  vuln = TRUE;
+if( version_in_range( version:version, test_version:"9", test_version2:"11.1.20140416" ) )
   fix = "11.1.20140505";
-}
 
-if( vuln ) {
-  report = report_fixed_ver( installed_version:vers, fixed_version:fix );
+if( fix ) {
+  report = report_fixed_ver( installed_version:version, fixed_version:fix, install_path:location );
   security_message( port:port, data:report );
   exit( 0 );
 }

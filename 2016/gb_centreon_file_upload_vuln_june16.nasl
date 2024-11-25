@@ -9,10 +9,10 @@ CPE = "cpe:/a:centreon:centreon";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808216");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2016-06-07 16:34:51 +0530 (Tue, 07 Jun 2016)");
   script_tag(name:"qod_type", value:"remote_banner");
   script_name("Centreon 'POST' Parameter File Upload Vulnerability");
@@ -41,7 +41,6 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("centreon_detect.nasl");
   script_mandatory_keys("centreon/installed");
-  script_require_ports("Services/www", 80);
 
   exit(0);
 }
@@ -49,16 +48,16 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if (!cenPort = get_app_port(cpe:CPE))
+if (!port = get_app_port(cpe:CPE))
   exit(0);
 
-if (!cenVer = get_app_version(cpe:CPE, port:cenPort))
+if (!version = get_app_version(cpe:CPE, port:port))
   exit(0);
 
-if (version_is_equal(version:cenVer, test_version:"2.6.1")) {
-  report = report_fixed_ver(installed_version:cenVer, fixed_version:"2.6.2");
-  security_message(data:report, port:cenPort);
+if (version_is_equal(version:version, test_version:"2.6.1")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"2.6.2");
+  security_message(data:report, port:port);
   exit(0);
 }
 
-exit(0);
+exit(99);

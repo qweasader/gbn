@@ -9,8 +9,8 @@ CPE = "cpe:/a:slide_anything_project:slide_anything";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127569");
-  script_version("2023-10-13T16:09:03+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-10-03 10:30:00 +0000 (Tue, 03 Oct 2023)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
@@ -65,7 +65,7 @@ location = infos["location"];
 
 if( version_is_less( version: version, test_version: "2.3.44" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "2.3.44", install_path: location );
-  security_message( data: report, port: port );
+  security_message( port: port, data: report );
   exit( 0 );
 }
 

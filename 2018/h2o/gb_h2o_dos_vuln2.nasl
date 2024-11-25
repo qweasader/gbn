@@ -9,8 +9,8 @@ CPE = "cpe:/a:h2o_project:h2o";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140823");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-06-11T05:05:40+0000");
+  script_tag(name:"last_modification", value:"2024-06-11 05:05:40 +0000 (Tue, 11 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-02-27 16:27:54 +0700 (Tue, 27 Feb 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -24,14 +24,14 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("H2O HTTP Server DoS Vulnerability-02");
+  script_name("H2O HTTP Server < 2.0.4 DoS Vulnerability");
 
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web Servers");
-  script_dependencies("gb_h2o_http_server_detect.nasl");
-  script_mandatory_keys("h2o/installed");
+  script_dependencies("gb_h2o_http_server_http_detect.nasl");
+  script_mandatory_keys("h2o/detected");
 
   script_tag(name:"summary", value:"H2O allows remote attackers to cause a denial-of-service (DoS) via format
 string specifiers in a template file via fastcgi, mruby, proxy, redirect or reproxy.");
@@ -62,4 +62,4 @@ if (version_is_less(version: version, test_version: "2.0.4")) {
   exit(0);
 }
 
-exit(0);
+exit(99);

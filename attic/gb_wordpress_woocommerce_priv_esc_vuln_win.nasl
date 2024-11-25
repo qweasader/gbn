@@ -7,10 +7,10 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112487");
-  script_version("2023-06-27T05:05:30+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-02-07 19:35:00 +0000 (Thu, 07 Feb 2019)");
@@ -18,7 +18,7 @@ if (description)
 
   script_cve_id("CVE-2017-18356");
 
-  script_name("WordPress WooCommerce Plugin Privilege Escalation Vulnerability (Windows)");
+  script_name("WordPress WooCommerce Plugin Privilege Escalation Vulnerability - Windows");
 
   script_tag(name:"summary", value:"The WooCommerce Plugin for WordPress is prone to
   a privilege escalation vulnerability.

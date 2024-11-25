@@ -1,29 +1,15 @@
-# Copyright (C) 2015 SCHUTZWERK GmbH
+# SPDX-FileCopyrightText: 2015 SCHUTZWERK GmbH
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111012");
-  script_version("2021-10-15T12:51:02+0000");
+  script_version("2024-09-27T05:05:23+0000");
   script_cve_id("CVE-2016-0800", "CVE-2014-3566");
-  script_tag(name:"last_modification", value:"2021-10-15 12:51:02 +0000 (Fri, 15 Oct 2021)");
+  script_tag(name:"last_modification", value:"2024-09-27 05:05:23 +0000 (Fri, 27 Sep 2024)");
   script_tag(name:"creation_date", value:"2015-04-08 07:00:00 +0200 (Wed, 08 Apr 2015)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
@@ -34,7 +20,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2015 SCHUTZWERK GmbH");
   script_family("SSL and TLS");
-  script_dependencies("gb_tls_version_get.nasl");
+  script_dependencies("gb_ssl_tls_version_get.nasl");
   script_mandatory_keys("ssl_tls/port");
 
   script_tag(name:"summary", value:"It was possible to detect the usage of the deprecated SSLv2
@@ -76,6 +62,7 @@ if(description)
 }
 
 include("ssl_funcs.inc");
+include("host_details.inc");
 
 tlsReport = "In addition to TLSv1.0+ the service is also providing the deprecated";
 sslReport = "The service is only providing the deprecated";
@@ -88,11 +75,29 @@ if( ! port = tls_ssl_get_port() )
 if( ! ssvs = get_kb_item( "tls/supported/" + port ) )
   exit( 0 );
 
-if( "SSLv2" >< ssvs ) sslv2 = TRUE;
-if( "SSLv3" >< ssvs ) sslv3 = TRUE;
-if( "TLSv1.0" >< ssvs ) tlsv10 = TRUE;
-if( "TLSv1.1" >< ssvs ) tlsv11 = TRUE;
-if( "TLSv1.2" >< ssvs ) tlsv12 = TRUE;
+if( "SSLv2" >< ssvs )
+  sslv2 = TRUE;
+
+if( "SSLv3" >< ssvs )
+  sslv3 = TRUE;
+
+if( "TLSv1.0" >< ssvs )
+  tlsv10 = TRUE;
+
+if( "TLSv1.1" >< ssvs )
+  tlsv11 = TRUE;
+
+if( "TLSv1.2" >< ssvs )
+  tlsv12 = TRUE;
+
+if( sslv2 || sslv3 ) {
+  # nb:
+  # - Store the reference from this one to gb_ssl_tls_version_get.nasl to show a cross-reference within
+  #   the reports
+  # - We don't want to use get_app_* functions as we're only interested in the cross-reference here
+  register_host_detail( name:"detected_by", value:"1.3.6.1.4.1.25623.1.0.105782" ); # gb_ssl_tls_version_get.nasl
+  register_host_detail( name:"detected_at", value:port + "/tcp" );
+}
 
 if( ! tlsv10 && ! tlsv11 && ! tlsv12 ) {
   if( sslv2 && sslv3 ) {

@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802277");
-  script_version("2023-07-28T05:05:23+0000");
+  script_version("2024-02-20T14:37:13+0000");
   script_cve_id("CVE-2011-3555");
   script_tag(name:"cvss_base", value:"6.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:N/I:P/A:C");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-11-15 14:34:22 +0530 (Tue, 15 Nov 2011)");
-  script_name("Oracle Java SE Java Runtime Environment Unspecified Vulnerability - October 2011 (Windows)");
+  script_name("Oracle Java SE Java Runtime Environment Unspecified Vulnerability (Oct 2011) - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/46512");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/50237");
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/70838");

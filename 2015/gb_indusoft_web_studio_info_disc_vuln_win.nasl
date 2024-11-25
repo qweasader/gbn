@@ -9,13 +9,13 @@ CPE = "cpe:/a:schneider_electric:indusoft_web_studio";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806002");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-16T05:06:55+0000");
   script_cve_id("CVE-2015-1009");
   script_tag(name:"cvss_base", value:"1.7");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-08-19 15:48:22 +0530 (Wed, 19 Aug 2015)");
-  script_name("InduSoft Web Studio Information Disclosure Vulnerability August15 (Windows)");
+  script_name("InduSoft Web Studio Information Disclosure Vulnerability (Aug 2015) - Windows");
 
   script_tag(name:"summary", value:"InduSoft Web Studio is prone to an information disclosure vulnerability.");
 

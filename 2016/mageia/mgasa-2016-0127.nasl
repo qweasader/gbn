@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131284");
   script_cve_id("CVE-2016-1622", "CVE-2016-1623", "CVE-2016-1624", "CVE-2016-1625", "CVE-2016-1626", "CVE-2016-1627", "CVE-2016-1628", "CVE-2016-1629", "CVE-2016-1630", "CVE-2016-1631", "CVE-2016-1632", "CVE-2016-1633", "CVE-2016-1634", "CVE-2016-1635", "CVE-2016-1636", "CVE-2016-1637", "CVE-2016-1638", "CVE-2016-1639", "CVE-2016-1640", "CVE-2016-1641", "CVE-2016-1642", "CVE-2016-1643", "CVE-2016-1644", "CVE-2016-1645", "CVE-2016-1646", "CVE-2016-1647", "CVE-2016-1648", "CVE-2016-1649", "CVE-2016-1650");
   script_tag(name:"creation_date", value:"2016-04-04 04:30:03 +0000 (Mon, 04 Apr 2016)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2016-12-03 03:21:00 +0000 (Sat, 03 Dec 2016)");
+  script_tag(name:"severity_date", value:"2016-03-07 18:59:47 +0000 (Mon, 07 Mar 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0127)");
   script_category(ACT_GATHER_INFO);
@@ -26,13 +26,13 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0127");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0127.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17729");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2016/02/stable-channel-update.html");
-  script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2016/02/stable-channel-update_9.html");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2016/02/stable-channel-update_18.html");
+  script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2016/02/stable-channel-update_9.html");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2016/03/stable-channel-update.html");
-  script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2016/03/stable-channel-update_8.html");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2016/03/stable-channel-update_24.html");
+  script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2016/03/stable-channel-update_8.html");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17729");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'chromium-browser-stable' package(s) announced via the MGASA-2016-0127 advisory.");
 
@@ -101,6 +101,8 @@ crafted web ... [Please see the references for more information on the vulnerabi
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

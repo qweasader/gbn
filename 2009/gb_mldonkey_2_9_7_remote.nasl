@@ -9,8 +9,8 @@ CPE = "cpe:/a:mldonkey:mldonkey";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100057");
-  script_version("2023-12-15T16:10:08+0000");
-  script_tag(name:"last_modification", value:"2023-12-15 16:10:08 +0000 (Fri, 15 Dec 2023)");
+  script_version("2024-07-24T05:06:37+0000");
+  script_tag(name:"last_modification", value:"2024-07-24 05:06:37 +0000 (Wed, 24 Jul 2024)");
   script_tag(name:"creation_date", value:"2009-03-17 18:51:21 +0100 (Tue, 17 Mar 2009)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -72,7 +72,8 @@ foreach pattern (keys(files)) {
   if (http_vuln_check(port: port, url: url, pattern: pattern)) {
     report = http_report_vuln_url(port: port, url: url);
     security_message(port: port, data: report);
+    exit(0);
   }
 }
 
-exit(0); # server allows connections only from localhost by default.
+exit(0); # nb: Server allows connections only from localhost by default so no exit(99) as it might be still vulnerable

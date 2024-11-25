@@ -11,8 +11,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.2.1.2023.56");
   script_cve_id("CVE-2023-6135", "CVE-2023-6856", "CVE-2023-6857", "CVE-2023-6858", "CVE-2023-6859", "CVE-2023-6860", "CVE-2023-6861", "CVE-2023-6863", "CVE-2023-6864", "CVE-2023-6865", "CVE-2023-6866", "CVE-2023-6867", "CVE-2023-6869", "CVE-2023-6871", "CVE-2023-6872", "CVE-2023-6873");
   script_tag(name:"creation_date", value:"2023-12-20 09:22:47 +0000 (Wed, 20 Dec 2023)");
-  script_version("2023-12-26T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-12-26 05:05:23 +0000 (Tue, 26 Dec 2023)");
+  script_version("2024-02-09T14:47:30+0000");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
@@ -59,7 +59,7 @@ CVE-2023-6865: Potential exposure of uninitialized data in EncryptingOutputStrea
 EncryptingOutputStream was susceptible to exposing uninitialized data. This issue could only be abused in order to write data to a local disk which may have implications for private browsing mode.
 
 CVE-2023-6857: Symlinks may resolve to smaller than expected buffers
-When resolving a symlink, a race may occur where the buffer passed to readlink may actually be smaller than necessary. This bug only affects Firefox on Unix-based operating systems (Android, Linux, MacOS). Windows is unaffected.
+When resolving a symlink, a race may occur where the buffer passed to readlink may actually be smaller than necessary. This bug only affects Firefox on Unix-based operating systems (Android, Linux, Mac OS X). Windows is unaffected.
 
 CVE-2023-6858: Heap buffer overflow in nsTextFragment
 Firefox was susceptible to a heap buffer overflow in nsTextFragment due to insufficient OOM handling.

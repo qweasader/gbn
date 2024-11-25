@@ -9,8 +9,8 @@ CPE = "cpe:/a:snapcreek:duplicator";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127677");
-  script_version("2024-01-10T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2024-01-10 05:05:17 +0000 (Wed, 10 Jan 2024)");
+  script_version("2024-10-31T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-10-31 05:05:48 +0000 (Thu, 31 Oct 2024)");
   script_tag(name:"creation_date", value:"2024-01-05 09:00:45 +0000 (Fri, 05 Jan 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
@@ -33,8 +33,8 @@ if (description)
   script_dependencies("gb_wordpress_plugin_http_detect.nasl");
   script_mandatory_keys("wordpress/plugin/duplicator/detected");
 
-  script_tag(name:"summary", value:"The WordPress plugin 'Duplicator - WordPress Migration Plugin'
-  is prone to an information disclosure vulnerability.");
+  script_tag(name:"summary", value:"The WordPress plugin 'Duplicator - WordPress Migration' is prone
+  to an information disclosure vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
@@ -45,7 +45,7 @@ if (description)
   script_tag(name:"impact", value:"Unauthenticated attackers are able to discover and access these
   sensitive files, which include a full database dump and a zip archive of the site.");
 
-  script_tag(name:"affected", value:"WordPress Duplicator - WordPress Migration Plugin prior to
+  script_tag(name:"affected", value:"WordPress Duplicator - WordPress Migration plugin prior to
   version 1.5.7.1.");
 
   script_tag(name:"solution", value:"Update to version 1.5.7.1 or later.");

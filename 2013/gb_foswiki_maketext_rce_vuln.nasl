@@ -9,13 +9,13 @@ CPE = "cpe:/a:foswiki:foswiki";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802049");
-  script_version("2023-10-12T05:05:32+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2012-6329", "CVE-2012-6330");
   script_tag(name:"cvss_base", value:"7.5");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2013-01-02 15:49:29 +0530 (Wed, 02 Jan 2013)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_name("Foswiki 'MAKETEXT' variable Remote Command Execution Vulnerability");
+  script_name("Foswiki 'MAKETEXT' variable RCE Vulnerability");
   script_copyright("Copyright (C) 2013 Greenbone AG");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");

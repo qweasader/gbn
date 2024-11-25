@@ -9,13 +9,13 @@ CPE = "cpe:/a:tigervnc:tigervnc";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801898");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-06-13 15:28:04 +0200 (Mon, 13 Jun 2011)");
   script_cve_id("CVE-2011-1775");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
-  script_name("TigerVNC SSL Certificate Validation Security Bypass Vulnerability (Windows)");
+  script_name("TigerVNC SSL Certificate Validation Security Bypass Vulnerability - Windows");
   script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=702470");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/47738");
   script_xref(name:"URL", value:"http://www.mail-archive.com/tigervnc-devel@lists.sourceforge.net/msg01345.html");

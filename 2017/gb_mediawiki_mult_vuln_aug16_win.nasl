@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:mediawiki:mediawiki';
+CPE = "cpe:/a:mediawiki:mediawiki";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106784");
-  script_version("2023-11-03T05:05:46+0000");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_version("2024-07-16T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2017-04-21 11:45:55 +0200 (Fri, 21 Apr 2017)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
@@ -20,24 +20,24 @@ if (description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_cve_id("CVE-2016-6331", "CVE-2016-6332", "CVE-2016-6333", "CVE-2016-6334", "CVE-2016-6335",
-"CVE-2016-6336", "CVE-2016-6337");
+  script_cve_id("CVE-2016-6331", "CVE-2016-6332", "CVE-2016-6333", "CVE-2016-6334",
+                "CVE-2016-6335", "CVE-2016-6336", "CVE-2016-6337");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("MediaWiki Multiple Vulnerabilities - Aug16 (Windows)");
+  script_name("MediaWiki Multiple Vulnerabilities (Aug 2016) - Windows");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("secpod_mediawiki_detect.nasl", "os_detection.nasl");
-  script_mandatory_keys("mediawiki/installed", "Host/runs_windows");
+  script_dependencies("gb_mediawiki_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("mediawiki/detected", "Host/runs_windows");
 
   script_tag(name:"summary", value:"MediaWiki is prone to multiple vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"MediaWiki is prone to multiple vulnerabilities:
+  script_tag(name:"insight", value:"The following flaws exist:
 
   - ApiParse allows remote attackers to bypass intended per-title read restrictions via a parse action to api.php.
 (CVE-2016-6331)
@@ -62,9 +62,10 @@ restrictions and remove the revision deletion status of arbitrary file revisions
   - Remote attackers may bypass intended session access restrictions by leveraging a call to the UserGetRights
 function after Session::getAllowedUserRights. (CVE-2016-6337)");
 
-  script_tag(name:"affected", value:"MediaWiki before 1.23.15, 1.26.x before 1.26.4, and 1.27.x before 1.27.1");
+  script_tag(name:"affected", value:"MediaWiki versions prior to 1.23.15, 1.26.x prior to 1.26.4 and
+  1.27.x prior to 1.27.1.");
 
-  script_tag(name:"solution", value:"Upgrade to version 1.23.15, 1.26.4, 1.27.1 or later.");
+  script_tag(name:"solution", value:"Update to version 1.23.15, 1.26.4, 1.27.1 or later.");
 
   script_xref(name:"URL", value:"https://lists.wikimedia.org/pipermail/mediawiki-announce/2016-August/000195.html");
 
@@ -98,4 +99,4 @@ if (version_is_equal(version: version, test_version: "1.27.0")) {
   exit(0);
 }
 
-exit(0);
+exit(99);

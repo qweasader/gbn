@@ -9,7 +9,7 @@ CPE = "cpe:/a:mozilla:firefox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805754");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-08T05:05:59+0000");
   script_cve_id("CVE-2015-7327", "CVE-2015-7180", "CVE-2015-7179", "CVE-2015-7178",
                 "CVE-2015-7177", "CVE-2015-7176", "CVE-2015-7175", "CVE-2015-7174",
                 "CVE-2015-4522", "CVE-2015-4521", "CVE-2015-4520", "CVE-2015-4519",
@@ -19,9 +19,9 @@ if(description)
                 "CVE-2015-4501", "CVE-2015-4500");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-09-29 18:11:28 +0530 (Tue, 29 Sep 2015)");
-  script_name("Mozilla Firefox Multiple Vulnerabilities - Sep15 (Windows)");
+  script_name("Mozilla Firefox Multiple Vulnerabilities (Sep 2015) - Windows");
 
   script_tag(name:"summary", value:"Mozilla Firefox is prone to vulnerabilities.");
 

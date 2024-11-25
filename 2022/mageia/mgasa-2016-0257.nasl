@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2016.0257");
   script_cve_id("CVE-2016-5118", "CVE-2016-5841", "CVE-2016-5842");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-08-03T05:05:16+0000");
-  script_tag(name:"last_modification", value:"2023-08-03 05:05:16 +0000 (Thu, 03 Aug 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-08-01 18:21:00 +0000 (Tue, 01 Aug 2023)");
+  script_tag(name:"severity_date", value:"2016-12-15 03:02:17 +0000 (Thu, 15 Dec 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0257)");
   script_category(ACT_GATHER_INFO);
@@ -26,10 +26,10 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0257");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0257.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=18598");
-  script_xref(name:"URL", value:"http://seclists.org/oss-sec/2016/q2/432");
-  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2016/06/25/3");
   script_xref(name:"URL", value:"http://git.imagemagick.org/repos/ImageMagick/blob/ImageMagick-6/ChangeLog");
+  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2016/06/25/3");
+  script_xref(name:"URL", value:"http://seclists.org/oss-sec/2016/q2/432");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=18598");
   script_xref(name:"URL", value:"https://www.debian.org/security/2016/dsa-3591");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'converseen, cuneiform-linux, imagemagick, inkscape, k3d, kcm-grub2, kxstitch, performous, perl-Image-SubImageFind, pfstools, pstoedit, pythonmagick, synfig, vdr-plugin-skinelchi, vdr-plugin-skinenigmang' package(s) announced via the MGASA-2016-0257 advisory.");

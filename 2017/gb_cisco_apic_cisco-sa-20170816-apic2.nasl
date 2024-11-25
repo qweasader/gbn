@@ -9,8 +9,8 @@ CPE = "cpe:/a:cisco:application_policy_infrastructure_controller";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140305");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-09-13T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2024-09-13 05:05:46 +0000 (Fri, 13 Sep 2024)");
   script_tag(name:"creation_date", value:"2017-08-17 08:59:24 +0700 (Thu, 17 Aug 2017)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
@@ -73,7 +73,7 @@ affected = make_list(
 
 foreach af (affected) {
   if (version == af) {
-    report = report_fixed_ver(installed_version: version, fixed_version: "See advisory.");
+    report = report_fixed_ver(installed_version: version, fixed_version: "See advisory");
     security_message(port: 0, data: report);
     exit(0);
   }

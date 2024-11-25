@@ -23,11 +23,14 @@ CPE = "cpe:/a:docker:docker";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112991");
-  script_version("2021-09-09T07:15:06+0000");
-  script_tag(name:"last_modification", value:"2021-09-09 07:15:06 +0000 (Thu, 09 Sep 2021)");
+  script_version("2024-02-02T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:11 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"creation_date", value:"2021-09-08 08:04:11 +0000 (Wed, 08 Sep 2021)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-02 02:07:17 +0000 (Fri, 02 Feb 2024)");
 
   script_cve_id("CVE-2015-3627", "CVE-2015-3629", "CVE-2015-3630", "CVE-2015-3631");
 

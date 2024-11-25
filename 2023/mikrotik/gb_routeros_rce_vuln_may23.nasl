@@ -9,8 +9,8 @@ CPE = "cpe:/o:mikrotik:routeros";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.150776");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-05-08T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-05-08 05:05:32 +0000 (Wed, 08 May 2024)");
   script_tag(name:"creation_date", value:"2023-07-27 03:36:39 +0000 (Thu, 27 Jul 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -47,6 +47,7 @@ if (description)
   Please see the referenced vendor advisory for mitigation steps.");
 
   script_xref(name:"URL", value:"https://blog.mikrotik.com/security/cve-2023-32154.html");
+  script_xref(name:"URL", value:"https://www.zerodayinitiative.com/advisories/ZDI-23-710/");
 
   exit(0);
 }

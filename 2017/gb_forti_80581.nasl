@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140239");
-  script_version("2023-12-20T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
+  script_version("2024-11-15T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-15 05:05:36 +0000 (Fri, 15 Nov 2024)");
   script_tag(name:"creation_date", value:"2017-04-07 16:08:03 +0200 (Fri, 07 Apr 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -38,7 +38,8 @@ if(description)
 
   script_tag(name:"insight", value:"On vulnerable versions, and provided 'Administrative Access' is
   enabled for SSH, this account can be used to log in via SSH in Interactive-Keyboard mode, using
-  a password shared across all devices. It gives access to a CLI console with administrative rights.");
+  a password shared across all devices. It gives access to a CLI console with administrative
+  rights.");
 
   script_tag(name:"impact", value:"Successful exploitation would allow remote console access to
   vulnerable devices with 'Administrative Access' enabled for SSH.");
@@ -114,7 +115,7 @@ if( defined_func( "ssh_login_interactive" ) &&
     buf = ssh_request_exec( sess, cmd:"get system status" );
 
     if( "Version:" >< buf && "Forti" >< buf ) {
-      report = 'It was possible to login into the remote Forti Device as user "' + user + '" and to execute "get system status".\n\nResult:\n\n' + buf;
+      report = 'It was possible to login into the remote Fortinet device as user "' + user + '" and to execute "get system status".\n\nResult:\n\n' + buf;
       security_message( port:port, data:report );
       ssh_disconnect( soc );
       close( soc );

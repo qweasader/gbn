@@ -2,18 +2,16 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804489");
-  script_version("2023-05-04T09:51:03+0000");
-  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
-  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
+  script_version("2024-10-09T05:05:35+0000");
   script_cve_id("CVE-2014-6271", "CVE-2014-6278");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-05-04 09:51:03 +0000 (Thu, 04 May 2023)");
+  script_tag(name:"last_modification", value:"2024-10-09 05:05:35 +0000 (Wed, 09 Oct 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-02-01 21:38:00 +0000 (Mon, 01 Feb 2021)");
@@ -22,7 +20,8 @@ if(description)
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
   # nb: No script_mandatory_keys() for "Host/runs_windows" as this is flaw is still of a quite high
@@ -41,6 +40,8 @@ if(description)
   script_xref(name:"URL", value:"https://web.archive.org/web/20150913063755/https://shellshocker.net/");
   script_xref(name:"URL", value:"https://github.com/wreiske/shellshocker");
   script_xref(name:"URL", value:"http://www.kb.cert.org/vuls/id/252743");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
 
   script_tag(name:"summary", value:"GNU Bash is prone to a remote command execution (RCE)
   vulnerability dubbed 'Shellshock'.");
@@ -557,6 +558,16 @@ cgis[i++] = "/webtools/bonsai/showcheckins.cgi";
 cgis[i++] = "/wwwadmin.cgi";
 cgis[i++] = "/wwwboard.cgi";
 cgis[i++] = "/wwwboard/wwwboard.cgi";
+# Kemp LoadMaster as mentioned in / via:
+# https://blog.malerisch.net/2015/04/playing-with-kemp-load-master.html
+cgis[i++] = "/progs/networks/hostname";
+# Seems to be from a Visual Tools DVR VX16 as seen in CVE-2021-42071. But this endpoint was also
+# seen in "live logs" probed by an unknown scanner like e.g. the following below in the User-Agent
+# header so it was also included here just to be sure...
+#
+# () { :; }; echo; /bin/ping -c 6 <redacted>
+#
+cgis[i++] = "/cgi-bin/slogin/login.py";
 
 function _check( url, port, host, useragent, vt_string, check_for_200, cmd, pattern ) {
 

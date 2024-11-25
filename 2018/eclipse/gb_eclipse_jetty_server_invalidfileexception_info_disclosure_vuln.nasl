@@ -9,20 +9,20 @@ CPE = "cpe:/a:eclipse:jetty";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813552");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-06-11T05:05:40+0000");
   script_cve_id("CVE-2018-12536");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-11 05:05:40 +0000 (Tue, 11 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-05-14 16:15:00 +0000 (Fri, 14 May 2021)");
   script_tag(name:"creation_date", value:"2018-07-05 12:17:02 +0530 (Thu, 05 Jul 2018)");
-  script_name("Eclipse Jetty Server InvalidPathException Information Disclosure Vulnerability (Linux)");
+  script_name("Eclipse Jetty Server InvalidPathException Information Disclosure Vulnerability - Linux");
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Web Servers");
-  script_dependencies("gb_jetty_detect.nasl", "os_detection.nasl");
+  script_dependencies("gb_jetty_http_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("jetty/detected", "Host/runs_unixoide");
 
   script_xref(name:"URL", value:"https://bugs.eclipse.org/bugs/show_bug.cgi?id=535670");
@@ -58,8 +58,8 @@ if(!port = get_app_port(cpe:CPE))
 if(!infos = get_app_version_and_location(cpe:CPE, port:port, version_regex:"^[0-9]+\.[0-9]+\.[0-9]+", exit_no_version:TRUE))
   exit(0);
 
-vers = infos['version'];
-path = infos['location'];
+vers = infos["version"];
+path = infos["location"];
 
 if(version_in_range(version:vers, test_version:"9.2.0", test_version2:"9.3.24.20180604")) {
   fix = "9.3.24.v20180605";

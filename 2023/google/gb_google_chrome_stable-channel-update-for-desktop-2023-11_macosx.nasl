@@ -9,16 +9,16 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832578");
-  script_version("2023-11-17T16:10:13+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2023-5996");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-11-17 16:10:13 +0000 (Fri, 17 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-11-15 15:48:00 +0000 (Wed, 15 Nov 2023)");
   script_tag(name:"creation_date", value:"2023-11-09 16:28:02 +0530 (Thu, 09 Nov 2023)");
-  script_name("Google Chrome Security Update (stable-channel-update-for-desktop-2023-11) - MAC OS X");
+  script_name("Google Chrome Security Update (stable-channel-update-for-desktop-2023-11) - Mac OS X");
 
   script_tag(name:"summary", value:"Google Chrome is prone to an Use-after-free
   vulnerability.");
@@ -34,7 +34,7 @@ if(description)
   an affected system.");
 
   script_tag(name:"affected", value:"Google Chrome version prior to
-  119.0.6045.123 on MAC OS X");
+  119.0.6045.123 on Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade to version 119.0.6045.123 or
   later. Please see the references for more information.");

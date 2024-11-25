@@ -9,11 +9,11 @@ CPE = "cpe:/a:ntp:ntp";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809779");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2014-9296", "CVE-2014-9295");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-01-16 17:05:06 +0530 (Mon, 16 Jan 2017)");
   script_name("NTP.org 'ntpd' Multiple Vulnerabilities (Jan 2017)");
   script_category(ACT_GATHER_INFO);
@@ -46,9 +46,9 @@ if(description)
   attackers to execute arbitrary code and other unspecified effect on the affected
   system.");
 
-  script_tag(name:"affected", value:"NTP.org's ntpd versions before 4.2.8.");
+  script_tag(name:"affected", value:"NTPd version prior to 4.2.8.");
 
-  script_tag(name:"solution", value:"Upgrade to NTP.org's ntpd version 4.2.8 or later.");
+  script_tag(name:"solution", value:"Update to version 4.2.8 or later.");
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
   script_tag(name:"solution_type", value:"VendorFix");
@@ -59,19 +59,19 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(isnull(port = get_app_port(cpe:CPE)))
+if (isnull(port = get_app_port(cpe: CPE)))
   exit(0);
 
-if(!infos = get_app_full(cpe:CPE, port:port, exit_no_version:TRUE))
+if (!infos = get_app_full(cpe: CPE, port: port, exit_no_version: TRUE))
   exit(0);
 
 version = infos["version"];
 location = infos["location"];
 proto = infos["proto"];
 
-if(version_is_less(version:version, test_version:"4.2.8")) {
-  report = report_fixed_ver(installed_version:version, fixed_version:"4.2.8", install_path:location);
-  security_message(port:port, proto:proto, data:report);
+if (version_is_less(version: version, test_version: "4.2.8")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "4.2.8", install_path: location);
+  security_message(port: port, proto: proto, data: report);
   exit(0);
 }
 

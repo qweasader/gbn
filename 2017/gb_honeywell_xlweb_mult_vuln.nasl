@@ -9,8 +9,8 @@ CPE = "cpe:/h:honeywell:xl_web_ii_controller";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106561");
-  script_version("2023-11-03T05:05:46+0000");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_version("2024-09-13T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2024-09-13 05:05:46 +0000 (Fri, 13 Sep 2024)");
   script_tag(name:"creation_date", value:"2017-02-03 09:38:09 +0700 (Fri, 03 Feb 2017)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -73,13 +73,13 @@ if (!version = get_app_version(cpe: CPE))
   exit(0);
 
 if (version_is_less_equal(version: version, test_version: "1.02.08")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "Contact vendor.");
+  report = report_fixed_ver(installed_version: version, fixed_version: "Please contact the vendor.");
   security_message(port: 0, data: report);
   exit(0);
 }
 
 if (version_in_range(version: version, test_version: "2.00.00", test_version2: "2.01.00")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "Contact vendor.");
+  report = report_fixed_ver(installed_version: version, fixed_version: "Please contact the vendor.");
   security_message(port: 0, data: report);
   exit(0);
 }

@@ -15,7 +15,7 @@
 # @return TRUE if login was successful, FALSE otherwise and NULL if no socket
 #         parameter was passed.
 #
-# Note: Mainly taken from check_login() in postgresql_detect.nasl
+# Note: Mainly taken from check_login() in gb_postgresql_tcp_detect.nasl
 #
 # TODO: - Support SSL
 #

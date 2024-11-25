@@ -9,9 +9,9 @@ CPE = "cpe:/a:otrs:otrs";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103933");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-03-01T14:37:10+0000");
   script_cve_id("CVE-2014-2553", "CVE-2014-2554");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2014-04-03 12:44:23 +0200 (Thu, 03 Apr 2014)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -20,7 +20,6 @@ if(description)
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_dependencies("secpod_otrs_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("OTRS/installed");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/66569");
@@ -62,8 +61,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_in_range( version:vers, test_version:"3.2.0", test_version2:"3.2.15" ) ||
     version_in_range( version:vers, test_version:"3.1.0", test_version2:"3.1.20" ) ||

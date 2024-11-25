@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.130076");
   script_cve_id("CVE-2015-3272", "CVE-2015-3274", "CVE-2015-3275");
   script_tag(name:"creation_date", value:"2015-10-15 07:42:26 +0000 (Thu, 15 Oct 2015)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-12-01 14:54:00 +0000 (Tue, 01 Dec 2020)");
+  script_tag(name:"severity_date", value:"2016-02-24 15:08:36 +0000 (Wed, 24 Feb 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2015-0302)");
   script_category(ACT_GATHER_INFO);
@@ -27,11 +27,11 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2015-0302");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2015-0302.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16374");
+  script_xref(name:"URL", value:"https://docs.moodle.org/dev/Moodle_2.8.7_release_notes");
+  script_xref(name:"URL", value:"https://moodle.org/mod/forum/discuss.php?d=316289");
   script_xref(name:"URL", value:"https://moodle.org/mod/forum/discuss.php?d=316662");
   script_xref(name:"URL", value:"https://moodle.org/mod/forum/discuss.php?d=316664");
   script_xref(name:"URL", value:"https://moodle.org/mod/forum/discuss.php?d=316665");
-  script_xref(name:"URL", value:"https://docs.moodle.org/dev/Moodle_2.8.7_release_notes");
-  script_xref(name:"URL", value:"https://moodle.org/mod/forum/discuss.php?d=316289");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'moodle' package(s) announced via the MGASA-2015-0302 advisory.");
 

@@ -7,11 +7,11 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803886");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2013-1610");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2013-09-03 17:08:26 +0530 (Tue, 03 Sep 2013)");
   script_name("Symantec PGP Desktop and Encryption Desktop Local Privilege Escalation Vulnerability");
 
@@ -37,7 +37,7 @@ if (description)
   script_copyright("Copyright (C) 2013 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"registry");
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_pgp_desktop_detect_win.nasl");
   script_mandatory_keys("PGPDesktop_or_EncryptionDesktop/Win/Installed");
 

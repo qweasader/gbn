@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2024.0005.1");
   script_cve_id("CVE-2023-40475", "CVE-2023-44446");
   script_tag(name:"creation_date", value:"2024-01-03 04:20:17 +0000 (Wed, 03 Jan 2024)");
-  script_version("2024-01-04T05:06:15+0000");
-  script_tag(name:"last_modification", value:"2024-01-04 05:06:15 +0000 (Thu, 04 Jan 2024)");
+  script_version("2024-05-09T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-05-09 05:05:43 +0000 (Thu, 09 May 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 
@@ -33,7 +33,7 @@ if(description)
 CVE-2023-44446: Fixed GStreamer MXF File Parsing Use-After-Free (bsc#1217213).
 CVE-2023-40475: Fixed GStreamer MXF File Parsing Integer Overflow (bsc#1215792).");
 
-  script_tag(name:"affected", value:"'gstreamer-plugins-bad' package(s) on SUSE Linux Enterprise Desktop 15-SP4, SUSE Linux Enterprise High Performance Computing 15-SP4, SUSE Linux Enterprise Real Time 15-SP4, SUSE Linux Enterprise Server 15-SP4, SUSE Linux Enterprise Server for SAP Applications 15-SP4, SUSE Manager Proxy 4.3, SUSE Manager Retail Branch Server 4.3, SUSE Manager Server 4.3, SUSE Package Hub 15.");
+  script_tag(name:"affected", value:"'gstreamer-plugins-bad' package(s) on SUSE Linux Enterprise Desktop 15-SP4, SUSE Linux Enterprise High Performance Computing 15-SP4, SUSE Linux Enterprise Real Time 15-SP4, SUSE Linux Enterprise Server 15-SP4, SUSE Linux Enterprise Server for SAP Applications 15-SP4, SUSE Package Hub 15.");
 
   script_tag(name:"solution", value:"Please install the updated package(s).");
 

@@ -9,16 +9,16 @@ CPE = "cpe:/a:mcafee:application_control";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806980");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2016-1715");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:S/C:P/I:P/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:L/UI:R/S:C/C:L/I:L/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-01-21 17:06:00 +0000 (Thu, 21 Jan 2016)");
   script_tag(name:"creation_date", value:"2016-01-20 15:17:03 +0530 (Wed, 20 Jan 2016)");
-  script_name("McAfee Application Control Multiple Vulnerabilities Jan16 (Windows)");
+  script_name("McAfee Application Control Multiple Vulnerabilities (Jan 2016) - Windows");
 
   script_tag(name:"summary", value:"McAfee Application Control is prone to multiple vulnerabilities.");
 

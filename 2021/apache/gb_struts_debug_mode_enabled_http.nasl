@@ -1,28 +1,14 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117689");
-  script_version("2022-08-31T10:10:28+0000");
-  script_tag(name:"last_modification", value:"2022-08-31 10:10:28 +0000 (Wed, 31 Aug 2022)");
+  script_version("2024-04-24T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-04-24 05:05:32 +0000 (Wed, 24 Apr 2024)");
   script_tag(name:"creation_date", value:"2021-09-21 13:11:29 +0000 (Tue, 21 Sep 2021)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -31,20 +17,22 @@ if(description)
 
   script_tag(name:"solution_type", value:"Mitigation");
 
-  script_name("Apache Struts Debug Mode Enabled - Active Check");
+  script_name("Apache Struts Debug Mode Enabled (HTTP) - Active Check");
 
   script_category(ACT_ATTACK);
 
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "httpver.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_vmware_vcenter_server_http_detect.nasl");
+  script_dependencies("find_service.nasl", "httpver.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "gb_vmware_vcenter_server_http_detect.nasl");
   script_require_ports("Services/www", 8080);
   script_mandatory_keys("www/action_jsp_do");
 
   script_tag(name:"summary", value:"The remote host is running an Apache Struts application with
   enabled debug mode.");
 
-  script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks the response.");
+  script_tag(name:"vuldetect", value:"Sends multiple crafted HTTP GET requests and checks the
+  responses.");
 
   script_tag(name:"insight", value:"Usage of debug mode in a production environment can lead to
   exposing vulnerable information of the application.");
@@ -56,6 +44,7 @@ if(description)
 
   script_xref(name:"URL", value:"https://struts.apache.org/core-developers/debugging.html");
   script_xref(name:"URL", value:"https://struts.apache.org/core-developers/debugging-interceptor.html");
+  script_xref(name:"URL", value:"https://isc.sans.edu/diary/30866");
 
   exit(0);
 }
@@ -64,6 +53,7 @@ include("http_func.inc");
 include("http_keepalive.inc");
 include("list_array_func.inc");
 include("port_service_func.inc");
+include("misc_func.inc");
 
 port = http_get_port( default:8080 );
 host = http_host_name( dont_add_port:TRUE );
@@ -89,15 +79,41 @@ report = "The remote host has the debug mode enabled for the following URL(s): (
 foreach url( urls ) {
 
   x++;
-  url += "?debug=xml";
-  req = http_get( item:url, port:port );
+  check_url = url + "?debug=xml";
+  req = http_get( item:check_url, port:port );
   res = http_keepalive_send_recv( port:port, data:req, bodyonly:TRUE );
 
-  if( egrep( pattern:"^\s*<debug>", string:res, icase:FALSE ) &&
+  if( res && egrep( pattern:"^\s*<debug>", string:res, icase:FALSE ) &&
       egrep( pattern:"^\s*<struts\.actionMapping>", string:res, icase:FALSE ) ) {
     vuln = TRUE;
     cur_items++;
-    report += '\n' + http_report_vuln_url( port:port, url:url, url_only:TRUE );
+    report += '\n' + http_report_vuln_url( port:port, url:check_url, url_only:TRUE );
+    if( cur_items >= max_items )
+      break;
+  }
+
+  # nb:
+  # - Second try as there is a slight chance that the pattern above doesn't match on every system
+  # - rand() might return numbers with 10 chars so we're limiting this a little to avoid too long
+  #   integers to avoid an overflow when calculating it (e.g. for "662218*324129" we received a
+  #   response of "-104306678", for "69313*54914" we got "-488713214")
+  rand_nr1 = rand_str( length:4, charset:"123456789" );
+  rand_nr2 = rand_str( length:4, charset:"123456789" );
+  check_url = url + "?debug=command&expression=(" + rand_nr1 + "*" + rand_nr2 + ")";
+  check_res = rand_nr1 * rand_nr2;
+
+  req = http_get( item:check_url, port:port );
+  res = http_keepalive_send_recv( port:port, data:req, bodyonly:TRUE );
+
+  res = chomp( res );
+  if( ! res )
+    continue;
+
+  # nb: We're just getting the calculated expression back...
+  if( res == check_res ) {
+    vuln = TRUE;
+    cur_items++;
+    report += '\n' + http_report_vuln_url( port:port, url:check_url, url_only:TRUE ) + " (Note: Received result for this expression: " + check_res + ")";
     if( cur_items >= max_items )
       break;
   }

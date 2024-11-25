@@ -9,8 +9,8 @@ CPE = "cpe:/a:freshlightlab:menu_image%2c_icons_made_easy";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126624");
-  script_version("2024-01-01T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2024-01-01 05:05:52 +0000 (Mon, 01 Jan 2024)");
+  script_version("2024-02-20T14:37:13+0000");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2023-12-28 10:39:48 +0000 (Thu, 28 Dec 2023)");
   script_tag(name:"cvss_base", value:"4.7");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:M/C:P/I:P/A:N");
@@ -22,9 +22,9 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("WordPress Menu Image, Icons Made Easy Plugin <= 3.10 XSS Vulnerability");
+  script_name("WordPress Menu Image, Icons Made Easy Plugin < 3.11 XSS Vulnerability");
 
   script_category(ACT_GATHER_INFO);
 
@@ -42,11 +42,10 @@ if(description)
   advertisements, and other HTML payloads into your website which will be executed when guests
   visit your site.");
 
-  script_tag(name:"affected", value:"WordPress Menu Image, Icons Made Easy plugin version 3.10 and
-  prior.");
+  script_tag(name:"affected", value:"WordPress Menu Image, Icons Made Easy plugin prior to version
+  3.11.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 28th December, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"Update to version 3.11 or later.");
 
   script_xref(name:"URL", value:"https://patchstack.com/database/vulnerability/menu-image/wordpress-menu-image-icons-made-easy-plugin-3-10-cross-site-scripting-xss-vulnerability");
 
@@ -56,19 +55,19 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe: CPE ) )
-  exit( 0 );
+if (!port = get_app_port(cpe: CPE))
+  exit(0);
 
-if( ! infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE ) )
-  exit( 0 );
+if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE))
+  exit(0);
 
 version = infos["version"];
 location = infos["location"];
 
-if ( version_is_less_equal( version: version, test_version: "3.10" ) ) {
-  report = report_fixed_ver( installed_version: version, fixed_version: "None", install_path: location );
-  security_message( port: port, data: report );
-  exit( 0 );
+if (version_is_less(version: version, test_version: "3.11")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "3.11", install_path: location);
+  security_message(port: port, data: report);
+  exit(0);
 }
 
-exit( 99 );
+exit(99);

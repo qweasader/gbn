@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902507");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2011-1206", "CVE-2011-1820");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2011-05-02 12:20:04 +0200 (Mon, 02 May 2011)");
-  script_name("IBM Tivoli Directory Server SASL Bind Request Remote Code Execution Vulnerability");
+  script_name("IBM Tivoli Directory Server SASL Bind Request RCE Vulnerability");
   script_category(ACT_DENIAL);
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Buffer overflow");
@@ -57,7 +57,6 @@ if(description)
 }
 
 include("ldap.inc");
-include("misc_func.inc");
 include("port_service_func.inc");
 
 port = ldap_get_port(default:389);

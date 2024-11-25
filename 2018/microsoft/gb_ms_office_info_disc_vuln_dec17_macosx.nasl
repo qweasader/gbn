@@ -7,20 +7,20 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812728");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2017-11934");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-30 16:27:00 +0000 (Tue, 30 Oct 2018)");
   script_tag(name:"creation_date", value:"2018-01-11 14:22:59 +0530 (Thu, 11 Jan 2018)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("Microsoft Office PowerPoint Information Disclosure Vulnerability - Dec17 (Mac OS X)");
+  script_name("Microsoft Office PowerPoint Information Disclosure Vulnerability (Dec 2017) - Mac OS X");
 
   script_tag(name:"summary", value:"This host is missing an important security
-  update for Microsoft Office 2016 on Mac OSX according to Microsoft security
+  update for Microsoft Office 2016 on Mac OS X according to Microsoft security
   update December 2017");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");

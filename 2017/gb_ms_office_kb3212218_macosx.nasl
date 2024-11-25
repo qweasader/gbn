@@ -9,17 +9,17 @@ CPE = "cpe:/a:microsoft:office";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810743");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-28T05:05:37+0000");
   script_cve_id("CVE-2017-0207");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-28 05:05:37 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
   script_tag(name:"creation_date", value:"2017-04-12 15:10:09 +0530 (Wed, 12 Apr 2017)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("Microsoft Office Spoofing Vulnerability-KB3212218 (Mac OS X)");
+  script_name("Microsoft Office Spoofing Vulnerability (KB3212218) - Mac OS X");
 
   script_tag(name:"summary", value:"This host is missing a moderate security
   update according to Microsoft security update KB3212218");

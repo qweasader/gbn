@@ -9,8 +9,8 @@ CPE = "cpe:/a:piwigo:piwigo";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127440");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-04-11T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2024-04-11 05:05:26 +0000 (Thu, 11 Apr 2024)");
   script_tag(name:"creation_date", value:"2023-05-24 07:12:40 +0000 (Wed, 24 May 2023)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
@@ -22,9 +22,9 @@ if (description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"WillNotFix");
 
-  script_name("Piwigo < 13.7.0 CSRF Vulnerability");
+  script_name("Piwigo <= 14.3.0 CSRF Vulnerability");
 
   script_category(ACT_GATHER_INFO);
 
@@ -41,10 +41,12 @@ if (description)
   script_tag(name:"insight", value:"There is a cross-site request forgery (CSRF) in the 'add tags'
   function.");
 
-  script_tag(name:"affected", value:"Piwigo prior to version 13.7.0.");
+  script_tag(name:"affected", value:"Piwigo version 14.3.0 and prior.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 24th May, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"No solution was made available by the vendor.
+
+  Note: Vendor states that they don't plan to fix this vulnerability as this could break 3rd party
+  apps.");
 
   script_xref(name:"URL", value:"https://github.com/Piwigo/Piwigo/issues/1908");
 
@@ -63,7 +65,7 @@ if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_versio
 version = infos["version"];
 location = infos["location"];
 
-if( version_is_less( version: version, test_version: "13.7.0" ) ) {
+if( version_is_less_equal( version: version, test_version: "14.3.0" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "None", install_path: location );
   security_message( port: port, data: report );
   exit( 0 );

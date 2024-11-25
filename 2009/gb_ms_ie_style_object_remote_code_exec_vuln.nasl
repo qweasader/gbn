@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800727");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2009-12-04 14:17:59 +0100 (Fri, 04 Dec 2009)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2009-2493", "CVE-2009-3671", "CVE-2009-3672",
                 "CVE-2009-3673", "CVE-2009-3674");
-  script_name("MS Internet Explorer 'Style' Object Remote Code Execution Vulnerability");
+  script_name("Microsoft Internet Explorer 'Style' Object RCE Vulnerability");
   script_xref(name:"URL", value:"http://www.vupen.com/english/advisories/2009/3437");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/37085");
   script_xref(name:"URL", value:"https://docs.microsoft.com/en-us/security-updates/securitybulletins/2009/ms09-072");

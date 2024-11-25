@@ -1,42 +1,39 @@
-# Copyright (C) 2017 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2017 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103240");
-  script_version("2022-08-04T13:37:02+0000");
-  script_cve_id("CVE-1999-0501", "CVE-1999-0502", "CVE-1999-0507", "CVE-1999-0508");
-  script_tag(name:"last_modification", value:"2022-08-04 13:37:02 +0000 (Thu, 04 Aug 2022)");
+  script_version("2024-09-27T15:39:47+0000");
+  # nb: Unlike other VTs we're using the CVEs line by line here for easier addition of new CVEs
+  script_cve_id("CVE-1999-0501",
+                "CVE-1999-0502",
+                "CVE-1999-0507",
+                "CVE-1999-0508",
+                "CVE-2024-20439",
+                "CVE-2024-28987",
+                "CVE-2024-46328");
+  script_tag(name:"last_modification", value:"2024-09-27 15:39:47 +0000 (Fri, 27 Sep 2024)");
   script_tag(name:"creation_date", value:"2017-01-06 13:47:00 +0100 (Fri, 06 Jan 2017)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-09-13 19:35:32 +0000 (Fri, 13 Sep 2024)");
   script_name("HTTP Brute Force Logins With Default Credentials Reporting");
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_category(ACT_ATTACK);
   script_family("Brute force attacks");
   script_dependencies("default_http_auth_credentials.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("default_http_auth_credentials/started");
 
-  # nb: This VT had a script preference with the id:1, newly added preferences in the future needs to
-  # choose id:2 or higher to avoid conflicts with that removed preference still kept in gvmd database.
+  # nb: This VT had a script preference with the id:1, newly added preferences in the future needs
+  # to choose id:2 or higher to avoid conflicts with that removed preference still kept in gvmd
+  # database.
 
   script_tag(name:"summary", value:"It was possible to login into the remote Web Application using
   default credentials.");

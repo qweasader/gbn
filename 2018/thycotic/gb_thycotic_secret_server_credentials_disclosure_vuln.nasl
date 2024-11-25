@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113153");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-04-10 16:25:00 +0200 (Tue, 10 Apr 2018)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -33,7 +33,7 @@ if( description )
 
   script_tag(name:"summary", value:"The Remote Desktop Launcher in Thycotic Secret Server does not properly cleanup a temporary file
   that contains an encrypted password once a session has ended.");
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
   script_tag(name:"impact", value:"If using the launcher to start a remote desktop session,
   the authentication credential remains accessible to users who initiated the connection, even when their launcher session is over.");
   script_tag(name:"affected", value:"Thycotic Secret Server versions between 7.5.000000 and 8.6.000009");

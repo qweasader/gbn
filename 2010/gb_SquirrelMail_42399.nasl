@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:squirrelmail:squirrelmail';
+CPE = "cpe:/a:squirrelmail:squirrelmail";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100759");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2010-08-13 12:44:16 +0200 (Fri, 13 Aug 2010)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -20,11 +20,9 @@ if(description)
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_dependencies("squirrelmail_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("squirrelmail/installed");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/42399");
-  script_xref(name:"URL", value:"http://www.squirrelmail.org/");
   script_xref(name:"URL", value:"http://www.squirrelmail.org/security/issue/2010-07-23");
   script_xref(name:"URL", value:"https://bugzilla.redhat.com/show_bug.cgi?id=618096");
 

@@ -9,12 +9,12 @@ CPE = "cpe:/a:appserv_open_project:appserv";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802429");
-  script_version("2023-10-27T05:05:28+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-04-16 13:48:58 +0530 (Mon, 16 Apr 2012)");
-  script_name("AppServ Open Project 'appservlang' Cross-site Scripting Vulnerability");
+  script_name("AppServ Open Project 'appservlang' XSS Vulnerability");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Web application abuses");

@@ -9,10 +9,10 @@ CPE = "cpe:/a:oracle:business_intelligence_publisher";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809733");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-09-03 01:29:00 +0000 (Sun, 03 Sep 2017)");
@@ -32,7 +32,8 @@ if(description)
   script_dependencies("gb_oracle_bi_publisher_detect.nasl");
   script_mandatory_keys("oracle/bi_publisher/detected");
 
-  script_tag(name:"summary", value:"Oracle BI Publisher is prone to a XML external entity injection vulnerability.");
+  script_tag(name:"summary", value:"Oracle BI Publisher is prone to a XML external entity (XXE)
+  injection vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

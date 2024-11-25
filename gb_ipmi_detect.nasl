@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103835");
-  script_version("2023-12-14T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-12-14 05:05:32 +0000 (Thu, 14 Dec 2023)");
+  script_version("2024-07-04T05:05:37+0000");
+  script_tag(name:"last_modification", value:"2024-07-04 05:05:37 +0000 (Thu, 04 Jul 2024)");
   script_tag(name:"creation_date", value:"2013-11-26 11:39:47 +0100 (Tue, 26 Nov 2013)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_name("Intelligent Platform Management Interface (IPMI) Detection");
+  script_name("Intelligent Platform Management Interface (IPMI) Detection (IPMI Protocol)");
 
   script_category(ACT_GATHER_INFO);
   script_family("Service detection");
@@ -82,23 +82,35 @@ foreach req(reqs) {
 
   ipmi_version = dec2bin(dec:ord(recv[24]));
 
+  # nb for the register_product() calls:
+  # - We can register a more generic CPE for the protocol itself which can be used for e.g.:
+  #   - CVE scans / the CVE scanner
+  #   - storing the reference from this one to some VTs like e.g.
+  #     gb_ipmi_rakp_vuln_jul13_active.nasl using the info collected here to show a cross-reference
+  #     within the reports
+  # - If changing the syntax of e.g. the "location" below make sure to update VTs like e.g. the
+  #   gb_ipmi_rakp_vuln_jul13_active.nasl accordingly
+
   # nb: Only available if IPMI v2.0 is supported
   if(ipmi_version) {
     if(ipmi_version[7] == 1) { # IPMI Connection Compatibility: 1.5 flag
       set_kb_item(name:"ipmi/version/1.5", value:TRUE);
       set_kb_item(name:"ipmi/" + port + "/version/1.5", value:TRUE);
       ipmi_vers_str += "v1.5 ";
+      register_product(cpe: "cpe:/a:intel:intelligent_platform_management_interface:1.5", location: port + "/udp", port: port, proto: "udp", service: "ipmi");
     }
 
     if(ipmi_version[6] == 1) { # IPMI Connection Compatibility: 2.0 flag
       set_kb_item(name:"ipmi/version/2.0", value:TRUE);
       set_kb_item(name:"ipmi/" + port + "/version/2.0", value:TRUE);
       ipmi_vers_str += "v2.0";
+      register_product(cpe: "cpe:/a:intel:intelligent_platform_management_interface:2.0", location: port + "/udp", port: port, proto: "udp", service: "ipmi");
     }
   } else {
     set_kb_item(name:"ipmi/version/1.5", value:TRUE);
     set_kb_item(name:"ipmi/" + port + "/version/1.5", value:TRUE);
     ipmi_vers_str = "v1.5";
+    register_product(cpe: "cpe:/a:intel:intelligent_platform_management_interface:1.5", location: port + "/udp", port: port, proto: "udp", service: "ipmi");
   }
 
   non_null = dec2bin(dec:ord(recv[23]));
@@ -116,8 +128,8 @@ foreach req(reqs) {
     }
   }
 
-  # nb: For gsf/2023/gb_ipmi_rakp_vuln_jul13_active.nasl
-  register_host_detail(name:"port", value:port + "/udp");
+  set_kb_item(name:"ipmi/detected", value:TRUE);
+  set_kb_item(name:"ipmi/" + port + "/detected", value:TRUE);
 
   service_register(port:port, ipproto:"udp", proto:"ipmi", message:"An IPMI service is running at this port. Supported IPMI version(s): " + ipmi_vers_str);
   log_message(data:"An IPMI service is running at this port. Supported IPMI version(s): " + ipmi_vers_str, port:port, proto:"udp");

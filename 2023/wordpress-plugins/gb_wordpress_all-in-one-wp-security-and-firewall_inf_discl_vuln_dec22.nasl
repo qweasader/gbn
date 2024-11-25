@@ -9,8 +9,8 @@ CPE = "cpe:/a:tipsandtricks-hq:all_in_one_wp_security_%26_firewall";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127309");
-  script_version("2023-10-13T16:09:03+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-01-24 07:15:43 +0000 (Tue, 24 Jan 2023)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -65,7 +65,7 @@ location = infos["location"];
 
 if( version_is_less( version: version, test_version: "5.1.3" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "5.1.3", install_path: location );
-  security_message( data: report, port: port );
+  security_message( port: port, data: report );
   exit( 0 );
 }
 

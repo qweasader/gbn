@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.12.2023.6206.1");
   script_cve_id("CVE-2022-4842", "CVE-2023-0597", "CVE-2023-2124", "CVE-2023-35788");
   script_tag(name:"creation_date", value:"2023-07-07 04:09:42 +0000 (Fri, 07 Jul 2023)");
-  script_version("2023-08-18T05:05:27+0000");
-  script_tag(name:"last_modification", value:"2023-08-18 05:05:27 +0000 (Fri, 18 Aug 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-06-23 21:19:00 +0000 (Fri, 23 Jun 2023)");
+  script_tag(name:"severity_date", value:"2023-06-23 21:19:19 +0000 (Fri, 23 Jun 2023)");
 
   script_name("Ubuntu: Security Advisory (USN-6206-1)");
   script_category(ACT_GATHER_INFO);
@@ -26,8 +26,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"USN-6206-1");
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-6206-1");
-  script_xref(name:"URL", value:"https://launchpad.net/bugs/2023577");
   script_xref(name:"URL", value:"https://launchpad.net/bugs/2023220");
+  script_xref(name:"URL", value:"https://launchpad.net/bugs/2023577");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'linux-oem-5.17' package(s) announced via the USN-6206-1 advisory.");
 

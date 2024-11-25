@@ -9,8 +9,8 @@ CPE = "cpe:/a:anydesk:anydesk";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.148542");
-  script_version("2023-10-18T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_version("2024-02-07T05:05:18+0000");
+  script_tag(name:"last_modification", value:"2024-02-07 05:05:18 +0000 (Wed, 07 Feb 2024)");
   script_tag(name:"creation_date", value:"2022-07-29 04:15:29 +0000 (Fri, 29 Jul 2022)");
   script_tag(name:"cvss_base", value:"6.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:N/I:C/A:C");
@@ -23,29 +23,31 @@ if(description)
   script_tag(name:"qod_type", value:"registry");
 
   script_tag(name:"solution_type", value:"WillNotFix");
-  script_name("AnyDesk Privilege Escalation Vulnerability (May 2022) - Windows");
+
+  script_name("AnyDesk Desktop Privilege Escalation Vulnerability (May 2022) - Windows");
 
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Privilege escalation");
-  script_dependencies("gb_anydesk_detect_win.nasl");
-  script_mandatory_keys("AnyDesk/Win/Installed");
+  script_dependencies("gb_anydesk_desktop_consolidation.nasl");
+  script_mandatory_keys("anydesk/desktop/smb-login/detected");
 
-  script_tag(name:"summary", value:"AnyDesk is prone to a privilege escalation vulnerability.");
+  script_tag(name:"summary", value:"AnyDesk Desktop is prone to a privilege escalation
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"AnyDesk on Windows allows a local user to gain SYSTEM
+  script_tag(name:"insight", value:"AnyDesk Desktop on Windows allows a local user to gain SYSTEM
   privileges via a symbolic link because the user can write to their own %APPDATA% folder (used for
   ad.trace and chat) but the product runs as SYSTEM when writing chat-room data there.");
 
-  script_tag(name:"affected", value:"AnyDesk version 7.0.13 and prior.");
+  script_tag(name:"affected", value:"AnyDesk Desktop version 7.0.13 and prior.");
 
-  script_tag(name:"solution", value:"No known solution was made available for at least one year since
-  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
-  are to upgrade to a newer release, disable respective features, remove the product or replace the
-  product by another one.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
+  options are to upgrade to a newer release, disable respective features, remove the product or
+  replace the product by another one.");
 
   script_xref(name:"URL", value:"https://seclists.org/fulldisclosure/2022/Jun/44");
   script_xref(name:"URL", value:"https://seclists.org/fulldisclosure/2022/Jul/9");

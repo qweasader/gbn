@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803357");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-08T14:36:53+0000");
   script_cve_id("CVE-2013-2632");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-04-02 11:31:23 +0530 (Tue, 02 Apr 2013)");
-  script_name("Google Chrome Denial of Service Vulnerability - April 13 (Mac OS X)");
+  script_name("Google Chrome Denial of Service Vulnerability (Apr 2013) - Mac OS X");
   script_xref(name:"URL", value:"http://cxsecurity.com/cveshow/CVE-2013-2632");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/58697");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.in/2013/03/dev-channel-update_18.html");

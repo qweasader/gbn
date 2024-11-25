@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803156");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2012-3174", "CVE-2013-0422");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-01-17 12:41:59 +0530 (Thu, 17 Jan 2013)");
-  script_name("Oracle Java SE Multiple Remote Code Execution Vulnerabilities (Windows)");
+  script_name("Oracle Java SE Multiple Remote Code Execution Vulnerabilities - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/51820/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/57246");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/57312");

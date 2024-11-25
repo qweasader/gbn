@@ -8,8 +8,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111067");
-  script_version("2023-12-19T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
+  script_version("2024-10-09T05:05:35+0000");
+  script_tag(name:"last_modification", value:"2024-10-09 05:05:35 +0000 (Wed, 09 Oct 2024)");
   script_tag(name:"creation_date", value:"2015-12-10 16:00:00 +0100 (Thu, 10 Dec 2015)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -23,7 +23,8 @@ if(description)
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
-  script_tag(name:"summary", value:"HTTP based OS detection from the HTTP/PHP banner or default test pages.");
+  script_tag(name:"summary", value:"HTTP based OS detection from the HTTP/PHP banner or default test
+  pages.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -118,8 +119,8 @@ function check_http_banner( port, banner ) {
 
     # Logitech Media Server is cross-platform
     if( banner == "Server: Logitech Media Server" ||
-        egrep( pattern:"^Server: Logitech Media Server \([0-9.]+\)$", string:banner ) ||
-        egrep( pattern:"^Server: Logitech Media Server \([0-9.]+ - [0-9.]+)$", string:banner ) )
+        egrep( pattern:"^[Ss]erver\s*:\s*Logitech Media Server \([0-9.]+\)$", string:banner ) ||
+        egrep( pattern:"^[Ss]erver\s*:\s*Logitech Media Server \([0-9.]+ - [0-9.]+)$", string:banner ) )
       return;
 
     # NZBGet is cross-platform
@@ -139,38 +140,41 @@ function check_http_banner( port, banner ) {
     # Server: EWS-NIC5/15.18
     # Server: EWS-NIC5/96.55
     # Running on different printers from e.g. Xerox, Dell or Epson. The OS is undefined so just return...
-    if( egrep( pattern:"^Server: EWS-NIC5/[0-9.]+$", string:banner ) ) return;
+    if( egrep( pattern:"^[Ss]erver\s*:\s*EWS-NIC5/[0-9.]+$", string:banner ) ) return;
 
     # Server: CTCFC/1.0
     # Commtouch Anti-Spam Daemon (ctasd.bin) running on Windows and Linux (e.g. IceWarp Suite)
-    if( egrep( pattern:"^Server: CTCFC/[0-9.]+$", string:banner ) ) return;
+    if( egrep( pattern:"^[Ss]erver\s*:\s*CTCFC/[0-9.]+$", string:banner ) ) return;
 
     # e.g. Server: SimpleHTTP/0.6 Python/2.7.5 -> Python is cross-platform
-    if( egrep( pattern:"^Server: SimpleHTTP/[0-9.]+ Python/[0-9.]+$", string:banner ) ) return;
+    if( egrep( pattern:"^[Ss]erver\s*:\s*SimpleHTTP/[0-9.]+ Python/[0-9.]+$", string:banner ) ) return;
 
-    # e.g. Server: Python/3.8 aiohttp/3.6.2 -> Python is cross-platform
-    if( egrep( pattern:"^Server: Python/[0-9.]+ aiohttp/[0-9.]+$", string:banner ) ) return;
+    # e.g.:
+    # Server: Python/3.8 aiohttp/3.6.2
+    # Server: aiohttp/3.6.2
+    # -> Python is cross-platform
+    if( egrep( pattern:"^[Ss]erver\s*:\s*(Python/[0-9.]+ )?aiohttp/[0-9.]+$", string:banner, icase:FALSE ) ) return;
 
     # e.g.
     # Server: BaseHTTP/0.6 Python/3.7.3
     # Server: BaseHTTP/0.3 Python/2.7.15rc1
     # Server: BaseHTTP/0.3 Python/2.7.12+
     # -> Python is cross-platform
-    if( egrep( pattern:"^Server: BaseHTTP/[0-9.]+ Python/[0-9.]+(rc[0-9]+|\+)?$", string:banner ) ) return;
+    if( egrep( pattern:"^[Ss]erver\s*:\s*BaseHTTP/[0-9.]+ Python/[0-9.]+(rc[0-9]+|\+)?$", string:banner ) ) return;
 
     # e.g. Server: MX4J-HTTPD/1.0 -> Java implementation, cross-patform
-    if( egrep( pattern:"^Server: MX4J-HTTPD/[0-9.]+$", string:banner ) ) return;
+    if( egrep( pattern:"^[Ss]erver\s*:\s*MX4J-HTTPD/[0-9.]+$", string:banner ) ) return;
 
     # e.g. Server: libwebsockets or server: libwebsockets
-    if( egrep( pattern:"^Server: libwebsockets$", string:banner, icase:TRUE ) ) return;
+    if( egrep( pattern:"^Server\s*:\s*libwebsockets$", string:banner, icase:TRUE ) ) return;
 
     # e.g. Server: mt-daapd/svn-1696 or Server: mt-daapd/0.2.4.1
     # Cross-platform
-    if( egrep( pattern:"^Server: mt-daapd/?([0-9.]+|svn-[0-9]+)?$", string:banner, icase:TRUE ) ) return;
+    if( egrep( pattern:"^Server\s*:\s*mt-daapd/?([0-9.]+|svn-[0-9]+)?$", string:banner, icase:TRUE ) ) return;
 
     # e.g. Server: Mongoose/6.3 or Server: Mongoose
     # Cross-platform
-    if( egrep( pattern:"^Server: Mongoose/?[0-9.]*$", string:banner, icase:TRUE ) ) return;
+    if( egrep( pattern:"^Server\s*:\s*Mongoose/?[0-9.]*$", string:banner, icase:TRUE ) ) return;
 
     # e.g.:
     # Server: WSO2 Carbon Server
@@ -180,16 +184,16 @@ function check_http_banner( port, banner ) {
 
     # e.g. Server: ELOG HTTP 2.9.0-2396
     # Runs on Linux/Unixoide and Windows
-    if( egrep( pattern:"^Server: ELOG HTTP", string:banner ) ) return;
+    if( egrep( pattern:"^[Ss]erver\s*:\s*ELOG HTTP", string:banner ) ) return;
 
     # e.g.
     # Server: openresty
     # Server: openresty/1.11.2.5
     # Cross-platform
-    if( egrep( pattern:"^Server: openresty/?[0-9.]*$", string:banner, icase:TRUE ) ) return;
+    if( egrep( pattern:"^Server\s*:\s*openresty/?[0-9.]*$", string:banner, icase:TRUE ) ) return;
 
     # Runs on Windows, Linux, Unix according to https://download.manageengine.com/products/applications_manager/meam_fact_sheet.pdf
-    if( egrep( pattern:"^Server: AppManager", string:banner, icase:TRUE ) ) return;
+    if( egrep( pattern:"^Server\s*:\s*AppManager", string:banner, icase:TRUE ) ) return;
 
     # e.g.
     # server: SAP NetWeaver Application Server 7.49 / AS Java 7.50
@@ -230,7 +234,7 @@ function check_http_banner( port, banner ) {
 
     # Runs on Windows, Linux, Unix according to the following text in its documentation:
     # "The architecture has been designed so that it can be ported to various operating system platforms. Currently Windows and those Unix platforms on which the Web Application Server runs are currently supported."
-    if( egrep( pattern:"^Server: SAP Internet Graphics Server", string:banner, icase:TRUE ) ) return;
+    if( egrep( pattern:"^Server\s*:\s*SAP Internet Graphics Server", string:banner, icase:TRUE ) ) return;
 
     # Seen on D-Link DSR- devices, unclear if other products are running these as well so exclude them for now
     if( egrep( pattern:"^Server\s*:\s*(Light Weight Web Server|Embedded HTTP Server\.)$", string:banner, icase:TRUE ) ) return;
@@ -303,6 +307,12 @@ function check_http_banner( port, banner ) {
     if( egrep( pattern:"^[Ss]erver\s*:\s*Wing FTP Server", string:banner, icase:FALSE ) )
       return;
 
+    # Running on at least Windows and macOS, e.g.:
+    # Server: FileMakerPro/4.0
+    # Server: FileMakerPro/6.0Jv3 WebCompanion/6.0Jv1
+    if( egrep( pattern:"^[Ss]erver\s*:\s*FileMakerPro", string:banner, icase:FALSE ) )
+      return;
+
     if( banner == "Server:" ||
         banner == "Server: " ||
         banner == "Server: none" || # Seen on WatchGuard devices but is too generic
@@ -329,7 +339,7 @@ function check_http_banner( port, banner ) {
         banner == "Server: GoAhead-Webs" || # Is running under various OS variants
         banner == "Server: Mojolicious (Perl)" || # Cross-platform
         banner == "Server: Java/0.0" || # Cross-platform, running on e.g. VIBNODE devices
-        banner == "Server: NessusWWW" || # Nessus could be running on Windows, Linux/Unix or MacOS
+        banner == "Server: NessusWWW" || # Nessus could be running on Windows, Linux/Unix or Mac OS X
         banner == "Server: Embedded Web Server" ||
         banner == "Server: EZproxy" || # runs on Linux or Windows
         banner == "Server: com.novell.zenworks.httpserver" || # Cross-platform
@@ -338,47 +348,47 @@ function check_http_banner( port, banner ) {
         banner == "Server: Security Console" || # Rapid7 InsightVM or Nexpose can run on Linux and Windows
         "erver: BBC " >< banner || # OV Communication Broker runs on various different OS variants
         "Server: PanWeb Server/" >< banner || # Already covered by gb_paloalto_panos_http_detect.nasl
-        egrep( pattern:"^Server: com.novell.zenworks.httpserver/[0-9.]+$", string:banner ) || # Cross-platform, e.g. Server: com.novell.zenworks.httpserver/1.0
-        egrep( pattern:"^Server: DHost/[0-9.]+ HttpStk/[0-9.]+$", string:banner ) || # DHost/9.0 HttpStk/1.0 from Novell / NetIQ eDirectory, runs on various OS variants
-        egrep( pattern:"^Server: Tomcat/[0-9.]+$", string:banner ) || # Quite outdated Tomcat, e.g. Server: Tomcat/2.1
-        egrep( pattern:"^Server: Themis [0-9.]+$", string:banner ) || # Currently unknown
-        egrep( pattern:"^Server: Mordac/[0-9.]+$", string:banner ) || # Currently unknown
-        egrep( pattern:"^Server: eHTTP v[0-9.]+$", string:banner ) || # Currently unknown, have seen this on HP ProCurves but also on some login pages without any info
-        egrep( pattern:"^Server: Agranat-EmWeb/[0-9_R]+$", string:banner ) || # Currently unknown, might be an Alcatel device...
-        egrep( pattern:"^Server: gSOAP/[0-9.]+$", string:banner ) || # Cross-platform
-        egrep( pattern:"^Server: squid/[0-9.]+$", string:banner ) ||
-        egrep( pattern:"^Server: squid/[0-9.]+\.STABLE[0-9.]+$", string:banner ) || # e.g. Server: squid/2.7.STABLE5
-        egrep( pattern:"^Server: Jetty\([0-9.v]+\)$", string:banner ) || # e.g. Server: Jetty(7.3.1.v20110307)
-        egrep( pattern:"^Server: Jetty\([0-9.]+z-SNAPSHOT\)$", string:banner ) || # e.g. Server: Jetty(9.2.z-SNAPSHOT) or Server: Jetty(9.3.z-SNAPSHOT)
-        egrep( pattern:"^Server: Jetty\(winstone-[0-9.]+\)$", string:banner ) || # e.g. Server: Jetty(winstone-2.8)
-        egrep( pattern:"^Server: nginx/[0-9.]+$", string:banner ) ||
-        egrep( pattern:"^Server: Apache/[0-9.]+$", string:banner ) ||
-        egrep( pattern:"^Server: lighttpd/[0-9.]+$", string:banner ) ||
-        egrep( pattern:"^Server: CompaqHTTPServer/[0-9.]+$", string:banner ) || # HP SMH, cross-platform, e.g. Server: CompaqHTTPServer/2.1
-        egrep( pattern:"^Server: http server [0-9.]+$", string:banner ) || # e.g. Server: http server 1.0
-        egrep( pattern:"^Server: Web Server [0-9.]+$", string:banner ) || # e.g. Server: Web Server 1.1
-        egrep( pattern:"^Server: Web Server$", string:banner ) || # e.g. Server: Web Server
-        egrep( pattern:"^Server: MiniServ/[0-9.]+$", string:banner ) || # From Webmin/Usermin, cross-platform,  e.g. Server: MiniServ/1.550
-        egrep( pattern:"^Server: RealVNC/[0-9.]+$", string:banner ) || # Cross-platform, e.g. Server: RealVNC/4.0
-        egrep( pattern:"^Server: HASP LM/[0-9.]+$", string:banner ) || # Is running under windows and linux
-        egrep( pattern:"^Server: Mbedthis-Appweb/[0-9.]+$", string:banner ) || # Is running under various OS variants
-        egrep( pattern:"^Server: Embedthis-http/[0-9.]+$", string:banner ) || # Is running under various OS variants, banner e.g. Server: Embedthis-http/4.0.0
-        egrep( pattern:"^Server: Embedthis-Appweb/[0-9.]+$", string:banner ) || # Is running under various OS variants
-        egrep( pattern:"^Server: GoAhead-Webs/[0-9.]+$", string:banner ) || # Is running under various OS variants
-        egrep( pattern:"^Server: Allegro-Software-RomPager/[0-9.]+$", string:banner ) || # Vendor: "Works with any OS vendor and will function without an OS if needed"
-        egrep( pattern:"^Server: CompaqHTTPServer/[0-9.]+ HPE? System Management Homepage$", string:banner ) || # Is running under various OS variants
-        egrep( pattern:"^Server: CompaqHTTPServer/[0-9.]+ HPE? System Management Homepage/[0-9.]+$", string:banner ) || # e.g. Server: CompaqHTTPServer/9.9 HP System Management Homepage/2.1.2.127, is running under various OS variants
+        egrep( pattern:"^[Ss]erver\s*:\s*com\.novell\.zenworks\.httpserver/[0-9.]+$", string:banner ) || # Cross-platform, e.g. Server: com.novell.zenworks.httpserver/1.0
+        egrep( pattern:"^[Ss]erver\s*:\s*DHost/[0-9.]+ HttpStk/[0-9.]+$", string:banner ) || # DHost/9.0 HttpStk/1.0 from Novell / NetIQ eDirectory, runs on various OS variants
+        egrep( pattern:"^[Ss]erver\s*:\s*Tomcat/[0-9.]+$", string:banner ) || # Quite outdated Tomcat, e.g. Server: Tomcat/2.1
+        egrep( pattern:"^[Ss]erver\s*:\s*Themis [0-9.]+$", string:banner ) || # Currently unknown
+        egrep( pattern:"^[Ss]erver\s*:\s*Mordac/[0-9.]+$", string:banner ) || # Currently unknown
+        egrep( pattern:"^[Ss]erver\s*:\s*eHTTP v[0-9.]+$", string:banner ) || # Currently unknown, have seen this on HP ProCurves but also on some login pages without any info
+        egrep( pattern:"^[Ss]erver\s*:\s*Agranat-EmWeb/[0-9_R]+$", string:banner ) || # Currently unknown, might be an Alcatel device...
+        egrep( pattern:"^[Ss]erver\s*:\s*gSOAP/[0-9.]+$", string:banner ) || # Cross-platform
+        egrep( pattern:"^[Ss]erver\s*:\s*squid/[0-9.]+$", string:banner ) ||
+        egrep( pattern:"^[Ss]erver\s*:\s*squid/[0-9.]+\.STABLE[0-9.]+$", string:banner ) || # e.g. Server: squid/2.7.STABLE5
+        egrep( pattern:"^[Ss]erver\s*:\s*Jetty\([0-9.v]+\)$", string:banner ) || # e.g. Server: Jetty(7.3.1.v20110307)
+        egrep( pattern:"^[Ss]erver\s*:\s*Jetty\([0-9.]+z-SNAPSHOT\)$", string:banner ) || # e.g. Server: Jetty(9.2.z-SNAPSHOT) or Server: Jetty(9.3.z-SNAPSHOT)
+        egrep( pattern:"^[Ss]erver\s*:\s*Jetty\(winstone-[0-9.]+\)$", string:banner ) || # e.g. Server: Jetty(winstone-2.8)
+        egrep( pattern:"^[Ss]erver\s*:\s*nginx/[0-9.]+$", string:banner ) ||
+        egrep( pattern:"^[Ss]erver\s*:\s*Apache/[0-9.]+$", string:banner ) ||
+        egrep( pattern:"^[Ss]erver\s*:\s*lighttpd/[0-9.]+$", string:banner ) ||
+        egrep( pattern:"^[Ss]erver\s*:\s*CompaqHTTPServer/[0-9.]+$", string:banner ) || # HP SMH, cross-platform, e.g. Server: CompaqHTTPServer/2.1
+        egrep( pattern:"^[Ss]erver\s*:\s*http server [0-9.]+$", string:banner ) || # e.g. Server: http server 1.0
+        egrep( pattern:"^[Ss]erver\s*:\s*Web Server [0-9.]+$", string:banner ) || # e.g. Server: Web Server 1.1
+        egrep( pattern:"^[Ss]erver\s*:\s*Web Server$", string:banner ) || # e.g. Server: Web Server
+        egrep( pattern:"^[Ss]erver\s*:\s*MiniServ/[0-9.]+$", string:banner ) || # From Webmin/Usermin, cross-platform,  e.g. Server: MiniServ/1.550
+        egrep( pattern:"^[Ss]erver\s*:\s*RealVNC/[0-9.]+$", string:banner ) || # Cross-platform, e.g. Server: RealVNC/4.0
+        egrep( pattern:"^[Ss]erver\s*:\s*HASP LM/[0-9.]+$", string:banner ) || # Is running under windows and linux
+        egrep( pattern:"^[Ss]erver\s*:\s*Mbedthis-Appweb/[0-9.]+$", string:banner ) || # Is running under various OS variants
+        egrep( pattern:"^[Ss]erver\s*:\s*Embedthis-http/[0-9.]+$", string:banner ) || # Is running under various OS variants, banner e.g. Server: Embedthis-http/4.0.0
+        egrep( pattern:"^[Ss]erver\s*:\s*Embedthis-Appweb/[0-9.]+$", string:banner ) || # Is running under various OS variants
+        egrep( pattern:"^[Ss]erver\s*:\s*GoAhead-Webs/[0-9.]+$", string:banner ) || # Is running under various OS variants
+        egrep( pattern:"^[Ss]erver\s*:\s*Allegro-Software-RomPager/[0-9.]+$", string:banner ) || # Vendor: "Works with any OS vendor and will function without an OS if needed"
+        egrep( pattern:"^[Ss]erver\s*:\s*CompaqHTTPServer/[0-9.]+ HPE? System Management Homepage$", string:banner ) || # Is running under various OS variants
+        egrep( pattern:"^[Ss]erver\s*:\s*CompaqHTTPServer/[0-9.]+ HPE? System Management Homepage/[0-9.]+$", string:banner ) || # e.g. Server: CompaqHTTPServer/9.9 HP System Management Homepage/2.1.2.127, is running under various OS variants
         # Runs on Linux/Unix but could be also installed on Docker on Windows WSL. e.g.:
         # Server: APISIX
         # Server: APISIX/2.12.1
         egrep( pattern:"^[Ss]erver\s*:\s*APISIX(/[0-9.])?$", string:banner ) ||
-        egrep( pattern:"^Server: Payara Server +[0-9.]+ #badassfish$", string:banner ) ) { # Cross-platform, e.g. Server: Payara Server  4.1.2.172 #badassfish
+        egrep( pattern:"^[Ss]erver\s*:\s*Payara Server +[0-9.]+ #badassfish$", string:banner ) ) { # Cross-platform, e.g. Server: Payara Server  4.1.2.172 #badassfish
       return;
     }
 
     # Seen on e.g. EulerOS. There might be others Distros using the same so we're ignoring this for now...
     # Server: Apache/2.4.6 () mod_auth_gssapi/1.3.1 mod_nss/1.0.14 NSS/3.28.4 mod_wsgi/3.4 Python/2.7.5
-    if( egrep( pattern:"^Server: Apache/[0-9.]+ \(\)(( (mod_auth_gssapi|mod_nss|NSS|mod_wsgi|Python)/[0-9.]+)*)?$", string:banner, icase:TRUE ) )
+    if( egrep( pattern:"^Server\s*:\s*Apache/[0-9.]+ \(\)(( (mod_auth_gssapi|mod_nss|NSS|mod_wsgi|Python)/[0-9.]+)*)?$", string:banner, icase:TRUE ) )
       return;
 
     banner_type = "HTTP Server banner";
@@ -391,8 +401,8 @@ function check_http_banner( port, banner ) {
     # SERVER: Ubuntu/lucid UPnP/1.0 MiniUPnPd/1.4
     # nb: It might be possible that some of the banners below doesn't exist
     # on newer or older Ubuntu versions. Still keep them in here as we can't know...
-    if( egrep( pattern:"^SERVER: Ubuntu", string:banner, icase:TRUE ) ) {
-      version = eregmatch( pattern:"SERVER: Ubuntu/([0-9.]+)", string:banner, icase:TRUE );
+    if( egrep( pattern:"^SERVER\s*:\s*Ubuntu", string:banner, icase:TRUE ) ) {
+      version = eregmatch( pattern:"SERVER\s*:\s*Ubuntu/([0-9.]+)", string:banner, icase:TRUE );
       if( ! isnull( version[1] ) ) {
         os_register_and_report( os:"Ubuntu", version:version[1], cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       } else if( "Ubuntu/warty" >< banner ) {
@@ -473,8 +483,8 @@ function check_http_banner( port, banner ) {
     # SERVER: Debian/lenny UPnP/1.0 MiniUPnPd/1.2
     # nb: It might be possible that some of the banners below doesn't exist
     # on newer or older Debian versions. Still keep them in here as we can't know...
-    if( egrep( pattern:"^Server: Debian", string:banner, icase:TRUE ) ) {
-      version = eregmatch( pattern:"Server: Debian/([0-9.]+)", string:banner, icase:TRUE );
+    if( egrep( pattern:"^Server\s*:\s*Debian", string:banner, icase:TRUE ) ) {
+      version = eregmatch( pattern:"Server\s*:\s*Debian/([0-9.]+)", string:banner, icase:TRUE );
       if( ! isnull( version[1] ) ) {
         os_register_and_report( os:"Debian GNU/Linux", version:version[1], cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       } else if( "Debian/bookworm" >< banner ) {
@@ -520,8 +530,8 @@ function check_http_banner( port, banner ) {
     # Server: CentOS/5.6 UPnP/1.0 MiniUPnPd/1.6
     # Server: CentOS/6.2 UPnP/1.0 miniupnpd/1.0
     # Server: CentOS/5.5 UPnP/1.0 MiniUPnPd/1.6
-    if( egrep( pattern:"^Server: CentOS", string:banner, icase:TRUE ) ) {
-      version = eregmatch( pattern:"Server: CentOS/([0-9.]+)", string:banner, icase:TRUE );
+    if( egrep( pattern:"^Server\s*:\s*CentOS", string:banner, icase:TRUE ) ) {
+      version = eregmatch( pattern:"Server\s*:\s*CentOS/([0-9.]+)", string:banner, icase:TRUE );
       if( ! isnull( version[1] ) ) {
         os_register_and_report( os:"CentOS", version:version[1], cpe:"cpe:/o:centos:centos", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       } else {
@@ -545,7 +555,8 @@ function check_http_banner( port, banner ) {
     }
 
     # Server: cisco-IOS
-    if( "Server: cisco-IOS" >< banner ) {
+    # Server: cisco-IOS/12.0 HTTP-server/1.0(1)
+    if( egrep( pattern:"^[Ss]erver\s*:\s*cisco-IOS", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Cisco IOS", cpe:"cpe:/o:cisco:ios", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
@@ -553,14 +564,14 @@ function check_http_banner( port, banner ) {
     # Runs only on Unix/Linux/BSD
     # e.g. Server: GoTTY/0.0.12
     # Server: Boa/0.94.14rc21
-    if( "Server: GoTTY" >< banner || "Server: Boa" >< banner ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*(GoTTY|Boa)", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Linux/Unix", cpe:"cpe:/o:linux:kernel", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
 
     # "Mathopd is a very small, yet very fast HTTP server for UN*X systems."
     # e.g. Server: Mathopd/1.5p6
-    if( "Server: Mathopd" >< banner ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*Mathopd", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Linux/Unix", cpe:"cpe:/o:linux:kernel", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
@@ -586,7 +597,7 @@ function check_http_banner( port, banner ) {
     }
 
     # TrentMicro OfficeScan Client runs only on Windows
-    if( "Server: OfficeScan Client" >< banner ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*OfficeScan Client", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
       return;
     }
@@ -795,7 +806,7 @@ function check_http_banner( port, banner ) {
     }
 
     # MS Lync
-    if( egrep( pattern:"^Server: RTC/[56]\.0", string:banner ) ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*RTC/[56]\.0", string:banner ) ) {
       os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
       return;
     }
@@ -892,6 +903,23 @@ function check_http_banner( port, banner ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"12", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
         return;
       }
+
+      # nb: This has been used in Buster, Bullseye and Bookworm so we're registering all for now
+      # with the newest (Bookworm) first
+      if( "Apache/2.4.59 (Debian)" >< banner ) {
+        os_register_and_report( os:"Debian GNU/Linux", version:"12", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+        os_register_and_report( os:"Debian GNU/Linux", version:"11", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+        os_register_and_report( os:"Debian GNU/Linux", version:"10", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+        return;
+      }
+
+      # nb: Those have been used Bullseye and Bookworm so we're registering both for now with the
+      # newest (Bookworm) first
+      if( "Apache/2.4.61 (Debian)" >< banner || "Apache/2.4.62 (Debian)" >< banner ) {
+        os_register_and_report( os:"Debian GNU/Linux", version:"12", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+        os_register_and_report( os:"Debian GNU/Linux", version:"11", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+        return;
+      }
     }
 
     # e.g.
@@ -899,6 +927,8 @@ function check_http_banner( port, banner ) {
     # ZNC 1.6.5+deb1~bpo8 - http://znc.in
     # ZNC 1.6.5+deb1+deb9u1 - http://znc.in
     # ZNC 1.7.2+deb3 - http://znc.in -> This is on Debian 10
+    # ZNC 1.8.2+deb3.1 - https://znc.in -> This is on Debian 12
+    # ZNC 1.8.2+deb3.1+deb12u1 - https://znc.in -> Obviously also on Debian 12
     # nb: The +deb banner (which is using something like +deb1~bpo8) often doesn't match directly to the OS
     # so evaluate the ZNC banners before the more generic ones below.
     if( "ZNC" >< banner && ( "~bpo" >< banner || "+deb" >< banner ) ) {
@@ -907,13 +937,13 @@ function check_http_banner( port, banner ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"7", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       } else if( "~bpo8" >< banner ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"8", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
-      } else if( "1.6.5+deb1" >< banner || "~bpo9" >< banner || banner =~ "\+deb[0-9]\+deb9" ) {
+      } else if( "1.6.5+deb1" >< banner || "~bpo9" >< banner || banner =~ "\+deb[0-9.]+\+deb9" ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"9", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
-      } else if( "1.7.2+deb3" >< banner || "~bpo10" >< banner || banner =~ "\+deb[0-9]\+deb10" ) {
+      } else if( "1.7.2+deb3" >< banner || "~bpo10" >< banner || banner =~ "\+deb[0-9.]+\+deb10" ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"10", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
-      } else if( "1.8.2+deb2+b1" >< banner || "~bpo11" >< banner || banner =~ "\+deb[0-9]\+deb11" ) {
+      } else if( "1.8.2+deb2+b1" >< banner || "~bpo11" >< banner || banner =~ "\+deb[0-9.]+\+deb11" ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"11", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
-      } else if( "~bpo12" >< banner || banner =~ "\+deb[0-9]\+deb12" ) {
+      } else if( "1.8.2+deb3.1" >< banner || "~bpo12" >< banner || banner =~ "\+deb[0-9.]+\+deb12" ) {
         os_register_and_report( os:"Debian GNU/Linux", version:"12", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       } else {
         os_register_and_report( os:"Debian GNU/Linux", cpe:"cpe:/o:debian:debian_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
@@ -1124,7 +1154,11 @@ function check_http_banner( port, banner ) {
     if( banner =~ "\(Ubuntu\)" || ( "PHP/" >< banner && "ubuntu" >< banner ) ) {
       # Server: Apache/2.4.38 (Ubuntu) PHP/7.2.17-0ubuntu0.19.04.1
       # Server: Apache/2.4.41 (Ubuntu) PHP/7.3.11-0ubuntu0.19.10.1
-      if( "Apache/2.4.55 (Ubuntu)" >< banner || "PHP/8.1.12-1ubuntu4" >< banner ) {
+      if( "Apache/2.4.58 (Ubuntu)" >< banner ) { # n.b. Missing ubuntu identifier in PHP banner currently only PHP/8.3.6
+        os_register_and_report( os:"Ubuntu", version:"24.04", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+      } else if( "Apache/2.4.57 (Ubuntu)" >< banner || "PHP/8.2.10-2ubuntu2.2" >< banner ) {
+        os_register_and_report( os:"Ubuntu", version:"23.10", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+      } else if( "Apache/2.4.55 (Ubuntu)" >< banner || "PHP/8.1.12-1ubuntu4" >< banner ) {
         os_register_and_report( os:"Ubuntu", version:"23.04", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       } else if( "Apache/2.4.54 (Ubuntu)" >< banner || "PHP/8.1.7-1ubuntu3.1" >< banner ) {
         os_register_and_report( os:"Ubuntu", version:"22.10", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
@@ -1251,8 +1285,8 @@ function check_http_banner( port, banner ) {
     # Server: IceWarp/11.4.6.0 RHEL7 x64
     # Server: IceWarp/11.4.6.0 UBUNTU1404 x64
     # Server: IceWarp/11.4.5.0 x64
-    if( "Server: IceWarp" >< banner ) {
-      if( os_info = eregmatch( pattern:"Server: IceWarp( WebSrv)?/([0-9.]+) ([^ ]+) ([^ ]+)", string:banner, icase:FALSE ) ) {
+    if( egrep( pattern:"^Server\s*:\s*IceWarp", string:banner, icase:TRUE ) ) {
+      if( os_info = eregmatch( pattern:"[Ss]erver\s*:\s*IceWarp( WebSrv)?/([0-9.]+) ([^ ]+) ([^ ]+)", string:banner, icase:FALSE ) ) {
         if( "RHEL" >< os_info[3] ) {
           version = eregmatch( pattern:"RHEL([0-9.]+)", string:os_info[3] );
           if( ! isnull( version[1] ) ) {
@@ -1285,14 +1319,14 @@ function check_http_banner( port, banner ) {
       }
     }
 
-    # CUPS is running only on MacOS and other UNIX-like operating systems
-    if( "Server: CUPS/" >< banner ) {
+    # CUPS is running only on iOS, iPadOS, macOS other UNIX-like operating systems and Linux...
+    if( egrep( pattern:"^[Ss]erver\s*:\s*CUPS/", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Linux/Unix", cpe:"cpe:/o:linux:kernel", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
 
       # Some CUPS deployments servers might provide additional OS pattern, report an unknown OS as well
       # if none of the generic known pattern below is matching...
-      if( ! egrep( pattern:"^Server: CUPS/[0-9.]+ IPP/[0-9.]+$", string:banner ) &&
-          ! egrep( pattern:"^Server: CUPS/[0-9.]+$", string:banner ) ) {
+      if( ! egrep( pattern:"^[Ss]erver\s*:\s*CUPS/[0-9.]+ IPP/[0-9.]+$", string:banner ) &&
+          ! egrep( pattern:"^[Ss]erver\s*:\s*CUPS/[0-9.]+$", string:banner ) ) {
         os_register_unknown_banner( banner:banner, banner_type_name:banner_type, banner_type_short:"http_banner", port:port );
       }
       return;
@@ -1302,23 +1336,27 @@ function check_http_banner( port, banner ) {
     # https://doc.powerdns.com/md/authoritative/settings/#webserver
     # https://doc.powerdns.com/md/httpapi/README/
     # e.g. Server: PowerDNS/4.0.3
-    if( "Server: PowerDNS" >< banner ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*PowerDNS", string:banner ) ) {
       os_register_and_report( os:"Linux/Unix", cpe:"cpe:/o:linux:kernel", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
-      if( egrep( pattern:"^Server: PowerDNS/([0-9.]+)$", string:banner ) ) {
+      if( egrep( pattern:"^[Ss]erver\s*:\s*PowerDNS/([0-9.]+)$", string:banner ) ) {
         # nb: Only return if there are no additional info within the banner so
         # that we're reporting an unknown OS later in other cases...
         return;
       }
     }
 
-    # Tinyproxy is only running on Unix-like OS variants
-    # https://tinyproxy.github.io/
-    # e.g. Server: tinyproxy/1.8.4
-    if( "Server: tinyproxy" >< banner ) {
+    # Tinyproxy is only running on Unix-like OS variants according to: https://tinyproxy.github.io/
+    # e.g.:
+    # Server: tinyproxy/1.8.4
+    # Server: tinyproxy/1.11.0-rc1-46-git-d3d8943
+    #
+    if( egrep( pattern:"^[Ss]erver\s*:\s*tinyproxy", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Linux/Unix", cpe:"cpe:/o:linux:kernel", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
-      if( egrep( pattern:"^Server: tinyproxy/([0-9.]+)$", string:banner ) ) {
-        # nb: Only return if there are no additional info within the banner so
-        # that we're reporting an unknown OS later in other cases...
+
+      # nb: Only return if there is no additional info within the banner so that we're reporting an
+      # unknown OS later in other cases...
+      if( egrep( pattern:"^[Ss]erver\s*:\s*tinyproxy/([0-9.]+)$", string:banner, icase:FALSE ) ||
+          "-git-" >< banner ) {
         return;
       }
     }
@@ -1328,8 +1366,8 @@ function check_http_banner( port, banner ) {
     # SERVER: Linux/3.0.8, UPnP/1.0, Portable SDK for UPnP devices/1.6.6
     # SERVER: LINUX-2.6 UPnP/1.0 MiniUPnPd/1.5
     # Server: Linux, WEBACCESS/1.0, DIR-850L Ver 1.10WW
-    if( egrep( pattern:"^Server: .*Linux", string:banner, icase:TRUE ) ) {
-      version = eregmatch( pattern:"Server: .*Linux(/|\-)([0-9.x]+)", string:banner, icase:TRUE );
+    if( egrep( pattern:"^Server\s*:.*Linux", string:banner, icase:TRUE ) ) {
+      version = eregmatch( pattern:"Server\s*:.*Linux(/|\-)([0-9.x]+)", string:banner, icase:TRUE );
       if( ! isnull( version[2] ) ) {
         os_register_and_report( os:"Linux", version:version[2], cpe:"cpe:/o:linux:kernel", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       } else {
@@ -1348,14 +1386,14 @@ function check_http_banner( port, banner ) {
     }
 
     # nb: More detailed OS Detection covered in gb_netapp_data_ontap_consolidation.nasl
-    if( egrep( pattern:"^Server: (NetApp|Data ONTAP)", string:banner, icase:FALSE ) ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*(NetApp|Data ONTAP)", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"NetApp Data ONTAP", cpe:"cpe:/o:netapp:data_ontap", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
 
     # e.g.: Server: ioLogik Web Server/1.0
     # nb: More detailed OS Detection covered in gb_moxa_iologik_devices_consolidation.nasl
-    if( egrep( pattern:"^Server: ioLogik Web Server", string:banner, icase:FALSE ) ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*ioLogik Web Server", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Moxa ioLogik Firmware", cpe:"cpe:/o:moxa:iologik_firmware", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
@@ -1369,26 +1407,26 @@ function check_http_banner( port, banner ) {
     # Server: TreeNeWS/ETt
     # Server: TreeNeWS/je
     # Server: TreeNeWS/Xade_
-    if( "Server: TreeNeWS" >< banner ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*TreeNeWS", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Linux/Unix", cpe:"cpe:/o:linux:kernel", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
 
     # nb: More detailed OS Detection covered in gsf/gb_ewon_flexy_cosy_http_detect.nasl
-    if( egrep( pattern:"^Server: eWON", string:banner, icase:FALSE ) ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*eWON", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"eWON Firmware", cpe:"cpe:/o:ewon:ewon_firmware", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
 
     # Server: xxxxxxxx-xxxxx
     # nb: On /remote/login?lang=en the service is also setting empty SVPNCOOKIE and SVPNNETWORKCOOKIE cookies.
-    if( egrep( pattern:"^Server: xxxxxxxx-xxxxx", string:banner, icase:FALSE ) ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*xxxxxxxx-xxxxx", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"FortiOS", cpe:"cpe:/o:fortinet:fortios", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
 
     # Server: ClearSCADA/6.74.5192.1
-    if( egrep( pattern:"^Server: ClearSCADA", string:banner, icase:FALSE ) ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*ClearSCADA", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Microsoft Windows", cpe:"cpe:/o:microsoft:windows", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"windows" );
       return;
     }
@@ -1396,25 +1434,30 @@ function check_http_banner( port, banner ) {
     # Server: LANCOM
     # Server: LANCOM 1721 VPN (Annex B) 7.58.0045 / 14.11.2008
     # nb: More detailed detection in gb_lancom_devices_http_detect.nasl
-    if( egrep( pattern:"^Server: LANCOM", string:banner, icase:FALSE ) ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*LANCOM", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"LANCOM Firmware", cpe:"cpe:/o:lancom:lancom_firmware", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
 
-    if( egrep( pattern:"^Server: (HUAWEI|HuaWei|AR|WLAN)", string:banner, icase:FALSE ) ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*(HUAWEI|HuaWei|AR|WLAN)", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Huawei Unknown Model Versatile Routing Platform (VRP) network device Firmware", cpe:"cpe:/o:huawei:vrp_firmware", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
 
+    # Server: Grandstream GXP1400
+    # Server: Grandstream GXP2010 1.1.6.27
+    # Server: Grandstream GXP1165
+    # Server: Grandstream GXP280 1.2.5.2
+    #
     # nb: More detailed detection in gb_grandstream_gxp_http_detect.nasl
-    if( "Server: Grandstream GXP" >< banner ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*Grandstream GXP", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Grandstream GXP Firmware", cpe:"cpe:/o:grandstream:gxp_firmware", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
 
     # Server: DrayTek/Vigor2130 UPnP/1.0 miniupnpd/1.0
     # nb: More detailed detection in gb_draytek_vigor_http_detect.nasl
-    if( egrep( pattern:"^Server\s*:\s*DrayTek/Vigor", string:banner, icase:FALSE ) ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*DrayTek/Vigor", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"DrayTek Vigor Firmware", cpe:"cpe:/o:draytek:vigor_firmware", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
@@ -1430,14 +1473,14 @@ function check_http_banner( port, banner ) {
     }
 
     # Server: xxxx
-    if( egrep( pattern:"^Server\s*:\s*xxxx$", string:banner, icase:FALSE ) ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*xxxx$", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Sophos SFOS", cpe:"cpe:/o:sophos:sfos", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
 
     # Server: lighttpd/1.4.32-SATO_r17
     # Server: lighttpd/1.4.32-SATO_r17-3-gcadb4bb
-    if( egrep( pattern:"^Server\s*:\s*lighttpd/.+SATO", string:banner, icase:FALSE ) ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*lighttpd/.+SATO", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"SATO Printer Firmware", cpe:"cpe:/o:sato:printer_firmware", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
@@ -1619,14 +1662,14 @@ function check_http_banner( port, banner ) {
 
     # Server: KM-MFP-http/V0.0.1
     # nb: Keep in sync with gb_kyocera_printer_http_detect.nasl and dont_print_on_printers.nasl
-    if( egrep( pattern:"^Server\s*:\s*KM-MFP-http", string:banner, icase:FALSE ) ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*KM-MFP-http", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Kyocera Printer Firmware", cpe:"cpe:/o:kyocera:printer_firmware", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
 
     # Server: A8000
     # nb: More detailed detection in gsf/gb_siemens_sicam_a8000_http_detect.nasl
-    if( egrep( pattern:"^[Ss]\s*erver:\s*A8000", string:banner, icase:FALSE ) ) {
+    if( egrep( pattern:"^[Ss]erver\s*:\s*A8000", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Siemens SICAM A8000 Firmware", cpe:"cpe:/o:siemens:sicam_a8000_firmware", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
@@ -1653,7 +1696,7 @@ function check_http_banner( port, banner ) {
     }
 
     # Server: gunicorn/19.8.1
-    if( egrep( pattern:"Server\s*:\s*gunicorn", string:banner, icase:TRUE ) ) {
+    if( egrep( pattern:"^Server\s*:\s*gunicorn", string:banner, icase:TRUE ) ) {
       os_register_and_report( os:"Linux/Unix", cpe:"cpe:/o:linux:kernel", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
@@ -1714,6 +1757,39 @@ function check_http_banner( port, banner ) {
     # Server: CNIX HTTP Server 1.0
     if( egrep( pattern:"^[Ss]erver\s*:\s*CNIX HTTP Server", string:banner, icase:FALSE ) ) {
       os_register_and_report( os:"Siemens LOGO! Firmware", cpe:"cpe:/o:siemens:logo%21_8_bm_firmware", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+      return;
+    }
+
+    # Seems to run only on Unix-like OS, e.g.:
+    # Server: rspamd/1.8.1
+    # Server: rspamd/1.9.4
+    # Server: rspamd/3.7.3
+    if( egrep( pattern:"^[Ss]erver\s*:\s*rspamd", string:banner, icase:FALSE ) ) {
+      os_register_and_report( os:"Linux/Unix", cpe:"cpe:/o:linux:kernel", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+      return;
+    }
+
+    # Seems to run only on Linux, e.g.:
+    # Server: Flowmon
+    if( egrep( pattern:"^[Ss]erver\s*:\s*Flowmon", string:banner, icase:FALSE ) ) {
+      os_register_and_report( os:"Linux", cpe:"cpe:/o:linux:kernel", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+      return;
+    }
+
+    # Seems to run only on Linux according to https://github.com/monkey/monkey:
+    # > Monkey is a fast and lightweight Web Server for Linux
+    #
+    # e.g.:
+    # Server: Monkey/1.7.0
+    # Server: Monkey/1.7.2
+    if( egrep( pattern:"^[Ss]erver\s*:\s*Monkey", string:banner, icase:FALSE ) ) {
+      os_register_and_report( os:"Linux", cpe:"cpe:/o:linux:kernel", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+      return;
+    }
+
+    # Server: AWS (Ada Web Server)
+    if( egrep( pattern:"^[Ss]erver\s*:\s*AWS \(Ada Web Server\)", string:banner, icase:FALSE ) ) {
+      os_register_and_report( os:"Linux", cpe:"cpe:/o:linux:kernel", banner_type:banner_type, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
 
@@ -1909,6 +1985,12 @@ function check_php_banner( port, host ) {
     } else if( "~lunar" >< phpBanner ) {
       os_register_and_report( os:"Ubuntu", version:"23.04", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:banner_type, port:port, banner:phpBanner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
+    } else if( "~mantic" >< phpBanner ) {
+      os_register_and_report( os:"Ubuntu", version:"23.10", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:banner_type, port:port, banner:phpBanner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+      return;
+    } else if( "~noble" >< phpBanner ) {
+      os_register_and_report( os:"Ubuntu", version:"24.04", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:banner_type, port:port, banner:phpBanner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+      return;
     }
 
     # X-Powered-By: PHP/7.2.3-1ubuntu1
@@ -1922,7 +2004,9 @@ function check_php_banner( port, host ) {
     if( "ubuntu" >< phpBanner ) {
       # X-Powered-By: PHP/7.2.17-0ubuntu0.19.04.1
       # X-Powered-By: PHP/7.3.11-0ubuntu0.19.10.1
-      if( "PHP/8.1.12-1ubuntu4" >< phpBanner ) {
+      if( "PHP/8.2.10-2ubuntu2.2" >< phpBanner ) {
+        os_register_and_report( os:"Ubuntu", version:"23.10", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:banner_type, port:port, banner:phpBanner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+      } else if( "PHP/8.1.12-1ubuntu4" >< phpBanner ) {
         os_register_and_report( os:"Ubuntu", version:"23.04", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:banner_type, port:port, banner:phpBanner, desc:SCRIPT_DESC, runs_key:"unixoide" );
       } else if( "PHP/8.1.7-1ubuntu3.1" >< phpBanner ) {
         os_register_and_report( os:"Ubuntu", version:"22.10", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:banner_type, port:port, banner:phpBanner, desc:SCRIPT_DESC, runs_key:"unixoide" );
@@ -2286,8 +2370,10 @@ function check_default_page( port ) {
       }
     }
 
-    # CUPS is running only on MacOS and other UNIX-like operating systems
-    if( check = eregmatch( string:buf, pattern:"<TITLE>(Forbidden|Home|Not Found|Bad Request) - CUPS.*</TITLE>", icase:TRUE ) ) {
+    # nb:
+    # - CUPS is running only on iOS, iPadOS, macOS other UNIX-like operating systems and Linux...
+    # - When adding additional strings here make sure to also update the check in gb_cups_http_detect.nasl
+    if( check = eregmatch( string:buf, pattern:"<TITLE>(Forbidden|Home|Not Found|Bad Request|Web Interface is Disabled) - CUPS.*</TITLE>", icase:TRUE ) ) {
       os_register_and_report( os:"Linux/Unix", cpe:"cpe:/o:linux:kernel", banner_type:banner_type, port:port, banner:check[0], desc:SCRIPT_DESC, runs_key:"unixoide" );
       return;
     }
@@ -2323,8 +2409,8 @@ function check_x_powered_by_banner( port, banner ) {
     if( " PHP" >< banner || egrep( pattern:"^X-Powered-By\s*:\s*PHP/[0-9.]+(-[0-9]+)?$", string:banner, icase:TRUE ) )
       return;
 
-    # Express Framework is supported on Windows, Linux/Unix etc.
-    if( banner == "X-Powered-By: Express" )
+    # Express Node.js Framework is supported on Windows, Linux/Unix etc.
+    if( banner =~ "^X-Powered-By\s*:\s*Express$" )
       return;
 
     # Java based application, cross-platform.

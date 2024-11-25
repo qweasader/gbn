@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802800");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_cve_id("CVE-2012-0922", "CVE-2012-0923", "CVE-2012-0924", "CVE-2012-0925",
                 "CVE-2012-0926", "CVE-2012-0927");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-02-21 13:01:53 +0530 (Tue, 21 Feb 2012)");
-  script_name("RealNetworks RealPlayer Multiple Vulnerabilities (Windows) - Feb12");
+  script_name("RealNetworks RealPlayer Multiple Vulnerabilities (Feb 2012) - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/47896/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51883");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51884");

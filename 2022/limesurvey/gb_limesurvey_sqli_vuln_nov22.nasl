@@ -9,8 +9,8 @@ CPE = "cpe:/a:limesurvey:limesurvey";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.148948");
-  script_version("2023-11-24T05:05:36+0000");
-  script_tag(name:"last_modification", value:"2023-11-24 05:05:36 +0000 (Fri, 24 Nov 2023)");
+  script_version("2024-07-16T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2022-11-23 09:19:19 +0000 (Wed, 23 Nov 2022)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:M/C:C/I:C/A:C");
@@ -31,7 +31,7 @@ if(description)
   script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("secpod_limesurvey_detect.nasl");
-  script_mandatory_keys("limesurvey/installed");
+  script_mandatory_keys("limesurvey/http/detected");
 
   script_tag(name:"summary", value:"LimeSurvey is prone to an SQL injection (SQLi) vulnerability.");
 

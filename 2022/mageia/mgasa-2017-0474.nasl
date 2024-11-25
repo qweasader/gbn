@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2017.0474");
   script_cve_id("CVE-2016-10248", "CVE-2016-10249", "CVE-2016-10250", "CVE-2016-10251", "CVE-2016-8654", "CVE-2016-8690", "CVE-2016-8691", "CVE-2016-8692", "CVE-2016-8693", "CVE-2016-8751", "CVE-2016-8880", "CVE-2016-8881", "CVE-2016-8882", "CVE-2016-8883", "CVE-2016-8884", "CVE-2016-8885", "CVE-2016-8886", "CVE-2016-8887", "CVE-2016-9262", "CVE-2016-9387", "CVE-2016-9388", "CVE-2016-9389", "CVE-2016-9390", "CVE-2016-9391", "CVE-2016-9392", "CVE-2016-9393", "CVE-2016-9394", "CVE-2016-9395", "CVE-2016-9396", "CVE-2016-9397", "CVE-2016-9398", "CVE-2016-9399", "CVE-2016-9557", "CVE-2016-9560", "CVE-2016-9583", "CVE-2016-9591", "CVE-2016-9600", "CVE-2017-1000050", "CVE-2017-6850");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-10-09 23:20:00 +0000 (Wed, 09 Oct 2019)");
+  script_tag(name:"severity_date", value:"2018-10-09 20:44:24 +0000 (Tue, 09 Oct 2018)");
 
   script_name("Mageia: Security Advisory (MGASA-2017-0474)");
   script_category(ACT_GATHER_INFO);
@@ -29,11 +29,11 @@ if(description)
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=19605");
   script_xref(name:"URL", value:"https://github.com/mdadams/jasper/releases");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/THLEZURI4D24PRM7SMASC5I25IAWXXTM/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/U5NEJQFBVKG6PRJ5EZ7UIP7ZXOIHDPJF/");
+  script_xref(name:"URL", value:"https://lists.opensuse.org/opensuse-security-announce/2017-04/msg00010.html");
   script_xref(name:"URL", value:"https://lists.opensuse.org/opensuse-updates/2016-11/msg00010.html");
   script_xref(name:"URL", value:"https://lists.opensuse.org/opensuse-updates/2016-11/msg00018.html");
-  script_xref(name:"URL", value:"https://lists.opensuse.org/opensuse-security-announce/2017-04/msg00010.html");
   script_xref(name:"URL", value:"https://lists.opensuse.org/opensuse-updates/2017-07/msg00092.html");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/U5NEJQFBVKG6PRJ5EZ7UIP7ZXOIHDPJF/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'jasper' package(s) announced via the MGASA-2017-0474 advisory.");
 

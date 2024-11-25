@@ -9,18 +9,17 @@ CPE = "cpe:/a:mongodb:mongodb";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808150");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2013-1892");
   script_tag(name:"cvss_base", value:"6.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-06-07 12:39:18 +0530 (Tue, 07 Jun 2016)");
-  script_name("MongoDB nativeHelper Denial of Service Vulnerability (Linux)");
+  script_name("MongoDB nativeHelper Denial of Service Vulnerability - Linux");
   script_category(ACT_GATHER_INFO);
   script_family("Databases");
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("gb_mongodb_detect.nasl", "os_detection.nasl");
-  script_require_ports("Services/mongodb", 27017);
   script_mandatory_keys("mongodb/installed", "Host/runs_unixoide");
 
   script_xref(name:"URL", value:"http://www.mongodb.org/about/alerts");

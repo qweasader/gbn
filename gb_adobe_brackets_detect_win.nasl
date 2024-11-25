@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808166");
-  script_version("2023-03-24T10:19:42+0000");
+  script_version("2024-02-08T14:36:53+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-03-24 10:19:42 +0000 (Fri, 24 Mar 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-07-08 11:10:27 +0530 (Fri, 08 Jul 2016)");
   script_tag(name:"qod_type", value:"registry");
-  script_name("Adobe Brackets Version Detection (Windows)");
+  script_name("Adobe Brackets Detection (Windows SMB Login)");
 
   script_tag(name:"summary", value:"Detection of installed version
   of Adobe Brackets on Windows.

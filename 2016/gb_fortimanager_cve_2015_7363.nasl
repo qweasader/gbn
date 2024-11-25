@@ -1,30 +1,16 @@
-# Copyright (C) 2016 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2016 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/h:fortinet:fortimanager";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106344");
-  script_version("2021-10-08T14:01:25+0000");
-  script_tag(name:"last_modification", value:"2021-10-08 14:01:25 +0000 (Fri, 08 Oct 2021)");
+  script_version("2024-10-29T05:05:45+0000");
+  script_tag(name:"last_modification", value:"2024-10-29 05:05:45 +0000 (Tue, 29 Oct 2024)");
   script_tag(name:"creation_date", value:"2016-10-11 12:51:08 +0700 (Tue, 11 Oct 2016)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
@@ -42,25 +28,28 @@ if (description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2016 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("FortiOS Local Security Checks");
   script_dependencies("gb_fortimanager_version.nasl");
   script_mandatory_keys("fortimanager/version");
 
-  script_tag(name:"summary", value:"FortiManager is prone to a cross-site-scripting (XSS) vulnerability.");
-
-  script_tag(name:"insight", value:"A cross-site-scripting vulnerability in FortiManager in advanced
-  settings page could allow an administrator to inject scripts in the add filter field.");
-
-  script_tag(name:"impact", value:"An administrator could inject inject arbitrary web scripts.");
-
-  script_tag(name:"affected", value:"FortiManager 5.0.x, 5.2.x");
-
-  script_tag(name:"solution", value:"Update to FortiManager 5.0.12, 5.2.3, 5.4.0 or later.");
+  script_tag(name:"summary", value:"Fortinet FortiManager is prone to a cross-site-scripting (XSS)
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
+  script_tag(name:"insight", value:"A cross-site-scripting vulnerability in FortiManager in
+  advanced settings page could allow an administrator to inject scripts in the add filter field.");
+
+  script_tag(name:"impact", value:"An administrator could inject inject arbitrary web scripts.");
+
+  script_tag(name:"affected", value:"Fortinet FortiManager 5.0.0 through 5.0.11 and 5.2.0 through
+  5.2.2.");
+
+  script_tag(name:"solution", value:"Update to FortiManager 5.0.12, 5.2.3, 5.4.0 or later.");
+
   script_xref(name:"URL", value:"https://www.fortiguard.com/psirt/FG-IR-16-051");
+  script_xref(name:"Advisory-ID", value:"FG-IR-16-051");
 
   exit(0);
 }
@@ -68,17 +57,17 @@ if (description)
 include("host_details.inc");
 include("version_func.inc");
 
-if (!version = get_app_version(cpe: CPE))
+if (!version = get_app_version(cpe: CPE, nofork: TRUE))
   exit(0);
 
-if (version_in_range(version: version, test_version: "5.2.0", test_version2: "5.2.2")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "5.2.3");
+if (version_in_range(version: version, test_version: "5.0.0", test_version2: "5.0.11")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "5.0.12");
   security_message(port: 0, data: report);
   exit(0);
 }
 
-if (version_in_range(version: version, test_version: "5.0.0", test_version2: "5.0.11")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "5.0.12");
+if (version_in_range(version: version, test_version: "5.2.0", test_version2: "5.2.2")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "5.2.3");
   security_message(port: 0, data: report);
   exit(0);
 }

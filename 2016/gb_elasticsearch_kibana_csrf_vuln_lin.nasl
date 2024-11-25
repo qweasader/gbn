@@ -9,13 +9,13 @@ CPE = "cpe:/a:elastic:kibana";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808501");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2015-8131");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-06-28 16:01:44 +0530 (Tue, 28 Jun 2016)");
-  script_name("Elastic Kibana Cross-site Request Forgery (CSRF) Vulnerability (Linux)");
+  script_name("Elastic Kibana Cross-site Request Forgery (CSRF) Vulnerability - Linux");
 
   script_tag(name:"summary", value:"Elastic Kibana is prone to a cross-site request forgery (CSRF) vulnerability.");
 

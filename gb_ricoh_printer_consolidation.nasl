@@ -1,28 +1,14 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.142807");
-  script_version("2021-09-10T12:50:44+0000");
-  script_tag(name:"last_modification", value:"2021-09-10 12:50:44 +0000 (Fri, 10 Sep 2021)");
+  script_version("2024-06-19T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-06-19 05:05:42 +0000 (Wed, 19 Jun 2024)");
   script_tag(name:"creation_date", value:"2019-08-27 09:14:25 +0000 (Tue, 27 Aug 2019)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -35,7 +21,7 @@ if (description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_ricoh_printer_snmp_detect.nasl", "gb_ricoh_printer_ftp_detect.nasl",
                       "gb_ricoh_printer_http_detect.nasl", "gb_ricoh_printer_pjl_detect.nasl",
@@ -43,6 +29,8 @@ if (description)
   script_mandatory_keys("ricoh/printer/detected");
 
   script_xref(name:"URL", value:"https://www.ricoh.com/products/printers-and-copiers/");
+  script_xref(name:"URL", value:"https://wizixtech.com/ricoh-savin-lanier-merge/");
+  script_xref(name:"URL", value:"http://support.ricoh.com/html_gen/util/PDE/Model_PDE.html#inf");
 
   exit(0);
 }
@@ -55,6 +43,7 @@ if (!get_kb_item("ricoh/printer/detected"))
   exit(0);
 
 detected_model = "unknown";
+detected_brand = "unknown";
 detected_fw_version = "unknown";
 
 foreach source (make_list("http", "snmp", "ftp", "hp-pjl")) {
@@ -75,9 +64,26 @@ foreach source (make_list("http", "snmp", "ftp", "hp-pjl")) {
       break;
     }
   }
+
+  brand_list = get_kb_list("ricoh/printer/" + source + "/*/brand");
+  foreach brand (brand_list) {
+    if (brand != "unknown" && detected_brand == "unknown") {
+      detected_brand = brand;
+      set_kb_item(name: "ricoh/printer/brand", value: brand);
+      break;
+    }
+  }
 }
 
-os_name = "RICOH Printer ";
+product_name = detected_brand;
+
+if (detected_brand == "unknown") {
+  detected_brand = "RICOH";
+  product_name = detected_brand;
+} else if (detected_brand != "RICOH")
+  product_name = detected_brand + " (RICOH Subsidiary)";
+
+os_name = product_name + " Printer ";
 hw_name = os_name;
 if (detected_model != "unknown") {
   os_name += detected_model + " Firmware";
@@ -85,13 +91,13 @@ if (detected_model != "unknown") {
   cpe_model = tolower(str_replace(string: detected_model, find: " ", replace: "_"));
   hw_cpe = "cpe:/h:ricoh:" + cpe_model;
   if (detected_fw_version != "unknown")
-    os_cpe = build_cpe(value: detected_fw_version, exp: "^([0-9.]+)",
+    os_cpe = build_cpe(value: tolower(detected_fw_version), exp: "^([0-9a-z.]+)_?([a-z0-9]+)?",
                        base: "cpe:/o:ricoh:" + cpe_model + "_firmware:");
   else
     os_cpe = "cpe:/o:ricoh:" + cpe_model + "_firmware";
 } else {
-  os_name = "RICOH Printer Unknown Model Firmware";
-  hw_name = "RICOH Printer Unknown Model";
+  os_name = product_name + " Printer Unknown Model Firmware";
+  hw_name = product_name + " Printer Unknown Model";
   hw_cpe = "cpe:/h:ricoh:printer";
   if (detected_fw_version != "unknown")
     os_cpe = build_cpe(value: detected_fw_version, exp: "^([0-9.]+)", base: "cpe:/o:ricoh:printer_firmware:");
@@ -127,6 +133,10 @@ if (snmp_ports = get_kb_list("ricoh/printer/snmp/port")) {
     concluded = get_kb_item('ricoh/printer/snmp/' + port + '/concluded');
     if (concluded)
       extra += '  Concluded from SNMP sysDescr OID: ' + concluded + '\n';
+
+    concludedFwOID = get_kb_item("ricoh/printer/snmp/" + port + "/concludedFwOID");
+    if (concludedFwOID)
+      extra += "  Version concluded via OID: " + concludedFwOID + '\n';
 
     register_product(cpe: os_cpe, location: port + "/udp", port: port, service: "snmp", proto: "udp");
     register_product(cpe: hw_cpe, location: port + "/udp", port: port, service: "snmp", proto: "udp");

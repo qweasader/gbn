@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802110");
-  script_version("2023-07-28T05:05:23+0000");
+  script_version("2024-02-20T14:37:13+0000");
   script_cve_id("CVE-2011-2094", "CVE-2011-2095", "CVE-2011-2096", "CVE-2011-2097",
                 "CVE-2011-2098", "CVE-2011-2099", "CVE-2011-2100", "CVE-2011-2101",
                 "CVE-2011-2104", "CVE-2011-2105", "CVE-2011-2106");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-07-01 16:09:45 +0200 (Fri, 01 Jul 2011)");
-  script_name("Adobe Reader and Acrobat Multiple BOF Vulnerabilities June-2011 (Windows)");
+  script_name("Adobe Reader and Acrobat Multiple BOF Vulnerabilities (Jun 2011) - Windows");
 
   script_tag(name:"summary", value:"Adobe Reader/Acrobat is prone to multiple buffer overflow vulnerabilities.");
 

@@ -9,8 +9,8 @@ CPE = "cpe:/a:cvstrac:cvstrac";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.14284");
-  script_version("2023-08-03T05:05:16+0000");
-  script_tag(name:"last_modification", value:"2023-08-03 05:05:16 +0000 (Thu, 03 Aug 2023)");
+  script_version("2024-10-10T07:25:31+0000");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -30,7 +30,7 @@ if(description)
   a web-based bug and patch-set tracking system for CVS.
 
   This version contains multiple flaws in the mprintf, vmprintf,
-  and vxprintf functions in cgi.c . A remote attacker, exploiting
+  and vxprintf functions in cgi.c. A remote attacker, exploiting
   this flaw, would be able to execute arbitrary code on the
   remote system.");
 

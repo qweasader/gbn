@@ -9,12 +9,12 @@ CPE = "cpe:/a:tiki:tikiwiki_cms/groupware";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106105");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-06-23 12:12:32 +0700 (Thu, 23 Jun 2016)");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
-  script_name("TikiWiki Calendar Remote Command Execution Vulnerability");
+  script_name("TikiWiki Calendar RCE Vulnerability");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");
@@ -25,7 +25,8 @@ if(description)
   script_xref(name:"URL", value:"https://tiki.org/article414-Important-Security-Fix-for-all-versions-of-Tiki");
   script_xref(name:"URL", value:"https://www.exploit-db.com/exploits/39965/");
 
-  script_tag(name:"summary", value:"Tiki Wiki CMS Groupware is prone to a remote code execution vulnerability");
+  script_tag(name:"summary", value:"Tiki Wiki CMS Groupware is prone to a remote code execution
+  (RCE) vulnerability");
 
   script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks the response.");
 

@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131128");
   script_cve_id("CVE-2015-4551", "CVE-2015-5212", "CVE-2015-5213", "CVE-2015-5214");
   script_tag(name:"creation_date", value:"2015-11-11 07:58:16 +0000 (Wed, 11 Nov 2015)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
 
@@ -23,11 +23,6 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2015-0441");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2015-0441.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17097");
-  script_xref(name:"URL", value:"https://www.libreoffice.org/about-us/security/advisories/cve-2015-4551/");
-  script_xref(name:"URL", value:"https://www.libreoffice.org/about-us/security/advisories/cve-2015-5212/");
-  script_xref(name:"URL", value:"https://www.libreoffice.org/about-us/security/advisories/cve-2015-5213/");
-  script_xref(name:"URL", value:"https://www.libreoffice.org/about-us/security/advisories/cve-2015-5214/");
   script_xref(name:"URL", value:"http://download.documentfoundation.org/libreoffice/src/bugs-changelog-libreoffice-4-4-4-release-4.4.4.1.log");
   script_xref(name:"URL", value:"http://download.documentfoundation.org/libreoffice/src/bugs-changelog-libreoffice-4-4-4-release-4.4.4.2.log");
   script_xref(name:"URL", value:"http://download.documentfoundation.org/libreoffice/src/bugs-changelog-libreoffice-4-4-4-release-4.4.4.3.log");
@@ -37,6 +32,11 @@ if(description)
   script_xref(name:"URL", value:"http://download.documentfoundation.org/libreoffice/src/bugs-changelog-libreoffice-4-4-6-release-4.4.6.2.log");
   script_xref(name:"URL", value:"http://download.documentfoundation.org/libreoffice/src/bugs-changelog-libreoffice-4-4-6-release-4.4.6.3.log");
   script_xref(name:"URL", value:"http://www.ubuntu.com/usn/usn-2793-1/");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17097");
+  script_xref(name:"URL", value:"https://www.libreoffice.org/about-us/security/advisories/cve-2015-4551/");
+  script_xref(name:"URL", value:"https://www.libreoffice.org/about-us/security/advisories/cve-2015-5212/");
+  script_xref(name:"URL", value:"https://www.libreoffice.org/about-us/security/advisories/cve-2015-5213/");
+  script_xref(name:"URL", value:"https://www.libreoffice.org/about-us/security/advisories/cve-2015-5214/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'libreoffice' package(s) announced via the MGASA-2015-0441 advisory.");
 

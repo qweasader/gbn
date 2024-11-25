@@ -1,30 +1,16 @@
-# Copyright (C) 2011 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2011 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:simplemachines:smf";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902446");
-  script_version("2022-04-28T13:38:57+0000");
-  script_tag(name:"last_modification", value:"2022-04-28 13:38:57 +0000 (Thu, 28 Apr 2022)");
+  script_version("2024-03-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2011-06-24 16:31:03 +0200 (Fri, 24 Jun 2011)");
   script_cve_id("CVE-2011-1127", "CVE-2011-1128", "CVE-2011-1129",
                 "CVE-2011-1130", "CVE-2011-1131");
@@ -38,10 +24,9 @@ if(description)
   script_xref(name:"URL", value:"http://www.simplemachines.org/community/index.php?topic=421547.0");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2011 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_simple_machines_forum_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("SMF/installed");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attackers to obtain access or cause a
@@ -80,10 +65,14 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! ver = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
 
-if( version_in_range( version:ver, test_version:"2.0.0", test_version2:"2.0.99" ) ) exit( 0 );
+if( ! ver = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
+
+if( version_in_range( version:ver, test_version:"2.0.0", test_version2:"2.0.99" ) )
+  exit( 0 );
 
 if( version_is_less( version:ver, test_version:"1.1.3" ) ||
     version_in_range( version:ver, test_version:"2.0.RC", test_version2:"2.0.RC4" ) ) {

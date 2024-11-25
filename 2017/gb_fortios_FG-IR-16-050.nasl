@@ -1,28 +1,14 @@
-# Copyright (C) 2017 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2017 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
-if (description)
+if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140156");
-  script_version("2022-03-16T07:44:03+0000");
-  script_tag(name:"last_modification", value:"2022-03-16 07:44:03 +0000 (Wed, 16 Mar 2022)");
+  script_version("2024-11-14T05:05:31+0000");
+  script_tag(name:"last_modification", value:"2024-11-14 05:05:31 +0000 (Thu, 14 Nov 2024)");
   script_tag(name:"creation_date", value:"2017-02-09 13:57:20 +0100 (Thu, 09 Feb 2017)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
@@ -40,7 +26,7 @@ if (description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("FortiOS Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("forti/FortiOS/version");
@@ -54,31 +40,32 @@ if (description)
   administrators password hashes (not including super-admins) stored on the appliance via the webui
   REST API, and may therefore be able to crack them.");
 
-  script_tag(name:"affected", value:"FortiOS version 5.2.0 through 5.2.9 and 5.4.1.");
+  script_tag(name:"affected", value:"Fortinet FortiOS prior to version 5.2.10 and 5.4.0 prior to
+  5.4.2.");
 
   script_tag(name:"solution", value:"Update to version 5.2.10 GA, 5.4.2 GA or later.");
 
   script_xref(name:"URL", value:"https://www.fortiguard.com/psirt/FG-IR-16-050");
+  script_xref(name:"Advisory-ID", value:"FG-IR-16-050");
 
   exit(0);
 }
 
 include("version_func.inc");
 
-if( ! version = get_kb_item( "forti/FortiOS/version" ) )
-  exit( 0 );
+if (!version = get_kb_item("forti/FortiOS/version"))
+  exit(0);
 
-if( version =~ "^5\.2" )
-  fix = "5.2.10";
-else if( version =~ "^5\.4" )
-  fix = "5.4.2";
-
-if( ! fix ) exit( 99 );
-
-if( version_is_less( version:version, test_version:fix ) ) {
-  report = report_fixed_ver( installed_version:version, fixed_version:fix );
-  security_message( port:0, data:report );
-  exit( 0 );
+if (version_is_less(version: version, test_version: "5.2.10")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "5.2.10");
+  security_message(port: 0, data: report);
+  exit(0);
 }
 
-exit( 99 );
+if (version_in_range_exclusive(version: version, test_version_lo: "5.4.0", test_version_up: "5.4.2")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "5.4.2");
+  security_message(port: 0, data: report);
+  exit(0);
+}
+
+exit(99);

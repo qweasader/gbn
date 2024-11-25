@@ -1,30 +1,16 @@
-# Copyright (C) 2010 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2010 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:phpbb:phpbb";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902180");
-  script_version("2022-02-18T13:05:59+0000");
-  script_tag(name:"last_modification", value:"2022-02-18 13:05:59 +0000 (Fri, 18 Feb 2022)");
+  script_version("2024-03-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2010-05-25 13:56:16 +0200 (Tue, 25 May 2010)");
   script_cve_id("CVE-2010-1627");
   script_tag(name:"cvss_base", value:"4.3");
@@ -34,10 +20,9 @@ if(description)
   script_xref(name:"URL", value:"http://www.openwall.com/lists/oss-security/2010/05/18/6");
   script_xref(name:"URL", value:"http://www.openwall.com/lists/oss-security/2010/05/18/12");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("phpbb_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("phpBB/installed");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attacker to bypass intended access
@@ -62,8 +47,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( vers =~ "^3\.0\.7\.*" && version_is_less( version:vers, test_version:"3.0.7.PL1" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"3.0.7 PL1" );

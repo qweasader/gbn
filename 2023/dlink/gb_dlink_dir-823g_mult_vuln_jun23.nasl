@@ -9,8 +9,8 @@ CPE = "cpe:/o:dlink:dir-823g_firmware";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170506");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-07-31T05:05:34+0000");
+  script_tag(name:"last_modification", value:"2024-07-31 05:05:34 +0000 (Wed, 31 Jul 2024)");
   script_tag(name:"creation_date", value:"2023-07-05 09:32:27 +0000 (Wed, 05 Jul 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -20,11 +20,11 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"WillNotFix");
 
   script_cve_id("CVE-2023-26612", "CVE-2023-26613", "CVE-2023-26615", "CVE-2023-26616");
 
-  script_name("D-Link DIR-823G <= 1.0.2B05 Multiple Vulnerabilities (July 2023)");
+  script_name("D-Link DIR-823G <= 1.0.2B05 Multiple Vulnerabilities (Jul 2023)");
 
   script_category(ACT_GATHER_INFO);
 
@@ -49,10 +49,12 @@ if(description)
 
   script_tag(name:"affected", value:"D-Link DIR-823G devices through firmware version 1.0.2B05.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 06th July, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.");
 
-  script_xref(name:"URL", value:"https://github.com/726232111/VulIoT/tree/main/D-Link/DIR823G%20V1.0.2B05/HNAP1/SetMultipleActions?utm_source=substack&utm_medium=email");
+  script_xref(name:"URL", value:"https://github.com/726232111/VulIoT/tree/main/D-Link/DIR823G%20V1.0.2B05/HNAP1/SetMultipleActions");
   script_xref(name:"URL", value:"https://github.com/726232111/VulIoT/tree/main/D-Link/DIR823G%20V1.0.2B05/HNAP1/SetParentsControlInfo");
   script_xref(name:"URL", value:"https://github.com/726232111/VulIoT/tree/main/D-Link/DIR823G%20V1.0.2B05/excu_shell");
   script_xref(name:"URL", value:"http://www.dlink.com.cn/techsupport/ProductInfo.aspx?m=DIR-823G");

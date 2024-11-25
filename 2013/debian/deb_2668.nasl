@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.702668");
   script_cve_id("CVE-2012-2121", "CVE-2012-3552", "CVE-2012-4461", "CVE-2012-4508", "CVE-2012-6537", "CVE-2012-6539", "CVE-2012-6540", "CVE-2012-6542", "CVE-2012-6544", "CVE-2012-6545", "CVE-2012-6546", "CVE-2012-6548", "CVE-2012-6549", "CVE-2013-0349", "CVE-2013-0914", "CVE-2013-1767", "CVE-2013-1773", "CVE-2013-1774", "CVE-2013-1792", "CVE-2013-1796", "CVE-2013-1798", "CVE-2013-1826", "CVE-2013-1860", "CVE-2013-1928", "CVE-2013-1929", "CVE-2013-2015", "CVE-2013-2634", "CVE-2013-3222", "CVE-2013-3223", "CVE-2013-3224", "CVE-2013-3225", "CVE-2013-3228", "CVE-2013-3229", "CVE-2013-3231", "CVE-2013-3234", "CVE-2013-3235");
   script_tag(name:"creation_date", value:"2013-05-13 22:00:00 +0000 (Mon, 13 May 2013)");
-  script_version("2024-01-12T16:12:10+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:10 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-02T05:06:04+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:04 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-07-31 11:33:00 +0000 (Fri, 31 Jul 2020)");
+  script_tag(name:"severity_date", value:"2013-10-09 12:43:47 +0000 (Wed, 09 Oct 2013)");
 
   script_name("Debian: Security Advisory (DSA-2668-1)");
   script_category(ACT_GATHER_INFO);

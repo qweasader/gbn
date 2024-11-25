@@ -1,30 +1,16 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:xwiki:xwiki";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.144820");
-  script_version("2021-08-17T06:00:55+0000");
-  script_tag(name:"last_modification", value:"2021-08-17 06:00:55 +0000 (Tue, 17 Aug 2021)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2020-10-23 09:22:10 +0000 (Fri, 23 Oct 2020)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -42,12 +28,13 @@ if (description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_xwiki_enterprise_detect.nasl");
   script_mandatory_keys("xwiki/detected");
 
-  script_tag(name:"summary", value:"XWiki is prone to a remote code execution vulnerability.");
+  script_tag(name:"summary", value:"XWiki is prone to a remote code execution (RCE)
+  vulnerability.");
 
   script_tag(name:"insight", value:"Any user with SCRIPT right (EDIT right before XWiki 7.4) can gain access to
   the application server Servlet context which contains tools allowing to instantiate arbitrary Java objects and

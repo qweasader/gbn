@@ -9,8 +9,8 @@ CPE = "cpe:/a:openssl:openssl";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117062");
-  script_version("2023-10-27T16:11:33+0000");
-  script_tag(name:"last_modification", value:"2023-10-27 16:11:33 +0000 (Fri, 27 Oct 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2020-04-22 06:05:59 +0000 (Wed, 22 Apr 2020)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
@@ -24,7 +24,7 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("OpenSSL: EDIPARTYNAME NULL Pointer De-reference Vulnerability (CVE-2020-1971) (Windows)");
+  script_name("OpenSSL: EDIPARTYNAME NULL Pointer De-reference Vulnerability (CVE-2020-1971) - Windows");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2020 Greenbone AG");

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2021.0153");
   script_cve_id("CVE-2019-12086", "CVE-2019-12384", "CVE-2019-12814", "CVE-2019-14379", "CVE-2019-14439", "CVE-2019-14540", "CVE-2019-16335", "CVE-2019-16942", "CVE-2019-16943", "CVE-2019-17267", "CVE-2019-17531", "CVE-2019-20330", "CVE-2020-10672", "CVE-2020-10673", "CVE-2020-10968", "CVE-2020-10969", "CVE-2020-11111", "CVE-2020-11112", "CVE-2020-11113", "CVE-2020-11619", "CVE-2020-11620", "CVE-2020-14060", "CVE-2020-14061", "CVE-2020-14062", "CVE-2020-14195", "CVE-2020-25649", "CVE-2020-35728", "CVE-2020-8840", "CVE-2020-9546", "CVE-2020-9547", "CVE-2020-9548", "CVE-2021-20190");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-07-20 23:15:00 +0000 (Tue, 20 Jul 2021)");
+  script_tag(name:"severity_date", value:"2021-01-22 19:28:54 +0000 (Fri, 22 Jan 2021)");
 
   script_name("Mageia: Security Advisory (MGASA-2021-0153)");
   script_category(ACT_GATHER_INFO);
@@ -26,21 +26,21 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2021-0153");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2021-0153.html");
+  script_xref(name:"URL", value:"https://access.redhat.com/errata/RHSA-2020:1523");
+  script_xref(name:"URL", value:"https://access.redhat.com/errata/RHSA-2020:4366");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=25266");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2019/dsa-4452");
-  script_xref(name:"URL", value:"https://www.debian.org/security/2019/dsa-4542");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2019/dla-2030");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/UKUALE2TUCKEKOHE2D342PQXN4MWCSLC/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/4JYW4U272JPM7AYVNENNTWYYYAAQ4TZO/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/6X2UT4X6M7DLQYBOOHMXBWGYJ65RL2CT/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/UKUALE2TUCKEKOHE2D342PQXN4MWCSLC/");
+  script_xref(name:"URL", value:"https://lists.suse.com/pipermail/sle-security-updates/2021-January/008253.html");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2019/dla-2030");
   script_xref(name:"URL", value:"https://www.debian.org/lts/security/2020/dla-2111");
   script_xref(name:"URL", value:"https://www.debian.org/lts/security/2020/dla-2135");
   script_xref(name:"URL", value:"https://www.debian.org/lts/security/2020/dla-2153");
   script_xref(name:"URL", value:"https://www.debian.org/lts/security/2020/dla-2179");
-  script_xref(name:"URL", value:"https://access.redhat.com/errata/RHSA-2020:1523");
   script_xref(name:"URL", value:"https://www.debian.org/lts/security/2020/dla-2406");
-  script_xref(name:"URL", value:"https://access.redhat.com/errata/RHSA-2020:4366");
-  script_xref(name:"URL", value:"https://lists.suse.com/pipermail/sle-security-updates/2021-January/008253.html");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/6X2UT4X6M7DLQYBOOHMXBWGYJ65RL2CT/");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2019/dsa-4452");
+  script_xref(name:"URL", value:"https://www.debian.org/security/2019/dsa-4542");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'jackson-databind' package(s) announced via the MGASA-2021-0153 advisory.");
 

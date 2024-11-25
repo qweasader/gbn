@@ -9,18 +9,18 @@ CPE = "cpe:/a:phpmyadmin:phpmyadmin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807080");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2016-2038", "CVE-2016-2039", "CVE-2016-2040", "CVE-2016-2041",
                 "CVE-2016-1927");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-30 16:27:00 +0000 (Tue, 30 Oct 2018)");
   script_tag(name:"creation_date", value:"2016-02-23 10:17:05 +0530 (Tue, 23 Feb 2016)");
   script_tag(name:"qod_type", value:"remote_active");
-  script_name("phpMyAdmin Multiple Vulnerabilities -01 Feb16");
+  script_name("phpMyAdmin Multiple Vulnerabilities -01 (Feb 2016)");
 
   script_tag(name:"summary", value:"phpMyAdmin is prone to multiple vulnerabilities.");
 

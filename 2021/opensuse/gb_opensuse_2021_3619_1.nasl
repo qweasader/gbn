@@ -1,35 +1,21 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.854284");
-  script_version("2021-11-29T04:48:32+0000");
+  script_version("2024-10-10T07:25:31+0000");
   # TODO: No CVE assigned yet.
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2021-11-29 04:48:32 +0000 (Mon, 29 Nov 2021)");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"creation_date", value:"2021-11-06 02:03:26 +0000 (Sat, 06 Nov 2021)");
   script_name("openSUSE: Security Advisory for libvirt (openSUSE-SU-2021:3619-1)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("SuSE Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/suse", "ssh/login/rpms", re:"ssh/login/release=openSUSELeap15\.3");
@@ -68,7 +54,7 @@ if(description)
 
   - supportconfig: When checking for installed hypervisor drivers, use the
        libvirtr-daemon-driver- hypervisor  package instead of
-       libvirt-daemon- hypervisor . The latter are not required packages for a
+       libvirt-daemon- hypervisor. The latter are not required packages for a
        functioning hypervisor driver.");
 
   script_tag(name:"affected", value:"'libvirt' package(s) on openSUSE Leap 15.3.");

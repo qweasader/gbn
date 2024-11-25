@@ -9,8 +9,8 @@ CPE = "cpe:/a:sigmaplugin:advanced_database_cleaner";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126411");
-  script_version("2023-10-13T16:09:03+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-06-14 09:15:11 +0000 (Wed, 14 Jun 2023)");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
@@ -24,7 +24,7 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("WordPress Advanced Database Cleaner Plugin < 3.0.2 SQL Injection Vulnerability");
+  script_name("WordPress Advanced Database Cleaner Plugin < 3.0.2 SQLi Vulnerability");
 
   script_category(ACT_GATHER_INFO);
 

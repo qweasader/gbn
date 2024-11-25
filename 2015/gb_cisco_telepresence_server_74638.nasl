@@ -12,7 +12,7 @@ if (description)
   script_cve_id("CVE-2015-0713");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-01T14:37:10+0000");
 
   script_name("Cisco TelePresence Server Remote Command Injection Vulnerability");
 
@@ -38,13 +38,12 @@ injection vulnerability because it fails to properly sanitize user-supplied inpu
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2015-06-03 12:10:07 +0200 (Wed, 03 Jun 2015)");
   script_category(ACT_GATHER_INFO);
   script_family("CISCO");
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_dependencies("gb_cisco_telepresence_server_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("cisco_telepresence_server/installed");
 
   exit(0);
@@ -53,12 +52,16 @@ injection vulnerability because it fails to properly sanitize user-supplied inpu
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
 
-if( ! vers = get_app_version( cpe:CPE, port:port ) )
-  if( ! vers = get_kb_item( "cisco_telepresence_server/version" ) ) exit( 0 );
+if( ! vers = get_app_version( cpe:CPE, port:port ) ) {
+  if( ! vers = get_kb_item( "cisco_telepresence_server/version" ) )
+    exit( 0 );
+}
 
-if( ! model = get_kb_item( "cisco_telepresence_server/model" ) ) exit( 0 );
+if( ! model = get_kb_item( "cisco_telepresence_server/model" ) )
+  exit( 0 );
 
 if( model == "VM" )
 {
@@ -76,13 +79,11 @@ report_vers = vers;
 vers = str_replace( string:vers, find:"(", replace:"." );
 vers = str_replace( string:vers, find:")", replace:"" );
 
-if( version_is_less( version:vers, test_version: fix ) )
-{
-    report = 'Installed version: ' + report_vers + '\n' +
-             'Fixed version:     ' + report_fix  + '\n';
-
-    security_message( port:port, data:report );
-    exit( 0 );
+if( version_is_less( version:vers, test_version: fix ) ) {
+  report = 'Installed version: ' + report_vers + '\n' +
+           'Fixed version:     ' + report_fix  + '\n';
+  security_message( port:port, data:report );
+  exit( 0 );
 }
 
 exit( 99 );

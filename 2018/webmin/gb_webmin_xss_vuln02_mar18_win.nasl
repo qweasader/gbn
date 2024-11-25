@@ -9,13 +9,13 @@ CPE = "cpe:/a:webmin:webmin";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812837");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2011-1937");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2018-03-27 15:00:35 +0530 (Tue, 27 Mar 2018)");
-  script_name("Webmin Cross-Site Scripting Vulnerability-02 Mar18 (Windows)");
+  script_name("Webmin Cross-Site Scripting Vulnerability-02 (Mar 2018) - Windows");
 
   script_tag(name:"summary", value:"Webmin is prone to a cross-site scripting (XSS) vulnerability.");
 

@@ -9,23 +9,22 @@ CPE = "cpe:/a:mediawiki:mediawiki";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108111");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-07-16T05:05:43+0000");
   script_cve_id("CVE-2015-8622", "CVE-2015-8623", "CVE-2015-8624", "CVE-2015-8625",
                 "CVE-2015-8626", "CVE-2015-8627", "CVE-2015-8628");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-03-27 14:06:00 +0000 (Mon, 27 Mar 2017)");
   script_tag(name:"creation_date", value:"2017-03-29 07:49:40 +0200 (Wed, 29 Mar 2017)");
-  script_name("MediaWiki Multiple Vulnerabilities - Dec15 (Linux)");
+  script_name("MediaWiki Multiple Vulnerabilities (Dec 2015) - Linux");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "os_detection.nasl", "secpod_mediawiki_detect.nasl");
-  script_require_ports("Services/www", 80);
-  script_mandatory_keys("mediawiki/installed", "Host/runs_unixoide");
+  script_dependencies("gb_mediawiki_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("mediawiki/detected", "Host/runs_unixoide");
 
   script_xref(name:"URL", value:"https://lists.wikimedia.org/pipermail/mediawiki-announce/2015-December/000186.html");
 
@@ -74,8 +73,11 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_less( version:vers, test_version:"1.23.12" ) ) {
   fix = "1.23.12";

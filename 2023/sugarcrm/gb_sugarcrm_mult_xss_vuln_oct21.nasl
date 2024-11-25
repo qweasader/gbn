@@ -1,28 +1,16 @@
-# Copyright (C) 2023 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2023 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
+
+CPE = "cpe:/a:sugarcrm:sugarcrm";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126290");
-  script_version("2023-01-11T10:12:37+0000");
-  script_tag(name:"last_modification", value:"2023-01-11 10:12:37 +0000 (Wed, 11 Jan 2023)");
+  script_version("2024-04-12T15:39:03+0000");
+  script_tag(name:"last_modification", value:"2024-04-12 15:39:03 +0000 (Fri, 12 Apr 2024)");
   script_tag(name:"creation_date", value:"2023-01-09 11:50:46 +0000 (Mon, 09 Jan 2023)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
@@ -40,7 +28,7 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2023 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_sugarcrm_detect.nasl");
   script_mandatory_keys("sugarcrm/installed");
@@ -68,22 +56,21 @@ if(description)
   exit(0);
 }
 
-CPE = "cpe:/a:sugarcrm:sugarcrm";
+include("host_details.inc");
+include("version_func.inc");
 
-include( "host_details.inc" );
-include( "version_func.inc" );
-
-if( ! port = get_app_port( cpe: CPE ) )
+if( ! port = get_app_port( cpe:CPE ) )
   exit( 0 );
-if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) )
+
+if( ! infos = get_app_version_and_location( cpe:CPE, port:port, exit_no_version:TRUE ) )
   exit( 0 );
 
 version = infos["version"];
 location = infos["location"];
 
-if( version_is_less( version: version, test_version: "6.5.18" ) ) {
-  report = report_fixed_ver( installed_version: version, fixed_version: "See solution", install_path: location );
-  security_message( data: report, port: port );
+if( version_is_less( version:version, test_version:"6.5.18" ) ) {
+  report = report_fixed_ver( installed_version:version, fixed_version:"See solution", install_path:location );
+  security_message( port: port, data:report );
   exit( 0 );
 }
 

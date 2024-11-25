@@ -9,15 +9,15 @@ CPE = "cpe:/a:vbulletin:vbulletin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.14833");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-02-26T14:36:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-26 14:36:40 +0000 (Mon, 26 Feb 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
   script_cve_id("CVE-2004-1824");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/6226");
   script_xref(name:"OSVDB", value:"3280");
-  script_name("vBulletin XSS(2)");
+  script_name("vBulletin <= 2.2.9 XSS Vulnerability - Active Check");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2004 David Maciejak");
   script_family("Web application abuses");
@@ -25,18 +25,21 @@ if(description)
   script_require_ports("Services/www", 80);
   script_mandatory_keys("vbulletin/detected");
 
-  script_tag(name:"solution", value:"Upgrade to latest version.");
-
-  script_tag(name:"summary", value:"The remote version of vBulletin seems to be prior
-  or equal to version 2.2.9. These versions are vulnerable to a cross-site scripting issue,
+  script_tag(name:"summary", value:"vBulletin is vulnerable to a cross-site scripting (XSS) issue,
   due to a failure of the application to properly sanitize user-supplied URI input.");
 
-  script_tag(name:"impact", value:"As a result of this vulnerability, it is possible for
-  a remote attacker to create a malicious link containing script code that will be executed
-  in the browser of an unsuspecting user when followed.
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks the response.");
 
-  This may facilitate the theft of cookie-based authentication credentials
-  as well as other attacks.");
+  script_tag(name:"impact", value:"As a result of this vulnerability, it is possible for a remote
+  attacker to create a malicious link containing script code that will be executed in the browser
+  of an unsuspecting user when followed.
+
+  This may facilitate the theft of cookie-based authentication credentials as well as other
+  attacks.");
+
+  script_tag(name:"affected", value:"vBulletin versions 2.2.9 and prior.");
+
+  script_tag(name:"solution", value:"Upgrade to latest version.");
 
   script_tag(name:"qod_type", value:"remote_vul");
   script_tag(name:"solution_type", value:"VendorFix");

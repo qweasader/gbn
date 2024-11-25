@@ -21,14 +21,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.877926");
-  script_version("2021-07-21T02:01:11+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2015-8854", "CVE-2016-1000013", "CVE-2017-17461", "CVE-2017-1000427");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2021-07-21 02:01:11 +0000 (Wed, 21 Jul 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-05-31 06:15:00 +0000 (Sun, 31 May 2020)");
+  script_tag(name:"severity_date", value:"2024-02-09 03:01:53 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2020-06-07 03:27:56 +0000 (Sun, 07 Jun 2020)");
   script_name("Fedora: Security Advisory for marked (FEDORA-2020-d714c08261)");
   script_category(ACT_GATHER_INFO);

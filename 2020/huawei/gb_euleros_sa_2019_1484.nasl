@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.1484");
   script_cve_id("CVE-2013-7266", "CVE-2014-2672", "CVE-2014-2678", "CVE-2014-8086", "CVE-2015-0569", "CVE-2015-2150", "CVE-2015-3331", "CVE-2015-5307", "CVE-2015-5366", "CVE-2016-4440", "CVE-2016-7117", "CVE-2016-7914", "CVE-2017-1000410", "CVE-2017-17052", "CVE-2017-18222", "CVE-2017-6214", "CVE-2018-10087", "CVE-2018-10878", "CVE-2018-13100", "CVE-2018-18690");
   script_tag(name:"creation_date", value:"2020-01-23 11:53:18 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-01-19 16:13:00 +0000 (Thu, 19 Jan 2023)");
+  script_tag(name:"severity_date", value:"2016-10-11 23:33:01 +0000 (Tue, 11 Oct 2016)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2019-1484)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.1\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-1484");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-1484");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-1484");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2019-1484 advisory.");
 

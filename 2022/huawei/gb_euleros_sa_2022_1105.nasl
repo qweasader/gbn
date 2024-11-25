@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.2.2022.1105");
-  script_cve_id("CVE-2020-25625", "CVE-2020-27617", "CVE-2020-28916", "CVE-2020-35504", "CVE-2020-35505", "CVE-2021-0035", "CVE-2021-3713");
+  script_cve_id("CVE-2020-25625", "CVE-2020-27617", "CVE-2020-28916", "CVE-2020-35504", "CVE-2020-35505", "CVE-2021-0035", "CVE-2021-3527", "CVE-2021-3713");
   script_tag(name:"creation_date", value:"2022-02-13 03:23:50 +0000 (Sun, 13 Feb 2022)");
-  script_version("2023-06-20T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:23 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-03-07T05:06:18+0000");
+  script_tag(name:"last_modification", value:"2024-03-07 05:06:18 +0000 (Thu, 07 Mar 2024)");
   script_tag(name:"cvss_base", value:"4.7");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:P/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-09-02 21:15:00 +0000 (Thu, 02 Sep 2021)");
+  script_tag(name:"severity_date", value:"2021-09-01 14:34:55 +0000 (Wed, 01 Sep 2021)");
 
   script_name("Huawei EulerOS: Security Advisory for qemu (EulerOS-SA-2022-1105)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRTARM64\-3\.0\.6\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2022-1105");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2022-1105");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2022-1105");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'qemu' package(s) announced via the EulerOS-SA-2022-1105 advisory.");
 

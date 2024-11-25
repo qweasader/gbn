@@ -12,7 +12,7 @@ if (description)
   script_cve_id("CVE-2016-6907");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-08-09T05:05:14+0000");
+  script_version("2024-05-29T05:05:18+0000");
 
   script_name("F5 BIG-IP - TMM SSL/TLS virtual server vulnerability CVE-2016-6907");
 
@@ -27,22 +27,22 @@ if (description)
   script_tag(name:"qod_type", value:"package");
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_tag(name:"last_modification", value:"2023-08-09 05:05:14 +0000 (Wed, 09 Aug 2023)");
+  script_tag(name:"last_modification", value:"2024-05-29 05:05:18 +0000 (Wed, 29 May 2024)");
   script_tag(name:"creation_date", value:"2016-09-30 18:57:51 +0200 (Fri, 30 Sep 2016)");
   script_category(ACT_GATHER_INFO);
   script_family("F5 Local Security Checks");
   script_copyright("Copyright (C) 2016 Greenbone AG");
-  script_dependencies("gb_f5_big_ip_version.nasl");
+  script_dependencies("gb_f5_big_ip_ssh_login_detect.nasl");
   script_mandatory_keys("f5/big_ip/version", "f5/big_ip/active_modules");
   exit(0);
 }
 
-include("version_func.inc");
+include("f5.inc");
 include("host_details.inc");
 include("list_array_func.inc");
-include("f5.inc");
+include("version_func.inc");
 
-if (!version = get_app_version(cpe: CPE))
+if (!version = get_app_version(cpe: CPE, service: "ssh-login"))
   exit(0);
 
 check_f5["LTM"] = make_array("affected",   "12.1.0_HF1;12.1.0;12.0.0_HF1-12.0.0_HF3;11.6.1-12.0.0;11.6.0_HF1-11.6.0_HF7;11.6.0;11.5.4_HF1;11.5.2-11.5.4;11.5.1_HF6-11.5.1_HF10;11.5.0_HF6-11.5.0_HF7;11.4.1_HF6-11.4.1_HF10;11.4.0_HF9-11.4.0_HF10;11.2.1_HF13-11.2.1_HF15;10.2.4_HF10-10.2.4_HF13;",

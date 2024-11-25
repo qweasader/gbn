@@ -2,14 +2,14 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:microsoft:edge_chromium_based";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.826458");
-  script_version("2023-10-18T05:05:17+0000");
+  script_version("2024-02-21T05:06:27+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2022-38012", "CVE-2022-3038", "CVE-2022-3039", "CVE-2022-3040",
@@ -18,12 +18,12 @@ if(description)
                 "CVE-2022-3056", "CVE-2022-3057", "CVE-2022-3058");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-18 05:05:17 +0000 (Wed, 18 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-21 05:06:27 +0000 (Wed, 21 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-09-28 17:53:00 +0000 (Wed, 28 Sep 2022)");
   script_tag(name:"creation_date", value:"2022-09-09 16:53:04 +0530 (Fri, 09 Sep 2022)");
-  script_name("Microsoft Edge (Chromium-Based) Remote Code Execution Vulnerability (September 2022)");
+  script_name("Microsoft Edge (Chromium-Based) Remote Code Execution Vulnerability (Sep 2022)");
 
   script_tag(name:"summary", value:"This host is missing an important security
   update according to Microsoft Edge (Chromium-Based) update.");
@@ -58,19 +58,23 @@ if(description)
   script_family("Windows : Microsoft Bulletins");
   script_dependencies("gb_microsoft_edge_chromium_based_detect_win.nasl");
   script_mandatory_keys("microsoft_edge_chromium/installed", "microsoft_edge_chromium/ver");
+
   exit(0);
 }
+
 include("host_details.inc");
 include("version_func.inc");
 
-if(!infos = get_app_version_and_location(cpe:CPE, exit_no_version:TRUE)) exit(0);
-vers = infos['version'];
-path = infos['location'];
+if(!infos = get_app_version_and_location(cpe:CPE, exit_no_version:TRUE))
+  exit(0);
 
-if(version_is_less(version:vers, test_version:"105.0.1343.25"))
-{
+vers = infos["version"];
+path = infos["location"];
+
+if(version_is_less(version:vers, test_version:"105.0.1343.25")) {
   report = report_fixed_ver(installed_version:vers, fixed_version:"105.0.1343.25", install_path:path);
   security_message(data:report);
   exit(0);
 }
+
 exit(99);

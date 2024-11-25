@@ -9,8 +9,8 @@ CPE = "cpe:/a:ibm:lotus_domino";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811275");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-02-20T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-08-07 16:44:30 +0530 (Mon, 07 Aug 2017)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -20,7 +20,7 @@ if(description)
 
   script_cve_id("CVE-2017-1327");
 
-  script_name("IBM iNotes Cross-Site Scripting Vulnerability-02 Aug17");
+  script_name("IBM iNotes Cross-Site Scripting Vulnerability-02 (Aug 2017)");
 
   script_tag(name:"summary", value:"IBM iNotes is prone to a cross-site scripting (XSS) vulnerability.");
 

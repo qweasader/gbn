@@ -4,17 +4,64 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
+CPE = "cpe:/a:open-xchange:open-xchange_appsuite";
+
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803182");
-  script_version("2023-10-27T05:05:28+0000");
-  script_cve_id("CVE-2013-1646", "CVE-2013-1647", "CVE-2013-1648", "CVE-2013-1650",
-                "CVE-2013-1651");
+  script_version("2024-04-05T15:38:49+0000");
+  script_tag(name:"last_modification", value:"2024-04-05 15:38:49 +0000 (Fri, 05 Apr 2024)");
+  script_tag(name:"creation_date", value:"2013-03-18 10:14:58 +0530 (Mon, 18 Mar 2013)");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
-  script_tag(name:"creation_date", value:"2013-03-18 10:14:58 +0530 (Mon, 18 Mar 2013)");
-  script_name("Open-Xchange Server Multiple Vulnerabilities");
+
+  script_cve_id("CVE-2013-1646", "CVE-2013-1647", "CVE-2013-1648", "CVE-2013-1650",
+                "CVE-2013-1651");
+
+  script_tag(name:"qod_type", value:"remote_analysis");
+
+  script_tag(name:"solution_type", value:"VendorFix");
+
+  script_name("Open-Xchange Server Multiple Vulnerabilities (Mar 2013) - Active Check");
+
+  script_category(ACT_ATTACK);
+
+  script_copyright("Copyright (C) 2013 Greenbone AG");
+  script_family("Web application abuses");
+  script_dependencies("gb_open-xchange_ox_app_suite_http_detect.nasl");
+  script_mandatory_keys("open-xchange/app_suite/http/detected");
+  script_require_ports("Services/www", 80);
+
+  script_tag(name:"summary", value:"Open-Xchange Server is prone to multiple vulnerabilities.");
+
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks the response.");
+
+  script_tag(name:"insight", value:"The following vulnerabilities exist:
+
+  - Input passed via arbitrary GET parameters to /servlet/TestServlet is not properly sanitized
+  before being returned to the user.
+
+  - Input related to the 'Source' field when creating subscriptions is not properly sanitized
+  before being used. This can be exploited to perform arbitrary HTTP GET requests to remote and
+  local servers.
+
+  - The OXUpdater component does not properly validate the SSL certificate of an update server.
+  This can be exploited to spoof update packages via a MitM (Man-in-the-Middle) attack.
+
+  - The application creates the /opt/open-exchange/etc directory with insecure world-readable
+  permissions. This can be exploited to disclose certain sensitive information.
+
+  - Input passed via the 'location' GET parameter to /ajax/redirect is not properly sanitized
+  before being used to construct HTTP response headers.
+
+  - Certain input related to RSS feed contents is not properly sanitized before being used. This
+  can be exploited to insert arbitrary HTML and script code.");
+
+  script_tag(name:"affected", value:"Open-Xchange Server versions prior to 6.20.7-rev14,
+  6.22.0-rev13 and 6.22.1-rev14.");
+
+  script_tag(name:"solution", value:"Update to versions 6.20.7-rev14, 6.22.0-rev13, 6.22.1-rev14
+  or later.");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/52603");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/58465");
@@ -26,79 +73,29 @@ if(description)
   script_xref(name:"URL", value:"http://www.exploit-db.com/exploits/24791");
   script_xref(name:"URL", value:"http://packetstormsecurity.com/files/120785");
 
-  script_category(ACT_ATTACK);
-  script_copyright("Copyright (C) 2013 Greenbone AG");
-  script_family("Web application abuses");
-  script_require_ports("Services/www", 80);
-  script_exclude_keys("Settings/disable_cgi_scanning");
-  script_dependencies("find_service.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "global_settings.nasl");
-
-  script_tag(name:"impact", value:"Successful exploitation will allow attacker to execute arbitrary HTML or
-  web script in a user's browser session in context of an affected site,
-  compromise the application and access or modify data in the database.");
-
-  script_tag(name:"affected", value:"Open-Xchange Server versions prior to 6.20.7-rev14, 6.22.0-rev13
-  and 6.22.1-rev14.");
-
-  script_tag(name:"insight", value:"- Input passed via arbitrary GET parameters to /servlet/TestServlet is not
-    properly sanitized before being returned to the user.
-
-  - Input related to the 'Source' field when creating subscriptions is not
-    properly sanitized before being used. This can be exploited to perform
-    arbitrary HTTP GET requests to remote and local servers.
-
-  - The OXUpdater component does not properly validate the SSL certificate of
-    an update server. This can be exploited to spoof update packages via a
-    MitM (Man-in-the-Middle) attack.
-
-  - The application creates the /opt/open-exchange/etc directory with insecure
-    world-readable permissions. This can be exploited to disclose certain
-    sensitive information.
-
-  - Input passed via the 'location' GET parameter to /ajax/redirect is not
-    properly sanitized before being used to construct HTTP response headers.
-
-  - Certain input related to RSS feed contents is not properly sanitized before
-    being used. This can be exploited to insert arbitrary HTML and script code.");
-
-  script_tag(name:"solution", value:"Update to versions 6.20.7-rev14, 6.22.0-rev13, or 6.22.1-rev14.");
-
-  script_tag(name:"summary", value:"Open-Xchange Server is prone to multiple vulnerabilities.");
-
-  script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"qod_type", value:"remote_analysis");
-
-  script_xref(name:"URL", value:"http://www.open-xchange.com/home.html");
   exit(0);
 }
 
+include("host_details.inc");
 include("http_func.inc");
 include("http_keepalive.inc");
-include("port_service_func.inc");
-include("list_array_func.inc");
 
-port = http_get_port(default:80);
+if (!port = get_app_port(cpe: CPE, service: "www"))
+  exit(0);
 
-foreach dir (make_list_unique("/", "/ox6", "/Open-Xchange", http_cgi_dirs(port:port)))
-{
+if (!dir = get_app_location(cpe: CPE, port: port))
+  exit(0);
 
-  if( dir == "/" ) dir = "";
+if (dir == "/")
+  dir = "";
 
-  ## Request for the index.php
-  sndReq = http_get(item:dir + "/ox.html", port:port);
-  rcvRes = http_keepalive_send_recv(port:port, data:sndReq);
+url = dir + "/servlet/TestServlet?foo=<script>alert(document.cookie)</script>";
 
-  if(">Open-Xchange Server<" >< rcvRes)
-  {
-    url = dir + "/servlet/TestServlet?foo=<script>alert(document.cookie)</script>";
-
-    if(http_vuln_check(port:port, url:url, check_header:TRUE,
-             pattern:"<script>alert\(document.cookie\)</script>"))
-    {
-      security_message(port:port);
-      exit(0);
-    }
-  }
+if (http_vuln_check(port: port, url: url, check_header: TRUE,
+                    pattern: "<script>alert\(document\.cookie\)</script>")) {
+  report = http_report_vuln_url(port: port, url: url);
+  security_message(port: port, data: report);
+  exit(0);
 }
 
 exit(99);

@@ -9,8 +9,8 @@ CPE = "cpe:/a:awstats:awstats";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140659");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-01-08 11:12:36 +0700 (Mon, 08 Jan 2018)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -28,8 +28,9 @@ if(description)
   script_xref(name:"URL", value:"https://awstats.sourceforge.io/docs/awstats_changelog.txt");
   script_xref(name:"URL", value:"http://seclists.org/oss-sec/2017/q4/435");
 
-  script_tag(name:"summary", value:"AWStats is vulnerable to a path traversal flaw in the handling of the
-  'config' and 'migrate' parameters resulting in unauthenticated remote code execution.");
+  script_tag(name:"summary", value:"AWStats is vulnerable to a path traversal flaw in the handling
+  of the 'config' and 'migrate' parameters resulting in unauthenticated remote code execution
+  (RCE).");
 
   script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks the response.");
 

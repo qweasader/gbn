@@ -4,11 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
+CPE = "cpe:/o:brother:mfc-j4410dw_firmware";
+
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805320");
-  script_version("2023-10-27T05:05:28+0000");
-  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
+  script_version("2024-03-08T15:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-08 15:37:10 +0000 (Fri, 08 Mar 2024)");
   script_tag(name:"creation_date", value:"2015-01-12 20:15:26 +0530 (Mon, 12 Jan 2015)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -25,9 +27,9 @@ if(description)
 
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
+  script_dependencies("gb_brother_printer_consolidation.nasl");
+  script_mandatory_keys("brother/printer/http/detected");
   script_require_ports("Services/www", 80);
-  script_exclude_keys("Settings/disable_cgi_scanning");
 
   script_tag(name:"summary", value:"Brother MFC-J4410DW is prone to a cross-site scripting (XSS)
   vulnerability.");
@@ -49,20 +51,17 @@ if(description)
   exit(0);
 }
 
+include("host_details.inc");
 include("http_func.inc");
 include("http_keepalive.inc");
-include("port_service_func.inc");
 
-port = http_get_port(default: 80);
-
-url = "/general/status.html";
-
-res = http_get_cache(port: port, item: url);
-
-if (!res || ">Brother MFC-J4410DW series<" >!< res)
+if (!port = get_app_port(cpe: CPE, service: "www"))
   exit(0);
 
-url += '?url="/><script>alert(document.cookie)</script><input type="hidden" value="';
+if (!get_app_location(cpe: CPE, port: port, nofork: TRUE))
+  exit(0);
+
+url = '?url="/><script>alert(document.cookie)</script><input type="hidden" value="';
 
 if (http_vuln_check(port: port, url: url, check_header: TRUE,
                     pattern: "<script>alert\(document\.cookie\)</script>")) {

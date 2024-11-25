@@ -2,15 +2,15 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apache:couchdb";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107259");
-  script_version("2023-05-10T09:37:12+0000");
-  script_tag(name:"last_modification", value:"2023-05-10 09:37:12 +0000 (Wed, 10 May 2023)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2017-11-16 11:20:26 +0700 (Thu, 16 Nov 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -23,10 +23,10 @@ if(description)
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_name("Apache CouchDB 1.x < 1.7.0, 2.x < 2.1.1 Multiple Vulnerabilities (Windows)");
+  script_name("Apache CouchDB 1.x < 1.7.0, 2.x < 2.1.1 Multiple Vulnerabilities - Windows");
 
   script_category(ACT_GATHER_INFO);
-  script_family("Web application abuses");
+  script_family("Databases");
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_dependencies("gb_apache_couchdb_http_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("apache/couchdb/detected", "Host/runs_windows");

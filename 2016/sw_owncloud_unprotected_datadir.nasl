@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111107");
-  script_version("2023-12-01T16:11:30+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-07-02 13:00:00 +0200 (Sat, 02 Jul 2016)");
   script_name("ownCloud/Nextcloud Unprotected Data Directory");
   script_category(ACT_GATHER_INFO);
@@ -18,7 +18,7 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_owncloud_http_detect.nasl", "gb_nextcloud_detect.nasl");
   script_require_ports("Services/www", 80);
-  script_mandatory_keys("owncloud_or_nextcloud/installed");
+  script_mandatory_keys("owncloud_or_nextcloud/detected");
 
   script_xref(name:"URL", value:"https://doc.owncloud.org/server/latest/admin_manual/configuration_server/harden_server.html#place-data-directory-outside-of-the-web-root");
 

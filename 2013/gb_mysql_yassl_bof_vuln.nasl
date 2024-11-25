@@ -9,9 +9,9 @@ CPE = "cpe:/a:mysql:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803462");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2012-0553", "CVE-2013-1492");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2013-04-04 13:53:42 +0530 (Thu, 04 Apr 2013)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -26,7 +26,6 @@ if(description)
   script_family("Buffer overflow");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
   script_dependencies("mysql_version.nasl");
-  script_require_ports("Services/mysql", 3306);
   script_mandatory_keys("MySQL/installed");
   script_tag(name:"impact", value:"Successful exploitation could allow remote attackers to cause a buffer
   overflow resulting in loss of availability.");
@@ -44,15 +43,19 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!sqlPort = get_app_port(cpe:CPE)) exit(0);
-mysqlVer = get_app_version(cpe:CPE, port:sqlPort);
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
 
-if(mysqlVer && mysqlVer =~ "^(5.1|5.5)")
-{
-  if(version_in_range(version:mysqlVer, test_version:"5.1", test_version2:"5.1.67") ||
-     version_in_range(version:mysqlVer, test_version:"5.5", test_version2:"5.5.29"))
-  {
-    security_message(sqlPort);
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version =~ "^5\.[15]") {
+  if(version_in_range(version:version, test_version:"5.1", test_version2:"5.1.67") ||
+     version_in_range(version:version, test_version:"5.5", test_version2:"5.5.29")) {
+    report = report_fixed_ver(installed_version:version, fixed_version:"5.1.68/5.5.30");
+    security_message(port:port, data:report);
     exit(0);
   }
 }
+
+exit(99);

@@ -9,16 +9,16 @@ CPE = "cpe:/a:sun:xvm_virtualbox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900408");
-  script_version("2023-10-13T05:06:09+0000");
+  script_version("2024-02-15T05:05:39+0000");
   script_cve_id("CVE-2008-5256");
   script_copyright("Copyright (C) 2008 Greenbone AG");
   script_tag(name:"cvss_base", value:"4.4");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:09 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2008-12-10 17:58:14 +0100 (Wed, 10 Dec 2008)");
   script_category(ACT_GATHER_INFO);
   script_family("General");
-  script_name("Sun xVM VirtualBox Insecure Temporary Files Vulnerability (Linux)");
+  script_name("Sun xVM VirtualBox Insecure Temporary Files Vulnerability - Linux");
   script_dependencies("secpod_sun_virtualbox_detect_lin.nasl");
   script_mandatory_keys("Sun/VirtualBox/Lin/Ver");
 

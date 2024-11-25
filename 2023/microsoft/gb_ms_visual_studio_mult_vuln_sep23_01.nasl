@@ -7,17 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832280");
-  script_version("2023-10-13T05:06:10+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_cve_id("CVE-2023-36758", "CVE-2023-36759", "CVE-2023-36792", "CVE-2023-36793",
                 "CVE-2023-36794", "CVE-2023-36796", "CVE-2023-36799");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-09-15 14:14:00 +0000 (Fri, 15 Sep 2023)");
   script_tag(name:"creation_date", value:"2023-09-14 11:44:15 +0530 (Thu, 14 Sep 2023)");
-  script_name("Microsoft Visual Studio Multiple Vulnerabilities-01 - September23");
+  script_name("Microsoft Visual Studio Multiple Vulnerabilities-01 (Sep 2023)");
 
   script_tag(name:"summary", value:"This host is missing an important security
   update according to Microsoft Security Update September-2023.");

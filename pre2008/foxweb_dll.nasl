@@ -7,14 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11939");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-05-03T15:38:41+0000");
+  script_tag(name:"last_modification", value:"2024-05-03 15:38:41 +0000 (Fri, 03 May 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/8547");
-  script_cve_id("CVE-2010-1898");
-  script_tag(name:"cvss_base", value:"9.3");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("foxweb CGI");
+  script_tag(name:"cvss_base", value:"7.5");
+  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_cve_id("CVE-2003-0762");
+  script_name("foxweb <= 2.5 CGI Buffer Overflow Vulnerability");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2003 Michel Arboi");
   script_family("Web application abuses");
@@ -23,12 +22,16 @@ if(description)
   script_mandatory_keys("Host/runs_windows");
   script_exclude_keys("Settings/disable_cgi_scanning");
 
-  script_tag(name:"solution", value:"Remove it from /cgi-bin or upgrade it.");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210313101631/http://www.securityfocus.com/bid/8547");
 
   script_tag(name:"summary", value:"The foxweb.dll or foxweb.exe CGI is installed.
 
   Versions 2.5 and below of this CGI program have a security flaw
   that lets an attacker execute arbitrary code on the remote server.");
+
+  script_tag(name:"vuldetect", value:"Checks if the CGI is installed on the remote host.");
+
+  script_tag(name:"solution", value:"Remove it from /cgi-bin or upgrade it.");
 
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
   script_tag(name:"solution_type", value:"Workaround");

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2019.1499");
   script_cve_id("CVE-2017-12190", "CVE-2017-12192", "CVE-2017-12193", "CVE-2017-14106", "CVE-2017-14140", "CVE-2017-14489", "CVE-2017-14991", "CVE-2017-15102", "CVE-2017-15115", "CVE-2017-15129", "CVE-2017-15265", "CVE-2017-15274", "CVE-2017-15299", "CVE-2017-15649", "CVE-2017-16525", "CVE-2017-16526", "CVE-2017-16527", "CVE-2017-16528", "CVE-2017-16529", "CVE-2017-16530", "CVE-2017-16531", "CVE-2017-16532");
   script_tag(name:"creation_date", value:"2020-01-23 11:57:19 +0000 (Thu, 23 Jan 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-03-15T05:06:15+0000");
+  script_tag(name:"last_modification", value:"2024-03-15 05:06:15 +0000 (Fri, 15 Mar 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-01-19 15:46:00 +0000 (Thu, 19 Jan 2023)");
+  script_tag(name:"severity_date", value:"2024-03-14 19:57:34 +0000 (Thu, 14 Mar 2024)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2019-1499)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROSVIRT\-3\.0\.1\.0");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2019-1499");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2019-1499");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2019-1499");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2019-1499 advisory.");
 

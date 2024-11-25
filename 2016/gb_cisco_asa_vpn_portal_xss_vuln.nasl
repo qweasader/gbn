@@ -23,11 +23,14 @@ CPE = "cpe:/a:cisco:asa";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806687");
-  script_version("2022-04-13T13:17:10+0000");
+  script_version("2024-11-15T15:55:05+0000");
   script_cve_id("CVE-2014-2120");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2022-04-13 13:17:10 +0000 (Wed, 13 Apr 2022)");
+  script_tag(name:"last_modification", value:"2024-11-15 15:55:05 +0000 (Fri, 15 Nov 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-11-14 21:42:05 +0000 (Thu, 14 Nov 2024)");
   script_tag(name:"creation_date", value:"2016-02-22 13:34:22 +0530 (Mon, 22 Feb 2016)");
   script_name("Cisco ASA WebVPN Login Page XSS Vulnerability (CSCun19025) - Active Check");
   script_category(ACT_ATTACK);

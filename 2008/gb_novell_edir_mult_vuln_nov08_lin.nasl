@@ -9,13 +9,13 @@ CPE = "cpe:/a:novell:edirectory";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800136");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-26T14:36:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-26 14:36:40 +0000 (Mon, 26 Feb 2024)");
   script_tag(name:"creation_date", value:"2008-11-21 14:18:03 +0100 (Fri, 21 Nov 2008)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2008-5091", "CVE-2008-5092", "CVE-2008-5093", "CVE-2008-5094");
-  script_name("Novell eDirectory Multiple Vulnerabilities Nov08 - (Linux)");
+  script_name("Novell eDirectory Multiple Vulnerabilities (Nov 2008) - Linux");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2008 Greenbone AG");
   script_family("Buffer overflow");
@@ -62,8 +62,8 @@ include("version_func.inc");
 if( ! infos = get_app_version_and_location( cpe:CPE, exit_no_version:TRUE ) )
   exit( 0 );
 
-vers = infos['version'];
-path = infos['location'];
+vers = infos["version"];
+path = infos["location"];
 
 if( version_is_less( version:vers, test_version:"8.8.SP3" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"8.8.SP3", install_path:path );

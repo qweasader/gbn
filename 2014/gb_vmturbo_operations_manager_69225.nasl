@@ -12,15 +12,15 @@ if (description)
   script_cve_id("CVE-2014-5073");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-06-28T15:38:46+0000");
 
-  script_name("VMTurbo Operations Manager '/cgi-bin/vmtadmin.cgi' Remote Command Execution Vulnerability");
+  script_name("VMTurbo Operations Manager '/cgi-bin/vmtadmin.cgi' RCE Vulnerability");
 
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/69225");
   script_xref(name:"URL", value:"http://secunia.com/secunia_research/2014-8/");
 
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-08-18 14:14:43 +0200 (Mon, 18 Aug 2014)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");
@@ -45,8 +45,8 @@ if (description)
 
   script_tag(name:"solution", value:"Update to VMTurbo Operations Manager >= 4.6-28657.");
 
-  script_tag(name:"summary", value:"VMTurbo Operations Manager is prone to a remote command-execution
-  vulnerability.");
+  script_tag(name:"summary", value:"VMTurbo Operations Manager is prone to a remote command
+  execution (RCE) vulnerability.");
 
   script_tag(name:"affected", value:"VMTurbo Operations Manager 4.6 and prior are vulnerable.");
 

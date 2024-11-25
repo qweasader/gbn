@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808129");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2014-2430", "CVE-2014-2431", "CVE-2014-2436", "CVE-2014-2440");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-06-03 13:42:48 +0530 (Fri, 03 Jun 2016)");
-  script_name("Oracle MySQL Multiple Unspecified Vulnerabilities - 16 Jun16 (Linux)");
+  script_name("Oracle MySQL Multiple Unspecified Vulnerabilities - 16 (Jun 2016) - Linux");
 
   script_tag(name:"summary", value:"Oracle MySQL is prone to multiple unspecified vulnerabilities.");
 

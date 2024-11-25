@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.130116");
   script_cve_id("CVE-2015-0848", "CVE-2015-4588", "CVE-2015-4695", "CVE-2015-4696");
   script_tag(name:"creation_date", value:"2015-10-15 07:42:54 +0000 (Thu, 15 Oct 2015)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
 
@@ -23,9 +23,9 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2015-0261");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2015-0261.html");
+  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2015/06/21/3");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16127");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/pipermail/package-announce/2015-June/160668.html");
-  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2015/06/21/3");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'libwmf' package(s) announced via the MGASA-2015-0261 advisory.");
 

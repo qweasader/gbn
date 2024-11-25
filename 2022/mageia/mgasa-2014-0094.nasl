@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2014.0094");
   script_cve_id("CVE-2014-1471", "CVE-2014-1694");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
@@ -23,9 +23,9 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2014-0094");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2014-0094.html");
+  script_xref(name:"URL", value:"http://www.otrs.com/release_notes_otrs_help_desk_3_2_14/");
   script_xref(name:"URL", value:"http://www.otrs.com/security-advisory-2014-01-csrf-issue-customer-web-interface/");
   script_xref(name:"URL", value:"http://www.otrs.com/security-advisory-2014-02-sql-injection-issue/");
-  script_xref(name:"URL", value:"http://www.otrs.com/release_notes_otrs_help_desk_3_2_14/");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=10669");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=12473");
 

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.102004");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-07-24T05:06:37+0000");
+  script_tag(name:"last_modification", value:"2024-07-24 05:06:37 +0000 (Wed, 24 Jul 2024)");
   script_tag(name:"creation_date", value:"2009-06-23 09:27:52 +0200 (Tue, 23 Jun 2009)");
   script_cve_id("CVE-2000-0002", "CVE-2000-0065", "CVE-2000-0571", "CVE-2001-1250", "CVE-2003-0125",
                 "CVE-2003-0833", "CVE-2006-1652", "CVE-2004-2299", "CVE-2002-1003", "CVE-2002-1012",
@@ -51,9 +51,10 @@ http_send_recv(port:port, data:req);
 #ret_code == 1, http down
 ret_code = http_is_dead(port:port, retry:2);
 
-if (ret_code == 1){
+if (ret_code == 1) {
   set_kb_item(name:"www/too_long_url_crash", value:TRUE);
   security_message(port:port);
-} else {
-  exit(99);
+  exit(0);
 }
+
+exit(99);

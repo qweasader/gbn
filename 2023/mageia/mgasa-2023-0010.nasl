@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2023.0010");
   script_cve_id("CVE-2022-3437", "CVE-2022-3592", "CVE-2022-37966", "CVE-2022-37967", "CVE-2022-38023", "CVE-2022-42898", "CVE-2022-45141");
   script_tag(name:"creation_date", value:"2023-03-28 00:26:44 +0000 (Tue, 28 Mar 2023)");
-  script_version("2023-06-20T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:25 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-03-13 18:05:00 +0000 (Mon, 13 Mar 2023)");
+  script_tag(name:"severity_date", value:"2023-03-13 18:05:10 +0000 (Mon, 13 Mar 2023)");
 
   script_name("Mageia: Security Advisory (MGASA-2023-0010)");
   script_category(ACT_GATHER_INFO);
@@ -27,20 +27,13 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2023-0010");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2023-0010.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=30843");
-  script_xref(name:"URL", value:"https://lists.suse.com/pipermail/sle-security-updates/2022-September/012209.html");
-  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/OO5PL2WBIOJ6AX5KEDZSYH6ILAFYPCOW/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/YOHL3O2H4FYUTUK2D4PURO24UAX3EBPW/");
-  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2022-3437.html");
-  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2022-3592.html");
-  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2022-42898.html");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/RWT32WRO3GIUCYYBMM7WJSBXB7UVCOAU/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/FXHIAIPMFZWDIVEPCU6MTIM33HSORPOQ/");
-  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2022-38023.html");
-  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2022-37966.html");
-  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2022-37967.html");
-  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2022-45141.html");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/VCTYD5EQRS73QZTWPOC2ZO2FL7MMYXMS/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/G2CYDXPFBQES2Z4KLZDILGXFFQ3VIGZ4/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/RWT32WRO3GIUCYYBMM7WJSBXB7UVCOAU/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/VCTYD5EQRS73QZTWPOC2ZO2FL7MMYXMS/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/YOHL3O2H4FYUTUK2D4PURO24UAX3EBPW/");
+  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/OO5PL2WBIOJ6AX5KEDZSYH6ILAFYPCOW/");
+  script_xref(name:"URL", value:"https://lists.suse.com/pipermail/sle-security-updates/2022-September/012209.html");
   script_xref(name:"URL", value:"https://www.samba.org/samba/history/samba-4.15.0.html");
   script_xref(name:"URL", value:"https://www.samba.org/samba/history/samba-4.16.0.html");
   script_xref(name:"URL", value:"https://www.samba.org/samba/history/samba-4.16.1.html");
@@ -51,6 +44,13 @@ if(description)
   script_xref(name:"URL", value:"https://www.samba.org/samba/history/samba-4.16.6.html");
   script_xref(name:"URL", value:"https://www.samba.org/samba/history/samba-4.16.7.html");
   script_xref(name:"URL", value:"https://www.samba.org/samba/history/samba-4.16.8.html");
+  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2022-3437.html");
+  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2022-3592.html");
+  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2022-37966.html");
+  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2022-37967.html");
+  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2022-38023.html");
+  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2022-42898.html");
+  script_xref(name:"URL", value:"https://www.samba.org/samba/security/CVE-2022-45141.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'ldb, samba, sssd, talloc, tdb, tevent' package(s) announced via the MGASA-2023-0010 advisory.");
 

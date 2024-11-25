@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100266");
-  script_version("2023-03-28T10:19:28+0000");
-  script_tag(name:"last_modification", value:"2023-03-28 10:19:28 +0000 (Tue, 28 Mar 2023)");
+  script_version("2024-04-30T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2024-04-30 05:05:26 +0000 (Tue, 30 Apr 2024)");
   script_tag(name:"creation_date", value:"2009-09-01 22:29:29 +0200 (Tue, 01 Sep 2009)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -42,6 +42,9 @@ function getVersion( data, port, proto ) {
   # dnsmasq-pi-hole-2.87test4-6
   # dnsmasq-pi-hole-v2.87rc1
   # dnsmasq-pi-hole-v2.89-9461807
+  # dnsmasq-pi-hole-v2.90
+  # dnsmasq-pi-hole-v2.90+1
+  # dnsmasq-2.78-23-g9e09429
   ver = eregmatch( pattern:"dnsmasq-(pi-hole-)?v?([0-9.]+((rc|test)[0-9-]+)?)", string:data, icase:TRUE );
   if( ver[2] )
     version = ver[2];

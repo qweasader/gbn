@@ -9,8 +9,8 @@ CPE = "cpe:/a:sygnoos:popup_builder";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.118573");
-  script_version("2024-01-12T16:12:12+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-10-31T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-10-31 05:05:48 +0000 (Thu, 31 Oct 2024)");
   script_tag(name:"creation_date", value:"2024-01-12 09:15:29 +0000 (Fri, 12 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
@@ -41,7 +41,7 @@ if (description)
   script_tag(name:"insight", value:"The plugin does not prevent simple visitors from updating
   existing popups, and injecting raw JavaScript in them, which could lead to stored XSS attacks.");
 
-  script_tag(name:"affected", value:"WordPress Popup Builder prior to version 4.2.3.");
+  script_tag(name:"affected", value:"WordPress Popup Builder plugin prior to version 4.2.3.");
 
   script_tag(name:"solution", value:"Update to version 4.2.3 or later.");
 

@@ -2,19 +2,19 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apache:tomcat";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108134");
-  script_version("2023-03-24T10:19:42+0000");
+  script_version("2024-02-28T14:37:42+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-03-24 10:19:42 +0000 (Fri, 24 Mar 2023)");
+  script_tag(name:"last_modification", value:"2024-02-28 14:37:42 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-02-27 11:48:20 +0100 (Mon, 27 Feb 2017)");
-  script_name("Apache Tomcat End of Life (EOL) Detection (Windows)");
+  script_name("Apache Tomcat End of Life (EOL) Detection - Windows");
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Web Servers");
@@ -30,8 +30,8 @@ if(description)
   script_xref(name:"URL", value:"https://en.wikipedia.org/wiki/Apache_Tomcat#Releases");
   script_xref(name:"URL", value:"https://tomcat.apache.org/whichversion.html");
 
-  script_tag(name:"summary", value:"The Apache Tomcat version on the remote host has reached the End
-  of Life (EOL) and should not be used anymore.");
+  script_tag(name:"summary", value:"The Apache Tomcat version on the remote host has reached the end
+  of life (EOL) and should not be used anymore.");
 
   script_tag(name:"vuldetect", value:"Checks if an EOL version is present on the target host.");
 

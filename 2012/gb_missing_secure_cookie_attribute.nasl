@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902661");
-  script_version("2024-01-12T16:12:12+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-09-27T05:05:23+0000");
+  script_tag(name:"last_modification", value:"2024-09-27 05:05:23 +0000 (Fri, 27 Sep 2024)");
   script_tag(name:"creation_date", value:"2012-03-01 17:10:53 +0530 (Thu, 01 Mar 2012)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -16,7 +16,7 @@ if(description)
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Web application abuses");
-  script_dependencies("find_service.nasl", "httpver.nasl", "gb_tls_version_get.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "httpver.nasl", "gb_ssl_tls_version_get.nasl", "global_settings.nasl");
   script_require_ports("Services/www", 443);
   script_mandatory_keys("ssl_tls/port");
   script_exclude_keys("Settings/disable_cgi_scanning");

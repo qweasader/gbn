@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2014.0422");
   script_cve_id("CVE-2014-6457", "CVE-2014-6502", "CVE-2014-6504", "CVE-2014-6506", "CVE-2014-6511", "CVE-2014-6512", "CVE-2014-6517", "CVE-2014-6519", "CVE-2014-6531", "CVE-2014-6558");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
 
@@ -23,9 +23,9 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2014-0422");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2014-0422.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=14294");
   script_xref(name:"URL", value:"http://blog.fuseyism.com/index.php/2014/10/15/security-icedtea-2-5-3-for-openjdk-7-released/");
   script_xref(name:"URL", value:"http://www.oracle.com/technetwork/topics/security/cpuoct2014-1972960.html");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=14294");
   script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2014-1620.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'java-1.7.0-openjdk' package(s) announced via the MGASA-2014-0422 advisory.");

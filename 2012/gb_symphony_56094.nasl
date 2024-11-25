@@ -11,8 +11,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.103604");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_version("2023-10-27T05:05:28+0000");
-  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-11-06 13:03:17 +0100 (Tue, 06 Nov 2012)");
   script_name("Symphony Multiple Remote Security Vulnerabilities");
   script_category(ACT_ATTACK);
@@ -27,16 +27,18 @@ if(description)
   script_tag(name:"solution", value:"Reportedly, the issue is fixed. However, Symantec has not confirmed
   this. Please contact the vendor for more information.");
 
-  script_tag(name:"summary", value:"Symphony is prone to following multiple remote security
-  vulnerabilities:
+  script_tag(name:"summary", value:"Symphony is prone to multiple remote security
+  vulnerabilities.");
 
-  1. An authentication-bypass vulnerability
+  script_tag(name:"insight", value:"The following flaws exist:
 
-  2. Multiple cross-site-scripting vulnerabilities
+  - An authentication bypass vulnerability
 
-  3. An HTML-injection vulnerability
+  - Multiple cross-site scripting (XSS) vulnerabilities
 
-  4. Multiple SQL-injection vulnerabilities");
+  - An HTML injection vulnerability
+
+  - Multiple SQL injection (SQLi) vulnerabilities");
 
   script_tag(name:"impact", value:"An attacker may leverage these issues to run malicious HTML and script
   codes in the context of the affected browser, steal cookie-based

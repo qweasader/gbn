@@ -9,18 +9,18 @@ CPE = "cpe:/a:foxitsoftware:phantompdf";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813264");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2018-14295", "CVE-2018-17706", "CVE-2018-17624", "CVE-2018-17622",
                 "CVE-2018-17620", "CVE-2018-17621", "CVE-2018-17618", "CVE-2018-17619",
                 "CVE-2018-17617", "CVE-2018-17615", "CVE-2018-17616");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-09-27 16:11:00 +0000 (Thu, 27 Sep 2018)");
   script_tag(name:"creation_date", value:"2018-07-20 15:00:12 +0530 (Fri, 20 Jul 2018)");
-  script_name("Foxit PhantomPDF 'JavaScript' Remote Code Execution Vulnerabilities (Windows)");
+  script_name("Foxit PhantomPDF 'JavaScript' Remote Code Execution Vulnerabilities - Windows");
 
   script_tag(name:"summary", value:"Foxit PhantomPDF is prone to multiple code execution vulnerabilities.");
 

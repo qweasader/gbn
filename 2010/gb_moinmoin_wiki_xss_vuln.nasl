@@ -9,9 +9,9 @@ CPE = "cpe:/a:moinmo:moinmoin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801307");
-  script_version("2023-07-28T16:09:07+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2010-0828");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2010-04-13 16:55:19 +0200 (Tue, 13 Apr 2010)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
@@ -20,7 +20,6 @@ if(description)
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_moinmoin_wiki_detect.nasl");
-  script_require_ports("Services/www", 8080);
   script_mandatory_keys("moinmoinWiki/installed");
 
   script_xref(name:"URL", value:"http://moinmo.in/SecurityFixes");
@@ -47,8 +46,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_equal( version:vers, test_version:"1.8.7" ) ||
     version_is_equal( version:vers, test_version:"1.9.2" ) ) {

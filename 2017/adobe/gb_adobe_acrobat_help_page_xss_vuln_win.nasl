@@ -9,14 +9,14 @@ CPE = "cpe:/a:adobe:acrobat";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812287");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2014-5315");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-12-29 11:29:42 +0530 (Fri, 29 Dec 2017)");
   script_tag(name:"qod_type", value:"registry");
-  script_name("Adobe Acrobat Help Page Cross Site Scripting Vulnerability (Windows)");
+  script_name("Adobe Acrobat Help Page Cross Site Scripting Vulnerability - Windows");
 
   script_tag(name:"summary", value:"Adobe Acrobat is prone to a cross-site scripting (XSS) vulnerability.");
 

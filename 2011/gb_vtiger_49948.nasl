@@ -9,15 +9,14 @@ CPE = "cpe:/a:vtiger:vtiger_crm";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103288");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2011-10-06 13:32:57 +0200 (Thu, 06 Oct 2011)");
   script_cve_id("CVE-2011-4559");
 
   script_name("vtiger CRM 'onlyforuser' Parameter SQL Injection Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/49948");
-  script_xref(name:"URL", value:"https://secure.wikimedia.org/wikipedia/en/wiki/Vtiger_CRM");
   script_xref(name:"URL", value:"http://yehg.net/lab/pr0js/advisories/%5BvTiger_5.2.1%5D_blind_sqlin");
 
   script_tag(name:"cvss_base", value:"7.5");
@@ -27,7 +26,6 @@ if (description)
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_dependencies("gb_vtiger_crm_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("vtiger/detected");
 
   script_tag(name:"summary", value:"vtiger CRM is prone to an SQL-injection vulnerability because it

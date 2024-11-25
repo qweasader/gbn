@@ -9,8 +9,8 @@ CPE = "cpe:/a:freeipa:freeipa";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140335");
-  script_version("2023-11-03T05:05:46+0000");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_version("2024-06-17T08:31:37+0000");
+  script_tag(name:"last_modification", value:"2024-06-17 08:31:37 +0000 (Mon, 17 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-08-30 09:14:16 +0700 (Wed, 30 Aug 2017)");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
@@ -24,25 +24,26 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("freeIPA Multiple Vulnerabilities");
+  script_name("FreeIPA < Multiple Vulnerabilities");
 
   script_category(ACT_GATHER_INFO);
+
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_freeipa_detect.nasl");
+  script_dependencies("gb_freeipa_http_detect.nasl");
   script_mandatory_keys("freeipa/detected");
 
-  script_tag(name:"summary", value:"freeIPA is prone to multiple vulnerabilities.");
-
-  script_tag(name:"insight", value:"freeIPA is prone to multiple vulnerabilities:
-
-  - DoS attack against kerberized services by abusing password policy. (CVE-2016-7030)
-
-  - Insufficient permission check in certprofile-mod. (CVE-2016-9575)");
+  script_tag(name:"summary", value:"FreeIPA is prone to multiple vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"affected", value:"freeIPA prior version 4.3.3");
+  script_tag(name:"insight", value:"The following vulnerabilities exist:
+
+  - CVE-2016-7030: DoS attack against kerberized services by abusing password policy
+
+  - CVE-2016-9575: Insufficient permission check in certprofile-mod");
+
+  script_tag(name:"affected", value:"FreeIPA prior to version 4.3.3.");
 
   script_tag(name:"solution", value:"Update to version 4.3.3 or later.");
 

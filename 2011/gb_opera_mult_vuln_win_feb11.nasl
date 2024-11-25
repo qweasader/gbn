@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801728");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-16T05:06:55+0000");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-02-07 15:21:16 +0100 (Mon, 07 Feb 2011)");
   script_cve_id("CVE-2011-0450", "CVE-2011-0682", "CVE-2011-0681", "CVE-2011-0683",
                 "CVE-2011-0684", "CVE-2011-0685", "CVE-2011-0687", "CVE-2011-0686");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("Opera Browser Multiple Vulnerabilities Feb-11 (Windows)");
+  script_name("Opera Browser Multiple Vulnerabilities (Feb 2011) - Windows");
   script_xref(name:"URL", value:"http://www.opera.com/support/kb/view/985/");
   script_xref(name:"URL", value:"http://www.opera.com/docs/changelogs/windows/1101/");
 

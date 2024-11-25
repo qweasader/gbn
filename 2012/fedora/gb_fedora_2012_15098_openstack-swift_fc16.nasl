@@ -8,12 +8,15 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2012-October/089472.html");
   script_oid("1.3.6.1.4.1.25623.1.0.864767");
-  script_version("2023-06-20T05:05:27+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:27 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-01-25T14:38:15+0000");
+  script_tag(name:"last_modification", value:"2024-01-25 14:38:15 +0000 (Thu, 25 Jan 2024)");
   script_tag(name:"creation_date", value:"2012-10-09 09:59:19 +0530 (Tue, 09 Oct 2012)");
   script_cve_id("CVE-2012-4406");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-01-25 02:13:00 +0000 (Thu, 25 Jan 2024)");
   script_xref(name:"FEDORA", value:"2012-15098");
   script_name("Fedora Update for openstack-swift FEDORA-2012-15098");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'openstack-swift'

@@ -9,10 +9,10 @@ CPE = "cpe:/a:infinite_automation_systems:mango_automation";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806065");
-  script_version("2023-10-27T05:05:28+0000");
+  script_version("2024-06-26T05:05:39+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2015-10-01 12:11:26 +0530 (Thu, 01 Oct 2015)");
   script_name("Mango Automation Multiple Vulnerabilities");
 
@@ -38,7 +38,7 @@ if(description)
     properly sanitised before being used to execute commands.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow a
-  remote attacker to gain extra privilges, to gain access to sensitive
+  remote attacker to gain extra privileges, to gain access to sensitive
   information, to inject and execute arbitrary os commands, execute arbitrary
   script code in a users browser session, to execute arbitrary SQL commands
   with administrative privileges.");

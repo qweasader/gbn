@@ -9,8 +9,8 @@ CPE = "cpe:/o:dlink:dir-820l_firmware";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170321");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-10-16T08:00:45+0000");
+  script_tag(name:"last_modification", value:"2024-10-16 08:00:45 +0000 (Wed, 16 Oct 2024)");
   script_tag(name:"creation_date", value:"2023-02-23 20:23:43 +0000 (Thu, 23 Feb 2023)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -38,7 +38,7 @@ if(description)
   script_tag(name:"summary", value:"D-Link DIR-820L devices are prone to a remote command execution
   (RCE) vulnerability.");
 
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if the target host is a vulnerable device.");
 
   script_tag(name:"insight", value:"D-Link DIR-820L was discovered to contain a remote command
   execution vulnerability via the Device Name parameter in /lan.asp.");

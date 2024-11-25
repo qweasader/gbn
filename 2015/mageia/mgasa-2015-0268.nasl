@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.130109");
   script_cve_id("CVE-2015-2721", "CVE-2015-2722", "CVE-2015-2724", "CVE-2015-2728", "CVE-2015-2730", "CVE-2015-2733", "CVE-2015-2734", "CVE-2015-2735", "CVE-2015-2736", "CVE-2015-2737", "CVE-2015-2738", "CVE-2015-2739", "CVE-2015-2740", "CVE-2015-2743", "CVE-2015-4000");
   script_tag(name:"creation_date", value:"2015-10-15 07:42:49 +0000 (Thu, 15 Oct 2015)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-01-20 15:15:00 +0000 (Wed, 20 Jan 2021)");
+  script_tag(name:"severity_date", value:"2015-07-07 17:59:20 +0000 (Tue, 07 Jul 2015)");
 
   script_name("Mageia: Security Advisory (MGASA-2015-0268)");
   script_category(ACT_GATHER_INFO);
@@ -26,10 +26,12 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2015-0268");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2015-0268.html");
+  script_xref(name:"URL", value:"http://www.sqlite.org/releaselog/3_8_10_2.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16232");
   script_xref(name:"URL", value:"https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/NSS_3.19.1_release_notes");
   script_xref(name:"URL", value:"https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/NSS_3.19.2_release_notes");
-  script_xref(name:"URL", value:"http://www.sqlite.org/releaselog/3_8_10_2.html");
+  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2015-1185.html");
+  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2015-1207.html");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-59/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-61/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-64/");
@@ -39,8 +41,6 @@ if(description)
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-70/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2015-71/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/known-vulnerabilities/firefox-esr/");
-  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2015-1185.html");
-  script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2015-1207.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'firefox, firefox-l10n, nss, sqlite3' package(s) announced via the MGASA-2015-0268 advisory.");
 

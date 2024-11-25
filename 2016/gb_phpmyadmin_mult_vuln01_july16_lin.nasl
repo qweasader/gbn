@@ -9,19 +9,19 @@ CPE = "cpe:/a:phpmyadmin:phpmyadmin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808242");
-  script_version("2023-10-17T05:05:34+0000");
+  script_version("2024-02-13T05:06:26+0000");
   script_cve_id("CVE-2016-5739", "CVE-2016-5733", "CVE-2016-5734", "CVE-2016-5731",
                 "CVE-2016-5732", "CVE-2016-5730", "CVE-2016-5706", "CVE-2016-5704",
                 "CVE-2016-5705", "CVE-2016-5703", "CVE-2016-5702");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-13 05:06:26 +0000 (Tue, 13 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-07-01 01:29:00 +0000 (Sat, 01 Jul 2017)");
   script_tag(name:"creation_date", value:"2016-07-04 14:45:45 +0530 (Mon, 04 Jul 2016)");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
-  script_name("phpMyAdmin Multiple Vulnerabilities -01 July16 (Linux)");
+  script_name("phpMyAdmin Multiple Vulnerabilities (PMASA-2016-24, PMASA-2016-26, PMASA-2016-27, PMASA-2016-28) - Linux");
 
   script_tag(name:"summary", value:"phpMyAdmin is prone to multiple vulnerabilities.");
 
@@ -52,14 +52,13 @@ if(description)
   script_tag(name:"affected", value:"phpMyAdmin versions 4.0.x before 4.0.10.16,
   4.4.x before 4.4.15.7, and 4.6.x before 4.6.3 on Linux.");
 
-  script_tag(name:"solution", value:"Upgrade to phpMyAdmin version 4.0.10.16 or
-  4.4.15.7 or 4.6.3 or later.");
+  script_tag(name:"solution", value:"Update to version 4.0.10.16, 4.4.15.7, 4.6.3 or later.");
 
   script_tag(name:"solution_type", value:"VendorFix");
 
   script_xref(name:"URL", value:"https://www.phpmyadmin.net/security/PMASA-2016-28");
-  script_xref(name:"URL", value:"https://www.phpmyadmin.net/security/PMASA-2016-26");
   script_xref(name:"URL", value:"https://www.phpmyadmin.net/security/PMASA-2016-27");
+  script_xref(name:"URL", value:"https://www.phpmyadmin.net/security/PMASA-2016-26");
   script_xref(name:"URL", value:"https://www.phpmyadmin.net/security/PMASA-2016-24");
 
   script_category(ACT_GATHER_INFO);
@@ -67,39 +66,40 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_phpmyadmin_http_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("phpMyAdmin/installed", "Host/runs_unixoide");
-  script_require_ports("Services/www", 80);
+
   exit(0);
 }
-
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!phpPort = get_app_port(cpe:CPE)) exit(0);
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
 
-if(!phpVer = get_app_version(cpe:CPE, port:phpPort)) exit(0);
+if(!vers = get_app_version(cpe:CPE, port:port))
+  exit(0);
 
-if(phpVer =~ "^(4\.0)")
+if(vers =~ "^4\.0")
 {
-  if(version_is_less(version:phpVer, test_version:"4.0.10.16"))
+  if(version_is_less(version:vers, test_version:"4.0.10.16"))
   {
     fix = "4.0.10.16";
     VULN = TRUE;
   }
 }
 
-else if(phpVer =~ "^(4\.4)")
+else if(vers =~ "^4\.4")
 {
-  if(version_is_less(version:phpVer, test_version:"4.4.15.7"))
+  if(version_is_less(version:vers, test_version:"4.4.15.7"))
   {
     fix = "4.4.15.7";
     VULN = TRUE;
   }
 }
 
-else if(phpVer =~ "^(4\.6)")
+else if(vers =~ "^4\.6")
 {
-  if(version_is_less(version:phpVer, test_version:"4.6.3"))
+  if(version_is_less(version:vers, test_version:"4.6.3"))
   {
     fix = "4.6.3";
     VULN = TRUE;
@@ -108,7 +108,7 @@ else if(phpVer =~ "^(4\.6)")
 
 if(VULN)
 {
-  report = report_fixed_ver(installed_version:phpVer, fixed_version:fix);
-  security_message(port:phpPort, data:report);
+  report = report_fixed_ver(installed_version:vers, fixed_version:fix);
+  security_message(port:port, data:report);
   exit(0);
 }

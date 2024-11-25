@@ -9,14 +9,14 @@ CPE = "cpe:/a:vmware:player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809791");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2012-1666");
   script_tag(name:"cvss_base", value:"6.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-02-01 11:10:47 +0530 (Wed, 01 Feb 2017)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("VMware Player Insecure 'tpfc.dll' Code Execution Vulnerability (Linux)");
+  script_name("VMware Player Insecure 'tpfc.dll' Code Execution Vulnerability - Linux");
 
   script_tag(name:"summary", value:"VMware Player is prone to a code execution vulnerability.");
 

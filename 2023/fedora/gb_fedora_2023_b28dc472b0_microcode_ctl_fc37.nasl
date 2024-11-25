@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.827756");
-  script_version("2023-10-12T05:05:32+0000");
+  script_version("2024-10-10T07:25:31+0000");
   script_cve_id("CVE-2022-21216", "CVE-2022-33196", "CVE-2022-33972", "CVE-2022-38090");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:M/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:A/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-02-28 19:42:00 +0000 (Tue, 28 Feb 2023)");
@@ -32,7 +32,7 @@ if(description)
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
 
   script_tag(name:"insight", value:"The microcode_ctl utility is a companion to the microcode driver written
-by Tigran Aivazian <tigran(a)aivazian.fsnet.co.uk&gt, .
+by Tigran Aivazian <tigran(a)aivazian.fsnet.co.uk&gt,.
 
 The microcode update is volatile and needs to be uploaded on each system
 boot i.e. it doesn&#39, t reflash your cpu permanently, reboot and it reverts

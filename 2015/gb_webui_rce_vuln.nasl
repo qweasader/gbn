@@ -7,16 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805175");
-  script_version("2023-12-13T05:05:23+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2015-04-27 17:26:29 +0530 (Mon, 27 Apr 2015)");
 
   script_tag(name:"qod_type", value:"remote_analysis");
-  script_name("WebUI Remote Command Execution Vulnerability");
+  script_name("WebUI RCE Vulnerability");
 
-  script_tag(name:"summary", value:"WebUI is prone to remote command execution.");
+  script_tag(name:"summary", value:"WebUI is prone to a remote command execution (RCE)
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Send a crafted data via HTTP GET request
   and check whether it is able execute system command or not.");

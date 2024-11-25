@@ -4,43 +4,42 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
+CPE = "cpe:/a:embedthis:goahead";
+
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106740");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2017-04-11 13:52:39 +0200 (Tue, 11 Apr 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_name("Moxa AWK Series Devices Detection");
+  script_name("Moxa AWK Series Devices Detection (HTTP)");
 
-  script_tag(name:"summary", value:"Detection of Moxa AWK Series Devices (Industrial Wireless LAN Solutions).
-
-  The script sends a connection request to the server and attempts to detect Moxa AWK Series Devices.");
+  script_tag(name:"summary", value:"HTTP based detection of Moxa AWK Series Devices (Industrial
+  Wireless LAN Solutions).");
 
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Product detection");
-  script_dependencies("gb_goahead_detect.nasl");
+  script_dependencies("gb_embedthis_goahead_http_detect.nasl");
   script_require_ports("Services/www", 80);
-  script_mandatory_keys("embedthis/goahead/detected");
+  script_mandatory_keys("embedthis/goahead/http/detected");
 
   script_xref(name:"URL", value:"http://www.moxa.com/product/Industrial_Wireless_LAN.htm");
 
   exit(0);
 }
 
-CPE = "cpe:/a:embedthis:goahead";
-
 include("host_details.inc");
 include("http_func.inc");
 include("http_keepalive.inc");
 
-if(!port = get_app_port(cpe: CPE))
+if(!port = get_app_port(cpe: CPE, service: "www"))
   exit(0);
 
 res = http_get_cache(port: port, item: "/Login.asp");

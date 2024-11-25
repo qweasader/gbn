@@ -1,29 +1,15 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:adobe:acrobat_reader_dc_continuous";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.818191");
-  script_version("2023-10-20T16:09:12+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2021-35988", "CVE-2021-35987", "CVE-2021-35980", "CVE-2021-28644",
                 "CVE-2021-28640", "CVE-2021-28643", "CVE-2021-28641", "CVE-2021-28639",
                 "CVE-2021-28642", "CVE-2021-28637", "CVE-2021-35986", "CVE-2021-28638",
@@ -31,12 +17,12 @@ if(description)
                 "CVE-2021-35983", "CVE-2021-35981", "CVE-2021-28635");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-08-31 16:59:00 +0000 (Tue, 31 Aug 2021)");
   script_tag(name:"creation_date", value:"2021-08-12 13:09:23 +0530 (Thu, 12 Aug 2021)");
-  script_name("Adobe Reader DC Continuous Security Updates(APSB21-51)-Windows");
+  script_name("Adobe Reader DC Continuous Security Updates (APSB21-51) - Windows");
 
   script_tag(name:"summary", value:"The host is missing an important security
   update according to Adobe August update.");
@@ -74,7 +60,7 @@ if(description)
   script_tag(name:"qod_type", value:"registry");
   script_xref(name:"URL", value:"https://helpx.adobe.com/security/products/acrobat/apsb21-51.html");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("General");
   script_dependencies("gb_adobe_acrobat_reader_dc_cont_detect_win.nasl");
   script_mandatory_keys("Adobe/Acrobat/ReaderDC/Continuous/Win/Ver");

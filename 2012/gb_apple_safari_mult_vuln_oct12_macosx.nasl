@@ -9,7 +9,7 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803032");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-20T14:37:13+0000");
   script_cve_id("CVE-2012-3713", "CVE-2012-3714", "CVE-2012-3715", "CVE-2011-3105",
                 "CVE-2012-2817", "CVE-2012-2818", "CVE-2012-2829", "CVE-2012-2831",
                 "CVE-2012-2842", "CVE-2012-2843", "CVE-2012-3598", "CVE-2012-3601",
@@ -28,9 +28,9 @@ if(description)
                 "CVE-2012-3712");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-10-01 12:01:34 +0530 (Mon, 01 Oct 2012)");
-  script_name("Apple Safari Multiple Vulnerabilities - Oct 2012 (Mac OS X)");
+  script_name("Apple Safari Multiple Vulnerabilities (Oct 2012) - Mac OS X");
   script_xref(name:"URL", value:"http://support.apple.com/kb/HT5502");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/53679");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/54203");

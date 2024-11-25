@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805538");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-20T14:37:13+0000");
   script_cve_id("CVE-2015-0458");
   script_tag(name:"cvss_base", value:"7.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-04-21 17:49:11 +0530 (Tue, 21 Apr 2015)");
-  script_name("Oracle Java SE JRE Unspecified Code Execution Vulnerability Apr 2015 (Windows)");
+  script_name("Oracle Java SE JRE Unspecified Code Execution Vulnerability (Apr 2015) - Windows");
 
   script_tag(name:"summary", value:"Oracle Java SE JRE is prone to an arbitrary code execution vulnerability.");
 

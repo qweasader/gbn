@@ -23,10 +23,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.122543");
   script_cve_id("CVE-2008-4989");
   script_tag(name:"creation_date", value:"2015-10-08 11:47:41 +0000 (Thu, 08 Oct 2015)");
-  script_version("2022-04-05T09:12:43+0000");
-  script_tag(name:"last_modification", value:"2022-04-05 09:12:43 +0000 (Tue, 05 Apr 2022)");
+  script_version("2024-02-09T14:47:30+0000");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-09 03:19:21 +0000 (Fri, 09 Feb 2024)");
 
   script_name("Oracle: Security Advisory (ELSA-2008-0982)");
   script_category(ACT_GATHER_INFO);

@@ -9,14 +9,14 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804751");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2014-1390", "CVE-2014-1389", "CVE-2014-1388", "CVE-2014-1387",
                 "CVE-2014-1386", "CVE-2014-1385", "CVE-2014-1384");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-08-25 21:30:57 +0530 (Mon, 25 Aug 2014)");
-  script_name("Apple Safari Multiple Memory Corruption Vulnerabilities-02 Aug14 (Mac OS X)");
+  script_name("Apple Safari Multiple Memory Corruption Vulnerabilities-02 (Aug 2014) - Mac OS X");
 
   script_tag(name:"summary", value:"Apple Safari is prone to multiple vulnerabilities.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");

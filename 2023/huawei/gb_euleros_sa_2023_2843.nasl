@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2023.2843");
   script_cve_id("CVE-2022-45886", "CVE-2023-21255", "CVE-2023-2156", "CVE-2023-2163", "CVE-2023-22998", "CVE-2023-2985", "CVE-2023-31084", "CVE-2023-31248", "CVE-2023-3212", "CVE-2023-3268", "CVE-2023-3327", "CVE-2023-3389", "CVE-2023-3390", "CVE-2023-34256", "CVE-2023-35001", "CVE-2023-3567", "CVE-2023-35788", "CVE-2023-35823", "CVE-2023-35824", "CVE-2023-3609", "CVE-2023-3610", "CVE-2023-3611", "CVE-2023-3776");
   script_tag(name:"creation_date", value:"2023-09-20 04:19:58 +0000 (Wed, 20 Sep 2023)");
-  script_version("2023-09-25T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-09-25 05:05:21 +0000 (Mon, 25 Sep 2023)");
+  script_version("2024-02-05T14:36:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:57 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-09-22 02:02:00 +0000 (Fri, 22 Sep 2023)");
+  script_tag(name:"severity_date", value:"2023-09-22 02:02:18 +0000 (Fri, 22 Sep 2023)");
 
   script_name("Huawei EulerOS: Security Advisory for kernel (EulerOS-SA-2023-2843)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROS\-2\.0SP11");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2023-2843");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2023-2843");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2023-2843");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'kernel' package(s) announced via the EulerOS-SA-2023-2843 advisory.");
 

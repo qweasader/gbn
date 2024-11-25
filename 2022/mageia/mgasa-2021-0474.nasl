@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2021.0474");
   script_cve_id("CVE-2021-39139", "CVE-2021-39140", "CVE-2021-39141", "CVE-2021-39144", "CVE-2021-39145", "CVE-2021-39146", "CVE-2021-39147", "CVE-2021-39148", "CVE-2021-39149", "CVE-2021-39150", "CVE-2021-39151", "CVE-2021-39152", "CVE-2021-39153", "CVE-2021-39154");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-08-26 20:43:00 +0000 (Thu, 26 Aug 2021)");
+  script_tag(name:"severity_date", value:"2021-08-26 20:43:25 +0000 (Thu, 26 Aug 2021)");
 
   script_name("Mageia: Security Advisory (MGASA-2021-0474)");
   script_category(ACT_GATHER_INFO);
@@ -27,8 +27,8 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2021-0474");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2021-0474.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=29512");
-  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2021/dla-2769");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/QGXIU3YDPG6OGTDHMBLAFN7BPBERXREB/");
+  script_xref(name:"URL", value:"https://www.debian.org/lts/security/2021/dla-2769");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'mxparser, xmlpull, xstream' package(s) announced via the MGASA-2021-0474 advisory.");
 
@@ -43,6 +43,8 @@ references for details.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

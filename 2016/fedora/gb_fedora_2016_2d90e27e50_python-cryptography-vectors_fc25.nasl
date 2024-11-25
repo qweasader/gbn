@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.872003");
-  script_version("2023-06-21T05:06:23+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:23 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-09-10T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-09-10 05:05:42 +0000 (Tue, 10 Sep 2024)");
   script_tag(name:"creation_date", value:"2016-12-07 05:23:55 +0100 (Wed, 07 Dec 2016)");
   script_cve_id("CVE-2016-9243");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2017-04-04 16:00:00 +0000 (Tue, 04 Apr 2017)");
+  script_tag(name:"severity_date", value:"2024-09-09 13:52:16 +0000 (Mon, 09 Sep 2024)");
   script_tag(name:"qod_type", value:"package");
   script_name("Fedora Update for python-cryptography-vectors FEDORA-2016-2d90e27e50");
   script_tag(name:"summary", value:"The remote host is missing an update for the 'python-cryptography-vectors'

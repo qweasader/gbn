@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800384");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-04-23 08:16:04 +0200 (Thu, 23 Apr 2009)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -16,7 +16,7 @@ if(description)
                 "CVE-2009-1097", "CVE-2009-1098", "CVE-2009-1099", "CVE-2009-1100",
                 "CVE-2009-1101", "CVE-2009-1102", "CVE-2009-1103", "CVE-2009-1104",
                 "CVE-2009-1105", "CVE-2009-1106", "CVE-2009-1107");
-  script_name("Sun Java JDK/JRE Multiple Vulnerabilities (Windows)");
+  script_name("Sun Java JDK/JRE Multiple Vulnerabilities - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/34489");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/34240");
   script_xref(name:"URL", value:"http://rhn.redhat.com/errata/RHSA-2009-0394.html");

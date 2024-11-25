@@ -7,28 +7,31 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11193");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-05-03T15:38:41+0000");
+  script_tag(name:"last_modification", value:"2024-05-03 15:38:41 +0000 (Fri, 03 May 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_cve_id("CVE-2002-2243");
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/6323");
-  script_name("akfingerd");
-
-  script_category(ACT_GATHER_INFO); # This script should not disrupt the machine at all
-  script_tag(name:"qod_type", value:"remote_analysis");
-
+  script_cve_id("CVE-2002-2243", "CVE-2002-2244", "CVE-2002-2274");
+  script_name("akfingerd <= 0.5 Multiple Vulnerabilities");
+  script_category(ACT_GATHER_INFO); # nb: This script should not disrupt the machine at all
   script_copyright("Copyright (C) 2002 Andrew Hintz");
   script_family("Denial of Service");
   script_dependencies("find_service.nasl", "find_service1.nasl", "find_service2.nasl");
   script_require_ports("Services/finger", 79);
+
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210208004126/http://www.securityfocus.com/bid/6323/");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210208004126/http://www.securityfocus.com/bid/6324/");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210208004126/http://www.securityfocus.com/bid/6325/");
 
   script_tag(name:"summary", value:"The remote finger service appears to be vulnerable to a remote
   attack which can disrupt the service of the finger daemon.
 
   This denial of service does not effect other services that may be running on the remote computer,
   only the finger service can be disrupted.");
+
+  script_tag(name:"vuldetect", value:"Sends multiple crafted finger requests and checks the
+  responses.");
 
   script_tag(name:"insight", value:"akfingerd version 0.5 or earlier is running on the remote host.
   This daemon has a history of security problems, make sure that you are running the latest version
@@ -42,6 +45,7 @@ if(description)
   General solution options are to upgrade to a newer release, disable respective features,
   remove the product or replace the product by another one.");
 
+  script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"WillNotFix");
 
   exit(0);

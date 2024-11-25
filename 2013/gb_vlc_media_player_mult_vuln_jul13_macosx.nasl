@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803901");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-08T14:36:53+0000");
   script_cve_id("CVE-2013-1868", "CVE-2012-5855");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-07-16 14:45:11 +0530 (Tue, 16 Jul 2013)");
-  script_name("VLC Media Player Multiple Vulnerabilities - July 13 - Mac OS X");
+  script_name("VLC Media Player Multiple Vulnerabilities (Jul 2013) - Mac OS X");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attackers to overflow buffer, cause denial
 of service or potentially execution of arbitrary code.");

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108201");
-  script_version("2023-10-12T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_version("2024-06-14T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-06-14 05:05:48 +0000 (Fri, 14 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-08-01 11:13:48 +0200 (Tue, 01 Aug 2017)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -160,6 +160,23 @@ if( serverbanner ) {
     os_register_and_report( os:"Cisco SPA Firmware", cpe:"cpe:/o:cisco:spa_firmware", banner_type:BANNER_TYPE, port:port, proto:proto, banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide" );
     exit( 0 );
   }
+
+  # Server: Grandstream GXP1625 1.0.2.25
+  #
+  # nb: More detailed detection in gb_grandstream_gxp_sip_detect.nasl
+  if( serverbanner =~ "Grandstream GXP" ) {
+    os_register_and_report( os:"Grandstream GXP Firmware", cpe:"cpe:/o:grandstream:gxp_firmware", banner_type:BANNER_TYPE, port:port, proto:proto, banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide" );
+    exit( 0 );
+  }
+
+  # Server: Mitel 6930/6.4.0.132
+  # Server: Aastra 6731i/3.2.2.3077
+  #
+  # nb: More detailed detection in gsf/gb_mitel_ip_phones_sip_detect.nasl
+  if( serverbanner =~ "(Mitel|Aastra) [0-9]{4}" ) {
+    os_register_and_report( os:"Mitel IP Phone Firmware", cpe:"cpe:/o:mitel:sip_firmware", banner_type:BANNER_TYPE, port:port, proto:proto, banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide" );
+    exit( 0 );
+  }
 }
 
 if( uabanner ) {
@@ -277,6 +294,8 @@ if( uabanner ) {
   }
 
   # User-Agent: Grandstream GXP1400 1.0.4.13
+  # User-Agent: Grandstream GXP1450 1.0.3.30
+  #
   # nb: More detailed detection in gb_grandstream_gxp_sip_detect.nasl
   if( uabanner =~ "Grandstream GXP" ) {
     os_register_and_report( os:"Grandstream GXP Firmware", cpe:"cpe:/o:grandstream:gxp_firmware", banner_type:BANNER_TYPE, port:port, proto:proto, banner:concluded, desc:SCRIPT_DESC, runs_key:"unixoide" );

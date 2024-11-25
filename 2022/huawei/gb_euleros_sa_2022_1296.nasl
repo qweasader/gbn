@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2022.1296");
   script_cve_id("CVE-2018-18440", "CVE-2019-11059", "CVE-2019-11690", "CVE-2019-13103", "CVE-2019-13104", "CVE-2019-13106", "CVE-2019-14192", "CVE-2019-14193", "CVE-2019-14194", "CVE-2019-14195", "CVE-2019-14196", "CVE-2019-14197", "CVE-2019-14198", "CVE-2019-14199", "CVE-2019-14200", "CVE-2019-14201", "CVE-2019-14202", "CVE-2019-14203", "CVE-2019-14204");
   script_tag(name:"creation_date", value:"2022-03-02 14:40:28 +0000 (Wed, 02 Mar 2022)");
-  script_version("2023-06-20T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:23 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"8.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-03-03 17:42:00 +0000 (Fri, 03 Mar 2023)");
+  script_tag(name:"severity_date", value:"2019-08-13 17:57:47 +0000 (Tue, 13 Aug 2019)");
 
   script_name("Huawei EulerOS: Security Advisory for uboot-tools (EulerOS-SA-2022-1296)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROS\-2\.0SP9\-X86_64");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2022-1296");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2022-1296");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2022-1296");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'uboot-tools' package(s) announced via the EulerOS-SA-2022-1296 advisory.");
 

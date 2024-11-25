@@ -7,19 +7,22 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832738");
-  script_version("2023-12-15T16:10:08+0000");
-  script_cve_id("CVE-2023-42919", "CVE-2023-42894", "CVE-2023-42886", "CVE-2023-42922",
-                "CVE-2023-42899", "CVE-2023-42891", "CVE-2023-42914", "CVE-2020-19185",
-                "CVE-2020-19186", "CVE-2020-19187", "CVE-2020-19188", "CVE-2020-19189",
-                "CVE-2020-19190", "CVE-2023-42932", "CVE-2023-5344");
+  script_version("2024-06-21T05:05:42+0000");
+  script_cve_id("CVE-2023-42919", "CVE-2023-42894", "CVE-2023-42896", "CVE-2023-42886",
+                "CVE-2023-42931", "CVE-2023-42892", "CVE-2023-42922", "CVE-2023-42834",
+                "CVE-2023-42899", "CVE-2023-42891", "CVE-2023-42974", "CVE-2023-42914",
+                "CVE-2023-42893", "CVE-2023-3618", "CVE-2020-19185", "CVE-2020-19186",
+                "CVE-2020-19187", "CVE-2020-19188", "CVE-2020-19189", "CVE-2020-19190",
+                "CVE-2023-42838", "CVE-2023-42836", "CVE-2023-42936", "CVE-2023-42930",
+                "CVE-2023-42932", "CVE-2023-42947", "CVE-2023-5344");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-12-15 16:10:08 +0000 (Fri, 15 Dec 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-12-14 14:07:00 +0000 (Thu, 14 Dec 2023)");
+  script_tag(name:"severity_date", value:"2024-04-08 22:47:21 +0000 (Mon, 08 Apr 2024)");
   script_tag(name:"creation_date", value:"2023-12-13 16:53:41 +0530 (Wed, 13 Dec 2023)");
-  script_name("Apple MacOSX Security Update (HT214037)");
+  script_name("Apple Mac OS X Security Update (HT214037)");
 
   script_tag(name:"summary", value:"Apple Mac OS X is prone to multiple
   vulnerabilities.");
@@ -33,9 +36,7 @@ if(description)
 
   - An out-of-bounds read was addressed with improved bounds checking.
 
-  - An authentication issue was addressed with improved state management.
-
-  For more information about the vulnerabilities refer to Reference links.");
+  - An authentication issue was addressed with improved state management.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attackers
   to conduct arbitrary code execution, disclose sensitive information and conduct

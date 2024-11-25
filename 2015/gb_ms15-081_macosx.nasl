@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805734");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-28T05:05:37+0000");
   script_cve_id("CVE-2015-2468", "CVE-2015-2469", "CVE-2015-2470", "CVE-2015-2477");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-28 05:05:37 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-08-13 11:50:44 +0530 (Thu, 13 Aug 2015)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("Microsoft Office Multiple Remote Code Execution Vulnerabilities-3080790 (Mac OS X)");
+  script_name("Microsoft Office Multiple Remote Code Execution Vulnerabilities (3080790) - Mac OS X");
 
   script_tag(name:"summary", value:"This host is missing an important security
   update according to Microsoft Bulletin MS15-081.");

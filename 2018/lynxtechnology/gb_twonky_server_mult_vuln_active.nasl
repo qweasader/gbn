@@ -9,8 +9,8 @@ CPE = "cpe:/a:twonky:twonky_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108436");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-04-07 12:17:00 +0200 (Sat, 07 Apr 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -19,13 +19,14 @@ if(description)
   script_tag(name:"severity_date", value:"2018-04-20 13:16:00 +0000 (Fri, 20 Apr 2018)");
   script_cve_id("CVE-2018-7171", "CVE-2018-7203");
 
-  script_name("Twonky Server <= 8.5 Multiple Vulnerabilities (Active Check)");
+  script_name("Twonky Server 7.0.11 - 8.5 Multiple Vulnerabilities - Active Check");
 
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_twonky_server_detect.nasl");
-  script_mandatory_keys("twonky_server/installed");
+  script_require_ports("Services/www", 9000);
+  script_mandatory_keys("twonky/server/http/detected");
 
   script_xref(name:"URL", value:"https://packetstormsecurity.com/files/146938/TwonkyMedia-Server-7.0.11-8.5-Directory-Traversal.html");
   script_xref(name:"URL", value:"https://packetstormsecurity.com/files/146939/TwonkyMedia-Server-7.0.11-8.5-Cross-Site-Scripting.html");
@@ -65,9 +66,14 @@ include("host_details.inc");
 include("misc_func.inc");
 include("list_array_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! dir  = get_app_location( cpe:CPE, port:port ) ) exit( 0 );
-if( dir == "/" ) dir = "";
+if( ! port = get_app_port( cpe:CPE, service:"www" ) )
+  exit( 0 );
+
+if( ! dir  = get_app_location( cpe:CPE, port:port ) )
+  exit( 0 );
+
+if( dir == "/" )
+  dir = "";
 
 # First check if the RPC service is password protected.
 url = dir + "/rpc/get_option?contentbase";

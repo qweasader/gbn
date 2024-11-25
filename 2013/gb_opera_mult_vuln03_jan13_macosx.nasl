@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803146");
-  script_version("2023-10-12T05:05:32+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2012-6461", "CVE-2012-6462", "CVE-2012-6463", "CVE-2012-6464",
                 "CVE-2012-6465", "CVE-2012-6466", "CVE-2012-6467");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-01-07 16:09:01 +0530 (Mon, 07 Jan 2013)");
-  script_name("Opera Multiple Vulnerabilities-03 Jan13 (Mac OS X)");
+  script_name("Opera Multiple Vulnerabilities-03 (Jan 2013) - Mac OS X");
   script_xref(name:"URL", value:"http://www.opera.com/support/kb/view/1034/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/56407");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/57120");

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2016.0307");
   script_cve_id("CVE-2016-1669");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-08-16 13:18:00 +0000 (Tue, 16 Aug 2022)");
+  script_tag(name:"severity_date", value:"2016-05-16 18:36:31 +0000 (Mon, 16 May 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0307)");
   script_category(ACT_GATHER_INFO);
@@ -30,8 +30,8 @@ if(description)
   script_xref(name:"URL", value:"https://nodejs.org/en/blog/release/v0.10.44/");
   script_xref(name:"URL", value:"https://nodejs.org/en/blog/release/v0.10.45/");
   script_xref(name:"URL", value:"https://nodejs.org/en/blog/release/v0.10.46/");
-  script_xref(name:"URL", value:"https://nodejs.org/en/blog/vulnerability/npm-tokens-leak-march-2016/");
   script_xref(name:"URL", value:"https://nodejs.org/en/blog/vulnerability/june-2016-security-releases/");
+  script_xref(name:"URL", value:"https://nodejs.org/en/blog/vulnerability/npm-tokens-leak-march-2016/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'nodejs' package(s) announced via the MGASA-2016-0307 advisory.");
 

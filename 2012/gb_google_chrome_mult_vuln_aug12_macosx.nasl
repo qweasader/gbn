@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802929");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-08T14:36:53+0000");
   script_cve_id("CVE-2012-2847", "CVE-2012-2860", "CVE-2012-2858", "CVE-2012-2857",
                 "CVE-2012-2856", "CVE-2012-2855", "CVE-2012-2854", "CVE-2012-2853",
                 "CVE-2012-2852", "CVE-2012-2851", "CVE-2012-2850", "CVE-2012-2849",
                 "CVE-2012-2848");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-08-08 15:15:33 +0530 (Wed, 08 Aug 2012)");
-  script_name("Google Chrome Multiple Vulnerabilities - August 12 (Mac OS X)");
+  script_name("Google Chrome Multiple Vulnerabilities (Aug 2012) - Mac OS X");
   script_xref(name:"URL", value:"http://secunia.com/advisories/50105/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/54749");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.in/2012/07/stable-channel-release.html");

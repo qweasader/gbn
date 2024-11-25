@@ -9,8 +9,8 @@ CPE = "cpe:/a:apple:itunes";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802193");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-10-20 08:43:23 +0200 (Thu, 20 Oct 2011)");
   script_cve_id("CVE-2011-0259", "CVE-2011-0200", "CVE-2011-3252", "CVE-2011-3219",
                 "CVE-2011-0204", "CVE-2011-0215", "CVE-2010-1823", "CVE-2011-0164",
@@ -34,7 +34,7 @@ if(description)
                 "CVE-2011-3241", "CVE-2011-3244", "CVE-2011-1774");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("Apple iTunes Multiple Vulnerabilities - Oct 11");
+  script_name("Apple iTunes Multiple Vulnerabilities (Oct 2011)");
   script_xref(name:"URL", value:"http://support.apple.com/kb/HT4981");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/43228");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/46262");

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811737");
-  script_version("2024-01-18T05:07:09+0000");
-  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
+  script_version("2024-02-09T14:47:30+0000");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-09-11 19:06:34 +0530 (Mon, 11 Sep 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -46,6 +46,7 @@ if (!sysdesc = snmp_get_sysdescr(port: port))
 # Pulse Secure,LLC,Pulse Connect Secure,MAG-SM160,8.1R7 (build 41041)
 # Pulse Secure, LLC,Pulse Connect Secure,SA-2500,8.1R15.1 (build 59747)
 # Pulse Secure, LLC,Ivanti Connect Secure,PSA-3000,9.1R18.1 (build 23821)
+# Pulse Secure, LLC,Ivanti Connect Secure,ISA-V,22.3R1 (build 1647)
 #
 # nb: Please keep the pattern used here in sync with the one used in gb_snmp_os_detection.nasl
 #

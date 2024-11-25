@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800176");
-  script_version("2023-06-27T05:05:30+0000");
+  script_version("2024-06-21T05:05:42+0000");
   script_tag(name:"deprecated", value:TRUE);
-  script_tag(name:"last_modification", value:"2023-06-27 05:05:30 +0000 (Tue, 27 Jun 2023)");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"creation_date", value:"2010-03-10 15:48:25 +0100 (Wed, 10 Mar 2010)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2010-0806");
-  script_name("MS Internet Explorer RCE Vulnerability (981374)");
+  script_name("Microsoft Internet Explorer RCE Vulnerability (981374)");
 
   script_xref(name:"URL", value:"https://docs.microsoft.com/en-us/security-updates/securitybulletins/2010/ms10-018");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/38615");

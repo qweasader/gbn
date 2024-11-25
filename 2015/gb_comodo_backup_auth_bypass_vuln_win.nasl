@@ -9,14 +9,14 @@ CPE = "cpe:/a:comodo:backup";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805344");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2014-9633");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-03-06 11:49:43 +0530 (Fri, 06 Mar 2015)");
   script_tag(name:"qod_type", value:"registry");
-  script_name("COMODO BackUp Authentication Bypass Vulnerability (Windows)");
+  script_name("COMODO BackUp Authentication Bypass Vulnerability - Windows");
 
   script_tag(name:"summary", value:"COMODO BackUp is prone to an authentication bypass vulnerability.");
 

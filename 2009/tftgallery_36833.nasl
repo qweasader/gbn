@@ -9,8 +9,8 @@ CPE = "cpe:/a:tftgallery:tftgallery";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100325");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-03-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2009-10-29 12:31:54 +0100 (Thu, 29 Oct 2009)");
   script_cve_id("CVE-2009-3833");
   script_tag(name:"cvss_base", value:"4.3");
@@ -20,11 +20,9 @@ if(description)
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2009 Greenbone AG");
   script_dependencies("tftgallery_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("tftgallery/detected");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/36833");
-  script_xref(name:"URL", value:"http://www.tftgallery.org/");
 
   script_tag(name:"impact", value:"An attacker may leverage this issue to execute arbitrary script code
   in the browser of an unsuspecting user in the context of the affected
@@ -55,12 +53,13 @@ if( ! port = get_app_port( cpe:CPE ) )
 if( ! infos = get_app_version_and_location( cpe:CPE, port:port, exit_no_version:TRUE ) )
   exit( 0 );
 
-vers = infos['version'];
-path = infos['location'];
+vers = infos["version"];
+path = infos["location"];
 
 if( version_is_less_equal( version:vers, test_version:"0.13" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"WillNotFix", install_path:path );
   security_message( port:port, data:report );
+  exit( 0 );
 }
 
-exit( 0 );
+exit( 99 );

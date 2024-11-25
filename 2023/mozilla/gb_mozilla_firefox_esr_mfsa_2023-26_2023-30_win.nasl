@@ -9,18 +9,18 @@ CPE = "cpe:/a:mozilla:firefox_esr";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832346");
-  script_version("2023-10-13T05:06:10+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2023-3600", "CVE-2023-4045", "CVE-2023-4046", "CVE-2023-4047",
                 "CVE-2023-4048", "CVE-2023-4049", "CVE-2023-4050", "CVE-2023-4054",
                 "CVE-2023-4055", "CVE-2023-4056");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-08-04 18:47:00 +0000 (Fri, 04 Aug 2023)");
   script_tag(name:"creation_date", value:"2023-08-03 16:46:44 +0530 (Thu, 03 Aug 2023)");
-  script_name("Mozilla Firefox ESR Security Updates (mfsa_2023-26_2023-30) - Windows");
+  script_name("Mozilla Firefox ESR Security Advisories (MFSA2023-26, MFSA2023-30) - Windows");
 
   script_tag(name:"summary", value:"Mozilla Firefox ESR is prone to multiple
   vulnerabilities.");

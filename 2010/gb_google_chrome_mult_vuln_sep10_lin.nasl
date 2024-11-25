@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801448");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-08T14:36:53+0000");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-09-21 16:43:08 +0200 (Tue, 21 Sep 2010)");
   script_cve_id("CVE-2010-3246", "CVE-2010-3247", "CVE-2010-3249", "CVE-2010-3248",
                 "CVE-2010-3250", "CVE-2010-3252", "CVE-2010-3251", "CVE-2010-3253",
@@ -16,7 +16,7 @@ if(description)
                 "CVE-2010-3258", "CVE-2010-3259");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_name("Google Chrome multiple vulnerabilities (Linux)");
+  script_name("Google Chrome Multiple Vulnerabilities - Linux");
   script_xref(name:"URL", value:"http://vul.hackerjournals.com/?p=12156");
   script_xref(name:"URL", value:"http://googlechromereleases.blogspot.com/2010/09/stable-and-beta-channel-updates.html");
 

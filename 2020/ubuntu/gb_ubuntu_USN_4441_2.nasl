@@ -8,8 +8,8 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.844530");
   script_tag(name:"creation_date", value:"2020-08-06 03:00:19 +0000 (Thu, 06 Aug 2020)");
-  script_version("2023-06-21T05:06:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:21 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 
@@ -24,8 +24,8 @@ if(description)
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-4441-2");
   script_xref(name:"URL", value:"https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-31.html");
   script_xref(name:"URL", value:"https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html");
-  script_xref(name:"URL", value:"https://www.oracle.com/security-alerts/cpujul2020.html");
   script_xref(name:"URL", value:"https://launchpad.net/bugs/1889851");
+  script_xref(name:"URL", value:"https://www.oracle.com/security-alerts/cpujul2020.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'mysql-8.0' package(s) announced via the USN-4441-2 advisory.");
 

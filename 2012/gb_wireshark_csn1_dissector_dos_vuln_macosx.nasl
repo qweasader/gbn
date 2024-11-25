@@ -4,22 +4,24 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
+CPE = "cpe:/a:wireshark:wireshark";
+
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802768");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-07-23T05:05:30+0000");
   script_cve_id("CVE-2011-4100");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-23 05:05:30 +0000 (Tue, 23 Jul 2024)");
   script_tag(name:"creation_date", value:"2012-05-02 17:24:26 +0530 (Wed, 02 May 2012)");
-  script_name("Wireshark CSN.1 Dissector Denial of Service Vulnerability (Mac OS X)");
+  script_name("Wireshark CSN.1 Dissector Denial of Service Vulnerability - Mac OS X");
 
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Denial of Service");
   script_dependencies("gb_wireshark_detect_macosx.nasl");
-  script_mandatory_keys("Wireshark/MacOSX/Version");
+  script_mandatory_keys("wireshark/macosx/detected");
   script_tag(name:"impact", value:"Successful exploitation could allow attackers to cause a denial of service
   via a malformed packet.");
   script_tag(name:"affected", value:"Wireshark version 1.6.x before 1.6.3");
@@ -39,14 +41,19 @@ if(description)
   exit(0);
 }
 
+include("host_details.inc");
 include("version_func.inc");
 
-wiresharkVer = get_kb_item("Wireshark/MacOSX/Version");
-if(!wiresharkVer){
+if(!infos = get_app_version_and_location(cpe:CPE, exit_no_version:TRUE))
+  exit(0);
+
+version = infos["version"];
+location = infos["location"];
+
+if(version_in_range(version:version, test_version:"1.6.0", test_version2:"1.6.2")) {
+  report = report_fixed_ver(installed_version:version, vulnerable_range:"1.6.0 - 1.6.2", install_path:location);
+  security_message(port:0, data:report);
   exit(0);
 }
 
-if(version_in_range(version:wiresharkVer, test_version:"1.6.0", test_version2:"1.6.2")){
-  report = report_fixed_ver(installed_version:wiresharkVer, vulnerable_range:"1.6.0 - 1.6.2");
-  security_message(port:0, data:report);
-}
+exit(99);

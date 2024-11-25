@@ -9,8 +9,8 @@ CPE = "cpe:/a:ibm:urbancode_deploy";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106563");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-09-13T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2024-09-13 05:05:46 +0000 (Fri, 13 Sep 2024)");
   script_tag(name:"creation_date", value:"2017-02-03 09:38:09 +0700 (Fri, 03 Feb 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -82,7 +82,7 @@ location = infos["location"];
 if (version_in_range(version: version, test_version: "6.0", test_version2: "6.0.1.14") ||
     version_in_range(version: version, test_version: "6.1", test_version2: "6.1.3.3") ||
     version_in_range(version: version, test_version: "6.2", test_version2: "6.2.2.1")) {
-  report = report_fixed_ver(installed_version: version, fixed_version: "Check vendor advisory.", install_path: location);
+  report = report_fixed_ver(installed_version: version, fixed_version: "See vendor advisory", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }

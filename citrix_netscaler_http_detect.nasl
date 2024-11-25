@@ -8,8 +8,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.80024");
-  script_version("2023-12-19T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
+  script_version("2024-05-14T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2024-05-14 05:05:26 +0000 (Tue, 14 May 2024)");
   script_tag(name:"creation_date", value:"2008-10-24 20:15:31 +0200 (Fri, 24 Oct 2008)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -48,6 +48,10 @@ foreach url (make_list("/vpn/tmindex.html", "/vpn/index.html", "/", "/index.html
   # <TITLE>Citrix Access Gateway</TITLE>
   # class="_ctxstxt_NetscalerGateway"
   # class="_ctxstxt_NetscalerAAA"
+  # <table class="CTXMSAM_LogonFont">
+  # <title>Citrix Gateway</title>
+  # <title>NetScaler Gateway</title>
+  # <title>Netscaler Gateway</title>
   #
   # All on the same system:
   # <title>Citrix Gateway</title>
@@ -59,7 +63,8 @@ foreach url (make_list("/vpn/tmindex.html", "/vpn/index.html", "/", "/index.html
       res !~ "<title>netscaler gateway</title>" &&
       res !~ "citrix access gateway(\s*-\s*.* edition)?</title>" &&
       res !~ "<title>Citrix Gateway</title>.+(ns_body|Citrix Systems, Inc\.|/vpn/nsshare\.js)" &&
-      'class="_ctxstxt_Netscaler' >!< res)
+      'class="_ctxstxt_Netscaler' >!< res &&
+      'class="CTXMSAM_LogonFont">' >!< res)
     continue;
 
   set_kb_item(name: "citrix/netscaler/detected", value: TRUE);

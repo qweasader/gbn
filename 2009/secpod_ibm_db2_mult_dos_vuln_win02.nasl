@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900677");
-  script_version("2023-10-06T16:09:51+0000");
-  script_tag(name:"last_modification", value:"2023-10-06 16:09:51 +0000 (Fri, 06 Oct 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-06-30 16:55:49 +0200 (Tue, 30 Jun 2009)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
   script_cve_id("CVE-2008-6821", "CVE-2008-6820", "CVE-2008-2154");
 
-  script_name("IBM Db2 Multiple Vulnerabilities (Windows)");
+  script_name("IBM Db2 Multiple Vulnerabilities - Windows");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2009 Greenbone AG");

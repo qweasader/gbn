@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2022.0318");
   script_cve_id("CVE-2022-3038", "CVE-2022-3039", "CVE-2022-3040", "CVE-2022-3041", "CVE-2022-3042", "CVE-2022-3043", "CVE-2022-3044", "CVE-2022-3045", "CVE-2022-3046", "CVE-2022-3047", "CVE-2022-3048", "CVE-2022-3049", "CVE-2022-3050", "CVE-2022-3051", "CVE-2022-3052", "CVE-2022-3053", "CVE-2022-3054", "CVE-2022-3055", "CVE-2022-3056", "CVE-2022-3057", "CVE-2022-3058", "CVE-2022-3071", "CVE-2022-3075");
   script_tag(name:"creation_date", value:"2022-09-05 05:04:07 +0000 (Mon, 05 Sep 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
@@ -26,10 +26,10 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2022-0318");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2022-0318.html");
+  script_xref(name:"URL", value:"https://blog.chromium.org/2022/08/chrome-105-beta-custom-highlighting.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=30802");
   script_xref(name:"URL", value:"https://chromereleases.googleblog.com/2022/08/stable-channel-update-for-desktop_30.html");
   script_xref(name:"URL", value:"https://chromereleases.googleblog.com/2022/09/stable-channel-update-for-desktop.html");
-  script_xref(name:"URL", value:"https://blog.chromium.org/2022/08/chrome-105-beta-custom-highlighting.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'chromium-browser-stable' package(s) announced via the MGASA-2022-0318 advisory.");
 
@@ -121,6 +121,8 @@ KunLun lab on 2022-06-20");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

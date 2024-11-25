@@ -9,14 +9,15 @@ CPE = "cpe:/a:apple:quicktime";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807545");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-04-18 12:07:38 +0530 (Mon, 18 Apr 2016)");
-  script_name("Apple QuickTime Multiple Remote Code Execution Vulnerabilities Apr16 (Windows)");
+  script_name("Apple QuickTime Multiple Remote Code Execution Vulnerabilities (Apr 2016) - Windows");
 
-  script_tag(name:"summary", value:"Apple QuickTime is prone to multiple remote code execution vulnerabilities.");
+  script_tag(name:"summary", value:"Apple QuickTime is prone to multiple remote code execution (RCE)
+  vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

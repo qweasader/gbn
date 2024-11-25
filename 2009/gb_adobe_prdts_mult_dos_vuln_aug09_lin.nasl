@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800854");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-08T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-08-06 06:50:55 +0200 (Thu, 06 Aug 2009)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2009-1863", "CVE-2009-1864", "CVE-2009-1865", "CVE-2009-1866",
                 "CVE-2009-1867", "CVE-2009-1868", "CVE-2009-1869", "CVE-2009-1870");
-  script_name("Adobe Flash Player/Air Multiple DoS Vulnerabilities - Aug09 (Linux)");
+  script_name("Adobe Flash Player/Air Multiple DoS Vulnerabilities (Aug 2009) - Linux");
   script_xref(name:"URL", value:"http://secunia.com/advisories/35948/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/35900");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/35901");

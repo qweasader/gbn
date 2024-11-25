@@ -1,28 +1,14 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170202");
-  script_version("2022-12-21T10:12:09+0000");
-  script_tag(name:"last_modification", value:"2022-12-21 10:12:09 +0000 (Wed, 21 Dec 2022)");
+  script_version("2024-09-16T09:36:54+0000");
+  script_tag(name:"last_modification", value:"2024-09-16 09:36:54 +0000 (Mon, 16 Sep 2024)");
   script_tag(name:"creation_date", value:"2022-10-25 11:21:01 +0000 (Tue, 25 Oct 2022)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -32,10 +18,15 @@ if(description)
   script_name("Synology NAS / DiskStation Manager (DSM) Detection Consolidation");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Product detection");
-  script_dependencies("gb_synology_dsm_http_detect.nasl", "gb_synology_dsm_srm_mdns_detect.nasl",
-                      "gb_synology_dsm_srm_upnp_detect.nasl");
+  script_dependencies("gb_synology_dsm_http_detect.nasl",
+                      "gb_synology_dsm_srm_mdns_detect.nasl",
+                      "gb_synology_dsm_srm_upnp_detect.nasl",
+                      "gb_synology_dsm_ssh_login_detect.nasl",
+                      "gb_synology_dsm_snmp_detect.nasl",
+                      "gb_synology_dsm_findhostd_detect.nasl");
   script_mandatory_keys("synology/dsm/detected");
 
   script_tag(name:"summary", value:"Consolidation of Synology NAS devices, DiskStation Manager
@@ -54,13 +45,11 @@ include("http_func.inc");
 if( ! get_kb_item( "synology/dsm/detected" ) )
   exit( 0 );
 
-report = ""; # nb: To make openvas-nasl-lint happy...
-
 detected_version = "unknown";
 detected_model = "unknown";
 location = "/";
 
-foreach source( make_list( "http", "upnp", "mdns" ) ) {
+foreach source( make_list( "ssh-login", "findhostd", "http", "upnp", "mdns", "snmp" ) ) {
   version_list = get_kb_list( "synology/dsm/" + source + "/*/version" );
   foreach version( version_list ) {
     if( version != "unknown" && detected_version == "unknown" ) {
@@ -116,8 +105,66 @@ if( http_ports = get_kb_list( "synology/dsm/http/port" ) ) {
     else if( concludedUrl )
       detection_methods += '\n  Concluded from URL(s):\n' + concludedUrl;
 
+    error = get_kb_item( "synology/dsm/http/" + port + "/error" );
+    if( error )
+      info = error;
+
     register_port = port;
     registered = TRUE;
+  }
+}
+
+if( ssh_login_ports = get_kb_list( "synology/dsm/ssh-login/port" ) ) {
+  foreach port( ssh_login_ports ) {
+    detection_methods += '\n\nSSH login on port ' + port + "/tcp";
+
+    concludedVers = get_kb_item( "synology/dsm/ssh-login/" + port + "/concludedVers" );
+    if( concludedVers )
+      detection_methods += '\n  Version concluded from:\n' + concludedVers;
+
+    concludedMod = get_kb_item( "synology/dsm/ssh-login/" + port + "/concludedMod" );
+    if( concludedMod )
+      detection_methods += '\n  Model concluded from:\n' + concludedMod;
+
+    register_product( cpe:hw_cpe, location:location, port:port, service:"ssh-login" );
+    register_product( cpe:os_cpe, location:location, port:port, service:"ssh-login" );
+    register_product( cpe:cpe, location:location, port:port, service:"ssh-login" );
+  }
+}
+
+if( snmp_ports = get_kb_list( "synology/dsm/snmp/port" ) ) {
+  foreach port( snmp_ports ) {
+    detection_methods += '\n\nSNMP on port ' + port + "/udp";
+
+    concludedVers = get_kb_item( "synology/dsm/snmp/" + port + "/concludedVers" );
+    concludedVersOID = get_kb_item( "synology/dsm/snmp/" + port + "/concludedVersOID" );
+    if( concludedVers && concludedVersOID )
+      detection_methods += '\n  Version concluded from: "' + concludedVers + '" via OID: "' +
+                           concludedVersOID + '"';
+
+    concludedMod = get_kb_item( "synology/dsm/snmp/" + port + "/concludedMod" );
+    concludedModOID = get_kb_item( "synology/dsm/snmp/" + port + "/concludedModOID" );
+    if( concludedMod && concludedModOID )
+      detection_methods += '\n  Model concluded from: "' + concludedMod + '" via OID: "' +
+                           concludedModOID + '"';
+
+    register_product( cpe:hw_cpe, location:location, port:port, service:"snmp", proto:"udp" );
+    register_product( cpe:os_cpe, location:location, port:port, service:"snmp", proto:"udp" );
+    register_product( cpe:cpe, location:location, port:port, service:"snmp", proto:"udp" );
+  }
+}
+
+if( findhost_ports = get_kb_list( "synology/dsm/findhostd/port" ) ) {
+  foreach port( findhost_ports ) {
+    detection_methods += '\n\nfindhostd on port ' + port + "/udp";
+
+    concluded = get_kb_item( "synology/dsm/findhostd/" + port + "/concluded" );
+    if( concluded )
+      detection_methods += '\n  Concluded from:' + concluded;
+
+    register_product( cpe:hw_cpe, location:location, port:port, service:"findhostd", proto:"udp" );
+    register_product( cpe:os_cpe, location:location, port:port, service:"findhostd", proto:"udp" );
+    register_product( cpe:cpe, location:location, port:port, service:"findhostd", proto:"udp" );
   }
 }
 
@@ -156,14 +203,17 @@ if( upnp_ports = get_kb_list( "synology/dsm/upnp/port" ) ) {
   }
 }
 
-register_product( cpe:hw_cpe, location:location, port:register_port, service:"www" );
-register_product( cpe:os_cpe, location:location, port:register_port, service:"www" );
-register_product( cpe:cpe, location:location, port:register_port, service:"www" );
+if( registered ) {
+  register_product( cpe:hw_cpe, location:location, port:register_port, service:"www" );
+  register_product( cpe:os_cpe, location:location, port:register_port, service:"www" );
+  register_product( cpe:cpe, location:location, port:register_port, service:"www" );
+}
 
 report  = build_detection_report( app:os_app,
                                   version:detected_version,
                                   install:location,
-                                  cpe:os_cpe );
+                                  cpe:os_cpe,
+                                  extra:info );
 report += '\n\n';
 report += build_detection_report( app:hw_app,
                                   skip_version:TRUE,

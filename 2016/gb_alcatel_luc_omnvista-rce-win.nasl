@@ -9,8 +9,8 @@ CPE = "cpe:/a:alcatel-lucent:omnivista_8770";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107112");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-12-23 13:00:46 +0530 (Fri, 23 Dec 2016)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -24,7 +24,7 @@ if(description)
 
   script_tag(name:"solution_type", value:"Workaround");
 
-  script_name("Alcatel Lucent Omnivista 8770 - Remote Code Execution Vulnerability (Windows)");
+  script_name("Alcatel Lucent Omnivista 8770 - Remote Code Execution Vulnerability - Windows");
 
   script_category(ACT_GATHER_INFO);
 
@@ -34,7 +34,8 @@ if(description)
   script_require_ports("Services/www", 80, 30024);
   script_mandatory_keys("alcatel/omnivista/detected", "Host/runs_windows");
 
-  script_tag(name:"summary", value:"Alcatel Lucent Omnivista 8770 is prone to a remote command execution vulnerability.");
+  script_tag(name:"summary", value:"Alcatel Lucent Omnivista 8770 is prone to a remote command
+  execution (RCE) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Send a crafted giop packet request and check the response.");
 

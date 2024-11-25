@@ -9,13 +9,13 @@ CPE = "cpe:/a:adobe:acrobat_reader";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804625");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2002-0030");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-06-04 17:27:52 +0530 (Wed, 04 Jun 2014)");
-  script_name("Adobe Reader Plugin Signature Bypass Vulnerability (Mac OS X)");
+  script_name("Adobe Reader Plugin Signature Bypass Vulnerability - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Reader is prone to plugin signature bypass vulnerability.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");

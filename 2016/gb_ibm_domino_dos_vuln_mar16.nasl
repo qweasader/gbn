@@ -9,15 +9,15 @@ CPE = "cpe:/a:ibm:lotus_domino";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807619");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-03-21 19:13:44 +0530 (Mon, 21 Mar 2016)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
 
   script_cve_id("CVE-2014-0822");
 
-  script_name("IBM Domino Denial of Service Vulnerability - Mar16");
+  script_name("IBM Domino Denial of Service Vulnerability (Mar 2016)");
 
   script_tag(name:"summary", value:"IBM Domino is prone to a denial of service vulnerability.");
 

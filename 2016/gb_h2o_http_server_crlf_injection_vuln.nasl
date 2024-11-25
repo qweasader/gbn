@@ -9,16 +9,16 @@ CPE = "cpe:/a:h2o_project:h2o";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806994");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-06-11T05:05:40+0000");
   script_cve_id("CVE-2016-1133");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-11 05:05:40 +0000 (Tue, 11 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-04-19 14:01:00 +0000 (Mon, 19 Apr 2021)");
   script_tag(name:"creation_date", value:"2016-01-25 15:37:05 +0530 (Mon, 25 Jan 2016)");
-  script_name("H2O HTTP Server CRLF Injection Vulnerability");
+  script_name("H2O HTTP Server < 1.6.2, 1.7.x < 1.7.0-beta3 CRLF Injection Vulnerability");
 
   script_tag(name:"summary", value:"H2O HTTP Server is prone to CRLF Injection Vulnerability.");
 
@@ -45,40 +45,38 @@ if(description)
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Web Servers");
-  script_dependencies("gb_h2o_http_server_detect.nasl");
-  script_mandatory_keys("h2o/installed");
-  script_require_ports("Services/www", 443);
-  script_xref(name:"URL", value:"https://h2o.examp1e.net");
+  script_dependencies("gb_h2o_http_server_http_detect.nasl");
+  script_mandatory_keys("h2o/detected");
+
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if (!h2oPort = get_app_port(cpe:CPE))
+if (!port = get_app_port(cpe:CPE))
  exit(0);
 
-if (!h2oVer = get_app_version(cpe:CPE, port:h2oPort))
+if (!version = get_app_version(cpe:CPE, port:port))
  exit(0);
 
-## some versions contains '-' in version
-h2oVer = ereg_replace(string:h2oVer, pattern:"-", replace:".");
+# nb: some versions contains '-' in version
+version = ereg_replace(string:version, pattern:"-", replace:".");
 
-if(version_is_less(version:h2oVer, test_version:"1.6.2"))
-{
+if(version_is_less(version:version, test_version:"1.6.2")) {
   fix = "1.6.2";
   VULN = TRUE;
 }
 
-else if(version_in_range(version:h2oVer, test_version:"1.7.0", test_version2:"1.7.0.beta2"))
-{
+else if(version_in_range(version:version, test_version:"1.7.0", test_version2:"1.7.0.beta2")) {
   fix = "1.7.0-beta3";
   VULN = TRUE;
 }
 
-if(VULN)
-{
-  report = report_fixed_ver( installed_version:h2oVer, fixed_version:fix);
-  security_message(data:report, port:h2oPort);
+if(VULN) {
+  report = report_fixed_ver(installed_version:version, fixed_version:fix);
+  security_message(data:report, port:port);
   exit(0);
 }
+
+exit(99);

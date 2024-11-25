@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.842767");
   script_cve_id("CVE-2015-5370", "CVE-2016-2110", "CVE-2016-2111", "CVE-2016-2112", "CVE-2016-2113", "CVE-2016-2114", "CVE-2016-2115", "CVE-2016-2118");
   script_tag(name:"creation_date", value:"2016-05-19 03:20:59 +0000 (Thu, 19 May 2016)");
-  script_version("2023-06-21T05:06:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:21 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-09-27 17:17:00 +0000 (Fri, 27 Sep 2019)");
+  script_tag(name:"severity_date", value:"2016-04-13 13:58:43 +0000 (Wed, 13 Apr 2016)");
 
   script_name("Ubuntu: Security Advisory (USN-2950-4)");
   script_category(ACT_GATHER_INFO);
@@ -26,8 +26,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"USN-2950-4");
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-2950-4");
-  script_xref(name:"URL", value:"https://launchpad.net/bugs/1576109");
   script_xref(name:"URL", value:"https://launchpad.net/bugs/1574403");
+  script_xref(name:"URL", value:"https://launchpad.net/bugs/1576109");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'samba' package(s) announced via the USN-2950-4 advisory.");
 

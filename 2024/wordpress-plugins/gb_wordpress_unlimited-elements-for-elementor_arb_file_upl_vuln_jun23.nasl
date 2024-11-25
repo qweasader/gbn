@@ -9,8 +9,8 @@ CPE = "cpe:/a:unlimited-elements:unlimited_elements_for_elementor_%28free_widget
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127675");
-  script_version("2024-01-12T05:05:56+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 05:05:56 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-10-31T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-10-31 05:05:48 +0000 (Thu, 31 Oct 2024)");
   script_tag(name:"creation_date", value:"2024-01-04 08:20:45 +0000 (Thu, 04 Jan 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:C/A:N");
@@ -45,8 +45,8 @@ if (description)
   above are able to upload arbitrary files on the affected site's server which may make remote code
   execution possible.");
 
-  script_tag(name:"affected", value:"WordPress Unlimited Elements For Elementor prior to version
-  1.5.66.");
+  script_tag(name:"affected", value:"WordPress Unlimited Elements For Elementor plugin prior to
+  version 1.5.66.");
 
   script_tag(name:"solution", value:"Update to version 1.5.66 or later.");
 

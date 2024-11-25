@@ -9,8 +9,8 @@ CPE = "cpe:/o:juniper:junos";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105906");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-07-24T05:06:37+0000");
+  script_tag(name:"last_modification", value:"2024-07-24 05:06:37 +0000 (Wed, 24 Jul 2024)");
   script_tag(name:"creation_date", value:"2014-05-02 11:08:01 +0700 (Fri, 02 May 2014)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -21,7 +21,7 @@ if (description)
 
   script_cve_id("CVE-2014-0612");
 
-  script_name("Juniper Networks Junos OS Denial of Service Vulnerability for New Dynamic VPN Connections");
+  script_name("Juniper Networks Junos OS DoS Vulnerability (JSA10620)");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2014 Greenbone AG");
@@ -29,22 +29,23 @@ if (description)
   script_dependencies("gb_juniper_junos_consolidation.nasl");
   script_mandatory_keys("juniper/junos/detected", "juniper/junos/model", "juniper/junos/build");
 
-  script_tag(name:"summary", value:"Denial of Service Vulnerability for new dynamic VPN connections.");
+  script_tag(name:"summary", value:"Juniper Networks Junos OS is prone to a denial of service (DoS)
+  vulnerability for new dynamic VPN connections.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable OS build is present on the target host.");
 
   script_tag(name:"insight", value:"On Branch SRX Series service gateways, when Dynamic IPsec VPN is
-configured, a remote unauthenticated user may cause a denial of service condition where new Dynamic VPN
-connections may fail for other users. This issue may also lead to high CPU consumption and disk usage which
-may cause other complications.");
+  configured, a remote unauthenticated user may cause a denial of service condition where new
+  Dynamic VPN connections may fail for other users. This issue may also lead to high CPU consumption
+  and disk usage which may cause other complications.");
 
   script_tag(name:"impact", value:"A remote unauthenticated user may cause a denial of service
-condition where new Dynamic VPN connections may fail for other users.");
+  condition where new Dynamic VPN connections may fail for other users.");
 
   script_tag(name:"affected", value:"Junos OS 11.4 and 12.1.");
 
-  script_tag(name:"solution", value:"New builds of Junos OS software are available from Juniper. As a
-workaround disable dynamic IPSec VPN.");
+  script_tag(name:"solution", value:"New builds of Junos OS software are available from Juniper. As
+  a workaround disable dynamic IPSec VPN.");
 
   script_xref(name:"URL", value:"http://kb.juniper.net/JSA10620");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/66759");
@@ -88,14 +89,17 @@ if (version =~ "^12\.1X") {
   else if ((revcomp(a:version, b:"12.1X45-D20") < 0) &&
            (revcomp(a:version, b:"12.1X45") >= 0)) {
     security_message(port:0, data:desc);
+    exit(0);
   }
   else if ((revcomp(a:version, b:"12.1X45-D20") < 0) &&
            (revcomp(a:version, b:"12.1X45") >= 0)) {
     security_message(port:0, data:desc);
+    exit(0);
   }
   else if ((revcomp(a:version, b:"12.1X46-D10") < 0) &&
            (revcomp(a:version, b:"12.1X46") >= 0)) {
     security_message(port:0, data:desc);
+    exit(0);
   }
 }
 

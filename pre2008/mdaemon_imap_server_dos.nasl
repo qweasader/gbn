@@ -9,20 +9,23 @@ CPE = "cpe:/a:alt-n:mdaemon";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.14826");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-02-26T14:36:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-26 14:36:40 +0000 (Mon, 26 Feb 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/2134");
   script_cve_id("CVE-2001-0064");
-  script_name("MDaemon IMAP Server DoS");
+  script_name("MDaemon IMAP Server DoS (CVE-2001-0064) - Active Check");
   script_category(ACT_DENIAL);
   script_copyright("Copyright (C) 2004 David Maciejak");
   script_family("Denial of Service");
   script_dependencies("gb_altn_mdaemon_consolidation.nasl", "logins.nasl");
   script_require_ports("Services/imap", 143);
   script_mandatory_keys("altn/mdaemon/imap/detected", "imap/login", "imap/password");
+
+  script_tag(name:"vuldetect", value:"Sends a crafted IMAP request and checks if the remote service
+  is still available afterwards.");
 
   script_tag(name:"solution", value:"Upgrade to the newest version of this software.");
 
@@ -40,8 +43,6 @@ if(description)
 
 include("host_details.inc");
 include("imap_func.inc");
-include("misc_func.inc");
-include("port_service_func.inc");
 
 kb_creds = imap_get_kb_creds();
 acc = kb_creds["login"];

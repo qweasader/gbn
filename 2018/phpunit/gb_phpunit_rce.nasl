@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108439");
-  script_version("2024-01-03T05:05:19+0000");
-  script_tag(name:"last_modification", value:"2024-01-03 05:05:19 +0000 (Wed, 03 Jan 2024)");
+  script_version("2024-07-16T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2018-04-14 15:29:22 +0200 (Sat, 14 Apr 2018)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -20,9 +20,12 @@ if(description)
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_wordpress_http_detect.nasl", "gb_drupal_http_detect.nasl", "gb_prestashop_http_detect.nasl",
-                      "secpod_mediawiki_detect.nasl", "gb_moodle_cms_detect.nasl", "gb_owncloud_http_detect.nasl",
-                      "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "gb_wordpress_http_detect.nasl",
+                      "gb_drupal_http_detect.nasl", "gb_prestashop_http_detect.nasl",
+                      "gb_mediawiki_http_detect.nasl", "gb_moodle_cms_detect.nasl",
+                      "gb_owncloud_http_detect.nasl", "no404.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl",
+                      "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 

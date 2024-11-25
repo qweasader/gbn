@@ -21,7 +21,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.815438");
-  script_version("2021-09-06T11:01:35+0000");
+  script_version("2024-05-30T05:05:32+0000");
   script_cve_id("CVE-2019-0714", "CVE-2019-0715", "CVE-2019-0716", "CVE-2019-0720",
                 "CVE-2019-0723", "CVE-2019-0736", "CVE-2019-1057", "CVE-2019-1078",
                 "CVE-2019-1133", "CVE-2019-1143", "CVE-2019-1144", "CVE-2019-1145",
@@ -35,10 +35,10 @@ if(description)
                 "CVE-2019-1228", "CVE-2019-9506");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-09-06 11:01:35 +0000 (Mon, 06 Sep 2021)");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2024-05-30 05:05:32 +0000 (Thu, 30 May 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
+  script_tag(name:"severity_date", value:"2024-05-29 17:16:13 +0000 (Wed, 29 May 2024)");
   script_tag(name:"creation_date", value:"2019-08-14 10:21:38 +0530 (Wed, 14 Aug 2019)");
   script_name("Microsoft Windows Multiple Vulnerabilities (KB4512506)");
 

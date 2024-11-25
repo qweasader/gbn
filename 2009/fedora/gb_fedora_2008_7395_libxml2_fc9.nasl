@@ -8,11 +8,14 @@ if(description)
 {
   script_xref(name:"URL", value:"https://www.redhat.com/archives/fedora-package-announce/2008-September/msg00347.html");
   script_oid("1.3.6.1.4.1.25623.1.0.860192");
-  script_version("2023-07-06T05:05:36+0000");
-  script_tag(name:"last_modification", value:"2023-07-06 05:05:36 +0000 (Thu, 06 Jul 2023)");
+  script_version("2024-02-05T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 05:05:38 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-02-17 17:03:12 +0100 (Tue, 17 Feb 2009)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-02 15:02:14 +0000 (Fri, 02 Feb 2024)");
   script_xref(name:"FEDORA", value:"2008-7395");
   script_cve_id("CVE-2008-3281");
   script_name("Fedora Update for libxml2 FEDORA-2008-7395");

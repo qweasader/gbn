@@ -7,9 +7,9 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103472");
-  script_version("2023-06-22T10:34:15+0000");
+  script_version("2024-06-28T15:38:46+0000");
 
-  script_name("MySQL 5.5.20 Unspecified Remote Code Execution Vulnerability");
+  script_name("MySQL 5.5.20 Unspecified RCE Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/52154");
   script_xref(name:"URL", value:"https://lists.immunityinc.com/pipermail/canvas/2012-February/000014.html");
@@ -17,15 +17,16 @@ if (description)
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
-  script_tag(name:"last_modification", value:"2023-06-22 10:34:15 +0000 (Thu, 22 Jun 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-04-19 11:48:24 +0200 (Thu, 19 Apr 2012)");
   script_category(ACT_GATHER_INFO);
   script_family("Databases");
   script_copyright("Copyright (C) 2012 Greenbone AG");
 
-  script_tag(name:"summary", value:"MySQL is prone to an unspecified remote code-execution vulnerability.
+  script_tag(name:"summary", value:"MySQL is prone to an unspecified remote code execution (RCE)
+  vulnerability.
 
-  This VT has duplicated the VT MySQL 'yaSSL' Remote Code Execution Vulnerability (OID: 1.3.6.1.4.1.25623.1.0.103471)
+  This VT has duplicated the VT MySQL 'yaSSL' RCE Vulnerability (OID: 1.3.6.1.4.1.25623.1.0.103471)
   and was deprecated.");
 
   script_tag(name:"impact", value:"An attacker can leverage this issue to execute arbitrary code within

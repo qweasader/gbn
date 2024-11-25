@@ -9,13 +9,13 @@ CPE = "cpe:/a:owncloud:owncloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809296");
-  script_version("2023-12-01T16:11:30+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2015-5954");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-09-23 16:02:07 +0530 (Fri, 23 Sep 2016)");
-  script_name("ownCloud Access Bypass Vulnerability Sep16 (Linux)");
+  script_name("ownCloud Access Bypass Vulnerability (Sep 2016) - Linux");
 
   script_tag(name:"summary", value:"ownCloud is prone to an access bypass vulnerability.");
 

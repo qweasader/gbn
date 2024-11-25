@@ -9,11 +9,11 @@ CPE = "cpe:/a:apache:solr";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813555");
-  script_version("2024-01-18T05:07:09+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2018-8026");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-03-29 18:44:00 +0000 (Fri, 29 Mar 2019)");
@@ -21,7 +21,8 @@ if(description)
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
   script_name("Apache Solr Multiple XXE Vulnerabilities (SOLR-12450) - Linux");
 
-  script_tag(name:"summary", value:"Apache Solr is prone to multiple XML External Entity (XEE) vulnerabilities.");
+  script_tag(name:"summary", value:"Apache Solr is prone to multiple XML external entity (XXE)
+  vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

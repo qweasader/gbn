@@ -34,7 +34,8 @@ wordpress_themes_info = make_array(
   "iloveit/style.css", "CosmoThemes I Love It#---#CosmoThemes#---#Version: ([0-9.]+)#---#cpe:/a:cosmothemes:iloveit#---#https://cosmothemes.com/i-love-it/",
   "medzone-lite/style.css", "MachoThemes MedZone Lite#---#Author: MachoThemes#---#Version: ([0-9.]+)#---#cpe:/a:machothemes:medzone-lite#---#https://www.machothemes.com/medzone-lite/",
   "method/style.css", "Mysitemyway Method#---#Author: Mysitemyway#---#Version: ([0-9.]+)#---#cpe:/a:mysitemyway:method",
-  "method/style.css", "BackStop Themes Method#---#Author: BackStop Themes#---#Version: ([0-9.]+)#---#cpe:/a:backstopthemes:method#---#https://backstopthemes.com",
+  # nb: The following detection was deleted/commented out due to the fact that there is no standardized slug, so it cannot be detected (at least currently):
+  # "method/style.css", "BackStop Themes Method#---#Author: BackStop Themes#---#Version: ([0-9.]+)#---#cpe:/a:backstopthemes:method#---#https://backstopthemes.com"
   "naturemag-lite/style.css", "MachoThemes NatureMag-Lite#---#Author: Macho Themes#---#Version: ([0-9.]+)#---#cpe:/a:machothemes:naturemag-lite",
   "Newsmag/style.css", "MachoThemes Newsmag#---#Author: MachoThemes#---#Version: ([0-9.]+)#---#cpe:/a:machothemes:newsmag#---#https://www.machothemes.com/newsmag-lite/",
   "newspaper-x/style.css", "colorlib Newspaper X#---#Theme Name: Newspaper X#---#Version: ([0-9.]+)#---#cpe:/a:colorlib:newspaper-x#---#https://colorlib.com/wp/themes/newspaper-x",

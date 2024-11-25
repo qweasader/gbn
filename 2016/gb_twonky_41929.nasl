@@ -9,20 +9,19 @@ CPE = "cpe:/a:twonky:twonky_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108004");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-09-27 12:00:00 +0200 (Tue, 27 Sep 2016)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_name("Twonky Server Cross Site Scripting and HTML Injection Vulnerabilities");
+  script_name("Twonky Server < 4.4.18, 5.0.x < 5.0.66 Multiple Vulnerabilities");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_twonky_server_detect.nasl");
-  script_require_ports("Services/www", 9000);
-  script_mandatory_keys("twonky_server/installed");
+  script_mandatory_keys("twonky/server/detected");
 
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/41929");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210128122542/http://www.securityfocus.com/bid/41929");
   script_xref(name:"URL", value:"http://www.securityfocus.com/archive/1/507616");
 
   script_tag(name:"summary", value:"Twonky Server is prone to a cross-site scripting vulnerability and multiple
@@ -48,8 +47,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_less( version:vers, test_version:"4.4.18" ) ||
     version_in_range( version:vers, test_version:"5", test_version2:"5.0.65" ) ) {

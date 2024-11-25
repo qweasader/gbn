@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2022.0131");
   script_cve_id("CVE-2021-43860", "CVE-2022-21682");
   script_tag(name:"creation_date", value:"2022-04-11 04:17:29 +0000 (Mon, 11 Apr 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-01-21 19:43:00 +0000 (Fri, 21 Jan 2022)");
+  script_tag(name:"severity_date", value:"2022-01-21 19:43:45 +0000 (Fri, 21 Jan 2022)");
 
   script_name("Mageia: Security Advisory (MGASA-2022-0131)");
   script_category(ACT_GATHER_INFO);
@@ -27,19 +27,19 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2022-0131");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2022-0131.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=29885");
-  script_xref(name:"URL", value:"https://github.com/flatpak/flatpak/security/advisories/GHSA-qpjc-vq3c-572j");
-  script_xref(name:"URL", value:"https://github.com/flatpak/flatpak/security/advisories/GHSA-8ch7-5j3h-g4fx");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/APFTBYGJJVJPFVHRXUW5PII5XOAFI4KH/");
   script_xref(name:"URL", value:"https://github.com/flatpak/flatpak/releases/tag/1.10.7");
   script_xref(name:"URL", value:"https://github.com/flatpak/flatpak/releases/tag/1.12.4");
+  script_xref(name:"URL", value:"https://github.com/flatpak/flatpak/releases/tag/1.12.5");
+  script_xref(name:"URL", value:"https://github.com/flatpak/flatpak/releases/tag/1.12.6");
+  script_xref(name:"URL", value:"https://github.com/flatpak/flatpak/releases/tag/1.12.7");
+  script_xref(name:"URL", value:"https://github.com/flatpak/flatpak/security/advisories/GHSA-8ch7-5j3h-g4fx");
+  script_xref(name:"URL", value:"https://github.com/flatpak/flatpak/security/advisories/GHSA-qpjc-vq3c-572j");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/APFTBYGJJVJPFVHRXUW5PII5XOAFI4KH/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/F46WFOXXRE63UMMTLQB2FOJT4KLI5AR7/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/G4SGDDYLN2BFKCHIDCXL2QTDVHPMZZM4/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/IXKBERLJRYV7KXKGXOLI6IOXVBQNN4DP/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/UELF5NVMHRQ45DEBIRQGIVCV4PADFC37/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/F46WFOXXRE63UMMTLQB2FOJT4KLI5AR7/");
-  script_xref(name:"URL", value:"https://github.com/flatpak/flatpak/releases/tag/1.12.5");
-  script_xref(name:"URL", value:"https://github.com/flatpak/flatpak/releases/tag/1.12.6");
   script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/T4OG73MX3JPZBHYMUXUULPTVL7ZOOTZ5/");
-  script_xref(name:"URL", value:"https://github.com/flatpak/flatpak/releases/tag/1.12.7");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'discover, flatpak, gnome-software, xdg-desktop-portal-kde' package(s) announced via the MGASA-2022-0131 advisory.");
 

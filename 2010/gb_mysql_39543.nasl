@@ -9,8 +9,8 @@ CPE = "cpe:/a:mysql:mysql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100586");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-04T05:10:24+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 05:10:24 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2010-04-20 13:41:39 +0200 (Tue, 20 Apr 2010)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
@@ -20,7 +20,6 @@ if(description)
   script_family("Databases");
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_dependencies("mysql_version.nasl");
-  script_require_ports("Services/mysql", 3306);
   script_mandatory_keys("MySQL/installed");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/39543");
@@ -46,8 +45,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!port = get_app_port(cpe:CPE)) exit(0);
-if(!ver = get_app_version(cpe:CPE, port:port)) exit(0);
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!ver = get_app_version(cpe:CPE, port:port))
+  exit(0);
 
 if(ver =~ "^5\.1" && version_is_less_equal(version: ver, test_version: "5.1.45")) {
   report = report_fixed_ver(installed_version:ver, fixed_version:"5.1.45");

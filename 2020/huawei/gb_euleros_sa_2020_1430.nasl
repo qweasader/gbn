@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.2.2020.1430");
   script_cve_id("CVE-2013-4544", "CVE-2015-4037", "CVE-2015-5239", "CVE-2015-5278", "CVE-2015-5279", "CVE-2015-5745", "CVE-2015-6815", "CVE-2015-6855", "CVE-2015-7295", "CVE-2015-7549", "CVE-2015-8345", "CVE-2015-8504", "CVE-2015-8558", "CVE-2015-8567", "CVE-2015-8568", "CVE-2015-8613", "CVE-2016-1568", "CVE-2016-2198", "CVE-2016-2391", "CVE-2016-2392", "CVE-2016-2538", "CVE-2016-2841", "CVE-2016-2858", "CVE-2016-4001", "CVE-2016-4002", "CVE-2016-4037", "CVE-2016-4453", "CVE-2016-4454", "CVE-2016-6834", "CVE-2016-6835", "CVE-2016-6836", "CVE-2016-6888", "CVE-2016-7116", "CVE-2016-7161", "CVE-2016-7421", "CVE-2016-7908", "CVE-2016-7909", "CVE-2016-8576", "CVE-2016-8669", "CVE-2016-8909", "CVE-2016-8910", "CVE-2016-9102", "CVE-2016-9103", "CVE-2016-9104", "CVE-2016-9105", "CVE-2016-9106", "CVE-2016-9381", "CVE-2016-9907", "CVE-2016-9911", "CVE-2017-10806", "CVE-2017-11434", "CVE-2017-18043", "CVE-2017-5579", "CVE-2017-5973", "CVE-2017-8309", "CVE-2017-9373", "CVE-2017-9374", "CVE-2018-10839", "CVE-2018-15746", "CVE-2018-17958", "CVE-2018-17963", "CVE-2019-11135", "CVE-2019-14378", "CVE-2019-6778", "CVE-2020-7039", "CVE-2020-8608");
   script_tag(name:"creation_date", value:"2020-04-16 05:51:43 +0000 (Thu, 16 Apr 2020)");
-  script_version("2023-06-20T05:05:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:21 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-02-05T14:36:56+0000");
+  script_tag(name:"last_modification", value:"2024-02-05 14:36:56 +0000 (Mon, 05 Feb 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-11-16 20:20:00 +0000 (Mon, 16 Nov 2020)");
+  script_tag(name:"severity_date", value:"2018-11-24 03:55:35 +0000 (Sat, 24 Nov 2018)");
 
   script_name("Huawei EulerOS: Security Advisory for qemu-kvm (EulerOS-SA-2020-1430)");
   script_category(ACT_GATHER_INFO);
@@ -25,7 +25,7 @@ if(description)
   script_mandatory_keys("ssh/login/euleros", "ssh/login/rpms", re:"ssh/login/release=EULEROS\-2\.0SP3");
 
   script_xref(name:"Advisory-ID", value:"EulerOS-SA-2020-1430");
-  script_xref(name:"URL", value:"https://developer.huaweicloud.com/ict/en/site-euleros/euleros/security-advisories/EulerOS-SA-2020-1430");
+  script_xref(name:"URL", value:"https://developer.huaweicloud.com/intl/en-us/euleros/securitydetail.html?secId=EulerOS-SA-2020-1430");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the Huawei EulerOS 'qemu-kvm' package(s) announced via the EulerOS-SA-2020-1430 advisory.");
 

@@ -1,28 +1,14 @@
-# Copyright (C) 2018 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.851711");
-  script_version("2021-06-28T11:00:33+0000");
-  script_tag(name:"last_modification", value:"2021-06-28 11:00:33 +0000 (Mon, 28 Jun 2021)");
+  script_version("2024-10-10T07:25:31+0000");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"creation_date", value:"2018-02-27 08:15:45 +0100 (Tue, 27 Feb 2018)");
   script_cve_id("CVE-2015-9100", "CVE-2015-9101", "CVE-2017-11720", "CVE-2017-13712", "CVE-2017-15019", "CVE-2017-9410", "CVE-2017-9411", "CVE-2017-9412", "CVE-2017-9869", "CVE-2017-9870", "CVE-2017-9871", "CVE-2017-9872");
   script_tag(name:"cvss_base", value:"7.5");
@@ -47,7 +33,7 @@ if(description)
 
   * New switch --gain  decibel, range -20.0 to +12.0, a more convenient
   way to apply Gain adjustment in decibels, than the use of --scale
-   factor .
+   factor.
 
   * Fix for sf#3558466 Bug in path handling
 
@@ -103,7 +89,7 @@ if(description)
   script_xref(name:"URL", value:"https://lists.opensuse.org/opensuse-security-announce/2018-02/msg00046.html");
   script_tag(name:"solution_type", value:"VendorFix");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2018 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("SuSE Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/suse", "ssh/login/rpms", re:"ssh/login/release=openSUSELeap42\.3");

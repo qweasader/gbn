@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902918");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_cve_id("CVE-2012-3816");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-06-29 15:19:56 +0530 (Fri, 29 Jun 2012)");
-  script_name("WinRadius Server Access Request Packet Parsing Denial of Service Vulnerability");
+  script_name("WinRadius Server Access Request Packet Parsing DoS Vulnerability");
 
   script_xref(name:"URL", value:"http://1337day.com/exploits/18385");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/53702");

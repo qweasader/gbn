@@ -9,16 +9,16 @@ CPE = "cpe:/a:owncloud:owncloud";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809298");
-  script_version("2023-12-01T16:11:30+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2016-7419");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-12-01 16:11:30 +0000 (Fri, 01 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-04-07 19:38:00 +0000 (Fri, 07 Apr 2017)");
   script_tag(name:"creation_date", value:"2016-09-26 17:23:26 +0530 (Mon, 26 Sep 2016)");
-  script_name("ownCloud 'share.js' Gallery Application XSS Vulnerability (Linux)");
+  script_name("ownCloud 'share.js' Gallery Application XSS Vulnerability - Linux");
 
   script_tag(name:"summary", value:"ownCloud is prone to a cross-site scripting (XSS) vulnerability.");
 

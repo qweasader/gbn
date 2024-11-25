@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100047");
-  script_version("2024-01-19T16:09:33+0000");
-  script_tag(name:"last_modification", value:"2024-01-19 16:09:33 +0000 (Fri, 19 Jan 2024)");
+  script_version("2024-01-23T05:05:19+0000");
+  script_tag(name:"last_modification", value:"2024-01-23 05:05:19 +0000 (Tue, 23 Jan 2024)");
   script_tag(name:"creation_date", value:"2009-03-16 12:53:50 +0100 (Mon, 16 Mar 2009)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -34,17 +34,17 @@ if(description)
 
   script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET request and checks the response.");
 
-  script_tag(name:"impact", value:"Exploiting this issue allows remote attackers to view local
-  files within the context of the webserver process.");
+  script_tag(name:"impact", value:"Exploiting this issue allows remote attackers to view local files
+  within the context of the webserver process.");
 
   script_tag(name:"affected", value:"PassWiki version 0.9.17 and prior.");
 
   script_tag(name:"solution", value:"No known solution was made available for at least one year
-  since the disclosure of this vulnerability. Likely none will be provided anymore.
-  General solution options are to upgrade to a newer release, disable respective features,
-  remove the product or replace the product by another one.");
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
+  options are to upgrade to a newer release, disable respective features, remove the product or
+  replace the product by another one.");
 
-  script_xref(name:"URL", value:"http://www.securityfocus.com/bid/29455");
+  script_xref(name:"URL", value:"https://web.archive.org/web/20210214212159/https://www.securityfocus.com/bid/29455/");
 
   exit(0);
 }
@@ -68,7 +68,7 @@ foreach dir (make_list_unique("/passwiki", http_cgi_dirs(port: port))) {
   if (dir == "/")
     dir = "";
 
-  res = http_get_cache(port: port, dir + "/passwiki.php");
+  res = http_get_cache(port: port, item: dir + "/passwiki.php");
   if (!res || res !~ "^HTTP/1\.[01] 200")
     continue;
 

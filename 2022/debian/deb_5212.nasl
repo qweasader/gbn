@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.705212");
   script_cve_id("CVE-2022-2852", "CVE-2022-2853", "CVE-2022-2854", "CVE-2022-2855", "CVE-2022-2856", "CVE-2022-2857", "CVE-2022-2858", "CVE-2022-2859", "CVE-2022-2860", "CVE-2022-2861", "CVE-2022-2998");
   script_tag(name:"creation_date", value:"2022-08-19 01:00:12 +0000 (Fri, 19 Aug 2022)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-09-27 03:38:00 +0000 (Tue, 27 Sep 2022)");
+  script_tag(name:"severity_date", value:"2022-09-27 03:38:01 +0000 (Tue, 27 Sep 2022)");
 
   script_name("Debian: Security Advisory (DSA-5212-1)");
   script_category(ACT_GATHER_INFO);
@@ -47,6 +47,8 @@ For the detailed security status of chromium please refer to its security tracke
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

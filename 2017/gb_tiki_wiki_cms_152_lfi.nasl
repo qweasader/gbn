@@ -9,11 +9,11 @@ CPE = "cpe:/a:tiki:tikiwiki_cms/groupware";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108064");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-03-01T14:37:10+0000");
   script_cve_id("CVE-2016-10143");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-03-14 01:59:00 +0000 (Tue, 14 Mar 2017)");
@@ -23,7 +23,6 @@ if(description)
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("secpod_tikiwiki_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("TikiWiki/installed");
 
   script_xref(name:"URL", value:"http://tiki.org/article445-Security-updates-Tiki-16-2-15-4-and-Tiki-12-11-released");
@@ -51,15 +50,17 @@ if(description)
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_xref(name:"URL", value:"https://tiki.org");
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 # nb: CVE says only version 15.2 is vulnerable but that's currently wrong:
 # the vulnerable code path exists down to 1.x and is fixed in the 12.11 LTS and 15.4

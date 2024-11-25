@@ -9,13 +9,13 @@ CPE = "cpe:/a:oracle:vm_virtualbox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805430");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2015-0418", "CVE-2015-0377");
   script_tag(name:"cvss_base", value:"4.4");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:S/C:N/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-02-02 10:04:10 +0530 (Mon, 02 Feb 2015)");
-  script_name("Oracle Virtualbox Multiple DoS Vulnerabilities Feb15 (Mac OS X)");
+  script_name("Oracle Virtualbox Multiple DoS Vulnerabilities (Feb 2015) - Mac OS X");
 
   script_tag(name:"summary", value:"Oracle VM virtualBox is prone to multiple vulnerabilities.");
 

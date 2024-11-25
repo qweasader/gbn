@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107305");
-  script_version("2023-11-09T05:05:33+0000");
-  script_tag(name:"last_modification", value:"2023-11-09 05:05:33 +0000 (Thu, 09 Nov 2023)");
+  script_version("2024-06-12T05:05:44+0000");
+  script_tag(name:"last_modification", value:"2024-06-12 05:05:44 +0000 (Wed, 12 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-04-20 16:04:01 +0200 (Fri, 20 Apr 2018)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
   script_tag(name:"cvss_base", value:"5.0");
@@ -210,9 +210,9 @@ genericfiles = make_array(
 # https://docs.microsoft.com/en-us/iis-administration/security/integrated/web.config
 # https://docs.microsoft.com/en-us/troubleshoot/aspnet/create-web-config
 "/web.config", "Microsoft IIS / ASP.NET Core Module web.config file accessible. This could contain sensitive information about the structure of the application / web server and shouldn't be accessible.#-#^\s*<(configuration|system\.web(Server)?)>#-#^\s*</(configuration|system\.web(Server)?)>",
-"/WEB-INF/web.xml", "Configuration file of various application servers (Apache Tomcat, Mortbay Jetty, ...) accessible. This could contain sensitive information about the structure of the application / web server and shouldn't be accessible.#-#^\s*<(web-app( .+|>$)|servlet(-mapping)?>$)#-#^\s*</(web-app|servlet)>$",
-"/META-INF/web.xml", "Configuration file of various application servers (Apache Tomcat, Mortbay Jetty, ...) accessible. This could contain sensitive information about the structure of the application / web server and shouldn't be accessible.#-#^\s*<(web-app( .+|>$)|servlet(-mapping)?>$)#-#^\s*</(web-app|servlet)>$",
-"/web.xml", "Configuration file of various application servers (Apache Tomcat, Mortbay Jetty, ...) accessible. This could contain sensitive information about the structure of the application / web server and shouldn't be accessible.#-#^\s*<(web-app( .+|>$)|servlet(-mapping)?>$)#-#^\s*</(web-app|servlet)>$",
+"/WEB-INF/web.xml", "Configuration file of various application servers (Apache Tomcat, Mort Bay/Eclipse Jetty, ...) accessible. This could contain sensitive information about the structure of the application / web server and shouldn't be accessible.#-#^\s*<(web-app( .+|>$)|servlet(-mapping)?>$)#-#^\s*</(web-app|servlet)>$",
+"/META-INF/web.xml", "Configuration file of various application servers (Apache Tomcat, Mort Bay/Eclipse Jetty, ...) accessible. This could contain sensitive information about the structure of the application / web server and shouldn't be accessible.#-#^\s*<(web-app( .+|>$)|servlet(-mapping)?>$)#-#^\s*</(web-app|servlet)>$",
+"/web.xml", "Configuration file of various application servers (Apache Tomcat, Mort Bay/Eclipse Jetty, ...) accessible. This could contain sensitive information about the structure of the application / web server and shouldn't be accessible.#-#^\s*<(web-app( .+|>$)|servlet(-mapping)?>$)#-#^\s*</(web-app|servlet)>$",
 "/WEB-INF/webapp.properties", "Allaire JRUN configuration file accessible. This could contain sensitive information about the structure of the application / web server and shouldn't be accessible.#-#^\s*\[?(file\.browsedirs=(false|true)|users\.location=.+)",
 "/webapp.properties", "Allaire JRUN configuration file accessible. This could contain sensitive information about the structure of the application / web server and shouldn't be accessible.#-#^\s*\[?(file\.browsedirs=(false|true)|users\.location=.+)",
 # nb: There is one check for a "local.properties" file without a dir on top of this array...
@@ -288,6 +288,9 @@ foreach nettedir( make_list( "/app/config", "/app", "" ) ) {
 
 # Add domain specific key names and backup files from above
 hnlist = create_hostname_parts_list();
+
+# nb: No need to check for an empty "hn" string here (create_hostname_parts_list() could return an
+# empty list) as foreach seems to be able to handle this.
 foreach hn( hnlist ) {
   genericfiles["/" + hn + ".key"] = "SSL/TLS Private Key is publicly accessible.#-#BEGIN (RSA|DSA|DSS|EC|ENCRYPTED|OPENSSH)? ?PRIVATE KEY";
   genericfiles["/" + hn + ".pem"] = "SSL/TLS Private Key is publicly accessible.#-#BEGIN (RSA|DSA|DSS|EC|ENCRYPTED|OPENSSH)? ?PRIVATE KEY";

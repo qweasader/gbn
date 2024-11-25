@@ -8,8 +8,8 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801392");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_version("2023-11-14T05:06:15+0000");
-  script_tag(name:"last_modification", value:"2023-11-14 05:06:15 +0000 (Tue, 14 Nov 2023)");
+  script_version("2024-06-12T05:05:44+0000");
+  script_tag(name:"last_modification", value:"2024-06-12 05:05:44 +0000 (Wed, 12 Jun 2024)");
   script_tag(name:"creation_date", value:"2010-08-04 08:26:41 +0200 (Wed, 04 Aug 2010)");
   script_tag(name:"cvss_base", value:"0.0");
 
@@ -55,6 +55,17 @@ if( "<web_server_version>" >< res || "<server_version>" >< res || "<nessus_type>
   feed      = "unknown";
   versionUi = "unknown";
 
+  # nb:
+  # - To tell http_can_host_asp and http_can_host_php from http_func.inc that the service is NOT
+  #   supporting these
+  # - There is a slight chance that a system is configured in a way that it acts as a proxy and
+  #   exposes the product on the known endpoint(s) and an additional web server supporting e.g. PHP
+  #   on a different endpoint. Thus the following is only set if the port is the default 8834.
+  if( port == 8834 ) {
+    replace_kb_item( name:"www/" + port + "/can_host_php", value:"no" );
+    replace_kb_item( name:"www/" + port + "/can_host_asp", value:"no" );
+  }
+
   nessusWsVersion = eregmatch( pattern:"<web_server_version>([0-9.]+)", string:res );
   nessusVersion   = eregmatch( pattern:"<server_version>([0-9.]+)", string:res );
   nessusType      = eregmatch( pattern:"<nessus_type>([a-zA-Z ()]+)", string:res );
@@ -99,6 +110,17 @@ if( res =~ "^HTTP/1\.[01] 200" && egrep( string:res, pattern:'^\\{".*(nessus_typ
   uiVersion     = "unknown";
   uiBuild       = "unknown";
   type          = "unknown";
+
+  # nb:
+  # - To tell http_can_host_asp and http_can_host_php from http_func.inc that the service is NOT
+  #   supporting these
+  # - There is a slight chance that a system is configured in a way that it acts as a proxy and
+  #   exposes the product on the known endpoint(s) and an additional web server supporting e.g. PHP
+  #   on a different endpoint. Thus the following is only set if the port is the default 8834.
+  if( port == 8834 ) {
+    replace_kb_item( name:"www/" + port + "/can_host_php", value:"no" );
+    replace_kb_item( name:"www/" + port + "/can_host_asp", value:"no" );
+  }
 
   nessusUiVersion = eregmatch( pattern:'nessus_ui_version":"([^",]+)[",]', string:res );
   # nb: Only around 30% of targets expose version information unauthenticated, but all reply are successful, code 200
@@ -201,6 +223,16 @@ if( concl = egrep( pattern:"^[Ss]erver\s*:\s*NessusWWW", string:banner, icase:FA
   concl   = "  " + concl;
   version = "unknown";
   install = port + "/tcp";
+
+  # nb:
+  # - To tell http_can_host_asp and http_can_host_php from http_func.inc that the service is NOT
+  #   supporting these
+  # - Unlike above we don't need to check the default port as the server banner should make clear
+  #   that this is the embedded web server of the product
+  # - The server banner is already included in the relevant functions of http_func.inc and this is
+  #   just another fallback
+  replace_kb_item( name:"www/" + port + "/can_host_php", value:"no" );
+  replace_kb_item( name:"www/" + port + "/can_host_asp", value:"no" );
 
   set_kb_item( name:"tenable/nessus/detected", value:TRUE );
   set_kb_item( name:"tenable/nessus/http/detected", value:TRUE );

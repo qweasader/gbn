@@ -4,11 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
+CPE = "cpe:/a:embedthis:goahead";
+
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113013");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2017-10-11 15:09:33 +0200 (Wed, 11 Oct 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -17,21 +19,24 @@ if(description)
 
   script_tag(name:"solution_type", value:"Workaround");
 
-  script_name("iBall Baton 150M Router Default Credentials");
+  script_name("iBall Baton 150M Router Default Credentials (HTTP)");
 
   script_category(ACT_ATTACK);
 
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_goahead_detect.nasl");
+  script_dependencies("gb_embedthis_goahead_http_detect.nasl");
   script_require_ports("Services/www", 80);
-  script_mandatory_keys("embedthis/goahead/detected");
+  script_mandatory_keys("embedthis/goahead/http/detected");
 
-  script_tag(name:"summary", value:"The iBall Baton 150M Wireless-N Broadband Router uses default credentials, no username and 'admin' as password.");
+  script_tag(name:"summary", value:"The iBall Baton 150M Wireless-N Broadband Router uses default
+  credentials, no username and 'admin' as password.");
 
-  script_tag(name:"vuldetect", value:"The script tries to log into the Router's Web Interface using the default credentials.");
+  script_tag(name:"vuldetect", value:"The script tries to log into the Router's Web Interface using
+  the default credentials.");
 
-  script_tag(name:"impact", value:"Successful exploitation would allow the attacker to gain administrative control over the Router and its settings.");
+  script_tag(name:"impact", value:"Successful exploitation would allow the attacker to gain
+  administrative control over the Router and its settings.");
 
   script_tag(name:"affected", value:"iBall Baton 150M Wireless-N Broadband Router.");
 
@@ -40,14 +45,13 @@ if(description)
   exit(0);
 }
 
-CPE = "cpe:/a:embedthis:goahead";
-
 include("host_details.inc");
 include("http_func.inc");
 include("http_keepalive.inc");
 include("misc_func.inc");
 
-if( ! port = get_app_port( cpe: CPE ) ) exit( 0 );
+if( ! port = get_app_port( cpe: CPE, service: "www" ) )
+  exit( 0 );
 
 content = http_get_cache( port: port, item: "/login.asp" );
 if( !content || "<title>LOGIN</title>" >!< content )

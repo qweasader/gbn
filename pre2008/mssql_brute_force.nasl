@@ -6,24 +6,26 @@
 # SPDX-License-Identifier: GPL-2.0-only
 
 DEFAULT_ACCOUNT_TEST_THRESHOLD = 2;
+CPE = "cpe:/a:microsoft:sql_server";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.10862");
-  script_version("2023-12-20T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
+  script_version("2024-07-24T05:06:37+0000");
+  script_tag(name:"last_modification", value:"2024-07-24 05:06:37 +0000 (Wed, 24 Jul 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-10-12 13:55:00 +0000 (Tue, 12 Oct 2021)");
-  script_cve_id("CVE-2021-33583");
-  script_name("Microsoft SQL (MSSQL) Server Brute Force Logins With Default Credentials (Remote)");
+  script_cve_id("CVE-2021-33583", "CVE-2024-6912");
+  script_name("Microsoft SQL (MSSQL) Server Brute Force Logins With Default Credentials (TCP/IP Listener)");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2005 HD Moore");
   script_family("Brute force attacks");
-  script_dependencies("mssqlserver_detect.nasl", "gb_default_credentials_options.nasl");
+  script_dependencies("gb_microsoft_sql_server_tcp_ip_listener_detect.nasl",
+                      "gb_default_credentials_options.nasl");
   script_require_ports("Services/mssql", 1433);
   script_mandatory_keys("microsoft/sqlserver/tcp_listener/detected");
   script_exclude_keys("default_credentials/disable_brute_force_checks");
@@ -74,7 +76,9 @@ if(description)
 
   - DHL EasyShip
 
-  - CVE-2021-33583: REINER timeCard 6.x");
+  - CVE-2021-33583: REINER timeCard 6.x
+
+  - CVE-2024-6912: PerkinElmer ProcessPlus");
 
   script_tag(name:"solution", value:"Please set a difficult to guess password for the reported
   account(s).");
@@ -99,7 +103,7 @@ if(get_kb_item("default_credentials/disable_brute_force_checks"))
 # (mssql_blank_password.nasl). This plugin is geared towards accounts created by rushed admins or
 # certain software installations.
 
-include("port_service_func.inc");
+include("host_details.inc");
 include("list_array_func.inc");
 include("mssql.inc");
 
@@ -113,7 +117,7 @@ if(account_test_threshold <= 0)
 # - If ever required (e.g. a password including ":") we could also exchange the ":" used below with
 #   something like e.g. "#---#". Make sure to update the sep:":" in the split() call below.
 # - Order matters, e.g. place the "sa:password" which are more likely to be used more up vs. some
-#   exotic software like "My Movies" which are probably rarely used these days
+#   exotic software like "My Movies" which are probably rarely used these days more down in the list
 
 creds = make_list(
 
@@ -196,7 +200,10 @@ creds = make_list(
   "sa:DHLadmin@1",
 
   # Some Jira docker examples
-  "sa:Password!_first"
+  "sa:Password!_first",
+
+  # PerkinElmer ProcessPlus mentioned in https://cyberdanube.com/en/en-multiple-vulnerabilities-in-perten-processplus/
+  "sa:enilno"
 );
 
 # nb:
@@ -208,9 +215,13 @@ skipped_accounts_list = make_list();
 
 VULN = FALSE;
 failed_socket_open = 0;
-report = 'It was possible to login to the remote Microsoft SQL Server with following known credentials:\n';
+report = 'It was possible to login to the remote Microsoft SQL (MSSQL) Server with following known credentials:\n';
 
-port = service_get_port(default:1433, proto:"mssql");
+if(!port = get_app_port(cpe:CPE, service:"tcp_listener"))
+  exit(0);
+
+if(!get_app_location(cpe:CPE, port:port, nofork:TRUE))
+  exit(0);
 
 foreach cred(creds) {
 

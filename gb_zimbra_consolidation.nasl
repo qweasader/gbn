@@ -1,30 +1,16 @@
-# Copyright (C) 2022 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2022 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 include("plugin_feed_info.inc");
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.148606");
-  script_version("2022-08-18T10:11:39+0000");
-  script_tag(name:"last_modification", value:"2022-08-18 10:11:39 +0000 (Thu, 18 Aug 2022)");
+  script_version("2024-07-03T06:48:05+0000");
+  script_tag(name:"last_modification", value:"2024-07-03 06:48:05 +0000 (Wed, 03 Jul 2024)");
   script_tag(name:"creation_date", value:"2022-08-17 03:49:33 +0000 (Wed, 17 Aug 2022)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -35,11 +21,13 @@ if(description)
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2022 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_zimbra_admin_http_detect.nasl");
-  if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
-    script_dependencies("gsf/gb_zimbra_imap_detect.nasl");
+  if(FEED_NAME == "GSF" || FEED_NAME == "GEF" || FEED_NAME == "SCM")
+    script_dependencies("gsf/gb_zimbra_http_detect.nasl",
+                        "gsf/gb_zimbra_imap_detect.nasl",
+                        "gsf/gb_zimbra_pop3_detect.nasl");
   script_mandatory_keys("zimbra/detected");
 
   script_tag(name:"summary", value:"Consolidation of Zimbra detections.");

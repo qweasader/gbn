@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.104117");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2011-06-01 16:32:46 +0200 (Wed, 01 Jun 2011)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -20,15 +20,8 @@ if(description)
 
   script_xref(name:"URL", value:"http://seclists.org/nmap-dev/2009/q4/645");
 
-  script_tag(name:"summary", value:"Guesses Oracle instance/SID names against the TNS-listener.
-
-If the 'oraclesids' script argument is not used to specify an alternate file, the default
-'oracle-sids' file will be used. License to use the 'oracle-sids' file was
-granted by its author, Alexander Kornbrust (see reference).
-
-SYNTAX:
-
-oraclesids:  A file containing SIDs to try.");
+  script_tag(name:"summary", value:"This VT has been deprecated and is therefore no longer
+  functional.");
 
   script_tag(name:"solution_type", value:"Mitigation");
 

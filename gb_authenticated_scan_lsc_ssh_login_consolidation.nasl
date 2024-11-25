@@ -2,22 +2,23 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108162");
-  script_version("2023-06-16T14:09:42+0000");
-  script_tag(name:"last_modification", value:"2023-06-16 14:09:42 +0000 (Fri, 16 Jun 2023)");
+  script_version("2024-05-23T05:05:28+0000");
+  script_tag(name:"last_modification", value:"2024-05-23 05:05:28 +0000 (Thu, 23 May 2024)");
   script_tag(name:"creation_date", value:"2017-10-17 10:31:00 +0200 (Tue, 17 Oct 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_name("Authenticated Scan / LSC Info Consolidation (Linux/Unix SSH Login)");
-  # nb: Needs to run at the end of the scan because of the required info only available in this phase...
+  # nb: Needs to run at the end of the scan due to the required info only available in this phase...
   script_category(ACT_END);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("General");
-  script_dependencies("gather-package-list.nasl", "ssh_login_failed.nasl", "global_settings.nasl");
+  script_dependencies("gather-package-list.nasl", "ssh_login_failed.nasl", "global_settings.nasl",
+                      "gb_gather_hardware_info_ssh_login.nasl");
   script_mandatory_keys("login/SSH/success");
 
   script_xref(name:"URL", value:"https://docs.greenbone.net/GSM-Manual/gos-22.04/en/scanning.html#requirements-on-target-systems-with-linux-unix");
@@ -51,6 +52,8 @@ kb_array = make_array( "ssh/login/uname", "Response to 'uname -a' command",
                        "ssh/login/release", "Operating System Key (used for e.g. classic Local Security Checks)",
                        "ssh/login/release_notus", "Operating System Key (used for Notus based Local Security Checks)",
                        "ssh/login/kernel_reporting_overwrite/enabled", "Report vulnerabilities of inactive Linux Kernel(s) separately",
+                       "ssh/login/arch", "Machine hardware name (gathered via 'uname -m')",
+                       "ssh/login/cpu_vendor_id", "CPU Vendor / Vendor ID (gathered via 'cat /proc/cpuinfo')",
                        "login/SSH/success", "Login via SSH successful",
                        "login/SSH/failed", "Login via SSH failed",
                        "ssh/no_linux_shell", "Login on a system without common commands like 'cat' or 'find'",

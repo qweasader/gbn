@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.12.2024.6574.1");
   script_cve_id("CVE-2023-39318", "CVE-2023-39319", "CVE-2023-39323", "CVE-2023-39325", "CVE-2023-39326", "CVE-2023-44487", "CVE-2023-45285");
   script_tag(name:"creation_date", value:"2024-01-12 04:09:10 +0000 (Fri, 12 Jan 2024)");
-  script_version("2024-01-12T05:05:56+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 05:05:56 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"7.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2024-01-04 18:04:00 +0000 (Thu, 04 Jan 2024)");
+  script_tag(name:"severity_date", value:"2024-01-04 18:04:15 +0000 (Thu, 04 Jan 2024)");
 
   script_name("Ubuntu: Security Advisory (USN-6574-1)");
   script_category(ACT_GATHER_INFO);
@@ -61,6 +61,8 @@ attacker could possibly use this issue to bypass secure protocol checks.
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108767");
-  script_version("2023-10-20T16:09:12+0000");
+  script_version("2024-06-14T05:05:48+0000");
   script_cve_id("CVE-2017-5753", "CVE-2017-5715", "CVE-2017-5754", "CVE-2019-1125", "CVE-2018-3639",
                 "CVE-2018-3615", "CVE-2018-3620", "CVE-2018-3646", "CVE-2018-12126", "CVE-2018-12130",
                 "CVE-2018-12127", "CVE-2019-11091", "CVE-2019-11135", "CVE-2018-12207", "CVE-2020-0543",
                 "CVE-2022-21123", "CVE-2022-21125", "CVE-2022-21166", "CVE-2022-27672", "CVE-2022-29900",
-                "CVE-2022-29901", "CVE-2022-40982", "CVE-2023-20569");
-  script_tag(name:"last_modification", value:"2023-10-20 16:09:12 +0000 (Fri, 20 Oct 2023)");
+                "CVE-2022-29901", "CVE-2022-40982", "CVE-2023-20569", "CVE-2023-28746");
+  script_tag(name:"last_modification", value:"2024-06-14 05:05:48 +0000 (Fri, 14 Jun 2024)");
   script_tag(name:"creation_date", value:"2020-06-02 05:50:19 +0000 (Tue, 02 Jun 2020)");
   script_tag(name:"cvss_base", value:"5.4");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:P/A:N");
@@ -60,10 +60,11 @@ if( ! get_kb_item( "ssh/hw_vulns/kernel_mitigations/sysfs_not_available" ) )
 report = get_kb_item( "ssh/hw_vulns/kernel_mitigations/sysfs_not_available/report" );
 if( report ) {
 
-  # Store link between gb_hw_vuln_linux_kernel_mitigation_detect.nasl and this VT.
-  # nb: We don't use the host_details.inc functions in both so we need to call this directly.
+  # nb:
+  # - Store link between gb_hw_vuln_linux_kernel_mitigation_detect.nasl and this VT
+  # - We don't want to use get_app_* functions as we're only interested in the cross-reference here
   register_host_detail( name:"detected_by", value:"1.3.6.1.4.1.25623.1.0.108765" ); # gb_hw_vuln_linux_kernel_mitigation_detect.nasl
-  register_host_detail( name:"detected_at", value:"general/tcp" ); # gb_hw_vuln_linux_kernel_mitigation_detect.nasl is using port:0
+  register_host_detail( name:"detected_at", value:"general/tcp" ); # nb: gb_hw_vuln_linux_kernel_mitigation_detect.nasl is using port:0
 
   security_message( port:0, data:report );
   exit( 0 );

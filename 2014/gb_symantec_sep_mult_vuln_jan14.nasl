@@ -9,13 +9,13 @@ CPE = "cpe:/a:symantec:endpoint_protection";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804199");
-  script_version("2023-07-27T05:05:09+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2013-5009", "CVE-2013-5010", "CVE-2013-5011");
   script_tag(name:"cvss_base", value:"7.4");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:M/Au:S/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-01-27 16:29:04 +0530 (Mon, 27 Jan 2014)");
-  script_name("Symantec Endpoint Protection Multiple Vulnerabilities Jan-14");
+  script_name("Symantec Endpoint Protection Multiple Vulnerabilities (Jan 2014)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("General");

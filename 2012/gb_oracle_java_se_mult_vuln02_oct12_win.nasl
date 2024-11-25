@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802479");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2012-5085", "CVE-2012-5084", "CVE-2012-5073", "CVE-2012-5077",
                 "CVE-2012-5079", "CVE-2012-5081", "CVE-2012-5083");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-10-19 12:43:54 +0530 (Fri, 19 Oct 2012)");
-  script_name("Oracle Java SE JRE Multiple Unspecified Vulnerabilities-02 oct12 (Windows)");
+  script_name("Oracle Java SE JRE Multiple Unspecified Vulnerabilities - 02 - (Oct 2012) - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/50949/");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/56025");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/56058");

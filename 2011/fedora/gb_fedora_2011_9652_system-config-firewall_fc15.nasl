@@ -8,11 +8,14 @@ if(description)
 {
   script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2011-August/063314.html");
   script_oid("1.3.6.1.4.1.25623.1.0.863399");
-  script_version("2023-06-30T16:09:17+0000");
-  script_tag(name:"last_modification", value:"2023-06-30 16:09:17 +0000 (Fri, 30 Jun 2023)");
+  script_version("2024-01-23T05:05:19+0000");
+  script_tag(name:"last_modification", value:"2024-01-23 05:05:19 +0000 (Tue, 23 Jan 2024)");
   script_tag(name:"creation_date", value:"2011-08-12 15:49:01 +0200 (Fri, 12 Aug 2011)");
   script_tag(name:"cvss_base", value:"6.0");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:S/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-01-21 02:53:00 +0000 (Sun, 21 Jan 2024)");
   script_xref(name:"FEDORA", value:"2011-9652");
   script_cve_id("CVE-2011-2520");
   script_name("Fedora Update for system-config-firewall FEDORA-2011-9652");

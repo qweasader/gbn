@@ -7,15 +7,18 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.901096");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-07-01T05:05:38+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2009-4324");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-01 05:05:38 +0000 (Mon, 01 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-06-28 14:20:36 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2009-12-21 07:14:17 +0100 (Mon, 21 Dec 2009)");
-  script_name("Adobe Reader/Acrobat Multimedia Doc.media.newPlayer Code Execution Vulnerability (Windows)");
+  script_name("Adobe Reader/Acrobat Multimedia Doc.media.newPlayer Code Execution Vulnerability - Windows");
 
   script_tag(name:"summary", value:"Adobe Reader/Acrobat is prone to Doc.media.newPlayer Remote Code Execution vulnerability.");
 

@@ -9,11 +9,11 @@ CPE = "cpe:/a:kunena:kunena";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108106");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-03-01T14:37:10+0000");
   script_cve_id("CVE-2017-5673");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-11-15 02:29:00 +0000 (Wed, 15 Nov 2017)");
@@ -24,7 +24,6 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_kunena_forum_detect.nasl");
   script_mandatory_keys("kunena_forum/installed");
-  script_require_ports("Services/www", 80);
 
   script_xref(name:"URL", value:"http://www.fox.ra.it/technical-articles/kunena-vulnerability-2017-01.html");
 
@@ -50,8 +49,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_in_range( version:vers, test_version:"5.0.2", test_version2:"5.0.4" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"5.0.5" );

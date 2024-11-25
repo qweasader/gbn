@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804623");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-03-05T05:05:54+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-05 05:05:54 +0000 (Tue, 05 Mar 2024)");
   script_tag(name:"creation_date", value:"2014-06-04 14:46:32 +0530 (Wed, 04 Jun 2014)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("Adobe Reader Old Version Detection (Windows)");
+  script_name("Adobe Reader Old Detection (Windows SMB Login)");
 
   script_tag(name:"summary", value:"Detects the installed version of Adobe Reader (less or equal to version 6.0)
 on Windows.
@@ -69,7 +69,7 @@ foreach key (key_list)
   if(readPath)
   {
     readVer = fetch_file_version(sysPath:readPath, file_name: "AcroRd32.exe");
-    readVer = eregmatch(pattern:"(^[0-6]\.[0-9]+\.[0-9]+)", string: readVer);
+    readVer = eregmatch(pattern:"^([0-6]\.[0-9]+\.[0-9]+)", string: readVer);
     if(readVer[0])
     {
       set_kb_item(name:"Adobe/Reader-Old/Ver", value:readVer[0]);

@@ -9,11 +9,11 @@ CPE = "cpe:/a:mcafee:web_gateway";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804839");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2014-6064");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2014-09-09 17:31:29 +0530 (Tue, 09 Sep 2014)");
 
   script_name("McAfee Web Gateway Information Disclosure Vulnerability");
@@ -43,36 +43,30 @@ if(description)
   script_copyright("Copyright (C) 2014 Greenbone AG");
   script_dependencies("gb_mcafee_web_gateway_detect.nasl");
   script_mandatory_keys("McAfee/Web/Gateway/installed");
-  script_require_ports("Services/www", 80);
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!mwgPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_is_less(version:version, test_version:"7.3.2.9")){
+  report = report_fixed_ver(installed_version:version, fixed_version:"7.3.2.9");
+  security_message(port:port, data:report);
   exit(0);
 }
 
-mwgVer = get_app_version(cpe:CPE, port:mwgPort);
-if(!mwgVer){
-  exit(0);
-}
-
-if(version_is_less(version:mwgVer, test_version:"7.3.2.9"))
-{
-  report = report_fixed_ver(installed_version:mwgVer, fixed_version:"7.3.2.9");
-  security_message(port:mwgPort, data:report);
-  exit(0);
-}
-
-if(mwgVer =~ "^7\.4")
-{
-  if(version_is_less(version:mwgVer, test_version:"7.4.2"))
-  {
-    report = report_fixed_ver(installed_version:mwgVer, fixed_version:"7.4.2");
-    security_message(port:mwgPort, data:report);
+if(version =~ "^7\.4") {
+  if(version_is_less(version:version, test_version:"7.4.2")) {
+    report = report_fixed_ver(installed_version:version, fixed_version:"7.4.2");
+    security_message(port:port, data:report);
     exit(0);
   }
 }
 
+exit(99);

@@ -9,8 +9,8 @@ CPE = "cpe:/a:open-emr:openemr";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112262");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-05-02 09:38:12 +0200 (Wed, 02 May 2018)");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
@@ -22,7 +22,7 @@ if(description)
 
   script_cve_id("CVE-2018-10571", "CVE-2018-10572", "CVE-2018-10573");
 
-  script_name("OpenEMR < 5.0.1 Multiple Vulnerabilities - March 2018");
+  script_name("OpenEMR < 5.0.1 Multiple Vulnerabilities (Mar 2018)");
 
   script_category(ACT_GATHER_INFO);
 
@@ -37,7 +37,7 @@ vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"impact", value:"Multiple reflected cross-site scripting (XSS) vulnerabilities allow remote attackers to inject arbitrary web script or HTML via varios parameters. (CVE-2018-10571)
+  script_tag(name:"impact", value:"Multiple reflected cross-site scripting (XSS) vulnerabilities allow remote attackers to inject arbitrary web script or HTML via various parameters. (CVE-2018-10571)
 
   Exploiting an issue interface/patient_file/letter.php allows remote authenticated users to bypass intended access restrictions via the newtemplatename and form_body parameters. (CVE-2018-10572)
 

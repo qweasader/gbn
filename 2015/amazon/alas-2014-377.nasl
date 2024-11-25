@@ -1,36 +1,22 @@
-# Copyright (C) 2015 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2015 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.120576");
   script_cve_id("CVE-2014-2681", "CVE-2014-2682", "CVE-2014-2683", "CVE-2014-2684", "CVE-2014-2685");
   script_tag(name:"creation_date", value:"2015-09-08 11:29:54 +0000 (Tue, 08 Sep 2015)");
-  script_version("2022-01-06T03:03:01+0000");
-  script_tag(name:"last_modification", value:"2022-01-06 03:03:01 +0000 (Thu, 06 Jan 2022)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
   script_name("Amazon Linux: Security Advisory (ALAS-2014-377)");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Amazon Linux Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/amazon_linux", "ssh/login/release");
@@ -38,7 +24,6 @@ if(description)
   script_xref(name:"Advisory-ID", value:"ALAS-2014-377");
   script_xref(name:"URL", value:"https://alas.aws.amazon.com/ALAS-2014-377.html");
   script_xref(name:"URL", value:"https://openid.net/specs/openid-authentication-2_0.html#positive_assertions");
-  script_xref(name:"URL", value:"https://openid.net/specs/openid-authentication-2_0.html#positive_assertions,");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'php-ZendFramework' package(s) announced via the ALAS-2014-377 advisory.");
 

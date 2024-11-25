@@ -72,12 +72,13 @@ function build_cpe( value, exp, base ) {
 # @param regProto   The network protocol (e.g. tcp, udp) where the product was detected.
 # @param conclUrl   The URL/location where the product was detected from.
 # @param extra      Any extra information which should be added to the report message.
+# @param cpeLower   If the CPE should be made lowercase (Default: no)
 #
 # @return NULL
 #
-function register_and_report_cpe( app, ver, concluded, cpename, base, expr, insloc, regPort, regService, regProto, conclUrl, extra ) {
+function register_and_report_cpe( app, ver, concluded, cpename, base, expr, insloc, regPort, regService, regProto, conclUrl, extra, cpeLower ) {
 
-  local_var app, ver, concluded, cpename, base, expr, insloc, regPort, regService, regProto, conclUrl, extra;
+  local_var app, ver, concluded, cpename, base, expr, insloc, regPort, regService, regProto, conclUrl, extra, cpeLower;
 
   if( ! cpename && ! base && ! expr ) {
     set_kb_item( name:"vt_debug_empty/" + get_script_oid(), value:get_script_oid() + "#-#cpename,base,expr#-#register_and_report_cpe" );
@@ -131,6 +132,10 @@ function register_and_report_cpe( app, ver, concluded, cpename, base, expr, insl
   }
 
   if( cpename ) {
+
+    if( cpeLower )
+      cpename = tolower( cpename );
+
     register_product( cpe:cpename, location:insloc, port:regPort, proto:regProto, service:regService );
 
     log_message( data:build_detection_report( app:app,
@@ -140,8 +145,8 @@ function register_and_report_cpe( app, ver, concluded, cpename, base, expr, insl
                                               extra:extra,
                                               concluded:concluded,
                                               concludedUrl:conclUrl ),
-                                              port:regPort,
-                                              proto:regProto );
+                 port:regPort,
+                 proto:regProto );
   }
   return NULL;
 }

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.882691");
-  script_version("2023-07-12T05:05:04+0000");
-  script_tag(name:"last_modification", value:"2023-07-12 05:05:04 +0000 (Wed, 12 Jul 2023)");
+  script_version("2024-10-10T07:25:31+0000");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"creation_date", value:"2017-04-14 06:30:18 +0200 (Fri, 14 Apr 2017)");
   script_cve_id("CVE-2017-2616");
   script_tag(name:"cvss_base", value:"4.7");
@@ -36,7 +36,7 @@ Red Hat would like to thank Tobias Stockmann for reporting this issue.
 Bug Fix(es):
 
   * The 'findmnt --target  path ' command prints all file systems where the
-mount point directory is  path . Previously, when used in the chroot
+mount point directory is  path. Previously, when used in the chroot
 environment, 'findmnt --target  path ' incorrectly displayed all mount
 points. The command has been fixed so that it now checks the mount point
 path and returns information only for the relevant mount point.

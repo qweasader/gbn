@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = "cpe:/a:gecad_technologies:axigen_mail_server";
+CPE = "cpe:/a:axigen:axigen_mail_server";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100805");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-23T05:07:12+0000");
+  script_tag(name:"last_modification", value:"2024-02-23 05:07:12 +0000 (Fri, 23 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-09-15 18:43:03 +0200 (Wed, 15 Sep 2010)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -26,8 +26,8 @@ if (description)
   script_category(ACT_ATTACK);
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2010 Greenbone AG");
-  script_dependencies("axigen_web_detect.nasl");
-  script_mandatory_keys("axigen/installed");
+  script_dependencies("gb_axigen_webmail_http_detect.nasl");
+  script_mandatory_keys("axigen/detected");
 
   script_tag(name:"solution_type", value:"VendorFix");
 

@@ -1,42 +1,28 @@
-# Copyright (C) 2011 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2011 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apple:itunes";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902639");
-  script_version("2022-04-28T13:38:57+0000");
+  script_version("2024-02-15T05:05:39+0000");
   script_cve_id("CVE-2008-3434");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-04-28 13:38:57 +0000 (Thu, 28 Apr 2022)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-11-28 16:04:18 +0530 (Mon, 28 Nov 2011)");
-  script_name("Apple iTunes Remote Code Execution Vulnerability (Mac OS X)");
+  script_name("Apple iTunes Remote Code Execution Vulnerability - Mac OS X");
   script_xref(name:"URL", value:"http://support.apple.com/kb/HT5030");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/50672");
   script_xref(name:"URL", value:"http://support.apple.com/kb/HT4981");
   script_xref(name:"URL", value:"http://lists.apple.com/archives/security-announce/2011/Nov/msg00003.html");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2011 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Mac OS X Local Security Checks");
   script_dependencies("secpod_itunes_detect_macosx.nasl");
   script_mandatory_keys("Apple/iTunes/MacOSX/Version");

@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112071");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2017-10-09 08:27:51 +0200 (Mon, 09 Oct 2017)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -31,10 +31,14 @@ if (description)
   script_dependencies("gb_wordpress_plugin_http_detect.nasl");
   script_mandatory_keys("wordpress/plugin/gallery-bank/detected");
 
-  script_tag(name:"summary", value:"The WordPress plugin 'Gallery Bank' allows remote attackers to inject arbitrary web script
-  or HTML via the order_id parameter in the gallery_album_sorting page to wp-admin/admin.php.");
+  script_tag(name:"summary", value:"The WordPress plugin 'Gallery Bank' is prone to a cross-site
+  scripting (XSS) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+
+  script_tag(name:"insight", value:"The plugin allows remote attackers to inject arbitrary web
+  script or HTML via the order_id parameter in the gallery_album_sorting page to
+  wp-admin/admin.php.");
 
   script_tag(name:"affected", value:"WordPress Gallery Bank plugin version 2.0.26 up to 3.0.69.");
 
@@ -51,13 +55,16 @@ CPE = "cpe:/a:tech-banker:gallery_bank";
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe: CPE ) ) exit( 0 );
-if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) ) exit( 0 );
+if( ! port = get_app_port( cpe: CPE ) )
+  exit( 0 );
+
+if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) )
+  exit( 0 );
 
 version = infos["version"];
 location = infos["location"];
 
-if ( version_in_range( version: version, test_version: "2.0.26", test_version2: "3.0.69" ) ) {
+if( version_in_range( version: version, test_version: "2.0.26", test_version2: "3.0.69" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "3.0.70", install_path: location );
   security_message( port: port, data: report );
   exit( 0 );

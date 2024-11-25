@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.800787");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2010-06-04 09:43:24 +0200 (Fri, 04 Jun 2010)");
   script_cve_id("CVE-2010-2113");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
-  script_name("Uniform Server Multiple Cross-Site Request Forgery Vulnerabilities");
+  script_name("Uniform Server Multiple CSRF Vulnerabilities");
   script_xref(name:"URL", value:"http://secunia.com/advisories/39913");
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/58844");
   script_xref(name:"URL", value:"http://cross-site-scripting.blogspot.com/2010/05/uniform-server-565-xsrf.html");

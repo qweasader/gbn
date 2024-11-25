@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:concrete5:concrete5';
+CPE = "cpe:/a:concrete5:concrete5";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108152");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-03-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2017-05-08 09:03:26 +0200 (Mon, 08 May 2017)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -23,7 +23,6 @@ if (description)
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_concrete5_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("concrete5/installed");
 
   script_tag(name:"summary", value:"Concrete5 is prone to multiple cross-site scripting vulnerabilities because it
@@ -52,8 +51,11 @@ if (description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_less_equal( version:vers, test_version:"5.6.3.4" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"5.6.3.5" );

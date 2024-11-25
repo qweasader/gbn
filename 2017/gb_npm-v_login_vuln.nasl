@@ -4,11 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
+CPE = "cpe:/a:embedthis:goahead";
+
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113036");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2017-10-19 10:00:00 +0200 (Thu, 19 Oct 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -17,41 +19,44 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("NPM-V Password Leak and Reset vulnerability");
+  script_name("NPM-V < 2.4.2 Password Leak and Reset Vulnerability - Active Check");
 
   script_category(ACT_ATTACK);
 
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_goahead_detect.nasl");
+  script_dependencies("gb_embedthis_goahead_http_detect.nasl");
   script_require_ports("Services/www", 80);
-  script_mandatory_keys("embedthis/goahead/detected");
+  script_mandatory_keys("embedthis/goahead/http/detected");
 
-  script_tag(name:"summary", value:"NPM-V 2.4.1 and before is vulnerable to Password Leak and Password Reset vulnerabilities.");
+  script_tag(name:"summary", value:"NPM-V is prone to password leak and password reset
+  vulnerabilities.");
 
-  script_tag(name:"vuldetect", value:"Tries to read a user's password from the web application and uses it attempt a login.");
+  script_tag(name:"vuldetect", value:"Tries to read a user's password from the web application and
+  uses it attempt a login.");
 
-  script_tag(name:"insight", value:"GET-Requests for reading and changing passwords and creating new users don't require authentication.");
+  script_tag(name:"insight", value:"GET requests for reading and changing passwords and creating new
+  users don't require authentication.");
 
-  script_tag(name:"impact", value:"Successful exploitation would allow an attacker to get administrative access to the Network Power Manager.");
+  script_tag(name:"impact", value:"Successful exploitation would allow an attacker to get
+  administrative access to the Network Power Manager.");
 
-  script_tag(name:"affected", value:"NPM-V 2.4.1 and before.");
+  script_tag(name:"affected", value:"NPM-V version 2.4.1 and prior.");
 
-  script_tag(name:"solution", value:"Upgrade to NPM-V version 2.4.2.");
+  script_tag(name:"solution", value:"Update to version 2.4.2 or later.");
 
   script_xref(name:"URL", value:"https://www.exploit-db.com/exploits/42933/");
 
   exit(0);
 }
 
-CPE = "cpe:/a:embedthis:goahead";
-
 include("host_details.inc");
 include("http_func.inc");
 include("http_keepalive.inc");
 include("misc_func.inc");
 
-if( ! port = get_app_port( cpe: CPE ) ) exit( 0 );
+if( ! port = get_app_port( cpe: CPE, service: "www" ) )
+  exit( 0 );
 
 content = http_get_cache( port: port, item: "/user/user.html" );
 if( ! ( "function loaddata()" >< content && "function loadlist()" >< content && "function deleteuser()" >< content && "function userchange()" >< content ) ) {

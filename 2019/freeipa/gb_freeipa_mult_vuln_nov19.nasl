@@ -1,30 +1,16 @@
-# Copyright (C) 2019 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2019 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:freeipa:freeipa";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.143217");
-  script_version("2021-09-08T10:01:41+0000");
-  script_tag(name:"last_modification", value:"2021-09-08 10:01:41 +0000 (Wed, 08 Sep 2021)");
+  script_version("2024-06-17T08:31:37+0000");
+  script_tag(name:"last_modification", value:"2024-06-17 08:31:37 +0000 (Mon, 17 Jun 2024)");
   script_tag(name:"creation_date", value:"2019-12-04 04:27:48 +0000 (Wed, 04 Dec 2019)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
@@ -38,24 +24,24 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("FreeIPA Multiple Vulnerabilities - Nov19");
+  script_name("FreeIPA Multiple Vulnerabilities (Nov 2019)");
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2019 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2019 Greenbone AG");
   script_family("General");
-  script_dependencies("gb_freeipa_detect.nasl");
+  script_dependencies("gb_freeipa_http_detect.nasl");
   script_mandatory_keys("freeipa/detected");
 
   script_tag(name:"summary", value:"FreeIPA is prone to multiple vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"FreeIPA is prone to multiple vulnerabilities:
+  script_tag(name:"insight", value:"The following vulnerabilities exist:
 
-  - Information disclosure vulnerability (CVE-2019-1019)
+  - CVE-2019-1019: Information disclosure
 
-  - Denial of service and possible remote code execution vulnerability (CVE-2019-14867)");
+  - CVE-2019-14867: Denial of service (DoS) and possible remote code execution (RCE)");
 
   script_tag(name:"affected", value:"FreeIPA version 4.6.x, 4.7.x and 4.8.x.");
 

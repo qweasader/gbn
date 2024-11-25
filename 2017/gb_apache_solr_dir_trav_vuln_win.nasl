@@ -9,8 +9,8 @@ CPE = "cpe:/a:apache:solr";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108886");
-  script_version("2024-01-18T05:07:09+0000");
-  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-08-31 15:14:14 +0700 (Thu, 31 Aug 2017)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -24,7 +24,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Apache Solr Inter-Node Communication Vulnerability (SOLR-10031) (Windows)");
+  script_name("Apache Solr Inter-Node Communication Vulnerability (SOLR-10031) - Windows");
 
   script_category(ACT_GATHER_INFO);
 

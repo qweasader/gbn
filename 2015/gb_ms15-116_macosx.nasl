@@ -7,14 +7,14 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806705");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-28T05:05:37+0000");
   script_cve_id("CVE-2015-6038", "CVE-2015-6094", "CVE-2015-6123");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-28 05:05:37 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-11-24 10:32:31 +0530 (Tue, 24 Nov 2015)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("Microsoft Office Multiple Vulnerabilities-3104540 (Mac OS X)");
+  script_name("Microsoft Office Multiple Vulnerabilities (3104540) - Mac OS X");
 
   script_tag(name:"summary", value:"This host is missing an important security
   update according to Microsoft Bulletin MS15-116");

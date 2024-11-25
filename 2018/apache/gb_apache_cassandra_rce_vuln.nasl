@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112320");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-06-29 13:08:55 +0200 (Fri, 29 Jun 2018)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -22,7 +22,7 @@ if( description )
 
   script_cve_id("CVE-2018-8016");
 
-  script_name("Apache Cassandra < 3.11.2 Remote Code Execution Vulnerability");
+  script_name("Apache Cassandra < 3.11.2 RCE Vulnerability");
 
   script_category(ACT_GATHER_INFO);
 
@@ -31,7 +31,8 @@ if( description )
   script_dependencies("gb_apache_cassandra_detect.nasl");
   script_mandatory_keys("apache/cassandra/detected");
 
-  script_tag(name:"summary", value:"Apache Cassandra is prone to a remote code execution vulnerability.");
+  script_tag(name:"summary", value:"Apache Cassandra is prone to a remote code execution (RCE)
+  vulnerability.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
   script_tag(name:"insight", value:"The default configuration in Apache Cassandra 3.8 through 3.11.1 binds an unauthenticated JMX/RMI interface
   to all network interfaces, which allows remote attackers to execute arbitrary Java code via an RMI request.");

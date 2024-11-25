@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2005 Michel Arboi
+# SPDX-FileCopyrightText: New / improved (detection) code since 2018 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -7,8 +8,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11238");
-  script_version("2023-06-21T05:06:23+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:23 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-01-30T14:37:03+0000");
+  script_tag(name:"last_modification", value:"2024-01-30 14:37:03 +0000 (Tue, 30 Jan 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -39,18 +40,21 @@ include("list_array_func.inc");
 
 waf_headers = make_array(
   # X-CDN: Incapsula
-  "^X-CDN\s*:\s*Incapsula", "Incapsula WAF",
+  "^X-CDN\s*:\s*Incapsula", "Imperva/Incapsula WAF",
   # Server: Apache/1.3.33 (Debian GNU/Linux) mod_security/1.8.7 mod_gzip/1.3.26.1a PHP/4.3.10-22 mod_jk/1.2.5 AuthMySQL/4.3.9-2 mod_ssl/2.8.22 OpenSSL/0.9.7e DAV/1.0.3
   # Server: mod_security/1.71
   "^Server\s*:.*mod_security", "ModSecurity WAF"
 );
 
 waf_bodies = make_array(
+  "<title>Application Firewall Error</title>", "Imperva/Incapsula WAF",
   # <p class="red">Request denied by WatchGuard HTTP Proxy.</p>
   ">Request denied by WatchGuard HTTP Proxy\.<", "WatchGuard HTTP Proxy",
   # >Request unsuccessful. Incapsula incident ID: 0-redacted</iframe></body></html>
   # >Request unsuccessful. Incapsula incident ID: 1515000redacted-623663redacted<
-  ">Request unsuccessful\. Incapsula incident ID: ", "Imperva Cloud Application Security"
+  ">Request unsuccessful\. Incapsula incident ID: ", "Imperva Cloud Application Security",
+  # var mailLink = "<a href='mailto:<redacted>?subject=WAF Block Page: <redacted>&body="+bodyVars+"'><redacted></a> for assistance.";
+  "\?subject=WAF Block Page\s*:\s*.+", "Imperva/Incapsula WAF"
 );
 
 clean_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393";

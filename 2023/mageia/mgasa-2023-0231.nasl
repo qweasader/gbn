@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2023.0231");
   script_cve_id("CVE-2021-45930", "CVE-2023-32573");
   script_tag(name:"creation_date", value:"2023-07-20 04:12:53 +0000 (Thu, 20 Jul 2023)");
-  script_version("2023-07-20T05:05:17+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-05-23 17:24:00 +0000 (Tue, 23 May 2023)");
+  script_tag(name:"severity_date", value:"2023-05-23 17:24:32 +0000 (Tue, 23 May 2023)");
 
   script_name("Mageia: Security Advisory (MGASA-2023-0231)");
   script_category(ACT_GATHER_INFO);
@@ -27,8 +27,8 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2023-0231");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2023-0231.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=29913");
-  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5241-1");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/V75XNX4GDB64N5BSOAN474RUXXS5OHRU/");
+  script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-5241-1");
   script_xref(name:"URL", value:"https://www.debian.org/lts/security/2022/dla-2895");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'qt4, qtsvg5' package(s) announced via the MGASA-2023-0231 advisory.");

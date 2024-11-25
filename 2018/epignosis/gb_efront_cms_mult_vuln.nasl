@@ -12,8 +12,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113104");
-  script_version("2023-11-03T05:05:46+0000");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-02-06 15:00:00 +0100 (Tue, 06 Feb 2018)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:N");
@@ -37,7 +37,7 @@ if( description )
   script_mandatory_keys("efront/detected");
 
   script_tag(name:"summary", value:"eFront CMS is prone to multiple vulnerabilities.");
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
   script_tag(name:"insight", value:'Vulnerabilities:
 
 Absolute path traversal: Allows remote Professor users to obtain sensitive information via a full pathname in the other parameter.

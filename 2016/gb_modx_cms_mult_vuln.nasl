@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:modx:revolution';
+CPE = "cpe:/a:modx:revolution";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106459");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2016-12-09 11:42:44 +0700 (Fri, 09 Dec 2016)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -30,7 +30,6 @@ if (description)
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_modx_cms_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("modx_cms/installed");
 
   script_tag(name:"summary", value:"MODX Revolution CMS is prone to multiple vulnerabilities.");

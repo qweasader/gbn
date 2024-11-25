@@ -9,13 +9,13 @@ CPE = "cpe:/a:hp:web_jetadmin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812517");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2011-0278");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2018-02-20 17:10:32 +0530 (Tue, 20 Feb 2018)");
-  script_name("HP Web Jetadmin Unspecified Local Security Bypass Vulnerability (Windows)");
+  script_name("HP Web Jetadmin Unspecified Local Security Bypass Vulnerability - Windows");
 
   script_tag(name:"summary", value:"HP Web Jetadmin is prone to a security bypass vulnerability.");
 
@@ -42,7 +42,6 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_family("Web Servers");
   script_dependencies("gb_hp_web_jetadmin_detect.nasl", "os_detection.nasl");
-  script_require_ports("Services/www", 8000);
   script_mandatory_keys("HpWebJetadmin/installed", "Host/runs_windows");
 
   script_xref(name:"URL", value:"http://www8.hp.com/us/en/solutions/business-solutions/printingsolutions/wja.html");

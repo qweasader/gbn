@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.842119");
   script_cve_id("CVE-2015-0819", "CVE-2015-0820", "CVE-2015-0821", "CVE-2015-0822", "CVE-2015-0823", "CVE-2015-0824", "CVE-2015-0825", "CVE-2015-0826", "CVE-2015-0827");
   script_tag(name:"creation_date", value:"2015-03-10 05:33:44 +0000 (Tue, 10 Mar 2015)");
-  script_version("2023-06-21T05:06:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:21 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
@@ -23,8 +23,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"USN-2505-2");
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-2505-2");
-  script_xref(name:"URL", value:"https://launchpad.net/bugs/1429115");
   script_xref(name:"URL", value:"https://launchpad.net/bugs/1425972");
+  script_xref(name:"URL", value:"https://launchpad.net/bugs/1429115");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'firefox' package(s) announced via the USN-2505-2 advisory.");
 

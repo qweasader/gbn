@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2023.3563.2");
   script_cve_id("CVE-2020-10531", "CVE-2020-21913");
   script_tag(name:"creation_date", value:"2023-10-24 04:21:12 +0000 (Tue, 24 Oct 2023)");
-  script_version("2023-10-24T14:40:27+0000");
-  script_tag(name:"last_modification", value:"2023-10-24 14:40:27 +0000 (Tue, 24 Oct 2023)");
+  script_version("2024-05-09T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-05-09 05:05:43 +0000 (Thu, 09 May 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-07-20 23:15:00 +0000 (Tue, 20 Jul 2021)");
+  script_tag(name:"severity_date", value:"2020-03-18 16:40:03 +0000 (Wed, 18 Mar 2020)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2023:3563-2)");
   script_category(ACT_GATHER_INFO);
@@ -144,12 +144,9 @@ Fix memory leak in AliasReplacer
 Add back icu.keyring, see [link moved to references]
 
 
-Update to release 68.1
+Update to release 68.1:
 
-
-CLDR 38
-
-Measurement unit preferences PluralRules ... [Please see the references for more information on the vulnerabilities]");
+CLDR 38 Measurement unit preferences PluralRules ... [Please see the references for more information on the vulnerabilities]");
 
   script_tag(name:"affected", value:"'icu73_2' package(s) on SUSE CaaS Platform 4.0, SUSE Enterprise Storage 7, SUSE Enterprise Storage 7.1, SUSE Linux Enterprise High Performance Computing 15-SP1, SUSE Linux Enterprise High Performance Computing 15-SP2, SUSE Linux Enterprise High Performance Computing 15-SP3, SUSE Linux Enterprise Server 15-SP1, SUSE Linux Enterprise Server 15-SP2, SUSE Linux Enterprise Server 15-SP3, SUSE Linux Enterprise Server for SAP Applications 15-SP1, SUSE Linux Enterprise Server for SAP Applications 15-SP2, SUSE Linux Enterprise Server for SAP Applications 15-SP3.");
 

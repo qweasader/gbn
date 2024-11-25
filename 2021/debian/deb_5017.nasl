@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.705017");
   script_cve_id("CVE-2021-28702", "CVE-2021-28704", "CVE-2021-28705", "CVE-2021-28706", "CVE-2021-28707", "CVE-2021-28708", "CVE-2021-28709");
   script_tag(name:"creation_date", value:"2021-12-07 02:00:10 +0000 (Tue, 07 Dec 2021)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-02T05:06:07+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:07 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-12-01 14:16:00 +0000 (Wed, 01 Dec 2021)");
+  script_tag(name:"severity_date", value:"2021-12-01 14:16:28 +0000 (Wed, 01 Dec 2021)");
 
   script_name("Debian: Security Advisory (DSA-5017-1)");
   script_category(ACT_GATHER_INFO);

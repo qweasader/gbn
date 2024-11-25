@@ -9,9 +9,9 @@ CPE = "cpe:/a:wso2:identity_server";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106343");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2016-4311", "CVE-2016-4312");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-10-10 12:16:07 +0700 (Mon, 10 Oct 2016)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
@@ -32,7 +32,8 @@ if (description)
   script_dependencies("gb_wso2_carbon_detect.nasl");
   script_mandatory_keys("wso2_carbon_identity_server/detected");
 
-  script_tag(name:"summary", value:"WSO2 Identity Server is prone to a XML External Entity vulnerability.");
+  script_tag(name:"summary", value:"WSO2 Identity Server is prone to a XML external entity (XXE)
+  vulnerability.");
 
   script_tag(name:"insight", value:"WSO2 Identity Server is vulnerable to XXE attack which is a type of attack
   against an application that parses XML input. When Identity Server used with its XACML feature, it parses

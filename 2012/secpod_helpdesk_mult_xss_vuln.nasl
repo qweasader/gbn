@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.903025");
-  script_version("2023-12-13T05:05:23+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-04-30 12:42:29 +0530 (Mon, 30 Apr 2012)");
-  script_name("HelpDesk Multiple Persistent Cross Site Scripting Vulnerabilities");
+  script_name("HelpDesk Multiple Persistent XSS Vulnerabilities");
   script_category(ACT_ATTACK);
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Web application abuses");
@@ -37,7 +37,8 @@ if(description)
 Likely none will be provided anymore.
 General solution options are to upgrade to a newer release, disable respective features, remove the product or replace the product by another one.");
 
-  script_tag(name:"summary", value:"HelpDesk is prone to multiple persistent cross site scripting vulnerabilities.");
+  script_tag(name:"summary", value:"HelpDesk is prone to multiple persistent cross-site scripting
+  (XSS) vulnerabilities.");
 
   script_tag(name:"qod_type", value:"remote_analysis");
   script_tag(name:"solution_type", value:"WillNotFix");

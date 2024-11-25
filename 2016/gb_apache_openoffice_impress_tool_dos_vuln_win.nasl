@@ -2,24 +2,24 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:apache:openoffice";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808653");
-  script_version("2023-10-06T16:09:51+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2016-1513");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-10-06 16:09:51 +0000 (Fri, 06 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-09-01 01:29:00 +0000 (Fri, 01 Sep 2017)");
   script_tag(name:"creation_date", value:"2016-08-16 14:06:15 +0530 (Tue, 16 Aug 2016)");
   script_tag(name:"qod_type", value:"registry");
-  script_name("Apache OpenOffice 'Impress Tool' Denial of Service Vulnerability (Windows)");
+  script_name("Apache OpenOffice 'Impress Tool' Denial of Service Vulnerability - Windows");
 
   script_tag(name:"summary", value:"Apache OpenOffice is prone to a denial of service (DoS) vulnerability.");
 

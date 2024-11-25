@@ -9,8 +9,8 @@ include("plugin_feed_info.inc");
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170244");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-07-03T06:48:05+0000");
+  script_tag(name:"last_modification", value:"2024-07-03 06:48:05 +0000 (Wed, 03 Jul 2024)");
   script_tag(name:"creation_date", value:"2022-11-23 15:15:18 +0000 (Wed, 23 Nov 2022)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -23,7 +23,7 @@ if(description)
   script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_dlink_dir_http_detect.nasl");
-  if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
+  if(FEED_NAME == "GSF" || FEED_NAME == "GEF" || FEED_NAME == "SCM")
     script_dependencies("gsf/gb_dlink_devices_hnap_detect.nasl",
                         "gsf/gb_dlink_devices_upnp_detect.nasl",
                         "gsf/gb_dlink_devices_mdns_detect.nasl");

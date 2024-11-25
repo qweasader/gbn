@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.704289");
   script_cve_id("CVE-2018-16065", "CVE-2018-16066", "CVE-2018-16067", "CVE-2018-16068", "CVE-2018-16069", "CVE-2018-16070", "CVE-2018-16071", "CVE-2018-16073", "CVE-2018-16074", "CVE-2018-16075", "CVE-2018-16076", "CVE-2018-16077", "CVE-2018-16078", "CVE-2018-16079", "CVE-2018-16080", "CVE-2018-16081", "CVE-2018-16082", "CVE-2018-16083", "CVE-2018-16084", "CVE-2018-16085", "CVE-2018-16086", "CVE-2018-16087", "CVE-2018-16088", "CVE-2018-16435", "CVE-2018-17457");
   script_tag(name:"creation_date", value:"2018-09-06 22:00:00 +0000 (Thu, 06 Sep 2018)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-02T05:06:06+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:06 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-01-29 18:29:00 +0000 (Tue, 29 Jan 2019)");
+  script_tag(name:"severity_date", value:"2019-01-29 18:29:53 +0000 (Tue, 29 Jan 2019)");
 
   script_name("Debian: Security Advisory (DSA-4289-1)");
   script_category(ACT_GATHER_INFO);

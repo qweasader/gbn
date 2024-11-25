@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2017.0276");
   script_cve_id("CVE-2017-7511", "CVE-2017-7515", "CVE-2017-9406", "CVE-2017-9408", "CVE-2017-9775", "CVE-2017-9776", "CVE-2017-9865");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-03-12 17:27:00 +0000 (Tue, 12 Mar 2019)");
+  script_tag(name:"severity_date", value:"2017-06-29 13:52:16 +0000 (Thu, 29 Jun 2017)");
 
   script_name("Mageia: Security Advisory (MGASA-2017-0276)");
   script_category(ACT_GATHER_INFO);
@@ -27,9 +27,9 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2017-0276");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2017-0276.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=21038");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/7G2XFEFF6S2H4DRDPUXBUWPEEDGE37EG/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/MPWSH7JKKVEIEQEEILCRHTF7HL7BSYW4/");
   script_xref(name:"URL", value:"https://www.ubuntu.com/usn/usn-3350-1/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/7G2XFEFF6S2H4DRDPUXBUWPEEDGE37EG/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'poppler' package(s) announced via the MGASA-2017-0276 advisory.");
 

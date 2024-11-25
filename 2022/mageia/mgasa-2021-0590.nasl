@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2021.0590");
   script_cve_id("CVE-2021-3446", "CVE-2021-3505", "CVE-2021-3623", "CVE-2021-3746");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-10-22 20:28:00 +0000 (Fri, 22 Oct 2021)");
+  script_tag(name:"severity_date", value:"2021-10-22 20:28:26 +0000 (Fri, 22 Oct 2021)");
 
   script_name("Mageia: Security Advisory (MGASA-2021-0590)");
   script_category(ACT_GATHER_INFO);
@@ -29,12 +29,12 @@ if(description)
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=28882");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NUCZX4S53TUNTSGTCRDNOQZV2V2RI4RJ/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/46YMIRHQHNKPCVNRVW4W27MFQQU7ZHHV/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/Z7KZSYMTE7Z4BBEZUWO2DIMQDWMGEP46/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/DZI42OR3JUEGWRKEVCOHL2FPTJVYCYBT/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/7UCZ7AV2UKWYYCNZ2NLLXW7QYCX7K337/");
-  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/75RD2O2OFCMWPCMY5QMSZRNV5PG5BTS6/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/YVJSXDXD44WDR4VA2XL33IZDJTBGRXP7/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/7E3B6T5RBDKAWETDTW3WPORY3NK5IR46/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/7UCZ7AV2UKWYYCNZ2NLLXW7QYCX7K337/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/DZI42OR3JUEGWRKEVCOHL2FPTJVYCYBT/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/YVJSXDXD44WDR4VA2XL33IZDJTBGRXP7/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/Z7KZSYMTE7Z4BBEZUWO2DIMQDWMGEP46/");
+  script_xref(name:"URL", value:"https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/75RD2O2OFCMWPCMY5QMSZRNV5PG5BTS6/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'libtpms, swtpm' package(s) announced via the MGASA-2021-0590 advisory.");
 

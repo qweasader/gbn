@@ -7,15 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803360");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-21T05:06:27+0000");
   script_cve_id("CVE-2013-0916", "CVE-2013-0917", "CVE-2013-0918", "CVE-2013-0920",
                 "CVE-2013-0921", "CVE-2013-0922", "CVE-2013-0923", "CVE-2013-0924",
                 "CVE-2013-0925", "CVE-2013-0926");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-21 05:06:27 +0000 (Wed, 21 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-04-02 12:24:45 +0530 (Tue, 02 Apr 2013)");
-  script_name("Google Chrome Multiple Vulnerabilities-01 April 2013 - Mac OS X");
+  script_name("Google Chrome Multiple Vulnerabilities-01 (Apr 2013) - Mac OS X");
   script_xref(name:"URL", value:"http://www.dhses.ny.gov/ocs/advisories/2013/2013-034.cfm");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/58723");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/58724");

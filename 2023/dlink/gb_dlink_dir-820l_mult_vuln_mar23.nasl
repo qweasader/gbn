@@ -9,8 +9,8 @@ CPE = "cpe:/o:dlink:dir-820l_firmware";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170360");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-10-18T15:39:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-18 15:39:59 +0000 (Fri, 18 Oct 2024)");
   script_tag(name:"creation_date", value:"2023-03-14 10:21:34 +0000 (Tue, 14 Mar 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -23,7 +23,7 @@ if(description)
   script_tag(name:"solution_type", value:"WillNotFix");
 
   script_cve_id("CVE-2022-34973", "CVE-2023-25279", "CVE-2023-25280", "CVE-2023-25281",
-                "CVE-2023-25282", "CVE-2023-25283");
+                "CVE-2023-25282", "CVE-2023-25283", "CVE-2024-48150");
 
   script_name("D-Link DIR-820L Devices Multiple Vulnerabilities (Mar 2023)");
 
@@ -36,7 +36,7 @@ if(description)
 
   script_tag(name:"summary", value:"D-Link DIR-820L devices are prone to multiple vulnerabilities.");
 
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if the target host is a vulnerable device.");
 
   script_tag(name:"insight", value:"The following vulnerabilities exist:
 
@@ -55,7 +55,9 @@ if(description)
   the config.log_to_syslog and log_opt_dropPackets parameters to mydlink_api.ccp.
 
   - CVE-2023-25283: A stack overflow vulnerability allows attackers to cause a denial of service via
-  the reserveDHCP_HostName_1.1.1.0 parameter to lan.asp.");
+  the reserveDHCP_HostName_1.1.1.0 parameter to lan.asp.
+
+  - CVE-2024-48150: Stack overflow");
 
   script_tag(name:"affected", value:"D-Link DIR-820L devices.");
 
@@ -71,6 +73,7 @@ if(description)
   script_xref(name:"URL", value:"https://github.com/migraine-sudo/D_Link_Vuln/tree/main/cmd%20Inject%20in%20pingV4Msg");
   script_xref(name:"URL", value:"https://github.com/migraine-sudo/D_Link_Vuln/tree/main/stackoverflow%20cancelPing");
   script_xref(name:"URL", value:"https://github.com/migraine-sudo/D_Link_Vuln/tree/main/Permanent%20DDOS%20vulnerability%20in%20emailInfo");
+  script_xref(name:"URL", value:"https://github.com/fu37kola/cve/blob/main/D-Link/DIR-820L/D-Link%20DIR-820L%20Stack%20Overflow%20Vulnerability.md");
   script_xref(name:"URL", value:"https://legacy.us.dlink.com/pages/product.aspx?id=00c2150966b046b58ba95d8ae3a8f73d");
 
   exit(0);

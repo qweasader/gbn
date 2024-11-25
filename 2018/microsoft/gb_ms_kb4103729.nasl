@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813353");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-23T14:36:45+0000");
   script_cve_id("CVE-2018-4944");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-23 14:36:45 +0000 (Fri, 23 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-03-07 20:16:00 +0000 (Thu, 07 Mar 2019)");
   script_tag(name:"creation_date", value:"2018-05-09 12:25:07 +0530 (Wed, 09 May 2018)");
-  script_name("Adobe Flash Security Update May18 (KB4103729)");
+  script_name("Adobe Flash Security Update (KB4103729)");
 
   script_tag(name:"summary", value:"This host is missing a critical security
   update according to Microsoft KB4103729");

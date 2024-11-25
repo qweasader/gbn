@@ -4,6 +4,7 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
+CPE = "cpe:/a:secureideas:base";
 
 if (description)
 {
@@ -11,25 +12,23 @@ if (description)
   script_cve_id("CVE-2012-1017");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-06-27T05:05:29+0000");
 
-  script_name("BASE 'base_qry_main.php' SQL Injection Vulnerability");
+  script_name("BASE 'base_qry_main.php' SQLi Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51874");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-02-10 11:58:03 +0100 (Fri, 10 Feb 2012)");
   script_tag(name:"qod_type", value:"remote_banner");
   script_category(ACT_GATHER_INFO);
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2012 Greenbone AG");
   script_dependencies("base_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("BASE/installed");
 
-  script_tag(name:"summary", value:"BASE is prone to an SQL-injection vulnerability because it fails
-to sufficiently sanitize user-supplied data before using it in an
-SQL query.");
+  script_tag(name:"summary", value:"BASE is prone to an SQL injection (SQLi) vulnerability because
+  it fails to sufficiently sanitize user-supplied data before using it in an SQL query.");
 
   script_tag(name:"impact", value:"Exploiting this issue could allow an attacker to compromise the
 application, access or modify data, or exploit latent vulnerabilities
@@ -42,11 +41,8 @@ Likely none will be provided anymore. General solution options are to upgrade to
   exit(0);
 }
 
-include("http_func.inc");
 include("host_details.inc");
 include("version_func.inc");
-
-CPE = 'cpe:/a:secureideas:base';
 
 if(!port = get_app_port(cpe:CPE))
   exit(0);
@@ -55,8 +51,9 @@ if(!vers = get_app_version(cpe:CPE, port:port))
   exit(0);
 
 if(version_is_equal(version:vers, test_version:"1.4.5")) {
-  security_message(port:port, data:"The target host was found to be vulnerable");
+  report = report_fixed_ver(installed_version:vers, fixed_version:"None");
+  security_message(port:port, data:report);
   exit(0);
 }
 
-exit(99);
+exit(0);

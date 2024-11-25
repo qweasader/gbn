@@ -9,23 +9,22 @@ CPE = "cpe:/a:mozilla:firefox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.814414");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-09-25T05:06:11+0000");
   script_cve_id("CVE-2018-12392", "CVE-2018-12395", "CVE-2018-12396", "CVE-2018-12397",
                 "CVE-2018-12398", "CVE-2018-12399", "CVE-2018-12401", "CVE-2018-12402",
                 "CVE-2018-12403", "CVE-2018-12388", "CVE-2018-12390");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
   script_tag(name:"creation_date", value:"2018-10-24 16:40:00 +0530 (Wed, 24 Oct 2018)");
-  script_name("Mozilla Firefox Security Update (mfsa_2018-25_2018-27) - Windows");
+  script_name("Mozilla Firefox Security Advisories (MFSA2018-25, MFSA2018-27) - Windows");
 
   script_tag(name:"summary", value:"Mozilla Firefox is prone to multiple vulnerabilities.");
 
-  script_tag(name:"vuldetect", value:"Check if a vulnerable version is present
-  on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"Multiple flaws exist due to:
 

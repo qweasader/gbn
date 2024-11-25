@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2017.0164");
   script_cve_id("CVE-2016-8614", "CVE-2016-8647", "CVE-2017-7481");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-01-28 16:38:00 +0000 (Thu, 28 Jan 2021)");
+  script_tag(name:"severity_date", value:"2018-09-17 18:32:41 +0000 (Mon, 17 Sep 2018)");
 
   script_name("Mageia: Security Advisory (MGASA-2017-0164)");
   script_category(ACT_GATHER_INFO);
@@ -29,8 +29,8 @@ if(description)
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=19740");
   script_xref(name:"URL", value:"https://github.com/ansible/ansible/blob/stable-2.3/CHANGELOG.md");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/BTRG5RQTE7EPZLVJR7WCHPV2O3LCCEJ5/");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/WJGWOHRWU3FB2DF3V6NNS4GGBWKSOWYA/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/UQMRFYTFTPAGI22UEXIEZH4U4BOTGVWH");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/WJGWOHRWU3FB2DF3V6NNS4GGBWKSOWYA/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'ansible' package(s) announced via the MGASA-2017-0164 advisory.");
 

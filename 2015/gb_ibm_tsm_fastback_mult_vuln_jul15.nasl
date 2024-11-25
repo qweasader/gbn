@@ -9,7 +9,7 @@ CPE = "cpe:/a:ibm:tivoli_storage_manager_fastback";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805900");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-19T05:05:57+0000");
   script_cve_id("CVE-2015-1986", "CVE-2015-1965", "CVE-2015-1964", "CVE-2015-1963",
                 "CVE-2015-1962", "CVE-2015-1954", "CVE-2015-1953", "CVE-2015-1949",
                 "CVE-2015-1948", "CVE-2015-1942", "CVE-2015-1941", "CVE-2015-1938",
@@ -17,9 +17,9 @@ if(description)
                 "CVE-2015-1923");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-07-03 14:41:58 +0530 (Fri, 03 Jul 2015)");
-  script_name("IBM Tivoli Storage Manager FastBack Multiple Vulnerabilities - Jul15");
+  script_name("IBM Tivoli Storage Manager FastBack Multiple Vulnerabilities (Jul 2015)");
 
   script_tag(name:"summary", value:"IBM Tivoli Storage Manager FastBack is prone to multiple vulnerabilities.");
 

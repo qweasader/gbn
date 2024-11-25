@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:icecast:icecast';
+CPE = "cpe:/a:icecast:icecast";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.15401");
-  script_version("2023-08-03T05:05:16+0000");
-  script_tag(name:"last_modification", value:"2023-08-03 05:05:16 +0000 (Thu, 03 Aug 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/4415");
   script_cve_id("CVE-2002-0177");
@@ -26,7 +26,6 @@ if(description)
   script_family("Buffer overflow");
   script_dependencies("gb_get_http_banner.nasl");
   script_mandatory_keys("icecast/banner");
-  script_require_ports("Services/www", 8000);
 
   script_tag(name:"solution_type", value:"VendorFix");
 

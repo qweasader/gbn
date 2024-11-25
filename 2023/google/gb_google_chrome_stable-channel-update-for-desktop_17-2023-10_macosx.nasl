@@ -9,12 +9,12 @@ CPE = "cpe:/a:google:chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832569");
-  script_version("2023-11-01T05:05:34+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-11-01 05:05:34 +0000 (Wed, 01 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2023-10-27 19:07:55 +0530 (Fri, 27 Oct 2023)");
-  script_name("Google Chrome Security Update(stable-channel-update-for-desktop_17-2023-10) - MAC OS X");
+  script_name("Google Chrome Security Update (stable-channel-update-for-desktop_17-2023-10) - Mac OS X");
 
   script_tag(name:"summary", value:"Google Chrome is prone to an unspecified
   vulnerability");
@@ -29,7 +29,7 @@ if(description)
   attackers to cause unspecified impact.");
 
   script_tag(name:"affected", value:"Google Chrome version prior to
-  118.0.5993.88 on MAC OS X.");
+  118.0.5993.88 on Mac OS X.");
 
   script_tag(name:"solution", value:"Upgrade to Google Chrome version
   118.0.5993.88 or later. Please see the references for more information.");

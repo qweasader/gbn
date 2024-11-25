@@ -9,14 +9,14 @@ CPE = "cpe:/a:wireshark:wireshark";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806945");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-07-22T05:05:40+0000");
   script_cve_id("CVE-2015-8733", "CVE-2015-8732", "CVE-2015-8731", "CVE-2015-8730",
                 "CVE-2015-8729", "CVE-2015-8728", "CVE-2015-8727", "CVE-2015-8726",
                 "CVE-2015-8725", "CVE-2015-8724", "CVE-2015-8723", "CVE-2015-8722",
                 "CVE-2015-8721", "CVE-2015-8720", "CVE-2015-8718", "CVE-2015-8711");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-22 05:05:40 +0000 (Mon, 22 Jul 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-12-07 18:29:00 +0000 (Wed, 07 Dec 2016)");
@@ -51,7 +51,7 @@ if(description)
   script_family("Denial of Service");
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("gb_wireshark_detect_win.nasl");
-  script_mandatory_keys("Wireshark/Win/Ver");
+  script_mandatory_keys("wireshark/windows/detected");
   exit(0);
 }
 

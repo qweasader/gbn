@@ -9,11 +9,11 @@ CPE = "cpe:/a:trend_micro:data_loss_prevention";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103182");
-  script_version("2023-07-28T05:05:23+0000");
+  script_version("2024-07-23T05:05:30+0000");
   script_cve_id("CVE-2008-2938"); # nb: The bug on the product is caused by a vuln in Apache Tomcat, thus the related Tomcat CVE here.
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-23 05:05:30 +0000 (Tue, 23 Jul 2024)");
   script_tag(name:"creation_date", value:"2011-06-14 13:57:36 +0200 (Tue, 14 Jun 2011)");
-  script_name("Trend Micro Data Loss Prevention Directory Traversal Vulnerability");
+  script_name("Trend Micro Data Loss Prevention 5.5 Directory Traversal Vulnerability");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
   script_category(ACT_ATTACK);
@@ -29,6 +29,8 @@ if(description)
 
   script_tag(name:"summary", value:"Trend Micro Data Loss Prevention is prone to a directory-traversal
   vulnerability because it fails to sufficiently sanitize user-supplied input.");
+
+  script_tag(name:"vuldetect", value:"Sends a crafted HTTP GET requests and checks the response.");
 
   script_tag(name:"impact", value:"A remote attacker could exploit this vulnerability using directory-
   traversal strings (such as '../') to gain access to arbitrary files on the targeted system. This may
@@ -57,9 +59,14 @@ include("host_details.inc");
 include("os_func.inc");
 include("misc_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! dir  = get_app_location( cpe:CPE, port:port, service:"www" ) ) exit( 0 );
-if( dir == "/" ) dir = "";
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! dir  = get_app_location( cpe:CPE, port:port, service:"www" ) )
+  exit( 0 );
+
+if( dir == "/" )
+  dir = "";
 
 files = traversal_files();
 
@@ -71,8 +78,9 @@ foreach pattern( keys( files ) ) {
 
   if( http_vuln_check( port:port, url:url, pattern:pattern ) ) {
     report = http_report_vuln_url( url:url, port:port );
-    security_message(port:port, data:url );
+    security_message( port:port, data:report );
+    exit( 0 );
   }
 }
 
-exit( 0 );
+exit( 99 );

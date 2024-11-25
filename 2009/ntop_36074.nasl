@@ -9,8 +9,8 @@ CPE = "cpe:/a:ntop:ntop";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100255");
-  script_version("2023-10-27T16:11:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-27 16:11:32 +0000 (Fri, 27 Oct 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2009-08-23 12:14:46 +0200 (Sun, 23 Aug 2009)");
   script_cve_id("CVE-2009-2732");
   script_tag(name:"cvss_base", value:"5.0");
@@ -23,7 +23,6 @@ if(description)
   script_copyright("Copyright (C) 2009 Greenbone AG");
   script_dependencies("ntop_detect.nasl");
   script_mandatory_keys("ntop/installed");
-  script_require_ports("Services/www", 3000);
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/36074");
   script_xref(name:"URL", value:"http://www.securityfocus.com/archive/1/505876");
@@ -52,8 +51,11 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! version = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! version = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_equal( version:version, test_version:"3.3.10" ) ) {
   report = report_fixed_ver(installed_version: version, fixed_version: "See advisory");

@@ -9,8 +9,8 @@ CPE = "cpe:/a:samba:samba";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100623");
-  script_version("2023-04-18T10:19:20+0000");
-  script_tag(name:"last_modification", value:"2023-04-18 10:19:20 +0000 (Tue, 18 Apr 2023)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2010-05-04 19:30:07 +0200 (Tue, 04 May 2010)");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
@@ -20,7 +20,7 @@ if(description)
   script_cve_id("CVE-2010-0747");
   script_name("Samba 'mount.cifs' Utility Symlink Attack Local Privilege Escalation Vulnerability");
   script_category(ACT_GATHER_INFO);
-  script_family("General");
+  script_family("Privilege escalation");
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_dependencies("smb_nativelanman.nasl", "gb_samba_detect.nasl");
   script_mandatory_keys("samba/smb_or_ssh/detected");

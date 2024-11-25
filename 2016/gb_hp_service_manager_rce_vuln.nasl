@@ -9,8 +9,8 @@ CPE = "cpe:/a:hp:service_manager";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106144");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-07-18 11:48:16 +0700 (Mon, 18 Jul 2016)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -24,7 +24,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("HP Service Manager Remote Command Execution Vulnerability");
+  script_name("HP Service Manager RCE Vulnerability");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2016 Greenbone AG");
@@ -32,7 +32,8 @@ if (description)
   script_dependencies("gb_hp_service_manager_detect.nasl");
   script_mandatory_keys("hp_service_manager/detected");
 
-  script_tag(name:"summary", value:"HP Service Manager is prone to a remote command execution vulnerability.");
+  script_tag(name:"summary", value:"HP Service Manager is prone to a remote command execution (RCE)
+  vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

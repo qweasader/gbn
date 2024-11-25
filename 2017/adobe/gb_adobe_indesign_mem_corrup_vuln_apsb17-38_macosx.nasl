@@ -9,17 +9,17 @@ CPE = "cpe:/a:adobe:indesign_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812094");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-27T14:36:53+0000");
   script_cve_id("CVE-2017-11302");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-27 14:36:53 +0000 (Tue, 27 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-12-26 18:10:00 +0000 (Tue, 26 Dec 2017)");
   script_tag(name:"creation_date", value:"2017-11-16 15:17:21 +0530 (Thu, 16 Nov 2017)");
   script_tag(name:"qod_type", value:"executable_version_unreliable");
-  script_name("Adobe InDesign Memory Corruption Vulnerability - APSB17-38 (Mac OS X)");
+  script_name("Adobe InDesign Memory Corruption Vulnerability (APSB17-38) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe InDesign is prone to a memory corruption vulnerability.");
 
@@ -53,8 +53,8 @@ include("host_details.inc");
 include("version_func.inc");
 
 if(!infos = get_app_version_and_location(cpe:CPE, exit_no_version:TRUE)) exit(0);
-desVer = infos['version'];
-desPath = infos['location'];
+desVer = infos["version"];
+desPath = infos["location"];
 
 if(version_is_less_equal(version:desVer, test_version:"12.1.0"))
 {

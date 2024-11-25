@@ -9,12 +9,12 @@ CPE = "cpe:/a:mcafee:web_gateway";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811258");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-03-01T14:37:10+0000");
   script_cve_id("CVE-2012-6706", "CVE-2017-1000364", "CVE-2017-1000366",
                 "CVE-2017-1000368");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-21 10:29:00 +0000 (Sun, 21 Oct 2018)");
@@ -65,34 +65,30 @@ if(description)
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_dependencies("gb_mcafee_web_gateway_detect.nasl");
   script_mandatory_keys("McAfee/Web/Gateway/installed");
-  script_require_ports("Services/www", 80);
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!mwgPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-mwgVer = get_app_version(cpe:CPE, port:mwgPort);
-if(!mwgVer){
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-if(version_is_less(version:mwgVer, test_version:"7.6.2.15")){
+if(version_is_less(version:version, test_version:"7.6.2.15")) {
   fix = "7.6.2.15";
 }
 
-if(mwgVer =~ "^7\.7" && version_is_less(version:mwgVer, test_version:"7.7.2.3")){
+if(version =~ "^7\.7" && version_is_less(version:version, test_version:"7.7.2.3")) {
   fix = "7.7.2.3";
 }
 
-if(fix)
-{
-  report = report_fixed_ver( installed_version:mwgVer, fixed_version:fix);
-  security_message( data:report, port:mwgPort);
+if(fix) {
+  report = report_fixed_ver( installed_version:version, fixed_version:fix);
+  security_message( data:report, port:port);
   exit(0);
 }
-exit(0);
+
+exit(99);

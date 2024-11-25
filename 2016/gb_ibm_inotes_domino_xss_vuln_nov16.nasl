@@ -9,8 +9,8 @@ CPE = "cpe:/a:ibm:lotus_domino";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809820");
-  script_version("2023-07-21T05:05:22+0000");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-11-25 17:07:04 +0530 (Fri, 25 Nov 2016)");
   script_tag(name:"cvss_base", value:"3.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:N/I:P/A:N");
@@ -20,7 +20,7 @@ if(description)
 
   script_cve_id("CVE-2016-0282");
 
-  script_name("IBM INotes and Domino Cross-site Scripting Vulnerability - Nov16");
+  script_name("IBM INotes and Domino Cross-site Scripting Vulnerability (Nov 2016)");
 
   script_tag(name:"summary", value:"IBM Domino is prone to a cross-site scripting vulnerability.");
 

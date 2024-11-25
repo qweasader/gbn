@@ -9,13 +9,13 @@ CPE = "cpe:/a:phpmyadmin:phpmyadmin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805307");
-  script_version("2023-10-17T05:05:34+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2014-9218");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-12-26 15:10:42 +0530 (Fri, 26 Dec 2014)");
-  script_name("phpMyAdmin Denial-of-Service Vulnerability -01 Dec14");
+  script_name("phpMyAdmin Denial-of-Service Vulnerability -01 (Dec 2014)");
 
   script_tag(name:"summary", value:"phpMyAdmin is prone to a denial of service (DoS) vulnerability.");
 
@@ -46,7 +46,7 @@ if(description)
   script_family("Denial of Service");
   script_dependencies("gb_phpmyadmin_http_detect.nasl");
   script_mandatory_keys("phpMyAdmin/installed");
-  script_require_ports("Services/www", 80);
+
   exit(0);
 }
 

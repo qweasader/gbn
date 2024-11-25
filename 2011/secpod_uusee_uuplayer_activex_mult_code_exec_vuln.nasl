@@ -1,33 +1,19 @@
-# Copyright (C) 2011 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2011 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902563");
-  script_version("2022-04-28T13:38:57+0000");
-  script_tag(name:"last_modification", value:"2022-04-28 13:38:57 +0000 (Thu, 28 Apr 2022)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2011-08-31 10:37:30 +0200 (Wed, 31 Aug 2011)");
   script_cve_id("CVE-2011-2589", "CVE-2011-2590");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("UUSee UUPlayer ActiveX Control Multiple Remote Code Execution Vulnerabilities");
+  script_name("UUSee UUPlayer ActiveX Control Multiple RCE Vulnerabilities");
   script_xref(name:"URL", value:"http://secunia.com/advisories/44885");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/48975");
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/68974");
@@ -35,7 +21,7 @@ if(description)
 
   script_tag(name:"qod_type", value:"registry");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2011 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("General");
   script_dependencies("smb_reg_service_pack.nasl");
   script_mandatory_keys("SMB/WindowsVersion");
@@ -62,7 +48,6 @@ attempts will likely result in denial-of-service conditions.");
 
 include("smb_nt.inc");
 include("version_func.inc");
-include("secpod_smb_func.inc");
 
 if(!get_kb_item("SMB/WindowsVersion")){
   exit(0);

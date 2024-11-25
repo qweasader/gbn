@@ -8,8 +8,8 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.10.2023.0323");
   script_tag(name:"creation_date", value:"2023-11-21 04:12:14 +0000 (Tue, 21 Nov 2023)");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 
@@ -22,8 +22,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2023-0323");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2023-0323.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=32526");
   script_xref(name:"URL", value:"https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=269181");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=32526");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'u-boot' package(s) announced via the MGASA-2023-0323 advisory.");
 

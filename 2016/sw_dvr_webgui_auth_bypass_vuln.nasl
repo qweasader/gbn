@@ -21,10 +21,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111088");
-  script_version("2023-01-12T10:12:15+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-01-12 10:12:15 +0000 (Thu, 12 Jan 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-02-22 08:00:00 +0100 (Mon, 22 Feb 2016)");
   script_name("Multiple DVR Devices Multiple Vulnerabilities (Feb 2016)");
   script_category(ACT_ATTACK);
@@ -38,7 +38,7 @@ if(description)
   script_xref(name:"URL", value:"http://blog.netlab.360.com/iot_reaper-a-rappid-spreading-new-iot-botnet-en/");
 
   script_tag(name:"summary", value:"Multiple Digital Video Recorder (DVR) devices are prone to
-  authentication bypass and remote code execution vulnerabilities.");
+  authentication bypass and remote code execution (RCE) vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Sends multiple crafted HTTP GET requests and checks the
   responses.");

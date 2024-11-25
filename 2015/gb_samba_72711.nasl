@@ -9,13 +9,13 @@ CPE = "cpe:/a:samba:samba";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105231");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2015-03-04 10:23:51 +0100 (Wed, 04 Mar 2015)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_cve_id("CVE-2015-0240");
-  script_name("Samba 'TALLOC_FREE()' Function Remote Code Execution Vulnerability");
+  script_name("Samba 'TALLOC_FREE()' Function RCE Vulnerability");
   script_category(ACT_GATHER_INFO);
   script_family("General");
   script_copyright("Copyright (C) 2015 Greenbone AG");
@@ -35,7 +35,8 @@ if(description)
   in rpc_server/netlogon/srv_netlog_nt.c.");
 
   script_tag(name:"solution", value:"Updates are available. Please see the references or vendor advisory for more information.");
-  script_tag(name:"summary", value:"Samba 'TALLOC_FREE()' Function Remote Code Execution Vulnerability");
+  script_tag(name:"summary", value:"Samba is prone to a remote code execution (RCE) vulnerability in
+  the 'TALLOC_FREE()' function.");
 
   script_tag(name:"affected", value:"Samba 3.5.x and 3.6.x before 3.6.25,
   4.0.x before 4.0.25,

@@ -9,8 +9,8 @@ CPE = "cpe:/a:kodi:kodi";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107277");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-02-20T14:37:13+0000");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-12-14 14:23:07 +0100 (Thu, 14 Dec 2017)");
   script_cve_id("CVE-2017-8314");
   script_tag(name:"cvss_base", value:"4.3");
@@ -18,7 +18,7 @@ if(description)
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
-  script_name("Kodi Multiple Vulnerabilities June 2017 (Windows)");
+  script_name("Kodi Multiple Vulnerabilities (Jun 2017) - Windows");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");

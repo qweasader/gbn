@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2015.0490");
   script_cve_id("CVE-2015-5343");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"8.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-02-12 20:07:00 +0000 (Tue, 12 Feb 2019)");
+  script_tag(name:"severity_date", value:"2016-04-18 16:54:55 +0000 (Mon, 18 Apr 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2015-0490)");
   script_category(ACT_GATHER_INFO);
@@ -26,10 +26,10 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2015-0490");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2015-0490.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17353");
   script_xref(name:"URL", value:"http://mail-archives.apache.org/mod_mbox/subversion-dev/201512.mbox/%3CCAP_GPNieJGPDbf=nmbSdf+CTMZ=5pREoqwnDNvO80mfAKNaY7Q@mail.gmail.com%3E");
-  script_xref(name:"URL", value:"http://svn.apache.org/repos/asf/subversion/tags/1.8.15/CHANGES");
   script_xref(name:"URL", value:"http://subversion.apache.org/security/CVE-2015-5343-advisory.txt");
+  script_xref(name:"URL", value:"http://svn.apache.org/repos/asf/subversion/tags/1.8.15/CHANGES");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17353");
   script_xref(name:"URL", value:"https://www.debian.org/security/2015/dsa-3424");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'subversion' package(s) announced via the MGASA-2015-0490 advisory.");

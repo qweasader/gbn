@@ -1,45 +1,36 @@
-# Copyright (C) 2009 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:redaxscript:redaxscript";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100122");
-  script_version("2022-05-09T13:48:18+0000");
-  script_tag(name:"last_modification", value:"2022-05-09 13:48:18 +0000 (Mon, 09 May 2022)");
+  script_version("2024-07-23T05:05:30+0000");
+  script_tag(name:"last_modification", value:"2024-07-23 05:05:30 +0000 (Tue, 23 Jul 2024)");
   script_tag(name:"creation_date", value:"2009-04-12 20:09:50 +0200 (Sun, 12 Apr 2009)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_name("Redaxscript 'language' Parameter Local File Include Vulnerability");
+  script_name("Redaxscript 'language' Parameter LFI Vulnerability");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_dependencies("redaxscript_detect.nasl", "os_detection.nasl");
   script_require_ports("Services/www", 80);
   script_mandatory_keys("redaxscript/detected");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/34476");
 
-  script_tag(name:"summary", value:"Redaxscript is prone to a local file include vulnerability
+  script_tag(name:"summary", value:"Redaxscript is prone to a local file include (LFI) vulnerability
   because it fails to properly sanitize user-supplied input.");
+
+  script_tag(name:"vuldetect", value:"- If a version is available: Checks if a vulnerable version is
+  present on the target host.
+
+  - If no version is available: Sends a crafted HTTP GET requests and checks the response.");
 
   script_tag(name:"impact", value:"An attacker can exploit this vulnerability to view and execute
   arbitrary local files in the context of the webserver process. This may aid in further attacks.");
@@ -97,7 +88,7 @@ if(vers && vers != "unknown" ) {
 
     if( http_vuln_check( port:port, url:url, pattern:pattern ) ) {
       report = http_report_vuln_url( url:url, port:port );
-      security_message( port:port, data:url );
+      security_message( port:port, data:report );
       exit( 0 );
     }
   }

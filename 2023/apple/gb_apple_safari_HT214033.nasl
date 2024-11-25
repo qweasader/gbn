@@ -9,13 +9,13 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832722");
-  script_version("2024-01-22T05:07:31+0000");
+  script_version("2024-06-26T05:05:39+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2023-42916", "CVE-2023-42917");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2024-01-22 05:07:31 +0000 (Mon, 22 Jan 2024)");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-12-06 16:27:00 +0000 (Wed, 06 Dec 2023)");
@@ -47,7 +47,7 @@ if(description)
   script_tag(name:"qod_type", value:"executable_version");
   script_xref(name:"URL", value:"https://support.apple.com/en-us/HT214033");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2023 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("General");
   script_dependencies("macosx_safari_detect.nasl");
   script_mandatory_keys("AppleSafari/MacOSX/Version", "ssh/login/osx_version");

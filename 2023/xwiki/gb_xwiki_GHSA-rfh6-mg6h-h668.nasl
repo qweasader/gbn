@@ -9,8 +9,8 @@ CPE = "cpe:/a:xwiki:xwiki";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.124309");
-  script_version("2023-10-13T16:09:03+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-04-26 09:03:39 +0000 (Wed, 26 Apr 2023)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -24,7 +24,7 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("XWiki 1.5-m2 < 13.10.11, 14.x < 14.4.8, 14.5.x < 14.10.1 15.x < 15.0-rc-1 Privilege Escalation Vulnerability (GHSA-rfh6-mg6h-h668)");
+  script_name("XWiki 1.5-m2 < 13.10.11, 14.x < 14.4.8, 14.5.x < 14.10.1, 15.x < 15.0-rc-1 Privilege Escalation Vulnerability (GHSA-rfh6-mg6h-h668)");
 
   script_category(ACT_GATHER_INFO);
 
@@ -42,10 +42,11 @@ if(description)
   XWiki installation. The root cause is improper escaping of the section ids in
   XWiki.AdminFieldsDisplaySheet. This page is installed by default.");
 
-  script_tag(name:"affected", value:"XWiki version 1.5-m2 prior to 13.10.11, 14.x prior to
-  14.4.8, 14.5.x prior to 14.10.1 and 15.x prior to 15.0-rc-1.");
+  script_tag(name:"affected", value:"XWiki version 1.5-m2 prior to 13.10.11, 14.x prior to 14.4.8,
+  14.5.x prior to 14.10.1 and 15.x prior to 15.0-rc-1.");
 
-  script_tag(name:"solution", value:"Update to version 13.10.11, 14.4.8, 14.10.1, 15.0-rc-1 or later.");
+  script_tag(name:"solution", value:"Update to version 13.10.11, 14.4.8, 14.10.1, 15.0-rc-1 or
+  later.");
 
   script_xref(name:"URL", value:"https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-rfh6-mg6h-h668");
 

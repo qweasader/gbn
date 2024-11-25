@@ -9,7 +9,7 @@ CPE = "cpe:/a:adobe:adobe_air";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806782");
-  script_version("2023-11-02T05:05:26+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2015-8045", "CVE-2015-8047", "CVE-2015-8048", "CVE-2015-8049",
                 "CVE-2015-8050", "CVE-2015-8418", "CVE-2015-8454", "CVE-2015-8455",
                 "CVE-2015-8055", "CVE-2015-8056", "CVE-2015-8057", "CVE-2015-8058",
@@ -35,12 +35,12 @@ if(description)
                 "CVE-2015-8821", "CVE-2015-8823");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-05-15 18:57:00 +0000 (Mon, 15 May 2023)");
   script_tag(name:"creation_date", value:"2015-12-10 15:25:53 +0530 (Thu, 10 Dec 2015)");
-  script_name("Adobe Air Multiple Vulnerabilities Dec15 (Mac OS X)");
+  script_name("Adobe Air Multiple Vulnerabilities (Dec 2015) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Air is prone to multiple vulnerabilities.");
 

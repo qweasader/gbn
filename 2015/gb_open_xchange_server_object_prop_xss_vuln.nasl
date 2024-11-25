@@ -9,11 +9,11 @@ CPE = "cpe:/a:open-xchange:open-xchange_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806526");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2015-5375");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2015-11-02 12:36:19 +0530 (Mon, 02 Nov 2015)");
   script_tag(name:"qod_type", value:"remote_banner");
   script_name("Open-Xchange (OX) Server Object Properties Cross Site Scripting Vulnerability");
@@ -46,35 +46,28 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_ox_server_detect.nasl");
   script_mandatory_keys("open_xchange_server/installed");
-  script_require_ports("Services/www", 80);
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!oxsPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-oxsVer = get_app_version(cpe:CPE, port:oxsPort);
-if(!oxsVer || "unknown" >< oxsVer){
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-oxRev = get_kb_item("open_xchange_server/" + oxsPort + "/rev");
+revision = get_kb_item("open_xchange_server/" + port + "/rev");
 
-if(oxRev)
-{
+if(revision) {
   ## Updating version with revision number
-  oxsVer = oxsVer + "." + oxRev;
+  version = version + "." + revision;
 
-  if(oxsVer =~ "^6")
-  {
-    if(version_is_equal(version:oxsVer, test_version:"6.22.9"))
-    {
-      report = 'Installed Version: ' + oxsVer + '\nFixed Version:     6.22.9-rev15m\n';
-      security_message(data:report,port:oxsPort);
+  if(version =~ "^6\.") {
+    if(version_is_equal(version:version, test_version:"6.22.9")) {
+      report = report_fixed_ver(installed_version:version, fixed_version:"6.22.9-rev15m");
+      security_message(data:report, port:port);
       exit(0);
     }
   }

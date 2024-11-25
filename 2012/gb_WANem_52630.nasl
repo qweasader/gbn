@@ -7,12 +7,12 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103561");
-  script_version("2023-12-13T05:05:23+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_name("WAN Emulator Remote Command Execution Vulnerabilities");
+  script_name("WAN Emulator RCE Vulnerabilities");
   script_xref(name:"URL", value:"http://itsecuritysolutions.org/2012-08-12-WANem-v2.3-multiple-vulnerabilities/");
-  script_tag(name:"last_modification", value:"2023-12-13 05:05:23 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-09-10 09:49:21 +0200 (Mon, 10 Sep 2012)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");

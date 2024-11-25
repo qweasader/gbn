@@ -7,12 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140170");
-  script_version("2024-01-17T06:33:34+0000");
-  script_tag(name:"last_modification", value:"2024-01-17 06:33:34 +0000 (Wed, 17 Jan 2024)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2017-02-21 11:53:19 +0100 (Tue, 21 Feb 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_name("HTTP Banner");
+  script_name("HTTP Banner Evaluation");
   script_category(ACT_GATHER_INFO);
   script_family("Service detection");
   script_copyright("Copyright (C) 2017 Greenbone AG");
@@ -20,8 +20,8 @@ if(description)
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 
-  script_tag(name:"summary", value:"This script gets the HTTP banner and stores some values in the KB
-  related to it.");
+  script_tag(name:"summary", value:"This script gets the HTTP banner and stores some values in the
+  KB related to it.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -100,6 +100,7 @@ set_mandatory_key( key:"Aspen", regex:"^Server\s*:\s*Aspen", banner:banner );
 set_mandatory_key( key:"Asterisk", regex:"^Server\s*:\s*Asterisk", banner:banner );
 set_mandatory_key( key:"Atheme", regex:"^Server\s*:\s*Atheme", banner:banner );
 set_mandatory_key( key:"Avtech", regex:"^Server\s*:.*Avtech", banner:banner );
+set_mandatory_key( key:"AWS", regex:"^Server\s*:\s*AWS \(Ada Web Server\)", banner:banner );
 set_mandatory_key( key:"BCReport", regex:"BCReport", banner:banner );
 set_mandatory_key( key:"BadBlue", regex:"BadBlue", banner:banner );
 set_mandatory_key( key:"BarracudaHTTP", regex:"^Server\s*:\s*BarracudaHTTP", banner:banner );
@@ -121,7 +122,7 @@ set_mandatory_key( key:"CouchDB", regex:"^Server\s*:\s*CouchDB", banner:banner )
 set_mandatory_key( key:"Couchbase_Server", regex:"^Server\s*:\s*Couchbase Server", banner:banner );
 set_mandatory_key( key:"Cross_Web_Server", regex:"^Server\s*:\s*Cross Web Server", banner:banner );
 set_mandatory_key( key:"D-LinkDIR", regex:'^(Server\\s*:\\s*(Linux, (HTTP/1\\.1|WEBACCESS/1\\.0|STUNNEL/1\\.0), DIR|Mathopd|WebServer|lighttpd|httpd|Ubicom|nginx|Boa|jjhttpd|mini_httpd|eCos Embedded Web Server)|.*<script>window.location.href ="/cgi/ssi/login_pic.asp";</script>)', banner:banner, main_page_res:main_page_res );
-set_mandatory_key( key:"D-LinkDNS", regex:"^Server\s*:\s*(lighttpd/|GoAhead-Webs)", banner:banner );
+set_mandatory_key( key:"D-LinkDNS", regex:"^Server\s*:\s*(lighttpd/|GoAhead-Webs)", banner:banner ); # For gb_dlink_dns_http_detect.nasl
 set_mandatory_key( key:"D-LinkDSL", regex:"^Server\s*:\s*(Boa|micro_httpd|Linux,|RomPager|uhttpd)", banner:banner ); # For gb_dlink_dsl_detect.nasl
 set_mandatory_key( key:"D-LinkDWR", regex:"^Server\s*:\s*(GoAhead-Webs|server|Alpha_webserv|WebServer)", banner:banner ); # For gb_dlink_dwr_detect.nasl
 set_mandatory_key( key:"DCS-2103", regex:'Basic realm="DCS-2103"', banner:banner );
@@ -152,7 +153,7 @@ set_mandatory_key( key:"ExaGrid", regex:"^Server\s*:\s*ExaGrid", banner:banner )
 set_mandatory_key( key:"FNET", regex:"^Server\s*:\s*FNET HTTP", banner:banner );
 set_mandatory_key( key:"FlashCom", regex:"^Server\s*:\s*FlashCom", banner:banner );
 set_mandatory_key( key:"GeoHttpServer", regex:"^Server\s*:\s*GeoHttpServer", banner:banner );
-set_mandatory_key( key:"GoAhead-Webs", regex:"^Server\s*:\s*GoAhead", banner:banner );
+set_mandatory_key( key:"GoAhead-Webs", regex:"^Server\s*:\s*GoAhead-Webs", banner:banner );
 set_mandatory_key( key:"Grandstream_GXP", regex:"^Server\s*:\s*Grandstream GXP", banner:banner );
 set_mandatory_key( key:"HFS", regex:"^Server\s*:\s*HFS", banner:banner );
 set_mandatory_key( key:"HHVM", regex:"^X-Powered-By\s*:\s*HHVM", banner:banner );
@@ -377,6 +378,7 @@ set_mandatory_key( key:"cassini", regex:"^Server\s*:\s*(Microsoft-)?Cassini", ba
 set_mandatory_key( key:"caudium", regex:"^Server\s*:\s*Caudium", banner:banner );
 set_mandatory_key( key:"cern", regex:"^Server\s*:\s*CERN", banner:banner );
 set_mandatory_key( key:"circontrol/raption", regex:"^Server\s*:\s*Raption", banner:banner );
+set_mandatory_key( key:"cisco/ios_http", regex:"^Server\s*:\s*cisco-IOS", banner:banner );
 set_mandatory_key( key:"communique", regex:"^Server\s*:.*Communique", banner:banner );
 set_mandatory_key( key:"corehttp", regex:"^Server\s*:\s*corehttp", banner:banner );
 set_mandatory_key( key:"coturn", regex:"^Server\s*:\s*Coturn", banner:banner );
@@ -391,6 +393,7 @@ set_mandatory_key( key:"eMule", regex:"eMule", banner:banner );
 set_mandatory_key( key:"eWON", regex:"^Server\s*:\s*eWON", banner:banner );
 set_mandatory_key( key:"efmws", regex:"^Server\s*:\s*Easy File Management Web Server", banner:banner );
 set_mandatory_key( key:"emweb", regex:"^Server\s*:.*EmWeb", banner:banner );
+set_mandatory_key( key:"expressjs", regex:"X-Powered-By\s*:\s*Express", banner:banner );
 set_mandatory_key( key:"fexsrv", regex:"^Server\s*:\s*fexsrv", banner:banner );
 set_mandatory_key( key:"filemaker", regex:"^Server\s*:\s*FileMaker", banner:banner );
 set_mandatory_key( key:"firstclass", regex:"^Server\s*:.*FirstClass.*", banner:banner );
@@ -485,6 +488,7 @@ set_mandatory_key( key:"vqServer", regex:"^Server\s*:\s*vqServer", banner:banner
 set_mandatory_key( key:"webcam_7_xp", regex:"^Server\s*:\s*(webcam 7|webcamXP)", banner:banner );
 set_mandatory_key( key:"webmin_usermin", regex:"^Server\s*:.*MiniServ.*", banner:banner );
 set_mandatory_key( key:"websitepro", regex:"^Server\s*:\s*WebSitePro", banner:banner );
+set_mandatory_key( key:"webshield_appliance", regex:"^Server\s*:\s*WebShield Appliance", banner:banner );
 set_mandatory_key( key:"webstar", regex:"^Server\s*:\s*WebSTAR", banner:banner );
 set_mandatory_key( key:"wnr2000", regex:'Basic realm="NETGEAR wnr2000', banner:banner );
 set_mandatory_key( key:"wodWebServer", regex:"wodWebServer", banner:banner );

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801671");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-12-29 07:31:27 +0100 (Wed, 29 Dec 2010)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -16,7 +16,7 @@ if(description)
                 "CVE-2010-4396", "CVE-2010-4388", "CVE-2010-4389",
                 "CVE-2010-4390", "CVE-2010-4391", "CVE-2010-4392",
                 "CVE-2010-4394", "CVE-2010-4395");
-  script_name("RealNetworks RealPlayer Multiple Vulnerabilities (Windows) - Dec10");
+  script_name("RealNetworks RealPlayer Multiple Vulnerabilities (Dec 2010) - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/38550/");
   script_xref(name:"URL", value:"http://service.real.com/realplayer/security/12102010_player/en/");
 

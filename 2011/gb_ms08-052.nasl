@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801725");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-21T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"creation_date", value:"2011-01-18 10:00:48 +0100 (Tue, 18 Jan 2011)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
@@ -26,8 +26,11 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2011 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
+  # nb: The MSSQL "Consolidation" wasn't added here on purpose and only the SMB Login one was used
+  # as the consolidation is not required for the KB check below.
   script_dependencies("secpod_ms_visual_prdts_detect.nasl", "secpod_office_products_version_900032.nasl",
-                      "smb_reg_service_pack.nasl", "gb_ms_ie_detect.nasl");
+                      "smb_reg_service_pack.nasl", "gb_ms_ie_detect.nasl",
+                      "gb_microsoft_sql_server_smb_login_detect.nasl");
   script_require_ports(139, 445);
   script_mandatory_keys("SMB/WindowsVersion");
 
@@ -44,7 +47,7 @@ if(description)
 
   - Microsoft Office Groove 2007 SP1 and prior
 
-  - Microsoft Excel  Viewer 2003 SP 3 and prior
+  - Microsoft Excel Viewer 2003 SP 3 and prior
 
   - Microsoft Office 2007 System SP 1/2 and prior
 
@@ -262,20 +265,19 @@ if(hotfix_check_sp(win2k:5) > 0)
   }
 }
 
-# Microsoft SQL Server 2005
-key = "SOFTWARE\Microsoft\Microsoft SQL Server\";
-if(registry_key_exists(key:key))
-{
-  foreach item (registry_enum_keys(key:key))
-  {
-    sqlpath = registry_get_sz(key:key + item + "\Setup", item:"SQLBinRoot");
-    sqlVer = FileVer (file:"\sqlservr.exe", path:sqlpath);
-    if(sqlVer)
-    {
-      if(version_in_range(version:sqlVer, test_version:"2005.90.3000", test_version2:"2005.90.3072.9"))
-      {
-        security_message( port: 0, data: "The target host was found to be vulnerable" );
-        exit(0);
+if(get_kb_item("microsoft/sqlserver/smb-login/detected")) {
+
+  # Microsoft SQL Server 2005
+  key = "SOFTWARE\Microsoft\Microsoft SQL Server\";
+  if(registry_key_exists(key:key)) {
+    foreach item (registry_enum_keys(key:key)) {
+      sqlpath = registry_get_sz(key:key + item + "\Setup", item:"SQLBinRoot");
+      sqlVer = FileVer (file:"\sqlservr.exe", path:sqlpath);
+      if(sqlVer) {
+        if(version_in_range(version:sqlVer, test_version:"2005.90.3000", test_version2:"2005.90.3072.9")) {
+          security_message( port: 0, data: "The target host was found to be vulnerable" );
+          exit(0);
+        }
       }
     }
   }

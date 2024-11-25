@@ -9,11 +9,11 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832746");
-  script_version("2023-12-15T16:10:08+0000");
-  script_cve_id("CVE-2023-42890", "CVE-2023-42883");
+  script_version("2024-06-21T05:05:42+0000");
+  script_cve_id("CVE-2023-42890", "CVE-2023-42883", "CVE-2023-42950", "CVE-2023-42956");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-12-15 16:10:08 +0000 (Fri, 15 Dec 2023)");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-12-13 18:10:00 +0000 (Wed, 13 Dec 2023)");

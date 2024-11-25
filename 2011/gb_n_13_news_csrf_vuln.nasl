@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801738");
-  script_version("2023-07-28T05:05:23+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2011-02-08 15:34:31 +0100 (Tue, 08 Feb 2011)");
   script_cve_id("CVE-2011-0642");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_name("N-13 News Cross-Site Request Forgery Vulnerability");
+  script_name("N-13 News CSRF Vulnerability");
   script_xref(name:"URL", value:"http://secunia.com/advisories/42959");
   script_xref(name:"URL", value:"http://xforce.iss.net/xforce/xfdb/64824");
   script_xref(name:"URL", value:"http://www.exploit-db.com/exploits/16013/");

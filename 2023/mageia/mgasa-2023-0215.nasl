@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2023.0215");
   script_cve_id("CVE-2022-25844");
   script_tag(name:"creation_date", value:"2023-07-10 04:12:52 +0000 (Mon, 10 Jul 2023)");
-  script_version("2023-07-10T08:07:42+0000");
-  script_tag(name:"last_modification", value:"2023-07-10 08:07:42 +0000 (Mon, 10 Jul 2023)");
+  script_version("2024-02-01T14:37:14+0000");
+  script_tag(name:"last_modification", value:"2024-02-01 14:37:14 +0000 (Thu, 01 Feb 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-05-11 17:40:00 +0000 (Wed, 11 May 2022)");
+  script_tag(name:"severity_date", value:"2022-05-11 17:40:36 +0000 (Wed, 11 May 2022)");
 
   script_name("Mageia: Security Advisory (MGASA-2023-0215)");
   script_category(ACT_GATHER_INFO);

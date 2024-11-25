@@ -4,11 +4,11 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-if( description )
+if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170545");
-  script_version("2023-10-12T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_version("2024-11-15T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-15 05:05:36 +0000 (Fri, 15 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-08-21 12:37:36 +0000 (Mon, 21 Aug 2023)");
   script_tag(name:"cvss_base", value:"9.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:C/A:C");
@@ -31,17 +31,16 @@ if( description )
   script_dependencies("gb_epson_printer_consolidation.nasl");
   script_mandatory_keys("epson/printer/detected");
 
-  script_tag(name:"summary", value:"Epson Printers TM-C3500 and TM-C7500 series are prone to an
+  script_tag(name:"summary", value:"Epson printers TM-C3500 and TM-C7500 series are prone to an
   authentication bypass vulnerability.");
 
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable firmware version is present on the target
-  host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"impact", value:"A successful attack would allow the attacker to change the
   printer's communication settings. A printer whose communication settings have been changed becomes
   temporarily unusable.");
 
-  script_tag(name:"affected", value:"Epson Printers TM-C3500 and TM-C7500 series.");
+  script_tag(name:"affected", value:"Epson printers TM-C3500 and TM-C7500 series.");
 
   script_tag(name:"solution", value:"See the referenced vendor advisories for a solution.");
 
@@ -77,7 +76,7 @@ if ( ! version = get_app_version( cpe:cpe, port:port ) )
 if ( cpe =~ "^cpe:/o:epson:tm-c35[012]0_firmware" ) {
   if ( version_is_less( version:version, test_version:"WAM32200" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"WAM32200" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
@@ -85,7 +84,7 @@ if ( cpe =~ "^cpe:/o:epson:tm-c35[012]0_firmware" ) {
 if ( cpe =~ "^cpe:/o:epson:tm-c75[012]0g?_firmware" ) {
   if ( version_is_less( version:version, test_version:"WAI34200" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"WAI34200" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }

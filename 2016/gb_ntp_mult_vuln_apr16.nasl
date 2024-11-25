@@ -9,7 +9,7 @@ CPE = "cpe:/a:ntp:ntp";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807567");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2015-7973", "CVE-2015-7974", "CVE-2015-7975", "CVE-2015-7976",
                 "CVE-2015-7977", "CVE-2015-7978", "CVE-2015-7979", "CVE-2015-8138",
                 "CVE-2015-8139", "CVE-2015-8140", "CVE-2015-8158", "CVE-2016-1547",
@@ -18,7 +18,7 @@ if(description)
                 "CVE-2015-7704");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-07-16 13:15:00 +0000 (Fri, 16 Jul 2021)");
@@ -77,9 +77,9 @@ if(description)
   unauthenticated remote attackers to spoof packets to cause denial of service,
   authentication bypass, or certain configuration changes.");
 
-  script_tag(name:"affected", value:"NTP.org's ntpd versions before 4.2.8p7.");
+  script_tag(name:"affected", value:"NTPd version prior to 4.2.8p7.");
 
-  script_tag(name:"solution", value:"Upgrade to NTP.org's ntpd version 4.2.8p7 or later.");
+  script_tag(name:"solution", value:"Update to version 4.2.8p7 or later.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
@@ -91,19 +91,19 @@ include("version_func.inc");
 include("revisions-lib.inc");
 include("host_details.inc");
 
-if(isnull(port = get_app_port(cpe:CPE)))
+if (isnull(port = get_app_port(cpe: CPE)))
   exit(0);
 
-if(!infos = get_app_full(cpe:CPE, port:port, exit_no_version:TRUE))
+if (!infos = get_app_full(cpe: CPE, port: port, exit_no_version: TRUE))
   exit(0);
 
 version = infos["version"];
 location = infos["location"];
 proto = infos["proto"];
 
-if(revcomp(a:version, b:"4.2.8p7") < 0) {
-  report = report_fixed_ver(installed_version:version, fixed_version:"4.2.8p7", install_path:location);
-  security_message(port:port, proto:proto, data:report);
+if (revcomp(a: version, b: "4.2.8p7") < 0) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "4.2.8p7", install_path: location);
+  security_message(port: port, proto: proto, data: report);
   exit(0);
 }
 

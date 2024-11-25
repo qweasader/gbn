@@ -9,17 +9,17 @@ CPE = "cpe:/a:phpmyadmin:phpmyadmin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807592");
-  script_version("2023-10-17T05:05:34+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2016-2559", "CVE-2016-2562");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-12-03 03:25:00 +0000 (Sat, 03 Dec 2016)");
   script_tag(name:"creation_date", value:"2016-05-17 12:12:08 +0530 (Tue, 17 May 2016)");
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("phpMyAdmin Multiple Vulnerabilities -01 May16 (Windows)");
+  script_name("phpMyAdmin Multiple Vulnerabilities -01 (May 2016) - Windows");
 
   script_tag(name:"summary", value:"phpMyAdmin is prone to multiple vulnerabilities.");
 
@@ -53,7 +53,7 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_phpmyadmin_http_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("phpMyAdmin/installed", "Host/runs_windows");
-  script_require_ports("Services/www", 80);
+
   exit(0);
 }
 

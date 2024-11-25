@@ -8,8 +8,8 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.841057");
   script_tag(name:"creation_date", value:"2012-06-28 05:07:06 +0000 (Thu, 28 Jun 2012)");
-  script_version("2023-06-21T05:06:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:20 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 
@@ -22,8 +22,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"USN-1463-5");
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-1463-5");
-  script_xref(name:"URL", value:"https://launchpad.net/bugs/1016386");
   script_xref(name:"URL", value:"http://www.ubuntu.com/usn/usn-1463-2");
+  script_xref(name:"URL", value:"https://launchpad.net/bugs/1016386");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'unity-2d' package(s) announced via the USN-1463-5 advisory.");
 

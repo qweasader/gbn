@@ -9,18 +9,18 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810225");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-02-16T05:06:55+0000");
   script_cve_id("CVE-2016-4589", "CVE-2016-4622", "CVE-2016-4623", "CVE-2016-4624",
                 "CVE-2016-4586", "CVE-2016-4583", "CVE-2016-4592", "CVE-2016-4591",
                 "CVE-2016-4590", "CVE-2016-4651", "CVE-2016-4585", "CVE-2016-4584");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-03-25 17:04:00 +0000 (Mon, 25 Mar 2019)");
   script_tag(name:"creation_date", value:"2016-12-01 13:55:02 +0530 (Thu, 01 Dec 2016)");
-  script_name("Apple Safari Multiple Vulnerabilities December16 (Mac OS X)");
+  script_name("Apple Safari Multiple Vulnerabilities (Dec 2016) - Mac OS X");
 
   script_tag(name:"summary", value:"Apple Safari is prone to multiple vulnerabilities.");
 

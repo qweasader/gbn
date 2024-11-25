@@ -9,18 +9,17 @@ CPE = "cpe:/a:moinmo:moinmoin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108324");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2011-1058");
   script_tag(name:"cvss_base", value:"2.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2018-02-12 10:47:19 +0100 (Mon, 12 Feb 2018)");
-  script_name("MoinMoin < 1.9.4 Cross-Site Scripting Vulnerabilities (Linux)");
+  script_name("MoinMoin < 1.9.4 Cross-Site Scripting Vulnerabilities - Linux");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_moinmoin_wiki_detect.nasl", "os_detection.nasl");
-  script_require_ports("Services/www", 8080);
   script_mandatory_keys("moinmoinWiki/installed", "Host/runs_unixoide");
 
   script_xref(name:"URL", value:"http://moinmo.in/SecurityFixes");

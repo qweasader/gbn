@@ -9,10 +9,10 @@ CPE = "cpe:/h:sony:sony_network_camera_snc";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107106");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2016-12-09 16:11:25 +0530 (Fri, 09 Dec 2016)");
   script_tag(name:"qod_type", value:"remote_banner");
   script_name("Sony IPELA Engine IP Cameras Backdoor Vulnerability");
@@ -67,63 +67,57 @@ if(description)
   script_family("Denial of Service");
   script_dependencies("gb_sony_ip_cam_detect.nasl");
   script_mandatory_keys("sony/ip_camera/installed", "sony/ip_camera/model");
-  script_require_ports("Services/www", 8080);
+
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-if(!sonycamPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
-if(!sonycamVer = get_app_version(cpe:CPE, port:sonycamPort)){
+
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
-if(!modelVer = get_kb_item("sony/ip_camera/model")) {
-    exit(0);
-}
+
+if(!model = get_kb_item("sony/ip_camera/model"))
+  exit(0);
 
 affected1 = make_list(
-        'SNC-CH115', 'SNC-CH120', 'SNC-CH160', 'SNC-CH220', 'SNC-CH260', 'SNC-DH120',
-        'SNC-DH120T','SNC-DH160', 'SNC-DH220', 'SNC-DH220T','SNC-DH260', 'SNC-EB520',
-        'SNC-EM520', 'SNC-EM521', 'SNC-ZB550', 'SNC-ZM550', 'SNC-ZM551', 'SNC-EP550',
-        'SNC-EP580', 'SNC-ER550', 'SNC-ER550C','SNC-ER580', 'SNC-ER585', 'SNC-ER585H',
-        'SNC-ZP550', 'SNC-ZR550', 'SNC-EP520', 'SNC-EP521', 'SNC-ER520', 'SNC-ER521',
-        'SNC-ER521C');
-affected2 = make_list(
-        'SNC-CX600', 'SNC-CX600W','SNC-EB600', 'SNC-EB600B','SNC-EB602R',
-        'SNC-EB630', 'SNC-EB630B', 'SNC-EB632R','SNC-EM600','SNC-EM601', 'SNC-EM602R',
-        'SNC-EM602RC','SNC-EM630', 'SNC-EM631', 'SNC-EM632R', 'SNC-EM632RC','SNC-VB600',
-        'SNC-VB600B', 'SNC-VB600B5', 'SNC-VB630', 'SNC-VB6305', 'SNC-VB6307','SNC-VB632D',
-        'SNC-VB635', 'SNC-VM600', 'SNC-VM600B', 'SNC-VM600B5', 'SNC-VM601', 'SNC-VM601B',
-        'SNC-VM602R','SNC-VM630', 'SNC-VM6305', 'SNC-VM6307', 'SNC-VM631', 'SNC-VM632R',
-        'SNC-WR600', 'SNC-WR602', 'SNC-WR602C', 'SNC-WR630', 'SNC-WR632', 'SNC-WR632C',
-        'SNC-XM631', 'SNC-XM632', 'SNC-XM636', 'SNC-XM637', 'SNC-VB600L', 'SNC-VM600L',
-        'SNC-XM631L', 'SNC-WR602CL');
+  "SNC-CH115", "SNC-CH120", "SNC-CH160", "SNC-CH220", "SNC-CH260", "SNC-DH120",
+  "SNC-DH120T","SNC-DH160", "SNC-DH220", "SNC-DH220T","SNC-DH260", "SNC-EB520",
+  "SNC-EM520", "SNC-EM521", "SNC-ZB550", "SNC-ZM550", "SNC-ZM551", "SNC-EP550",
+  "SNC-EP580", "SNC-ER550", "SNC-ER550C","SNC-ER580", "SNC-ER585", "SNC-ER585H",
+  "SNC-ZP550", "SNC-ZR550", "SNC-EP520", "SNC-EP521", "SNC-ER520", "SNC-ER521",
+  "SNC-ER521C");
 
-foreach v (affected1)
-{
-  if (version_is_equal(version:modelVer, test_version: v))
-  {
-    if(version_is_less(version:sonycamVer, test_version: "1.86.00"))
-    {
-      report = report_fixed_ver(installed_version:modelVer + " Firmware v:"+ sonycamVer, fixed_version:modelVer + " Firmware v:1.86.00");
-      security_message(data:report, port: sonycamPort);
+affected2 = make_list(
+  "SNC-CX600", "SNC-CX600W","SNC-EB600", "SNC-EB600B","SNC-EB602R",
+  "SNC-EB630", "SNC-EB630B", "SNC-EB632R","SNC-EM600","SNC-EM601", "SNC-EM602R",
+  "SNC-EM602RC","SNC-EM630", "SNC-EM631", "SNC-EM632R", "SNC-EM632RC","SNC-VB600",
+  "SNC-VB600B", "SNC-VB600B5", "SNC-VB630", "SNC-VB6305", "SNC-VB6307","SNC-VB632D",
+  "SNC-VB635", "SNC-VM600", "SNC-VM600B", "SNC-VM600B5", "SNC-VM601", "SNC-VM601B",
+  "SNC-VM602R","SNC-VM630", "SNC-VM6305", "SNC-VM6307", "SNC-VM631", "SNC-VM632R",
+  "SNC-WR600", "SNC-WR602", "SNC-WR602C", "SNC-WR630", "SNC-WR632", "SNC-WR632C",
+  "SNC-XM631", "SNC-XM632", "SNC-XM636", "SNC-XM637", "SNC-VB600L", "SNC-VM600L",
+  "SNC-XM631L", "SNC-WR602CL");
+
+foreach v(affected1) {
+  if(version_is_equal(version:model, test_version:v)) {
+    if(version_is_less(version:version, test_version:"1.86.00")) {
+      report = report_fixed_ver(installed_version:model + " Firmware v:"+ version, fixed_version:model + " Firmware v:1.86.00");
+      security_message(data:report, port:port);
       exit(0);
     }
   }
 }
 
-foreach v (affected2)
-{
-  if (version_is_equal(version:modelVer, test_version: v))
-  {
-    if(version_is_less(version:sonycamVer, test_version: "2.7.2"))
-    {
-       report = report_fixed_ver(installed_version:modelVer + " Firmware v:"+ sonycamVer, fixed_version: modelVer + " Firmware v:2.7.2");
-       security_message(data:report, port: sonycamPort);
-       exit(0);
+foreach v(affected2) {
+  if(version_is_equal(version:model, test_version:v)) {
+    if(version_is_less(version:version, test_version:"2.7.2")) {
+      report = report_fixed_ver(installed_version:model + " Firmware v:"+ version, fixed_version: model + " Firmware v:2.7.2");
+      security_message(data:report, port: port);
+      exit(0);
     }
   }
 }

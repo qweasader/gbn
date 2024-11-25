@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131174");
   script_cve_id("CVE-2015-1333", "CVE-2015-4176", "CVE-2015-4177", "CVE-2015-4178", "CVE-2015-4692", "CVE-2015-4700", "CVE-2015-5156", "CVE-2015-5257", "CVE-2015-5307", "CVE-2015-5697", "CVE-2015-5706", "CVE-2015-5707", "CVE-2015-6937", "CVE-2015-7312", "CVE-2015-7872", "CVE-2015-7884", "CVE-2015-7885", "CVE-2015-8104", "CVE-2015-8550", "CVE-2015-8551", "CVE-2015-8552", "CVE-2015-8660");
   script_tag(name:"creation_date", value:"2016-01-14 05:28:47 +0000 (Thu, 14 Jan 2016)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-06-07 12:44:00 +0000 (Wed, 07 Jun 2023)");
+  script_tag(name:"severity_date", value:"2016-04-18 17:31:24 +0000 (Mon, 18 Apr 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0015)");
   script_category(ACT_GATHER_INFO);
@@ -26,13 +26,19 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0015");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0015.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17401");
+  script_xref(name:"URL", value:"http://kernelnewbies.org/Linux_4.0");
+  script_xref(name:"URL", value:"http://kernelnewbies.org/Linux_4.1");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16915");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17010");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17034");
-  script_xref(name:"URL", value:"http://kernelnewbies.org/Linux_4.0");
-  script_xref(name:"URL", value:"http://kernelnewbies.org/Linux_4.1");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17401");
   script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.1");
+  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.10");
+  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.11");
+  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.12");
+  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.13");
+  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.14");
+  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.15");
   script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.2");
   script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.3");
   script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.4");
@@ -41,12 +47,6 @@ if(description)
   script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.7");
   script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.8");
   script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.9");
-  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.10");
-  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.11");
-  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.12");
-  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.13");
-  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.14");
-  script_xref(name:"URL", value:"https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.1.15");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'kernel-tmb' package(s) announced via the MGASA-2016-0015 advisory.");
 

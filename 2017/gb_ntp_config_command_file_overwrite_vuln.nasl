@@ -9,11 +9,11 @@ CPE = "cpe:/a:ntp:ntp";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811253");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2015-7703");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-06-18 18:21:00 +0000 (Thu, 18 Jun 2020)");
@@ -41,11 +41,10 @@ if(description)
   the 'pidfile' or 'driftfile' directives to potentially overwrite other
   files.");
 
-  script_tag(name:"affected", value:"NTP.org's ntpd versions 4.x before 4.2.8p4 and
-  4.3.0 before 4.3.77.");
+  script_tag(name:"affected", value:"NTPd version 4.x prior to 4.2.8p4 and 4.3.0 prior to
+  4.3.77.");
 
-  script_tag(name:"solution", value:"Upgrade to NTP.org's ntpd version 4.2.8p4 or 4.3.77
-  or later.");
+  script_tag(name:"solution", value:"Update to version 4.2.8p4, 4.3.77 or later.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
@@ -57,31 +56,31 @@ include("version_func.inc");
 include("revisions-lib.inc");
 include("host_details.inc");
 
-if(isnull(port = get_app_port(cpe:CPE)))
+if (isnull(port = get_app_port(cpe: CPE)))
   exit(0);
 
-if(!infos = get_app_full(cpe:CPE, port:port, exit_no_version:TRUE))
+if (!infos = get_app_full(cpe: CPE, port: port, exit_no_version: TRUE))
   exit(0);
 
 version = infos["version"];
 location = infos["location"];
 proto = infos["proto"];
 
-if(version =~ "^4\.[0-2]") {
-  if(revcomp(a:version, b:"4.2.8p4") < 0) {
+if (version =~ "^4\.[0-2]") {
+  if (revcomp(a: version, b: "4.2.8p4") < 0) {
     fix = "4.2.8p4";
   }
 }
 
-else if(version =~ "^4\.3") {
-  if(revcomp(a:version, b:"4.3.77") < 0) {
+else if (version =~ "^4\.3") {
+  if (revcomp(a: version, b: "4.3.77") < 0) {
     fix = "4.3.77";
   }
 }
 
 if(fix) {
-  report = report_fixed_ver(installed_version:version, fixed_version:fix, install_path:location);
-  security_message(port:port, proto:proto, data:report);
+  report = report_fixed_ver(installed_version: version, fixed_version: fix, install_path: location);
+  security_message(port: port, proto: proto, data: report);
   exit(0);
 }
 

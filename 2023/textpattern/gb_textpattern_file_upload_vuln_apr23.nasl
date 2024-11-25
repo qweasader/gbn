@@ -9,8 +9,8 @@ CPE = "cpe:/a:textpattern:textpattern";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170417");
-  script_version("2024-01-09T05:06:46+0000");
-  script_tag(name:"last_modification", value:"2024-01-09 05:06:46 +0000 (Tue, 09 Jan 2024)");
+  script_version("2024-04-18T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-04-18 05:05:33 +0000 (Thu, 18 Apr 2024)");
   script_tag(name:"creation_date", value:"2023-04-17 12:57:35 +0000 (Mon, 17 Apr 2023)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -22,7 +22,7 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"WillNotFix");
 
   script_name("Textpattern CMS <= 4.8.8 Multiple Arbitrary File Upload Vulnerabilities");
 
@@ -47,8 +47,10 @@ if(description)
 
   script_tag(name:"affected", value:"Textpattern CMS version 4.8.8 and prior.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 29th December, 2023.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General
+  solution options are to upgrade to a newer release, disable respective features, remove the
+  product or replace the product by another one.");
 
   script_xref(name:"URL", value:"https://github.com/leekenghwa/CVE-2023-26852-Textpattern-v4.8.8-and-");
   script_xref(name:"URL", value:"https://github.com/s4n-h4xor/CVE-Publications/blob/main/CVE-2023-24269/CVE-2023-24269.md");

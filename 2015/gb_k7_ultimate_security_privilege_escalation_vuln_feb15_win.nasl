@@ -9,14 +9,14 @@ CPE = "cpe:/a:k7computing:ultimate_security";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805453");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2014-9643");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2015-01-27 17:11:51 +0530 (Tue, 27 Jan 2015)");
   script_tag(name:"qod_type", value:"registry");
-  script_name("K7 Ultimate Security Privilege Escalation Vulnerabilities Feb15 (Windows)");
+  script_name("K7 Ultimate Security Privilege Escalation Vulnerabilities (Feb 2015) - Windows");
 
   script_tag(name:"summary", value:"K7 Ultimate Security is prone to a privilege escalation vulnerability.");
 
@@ -41,7 +41,7 @@ if(description)
   script_xref(name:"URL", value:"http://packetstormsecurity.com/files/130246");
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_category(ACT_GATHER_INFO);
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_k7_ultimate_security_detect_win.nasl");
   script_mandatory_keys("K7/UltimateSecurity/Win/Installed");
   script_xref(name:"URL", value:"http://www.k7computing.co.uk");

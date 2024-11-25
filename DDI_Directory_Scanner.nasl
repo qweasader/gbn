@@ -8,8 +8,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11032");
-  script_version("2024-01-19T16:09:33+0000");
-  script_tag(name:"last_modification", value:"2024-01-19 16:09:33 +0000 (Fri, 19 Jan 2024)");
+  script_version("2024-11-21T05:05:26+0000");
+  script_tag(name:"last_modification", value:"2024-11-21 05:05:26 +0000 (Thu, 21 Nov 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -19,10 +19,10 @@ if(description)
   script_copyright("Copyright (C) 2005 Digital Defense Inc.");
   script_family("Service detection");
   script_dependencies("find_service.nasl", "httpver.nasl", "no404.nasl",
-                      "global_settings.nasl", "gb_ssl_sni_supported.nasl"); # SNI support should be determined first
+                      "global_settings.nasl", "gb_ssl_tls_sni_supported.nasl"); # SNI support should be determined first
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
-  script_timeout(900);
+  script_timeout(1200);
 
   script_tag(name:"summary", value:"This plugin attempts to determine the presence of various
   common dirs on the remote web server.");
@@ -117,7 +117,9 @@ function add_auth_dir_list( dir, port, host, basic, realm ) {
   }
 }
 
-# Some entries might be duplicated, this is acceptable because the list will be made "unique" later
+# nb:
+# - Some entries might be duplicated, this is acceptable because the list will be made "unique" later
+# - Don't add more dirs here and add them in the second testDirList2 below instead (see relevant note for the background)
 testDirList = make_list(
 ".cobalt",
 ".tools",
@@ -516,8 +518,6 @@ testDirList = make_list(
 "horde",
 "hostingcontroller",
 "howto",
-"hr",
-"hrm",
 "ht",
 "htbin",
 "htdocs",
@@ -691,6 +691,7 @@ testDirList = make_list(
 "phpprojekt",
 "phpSecurePages",
 "phpunit",
+"php-cgi",
 "piranha",
 "piwik",
 "pls",
@@ -1308,6 +1309,7 @@ testDirList = make_list(
 "icinga-web/lib/icinga-php-thirdparty",
 "icinga-web/static",
 # GVM / GSA related URLs
+"assets",
 "css",
 "help",
 "img",
@@ -1378,8 +1380,11 @@ testDirList = make_list(
 #
 # nb: The device had also "/api/v1" but this is already included above
 #
+"dana-admin",
+"dana-admin/misc",
 "dana-na",
 "dana-na/auth",
+"dana-na/auth/url_admin",
 "dana-na/auth/url_default",
 "dana-na/download",
 "dana-na/meeting",
@@ -1398,6 +1403,9 @@ testDirList = make_list(
 "gwtest",
 "logon",
 "logon/vpn",
+"nf",
+"nf/auth",
+"nf/auth/webview",
 "saml",
 "vpn",
 "vpn/js",
@@ -1450,26 +1458,30 @@ testDirList = make_list(
 "blog/wp-includes",
 "blog/wp-json",
 "blog/index.php/wp-json",
-# WordPress plugins dirs
+# WordPress plugins / themes dirs
 "wp-content/backup-db",
 "wp-content/backups-dup-pro",
 "wp-content/backups-dup-lite",
 "wp-content/updraft",
+"wp-content/uploads/fusion-forms",
 "wp-content/w3tc-config",
 "wordpress/wp-content/backup-db",
 "wordpress/wp-content/backups-dup-pro",
 "wordpress/wp-content/backups-dup-lite",
 "wordpress/wp-content/updraft",
+"wordpress/wp-content/uploads/fusion-forms",
 "wordpress/wp-content/w3tc-config",
 "wp/wp-content/backup-db",
 "wp/wp-content/backups-dup-pro",
 "wp/wp-content/backups-dup-lite",
 "wp/wp-content/updraft",
+"wp/wp-content/uploads/fusion-forms",
 "wp/wp-content/w3tc-config",
 "blog/wp-content/backup-db",
 "blog/wp-content/backups-dup-pro",
 "blog/wp-content/backups-dup-lite",
 "blog/wp-content/updraft",
+"blog/wp-content/uploads/fusion-forms",
 "blog/wp-content/w3tc-config",
 # Cloudflare, see e.g. https://seclists.org/nmap-dev/2019/q1/42
 "cdn-cgi",
@@ -1488,13 +1500,24 @@ testDirList = make_list(
 "userportal/webpages/myaccount",
 "webconsole",
 "webconsole/webpages",
-# Outlook Web App
+# Microsoft Exchange Outlook Web App (OWA)
+"EWS",
 "owa",
 "owa/auth",
-# Laravel / Laravel Telescope
+# Laravel / Laravel Telescope and related software
 "laravel",
+"laravel/html",
+"laravel/html/laravel-filemanager",
 "laravel/public",
+"laravel/public/laravel-filemanager",
 "laravel/telescope",
+"laravel5",
+"laravel5/html",
+"laravel5/html/laravel-filemanager",
+"laravel5/public",
+"laravel5/public/laravel-filemanager",
+"laravel5/telescope",
+"laravel-filemanager",
 "project",
 "public",
 "telescope",
@@ -1516,6 +1539,7 @@ testDirList = make_list(
 "app/config",
 # Citrix Endpoint Management or XenMobile Server
 "zdm",
+"zdm/cxf",
 # Cisco Security Manager, possible other products as well
 "CSCOnm",
 "CSCOnm/servlet",
@@ -1547,6 +1571,7 @@ testDirList = make_list(
 "jmx-console",
 "jmx-console/HtmlAdaptor",
 "invoker",
+"invoker/EJBInvokerServlet",
 "invoker/JMXInvokerServlet",
 "cognos_express",
 "cognos_express/manager",
@@ -1575,8 +1600,9 @@ testDirList = make_list(
 "api",
 "api/2.1",
 "api/2.1/rest",
-# Various application servers like Apache Tomcat or Mortbay Jetty. Normally these should prevent the
-# direct access to the directory but we're checking it anyway if there are any misconfigurations in place.
+# Various application servers like Apache Tomcat or Mort Bay/Eclipse Jetty. Normally these should
+# prevent the direct access to the directory but we're checking it anyway if there are any
+# misconfigurations in place.
 "WEB-INF",
 "WEB-INF/classes",
 "WEB-INF/lib",
@@ -1661,6 +1687,7 @@ testDirList = make_list(
 "assets",
 "websso",
 "websso/SAML2",
+"websso/SAML2/SLO",
 "websso/SAML2/SSO",
 "websso/resources",
 "websso/resources/js",
@@ -1901,6 +1928,7 @@ testDirList = make_list(
 "OA_HTML/cabo",
 "OA_HTML/cabo/jsLibs",
 "OA_HTML/cabo/jsps",
+"OA_HTML/cabo/styles",
 "OA_HTML/media",
 "OA_MEDIA",
 # Sun/Oracle Web Server
@@ -1957,6 +1985,9 @@ testDirList = make_list(
 "DataArchivingService/webcontent",
 "DataArchivingService/webcontent/cas",
 "DataArchivingService/webcontent/aas",
+# Seen on NetWeaver AS Java in the scope of CVE-2020-6287
+"CTCWebService",
+"CTCWebService/CTCWebServiceBean",
 # Pega Infinity
 "prweb",
 "prweb/app",
@@ -2013,6 +2044,13 @@ testDirList = make_list(
 "static?",
 # Mentioned as a directory in https://github.com/eclipse/jetty.project/security/advisories/GHSA-v7ff-8wcx-gmc5
 "context",
+# Seen in various active checks for Eclipse Jetty
+"dump",
+"jsp",
+"jspsnoop",
+"jspsnoop/ERROR",
+"test",
+"test/jsp",
 # Maipu Network devices
 "php",
 "php/common",
@@ -2026,6 +2064,11 @@ testDirList = make_list(
 # Lucee
 "lucee",
 "lucee/admin",
+"lucee/doc",
+"lucee/res",
+"lucee/res/js",
+"lucee/templates",
+"lucee/templates/error",
 # FanRuan FineReport
 "FineReport",
 "FineReport/decision",
@@ -2126,6 +2169,12 @@ testDirList = make_list(
 "etc.clientlibs",
 "etc.clientlibs/clientlibs",
 "etc.clientlibs/clientlibs/granite",
+"mnt", # All "mnt" ones have been seen in CVE-2019-16469
+"mnt/overlay",
+"mnt/overlay/dam",
+"mnt/overlay/dam/gui",
+"mnt/overlay/dam/gui/content",
+"mnt/overlay/dam/gui/content/assets",
 # Prometheus
 "alerts",
 "graph",
@@ -2316,6 +2365,8 @@ testDirList = make_list(
 "GallerySite/filesrc",
 # Ruby on Rails
 "assets",
+# RaidenMAILD Mail Server
+"webeditor",
 # -> End entries from 2021/gb_generic_http_web_dirs_dir_trav.nasl
 # Sage X3
 "auth",
@@ -2683,6 +2734,10 @@ testDirList = make_list(
 # Ubiquiti UniFi Network
 "manage",
 "manage/account",
+"manage/angular",
+"setup",
+"setup/static",
+"setup/static/js",
 # LittlePhpGallery
 "gallery",
 "images",
@@ -2764,6 +2819,8 @@ testDirList = make_list(
 "helpdesk/WebObjects",
 "helpdesk/WebObjects/Helpdesk.woa",
 "helpdesk/WebObjects/Helpdesk.woa/ajax",
+"helpdesk/WebObjects/Helpdesk.woa/ra",
+"helpdesk/WebObjects/Helpdesk.woa/ra/OrionTickets",
 "helpdesk/WebObjects/Helpdesk.woa/wa",
 "helpdesk/WebObjects/Helpdesk.woa/wo",
 # ClearSite
@@ -3229,6 +3286,14 @@ testDirList = make_list(
 "spog",
 "workplace",
 "workplace/access",
+# SonicWall Firewalls
+"atp",
+"resources",
+"Security_Services",
+"sonicui",
+"sonicui/7",
+"sonicui/7/login",
+"stats",
 # osCSS
 "catalog",
 "osCSS",
@@ -3506,6 +3571,7 @@ testDirList = make_list(
 "cgi-bin/sbcgi",
 "cgi-bin-sdb",
 "cgi-bin/search",
+"cgi-bin/slogin",
 "cgi-bin/smartsearch",
 "cgi-bin/store",
 "cgi-bin/technote",
@@ -3550,7 +3616,6 @@ testDirList = make_list(
 "servers",
 "shop",
 "technote",
-"ucsm",
 "users",
 "users/scripts",
 "vood",
@@ -3687,6 +3752,7 @@ testDirList = make_list(
 "cgi-bin/dynamic/printer",
 "cgi-bin/dynamic/printer/config",
 "cgi-bin/dynamic/printer/config/reports",
+"webglue",
 # Tableau server
 "auth",
 "javascripts",
@@ -3713,14 +3779,6 @@ testDirList = make_list(
 "bi/js",
 # Alertus Console
 "AlertusWeb",
-# LDAP Account Manager
-"ldap",
-"ldap/templates",
-"ldap-account-manager",
-"ldap-account-manager/templates",
-"lam",
-"lam/templates",
-"templates",
 # PHP Coupon Script
 "phpcoupon",
 "coupon",
@@ -3760,6 +3818,8 @@ testDirList = make_list(
 "WDM",
 "deployer",
 "deployer/rest",
+"deployer/rest/5_2",
+"deployer/rest/5_2/user",
 # Cynet 360
 "SitePages",
 "WebApp",
@@ -3771,18 +3831,25 @@ testDirList = make_list(
 "acct-webapp/security",
 # IBM Cognos Analytics
 "bi",
+"bi/v1",
 "ibmanalytics",
 "ibmanalytics/bi",
+"ibmanalytics/bi/v1",
 "cognos",
 "cognos/bi",
+"cognos/bi/v1",
 "ibmcognos",
 "ibmcognos/bi",
+"ibmcognos/bi/v1",
 "analytics",
 "analytics/bi",
+"analytics/bi/v1",
 "cognosanalytics",
 "cognosanalytics/bi",
+"cognosanalytics/bi/v1",
 "datacenter",
 "datacenter/bi",
+"datacenter/bi/v1",
 # Fortinet Fortiportal
 "fpc",
 # Community Server
@@ -3805,7 +3872,7 @@ testDirList = make_list(
 "starnet",
 # Betsy
 "betsy",
-# JetBrains Hub
+# JetBrains Hub / YouTrack
 "hub",
 "hub/auth",
 "hub/api",
@@ -3945,8 +4012,6 @@ testDirList = make_list(
 "screens/trapmgr",
 "screens/webui",
 "udm-resources",
-# Cisco SD-WAN vManage
-"dataservice",
 # Fork CMS
 "frontend",
 # BackupPC
@@ -3964,11 +4029,6 @@ testDirList = make_list(
 "zenworks/jsp",
 "zenworks/jsp/fw",
 "zenworks/jsp/fw/internal",
-# GeoServer
-"geoserver",
-"geoserver/web",
-"geoserver/web/wicket",
-"geoserver/web/wicket/bookmarkable",
 # Narcissus
 "narcissus",
 "narcissus-master",
@@ -4120,8 +4180,6 @@ testDirList = make_list(
 "webdynpro/dispatcher/sap.com/tc~sec~ume~wd~enduser",
 "webdynpro/dispatcher/sap.com/tc~wd~eptests",
 "webdynpro/dispatcher/sap.com/tc~wd~tools",
-# IBM Aspera Faspex
-"aspera",
 # Mattermost Server
 "api",
 "api/v4",
@@ -4202,7 +4260,7 @@ testDirList = make_list(
 "cms400/WorkArea/ContentDesigner",
 "WorkArea",
 "WorkArea/ContentDesigner",
-# Amcrest IP camera
+# Amcrest / Dahua IP cameras
 "current_config",
 # Apache NiFi
 "nifi",
@@ -4295,12 +4353,14 @@ testDirList = make_list(
 "iwc/javascript/jquery",
 "iwc/pages",
 "iwc/pages/css",
-# e.g. Checkmk (core and appliance)
+# e.g. Checkmk / Check_MK (core and appliance)
 "check_mk",
-"monitor",
-"monitor/check_mk",
+"checkmk",
+"checkmk/check_mk",
 "cmk",
 "cmk/check_mk",
+"monitor",
+"monitor/check_mk",
 "webconf",
 # Apache Superset
 "login",
@@ -4673,6 +4733,10 @@ testDirList = make_list(
 "tresearch/servlet",
 # Apache Hadoop
 "cluster",
+"ws",
+"ws/v1",
+"ws/v1/cluster",
+"ws/v1/cluster/apps",
 # Cisco Application Policy Infrastructure Controller (APIC)
 "insieme",
 "insieme/stromboli",
@@ -5134,25 +5198,6 @@ testDirList = make_list(
 # Seen on Viessmann Vitogate CVE-2023-5702
 "cgi-bin/config",
 "cgi-bin/de",
-# CrushFTP
-"WebInterface",
-"WebInterface/function",
-"WebInterface/new-ui",
-"WebInterface/new-ui/assets",
-"WebInterface/new-ui/assets/js",
-"WebInterface/new-ui/assets/js/app",
-"WebInterface/new-ui/assets/js/utils",
-"WebInterface/new-ui/assets/js/utils/api",
-"WebInterface/new-ui/assets/styles",
-"WebInterface/new-ui/assets/styles/components",
-"WebInterface/new-ui/modules",
-"WebInterface/new-ui/modules/loader",
-"WebInterface/new-ui/modules/web-components",
-"WebInterface/new-ui/modules/web-components/language",
-"WebInterface/new-ui/modules/web-components/multitheme",
-"WebInterface/jQuery",
-"WebInterface/Resources",
-"WebInterface/w3c",
 # SalesCart
 "online",
 "online/customer",
@@ -5645,27 +5690,6 @@ testDirList = make_list(
 "zend/vendor/phpunit/phpunit/src",
 "zend/vendor/phpunit/phpunit/src/Util",
 "zend/vendor/phpunit/phpunit/src/Util/PHP",
-# Magento
-"admin",
-"downloader",
-"magento",
-"magento/admin",
-"magento/downloader",
-"shop",
-"shop/admin",
-"shop/downloader",
-# Amasty Product Feed for Magento
-"amfeed",
-"amfeed/main",
-"magento/amfeed",
-"magento/amfeed/main",
-"shop/amfeed",
-"shop/amfeed/main",
-# Magmi (Magento Mass Importer)
-"magmi",
-"magmi/web",
-"magmi-importer",
-"magmi-importer/web",
 # Woltlab Burning Board
 "wcf",
 "wcf/acp",
@@ -5705,13 +5729,918 @@ testDirList = make_list(
 "tinxcms",
 "tinxcms/system",
 "cms/system",
+# Advantech iView
+"iView3",
 # MCshoutbox
 "MCshoutBox",
 "shoutbox",
-"box");
+"box"); # nb: Don't add more dirs here and add them in the second testDirList2 below instead (see relevant note for the background)
+
+# nb: Making it "unique" for the first time to avoid an overlong initial list
+testDirList = make_list_unique( testDirList );
+
+# nb: Unfortunately the list above has reached some kind of internal memory limit and at least
+# openvas-nasl-lint on 21.04 is "crashing" with a:
+# > memory exhausted
+# so we're creating a second list here and making both "unique" before continuing later.
+#
+testDirList2 = make_list(
+# Apache Subversion 'mod_dav_svn'
+"projects",
+"repo",
+"repo/trunk",
+"repo/projects",
+"repository",
+"svn",
+"svn/repos",
+"svn/trunk",
+"trunk",
+# Atlassian Confluence
+"bootstrap",
+"confluence",
+"dashboard",
+"display",
+"download",
+"download/attachments",
+"opensearch",
+"pages",
+"plugins",
+"rest",
+"rest/tinymce",
+"rest/tinymce/1",
+"rest/tinymce/1/macro",
+"s",
+"setup",
+"spacedirectory",
+"spaces",
+"template",
+"template/aui", # nb: From CVE-2023-22527
+"users",
+"wiki",
+# DM FileManager
+"dm-filemanager",
+"dm-filemanager/dm-albums",
+"dm-filemanager/dm-albums/templates",
+"dm-filemanager/albums",
+"dm-filemanager/albums/templates",
+"dmf",
+"dmf/dm-albums",
+"dmf/dm-albums/templates",
+"dmf/albums",
+"dmf/albums/templates",
+"dm-albums",
+"dm-albums/templates",
+"albums",
+"albums/templates",
+# Dagger
+"dagger",
+"dagger/skins",
+"cms/skins",
+"skins",
+# Simply Classified
+"classified",
+# Rspamd
+"js",
+"js/lib",
+"rspamd",
+"rspamd/js",
+"rspamd/js/lib",
+# IBM Aspera Faspex / Aspera Console / Aspera Orchestrator
+"aspera",
+"aspera/console",
+"aspera/orchestrator",
+"aspera/orchestrator/api",
+# IBM Operational Decision Manager
+"DecisionRunner",
+"DecisionService",
+"decisioncenter",
+"decisioncenter/js",
+"decisioncenter/js/dist",
+"decisioncenter/themes",
+"decisioncenter/webjars",
+"decisioncenter-api",
+"decisioncenter-api/v1",
+"res", # nb: "Rule Execution Server"
+"teamserver",
+"teamserver/faces",
+# Kemp LoadMaster / ECS Connection Manager
+"access",
+"accessv2",
+"directory",
+"progs",
+"progs/admin",
+"progs/doconfig",
+"progs/fwaccess",
+"progs/geoctrl",
+"progs/networks",
+"progs/useradmin",
+# Artica Proxy
+"tailon",
+"tailon/ws",
+# Aruba ClearPass Policy Manager
+"tips",
+"insight",
+# Devolutions Server
+"rdms",
+"rdms/api",
+"dvls",
+"dvls/api",
+# Fortinet FortiWLM
+"wlm",
+"ems",
+"ems/cgi-bin",
+# LDAP Account Manager (LAM)
+"ldap",
+"ldap/templates",
+"ldap/templates/config",
+"ldap/templates/lib",
+"ldap-account-manager",
+"ldap-account-manager/templates",
+"ldap-account-manager/templates/config",
+"ldap-account-manager/templates/lib",
+"lam",
+"lam/templates",
+"lam/templates/config",
+"lam/templates/lib",
+"templates",
+"templates/config",
+"templates/lib",
+# Ivanti Neurons for ITSM
+"HEAT",
+# Claris FileMaker (Pro or Server)
+"admin-console",
+"fmi",
+"fmi/iwp",
+"fmi/iwp/res",
+"fmi/iwp/res/swe",
+# Jenkins
+"asynchPeople",
+"asynchPeople/api",
+"whoAmI",
+"jenkins",
+"jenkins/asynchPeople",
+"jenkins/asynchPeople/api",
+"jenkins/whoAmI",
+# Progress Telerik Report Server
+"Account",
+"Startup",
+"StorageSettings",
+"report-server/Account",
+"report-server/Startup",
+"report-server/StorageSettings",
+# Progress Telerik Reporting
+"reports",
+"reports/api",
+"reports/api/reports",
+"reports/api/reports/resources",
+"reports/api/reports/resources/js",
+"reports/ReportViewer/js",
+"reports/resources/ReportViewer/js",
+"reporting",
+"reporting/api",
+"reporting/api/reports",
+"reporting/api/reports/resources",
+"reporting/api/reports/resources/js",
+"reporting/ReportViewer/js",
+"reporting/resources/ReportViewer/js",
+"Reporting",
+"Reporting/api",
+"Reporting/api/reports",
+"Reporting/api/reports/resources",
+"Reporting/api/reports/resources/js",
+"Reporting/ReportViewer/js",
+"Reporting/resources/ReportViewer/js",
+# Progress Flowmon
+"homepage",
+"homepage/auth",
+# ForgeRock Access Management
+"openam",
+"openam/XUI",
+"am",
+"am/XUI",
+"auth",
+"auth/XUI",
+"authn",
+"authn/XUI",
+"sso",
+"sso/XUI",
+"XUI",
+# Fortra FileCatalyst Workflow
+"workflow",
+"workflow/jsp",
+"workflow/jsp/includes",
+"workflow/jsp/templatesParentDir",
+"workflow/servlet",
+# pgAdmin
+"pgadmin",
+"pgadmin/browser",
+"pgadmin-web",
+"pgadmin-web/browser",
+"pgAdmin",
+"pgAdmin/browser",
+"browser",
+# HP Poly IP Phones
+"form-submit",
+# CrushFTP
+"WebInterface",
+"WebInterface/CrushReports",
+"WebInterface/Jobs",
+"WebInterface/ManageShares",
+"WebInterface/PGP",
+"WebInterface/Preferences",
+"WebInterface/Reports",
+"WebInterface/Resources",
+"WebInterface/TempAccounts",
+"WebInterface/UserManager",
+"WebInterface/admin",
+"WebInterface/dashboard",
+"WebInterface/function",
+"WebInterface/jQuery",
+"WebInterface/new-ui",
+"WebInterface/new-ui/assets",
+"WebInterface/new-ui/assets/js",
+"WebInterface/new-ui/assets/js/app",
+"WebInterface/new-ui/assets/js/utils",
+"WebInterface/new-ui/assets/js/utils/api",
+"WebInterface/new-ui/assets/styles",
+"WebInterface/new-ui/assets/styles/components",
+"WebInterface/new-ui/modules",
+"WebInterface/new-ui/modules/loader",
+"WebInterface/new-ui/modules/web-components",
+"WebInterface/new-ui/modules/web-components/language",
+"WebInterface/new-ui/modules/web-components/multitheme",
+"WebInterface/sync",
+"WebInterface/w3c",
+# Dell OpenManage Enterprise
+"core",
+"core/console",
+"core/api",
+"api/ApplicationService",
+# ReCrystallize Server
+"ReCrystallizeServer",
+# F5 BIG-IP Next Central Manager (CM)
+"api",
+"api/system",
+"api/system/v1",
+"api/v1",
+"dashboard",
+"gui",
+"gui/assets",
+"gui/assets/apps",
+"gui/dashboard",
+# HSC Mailinspector
+"mailinspector",
+"mailinspector/public",
+# Veeam Service Provider Console
+"uiapi",
+"uiapi/Login",
+"Login",
+# OpenText Dimensions RM
+"rtmBrowser",
+# Elprolog Monitor WebAccess
+"elpro-demo",
+"webaccess",
+# WikkaWiki
+"wikka",
+"wikawiki",
+# OrangeHRM
+"plugins",
+"symfony",
+"symfony/web",
+"symfony/web/index.php",
+"symfony/web/index.php/auth",
+"templates",
+"templates/recruitment",
+"web",
+"web/index.php",
+"web/index.php/auth",
+"hr",
+"hr/plugins",
+"hr/symfony",
+"hr/symfony/web",
+"hr/symfony/web/index.php",
+"hr/symfony/web/index.php/auth",
+"hr/templates",
+"hr/templates/recruitment",
+"hr/web",
+"hr/web/index.php",
+"hr/web/index.php/auth",
+"hrm",
+"hrm/plugins",
+"hrm/symfony",
+"hrm/symfony/web",
+"hrm/symfony/web/index.php",
+"hrm/symfony/web/index.php/auth",
+"hrm/templates",
+"hrm/templates/recruitment",
+"hrm/web",
+"hrm/web/index.php",
+"hrm/web/index.php/auth",
+"orangehrm",
+"orangehrm/plugins",
+"orangehrm/symfony",
+"orangehrm/symfony/web",
+"orangehrm/symfony/web/index.php",
+"orangehrm/symfony/web/index.php/auth",
+"orangehrm/templates",
+"orangehrm/templates/recruitment",
+"orangehrm/web",
+"orangehrm/web/index.php",
+"orangehrm/web/index.php/auth",
+# php-Charts
+"charts",
+"charts/wizard",
+"php-charts",
+"php-charts/wizard",
+"wizard",
+# Check Point Firewall / Gaia (Admin login and SSL Network Extender)
+"CSHELL",
+"clients",
+"login",
+"skin",
+"skin/chkp",
+"theme",
+"theme/css",
+"theme/js",
+# Dell Data Protection Advisor (DPA)
+"assets",
+"dpa-api",
+"dpa-api/server",
+# FreePBX
+"freepbx",
+# FtpLocate
+"ftplocate",
+# Oracle Portal
+"portal",
+"portal/pls",
+"portal/pls/portal",
+"pls",
+"pls/portal",
+# Dell EMC OpenManage Server Administrator (OMSA)
+"oma",
+"oma/css",
+"oma/docs",
+"oma/js",
+"oma/skins",
+"oma/skins/modern",
+"servlet",
+# Seen on ZyXEL NSA devices
+"zyxel",
+"zyxel/dojo",
+"zyxel/js",
+# Zoom Telephonics Devices
+"hag",
+"hag/pages",
+# Ivanti EPM
+"WebConsole",
+"WSStatusEvents",
+# Quicktime/Darwin Streaming Administration Server
+"AdminHTML",
+# FreeIPA
+"ipa",
+"ipa/ui",
+# Microsys Promotic
+"webdir",
+# ConnectWise ManagedITSync integration for Kaseya VSA
+"KaseyaCwWebService",
+"KaseyaCwWebService/ManagedIT.asmx",
+# Magento
+"admin",
+"downloader",
+"errors",
+"errors/default",
+"errors/default/css",
+"errors/enterprise",
+"errors/enterprise/css",
+"magento",
+"magento/admin",
+"magento/downloader",
+"magento/errors",
+"magento/errors/default",
+"magento/errors/default/css",
+"magento/errors/enterprise",
+"magento/errors/enterprise/css",
+"magento/rest",
+"magento/rest/all",
+"magento/rest/all/V1",
+"magento/rest/all/V1/guest-carts",
+"magento/setup",
+"magento/setup/index.php",
+"magento/skin",
+"magento/skin/frontend",
+"rest",
+"rest/all",
+"rest/all/V1",
+"rest/all/V1/guest-carts",
+"setup",
+"setup/index.php",
+"shop",
+"shop/admin",
+"shop/downloader",
+"shop/errors",
+"shop/errors/default",
+"shop/errors/default/css",
+"shop/errors/enterprise",
+"shop/errors/enterprise/css",
+"shop/rest",
+"shop/rest/all",
+"shop/rest/all/V1",
+"shop/rest/all/V1/guest-carts",
+"shop/setup",
+"shop/setup/index.php",
+"shop/skin",
+"shop/skin/frontend",
+"skin",
+"skin/frontend",
+# Amasty Product Feed for Magento
+"amfeed",
+"amfeed/main",
+"magento/amfeed",
+"magento/amfeed/main",
+"shop/amfeed",
+"shop/amfeed/main",
+# Magmi (Magento Mass Importer)
+"magmi",
+"magmi/web",
+"magmi-importer",
+"magmi-importer/web",
+# Dell DRAC/iDRAC
+"Applications",
+"Applications/dellUI",
+"Applications/dellUI/RPC",
+"Applications/dellUI/RPC/WEBSES",
+"Applications/dellUI/Strings",
+"cgi",
+"cgi/lang",
+"cgi/lang/en",
+"cgi-bin",
+"cgi-bin/webcgi",
+"data",
+"public",
+"restgui",
+"restgui/locale",
+"restgui/locale/personality",
+"sysmgmt",
+"sysmgmt/2015",
+"sysmgmt/2015/bmc",
+# Leadsec VPN
+"vpn",
+"vpn/user",
+"vpn/user/download",
+# Splunk (Enterprise/Light/Free)
+"account",
+"modules",
+"modules/messaging",
+"en-US",
+"en-US/account",
+"en-US/modules",
+"en-US/modules/messaging",
+"splunk/en-US",
+"splunk/en-US/account",
+"splunk/en-US/modules",
+"splunk/en-US/modules/messaging",
+# PHPmyGallery
+"phpmygallery",
+"phpmygallery/_conf",
+"gallery",
+"gallery/_conf",
+"_conf",
+# ShokoServer
+"api",
+"api/Image",
+"api/Image/withpath",
+# Ultrize TimeSheet
+"actions",
+# CMS ISWEB
+"moduli",
+# Bazarr
+"api",
+"api/swaggerui",
+"api/swaggerui/static",
+# Progress WhatsUp Gold
+"api",
+"api/core",
+"NmAPI",
+"NmConsole",
+"NmConsole/api",
+"NmConsole/api/core",
+"NmConsole/CoreNm",
+"NmConsole/CoreNm/User",
+"NmConsole/CoreNm/User/DlgUserLogin",
+"NmConsole/Data",
+"NmConsole/Data/ExportedReports",
+"NmConsole/Platform",
+"NmConsole/Platform/Filter",
+"NmConsole/Platform/PerformanceMonitorErrors",
+"NmConsole/User",
+"NmConsole/WugSystemAppSettings",
+"Session",
+"Session/Login",
+# EGroupware
+"egw",
+"egw/setup",
+"ewg/doc",
+"ewg/doc/rpm-build",
+"egroupware",
+"egroupware/setup",
+"egroupware/doc",
+"egroupware/doc/rpm-build",
+"groupware",
+"groupware/setup",
+"groupware/doc",
+"groupware/doc/rpm-build",
+"eGroupware",
+"eGroupware/setup",
+"eGroupware/doc",
+"eGroupware/doc/rpm-build",
+"eGroupware/egroupware",
+"eGroupware/egroupware/setup",
+"eGroupware/egroupware/doc",
+"eGroupware/egroupware/doc/rpm-build",
+# Hikvision iSecure Center
+"portal/ui",
+"portal/conf",
+# dotCMS
+"dotcms",
+"dotcms/api",
+"dotcms/application",
+"dotcms/application/login",
+"dotcms/html",
+"dotcms/html/portal",
+"dotCMS",
+"dotCMS/api",
+"dotCMS/application",
+"dotCMS/application/login",
+"dotCMS/html",
+"dotCMS/html/portal",
+"dotAdmin",
+"dotAdmin/api",
+"dotAdmin/application",
+"dotAdmin/application/login",
+"dotAdmin/html",
+"dotAdmin/html/portal",
+# Solara (see e.g. https://github.com/widgetti/solara/commit/df2fd66a7f4e8ffd36e8678697a8a4f76760dc54#diff-15fce3ecefc8b14c60a89284bc363bed4317d67ecc05de6669918a7fe28b5d00)
+"_solara",
+"_solara/cdn",
+"static",
+"static/assets",
+"static/nbextensions",
+"static/public",
+# Automation Anywhere Automation 360
+"aari",
+"aari/assistant",
+"aari/copilot",
+"aari/process",
+"acf",
+"asset",
+"cognitive",
+"cognitive/iqbotui",
+"dts",
+"dts/datatransferservice",
+"gai",
+"gai/prompttools",
+"modules",
+"processdiscovery",
+"processdiscovery/process",
+"script",
+# Yearning
+"front",
+# Huawei iBMC
+"bmc",
+"bmc/php",
+# W&B Weave server
+"__weave",
+"__weave/file",
+"__weave/file/local-artifacts",
+"__weave/file/tmp",
+"__weave/file/tmp/weave",
+"__weave/file/tmp/weave/fs",
+# FOG
+"fog",
+"fog/management",
+"fog/service",
+"fog/api",
+"fog/client",
+"fog/maintenance",
+"fog/service",
+"fog/status",
+# ForgeRock PingIDM / Identity Management
+"openidm",
+"openidm/info",
+# Brewthology
+"recipes",
+"recipedb",
+"brewthology",
+# mnoGoSearch
+"mnogosearch",
+# Gnew
+"gnew",
+"gnew/news",
+"cms/news",
+"news",
+# OpenText Directory Services (OTDS)
+"otdsws",
+# Ivanti Virtual Traffic Manager
+"apps",
+"apps/zxtm",
+# Avaya Aura System Manager
+"network-login",
+"passwordChange",
+"passwordChange/change",
+# LG Simple Editor
+"simpleeditor",
+"simpleeditor/common",
+# Logsign
+"ui",
+"ui/modules",
+"ui/modules/login",
+# Versa Director
+"versa",
+# NetIQ Access Manager
+"nidp",
+"nidp/app",
+"nidp/html",
+"nidp/html/help",
+"nps",
+"nps/servlet",
+"portal",
+"roma",
+"roma/help",
+"roma/help/doc",
+"roma/help/doc/solutionguide",
+# PerkinElmer ProcessPlus
+"ProcessPlus",
+"ProcessPlus/Log",
+"ProcessPlus/Log/Download",
+# FastAdmin
+"index",
+"index/ajax",
+# Cisco Smart Licensing Utility
+"cslu",
+"cslu/v1",
+"cslu/v1/scheduler",
+"cslu/v1/var",
+"cslu/v1/var/logs",
+# DrayTek VigorConnect
+"ACSServer",
+"web",
+"web/build",
+"web/plugin",
+"web/styles",
+# FastBee
+"prod-api",
+"prod-api/iot",
+"prod-api/iot/tool",
+# Nsfocus
+"user",
+"webconf",
+"webconf/GetFile",
+# Motic Digital Slide Management System
+"UploadService",
+"UploadService/Page",
+# IBM Security SiteProtector (ISS) Deployment Manager
+"deploymentmanager",
+# Ivanti Cloud Services Appliance (CSA)
+"allowed",
+"backups",
+"client",
+"gsb",
+"gsbx",
+"lib",
+"rc",
+"services",
+"upload",
+# WebIQ
+".webui",
+# Schneider Electric Modicon devices
+"html",
+"html/english",
+"secure",
+"secure/embedded",
+# Sonos speakers
+"status",
+"tools",
+# Siemens Gigaset
+"UE",
+# BMC Remedy
+"arsys",
+"arsys/resources",
+"arsys/resources/javascript",
+"arsys/servlet",
+"arsys/shared",
+# Embedthis GoAhead
+"config",
+"goform",
+"goform/AddGroup",
+"goforms", # nb: Not a typo and expected
+# GeoServer
+"geoserver",
+"geoserver/gwc",
+"geoserver/gwc/service",
+"geoserver/gwc/service/tms",
+"geoserver/web",
+"geoserver/web/wicket",
+"geoserver/web/wicket/bookmarkable",
+"geoserver/web/wicket/resource",
+"geoserver/web/wicket/resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior",
+"geoserver/web/wicket/resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res",
+"geoserver/web/wicket/resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js",
+"geoserver/web/wicket/resource/org.apache.wicket.resource.JQueryResourceReference",
+"geoserver/web/wicket/resource/org.apache.wicket.resource.JQueryResourceReference/jquery",
+"geoserver/web/wicket/resource/org.geoserver.web.GeoServerBasePage",
+"geoserver/web/wicket/resource/org.geoserver.web.GeoServerBasePage/js",
+"geoserver/web/wicket/resource/org.geoserver.web.GeoServerHomePage",
+"geoserver/web/wicket/resource/org.wicketstuff.select2.ApplicationSettings",
+"geoserver/web/wicket/resource/org.wicketstuff.select2.ApplicationSettings/res",
+"geoserver/web/wicket/resource/org.wicketstuff.select2.ApplicationSettings/res/js",
+"gwc",
+"gwc/service",
+"gwc/service/tms",
+"web",
+"web/wicket",
+"web/wicket/bookmarkable",
+"web/wicket/resource",
+"web/wicket/resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior",
+"web/wicket/resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res",
+"web/wicket/resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js",
+"web/wicket/resource/org.apache.wicket.resource.JQueryResourceReference",
+"web/wicket/resource/org.apache.wicket.resource.JQueryResourceReference/jquery",
+"web/wicket/resource/org.geoserver.web.GeoServerBasePage",
+"web/wicket/resource/org.geoserver.web.GeoServerBasePage/js",
+"web/wicket/resource/org.geoserver.web.GeoServerHomePage",
+"web/wicket/resource/org.wicketstuff.select2.ApplicationSettings",
+"web/wicket/resource/org.wicketstuff.select2.ApplicationSettings/res",
+"web/wicket/resource/org.wicketstuff.select2.ApplicationSettings/res/js",
+# From Spring Boot / Spring Framework CVE-2024-38816 PoC
+"static",
+"static/link",
+# Various seen for Log4j / Log4Shell vulnerable web apps / PoCs
+# nb: While a few seems to be quite specific these have been still included here for reporting the
+# flaws against these PoCs or as there is a slight chance that similar dirs are also existing
+# "in the wild"
+"app",
+"app/servlet",
+"l4s-vulnapp",
+"l4s-vulnapp/servlet",
+"log4j",
+"log4j/api",
+"log4j/api/vulnerable",
+"log4j/api/vulnerable/user",
+"log4j/api/vulnerable/get",
+"log4j/api/vulnerable/post",
+# Seen as used in CVE-2024-3234
+"web_assets",
+# Palo Alto Networks Expedition
+"API",
+"API/process",
+"bin",
+"bin/authentication",
+"bin/authentication/dashboard",
+"bin/authentication/users",
+"bin/jobs",
+"bin/MTSettings",
+"bin/projects",
+"resources",
+# Scriptcase
+"scriptcase",
+"scriptcase/devel",
+"scriptcase/devel/iface",
+"scriptcase/devel/lib",
+"scriptcase/devel/lib/php",
+# Mautic
+"app",
+"app/bundles",
+"app/bundles/CoreBundle",
+"app/bundles/CoreBundle/Assets",
+"app/bundles/CoreBundle/Assets/js",
+"app/bundles/CoreBundle/Assets/js/libraries",
+"s",
+"index.php/s",
+"index.php/installer",
+"media",
+"media/js",
+"plugins",
+"mautic/app",
+"mautic/app/bundles",
+"mautic/app/bundles/CoreBundle",
+"mautic/app/bundles/CoreBundle/Assets",
+"mautic/app/bundles/CoreBundle/Assets/js",
+"mautic/app/bundles/CoreBundle/Assets/js/libraries",
+"mautic/s",
+"mautic/index.php/s",
+"mautic/index.php/installer",
+"mautic/media",
+"mautic/media/js",
+"mautic/plugins",
+# OneDev
+"~site",
+# Apache Archiva
+"archiva",
+"restServices",
+"restServices/archivaUiServices",
+"restServices/archivaUiServices/runtimeInfoService",
+"restServices/archivaUiServices/runtimeInfoService/archivaRuntimeInfo",
+"restServices/redbackServices",
+"restServices/redbackServices/loginService",
+# CyberPanel
+"dataBases",
+"ftp",
+# DomainMOD
+"domainmod",
+# Visual Planning
+"vplanning",
+# Apache Roller
+"roller",
+"roller/roller-ui",
+"roller-ui",
+# ZoneMinder
+"zm",
+"zoneminder",
+# Oracle WebLogic Server
+"_async",
+"bea_wls_internal",
+"console",
+"console/css",
+"console/framework",
+"console/javascript",
+"console/jsp",
+"console/jsp/common",
+"console/login",
+"mbeansearch",
+"ws_utc",
+"wls-wsat",
+# Dell Secure Connect Gateway
+"SecureConnectGateway",
+"SecureConnectGateway/resx",
+"SecureConnectGateway/resx/login",
+"SupportAssist",
+# ManageEngine Analytics Plus
+"iam",
+"iam/signin",
+# From Reposilite CVE-2024-36117
+"javadoc",
+"javadoc/releases",
+"javadoc/releases/javadoc",
+"javadoc/releases/javadoc/1.0.0",
+"javadoc/releases/javadoc/1.0.0/raw",
+# IBM Security Verify Access / Access Runtime
+"assets",
+"core",
+"sps",
+"sps/mga",
+"sps/mga/user",
+"sps/mga/user/mgmt",
+"sps/mga/user/mgmt/otp",
+# Ruckus Wireless Admin
+"forms",
+# Cisco Unified Computing System Manager
+"app",
+"app/ucsm",
+"ucsm",
+# Cisco SD-WAN vManage
+"dataservice",
+"dataservice/client",
+"dataservice/statistics",
+"dataservice/statistics/download",
+"dataservice/statistics/download/dr",
+# Automation Anywhere Automation 360
+"script",
+"style",
+"v1",
+"v1/proxy",
+# ManageEngine ADAudit Plus
+"api",
+"api/agent",
+"api/agent/tabs",
+# VMware NSX-V
+"api",
+"api/2.0",
+"api/2.0/services",
+"api/2.0/services/usermgmt",
+"api/2.0/services/usermgmt/password",
+# OpenMRS
+"openmrs",
+"openmrs/ws",
+"openmrs/ws/rest",
+"openmrs/ws/rest/v1",
+# Apache Kylin
+"kylin",
+# SearchBlox
+"searchblox"
+);
+
+# nb: Before adding some host name parts and other dynamic things below making it "unique" again so
+# that we have a smaller list here after the possible duplicates from above.
+testDirList = make_list_unique( testDirList, testDirList2 );
 
 # Add domain name parts, create_hostname_parts_list() always returns a list, even an empty one
 hnlist = create_hostname_parts_list();
+
+# nb:
+# - No need to check for an empty "hnlist" string here (create_hostname_parts_list() could return
+#   an empty list) as make_list() seems to be able to handle this
+# - There is a final "make_list_unique()" call at the bottom after adding all other dynamic data so
+#   we don't need to do this here
 testDirList = make_list( testDirList, hnlist );
 
 if( debug ) display( "::[ DDI Directory Scanner running in debug mode ]::" );
@@ -5853,9 +6782,9 @@ ScanRootDir = "/";
 start = unixtime();
 if( debug ) display( ":: Starting the directory scan..." );
 
-# We make the list unique at the end to avoid having doubled
-# entries from e.g. the robots.txt and for easier maintenance
-# of the initial list which could contain multiple entries.
+# We make the list unique at the end again to avoid having doubled entries from e.g. the robots.txt
+# or dynamically added data (like the host name list) and for easier maintenance of the initial list
+# which could contain multiple entries.
 testDirList = make_list_unique( testDirList );
 
 foreach cdir( testDirList ) {

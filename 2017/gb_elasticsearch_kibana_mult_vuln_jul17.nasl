@@ -9,16 +9,16 @@ CPE = "cpe:/a:elastic:kibana";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811414");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-05T05:05:54+0000");
   script_cve_id("CVE-2016-1000219", "CVE-2016-1000220");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-05 05:05:54 +0000 (Tue, 05 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-08-14 17:07:00 +0000 (Fri, 14 Aug 2020)");
   script_tag(name:"creation_date", value:"2017-07-03 20:40:53 +0530 (Mon, 03 Jul 2017)");
-  script_name("Elastic Kibana Multiple Vulnerabilities - Jul17");
+  script_name("Elastic Kibana Multiple Vulnerabilities (Jul 2017)");
 
   script_tag(name:"summary", value:"Elastic Kibana is prone to multiple vulnerabilities.");
 
@@ -58,28 +58,26 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!kibanaPort = get_app_port(cpe:CPE)){
- exit(0);
-}
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
 
-if(!kibanaVer = get_app_version(cpe:CPE, port:kibanaPort)){
- exit(0);
-}
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
 
-if(version_is_less(version:kibanaVer, test_version:"4.1.11")){
+if(version_is_less(version:version, test_version:"4.1.11")) {
   fix = "4.1.11";
 }
-else if(kibanaVer =~ "(^4\.5)")
-{
-  if(version_is_less(version:kibanaVer, test_version:"4.5.4")){
+
+else if(version =~ "^4\.5") {
+  if(version_is_less(version:version, test_version:"4.5.4")) {
     fix = "4.5.4";
   }
 }
 
-if(fix)
-{
-  report = report_fixed_ver(installed_version:kibanaVer, fixed_version:fix);
-  security_message(data:report, port:kibanaPort);
+if(fix) {
+  report = report_fixed_ver(installed_version:version, fixed_version:fix);
+  security_message(data:report, port:port);
   exit(0);
 }
-exit(0);
+
+exit(99);

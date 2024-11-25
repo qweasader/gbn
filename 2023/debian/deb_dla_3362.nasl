@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.2.2023.3362");
   script_cve_id("CVE-2020-14394", "CVE-2020-17380", "CVE-2020-29130", "CVE-2021-3409", "CVE-2021-3592", "CVE-2021-3593", "CVE-2021-3594", "CVE-2021-3595", "CVE-2022-0216", "CVE-2022-1050");
   script_tag(name:"creation_date", value:"2023-03-15 04:23:07 +0000 (Wed, 15 Mar 2023)");
-  script_version("2024-01-12T16:12:12+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-02T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:10 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"4.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-04-08 12:26:00 +0000 (Fri, 08 Apr 2022)");
+  script_tag(name:"severity_date", value:"2022-04-08 12:26:12 +0000 (Fri, 08 Apr 2022)");
 
   script_name("Debian: Security Advisory (DLA-3362-1)");
   script_category(ACT_GATHER_INFO);

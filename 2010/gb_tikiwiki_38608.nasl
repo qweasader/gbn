@@ -9,18 +9,17 @@ CPE = "cpe:/a:tiki:tikiwiki_cms/groupware";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100537");
-  script_version("2023-07-28T16:09:07+0000");
+  script_version("2024-03-01T14:37:10+0000");
   script_cve_id("CVE-2010-1135", "CVE-2010-1134", "CVE-2010-1133", "CVE-2010-1136");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2010-03-15 19:33:39 +0100 (Mon, 15 Mar 2010)");
   script_name("Tiki Wiki CMS Groupware < 4.2 Multiple Unspecified Vulnerabilities");
   script_category(ACT_GATHER_INFO);
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_dependencies("secpod_tikiwiki_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("TikiWiki/installed");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/38608");
@@ -55,8 +54,11 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_less( version:vers, test_version:"4.2" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"4.2" );

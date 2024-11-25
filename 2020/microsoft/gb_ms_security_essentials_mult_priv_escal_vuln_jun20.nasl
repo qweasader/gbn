@@ -1,36 +1,22 @@
-# Copyright (C) 2020 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2020 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.817163");
-  script_version("2021-08-11T08:56:08+0000");
+  script_version("2024-02-19T14:37:31+0000");
   script_cve_id("CVE-2020-1163", "CVE-2020-1170");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2021-08-11 08:56:08 +0000 (Wed, 11 Aug 2021)");
+  script_tag(name:"last_modification", value:"2024-02-19 14:37:31 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-06-12 16:40:00 +0000 (Fri, 12 Jun 2020)");
   script_tag(name:"creation_date", value:"2020-06-10 08:52:23 +0530 (Wed, 10 Jun 2020)");
-  script_name("Microsoft Security Essentials Multiple Elevation of Privilege Vulnerabilities - June 2020");
+  script_name("Microsoft Security Essentials Multiple Elevation of Privilege Vulnerabilities (Jun 2020)");
 
   script_tag(name:"summary", value:"This host is missing an important security
   update according to Microsoft Security Updates released for Microsoft Security
@@ -60,7 +46,7 @@ if(description)
   script_xref(name:"URL", value:"https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2020-1170");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2020 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2020 Greenbone AG");
   script_family("Windows");
   script_dependencies("smb_reg_service_pack.nasl");
   script_require_ports(139, 445);
@@ -68,12 +54,9 @@ if(description)
   exit(0);
 }
 
-
-
 include("smb_nt.inc");
 include("secpod_reg.inc");
 include("version_func.inc");
-include("secpod_smb_func.inc");
 
 key = "SOFTWARE\Microsoft\Microsoft Antimalware";
 if(!registry_key_exists(key:key)){

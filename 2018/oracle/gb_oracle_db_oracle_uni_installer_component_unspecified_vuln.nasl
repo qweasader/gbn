@@ -9,11 +9,11 @@ CPE = "cpe:/a:oracle:database_server";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813005");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-10-29T05:05:46+0000");
   script_cve_id("CVE-2011-2240");
   script_tag(name:"cvss_base", value:"1.7");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:S/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-10-29 05:05:46 +0000 (Tue, 29 Oct 2024)");
   script_tag(name:"creation_date", value:"2018-03-07 15:14:30 +0530 (Wed, 07 Mar 2018)");
   script_name("Oracle Database Server Oracle Universal Installer Component Unspecified Vulnerability");
 
@@ -39,26 +39,26 @@ if(description)
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Databases");
-  script_dependencies("oracle_tnslsnr_version.nasl");
-  script_mandatory_keys("OracleDatabaseServer/installed");
+  script_dependencies("gb_oracle_database_consolidation.nasl");
+  script_mandatory_keys("oracle/database/detected");
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!dbport = get_app_port(cpe:CPE)){
+if(isnull(port = get_app_port(cpe:CPE)))
   exit(0);
-}
 
-if(!infos = get_app_version_and_location(cpe:CPE, port:dbport, exit_no_version:TRUE)) exit(0);
-dbVer = infos['version'];
-path = infos['location'];
+if(!infos = get_app_version_and_location(cpe:CPE, port:port, exit_no_version:TRUE))
+  exit(0);
 
-if(dbVer == "10.1.0.5")
-{
-  report = report_fixed_ver(installed_version:dbVer, fixed_version: "Apply the patch", install_path:path);
-  security_message(port:dbport, data:report);
+ver = infos["version"];
+path = infos["location"];
+
+if(ver == "10.1.0.5") {
+  report = report_fixed_ver(installed_version:ver, fixed_version: "Apply the patch", install_path:path);
+  security_message(port:port, data:report);
   exit(0);
 }
 exit(0);

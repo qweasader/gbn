@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802839");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-04-24 13:18:35 +0530 (Tue, 24 Apr 2012)");
   script_name("Zoho ManageEngine Support Center Plus Multiple Fields XSS Vulnerabilities");
   script_xref(name:"URL", value:"http://1337day.com/exploits/18057");
@@ -35,7 +35,8 @@ if(description)
 
   script_tag(name:"solution", value:"Upgrade to ManageEngine Support Center Plus 7.9 Upgrade Pack 7908 or later.");
 
-  script_tag(name:"summary", value:"Zoho ManageEngine Support Center Plus is prone to multiple cross site scripting vulnerabilities.");
+  script_tag(name:"summary", value:"Zoho ManageEngine Support Center Plus is prone to multiple
+  cross-site scripting (XSS) vulnerabilities.");
 
   script_tag(name:"solution_type", value:"VendorFix");
 

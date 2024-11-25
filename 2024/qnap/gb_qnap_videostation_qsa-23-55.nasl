@@ -9,8 +9,8 @@ CPE = "cpe:/a:qnap:video_station";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.151483");
-  script_version("2024-01-12T16:12:12+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:12 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-01-24T05:06:24+0000");
+  script_tag(name:"last_modification", value:"2024-01-24 05:06:24 +0000 (Wed, 24 Jan 2024)");
   script_tag(name:"creation_date", value:"2024-01-09 03:47:25 +0000 (Tue, 09 Jan 2024)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -37,7 +37,7 @@ if (description)
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"impact", value:"The following vulnerabilities exist:
+  script_tag(name:"insight", value:"The following vulnerabilities exist:
 
   - CVE-2023-41287: SQL injection (SQLi) could allow users to inject malicious code via a network
 

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100485");
-  script_version("2023-11-09T05:05:33+0000");
-  script_tag(name:"last_modification", value:"2023-11-09 05:05:33 +0000 (Thu, 09 Nov 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-10-23 07:22:13 +0000 (Mon, 23 Oct 2023)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -20,8 +20,7 @@ if(description)
                 "CVE-2023-0286", "CVE-2023-0464", "CVE-2023-0465", "CVE-2023-0466",
                 "CVE-2023-2650", "CVE-2021-22946", "CVE-2022-27774", "CVE-2022-32221",
                 "CVE-2022-43552", "CVE-2023-23916", "CVE-2021-3468", "CVE-2022-2031",
-                "CVE-2022-32742", "CVE-2022-32744", "CVE-2022-32746", "CVE-2022-42898",
-                "CVE-2023-22817");
+                "CVE-2022-32742", "CVE-2022-32744", "CVE-2022-32746", "CVE-2022-42898");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -63,7 +62,7 @@ if(description)
   - Updated open-source Kerberos library to version krb5_1.18.3-6+deb11u3 to resolve CVE-2022-42898
   that may lead to remote code execution, buffer overflow, or cause a denial of service
 
-  - CVE-2023-22817: Improved the security posture of FTP Downloads application");
+  - Improved the security posture of FTP Downloads application");
 
   script_tag(name:"affected", value:"Western Digital My Cloud PR2100, My Cloud PR4100, My Cloud EX2
   Ultra, My Cloud EX4100, My Cloud Mirror Gen 2, My Cloud EX2100, My Cloud DL2100, My Cloud DL4100,
@@ -71,8 +70,8 @@ if(description)
 
   script_tag(name:"solution", value:"Update to firmware version 5.27.157 or later.");
 
-  script_xref(name:"URL", value:"https://os5releasenotes.mycloud.com/#5.27.157");
   script_xref(name:"URL", value:"https://www.westerndigital.com/support/product-security/wdc-23012-my-cloud-os5-firmware-5-27-157");
+  script_xref(name:"URL", value:"https://os5releasenotes.mycloud.com/#5.27.157");
 
   exit(0);
 }

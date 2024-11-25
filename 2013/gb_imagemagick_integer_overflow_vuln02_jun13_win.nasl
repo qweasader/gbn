@@ -9,16 +9,16 @@ CPE = "cpe:/a:imagemagick:imagemagick";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803817");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-02-28T05:05:37+0000");
   script_cve_id("CVE-2012-1610");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-28 05:05:37 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-06-24 13:28:50 +0530 (Mon, 24 Jun 2013)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-08-14 18:47:00 +0000 (Fri, 14 Aug 2020)");
-  script_name("ImageMagick Integer Overflow Vulnerability - 02 June13 (Windows)");
+  script_name("ImageMagick < 6.7.6-4 Integer Overflow Vulnerability (Jun 2013) - Windows");
   script_xref(name:"URL", value:"http://seclists.org/oss-sec/2012/q2/19");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/52898");
   script_xref(name:"URL", value:"http://www.cert.fi/en/reports/2012/vulnerability635606.html");
@@ -45,8 +45,8 @@ include("host_details.inc");
 include("version_func.inc");
 
 if(!infos = get_app_version_and_location( cpe:CPE, exit_no_version:TRUE )) exit(0);
-vers = infos['version'];
-path = infos['location'];
+vers = infos["version"];
+path = infos["location"];
 
 if( version_is_less( version:vers, test_version:"6.7.6.4" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"6.7.6.4", install_path:path );

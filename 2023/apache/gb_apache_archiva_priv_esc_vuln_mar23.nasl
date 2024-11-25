@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:apache:archiva';
+CPE = "cpe:/a:apache:archiva";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.149477");
-  script_version("2023-10-12T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_version("2024-11-05T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-11-05 05:05:33 +0000 (Tue, 05 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-04-03 03:31:09 +0000 (Mon, 03 Apr 2023)");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:N");
@@ -30,8 +30,8 @@ if (description)
 
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Privilege escalation");
-  script_dependencies("gb_apache_archiva_detect.nasl");
-  script_mandatory_keys("apache_archiva/installed");
+  script_dependencies("gb_apache_archiva_http_detect.nasl");
+  script_mandatory_keys("apache/archiva/detected");
 
   script_tag(name:"summary", value:"Apache Archiva is prone to a privilege escalation
   vulnerability.");

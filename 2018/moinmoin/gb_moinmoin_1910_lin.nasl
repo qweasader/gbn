@@ -7,21 +7,20 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112392");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2017-5934");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-11-29 13:00:00 +0000 (Thu, 29 Nov 2018)");
   script_tag(name:"creation_date", value:"2018-10-16 12:47:11 +0200 (Tue, 16 Oct 2018)");
-  script_name("MoinMoin < 1.9.10 Cross-Site Scripting Vulnerability (Linux)");
+  script_name("MoinMoin < 1.9.10 Cross-Site Scripting Vulnerability - Linux");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_moinmoin_wiki_detect.nasl", "os_detection.nasl");
-  script_require_ports("Services/www", 8080);
   script_mandatory_keys("moinmoinWiki/installed", "Host/runs_unixoide");
 
   script_xref(name:"URL", value:"http://lists.opensuse.org/opensuse-security-announce/2018-10/msg00024.html");

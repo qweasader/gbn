@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2019.0267");
   script_cve_id("CVE-2019-11740", "CVE-2019-11742", "CVE-2019-11743", "CVE-2019-11744", "CVE-2019-11746", "CVE-2019-11752", "CVE-2019-11753", "CVE-2019-9812");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:N/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-01-13 19:51:00 +0000 (Mon, 13 Jan 2020)");
+  script_tag(name:"severity_date", value:"2020-01-13 19:51:58 +0000 (Mon, 13 Jan 2020)");
 
   script_name("Mageia: Security Advisory (MGASA-2019-0267)");
   script_category(ACT_GATHER_INFO);
@@ -27,10 +27,10 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2019-0267");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2019-0267.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=25359");
+  script_xref(name:"URL", value:"https://groups.google.com/forum/#!topic/mozilla.dev.tech.nspr/RQtSKOF9rM0");
+  script_xref(name:"URL", value:"https://hg.mozilla.org/projects/nss/log/default/lib/ckfw/builtins/certdata.txt");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/firefox/60.9.0/releasenotes/");
   script_xref(name:"URL", value:"https://www.mozilla.org/en-US/security/advisories/mfsa2019-27/");
-  script_xref(name:"URL", value:"https://hg.mozilla.org/projects/nss/log/default/lib/ckfw/builtins/certdata.txt");
-  script_xref(name:"URL", value:"https://groups.google.com/forum/#!topic/mozilla.dev.tech.nspr/RQtSKOF9rM0");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'firefox, firefox-l10n, nspr, nss, rootcerts' package(s) announced via the MGASA-2019-0267 advisory.");
 

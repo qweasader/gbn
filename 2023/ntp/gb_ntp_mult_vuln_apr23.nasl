@@ -9,8 +9,8 @@ CPE = "cpe:/a:ntp:ntp";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.104669");
-  script_version("2023-10-13T05:06:10+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 05:06:10 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-02-20T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2023-04-12 12:32:58 +0000 (Wed, 12 Apr 2023)");
   script_tag(name:"cvss_base", value:"6.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:N/C:C/I:C/A:C");
@@ -54,7 +54,7 @@ if(description)
   - CVE-2023-26555: praecis_parse in ntpd/refclock_palisade.c has an out-of-bounds write. Any attack
   method would be complex, e.g., with a manipulated GPS receiver.");
 
-  script_tag(name:"affected", value:"NTP version 4.2.8p15 and prior.");
+  script_tag(name:"affected", value:"NTPd version 4.2.8p15 and prior.");
 
   script_tag(name:"solution", value:"Update to version 4.2.8p16 or later.");
 
@@ -66,22 +66,23 @@ if(description)
   exit(0);
 }
 
-include( "host_details.inc" );
-include( "version_func.inc" );
+include("host_details.inc");
+include("version_func.inc");
 
-if( isnull( port = get_app_port( cpe:CPE ) ) )
-  exit( 0 );
+if (isnull(port = get_app_port(cpe: CPE)))
+  exit(0);
 
-if( ! infos = get_app_version_and_location( cpe:CPE, port:port, exit_no_version:TRUE ) )
-  exit( 0 );
+if (!infos = get_app_full(cpe: CPE, port: port, exit_no_version: TRUE))
+  exit(0);
 
 version = infos["version"];
 location = infos["location"];
+proto = infos["proto"];
 
-if( version_is_less_equal( version:version, test_version:"4.2.8p15" ) ) {
-  report = report_fixed_ver( installed_version:version, fixed_version:"4.2.8p16", install_path:location );
-  security_message( port:port, data:report );
-  exit( 0 );
+if (version_is_less_equal(version: version, test_version: "4.2.8p15")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "4.2.8p16", install_path: location);
+  security_message(port: port, proto: proto, data: report);
+  exit(0);
 }
 
-exit( 99 );
+exit(99);

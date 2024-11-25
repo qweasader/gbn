@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811017");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2017-3004", "CVE-2017-3005");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-05-10 13:55:00 +0000 (Fri, 10 May 2019)");
   script_tag(name:"creation_date", value:"2017-05-03 14:33:41 +0530 (Wed, 03 May 2017)");
-  script_name("Adobe Photoshop Memory Corruption and Unquoted Search Path Vulnerabilities (Windows)");
+  script_name("Adobe Photoshop Memory Corruption and Unquoted Search Path Vulnerabilities - Windows");
 
   script_tag(name:"summary", value:"Adobe Photoshop CC is prone to memory corruption and unquoted search path vulnerabilities.");
 

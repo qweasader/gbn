@@ -9,17 +9,17 @@ CPE = "cpe:/a:drupal:drupal";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810224");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2016-9449", "CVE-2016-9450", "CVE-2016-9451", "CVE-2016-9452");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-11-29 18:37:00 +0000 (Tue, 29 Nov 2016)");
   script_tag(name:"creation_date", value:"2016-12-01 10:54:37 +0530 (Thu, 01 Dec 2016)");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
-  script_name("Drupal Multiple Vulnerabilities Dec16 (Linux)");
+  script_name("Drupal Multiple Vulnerabilities (Dec 2016) - Linux");
 
   script_tag(name:"summary", value:"Drupal is prone to multiple vulnerabilities.");
 

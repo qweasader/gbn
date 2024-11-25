@@ -1,36 +1,22 @@
-# Copyright (C) 2015 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2015 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:open-xchange:open-xchange_appsuite";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806524");
-  script_version("2022-12-12T10:22:32+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2013-6074", "CVE-2013-6241");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2022-12-12 10:22:32 +0000 (Mon, 12 Dec 2022)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2015-11-02 10:34:36 +0530 (Mon, 02 Nov 2015)");
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("Open-Xchange (OX) App Suite Multiple Vulnerabilities -05 Nov15");
+  script_name("Open-Xchange (OX) App Suite Multiple Vulnerabilities -05 (Nov 2015)");
 
   script_tag(name:"summary", value:"Open-Xchange (OX) App Suite is prone to multiple vulnerabilities.");
 
@@ -44,7 +30,7 @@ if(description)
 
   script_tag(name:"impact", value:"Successful exploitation will allow remote
   attackers to inject arbitrary web script or HTML and to obtain sensitive
-  information .");
+  information.");
 
   script_tag(name:"affected", value:"Open-Xchange (OX) App Suite versions
   7.2.x before 7.2.2-rev25 and 7.4.x before 7.4.0-rev14.");
@@ -57,7 +43,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/63565");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_open-xchange_ox_app_suite_http_detect.nasl");
   script_mandatory_keys("open-xchange/app_suite/detected");

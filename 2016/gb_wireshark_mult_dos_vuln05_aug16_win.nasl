@@ -9,16 +9,16 @@ CPE = "cpe:/a:wireshark:wireshark";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809101");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-07-22T05:05:40+0000");
   script_cve_id("CVE-2016-5358", "CVE-2016-5352");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-22 05:05:40 +0000 (Mon, 22 Jul 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-11-28 20:24:00 +0000 (Mon, 28 Nov 2016)");
   script_tag(name:"creation_date", value:"2016-08-12 09:53:38 +0530 (Fri, 12 Aug 2016)");
-  script_name("Wireshark Multiple Denial of Service Vulnerabilities-05 August16 (Windows)");
+  script_name("Wireshark Multiple Denial of Service Vulnerabilities-05 (Aug 2016) - Windows");
 
   script_tag(name:"summary", value:"Wireshark is prone to multiple denial of service vulnerabilities.");
 
@@ -54,7 +54,7 @@ if(description)
   script_family("Denial of Service");
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_dependencies("gb_wireshark_detect_win.nasl");
-  script_mandatory_keys("Wireshark/Win/Ver");
+  script_mandatory_keys("wireshark/windows/detected");
   exit(0);
 }
 
@@ -68,6 +68,6 @@ if(!wirversion = get_app_version(cpe:CPE)){
 if(version_in_range(version:wirversion, test_version:"2.0", test_version2:"2.0.3"))
 {
   report = report_fixed_ver(installed_version:wirversion, fixed_version:"2.0.4");
-  security_message(data:report);
+  security_message(port:0, data:report);
   exit(0);
 }

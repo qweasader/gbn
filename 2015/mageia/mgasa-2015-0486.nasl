@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131161");
   script_cve_id("CVE-2015-8622", "CVE-2015-8623", "CVE-2015-8624", "CVE-2015-8625", "CVE-2015-8626", "CVE-2015-8627", "CVE-2015-8628");
   script_tag(name:"creation_date", value:"2015-12-28 08:39:24 +0000 (Mon, 28 Dec 2015)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2017-03-27 14:06:00 +0000 (Mon, 27 Mar 2017)");
+  script_tag(name:"severity_date", value:"2017-03-27 14:06:01 +0000 (Mon, 27 Mar 2017)");
 
   script_name("Mageia: Security Advisory (MGASA-2015-0486)");
   script_category(ACT_GATHER_INFO);
@@ -26,9 +26,9 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2015-0486");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2015-0486.html");
+  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2015/12/23/7");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17379");
   script_xref(name:"URL", value:"https://lists.wikimedia.org/pipermail/mediawiki-announce/2015-December/000186.html");
-  script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2015/12/23/7");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'mediawiki' package(s) announced via the MGASA-2015-0486 advisory.");
 

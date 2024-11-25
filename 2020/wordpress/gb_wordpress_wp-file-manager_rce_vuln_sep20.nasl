@@ -9,8 +9,8 @@ CPE = "cpe:/a:webdesi9:file_manager";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.144536");
-  script_version("2023-06-13T05:04:52+0000");
-  script_tag(name:"last_modification", value:"2023-06-13 05:04:52 +0000 (Tue, 13 Jun 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2020-09-09 04:24:42 +0000 (Wed, 09 Sep 2020)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -35,8 +35,8 @@ if (description)
   script_dependencies("gb_wordpress_plugin_http_detect.nasl");
   script_mandatory_keys("wordpress/plugin/wp-file-manager/detected");
 
-  script_tag(name:"summary", value:"The WordPress plugin 'File Manager' is prone to an unauthenticated remote code
-  execution vulnerability.");
+  script_tag(name:"summary", value:"The WordPress plugin 'File Manager' is prone to an
+  unauthenticated remote code execution (RCE) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

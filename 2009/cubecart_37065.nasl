@@ -9,9 +9,9 @@ CPE = "cpe:/a:cubecart:cubecart";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100360");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-03-01T14:37:10+0000");
   script_cve_id("CVE-2009-4060");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2009-11-24 12:49:20 +0100 (Tue, 24 Nov 2009)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -20,7 +20,6 @@ if(description)
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2009 Greenbone AG");
   script_dependencies("secpod_cubecart_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("cubecart/installed");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/37065");
@@ -55,6 +54,7 @@ if( ! vers = get_app_version( cpe:CPE, port:port ) )
 if( version_in_range( version:vers, test_version:"4.3.0", test_version2:"4.3.6" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"4.3.7" );
   security_message( port:port, data:report );
+  exit( 0 );
 }
 
-exit( 0 );
+exit( 99 );

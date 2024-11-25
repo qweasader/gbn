@@ -9,16 +9,16 @@ CPE = "cpe:/a:emc:rsa_authentication_agent_iis";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813118");
-  script_version("2023-07-20T05:05:18+0000");
+  script_version("2024-02-26T14:36:40+0000");
   script_cve_id("CVE-2018-1232", "CVE-2018-1233", "CVE-2018-1234");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-26 14:36:40 +0000 (Mon, 26 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-08-24 17:37:00 +0000 (Mon, 24 Aug 2020)");
   script_tag(name:"creation_date", value:"2018-04-09 15:34:46 +0530 (Mon, 09 Apr 2018)");
-  script_name("RSA Authentication Agent(IIS) Multiple Vulnerabilities");
+  script_name("RSA Authentication Agent (IIS) < 8.0.2 Multiple Vulnerabilities");
 
   script_tag(name:"summary", value:"RSA Authentication Agent for IIS is prone to multiple vulnerabilities.");
 

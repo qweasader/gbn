@@ -7,12 +7,15 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.65177");
-  script_version("2023-07-18T05:05:36+0000");
-  script_tag(name:"last_modification", value:"2023-07-18 05:05:36 +0000 (Tue, 18 Jul 2023)");
+  script_version("2024-02-12T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-02-12 05:05:32 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"creation_date", value:"2009-10-10 16:11:46 +0200 (Sat, 10 Oct 2009)");
   script_cve_id("CVE-2006-4145", "CVE-2006-3741", "CVE-2006-4538", "CVE-2006-4997", "CVE-2006-5757", "CVE-2006-6060", "CVE-2006-4813", "CVE-2006-5174", "CVE-2006-5648", "CVE-2006-5649", "CVE-2006-5823", "CVE-2006-6053", "CVE-2006-6054", "CVE-2006-6056");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-10 02:45:17 +0000 (Sat, 10 Feb 2024)");
   script_name("SLES9: Security update for Linux kernel");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2009 E-Soft Inc.");

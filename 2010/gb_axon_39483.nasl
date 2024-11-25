@@ -9,8 +9,8 @@ CPE = "cpe:/a:nch:axon_virtual_pbx";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100576");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2010-04-15 19:15:10 +0200 (Thu, 15 Apr 2010)");
   script_tag(name:"cvss_base", value:"2.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:N/I:P/A:N");
@@ -19,12 +19,9 @@ if(description)
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_axon_virtual_pbx_web_detect.nasl");
-  script_require_ports("Services/www", 81);
   script_mandatory_keys("Axon-Virtual-PBX/www/installed");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/39483");
-  script_xref(name:"URL", value:"http://www.nch.com.au/pbx/index.html");
-  script_xref(name:"URL", value:"http://nchsoftware.com/");
 
   script_tag(name:"impact", value:"An attacker may leverage these issues to cause a denial-of-service
   condition, run arbitrary script code in the browser of an unsuspecting user in the context of the
@@ -58,8 +55,11 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE, service:"www" ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE, service:"www" ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_equal( version:vers, test_version:"2.13" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"Unknown" );

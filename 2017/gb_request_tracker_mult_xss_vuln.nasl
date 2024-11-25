@@ -9,11 +9,11 @@ CPE = "cpe:/a:best_practical_solutions:request_tracker";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811528");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2015-5475", "CVE-2015-6506");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2017-07-18 16:33:24 +0530 (Tue, 18 Jul 2017)");
   script_name("Request Tracker Multiple Cross Site Scripting Vulnerabilities");
 
@@ -51,29 +51,25 @@ if(description)
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_dependencies("rt_detect.nasl");
   script_mandatory_keys("RequestTracker/installed");
-  script_require_ports("Services/www", 80);
-  script_xref(name:"URL", value:"https://forum.bestpractical.com");
+
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
-if(!rtPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!rtVer = get_app_version(cpe:CPE, port:rtPort)){
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-if(rtVer =~ "(^4\.)")
-{
-  if(version_is_less(version:rtVer, test_version:"4.2.12"))
-  {
-    report = report_fixed_ver(installed_version:rtVer, fixed_version:"4.2.12");
-    security_message(port:rtPort, data:report);
+if(version =~ "^4\.") {
+  if(version_is_less(version:version, test_version:"4.2.12")) {
+    report = report_fixed_ver(installed_version:version, fixed_version:"4.2.12");
+    security_message(port:port, data:report);
     exit(0);
   }
 }
-exit(0);
+
+exit(99);

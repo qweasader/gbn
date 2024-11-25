@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113065");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2017-12-08 13:45:46 +0100 (Fri, 08 Dec 2017)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -33,7 +33,7 @@ if( description )
 
   script_tag(name:"summary", value:"IBM WebSphere MQ 8.0 and 9.0 could allow, under special circumstances, an unauthorized user to access an object which they should have been denied access.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"affected", value:"IBM WebSphere MQ 8.0.0.0 through 8.0.0.7, 9.0.0.0 through 9.0.0.1 and 9.0.1
 through 9.0.3");

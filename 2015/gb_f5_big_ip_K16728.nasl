@@ -12,7 +12,7 @@ if (description)
   script_cve_id("CVE-2015-3628");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
-  script_version("2023-09-13T05:05:22+0000");
+  script_version("2024-05-29T05:05:18+0000");
 
   script_name("F5 BIG-IP - iCall privilege escalation vulnerability CVE-2015-3628");
 
@@ -29,23 +29,23 @@ if (description)
 
   script_tag(name:"summary", value:"F5 BIG-IP is prone to a privilege escalation vulnerability");
 
-  script_tag(name:"last_modification", value:"2023-09-13 05:05:22 +0000 (Wed, 13 Sep 2023)");
+  script_tag(name:"last_modification", value:"2024-05-29 05:05:18 +0000 (Wed, 29 May 2024)");
   script_tag(name:"creation_date", value:"2015-09-07 16:56:39 +0200 (Mon, 07 Sep 2015)");
   script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"package");
   script_family("F5 Local Security Checks");
   script_copyright("Copyright (C) 2015 Greenbone AG");
-  script_dependencies("gb_f5_big_ip_version.nasl");
+  script_dependencies("gb_f5_big_ip_ssh_login_detect.nasl");
   script_mandatory_keys("f5/big_ip/version", "f5/big_ip/active_modules");
   exit(0);
 }
 
-include("version_func.inc");
+include("f5.inc");
 include("host_details.inc");
 include("list_array_func.inc");
-include("f5.inc");
+include("version_func.inc");
 
-if (!version = get_app_version(cpe: CPE))
+if (!version = get_app_version(cpe: CPE, service: "ssh-login"))
   exit(0);
 
 check_f5["LTM"] = make_array("affected",   "11.6.0;11.3.0-11.5.3;",

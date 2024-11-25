@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.12.2023.6209.1");
   script_cve_id("CVE-2021-40391", "CVE-2021-40393", "CVE-2021-40394", "CVE-2021-40400", "CVE-2021-40401", "CVE-2021-40403");
   script_tag(name:"creation_date", value:"2023-07-10 04:09:33 +0000 (Mon, 10 Jul 2023)");
-  script_version("2023-07-10T08:07:42+0000");
-  script_tag(name:"last_modification", value:"2023-07-10 08:07:42 +0000 (Mon, 10 Jul 2023)");
+  script_version("2024-02-02T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:10 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-10-14 02:20:00 +0000 (Fri, 14 Oct 2022)");
+  script_tag(name:"severity_date", value:"2022-05-31 18:27:16 +0000 (Tue, 31 May 2022)");
 
   script_name("Ubuntu: Security Advisory (USN-6209-1)");
   script_category(ACT_GATHER_INFO);

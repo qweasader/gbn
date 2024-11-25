@@ -9,13 +9,13 @@ CPE = "cpe:/a:apache:wicket";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112077");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-04T14:37:58+0000");
 
   script_cve_id("CVE-2016-6806");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-10-23 12:27:00 +0000 (Mon, 23 Oct 2017)");
@@ -49,44 +49,38 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_apache_wicket_detect.nasl");
   script_mandatory_keys("Apache/Wicket/Installed");
-  script_require_ports("Services/www", 8080);
 
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
-include("revisions-lib.inc");
 
-if(!port = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!ver = get_app_version(cpe:CPE, port:port)){
+if(!ver = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-if(ver =~ "^(6\.)")
-{
-  if(version_is_less(version:ver, test_version:"6.25.0")){
+if(ver =~ "^6\.") {
+  if(version_is_less(version:ver, test_version:"6.25.0")) {
     fix = "6.25.0";
   }
 }
-else if(ver =~ "^(7\.)")
-{
-  if(version_is_less(version:ver, test_version:"7.5.0")){
+
+else if(ver =~ "^7\.") {
+  if(version_is_less(version:ver, test_version:"7.5.0")) {
     fix = "7.5.0";
   }
 }
-else if(ver =~ "^(8\.)")
-{
-  if(version_is_equal(version:ver, test_version:"8.0.0-M1")){
+
+else if(ver =~ "^8\.") {
+  if(version_is_equal(version:ver, test_version:"8.0.0-M1")) {
     fix = "8.0.0-M2";
   }
 }
 
-if(fix)
-{
+if(fix) {
   report = report_fixed_ver(installed_version:ver, fixed_version:fix);
   security_message(data:report, port:port);
   exit(0);

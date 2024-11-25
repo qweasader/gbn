@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106918");
-  script_version("2023-12-19T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-12-19 05:05:25 +0000 (Tue, 19 Dec 2023)");
+  script_version("2024-10-29T05:05:46+0000");
+  script_tag(name:"last_modification", value:"2024-10-29 05:05:46 +0000 (Tue, 29 Oct 2024)");
   script_tag(name:"creation_date", value:"2017-07-03 15:23:44 +0700 (Mon, 03 Jul 2017)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -54,13 +54,12 @@ foreach dir (make_list_unique("/", "/RSAarcher", http_cgi_dirs(port: port))) {
     version = "unknown";
     conclUrl = http_report_vuln_url(port: port, url: url, url_only: TRUE);
 
-    vers = eregmatch(pattern: "ArcherVersion=([0-9.]+)", string: res);
-    if (!isnull(vers[1])) {
+    vers = eregmatch(pattern: "ArcherVersion=([0-9]+\.[0-9.]+)", string: res);
+    if (!isnull(vers[1]))
       version = vers[1];
-      set_kb_item(name: "rsa_archer/version", value: version);
-    }
 
     set_kb_item(name: "rsa_archer/detected", value: TRUE);
+    set_kb_item(name: "rsa_archer/http/detected", value: TRUE);
 
     cpe1 = build_cpe(value: version, exp: "^([0-9.]+)", base: "cpe:/a:rsa:archer:");
     if (!cpe1)

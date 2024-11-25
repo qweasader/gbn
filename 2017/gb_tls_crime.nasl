@@ -7,17 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108094");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-09-27T05:05:23+0000");
   script_cve_id("CVE-2012-4929", "CVE-2012-4930");
   script_tag(name:"cvss_base", value:"2.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-09-27 05:05:23 +0000 (Fri, 27 Sep 2024)");
   script_tag(name:"creation_date", value:"2017-03-09 16:00:00 +0100 (Thu, 09 Mar 2017)");
   script_name("SSL/TLS: TLS/SPDY Protocol Information Disclosure Vulnerability (CRIME)");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("SSL and TLS");
-  script_dependencies("gb_tls_version_get.nasl", "gb_tls_npn_alpn_detect.nasl");
+  script_dependencies("gb_ssl_tls_version_get.nasl", "gb_tls_npn_alpn_detect.nasl");
   script_require_ports("Services/www", 443);
   script_mandatory_keys("ssl_tls/port");
 

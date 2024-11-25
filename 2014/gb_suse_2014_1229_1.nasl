@@ -1,28 +1,14 @@
-# Copyright (C) 2014 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2014 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.850615");
-  script_version("2023-11-02T05:05:26+0000");
-  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_version("2024-10-10T07:25:31+0000");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"creation_date", value:"2014-10-01 16:58:25 +0530 (Wed, 01 Oct 2014)");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
@@ -44,7 +30,7 @@ if(description)
   exploitable situation.
 
   To remove further exploitation potential we now limit the
-  function-in-environment variable to variables prefixed with BASH_FUNC_ .
+  function-in-environment variable to variables prefixed with BASH_FUNC_.
   This hardening feature is work in progress and might be improved in later
   updates.
 
@@ -66,7 +52,7 @@ if(description)
   script_tag(name:"summary", value:"The remote host is missing an update for the 'bash'
   package(s) announced via the referenced advisory.");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2014 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2014 Greenbone AG");
   script_family("SuSE Local Security Checks");
   script_dependencies("gather-package-list.nasl");
   script_mandatory_keys("ssh/login/suse", "ssh/login/rpms", re:"ssh/login/release=openSUSE12\.3");

@@ -9,16 +9,16 @@ CPE = "cpe:/a:mediawiki:mediawiki";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806633");
-  script_version("2023-11-02T05:05:26+0000");
+  script_version("2024-07-16T05:05:43+0000");
   script_cve_id("CVE-2013-6451", "CVE-2013-6452", "CVE-2013-6453", "CVE-2013-6454", "CVE-2013-6472");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-11-02 05:05:26 +0000 (Thu, 02 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-01-30 18:32:00 +0000 (Thu, 30 Jan 2020)");
   script_tag(name:"creation_date", value:"2015-11-26 16:46:38 +0530 (Thu, 26 Nov 2015)");
-  script_name("MediaWiki Multiple Vulnerabilities -02 Nov15 (Linux)");
+  script_name("MediaWiki Multiple Vulnerabilities -02 (Nov 2015) - Linux");
 
   script_tag(name:"summary", value:"MediaWiki is prone to multiple vulnerabilities.");
 
@@ -57,8 +57,8 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("secpod_mediawiki_detect.nasl", "os_detection.nasl");
-  script_mandatory_keys("mediawiki/installed", "Host/runs_unixoide");
+  script_dependencies("gb_mediawiki_http_detect.nasl", "os_detection.nasl");
+  script_mandatory_keys("mediawiki/detected", "Host/runs_unixoide");
 
   exit(0);
 }

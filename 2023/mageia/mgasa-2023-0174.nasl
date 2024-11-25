@@ -8,8 +8,8 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.1.10.2023.0174");
   script_tag(name:"creation_date", value:"2023-05-22 04:13:07 +0000 (Mon, 22 May 2023)");
-  script_version("2023-06-20T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:25 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
 
@@ -23,12 +23,12 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2023-0174");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2023-0174.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=30375");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/3XYZ3VQGC7HBNBJO4ZHVF2PZQ56M5YLB/");
   script_xref(name:"URL", value:"https://forum.suricata.io/t/suricata-6-0-5-and-5-0-9-released/2415");
-  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/ZPSQR5XJCUGMJJK5ORCE7RQZ2JFL56O5/");
   script_xref(name:"URL", value:"https://forum.suricata.io/t/suricata-6-0-6-and-5-0-10-released/2637/1");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/3XYZ3VQGC7HBNBJO4ZHVF2PZQ56M5YLB/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/ENSDQPLGHMNXN4HPBTK6JV6UOWVYYKGG/");
   script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/VBIVPKNZDUFECU5TN5OPVG6CYNW6PLLC/");
+  script_xref(name:"URL", value:"https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/thread/ZPSQR5XJCUGMJJK5ORCE7RQZ2JFL56O5/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'suricata' package(s) announced via the MGASA-2023-0174 advisory.");
 

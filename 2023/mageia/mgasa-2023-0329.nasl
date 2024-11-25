@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2023.0329");
   script_cve_id("CVE-2023-26054", "CVE-2023-28840", "CVE-2023-28841", "CVE-2023-28842");
   script_tag(name:"creation_date", value:"2023-11-30 04:12:11 +0000 (Thu, 30 Nov 2023)");
-  script_version("2023-11-30T05:06:26+0000");
-  script_tag(name:"last_modification", value:"2023-11-30 05:06:26 +0000 (Thu, 30 Nov 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.1");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:N/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-04-14 15:23:00 +0000 (Fri, 14 Apr 2023)");
+  script_tag(name:"severity_date", value:"2023-04-14 15:23:18 +0000 (Fri, 14 Apr 2023)");
 
   script_name("Mageia: Security Advisory (MGASA-2023-0329)");
   script_category(ACT_GATHER_INFO);
@@ -27,15 +27,15 @@ if(description)
   script_xref(name:"Advisory-ID", value:"MGASA-2023-0329");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2023-0329.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=31733");
-  script_xref(name:"URL", value:"https://github.com/moby/moby/security/advisories/GHSA-vwm3-crmr-xfxw");
   script_xref(name:"URL", value:"https://github.com/moby/buildkit/security/advisories/GHSA-gc89-7gcr-jxqc");
-  script_xref(name:"URL", value:"https://github.com/moby/moby/releases/tag/v24.0.5");
-  script_xref(name:"URL", value:"https://github.com/moby/moby/releases/tag/v24.0.4");
-  script_xref(name:"URL", value:"https://github.com/moby/moby/releases/tag/v24.0.3");
-  script_xref(name:"URL", value:"https://github.com/moby/moby/releases/tag/v24.0.2");
-  script_xref(name:"URL", value:"https://github.com/moby/moby/releases/tag/v24.0.1");
-  script_xref(name:"URL", value:"https://github.com/moby/moby/releases/tag/v24.0.0");
   script_xref(name:"URL", value:"https://github.com/moby/moby/releases/tag/v23.0.3");
+  script_xref(name:"URL", value:"https://github.com/moby/moby/releases/tag/v24.0.0");
+  script_xref(name:"URL", value:"https://github.com/moby/moby/releases/tag/v24.0.1");
+  script_xref(name:"URL", value:"https://github.com/moby/moby/releases/tag/v24.0.2");
+  script_xref(name:"URL", value:"https://github.com/moby/moby/releases/tag/v24.0.3");
+  script_xref(name:"URL", value:"https://github.com/moby/moby/releases/tag/v24.0.4");
+  script_xref(name:"URL", value:"https://github.com/moby/moby/releases/tag/v24.0.5");
+  script_xref(name:"URL", value:"https://github.com/moby/moby/security/advisories/GHSA-vwm3-crmr-xfxw");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'docker, docker-containerd' package(s) announced via the MGASA-2023-0329 advisory.");
 

@@ -6,11 +6,11 @@
 
 CPE = "cpe:/a:jquery:jquery";
 
-if( description )
+if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.117148");
-  script_version("2023-09-19T05:06:03+0000");
-  script_tag(name:"last_modification", value:"2023-09-19 05:06:03 +0000 (Tue, 19 Sep 2023)");
+  script_version("2024-02-28T14:37:42+0000");
+  script_tag(name:"last_modification", value:"2024-02-28 14:37:42 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2021-01-12 09:05:04 +0000 (Tue, 12 Jan 2021)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -22,7 +22,7 @@ if( description )
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("jQuery End of Life (EOL) Detection (Windows)");
+  script_name("jQuery End of Life (EOL) Detection - Windows");
 
   script_category(ACT_GATHER_INFO);
 
@@ -31,8 +31,8 @@ if( description )
   script_dependencies("gb_jquery_consolidation.nasl", "os_detection.nasl");
   script_mandatory_keys("jquery/detected", "Host/runs_windows");
 
-  script_tag(name:"summary", value:"The installed version of jQuery on the remote host has reached
-  the End of Life (EOL) and should not be used anymore.");
+  script_tag(name:"summary", value:"The jQuery version on the remote host has reached the end of
+  life (EOL) and should not be used anymore.");
 
   script_tag(name:"vuldetect", value:"Checks if an EOL version is present on the target host.");
 

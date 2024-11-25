@@ -9,15 +9,15 @@ CPE = "cpe:/a:mozilla:seamonkey";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805223");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-02-09T05:06:25+0000");
   script_cve_id("CVE-2014-1594", "CVE-2014-1593", "CVE-2014-1592", "CVE-2014-1590",
                 "CVE-2014-1589", "CVE-2014-1588", "CVE-2014-1587", "CVE-2014-8632",
                 "CVE-2014-8631", "CVE-2014-1591");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-12-16 11:56:05 +0530 (Tue, 16 Dec 2014)");
-  script_name("SeaMonkey Multiple Vulnerabilities-01 Dec14 (Windows)");
+  script_name("SeaMonkey Multiple Vulnerabilities-01 (Dec 2014) - Windows");
 
   script_tag(name:"summary", value:"SeaMonkey is prone to multiple vulnerabilities.");
 

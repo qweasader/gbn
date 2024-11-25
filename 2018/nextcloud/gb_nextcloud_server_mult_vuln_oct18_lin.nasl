@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112412");
-  script_version("2023-11-03T16:10:08+0000");
-  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2018-11-01 11:49:50 +0100 (Thu, 01 Nov 2018)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -22,7 +22,7 @@ if (description)
 
   script_cve_id("CVE-2018-16464", "CVE-2018-16465", "CVE-2018-16467");
 
-  script_name("Nextcloud Server < 14.0.0 Multiple Vulnerabilities (NC-SA-2018-011, NC-SA-2018-012, NC-SA-2018-014) (Linux)");
+  script_name("Nextcloud Server < 14.0.0 Multiple Vulnerabilities (NC-SA-2018-011, NC-SA-2018-012, NC-SA-2018-014) - Linux");
 
   script_category(ACT_GATHER_INFO);
 

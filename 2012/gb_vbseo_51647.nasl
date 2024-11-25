@@ -8,16 +8,16 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103405");
   script_cve_id("CVE-2012-5223");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-06-27T05:05:29+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
-  script_name("vBSEO 'proc_deutf()' Remote Code Execution Vulnerability");
+  script_name("vBSEO 'proc_deutf()' RCE Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51647");
   script_xref(name:"URL", value:"http://www.vbseo.com/f5/vbseo-security-bulletin-all-supported-versions-patch-release-52783/");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-01-31 14:44:01 +0100 (Tue, 31 Jan 2012)");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");

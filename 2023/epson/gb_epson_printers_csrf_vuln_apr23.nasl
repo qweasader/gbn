@@ -4,11 +4,11 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-if( description )
+if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170547");
-  script_version("2023-10-12T05:05:32+0000");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_version("2024-11-15T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-15 05:05:36 +0000 (Fri, 15 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-08-21 08:20:32 +0000 (Mon, 21 Aug 2023)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:C/A:N");
@@ -34,21 +34,21 @@ if( description )
   script_tag(name:"summary", value:"Multiple Epson printer models are prone to a cross-site request
   forgery (CSRF) vulnerability.");
 
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable firmware version is present on the target
-  host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"impact", value:"This vulnerability allows a remote unauthenticated attacker to
   hijack the authentication and perform unintended operations by having a logged-in user view a
   malicious page.");
 
-  script_tag(name:"affected", value:"Epson Printers SC-T3250, SC-T3255, SC-T5250, SC-T5255, SC-T7250,
-  SC-T7255, SC-T5250D, SC-T5255D, SC-T7250D, SC-T7255D, SC-P7050, SC-P9050, SC-P6050, SC-P8050,
-  SC-P20050, SC-S80650, SC-S60650, SC-S40650, SC-S60650L, SC-S80650L, SC-F7200, SC-F6350, SC-F9450,
-  SC-F9450H, SC-F2150, TM-C7500, TM-C3500, TM-C3400, PX-B510, PX-B500, PX-5800, PX-5002, PX-5V, PX-7V,
-  SC-PX7V2, SC-PX5V2, SC-PX3V, PX-6250S, PX-6550, PX-7500N, PX-7550, PX-7550S, PX-9500N, PX-9550,
-  PX-9550S, PX-20000, STYLUS PRO GS6000, PX-W8000, PX-F8000, PX-F8000M, PX-F10000, PX-H6000, PX-H7000,
-  PX-H8000, PX-H9000, PX-H10000, SC-T3050, SC-T5050, SC-T7050, SC-T10050, SC-S30650, SC-S50650,
-  SC-S70650, SC-F6000, SC-F7100, SC-F6200, SC-F9200, SC-F9350 and SC-F9350.");
+  script_tag(name:"affected", value:"Epson printers SC-T3250, SC-T3255, SC-T5250, SC-T5255,
+  SC-T7250, SC-T7255, SC-T5250D, SC-T5255D, SC-T7250D, SC-T7255D, SC-P7050, SC-P9050, SC-P6050,
+  SC-P8050, SC-P20050, SC-S80650, SC-S60650, SC-S40650, SC-S60650L, SC-S80650L, SC-F7200, SC-F6350,
+  SC-F9450, SC-F9450H, SC-F2150, TM-C7500, TM-C3500, TM-C3400, PX-B510, PX-B500, PX-5800, PX-5002,
+  PX-5V, PX-7V, SC-PX7V2, SC-PX5V2, SC-PX3V, PX-6250S, PX-6550, PX-7500N, PX-7550, PX-7550S,
+  PX-9500N, PX-9550, PX-9550S, PX-20000, STYLUS PRO GS6000, PX-W8000, PX-F8000, PX-F8000M,
+  PX-F10000, PX-H6000, PX-H7000, PX-H8000, PX-H9000, PX-H10000, SC-T3050, SC-T5050, SC-T7050,
+  SC-T10050, SC-S30650, SC-S50650, SC-S70650, SC-F6000, SC-F7100, SC-F6200, SC-F9200, SC-F9350 and
+  SC-F9350.");
 
   script_tag(name:"solution", value:"See the referenced vendor advisories for a solution.");
 
@@ -166,185 +166,187 @@ if ( ! version = get_app_version( cpe:cpe, port:port ) )
   exit( 0 );
 
 if ( cpe =~ "^cpe:/o:epson:sc-t325[05]_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"DN015N5" ) ) {
+  if ( version_is_less( version:version, test_version:"DN015N5" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"DN015N5" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe =~ "^cpe:/o:epson:sc-t525[05]_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"DM015N5" ) ) {
+else if ( cpe =~ "^cpe:/o:epson:sc-t525[05]_firmware" ) {
+  if ( version_is_less( version:version, test_version:"DM015N5" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"DM015N5" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe =~ "^cpe:/o:epson:sc-t725[05]_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"DW015N5" ) ) {
+else if ( cpe =~ "^cpe:/o:epson:sc-t725[05]_firmware" ) {
+  if ( version_is_less( version:version, test_version:"DW015N5" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"DW015N5" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe =~ "^cpe:/o:epson:sc-t525[05]d_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"MM015N5" ) ) {
+else if ( cpe =~ "^cpe:/o:epson:sc-t525[05]d_firmware" ) {
+  if ( version_is_less( version:version, test_version:"MM015N5" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"MM015N5" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe =~ "^cpe:/o:epson:sc-t725[05]d_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"MW015N5" ) ) {
+else if ( cpe =~ "^cpe:/o:epson:sc-t725[05]d_firmware" ) {
+  if ( version_is_less( version:version, test_version:"MW015N5" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"MW015N5" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe =~ "^cpe:/o:epson:sc-p5050[vg]_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"N027N2" ) ) {
+else if ( cpe =~ "^cpe:/o:epson:sc-p5050[vg]_firmware" ) {
+  if ( version_is_less( version:version, test_version:"N027N2" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"N027N2" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe =~ "^cpe:/o:epson:sc-p7050[vg]_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"LN002N6" ) ) {
+else if ( cpe =~ "^cpe:/o:epson:sc-p7050[vg]_firmware" ) {
+  if ( version_is_less( version:version, test_version:"LN002N6" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"LN002N6" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe =~ "^cpe:/o:epson:sc-p9050[vg]_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"LW002N6" ) ) {
+else if ( cpe =~ "^cpe:/o:epson:sc-p9050[vg]_firmware" ) {
+  if ( version_is_less( version:version, test_version:"LW002N6" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"LW002N6" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe == "^cpe:/o:epson:sc-p6050_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"NN002N6" ) ) {
+else if ( cpe == "cpe:/o:epson:sc-p6050_firmware" ) {
+  if ( version_is_less( version:version, test_version:"NN002N6" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"NN002N6" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe == "^cpe:/o:epson:sc-p8050_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"NW002N6" ) ) {
+else if ( cpe == "cpe:/o:epson:sc-p8050_firmware" ) {
+  if ( version_is_less( version:version, test_version:"NW002N6" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"NW002N6" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe == "^cpe:/o:epson:sc-p20050_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"FW026N6" ) ) {
+else if ( cpe == "cpe:/o:epson:sc-p20050_firmware" ) {
+  if ( version_is_less( version:version, test_version:"FW026N6" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"FW026N6" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe == "^cpe:/o:epson:sc-s80650_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"SA011MBa" ) ) {
+else if ( cpe == "cpe:/o:epson:sc-s80650_firmware" ) {
+  if ( version_is_less( version:version, test_version:"SA011MBa" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"SA011MBa" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe == "^cpe:/o:epson:sc-s60650_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"HA027K2b" ) ) {
+else if ( cpe == "cpe:/o:epson:sc-s60650_firmware" ) {
+  if ( version_is_less( version:version, test_version:"HA027K2b" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"HA027K2b" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe == "^cpe:/o:epson:sc-s40650_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"BA027K2b" ) ) {
+else if ( cpe == "cpe:/o:epson:sc-s40650_firmware" ) {
+  if ( version_is_less( version:version, test_version:"BA027K2b" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"BA027K2b" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe == "^cpe:/o:epson:sc-s60650l_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"HC001LAa" ) ) {
+else if ( cpe == "cpe:/o:epson:sc-s60650l_firmware" ) {
+  if ( version_is_less( version:version, test_version:"HC001LAa" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"HC001LAa" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe == "^cpe:/o:epson:sc-s80650l_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"SC024M3a" ) ) {
+else if ( cpe == "cpe:/o:epson:sc-s80650l_firmware" ) {
+  if ( version_is_less( version:version, test_version:"SC024M3a" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"SC024M3a" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe == "^cpe:/o:epson:sc-f7200_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"CO011LA" ) ) {
+else if ( cpe == "cpe:/o:epson:sc-f7200_firmware" ) {
+  if ( version_is_less( version:version, test_version:"CO011LA" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"CO011LA" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe == "^cpe:/o:epson:sc-f9450_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"MT026L5a" ) ) {
+else if ( cpe == "cpe:/o:epson:sc-f9450_firmware" ) {
+  if ( version_is_less( version:version, test_version:"MT026L5a" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"MT026L5a" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe == "^cpe:/o:epson:sc-f9450h_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"MU026L5a" ) ) {
+else if ( cpe == "cpe:/o:epson:sc-f9450h_firmware" ) {
+  if ( version_is_less( version:version, test_version:"MU026L5a" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"MU026L5a" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe == "^cpe:/o:epson:sc-f2150_firmware" ) {
-  if ( epson_version_is_less( version:version, test_version:"LA015K4" ) ) {
+else if ( cpe == "cpe:/o:epson:sc-f2150_firmware" ) {
+  if ( version_is_less( version:version, test_version:"LA015K4" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"LA015K4" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe == "^cpe:/o:epson:tm-c3500_firmware" ) {
+else if ( cpe == "cpe:/o:epson:tm-c3500_firmware" ) {
   if ( version_is_less( version:version, test_version:"WAM32500" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"WAM32500" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-if ( cpe == "^cpe:/o:epson:tm-c7500_firmware" ) {
+else if ( cpe == "cpe:/o:epson:tm-c7500_firmware" ) {
   if ( version_is_less( version:version, test_version:"WAI34400" ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:"WAI34400" );
-    security_message( port:0, data:report );
+    security_message( port:port, data:report );
     exit( 0 );
   }
 }
 
-# nb: For all other models not added above, there will be no firmware release
-report = report_fixed_ver( installed_version:version, fixed_version:"None, see the references for mitigation steps." );
-security_message( port:port, data:report );
+else {
 
-exit( 0 ); # nb: No exit(99); on purpose...
+  # nb: For all other models not added above, there will be no firmware release
+  report = report_fixed_ver( installed_version:version, fixed_version:"None, see the references for mitigation steps." );
+  security_message( port:port, data:report );
+  exit( 0 );
+}
 
-
+exit( 99 );

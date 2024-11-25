@@ -9,8 +9,8 @@ CPE = "cpe:/h:f5:big-ip";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140262");
-  script_version("2023-08-09T05:05:14+0000");
-  script_tag(name:"last_modification", value:"2023-08-09 05:05:14 +0000 (Wed, 09 Aug 2023)");
+  script_version("2024-05-29T05:05:18+0000");
+  script_tag(name:"last_modification", value:"2024-05-29 05:05:18 +0000 (Wed, 29 May 2024)");
   script_tag(name:"creation_date", value:"2017-08-01 13:20:34 +0700 (Tue, 01 Aug 2017)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -27,7 +27,7 @@ if (description)
 
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("F5 Local Security Checks");
-  script_dependencies("gb_f5_big_ip_version.nasl");
+  script_dependencies("gb_f5_big_ip_ssh_login_detect.nasl");
   script_mandatory_keys("f5/big_ip/version", "f5/big_ip/active_modules");
 
   script_tag(name:"summary", value:"In some circumstances, a BIG-IP Azure cloud instance may contain
@@ -52,7 +52,7 @@ include("host_details.inc");
 include("list_array_func.inc");
 include("version_func.inc");
 
-if (!version = get_app_version(cpe: CPE))
+if (!version = get_app_version(cpe: CPE, service: "ssh-login"))
   exit(0);
 
 check_f5["LTM"] = make_array("affected",   "13.0.0;12.0.0-12.1.2;",

@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832292");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-16T05:06:55+0000");
   script_cve_id("CVE-2023-36565");
   script_tag(name:"cvss_base", value:"6.0");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:H/Au:S/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-10-10 18:21:00 +0000 (Tue, 10 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-10-11 10:17:06 +0530 (Wed, 11 Oct 2023)");
-  script_name("Microsoft Office Graphics Elevation of Privilege Vulnerability October-23 (Mac OS X)");
+  script_name("Microsoft Office Graphics Elevation of Privilege Vulnerability (Oct 2023) - Mac OS X");
 
   script_tag(name:"summary", value:"This host is missing an important security
   update for Microsoft Office 2019 for Mac according to Microsoft security update

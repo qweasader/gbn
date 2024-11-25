@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131273");
   script_cve_id("CVE-2015-8833");
   script_tag(name:"creation_date", value:"2016-03-31 05:04:59 +0000 (Thu, 31 Mar 2016)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2017-07-01 01:29:00 +0000 (Sat, 01 Jul 2017)");
+  script_tag(name:"severity_date", value:"2016-04-13 17:09:08 +0000 (Wed, 13 Apr 2016)");
 
   script_name("Mageia: Security Advisory (MGASA-2016-0125)");
   script_category(ACT_GATHER_INFO);
@@ -26,9 +26,9 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2016-0125");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2016-0125.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17933");
-  script_xref(name:"URL", value:"https://blog.fuzzing-project.org/39-Heap-use-after-free-in-Pidgin-OTR-plugin.html");
   script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2016/03/09/13");
+  script_xref(name:"URL", value:"https://blog.fuzzing-project.org/39-Heap-use-after-free-in-Pidgin-OTR-plugin.html");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=17933");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'pidgin-otr' package(s) announced via the MGASA-2016-0125 advisory.");
 

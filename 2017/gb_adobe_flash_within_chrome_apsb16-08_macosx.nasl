@@ -9,7 +9,7 @@ CPE = "cpe:/a:adobe:flash_player_chrome";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810664");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-12T05:05:32+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2016-0960", "CVE-2016-0961", "CVE-2016-0962", "CVE-2016-0963",
@@ -20,12 +20,12 @@ if(description)
                 "CVE-2016-1002", "CVE-2016-1005", "CVE-2016-1010");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-12 05:05:32 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-12-14 19:19:00 +0000 (Wed, 14 Dec 2022)");
   script_tag(name:"creation_date", value:"2017-03-18 15:51:58 +0530 (Sat, 18 Mar 2017)");
-  script_name("Adobe Flash Player Within Google Chrome Security Update (apsb16-08) - Mac OS X");
+  script_name("Adobe Flash Player Within Google Chrome Security Update (APSB16-08) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Flash Player is prone to multiple vulnerabilities.");
 

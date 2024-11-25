@@ -9,13 +9,13 @@ CPE = "cpe:/a:mcafee:epolicy_orchestrator";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805595");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2015-2859");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2015-06-25 14:42:10 +0530 (Thu, 25 Jun 2015)");
-  script_name("McAfee ePolicy Orchestrator Man-in-the-Middle Attack Vulnerability - June15");
+  script_name("McAfee ePolicy Orchestrator Man-in-the-Middle Attack Vulnerability (Jun 2015)");
 
   script_tag(name:"summary", value:"McAfee ePolicy Orchestrator is prone to a man-in-the-middle (MITM) vulnerability.");
 
@@ -48,52 +48,43 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_mcafee_epolicy_orchestrator_detect.nasl");
   script_mandatory_keys("mcafee_ePO/installed");
-  script_require_ports("Services/www", 8443);
+
   exit(0);
 }
-
 
 include("host_details.inc");
 include("version_func.inc");
 
-if(!mcaPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!mcaVer = get_app_version(cpe:CPE, port:mcaPort)){
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-if(version_in_range(version:mcaVer, test_version:"5.0.0", test_version2:"5.1.1"))
-{
+if(version_in_range(version:version, test_version:"5.0.0", test_version2:"5.1.1")) {
   fix = "Upgrade to 5.1.2 and apply the manual settings";
   VULN = TRUE;
 }
 
-if(version_in_range(version:mcaVer, test_version:"4.0.0", test_version2:"4.6.8"))
-{
+if(version_in_range(version:version, test_version:"4.0.0", test_version2:"4.6.8")) {
   fix = "Upgrade to 4.6.9 and apply the manual settings";
   VULN = TRUE;
 }
 
-if(version_is_equal(version:mcaVer, test_version:"4.6.9"))
-{
+if(version_is_equal(version:version, test_version:"4.6.9")) {
   fix = "Apply the manual settings";
   VULN = TRUE;
 }
 
-if(version_is_equal(version:mcaVer, test_version:"5.1.2"))
-{
+if(version_is_equal(version:version, test_version:"5.1.2")) {
   fix = "Apply the manual settings";
   VULN = TRUE;
 }
 
-if(VULN)
-{
-  report = 'Installed Version: ' + mcaVer + '\n' +
-           'Fixed Version:     ' + fix + '\n';
-
-  security_message(data:report, port:mcaPort);
+if(VULN) {
+  report = report_fixed_ver(installed_version:version, fixed_version:fix);
+  security_message(data:report, port:port);
   exit(0);
 }
-exit(0);
+
+exit(99);

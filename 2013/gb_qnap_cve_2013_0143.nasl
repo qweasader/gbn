@@ -7,17 +7,17 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103731");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2013-0143");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
 
-  script_name("VioStor NVR and QNAP NAS Remote Code Execution Vulnerability");
+  script_name("VioStor NVR and QNAP NAS RCE Vulnerability");
 
   script_xref(name:"URL", value:"http://www.kb.cert.org/vuls/id/927644");
   script_xref(name:"URL", value:"http://www.h-online.com/security/news/item/Serious-vulnerabilities-in-QNAP-storage-and-surveillance-systems-1883263.html");
 
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2013-06-07 10:32:41 +0200 (Fri, 07 Jun 2013)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");

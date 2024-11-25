@@ -1,32 +1,18 @@
-# Copyright (C) 2017 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2017 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:juniper:pulse_connect_secure";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811738");
-  script_version("2022-04-13T11:57:07+0000");
+  script_version("2024-01-23T05:05:19+0000");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2022-04-13 11:57:07 +0000 (Wed, 13 Apr 2022)");
+  script_tag(name:"last_modification", value:"2024-01-23 05:05:19 +0000 (Tue, 23 Jan 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-04-29 17:32:00 +0000 (Wed, 29 Apr 2020)");
@@ -57,15 +43,14 @@ if(description)
   script_tag(name:"affected", value:"Pulse Connect Secure 8.3x prior to 8.3R1, 8.2x prior to 8.2R6,
   8.1x prior to 8.1R12 and 8.0x prior to 8.0R17.");
 
-  script_tag(name:"solution", value:"Update Pulse Connect Secure to version 8.3R1, 8.2R6, 8.1R12,
-  8.0R17 or later.");
+  script_tag(name:"solution", value:"Update to version 8.3R1, 8.2R6, 8.1R12, 8.0R17 or later.");
 
+  script_xref(name:"URL", value:"https://forums.ivanti.com/s/article/SA40793");
   script_xref(name:"URL", value:"http://www.securitytracker.com/id/1039242");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/100530");
-  script_xref(name:"URL", value:"https://kb.pulsesecure.net/articles/Pulse_Security_Advisories/SA40793");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2017 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_pulse_connect_secure_consolidation.nasl");
   script_mandatory_keys("pulsesecure/detected");

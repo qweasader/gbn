@@ -1,30 +1,16 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:squid-cache:squid";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.146028");
-  script_version("2022-07-20T10:33:02+0000");
-  script_tag(name:"last_modification", value:"2022-07-20 10:33:02 +0000 (Wed, 20 Jul 2022)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2021-05-28 03:42:00 +0000 (Fri, 28 May 2021)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
@@ -38,11 +24,11 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Squid 1.0 < 4.14, 5.0 < 5.0.5 DoS Vulnerability (SQUID-2021:3)");
+  script_name("Squid 1.0 < 4.14, 5.0 < 5.0.5 DoS Vulnerability (GHSA-m47m-9hvw-7447, SQUID-2021:3)");
 
   script_category(ACT_GATHER_INFO);
 
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("Denial of Service");
   script_dependencies("gb_squid_http_detect.nasl");
   script_mandatory_keys("squid/detected");
@@ -58,7 +44,10 @@ if(description)
   This problem allows a trusted client to trigger memory leaks which over time lead to a DoS against
   Squid and the machine it is operating on.
 
-  This attack is limited to clients with Cache Manager API access privilege.");
+  This attack is limited to clients with Cache Manager API access privilege.
+
+  This flaw was part of the 'Squid Caching Proxy Security Audit: 55 vulnerabilities and 35 0days'
+  publication in October 2023 and filed as 'Memory Leak in CacheManager URI Parsing'.");
 
   script_tag(name:"affected", value:"Squid version 1.0 through 4.14 and 5.0 through 5.0.5.");
 
@@ -66,6 +55,11 @@ if(description)
   advisory for a workaround.");
 
   script_xref(name:"URL", value:"https://github.com/squid-cache/squid/security/advisories/GHSA-m47m-9hvw-7447");
+  script_xref(name:"URL", value:"https://megamansec.github.io/Squid-Security-Audit/");
+  script_xref(name:"URL", value:"https://joshua.hu/squid-security-audit-35-0days-45-exploits");
+  script_xref(name:"URL", value:"https://www.openwall.com/lists/oss-security/2023/10/11/3");
+  script_xref(name:"URL", value:"https://gist.github.com/rousskov/9af0d33d2a1f4b5b3b948b2da426e77d");
+  script_xref(name:"URL", value:"https://megamansec.github.io/Squid-Security-Audit/cachemanager-memleak.html");
 
   exit(0);
 }

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113141");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-08-14T05:05:52+0000");
+  script_tag(name:"last_modification", value:"2024-08-14 05:05:52 +0000 (Wed, 14 Aug 2024)");
   script_tag(name:"creation_date", value:"2018-03-21 10:18:29 +0100 (Wed, 21 Mar 2018)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -34,8 +34,7 @@ if(description)
   script_tag(name:"summary", value:"D-Link Routers DIR-860L, DIR-865L and DIR-868L are prone to
   multiple cookie disclosure vulnerabilities.");
 
-  script_tag(name:"vuldetect", value:"The script checks if the target is an affected device running a
-  vulnerable Firmware version.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"The cookie disclosure can be achieved with a link to soap.cgi,
   with one of the following crafted parameters:
@@ -72,14 +71,11 @@ cpe_list = make_list( "cpe:/o:dlink:dir-860l_firmware",
                       "cpe:/o:dlink:dir-865l_firmware",
                       "cpe:/o:dlink:dir-868l_firmware" );
 
-if( ! infos = get_app_port_from_list( cpe_list:cpe_list ) )
+if ( ! infos = get_app_version_from_list( cpe_list:cpe_list, nofork:TRUE ) )
   exit( 0 );
 
-cpe  = infos["cpe"];
-port = infos["port"];
-
-if( ! version = get_app_version( cpe:cpe, port:port ) )
-  exit( 0 );
+cpe = infos["cpe"];
+version = infos["version"];
 
 if( "dir-860l" >< cpe ) {
   device = "DIR-860L";
@@ -95,7 +91,7 @@ if( "dir-860l" >< cpe ) {
 if( device && fixed_ver ) {
   if( version_is_less( version:version, test_version:fixed_ver ) ) {
     report = report_fixed_ver( installed_version:version, fixed_version:fixed_ver, extra:"The target device is a " + device );
-    security_message( port:port, data:report );
+    security_message( port:0, data:report );
     exit( 0 );
   }
   exit( 99 );

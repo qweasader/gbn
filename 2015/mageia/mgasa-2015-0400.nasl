@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.131093");
   script_cve_id("CVE-2015-2180", "CVE-2015-2181", "CVE-2015-5382");
   script_tag(name:"creation_date", value:"2015-10-15 03:54:50 +0000 (Thu, 15 Oct 2015)");
-  script_version("2023-06-20T05:05:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:20 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2018-10-30 16:27:00 +0000 (Tue, 30 Oct 2018)");
+  script_tag(name:"severity_date", value:"2017-02-05 20:36:41 +0000 (Sun, 05 Feb 2017)");
 
   script_name("Mageia: Security Advisory (MGASA-2015-0400)");
   script_category(ACT_GATHER_INFO);
@@ -26,12 +26,12 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2015-0400");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2015-0400.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16249");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=13056");
+  script_xref(name:"URL", value:"http://lists.opensuse.org/opensuse-updates/2015-06/msg00062.html");
   script_xref(name:"URL", value:"http://openwall.com/lists/oss-security/2015/07/07/2");
   script_xref(name:"URL", value:"http://trac.roundcube.net/ticket/1490261");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=13056");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=16249");
   script_xref(name:"URL", value:"https://github.com/roundcube/roundcubemail/releases/tag/1.0.6");
-  script_xref(name:"URL", value:"http://lists.opensuse.org/opensuse-updates/2015-06/msg00062.html");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'roundcubemail' package(s) announced via the MGASA-2015-0400 advisory.");
 

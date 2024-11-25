@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.53348");
-  script_version("2023-07-19T05:05:15+0000");
-  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2008-01-17 22:28:10 +0100 (Thu, 17 Jan 2008)");
   script_cve_id("CVE-2003-0202");
   script_tag(name:"cvss_base", value:"4.6");
@@ -21,7 +21,7 @@ if(description)
   script_mandatory_keys("ssh/login/debian_linux", "ssh/login/packages", re:"ssh/login/release=DEB2\.2");
   script_xref(name:"URL", value:"https://secure1.securityspace.com/smysecure/catid.html?in=DSA%20279-1");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/7293");
-  script_tag(name:"insight", value:"Paul Szabo and Matt Zimmerman discoverd two similar problems in
+  script_tag(name:"insight", value:"Paul Szabo and Matt Zimmerman discovered two similar problems in
 metrics, a tools for software metrics.  Two scripts in this package,
 halstead and gather_stats, open temporary files without taking
 appropriate security precautions.  halstead is installed as a user

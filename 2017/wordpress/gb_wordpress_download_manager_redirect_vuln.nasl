@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106958");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2017-07-18 10:05:48 +0700 (Tue, 18 Jul 2017)");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:N");
@@ -31,12 +31,13 @@ if (description)
   script_dependencies("gb_wordpress_plugin_http_detect.nasl");
   script_mandatory_keys("wordpress/plugin/download-manager/detected");
 
-  script_tag(name:"summary", value:"The WordPress plugin 'Download Manager' is prone to an open redirect vulnerability.");
+  script_tag(name:"summary", value:"The WordPress plugin 'Download Manager' is prone to an open
+  redirect vulnerability.");
+
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"impact", value:"The flaw allows remote attackers to redirect users to arbitrary
   web sites and conduct phishing attacks via unspecified vectors.");
-
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"affected", value:"WordPress Download Manager plugin 2.9.50 and prior.");
 
@@ -52,13 +53,16 @@ CPE = "cpe:/a:wpdownloadmanager:wordpress_download_manager";
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe: CPE ) ) exit( 0 );
-if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) ) exit( 0 );
+if( ! port = get_app_port( cpe: CPE ) )
+  exit( 0 );
+
+if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) )
+  exit( 0 );
 
 version = infos["version"];
 location = infos["location"];
 
-if ( version_is_less( version: version, test_version: "2.9.51" )) {
+if( version_is_less( version: version, test_version: "2.9.51" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "2.9.51", install_path: location );
   security_message( port: port, data: report );
   exit( 0 );

@@ -9,16 +9,16 @@ CPE = "cpe:/a:mozilla:firefox";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807068");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-08T05:05:59+0000");
   script_cve_id("CVE-2016-1949");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-12-06 03:07:00 +0000 (Tue, 06 Dec 2016)");
   script_tag(name:"creation_date", value:"2016-02-15 12:34:52 +0530 (Mon, 15 Feb 2016)");
-  script_name("Mozilla Firefox Security Bypass Vulnerability - Feb16 (Windows)");
+  script_name("Mozilla Firefox Security Bypass Vulnerability (Feb 2016) - Windows");
 
   script_tag(name:"summary", value:"Mozilla Firefox is prone to same-origin policy bypass vulnerability.");
 

@@ -9,14 +9,14 @@ CPE = "cpe:/a:ntp:ntp";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.810221");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2015-7871", "CVE-2015-7855", "CVE-2015-7854", "CVE-2015-7853", "CVE-2015-7852",
                 "CVE-2015-7851", "CVE-2015-7850", "CVE-2015-7849", "CVE-2015-7848", "CVE-2015-7701",
                 "CVE-2015-7703", "CVE-2015-7704", "CVE-2015-7705", "CVE-2015-7691", "CVE-2015-7692",
                 "CVE-2015-7702");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-04-13 12:15:00 +0000 (Tue, 13 Apr 2021)");
@@ -69,10 +69,9 @@ if(description)
   script_tag(name:"impact", value:"Successful exploitation will allow remote
   attackers to cause the application to crash, creating a denial-of-service condition.");
 
-  script_tag(name:"affected", value:"NTP.org's ntpd versions 4.x prior to 4.2.8p4 and 4.3.0
-  prior to 4.3.77.");
+  script_tag(name:"affected", value:"NTPd version 4.x prior to 4.2.8p4 and 4.3.0 prior to 4.3.77.");
 
-  script_tag(name:"solution", value:"Upgrade to NTP.org's ntpd 4.2.8p4 or 4.3.77 or later.");
+  script_tag(name:"solution", value:"Update to version 4.2.8p4, 4.3.77 or later.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
@@ -84,33 +83,33 @@ include("version_func.inc");
 include("revisions-lib.inc");
 include("host_details.inc");
 
-if(isnull(port = get_app_port(cpe:CPE)))
+if (isnull(port = get_app_port(cpe: CPE)))
   exit(0);
 
-if(!infos = get_app_full(cpe:CPE, port:port, exit_no_version:TRUE))
+if (!infos = get_app_full(cpe: CPE, port: port, exit_no_version: TRUE))
   exit(0);
 
 version = infos["version"];
 location = infos["location"];
 proto = infos["proto"];
 
-if(version =~ "^4\.[0-2]") {
-  if(revcomp(a:version, b:"4.2.8p4") < 0) {
+if (version =~ "^4\.[0-2]") {
+  if (revcomp(a: version, b: "4.2.8p4") < 0) {
     VULN = TRUE;
     fix = "4.2.8p4";
   }
 }
 
-else if(version =~ "^4\.3") {
-  if(revcomp(a:version, b:"4.3.77") < 0) {
+else if (version =~ "^4\.3") {
+  if (revcomp(a: version, b: "4.3.77") < 0) {
     VULN = TRUE;
     fix = "4.3.77";
   }
 }
 
-if(VULN) {
-  report = report_fixed_ver(installed_version:version, fixed_version:fix, install_path:location);
-  security_message(port:port, proto:proto, data:report);
+if (VULN) {
+  report = report_fixed_ver(installed_version: version, fixed_version: fix, install_path: location);
+  security_message(port: port, proto: proto, data: report);
   exit(0);
 }
 

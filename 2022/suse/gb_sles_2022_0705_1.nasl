@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.4.2022.0705.1");
   script_cve_id("CVE-2021-30934", "CVE-2021-30936", "CVE-2021-30951", "CVE-2021-30952", "CVE-2021-30953", "CVE-2021-30954", "CVE-2021-30984", "CVE-2021-45481", "CVE-2021-45482", "CVE-2021-45483", "CVE-2022-22589", "CVE-2022-22590", "CVE-2022-22592", "CVE-2022-22594", "CVE-2022-22620");
   script_tag(name:"creation_date", value:"2022-03-05 04:11:51 +0000 (Sat, 05 Mar 2022)");
-  script_version("2023-06-20T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:25 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2022-03-26 04:23:00 +0000 (Sat, 26 Mar 2022)");
+  script_tag(name:"severity_date", value:"2022-03-26 04:23:52 +0000 (Sat, 26 Mar 2022)");
 
   script_name("SUSE: Security Advisory (SUSE-SU-2022:0705-1)");
   script_category(ACT_GATHER_INFO);
@@ -90,6 +90,8 @@ CVE-2021-45483: A use-after-free in WebCore::Frame::page.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

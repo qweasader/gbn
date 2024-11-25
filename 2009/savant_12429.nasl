@@ -4,11 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
+CPE = "cpe:/a:savant:savant_webserver";
+
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100394");
-  script_version("2023-12-20T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-12-20 05:05:58 +0000 (Wed, 20 Dec 2023)");
+  script_version("2024-03-04T14:37:58+0000");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2009-12-15 19:11:56 +0100 (Tue, 15 Dec 2009)");
   script_cve_id("CVE-2005-0338");
   script_tag(name:"cvss_base", value:"7.5");
@@ -23,7 +25,6 @@ if (description)
   script_family("Web Servers");
   script_copyright("Copyright (C) 2009 Greenbone AG");
   script_dependencies("gb_savant_webserver_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("savant/webserver/detected");
 
   script_tag(name:"summary", value:"A remote buffer-overflow vulnerability affects Savant Web Server. This
@@ -42,8 +43,6 @@ if (description)
 
   exit(0);
 }
-
-CPE = "cpe:/a:savant:savant_webserver";
 
 include( "host_details.inc" );
 include( "version_func.inc" );

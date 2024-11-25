@@ -2,15 +2,15 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:typo3:typo3";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141924");
-  script_version("2023-04-05T10:19:45+0000");
-  script_tag(name:"last_modification", value:"2023-04-05 10:19:45 +0000 (Wed, 05 Apr 2023)");
+  script_version("2024-02-21T05:06:27+0000");
+  script_tag(name:"last_modification", value:"2024-02-21 05:06:27 +0000 (Wed, 21 Feb 2024)");
   script_tag(name:"creation_date", value:"2019-01-25 15:03:35 +0700 (Fri, 25 Jan 2019)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -24,7 +24,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("TYPO3 Multiple Vulnerabilities (Jan19)");
+  script_name("TYPO3 Multiple Vulnerabilities (Jan 2019)");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2019 Greenbone AG");
@@ -73,8 +73,8 @@ if (!port = get_app_port(cpe: CPE))
 if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version: TRUE, version_regex: "[0-9]+\.[0-9]+\.[0-9]+")) # nb: Version might not be exact enough
   exit(0);
 
-version = infos['version'];
-path = infos['location'];
+version = infos["version"];
+path = infos["location"];
 
 if (version_in_range(version: version, test_version: "8.0.0", test_version2: "8.7.22")) {
   report = report_fixed_ver(installed_version: version, fixed_version: "8.7.23", install_path: path);

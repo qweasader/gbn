@@ -9,10 +9,10 @@ CPE = "cpe:/a:zarafa:zarafa_collaboration_platform";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805708");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_tag(name:"cvss_base", value:"6.6");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:N/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2015-07-03 15:19:25 +0530 (Fri, 03 Jul 2015)");
   script_tag(name:"qod_type", value:"remote_banner");
   script_cve_id("CVE-2015-3436");
@@ -44,44 +44,35 @@ if (description)
   script_category(ACT_GATHER_INFO);
   script_family("Web application abuses");
   script_dependencies("gb_zarafa_webapp_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("zarafa_zcp/installed");
 
-  script_xref(name:"URL", value:"https://www.zarafa.com");
   exit(0);
 }
 
 include("host_details.inc");
 include("version_func.inc");
 
-if(!zcpPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
   exit(0);
-}
 
-if(!zcpVer = get_app_version(cpe:CPE, port:zcpPort)){
+if(!version = get_app_version(cpe:CPE, port:port))
   exit(0);
-}
 
-if(version_is_less(version:zcpVer, test_version:"7.1.13"))
-{
+if(version_is_less(version:version, test_version:"7.1.13")) {
   fix = "7.1.13";
   vuln = TRUE;
 }
 
-if(zcpVer =~ "^7\.2")
-{
-  if(version_is_less(version:zcpVer, test_version:"7.2.1"))
-  {
+if(version =~ "^7\.2") {
+  if(version_is_less(version:version, test_version:"7.2.1")) {
     fix = "7.2.1";
     vuln = TRUE;
   }
 }
 
-if(vuln)
-{
-  report = 'Installed Version: ' + zcpVer + '\n' +
-           'Fixed Version:     ' + fix + '\n';
-  security_message(data:report, port:zcpPort);
+if(vuln) {
+  report = report_fixed_ver(installed_version:version, fixed_version:fix);
+  security_message(data:report, port:port);
   exit(0);
 }
 

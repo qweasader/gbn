@@ -9,10 +9,10 @@ CPE = "cpe:/a:openssl:openssl";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107052");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2016-6305", "CVE-2016-6308", "CVE-2016-6307");
 
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"qod_type", value:"remote_banner_unreliable");
   script_tag(name:"creation_date", value:"2016-09-26 06:40:16 +0200 (Mon, 26 Sep 2016)");
   script_tag(name:"cvss_base", value:"7.1");
@@ -21,7 +21,7 @@ if(description)
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-04-20 01:29:00 +0000 (Fri, 20 Apr 2018)");
 
-  script_name("OpenSSL SSL_peek hang on empty record DoS Vulnerability (Linux)");
+  script_name("OpenSSL SSL_peek hang on empty record DoS Vulnerability - Linux");
 
   script_xref(name:"URL", value:"https://www.openssl.org/news/secadv/20160922.txt");
   script_category(ACT_GATHER_INFO);

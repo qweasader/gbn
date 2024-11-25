@@ -9,8 +9,8 @@ CPE = "cpe:/a:zoneminder:zoneminder";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.106564");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-11-05T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-11-05 05:05:33 +0000 (Tue, 05 Nov 2024)");
   script_tag(name:"creation_date", value:"2017-02-06 09:54:32 +0700 (Mon, 06 Feb 2017)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
@@ -24,31 +24,34 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("ZoneMinder Multiple Vulnerabilities");
+  script_name("ZoneMinder < 1.30.2 Multiple Vulnerabilities - Active Check");
 
   script_category(ACT_ATTACK);
 
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_zoneminder_detect.nasl", "os_detection.nasl");
+  script_dependencies("gb_zoneminder_http_detect.nasl", "os_detection.nasl");
   script_require_keys("Host/runs_unixoide");
-  script_mandatory_keys("zoneminder/installed");
+  script_mandatory_keys("zoneminder/http/detected");
+  script_require_ports("Services/www", 443);
 
   script_tag(name:"summary", value:"ZoneMinder is prone to multiple vulnerabilities.");
 
   script_tag(name:"vuldetect", value:"Tries to read the /etc/passwd file.");
 
-  script_tag(name:"insight", value:"ZoneMinder is prone to multiple vulnerabilities:
+  script_tag(name:"insight", value:"The following vulnerabilities exist:
 
-  - File disclosure and inclusion vulnerability exists due to unfiltered user-input being passed to readfile() in
-  views/file.php which allows an authenticated attacker to read local system files (e.g. /etc/passwd) in the
-  context of the web server user (www-data). (CVE-2017-5595)
+  - CVE-2017-5595: File disclosure and inclusion due to unfiltered user-input being passed to
+  readfile() in views/file.php which allows an authenticated attacker to read local system files
+  (e.g. /etc/passwd) in the context of the web server user (www-data).
 
-  - Multiple reflected XSS (CVE-2017-5367)
+  - CVE-2017-5367: Multiple reflected XSS
 
-  - CSRF vulnerability since no CSRF protection exists across the entire web app. (CVE-2017-5368)");
+  - CVE-2017-5368: CSRF since no CSRF protection exists across the entire web app.");
 
   script_tag(name:"impact", value:"An unauthenticated remote attacker may read arbitrary files.");
+
+  script_tag(name:"affected", value:"ZoneMinder prior to version 1.30.2.");
 
   script_tag(name:"solution", value:"Update to version 1.30.2 or later.");
 
@@ -58,12 +61,12 @@ if (description)
 }
 
 include("host_details.inc");
-include("os_func.inc");
 include("http_func.inc");
 include("http_keepalive.inc");
 include("misc_func.inc");
+include("os_func.inc");
 
-if (!port = get_app_port(cpe: CPE))
+if (!port = get_app_port(cpe: CPE, service: "www"))
   exit(0);
 
 if (!dir = get_app_location(cpe: CPE, port: port))

@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2023.0331");
   script_cve_id("CVE-2020-26555", "CVE-2023-25775", "CVE-2023-34319", "CVE-2023-34324", "CVE-2023-3772", "CVE-2023-3773", "CVE-2023-39189", "CVE-2023-4155", "CVE-2023-46813", "CVE-2023-5090", "CVE-2023-5178", "CVE-2023-5345", "CVE-2023-5633", "CVE-2023-5717", "CVE-2023-6176");
   script_tag(name:"creation_date", value:"2023-11-30 04:12:11 +0000 (Thu, 30 Nov 2023)");
-  script_version("2024-01-18T05:07:09+0000");
-  script_tag(name:"last_modification", value:"2024-01-18 05:07:09 +0000 (Thu, 18 Jan 2024)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"4.8");
   script_tag(name:"cvss_base_vector", value:"AV:A/AC:L/Au:N/C:P/I:P/A:N");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2024-01-16 19:43:00 +0000 (Tue, 16 Jan 2024)");
+  script_tag(name:"severity_date", value:"2023-08-17 20:10:37 +0000 (Thu, 17 Aug 2023)");
 
   script_name("Mageia: Security Advisory (MGASA-2023-0331)");
   script_category(ACT_GATHER_INFO);
@@ -29,6 +29,8 @@ if(description)
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=32538");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.5");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.5.1");
+  script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.5.10");
+  script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.5.11");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.5.2");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.5.3");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.5.4");
@@ -37,8 +39,6 @@ if(description)
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.5.7");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.5.8");
   script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.5.9");
-  script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.5.10");
-  script_xref(name:"URL", value:"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.5.11");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'kernel-linus' package(s) announced via the MGASA-2023-0331 advisory.");
 

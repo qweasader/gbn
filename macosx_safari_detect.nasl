@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.102021");
-  script_version("2023-08-01T13:29:10+0000");
+  script_version("2024-02-08T14:36:53+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 14:36:53 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-04-06 10:41:02 +0200 (Tue, 06 Apr 2010)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("Apple Safari Detect Script (Mac OS X)");
+  script_name("Apple Safari Detection (Mac OS X SSH Login)");
 
   script_tag(name:"summary", value:"Detects the installed version of Apple Safari on Mac OS X.
 

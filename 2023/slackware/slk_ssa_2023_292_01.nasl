@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.13.2023.292.01");
   script_cve_id("CVE-2023-31122", "CVE-2023-43622", "CVE-2023-45802");
   script_tag(name:"creation_date", value:"2023-10-20 04:18:11 +0000 (Fri, 20 Oct 2023)");
-  script_version("2023-11-03T16:10:08+0000");
-  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
+  script_version("2024-02-02T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:10 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-11-01 18:11:00 +0000 (Wed, 01 Nov 2023)");
+  script_tag(name:"severity_date", value:"2023-11-01 18:11:02 +0000 (Wed, 01 Nov 2023)");
 
   script_name("Slackware: Security Advisory (SSA:2023-292-01)");
   script_category(ACT_GATHER_INFO);

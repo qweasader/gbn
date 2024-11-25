@@ -9,7 +9,7 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811251");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-16T14:37:06+0000");
   script_cve_id("CVE-2017-7060", "CVE-2017-7006", "CVE-2017-7011", "CVE-2017-7018",
                 "CVE-2017-7020", "CVE-2017-7030", "CVE-2017-7034", "CVE-2017-7037",
                 "CVE-2017-7039", "CVE-2017-7040", "CVE-2017-7041", "CVE-2017-7042",
@@ -19,12 +19,12 @@ if(description)
                 "CVE-2017-7012");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 14:37:06 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-03-22 19:27:00 +0000 (Fri, 22 Mar 2019)");
   script_tag(name:"creation_date", value:"2017-07-20 11:35:58 +0530 (Thu, 20 Jul 2017)");
-  script_name("Apple Safari Multiple Vulnerabilities-HT207921");
+  script_name("Apple Safari Multiple Vulnerabilities (HT207921)");
 
   script_tag(name:"summary", value:"Apple Safari is prone to multiple vulnerabilities.");
 

@@ -9,7 +9,7 @@ CPE = "cpe:/a:adobe:flash_player";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805465");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-07-17T05:05:38+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2015-3044", "CVE-2015-3043", "CVE-2015-3042", "CVE-2015-3041",
@@ -20,9 +20,12 @@ if(description)
                 "CVE-2015-0346", "CVE-2015-0358");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-17 05:05:38 +0000 (Wed, 17 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-07-16 17:34:42 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2015-04-20 12:42:00 +0530 (Mon, 20 Apr 2015)");
-  script_name("Adobe Flash Player Multiple Vulnerabilities - 01 Apr15 (Mac OS X)");
+  script_name("Adobe Flash Player Multiple Vulnerabilities - 01 (Apr 2015) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Flash Player is prone to multiple vulnerabilities.");
 
@@ -42,7 +45,7 @@ if(description)
   script_tag(name:"impact", value:"Successful exploitation will allow remote
   attackers to cause denial of service, execute arbitrary code, bypass the ASLR
   protection mechanism via unspecified vectors and allow local users to gain
-  privileges .");
+  privileges.");
 
   script_tag(name:"affected", value:"Adobe Flash Player versions before
   13.0.0.281 and 14.x through 17.x before 17.0.0.169 on Mac OS X.");

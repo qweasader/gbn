@@ -9,16 +9,16 @@ CPE = "cpe:/a:adobe:acrobat_dc_continuous";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.814189");
-  script_version("2023-10-13T16:09:03+0000");
+  script_version("2024-02-12T05:05:32+0000");
   script_cve_id("CVE-2018-15979");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-12 05:05:32 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-08-21 16:20:00 +0000 (Wed, 21 Aug 2019)");
   script_tag(name:"creation_date", value:"2018-11-15 12:20:16 +0530 (Thu, 15 Nov 2018)");
-  script_name("Adobe Acrobat DC Information Disclosure Vulnerability (apsb18-40) - Mac OS X");
+  script_name("Adobe Acrobat DC Information Disclosure Vulnerability (APSB18-40) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Acrobat DC is prone to an information disclosure vulnerability.");
 

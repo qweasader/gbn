@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.19777");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-06-26T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"creation_date", value:"2006-03-26 17:55:15 +0200 (Sun, 26 Mar 2006)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:C/A:N");
@@ -22,7 +22,7 @@ if(description)
 
   script_xref(name:"URL", value:"https://web.archive.org/web/20060718224254/http://oss.sgi.com/projects/netdev/archive/2005-07/msg00142.html");
 
-  script_tag(name:"solution", value:"Ugprade to Linux 2.6.13 or newer, or disable SCTP support.");
+  script_tag(name:"solution", value:"Update to Linux 2.6.13 or newer, or disable SCTP support.");
 
   script_tag(name:"summary", value:"It is possible to crash the remote host by sending it malformed ICMP packets.");
 

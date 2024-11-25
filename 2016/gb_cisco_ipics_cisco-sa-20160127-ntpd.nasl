@@ -12,9 +12,9 @@ if (description)
   script_cve_id("CVE-2015-7974", "CVE-2015-7975", "CVE-2015-7976", "CVE-2015-7978", "CVE-2015-7977", "CVE-2015-7979", "CVE-2015-8138", "CVE-2015-8139", "CVE-2015-8140", "CVE-2015-8158", "CVE-2015-7973");
   script_tag(name:"cvss_base", value:"5.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:P");
-  script_version("2023-11-03T05:05:46+0000");
+  script_version("2024-02-19T14:37:31+0000");
 
-  script_name("Multiple Vulnerabilities in Network Time Protocol Daemon Affecting Cisco Products: January 2016");
+  script_name("Cisco IPICS Multiple Vulnerabilities in Network Time Protocol Daemon (cisco-sa-20160127-ntpd)");
 
   script_xref(name:"URL", value:"http://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20160127-ntpd");
 
@@ -48,7 +48,7 @@ if (description)
   script_tag(name:"qod_type", value:"package");
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-19 14:37:31 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-04-26 17:42:00 +0000 (Mon, 26 Apr 2021)");

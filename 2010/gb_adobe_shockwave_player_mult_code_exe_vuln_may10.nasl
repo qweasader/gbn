@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801335");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-20T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-05-19 14:50:39 +0200 (Wed, 19 May 2010)");
   script_cve_id("CVE-2010-0127", "CVE-2010-0128", "CVE-2010-0129", "CVE-2010-0130",
                 "CVE-2010-1280", "CVE-2010-1281", "CVE-2010-1282", "CVE-2010-1283",
@@ -20,7 +20,7 @@ if(description)
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2022-04-01 19:35:00 +0000 (Fri, 01 Apr 2022)");
-  script_name("Adobe Shockwave Player Multiple Remote Code Execution Vulnerabilities May-10");
+  script_name("Adobe Shockwave Player Multiple Remote Code Execution Vulnerabilities (May 2010)");
   script_xref(name:"URL", value:"http://secunia.com/advisories/38751");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/40076");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/40077");

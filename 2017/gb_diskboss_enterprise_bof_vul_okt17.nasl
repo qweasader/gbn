@@ -9,24 +9,23 @@ CPE = "cpe:/a:dboss:diskboss_enterprise";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.107184");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-09-25T05:06:11+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2017-10-06 16:11:25 +0530 (Fri, 06 Oct 2017)");
-  script_name("DiskBoss Enterprise Server Local Buffer Overflow Vulnerability (Windows)");
+  script_name("DiskBoss Enterprise Server Local Buffer Overflow Vulnerability - Windows");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Denial of Service");
   script_dependencies("gb_diskboss_enterprise_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("Disk/Boss/Enterprise/installed", "Host/runs_windows");
-  script_require_ports("Services/www", 8080);
 
   script_xref(name:"URL", value:"https://packetstormsecurity.com/files/144504/dbe-overflow.txt");
 
   script_tag(name:"summary", value:"DiskBoss Enterprise is prone to a local buffer overflow vulnerability.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"impact", value:"Successful exploitation may allow remote
   attackers to elevate privileges from any account type and execute code.");

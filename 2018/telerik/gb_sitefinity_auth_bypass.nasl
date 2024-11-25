@@ -2,15 +2,15 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:progress:sitefinity";
 
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113078");
-  script_version("2023-04-14T10:19:17+0000");
-  script_tag(name:"last_modification", value:"2023-04-14 10:19:17 +0000 (Fri, 14 Apr 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-01-10 14:49:50 +0100 (Wed, 10 Jan 2018)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -31,12 +31,11 @@ if( description )
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_sitefinity_http_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("sitefinity/detected");
 
   script_tag(name:"summary", value:"Sitefinity allows remote attackers to bypass authentication.");
 
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"insight", value:"The flaw exists due to weak cryptography.");
 

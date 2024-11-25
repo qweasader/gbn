@@ -7,11 +7,12 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.842399");
+  script_cve_id("CVE-2015-3290", "CVE-2015-3291", "CVE-2015-5157");
   script_tag(name:"creation_date", value:"2015-07-31 05:23:36 +0000 (Fri, 31 Jul 2015)");
-  script_version("2023-07-05T05:06:16+0000");
-  script_tag(name:"last_modification", value:"2023-07-05 05:06:16 +0000 (Wed, 05 Jul 2023)");
-  script_tag(name:"cvss_base", value:"5.0");
-  script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
+  script_version("2024-02-07T05:05:18+0000");
+  script_tag(name:"last_modification", value:"2024-02-07 05:05:18 +0000 (Wed, 07 Feb 2024)");
+  script_tag(name:"cvss_base", value:"7.2");
+  script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
 
   script_name("Ubuntu: Security Advisory (USN-2700-1)");
   script_category(ACT_GATHER_INFO);
@@ -26,6 +27,22 @@ if(description)
   script_tag(name:"summary", value:"The remote host is missing an update for the 'linux' package(s) announced via the USN-2700-1 advisory.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable package version is present on the target host.");
+
+  script_tag(name:"insight", value:"Andy Lutomirski discovered a flaw in the Linux kernel's handling of nested
+NMIs (non-maskable interrupts). An unprivileged local user could exploit
+this flaw to cause a denial of service (system crash) or potentially
+escalate their privileges. (CVE-2015-3290)
+
+Andy Lutomirski discovered a flaw that allows user to cause the Linux
+kernel to ignore some NMIs (non-maskable interrupts). A local unprivileged
+user could exploit this flaw to potentially cause the system to miss
+important NMIs resulting in unspecified effects. (CVE-2015-3291)
+
+Andy Lutomirski and Petr Matousek discovered that an NMI (non-maskable
+interrupt) that interrupts userspace and encounters an IRET fault is
+incorrectly handled by the Linux kernel. An unprivileged local user could
+exploit this flaw to cause a denial of service (kernel OOPs), corruption,
+or potentially escalate privileges on the system. (CVE-2015-5157)");
 
   script_tag(name:"affected", value:"'linux' package(s) on Ubuntu 14.04.");
 

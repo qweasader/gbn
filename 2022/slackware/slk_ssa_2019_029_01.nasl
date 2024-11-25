@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.13.2019.029.01");
   script_cve_id("CVE-2018-18500", "CVE-2018-18501", "CVE-2018-18505");
   script_tag(name:"creation_date", value:"2022-04-21 12:12:27 +0000 (Thu, 21 Apr 2022)");
-  script_version("2023-06-20T05:05:25+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:25 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-03-06T05:05:53+0000");
+  script_tag(name:"last_modification", value:"2024-03-06 05:05:53 +0000 (Wed, 06 Mar 2024)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-10-03 00:03:00 +0000 (Thu, 03 Oct 2019)");
+  script_tag(name:"severity_date", value:"2019-02-07 17:18:11 +0000 (Thu, 07 Feb 2019)");
 
   script_name("Slackware: Security Advisory (SSA:2019-029-01)");
   script_category(ACT_GATHER_INFO);
@@ -47,9 +47,9 @@ patches/packages/mozilla-firefox-60.5.0esr-i686-1_slack14.2.txz: Upgraded.
  For more information, see:
  [link moved to references]
  [link moved to references]
- [link moved to references]#CVE-2018-18500
- [link moved to references]#CVE-2018-18505
- [link moved to references]#CVE-2018-18501
+ [link moved to references]
+ [link moved to references]
+ [link moved to references]
  (* Security fix *)
 +--------------------------+");
 

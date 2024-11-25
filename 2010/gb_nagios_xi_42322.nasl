@@ -9,8 +9,8 @@ CPE = "cpe:/a:nagios:nagios_xi";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100753");
-  script_version("2023-12-01T05:05:39+0000");
-  script_tag(name:"last_modification", value:"2023-12-01 05:05:39 +0000 (Fri, 01 Dec 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2010-08-10 14:55:08 +0200 (Tue, 10 Aug 2010)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -27,7 +27,7 @@ if (description)
   script_dependencies("gb_nagios_xi_http_detect.nasl");
   script_mandatory_keys("nagios/nagios_xi/detected");
 
-  script_tag(name:"summary", value:"Nagios XI is prone to multiple cross site request forgery (CSRF)
+  script_tag(name:"summary", value:"Nagios XI is prone to multiple cross-site request forgery (CSRF)
   vulnerabilities because the application fails to properly validate HTTP requests.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");

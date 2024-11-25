@@ -9,16 +9,16 @@ CPE = "cpe:/a:wordpress:wordpress";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809156");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2016-6896", "CVE-2016-6897", "CVE-2016-10148");
   script_tag(name:"cvss_base", value:"5.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-09-03 01:29:00 +0000 (Sun, 03 Sep 2017)");
   script_tag(name:"creation_date", value:"2016-08-26 14:01:02 +0530 (Fri, 26 Aug 2016)");
-  script_name("WordPress Core Ajax handlers CSRF and Directory Traversal Vulnerabilities (Windows)");
+  script_name("WordPress Core Ajax handlers CSRF and Directory Traversal Vulnerabilities - Windows");
 
   script_tag(name:"summary", value:"WordPress is prone to CSRF and directory traversal vulnerabilities.");
 

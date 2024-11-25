@@ -2,13 +2,13 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108192");
-  script_version("2023-04-24T10:19:26+0000");
-  script_tag(name:"last_modification", value:"2023-04-24 10:19:26 +0000 (Mon, 24 Apr 2023)");
+  script_version("2024-06-25T05:05:27+0000");
+  script_tag(name:"last_modification", value:"2024-06-25 05:05:27 +0000 (Tue, 25 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-07-17 09:13:48 +0100 (Mon, 17 Jul 2017)");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
   script_tag(name:"cvss_base", value:"0.0");
@@ -19,7 +19,8 @@ if(description)
   script_dependencies("mysql_version.nasl");
   script_mandatory_keys("MySQL_MariaDB/installed");
 
-  script_tag(name:"summary", value:"MySQL/MariaDB server banner based Operating System (OS) detection.");
+  script_tag(name:"summary", value:"MySQL/MariaDB server banner based Operating System (OS)
+  detection.");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -174,6 +175,10 @@ if( "ubuntu0.04.10" >< banner || "~warty" >< banner || ".warty." >< banner ) {
 # nb: 23.04 had initially 5.5.5-10.11.2-MariaDB-1, we still add the disco pattern which might show up in the future
 } else if( "ubuntu0.23.04" >< banner || "~lunar" >< banner || ".lunar." >< banner) {
   os_register_and_report( os:"Ubuntu", version:"23.04", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+} else if( "ubuntu0.23.10" >< banner || "~mantic" >< banner || ".mantic." >< banner) {
+  os_register_and_report( os:"Ubuntu", version:"23.10", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+} else if( "ubuntu0.24.04" >< banner || "~noble" >< banner || ".noble." >< banner) {
+  os_register_and_report( os:"Ubuntu", version:"24.04", cpe:"cpe:/o:canonical:ubuntu_linux", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
 }
 
 if( "ubuntu" >< banner ) {
@@ -181,15 +186,19 @@ if( "ubuntu" >< banner ) {
   exit( 0 );
 }
 
+# 5.5.5-10.5.23-MariaDB-0+deb11u1-log
 # 5.0.32-Debian_7etch12-log
 # 5.5.5-10.5.15-MariaDB-0+deb11u1-log
+# 4.0.24_Debian-10sarge3
 if( "+deb" >< banner || "~jessie" >< banner || "~wheezy" >< banner || "~stretch" >< banner ||
-    "etch" >< banner || "-Debian" >< banner || "~buster" >< banner ||
+    "etch" >< banner || "-Debian" >< banner || "~buster" >< banner || "sarge" >< banner ||
     "squeeze" >< banner || "lenny" >< banner || # squeeze has .squeeze or ~squeeze versions, lenny as well
     "~bpo" >< banner ) { # Banners for debian backports like 5.6.30-1~bpo8+1-log
 
   # nb: The order matters in case of backports which might have something like +deb9~bpo8
-  if( "etch" >< banner ) {
+  if( "sarge" >< banner ) {
+    os_register_and_report( os:"Debian GNU/Linux", version:"3.1", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
+  } else if( "etch" >< banner ) {
     os_register_and_report( os:"Debian GNU/Linux", version:"4.0", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );
   } else if( "lenny" >< banner ) {
     os_register_and_report( os:"Debian GNU/Linux", version:"5.0", cpe:"cpe:/o:debian:debian_linux", banner_type:BANNER_TYPE, port:port, banner:banner, desc:SCRIPT_DESC, runs_key:"unixoide" );

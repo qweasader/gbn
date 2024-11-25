@@ -9,8 +9,8 @@ CPE = "cpe:/a:magentocommerce:magento";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.111042");
-  script_version("2024-01-09T05:06:46+0000");
-  script_tag(name:"last_modification", value:"2024-01-09 05:06:46 +0000 (Tue, 09 Jan 2024)");
+  script_version("2024-04-12T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-04-12 05:05:39 +0000 (Fri, 12 Apr 2024)");
   script_tag(name:"creation_date", value:"2015-10-15 12:00:00 +0200 (Thu, 15 Oct 2015)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -20,7 +20,9 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2015 SCHUTZWERK GmbH");
   script_family("Product detection");
-  script_dependencies("sw_magento_detect.nasl", "no404.nasl", "webmirror.nasl", "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl", "global_settings.nasl");
+  script_dependencies("find_service.nasl", "sw_magento_detect.nasl", "no404.nasl", "webmirror.nasl",
+                      "DDI_Directory_Scanner.nasl", "gb_php_http_detect.nasl",
+                      "global_settings.nasl");
   script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
 

@@ -9,7 +9,7 @@ CPE = "cpe:/a:apple:quicktime";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.802795");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-27T14:36:53+0000");
   script_cve_id("CVE-2012-0663", "CVE-2012-0665", "CVE-2011-3458", "CVE-2011-3459",
                 "CVE-2012-0658", "CVE-2012-0659", "CVE-2012-0666", "CVE-2011-3460",
                 "CVE-2012-0667", "CVE-2012-0661", "CVE-2012-0668", "CVE-2012-0669",
@@ -17,9 +17,9 @@ if(description)
                 "CVE-2012-0660");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-27 14:36:53 +0000 (Tue, 27 Feb 2024)");
   script_tag(name:"creation_date", value:"2012-05-18 13:04:18 +0530 (Fri, 18 May 2012)");
-  script_name("Apple QuickTime Multiple Vulnerabilities - (Windows)");
+  script_name("Apple QuickTime Multiple Vulnerabilities - Windows");
   script_xref(name:"URL", value:"http://support.apple.com/kb/HT5261");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51809");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/51811");

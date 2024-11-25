@@ -7,20 +7,20 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813379");
-  script_version("2023-11-03T16:10:08+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2018-8147", "CVE-2018-8162", "CVE-2018-8176");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-06-05 18:40:00 +0000 (Tue, 05 Jun 2018)");
   script_tag(name:"creation_date", value:"2018-05-25 14:22:04 +0530 (Fri, 25 May 2018)");
   script_tag(name:"qod_type", value:"executable_version");
-  script_name("Microsoft Office Multiple Remote Code Execution Vulnerabilities-May18 (Mac OS X)");
+  script_name("Microsoft Office Multiple Remote Code Execution Vulnerabilities (May 2018) - Mac OS X");
 
   script_tag(name:"summary", value:"This host is missing an important security
-  update for Microsoft Office 2016 on Mac OSX according to Microsoft security
+  update for Microsoft Office 2016 on Mac OS X according to Microsoft security
   update May 2018");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");

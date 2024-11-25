@@ -9,10 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.56469");
   script_cve_id("CVE-2004-1017", "CVE-2005-0124", "CVE-2005-0449", "CVE-2005-2457", "CVE-2005-2490", "CVE-2005-2555", "CVE-2005-2709", "CVE-2005-2800", "CVE-2005-2973", "CVE-2005-3044", "CVE-2005-3053", "CVE-2005-3055", "CVE-2005-3180", "CVE-2005-3181", "CVE-2005-3257", "CVE-2005-3356", "CVE-2005-3358", "CVE-2005-3783", "CVE-2005-3784", "CVE-2005-3806", "CVE-2005-3847", "CVE-2005-3848", "CVE-2005-3857", "CVE-2005-3858", "CVE-2005-4605", "CVE-2005-4618", "CVE-2006-0095", "CVE-2006-0096", "CVE-2006-0482", "CVE-2006-1066");
   script_tag(name:"creation_date", value:"2008-01-17 22:09:45 +0000 (Thu, 17 Jan 2008)");
-  script_version("2024-01-12T16:12:10+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:10 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-16T05:06:55+0000");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-15 20:22:44 +0000 (Thu, 15 Feb 2024)");
 
   script_name("Debian: Security Advisory (DSA-1017-1)");
   script_category(ACT_GATHER_INFO);

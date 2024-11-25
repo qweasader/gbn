@@ -9,13 +9,16 @@ CPE = "cpe:/a:postgresql:postgresql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803219");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-07-19T05:05:32+0000");
   script_cve_id("CVE-2012-3488", "CVE-2012-3489");
   script_tag(name:"cvss_base", value:"4.9");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:S/C:P/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-19 05:05:32 +0000 (Fri, 19 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-15 03:22:42 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-01-24 17:08:52 +0530 (Thu, 24 Jan 2013)");
-  script_name("PostgreSQL 'xml_parse()' And 'xslt_process()' Multiple Vulnerabilities (Windows)");
+  script_name("PostgreSQL 'xml_parse()' And 'xslt_process()' Multiple Vulnerabilities - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/50218");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/55072");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/55074");
@@ -25,7 +28,7 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2013 Greenbone AG");
   script_family("Databases");
-  script_dependencies("postgresql_detect.nasl", "secpod_postgresql_detect_lin.nasl", "secpod_postgresql_detect_win.nasl", "os_detection.nasl");
+  script_dependencies("gb_postgresql_consolidation.nasl", "os_detection.nasl");
   script_mandatory_keys("postgresql/detected", "Host/runs_windows");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attacker to modify data, obtain sensitive

@@ -1,33 +1,22 @@
-# Copyright (C) 2012 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2012 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902829");
-  script_version("2022-08-09T10:11:17+0000");
+  script_version("2024-07-25T05:05:41+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2012-0158");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2022-08-09 10:11:17 +0000 (Tue, 09 Aug 2022)");
+  script_tag(name:"last_modification", value:"2024-07-25 05:05:41 +0000 (Thu, 25 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-07-24 17:07:11 +0000 (Wed, 24 Jul 2024)");
   script_tag(name:"creation_date", value:"2012-04-11 11:11:11 +0530 (Wed, 11 Apr 2012)");
   script_name("Microsoft Windows Common Controls Remote Code Execution Vulnerability (2664258)");
   script_xref(name:"URL", value:"http://www.securitytracker.com/id/1026904");
@@ -35,9 +24,12 @@ if(description)
   script_xref(name:"URL", value:"https://docs.microsoft.com/en-us/security-updates/securitybulletins/2012/ms12-027");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2012 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2012 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
-  script_dependencies("secpod_office_products_version_900032.nasl");
+  # nb: The MSSQL "Consolidation" wasn't added here on purpose and only the SMB Login one was used
+  # as the consolidation is not required for the KB check below.
+  script_dependencies("secpod_office_products_version_900032.nasl",
+                      "gb_microsoft_sql_server_smb_login_detect.nasl");
   script_mandatory_keys("SMB/WindowsVersion");
   script_require_ports(139, 445);
 
@@ -125,16 +117,15 @@ if(registry_key_exists(key:key))
   }
 }
 
-foreach ver (make_list("2005", "10"))
-{
-  key = "SOFTWARE\Microsoft\Windows\CurrentVersion" +
-        "\Uninstall\Microsoft SQL Server " + ver;
-  if(registry_key_exists(key:key))
-  {
-    if(version_is_less(version:sysVer, test_version:"6.1.98.33"))
-    {
-      security_message( port: 0, data: "The target host was found to be vulnerable" );
-      exit(0);
+if(get_kb_item("microsoft/sqlserver/smb-login/detected")) {
+
+  foreach ver (make_list("2005", "10")) {
+    key = "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft SQL Server " + ver;
+    if(registry_key_exists(key:key)) {
+      if(version_is_less(version:sysVer, test_version:"6.1.98.33")) {
+        security_message( port: 0, data: "The target host was found to be vulnerable" );
+        exit(0);
+      }
     }
   }
 }

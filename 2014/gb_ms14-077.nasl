@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804792");
-  script_version("2023-07-27T05:05:08+0000");
+  script_version("2024-06-21T05:05:42+0000");
   script_cve_id("CVE-2014-6331");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-11-12 15:02:25 +0530 (Wed, 12 Nov 2014)");
-  script_name("MS Active Directory Federation Services Information Disclosure Vulnerability (3003381)");
+  script_name("Microsoft Active Directory Federation Services Information Disclosure Vulnerability (3003381)");
 
   script_tag(name:"summary", value:"This host is missing an important security
   update according to Microsoft Bulletin MS14-077.");

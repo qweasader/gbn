@@ -3,28 +3,27 @@
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
 # SPDX-License-Identifier: GPL-2.0-only
+
 CPE = "cpe:/a:shoretel:shoreware_director";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.103814");
-  script_version("2023-07-14T16:09:26+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
 
   script_name("ShoreTel ShoreWare Director Remote Security Bypass Vulnerability");
 
-
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/63019");
 
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:26 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2013-10-16 12:02:38 +0200 (Wed, 16 Oct 2013)");
   script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"remote_banner");
   script_family("Web application abuses");
   script_copyright("Copyright (C) 2013 Greenbone AG");
   script_dependencies("gb_shoreware_director_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("ShoreWare_Director/installed");
 
   script_tag(name:"impact", value:"Attackers can exploit this issue to bypass security restrictions to
@@ -56,18 +55,19 @@ be affected.");
   exit(0);
 }
 
-include("http_func.inc");
 include("host_details.inc");
 include("version_func.inc");
 
-if(!port = get_app_port(cpe:CPE))exit(0);
-build = get_kb_item('www/' + port + '/ShoreWare_Director/build');
-if(!build)exit(0);
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!build = get_kb_item("www/" + port + "/ShoreWare_Director/build"))
+  exit(0);
 
 if(version_is_less(version: build, test_version: "18.61.7500.0")) {
-    report = report_fixed_ver(installed_version:build, fixed_version:"18.61.7500.0");
-    security_message(port: port, data: report);
-    exit(0);
+  report = report_fixed_ver(installed_version:build, fixed_version:"18.61.7500.0");
+  security_message(port: port, data: report);
+  exit(0);
 }
 
-exit(0);
+exit(99);

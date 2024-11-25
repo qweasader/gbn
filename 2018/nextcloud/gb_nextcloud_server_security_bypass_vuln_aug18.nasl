@@ -2,23 +2,23 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:nextcloud:nextcloud_server";
 
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813915");
-  script_version("2023-05-15T09:08:55+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2018-3775");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-05-15 09:08:55 +0000 (Mon, 15 May 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-02-27 16:45:00 +0000 (Mon, 27 Feb 2023)");
   script_tag(name:"creation_date", value:"2018-08-20 17:29:50 +0530 (Mon, 20 Aug 2018)");
-  script_name("Nextcloud Server Security Bypass Vulnerability Aug18");
+  script_name("Nextcloud Server Security Bypass Vulnerability (Aug 2018)");
 
   script_tag(name:"summary", value:"Nextcloud Server is prone to a security bypass vulnerability.");
 

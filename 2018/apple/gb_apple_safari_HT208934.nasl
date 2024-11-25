@@ -9,19 +9,19 @@ CPE = "cpe:/a:apple:safari";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813633");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-09T14:47:30+0000");
   script_cve_id("CVE-2018-4279", "CVE-2018-4270", "CVE-2018-4278", "CVE-2018-4284",
                 "CVE-2018-4266", "CVE-2018-4261", "CVE-2018-4262", "CVE-2018-4263",
                 "CVE-2018-4264", "CVE-2018-4265", "CVE-2018-4267", "CVE-2018-4272",
                 "CVE-2018-4271", "CVE-2018-4273", "CVE-2018-4274", "CVE-2018-4260");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-04-04 19:35:00 +0000 (Thu, 04 Apr 2019)");
   script_tag(name:"creation_date", value:"2018-07-10 09:47:26 +0530 (Tue, 10 Jul 2018)");
-  script_name("Apple Safari Security Updates(HT208934)");
+  script_name("Apple Safari Security Updates (HT208934)");
 
   script_tag(name:"summary", value:"Apple iTunes is prone to multiple vulnerabilities.");
 

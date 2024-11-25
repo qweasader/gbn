@@ -7,11 +7,14 @@
 if(description)
 {  script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2010-February/035409.html");
   script_oid("1.3.6.1.4.1.25623.1.0.861660");
-  script_version("2023-06-30T16:09:17+0000");
-  script_tag(name:"last_modification", value:"2023-06-30 16:09:17 +0000 (Fri, 30 Jun 2023)");
+  script_version("2024-01-29T05:05:18+0000");
+  script_tag(name:"last_modification", value:"2024-01-29 05:05:18 +0000 (Mon, 29 Jan 2024)");
   script_tag(name:"creation_date", value:"2010-03-02 08:38:02 +0100 (Tue, 02 Mar 2010)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-01-26 17:47:00 +0000 (Fri, 26 Jan 2024)");
   script_xref(name:"FEDORA", value:"2010-1383");
   script_cve_id("CVE-2010-0277", "CVE-2010-0420", "CVE-2010-0423", "CVE-2010-0013");
   script_name("Fedora Update for pidgin FEDORA-2010-1383");

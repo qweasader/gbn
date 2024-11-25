@@ -2,15 +2,15 @@
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:typo3:typo3";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113032");
-  script_version("2023-09-19T05:06:03+0000");
-  script_tag(name:"last_modification", value:"2023-09-19 05:06:03 +0000 (Tue, 19 Sep 2023)");
+  script_version("2024-02-28T14:37:42+0000");
+  script_tag(name:"last_modification", value:"2024-02-28 14:37:42 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-10-16 14:46:47 +0200 (Mon, 16 Oct 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -19,7 +19,7 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("TYPO3 End of Life (EOL) Detection (Windows)");
+  script_name("TYPO3 End of Life (EOL) Detection - Windows");
 
   script_category(ACT_GATHER_INFO);
 
@@ -28,8 +28,10 @@ if(description)
   script_dependencies("gb_typo3_http_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("typo3/detected", "Host/runs_windows");
 
-  script_tag(name:"summary", value:"The TYPO3 version on the remote host has reached the End of Life
+  script_tag(name:"summary", value:"The TYPO3 version on the remote host has reached the end of life
   (EOL) and should not be used anymore.");
+
+  script_tag(name:"vuldetect", value:"Checks if an EOL version is present on the target host.");
 
   script_tag(name:"impact", value:"An EOL version of TYPO3 is not receiving any security updates
   from the vendor. Unfixed security vulnerabilities might be leveraged by an attacker to compromise
@@ -37,8 +39,6 @@ if(description)
 
   script_tag(name:"solution", value:"Update the TYPO3 version on the remote host to a still
   supported version.");
-
-  script_tag(name:"vuldetect", value:"Checks if an EOL version is present on the target host.");
 
   script_xref(name:"URL", value:"https://typo3.org/typo3-cms/roadmap/");
 

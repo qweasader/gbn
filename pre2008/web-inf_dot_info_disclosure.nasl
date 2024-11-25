@@ -1,5 +1,5 @@
 # Copyright (C) 2002 Matt Moore
-# New NASL code Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: New NASL code since 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
@@ -22,8 +22,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.11037");
-  script_version("2023-11-03T16:10:08+0000");
-  script_tag(name:"last_modification", value:"2023-11-03 16:10:08 +0000 (Fri, 03 Nov 2023)");
+  script_version("2024-08-30T05:05:38+0000");
+  script_tag(name:"last_modification", value:"2024-08-30 05:05:38 +0000 (Fri, 30 Aug 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_cve_id("CVE-2002-1855", "CVE-2002-1856", "CVE-2002-1857", "CVE-2002-1858",
                 "CVE-2002-1859", "CVE-2002-1860", "CVE-2002-1861", "CVE-2016-0793");

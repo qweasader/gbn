@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2013.0269");
   script_cve_id("CVE-2013-2126", "CVE-2013-2127", "CVE-2013-4132", "CVE-2013-4133");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-12-17 14:14:00 +0000 (Tue, 17 Dec 2019)");
+  script_tag(name:"severity_date", value:"2019-12-17 14:14:23 +0000 (Tue, 17 Dec 2019)");
 
   script_name("Mageia: Security Advisory (MGASA-2013-0269)");
   script_category(ACT_GATHER_INFO);
@@ -26,8 +26,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2013-0269");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2013-0269.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=10600");
   script_xref(name:"URL", value:"https://bugs.kde.org/buglist.cgi?query_format=advanced&short_desc_type=allwordssubstr&short_desc=&long_desc_type=substring&long_desc=&bug_file_loc_type=allwordssubstr&bug_file_loc=&keywords_type=allwords&keywords=&bug_status=RESOLVED&bug_status=VERIFIED&bug_status=CLOSED&emailtype1=substring&email1=&emailassigned_to2=1&emailreporter2=1&emailcc2=1&emailtype2=substring&email2=&bugidtype=include&bug_id=&votes=&chfieldfrom=2013-06-01&chfieldto=Now&chfield=cf_versionfixedin&chfieldvalue=4.10.5&cmdtype=doit&order=Bug+Number&field0-0-0=noop&type0-0-0=noop&value0-0-0=");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=10600");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'analitza, ark, blinken, bomber, bovo, cantor, dragon, ffmpegthumbs, filelight, granatier, gwenview, jovie, juk, kaccessible, kajongg, kalgebra, kalzium, kamera, kanagram, kapman, kate, katomic, kblackbox, kblocks, kbounce, kbreakout, kbruch, kcalc, kcharselect, kcolorchooser, kde4-audiocd, kde-base-artwork, kde-l10n, kde-wallpapers, kdeadmin4, kdeartwork4, kdebase4, kdebase4-runtime, kdebase4-workspace, kdegraphics-mobipocket, kdegraphics-strigi-analyzer, kdegraphics-thumbnailers, kdelibs4, kdenetwork4, kdepim4, kdepim4-runtime, kdepimlibs4, kdeplasma-addons, kdesdk4, kdetoys4, kdewebdev4, kdf, kdiamond, kfloppy, kfourinline, kgamma, kgeography, kgoldrunner, kgpg, khangman, kig, kigo, killbots, kimono, kiriki, kiten, kjumpingcube, klettres, klickety, klines, kmag, kmahjongg, kmines, kmix, kmousetool, kmouth, kmplot, knavalbattle, knetwalk, kolf, kollision, kolourpaint, konquest, konsole, korundum, kpat, kremotecontrol, kreversi, kross-interpreters, kruler, ksaneplugin, kscd, kshisen, ksirk, ksnakeduel, ksnapshot, kspaceduel, ksquares, kstars, ksudoku, ktimer, ktouch, ktuberling, kturtle, kubrick, kwallet, kwordquiz, libkactivities, libkcddb, libkcompactdisc, libkdcraw, libkdeedu, libkdegames, libkexiv2, libkipi, libkmahjongg, libksane, lskat, marble, mplayerthumbs, nepomuk-core, nepomuk-widgets, okular, oxygen-icon-theme, pairs, palapeli, parley, perl-kde4, perl-qt4, picmi, print-manager, python-kde4, qyoto, rocs, ruby-qt4, smokegen, smokekde, smokeqt, step, superkaramba, svgpart, sweeper, task-kde4' package(s) announced via the MGASA-2013-0269 advisory.");
 

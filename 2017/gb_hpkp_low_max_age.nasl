@@ -7,16 +7,16 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108250");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-02-08T05:05:59+0000");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-08 05:05:59 +0000 (Thu, 08 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-10-10 13:07:41 +0200 (Tue, 10 Oct 2017)");
   script_name('SSL/TLS: Check for `max-age` Attribute in HPKP Header');
   script_category(ACT_GATHER_INFO);
   script_family("SSL and TLS");
   script_copyright("Copyright (C) 2017 Greenbone AG");
-  script_dependencies("gb_hpkp_detect.nasl");
+  script_dependencies("gb_hpkp_http_detect.nasl");
   script_mandatory_keys("hpkp/available/port");
 
   script_add_preference(name:"Minimum max-age value (in seconds)", type:"entry", value:"5184000", id:1);
@@ -26,11 +26,13 @@ if(description)
   script_xref(name:"URL", value:"https://tools.ietf.org/html/rfc7469");
   script_xref(name:"URL", value:"https://securityheaders.io/");
 
-  script_tag(name:"summary", value:"The remote web server is using a too low value within the 'max-age' attribute in the HPKP header.
+  script_tag(name:"summary", value:"The remote web server is using a too low value within the
+  'max-age' attribute in the HTTP Public Key Pinning (HPKP) header.
 
   Note: Most major browsers have dropped / deprecated support for this header in 2020.");
 
-  script_tag(name:"solution", value:"The recommended value should aim towards 60 days (5184000 seconds) but heavily depends on your deployment scenario.");
+  script_tag(name:"solution", value:"The recommended value should aim towards 60 days (5184000
+  seconds) but heavily depends on your deployment scenario.");
 
   script_tag(name:"qod_type", value:"remote_banner");
   script_tag(name:"solution_type", value:"Workaround");

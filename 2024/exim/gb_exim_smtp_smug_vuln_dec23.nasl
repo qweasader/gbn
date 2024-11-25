@@ -9,14 +9,14 @@ CPE = "cpe:/a:exim:exim";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.114254");
-  script_version("2024-01-12T05:05:56+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 05:05:56 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-02T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:11 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"creation_date", value:"2024-01-10 10:31:13 +0000 (Wed, 10 Jan 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2024-01-04 18:15:00 +0000 (Thu, 04 Jan 2024)");
+  script_tag(name:"severity_date", value:"2024-02-02 02:22:45 +0000 (Fri, 02 Feb 2024)");
 
   script_cve_id("CVE-2023-51766");
 

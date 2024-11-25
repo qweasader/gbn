@@ -9,8 +9,8 @@ CPE = "cpe:/a:dotcms:dotcms";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112089");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-07-26T15:38:40+0000");
+  script_tag(name:"last_modification", value:"2024-07-26 15:38:40 +0000 (Fri, 26 Jul 2024)");
   script_tag(name:"creation_date", value:"2017-10-20 11:29:18 +0200 (Fri, 20 Oct 2017)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -27,23 +27,27 @@ if (description)
   script_name("dotCMS 4.1.1 Remote Shell Upload Vulnerability");
 
   script_category(ACT_GATHER_INFO);
+
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
-  script_dependencies("gb_dotcms_detect.nasl");
-  script_mandatory_keys("dotCMS/installed");
+  script_dependencies("gb_dotcms_http_detect.nasl");
+  script_mandatory_keys("dotcms/detected");
 
-  script_tag(name:"summary", value:"dotCMS version 4.1.1 is prone to a remote shell upload vulnerability.");
+  script_tag(name:"summary", value:"dotCMS is prone to a remote shell upload vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
-  script_tag(name:"insight", value:"Arbitrary file upload vulnerability in com/dotmarketing/servlets/AjaxFileUploadServlet.class allows remote authenticated administrators
-to upload .jsp files to arbitrary locations via directory traversal sequences in the fieldName parameter to servlets/ajax_file_upload.");
+  script_tag(name:"insight", value:"Arbitrary file upload vulnerability in
+  com/dotmarketing/servlets/AjaxFileUploadServlet.class allows remote authenticated administrators
+  to upload .jsp files to arbitrary locations via directory traversal sequences in the fieldName
+  parameter to servlets/ajax_file_upload.");
 
-  script_tag(name:"impact", value:"Remotely authenticated attackers might use this vulnerability to execute arbitrary code on the target.");
+  script_tag(name:"impact", value:"Remotely authenticated attackers might use this vulnerability to
+  execute arbitrary code on the target.");
 
   script_tag(name:"affected", value:"dotCMS version 4.1.1.");
 
-  script_tag(name:"solution", value:"Update to dotCMS version 4.2.0 or later.");
+  script_tag(name:"solution", value:"Update to version 4.2.0 or later.");
 
   script_xref(name:"URL", value:"http://seclists.org/fulldisclosure/2017/Jul/33");
   script_xref(name:"URL", value:"https://github.com/dotCMS/core/issues/12131");
@@ -67,4 +71,4 @@ if (version_is_equal(version: version, test_version: "4.1.1")) {
   exit(0);
 }
 
-exit(0);
+exit(99);

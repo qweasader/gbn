@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801475");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-16T05:06:55+0000");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-11-02 18:01:36 +0100 (Tue, 02 Nov 2010)");
   script_cve_id("CVE-2010-3765");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_name("Mozilla Firefox Unspecified Vulnerability Oct-10 (Windows)");
+  script_name("Mozilla Firefox Unspecified Vulnerability (Oct 2010) - Windows");
   script_xref(name:"URL", value:"http://isc.sans.edu/diary.html?storyid=9817");
   script_xref(name:"URL", value:"http://www.norman.com/about_norman/press_center/news_archive/2010/129223/");
   script_xref(name:"URL", value:"http://blog.mozilla.com/security/2010/10/26/critical-vulnerability-in-firefox-3-5-and-firefox-3-6/");

@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2013.0293");
   script_cve_id("CVE-2013-4288", "CVE-2013-4324", "CVE-2013-4325", "CVE-2013-4326", "CVE-2013-4327");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
 
@@ -23,12 +23,12 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2013-0293");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2013-0293.html");
+  script_xref(name:"URL", value:"http://www.ubuntu.com/usn/usn-1959-1/");
+  script_xref(name:"URL", value:"http://www.ubuntu.com/usn/usn-1961-1/");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=11260");
   script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2013-1270.html");
   script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2013-1273.html");
   script_xref(name:"URL", value:"https://rhn.redhat.com/errata/RHSA-2013-1274.html");
-  script_xref(name:"URL", value:"http://www.ubuntu.com/usn/usn-1959-1/");
-  script_xref(name:"URL", value:"http://www.ubuntu.com/usn/usn-1961-1/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'hplip, polkit, rtkit, spice-gtk, systemd' package(s) announced via the MGASA-2013-0293 advisory.");
 

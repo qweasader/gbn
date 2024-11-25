@@ -7,17 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.811964");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-02-16T14:37:06+0000");
   script_cve_id("CVE-2017-13808", "CVE-2017-13807", "CVE-2017-13815", "CVE-2017-13814",
                 "CVE-2017-13906", "CVE-2017-13834", "CVE-2017-9050", "CVE-2017-9049");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-16 14:37:06 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-11-27 17:46:00 +0000 (Mon, 27 Nov 2017)");
   script_tag(name:"creation_date", value:"2017-11-02 13:40:42 +0530 (Thu, 02 Nov 2017)");
-  script_name("Apple MacOSX Multiple Arbitrary Code Execution Vulnerabilities - 01 HT208221");
+  script_name("Apple Mac OS X Multiple Arbitrary Code Execution Vulnerabilities - 01 - (HT208221)");
 
   script_tag(name:"summary", value:"Apple Mac OS X is prone to multiple arbitrary code execution vulnerabilities.");
 

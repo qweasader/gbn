@@ -8,25 +8,30 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832747");
-  script_version("2023-12-20T12:22:41+0000");
-  script_cve_id("CVE-2023-42874", "CVE-2023-42919", "CVE-2023-42894", "CVE-2023-42901",
-                "CVE-2023-42902", "CVE-2023-42912", "CVE-2023-42903", "CVE-2023-42904",
-                "CVE-2023-42905", "CVE-2023-42906", "CVE-2023-42907", "CVE-2023-42908",
-                "CVE-2023-42909", "CVE-2023-42910", "CVE-2023-42911", "CVE-2023-42926",
-                "CVE-2023-42882", "CVE-2023-42881", "CVE-2023-42924", "CVE-2023-42884",
-                "CVE-2023-45866", "CVE-2023-42900", "CVE-2023-42886", "CVE-2023-42927",
-                "CVE-2023-42922", "CVE-2023-42898", "CVE-2023-42899", "CVE-2023-42891",
-                "CVE-2023-42914", "CVE-2020-19185", "CVE-2020-19186", "CVE-2020-19187",
-                "CVE-2020-19188", "CVE-2020-19189", "CVE-2020-19190", "CVE-2023-42842",
-                "CVE-2023-42932", "CVE-2023-5344", "CVE-2023-42890", "CVE-2023-42883");
+  script_version("2024-06-21T05:05:42+0000");
+  script_cve_id("CVE-2023-42874", "CVE-2023-42937", "CVE-2023-42919", "CVE-2023-42894",
+                "CVE-2023-42901", "CVE-2023-42902", "CVE-2023-42912", "CVE-2023-42903",
+                "CVE-2023-42904", "CVE-2023-42905", "CVE-2023-42906", "CVE-2023-42907",
+                "CVE-2023-42908", "CVE-2023-42909", "CVE-2023-42910", "CVE-2023-42911",
+                "CVE-2023-42926", "CVE-2023-42882", "CVE-2023-42881", "CVE-2023-42924",
+                "CVE-2023-42896", "CVE-2023-42884", "CVE-2023-45866", "CVE-2023-42900",
+                "CVE-2023-42886", "CVE-2023-38545", "CVE-2023-38039", "CVE-2023-38546",
+                "CVE-2023-42931", "CVE-2023-42892", "CVE-2023-42922", "CVE-2023-42898",
+                "CVE-2023-42899", "CVE-2023-42888", "CVE-2023-42891", "CVE-2023-42974",
+                "CVE-2023-42914", "CVE-2023-42893", "CVE-2023-3618", "CVE-2020-19185",
+                "CVE-2020-19186", "CVE-2020-19187", "CVE-2020-19188", "CVE-2020-19189",
+                "CVE-2020-19190", "CVE-2023-42887", "CVE-2023-42936", "CVE-2023-40390",
+                "CVE-2023-42842", "CVE-2023-42930", "CVE-2023-42913", "CVE-2023-42932",
+                "CVE-2023-42947", "CVE-2023-5344", "CVE-2023-42890", "CVE-2023-42883",
+                "CVE-2023-42950", "CVE-2023-42956");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-12-20 12:22:41 +0000 (Wed, 20 Dec 2023)");
-  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-12-13 19:14:00 +0000 (Wed, 13 Dec 2023)");
+  script_tag(name:"severity_date", value:"2023-10-25 13:24:03 +0000 (Wed, 25 Oct 2023)");
   script_tag(name:"creation_date", value:"2023-12-14 15:40:39 +0530 (Thu, 14 Dec 2023)");
-  script_name("Apple MacOSX Security Update (HT214036)");
+  script_name("Apple Mac OS X Security Update (HT214036)");
 
   script_tag(name:"summary", value:"Apple Mac OS X is prone to multiple
   vulnerabilities.");
@@ -42,9 +47,7 @@ if(description)
 
   - Improper input validation.
 
-  - Improper checks.
-
-  For more information about the vulnerabilities refer to Reference links.");
+  - Improper checks.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attackers
   to conduct spoofing, arbitrary code execution, information disclosure, and

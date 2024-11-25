@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.843008");
   script_cve_id("CVE-2016-4613", "CVE-2016-4657", "CVE-2016-4666", "CVE-2016-4707", "CVE-2016-4728", "CVE-2016-4733", "CVE-2016-4734", "CVE-2016-4735", "CVE-2016-4759", "CVE-2016-4760", "CVE-2016-4761", "CVE-2016-4762", "CVE-2016-4764", "CVE-2016-4765", "CVE-2016-4767", "CVE-2016-4768", "CVE-2016-4769", "CVE-2016-7578");
   script_tag(name:"creation_date", value:"2017-01-11 04:38:31 +0000 (Wed, 11 Jan 2017)");
-  script_version("2023-06-21T05:06:21+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:21 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-08-08T05:05:41+0000");
+  script_tag(name:"last_modification", value:"2024-08-08 05:05:41 +0000 (Thu, 08 Aug 2024)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2019-03-13 13:31:00 +0000 (Wed, 13 Mar 2019)");
+  script_tag(name:"severity_date", value:"2016-09-26 18:26:43 +0000 (Mon, 26 Sep 2016)");
 
   script_name("Ubuntu: Security Advisory (USN-3166-1)");
   script_category(ACT_GATHER_INFO);
@@ -43,6 +43,8 @@ attacks, and arbitrary code execution.");
 
   script_tag(name:"solution_type", value:"VendorFix");
   script_tag(name:"qod_type", value:"package");
+  script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
+  script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
 
   exit(0);
 }

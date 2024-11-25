@@ -9,8 +9,8 @@ CPE = "cpe:/a:wpovernight:woocommerce_pdf_invoices%26_packing_slips";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.126472");
-  script_version("2023-10-13T16:09:03+0000");
-  script_tag(name:"last_modification", value:"2023-10-13 16:09:03 +0000 (Fri, 13 Oct 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2023-07-28 08:56:14 +0000 (Fri, 28 Jul 2023)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:P/A:N");
@@ -33,8 +33,8 @@ if(description)
   script_dependencies("gb_wordpress_plugin_http_detect.nasl");
   script_mandatory_keys("wordpress/plugin/woocommerce-pdf-invoices-packing-slips/detected");
 
-  script_tag(name:"summary", value:"The WordPress plugin 'WooCommerce PDF Invoices & Packing Slips' is
-  prone to a cross site request forgery (CSRF) vulnerability.");
+  script_tag(name:"summary", value:"The WordPress plugin 'WooCommerce PDF Invoices & Packing Slips'
+  is prone to a cross-site request forgery (CSRF) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

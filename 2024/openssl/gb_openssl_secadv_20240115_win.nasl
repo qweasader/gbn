@@ -9,8 +9,8 @@ CPE = "cpe:/a:openssl:openssl";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.114277");
-  script_version("2024-01-16T05:05:27+0000");
-  script_tag(name:"last_modification", value:"2024-01-16 05:05:27 +0000 (Tue, 16 Jan 2024)");
+  script_version("2024-01-30T14:37:03+0000");
+  script_tag(name:"last_modification", value:"2024-01-30 14:37:03 +0000 (Tue, 30 Jan 2024)");
   script_tag(name:"creation_date", value:"2024-01-15 13:00:32 +0000 (Mon, 15 Jan 2024)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
@@ -19,7 +19,7 @@ if(description)
 
   script_tag(name:"qod_type", value:"remote_banner");
 
-  script_tag(name:"solution_type", value:"NoneAvailable");
+  script_tag(name:"solution_type", value:"VendorFix");
 
   script_name("OpenSSL DoS Vulnerability (20240115) - Windows");
 
@@ -38,12 +38,11 @@ if(description)
   check RSA public keys may experience long delays.");
 
   script_tag(name:"impact", value:"Where the key that is being checked has been obtained from an
-  untrusted source this may lead to a Denial of Service");
+  untrusted source this may lead to a DoS.");
 
   script_tag(name:"affected", value:"OpenSSL versions 3.0, 3.1 and 3.2.");
 
-  script_tag(name:"solution", value:"No known solution is available as of 15th January, 2024.
-  Information regarding this issue will be updated once solution details are available.");
+  script_tag(name:"solution", value:"Update to version 3.0.13, 3.1.5, 3.2.1 or later.");
 
   script_xref(name:"URL", value:"https://www.openssl.org/news/secadv/20240115.txt");
 
@@ -62,10 +61,22 @@ if (!infos = get_app_version_and_location(cpe: CPE, port: port, exit_no_version:
 version = infos["version"];
 location = infos["location"];
 
-if (version =~ "^3\.[0-2]") {
-  report = report_fixed_ver(installed_version: version, fixed_version: "None", install_path: location);
+if (version_in_range_exclusive(version: version, test_version_lo: "3.0.0", test_version_up: "3.0.13")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "3.0.13", install_path: location);
   security_message(port: port, data: report);
   exit(0);
 }
 
-exit(99); # nb: We can use exit(99); here since other versions like 0.9.8, 1.0.2 and 1.1.1 are not affected
+if (version_in_range_exclusive(version: version, test_version_lo: "3.1.0", test_version_up: "3.1.5")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "3.1.5", install_path: location);
+  security_message(port: port, data: report);
+  exit(0);
+}
+
+if (version_is_equal(version: version, test_version: "3.2.0")) {
+  report = report_fixed_ver(installed_version: version, fixed_version: "3.2.1", install_path: location);
+  security_message(port: port, data: report);
+  exit(0);
+}
+
+exit(99);

@@ -9,7 +9,7 @@ CPE = "cpe:/a:adobe:acrobat_reader_dc_continuous";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812568");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-12T05:05:32+0000");
   script_cve_id("CVE-2017-3011", "CVE-2017-3012", "CVE-2017-3013", "CVE-2017-3014",
                 "CVE-2017-3015", "CVE-2017-3018", "CVE-2017-3019", "CVE-2017-3020",
                 "CVE-2017-3021", "CVE-2017-3022", "CVE-2017-3024", "CVE-2017-3025",
@@ -24,12 +24,12 @@ if(description)
                 "CVE-2017-3041", "CVE-2017-3029", "CVE-2017-3053");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-12 05:05:32 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-07-11 01:33:00 +0000 (Tue, 11 Jul 2017)");
   script_tag(name:"creation_date", value:"2018-03-12 13:58:05 +0530 (Mon, 12 Mar 2018)");
-  script_name("Adobe Reader DC (Continuous Track) Security Updates (apsb17-11) - Windows");
+  script_name("Adobe Reader DC (Continuous Track) Security Updates (APSB17-11) - Windows");
 
   script_tag(name:"summary", value:"Adobe Reader DC (Continuous Track) is prone to multiple vulnerabilities.");
 

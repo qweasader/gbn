@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-CPE = 'cpe:/a:squirrelmail:squirrelmail';
+CPE = "cpe:/a:squirrelmail:squirrelmail";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.16228");
-  script_version("2023-08-01T13:29:10+0000");
-  script_tag(name:"last_modification", value:"2023-08-01 13:29:10 +0000 (Tue, 01 Aug 2023)");
+  script_version("2024-03-01T14:37:10+0000");
+  script_tag(name:"last_modification", value:"2024-03-01 14:37:10 +0000 (Fri, 01 Mar 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/12337");
   script_tag(name:"cvss_base", value:"7.5");
@@ -21,7 +21,6 @@ if(description)
   script_copyright("Copyright (C) 2005 George A. Theall");
   script_family("Web application abuses");
   script_dependencies("squirrelmail_detect.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("squirrelmail/installed");
 
   script_tag(name:"solution", value:"Upgrade to SquirrelMail 1.4.4 or later.");
@@ -52,8 +51,11 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( version_is_less( version:vers, test_version:"1.4.4" ) ) {
   report = report_fixed_ver( installed_version:vers, fixed_version:"1.4.4" );

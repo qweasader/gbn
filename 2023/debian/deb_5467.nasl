@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.1.1.2023.5467");
   script_cve_id("CVE-2023-4068", "CVE-2023-4069", "CVE-2023-4070", "CVE-2023-4071", "CVE-2023-4072", "CVE-2023-4073", "CVE-2023-4074", "CVE-2023-4075", "CVE-2023-4076", "CVE-2023-4077", "CVE-2023-4078");
   script_tag(name:"creation_date", value:"2023-08-07 04:25:42 +0000 (Mon, 07 Aug 2023)");
-  script_version("2024-01-12T16:12:11+0000");
-  script_tag(name:"last_modification", value:"2024-01-12 16:12:11 +0000 (Fri, 12 Jan 2024)");
+  script_version("2024-02-02T05:06:10+0000");
+  script_tag(name:"last_modification", value:"2024-02-02 05:06:10 +0000 (Fri, 02 Feb 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2023-08-05 04:15:00 +0000 (Sat, 05 Aug 2023)");
+  script_tag(name:"severity_date", value:"2023-08-04 17:18:54 +0000 (Fri, 04 Aug 2023)");
 
   script_name("Debian: Security Advisory (DSA-5467-1)");
   script_category(ACT_GATHER_INFO);

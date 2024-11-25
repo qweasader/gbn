@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2021.0092");
   script_cve_id("CVE-2021-22883", "CVE-2021-22884");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2021-07-20 23:15:00 +0000 (Tue, 20 Jul 2021)");
+  script_tag(name:"severity_date", value:"2021-03-18 17:47:12 +0000 (Thu, 18 Mar 2021)");
 
   script_name("Mageia: Security Advisory (MGASA-2021-0092)");
   script_category(ACT_GATHER_INFO);
@@ -28,9 +28,9 @@ if(description)
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2021-0092.html");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=28445");
   script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=28481");
-  script_xref(name:"URL", value:"https://nodejs.org/en/blog/vulnerability/february-2021-security-releases/");
   script_xref(name:"URL", value:"https://nodejs.org/en/blog/release/v10.24.0/");
   script_xref(name:"URL", value:"https://nodejs.org/en/blog/release/v14.16.0/");
+  script_xref(name:"URL", value:"https://nodejs.org/en/blog/vulnerability/february-2021-security-releases/");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'nodejs' package(s) announced via the MGASA-2021-0092 advisory.");
 

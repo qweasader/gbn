@@ -12,7 +12,7 @@ if (description)
   script_cve_id("CVE-2015-5380");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
-  script_version("2023-08-09T05:05:14+0000");
+  script_version("2024-05-29T05:05:18+0000");
 
   script_name("F5 BIG-IP - Node.js vulnerability CVE-2015-5380");
 
@@ -31,22 +31,22 @@ if (description)
   script_tag(name:"qod_type", value:"package");
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_tag(name:"last_modification", value:"2023-08-09 05:05:14 +0000 (Wed, 09 Aug 2023)");
+  script_tag(name:"last_modification", value:"2024-05-29 05:05:18 +0000 (Wed, 29 May 2024)");
   script_tag(name:"creation_date", value:"2015-09-18 14:31:27 +0200 (Fri, 18 Sep 2015)");
   script_category(ACT_GATHER_INFO);
   script_family("F5 Local Security Checks");
   script_copyright("Copyright (C) 2015 Greenbone AG");
-  script_dependencies("gb_f5_big_ip_version.nasl");
+  script_dependencies("gb_f5_big_ip_ssh_login_detect.nasl");
   script_mandatory_keys("f5/big_ip/version", "f5/big_ip/active_modules");
   exit(0);
 }
 
-include("version_func.inc");
+include("f5.inc");
 include("host_details.inc");
 include("list_array_func.inc");
-include("f5.inc");
+include("version_func.inc");
 
-if (!version = get_app_version(cpe: CPE))
+if (!version = get_app_version(cpe: CPE, service: "ssh-login"))
   exit(0);
 
 check_f5["LTM"] = make_array("affected",   "12.0.0;11.5.0-11.6.0;",

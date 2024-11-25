@@ -4,11 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-2.0-only
 
-if( description )
+CPE = "cpe:/a:redhat:jboss_operations_network";
+
+if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113020");
-  script_version("2023-07-14T16:09:27+0000");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_version("2024-02-28T14:37:42+0000");
+  script_tag(name:"last_modification", value:"2024-02-28 14:37:42 +0000 (Wed, 28 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-10-16 14:09:10 +0200 (Mon, 16 Oct 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -17,7 +19,7 @@ if( description )
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("JBoss Operations Network End of Life (EOL) Detection (Linux)");
+  script_name("JBoss Operations Network End of Life (EOL) Detection - Linux");
 
   script_category(ACT_GATHER_INFO);
 
@@ -26,32 +28,33 @@ if( description )
   script_dependencies("gb_jboss_on_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("jboss_on/installed", "Host/runs_unixoide");
 
-  script_tag(name:"summary", value:"The JBoss Operations Network version on the remote
-  host has reached the End of Life (EOL) and should not be used anymore.");
-
-  script_tag(name:"impact", value:"An EOL version of JBoss Operations Network is
-  not receiving any security updates from the vendor. Unfixed security vulnerabilities
-  might be leveraged by an attacker to compromise the security of this host.");
-
-  script_tag(name:"solution", value:"Update the JBoss Operations Network version on the
-  remote host to a still supported version.");
+  script_tag(name:"summary", value:"The JBoss Operations Network version on the remote host has
+  reached the end of life (EOL) and should not be used anymore.");
 
   script_tag(name:"vuldetect", value:"Checks if an EOL version is present on the target host.");
+
+  script_tag(name:"impact", value:"An EOL version of JBoss Operations Network is not receiving any
+  security updates from the vendor. Unfixed security vulnerabilities might be leveraged by an
+  attacker to compromise the security of this host.");
+
+  script_tag(name:"solution", value:"Update the JBoss Operations Network version on the remote host
+  to a still supported version.");
 
   script_xref(name:"URL", value:"https://access.redhat.com/support/policy/updates/jboss_notes/#Life_cycle_dates");
 
   exit(0);
 }
 
-CPE = "cpe:/a:redhat:jboss_operations_network";
-
 include("misc_func.inc");
 include("products_eol.inc");
 include("list_array_func.inc");
 include("host_details.inc");
 
-if( ! port = get_app_port( cpe: CPE ) ) exit( 0 );
-if( ! version = get_app_version( cpe: CPE, port: port ) ) exit( 0 );
+if( ! port = get_app_port( cpe: CPE ) )
+  exit( 0 );
+
+if( ! version = get_app_version( cpe: CPE, port: port ) )
+  exit( 0 );
 
 if( ret = product_reached_eol( cpe: CPE, version: version ) ) {
   report = build_eol_message( name: "JBoss Operations Network",

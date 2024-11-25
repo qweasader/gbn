@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805188");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-09-30T08:38:05+0000");
   script_cve_id("CVE-2015-4000");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-09-30 08:38:05 +0000 (Mon, 30 Sep 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2021-01-20 15:15:00 +0000 (Wed, 20 Jan 2021)");
@@ -20,8 +20,8 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("SSL and TLS");
-  script_dependencies("secpod_ssl_ciphers.nasl");
-  script_mandatory_keys("secpod_ssl_ciphers/supported_ciphers", "ssl_tls/port");
+  script_dependencies("gb_ssl_tls_ciphers_gathering.nasl");
+  script_mandatory_keys("ssl_tls/ciphers/supported_ciphers", "ssl_tls/port");
 
   script_xref(name:"URL", value:"https://weakdh.org");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/74733");
@@ -60,6 +60,7 @@ if(description)
 }
 
 include("ssl_funcs.inc");
+include("host_details.inc");
 
 cipherText = "'DHE_EXPORT' cipher suites";
 
@@ -70,7 +71,7 @@ if( ! sup_ssl = get_kb_item( "tls/supported/" + port ) )
   exit( 0 );
 
 if( "SSLv3" >< sup_ssl ) {
-  sslv3CipherList = get_kb_list( "secpod_ssl_ciphers/sslv3/" + port + "/supported_ciphers" );
+  sslv3CipherList = get_kb_list( "ssl_tls/ciphers/sslv3/" + port + "/supported_ciphers" );
 
   if( ! isnull( sslv3CipherList ) ) {
 
@@ -91,7 +92,7 @@ if( "SSLv3" >< sup_ssl ) {
 }
 
 if( "TLSv1.0" >< sup_ssl ) {
-  tlsv1_0CipherList = get_kb_list( "secpod_ssl_ciphers/tlsv1/" + port + "/supported_ciphers" );
+  tlsv1_0CipherList = get_kb_list( "ssl_tls/ciphers/tlsv1/" + port + "/supported_ciphers" );
 
   if( ! isnull( tlsv1_0CipherList ) ) {
 
@@ -112,7 +113,7 @@ if( "TLSv1.0" >< sup_ssl ) {
 }
 
 if( "TLSv1.1" >< sup_ssl ) {
-  tlsv1_1CipherList = get_kb_list( "secpod_ssl_ciphers/tlsv1_1/" + port + "/supported_ciphers" );
+  tlsv1_1CipherList = get_kb_list( "ssl_tls/ciphers/tlsv1_1/" + port + "/supported_ciphers" );
 
   if( ! isnull( tlsv1_1CipherList ) ) {
 
@@ -133,7 +134,7 @@ if( "TLSv1.1" >< sup_ssl ) {
 }
 
 if( "TLSv1.2" >< sup_ssl ) {
-  tlsv1_2CipherList = get_kb_list( "secpod_ssl_ciphers/tlsv1_2/" + port + "/supported_ciphers" );
+  tlsv1_2CipherList = get_kb_list( "ssl_tls/ciphers/tlsv1_2/" + port + "/supported_ciphers" );
 
   if( ! isnull( tlsv1_2CipherList ) ) {
 
@@ -154,6 +155,14 @@ if( "TLSv1.2" >< sup_ssl ) {
 }
 
 if( report ) {
+
+  # nb:
+  # - Store the reference from this one to gb_ssl_tls_ciphers_report.nasl to show a cross-reference within the
+  #   reports
+  # - We don't want to use get_app_* functions as we're only interested in the cross-reference here
+  register_host_detail( name:"detected_by", value:"1.3.6.1.4.1.25623.1.0.802067" ); # gb_ssl_tls_ciphers_report.nasl
+  register_host_detail( name:"detected_at", value:port + "/tcp" );
+
   security_message( port:port, data:report );
   exit( 0 );
 }

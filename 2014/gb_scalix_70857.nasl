@@ -12,7 +12,7 @@ if(description)
   script_cve_id("CVE-2014-9352", "CVE-2014-9360");
   script_tag(name:"cvss_base", value:"6.4");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:N");
-  script_version("2023-05-16T09:08:27+0000");
+  script_version("2024-06-28T15:38:46+0000");
 
   script_name("Scalix Web Access <= 11.4.6.12377, 12.x <= 12.2.0.14697 XXE and XSS Vulnerability");
 
@@ -31,13 +31,13 @@ if(description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_tag(name:"summary", value:"Scalix Web Access is prone to an XML External Entity (XXE)
+  script_tag(name:"summary", value:"Scalix Web Access is prone to an XML external entity (XXE)
   injection and to a cross-site scripting (XSS) vulnerability.");
 
   script_tag(name:"affected", value:"Scalix Web Access versions 11.4.6.12377 and 12.2.0.14697 are
   vulnerable. Older versions might be affected as well.");
 
-  script_tag(name:"last_modification", value:"2023-05-16 09:08:27 +0000 (Tue, 16 May 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-11-03 14:30:39 +0100 (Mon, 03 Nov 2014)");
   script_category(ACT_GATHER_INFO);
   script_tag(name:"qod_type", value:"remote_banner");

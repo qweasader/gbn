@@ -12,16 +12,19 @@ if (description)
   script_cve_id("CVE-2007-3010");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-07-04T05:05:37+0000");
 
-  script_name("Alcatel-Lucent OmniPCX Enterprise Remote Command Execution Vulnerability");
+  script_name("Alcatel-Lucent OmniPCX Enterprise RCE Vulnerability");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/25694");
   script_xref(name:"URL", value:"http://www1.alcatel-lucent.com/enterprise/en/products/ip_telephony/omnipcxenterprise/index.html");
   script_xref(name:"URL", value:"http://www.securityfocus.com/archive/1/479699");
   script_xref(name:"URL", value:"http://www1.alcatel-lucent.com/psirt/statements/2007002/OXEUMT.htm");
 
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-04 05:05:37 +0000 (Thu, 04 Jul 2024)");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-07-02 17:43:30 +0000 (Tue, 02 Jul 2024)");
   script_tag(name:"creation_date", value:"2012-04-26 13:55:46 +0200 (Thu, 26 Apr 2012)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_vul");

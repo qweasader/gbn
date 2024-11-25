@@ -9,13 +9,13 @@ CPE = "cpe:/a:pandasecurity:panda_internet_security_2014";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.804907");
-  script_version("2023-07-26T05:05:09+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2014-5307");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-26 05:05:09 +0000 (Wed, 26 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2014-09-23 09:57:00 +0530 (Tue, 23 Sep 2014)");
-  script_name("Panda Internet Security Heap Based Buffer Overflow Sept14");
+  script_name("Panda Internet Security Heap Based Buffer Overflow (Sep 2014)");
 
   script_tag(name:"summary", value:"Panda Internet Security is prone to heap based buffer overflow vulnerability.");
 

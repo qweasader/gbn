@@ -1,37 +1,23 @@
-# Copyright (C) 2010 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2010 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:ibm:db2";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.902174");
-  script_version("2021-09-01T09:31:49+0000");
-  script_tag(name:"last_modification", value:"2021-09-01 09:31:49 +0000 (Wed, 01 Sep 2021)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-04-30 15:20:35 +0200 (Fri, 30 Apr 2010)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
 
   script_cve_id("CVE-2010-1560");
 
-  script_name("IBM Db2 REPEAT Buffer Overflow and TLS Renegotiation Vulnerabilities (Linux)");
+  script_name("IBM Db2 REPEAT Buffer Overflow and TLS Renegotiation Vulnerabilities - Linux");
 
   script_xref(name:"URL", value:"http://secunia.com/advisories/39500");
   script_xref(name:"URL", value:"http://www.vupen.com/english/advisories/2010/0982");
@@ -40,7 +26,7 @@ if(description)
   script_xref(name:"URL", value:"http://www-01.ibm.com/support/docview.wss?rs=71&uid=swg27007053");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2010 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2010 Greenbone AG");
   script_family("Databases");
   script_dependencies("gb_ibm_db2_consolidation.nasl", "os_detection.nasl");
   script_mandatory_keys("ibm/db2/detected", "Host/runs_unixoide");

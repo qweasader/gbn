@@ -9,11 +9,11 @@ CPE = "cpe:/a:mongodb:mongodb";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805502");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2015-1609");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:P");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"creation_date", value:"2015-03-12 15:36:05 +0530 (Thu, 12 Mar 2015)");
   script_name("MongoDB BSON Message Handling Remote Denial-of-Service Vulnerability");
 
@@ -42,50 +42,45 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_family("Databases");
   script_dependencies("gb_mongodb_detect.nasl", "os_detection.nasl");
-  script_require_ports("Services/mongodb", 27017);
   script_mandatory_keys("mongodb/installed", "Host/runs_windows");
+
   exit(0);
 }
 
 include("version_func.inc");
 include("host_details.inc");
 
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
 
-if(!mongodbPort = get_app_port(cpe:CPE)) exit(0);
-
-if(!ver = get_app_version(cpe:CPE, port:mongodbPort)) exit(0);
+if(!ver = get_app_version(cpe:CPE, port:port))
+  exit(0);
 
 ##Replace '-' by '.' in version
-if("-rc" >< ver){
- mongodbversion = ereg_replace(pattern:"-", replace:".", string:ver);
-}
+if("-rc" >< ver)
+  version = ereg_replace(pattern:"-", replace:".", string:ver);
 
-if(mongodbversion)
-{
-  if(version_in_range(version:mongodbversion, test_version:"2.6", test_version2:"2.6.7"))
-  {
+if(version) {
+  if(version_in_range(version:version, test_version:"2.6", test_version2:"2.6.7")) {
     fix = "2.6.8";
-    VULN = TRUE ;
+    VULN = TRUE;
   }
 
-  else if(version_in_range(version:mongodbversion, test_version:"2.4", test_version2:"2.4.12"))
-  {
+  else if(version_in_range(version:version, test_version:"2.4", test_version2:"2.4.12")) {
     fix = "2.4.13";
-    VULN = TRUE ;
+    VULN = TRUE;
   }
 
-  else if(version_is_equal(version:mongodbversion, test_version:"3.0.0.rc8"))
-  {
+  else if(version_is_equal(version:version, test_version:"3.0.0.rc8")) {
     fix = "3.0.0.rc9";
-    VULN = TRUE ;
+    VULN = TRUE;
   }
 
-  if(VULN)
-  {
-    report = report_fixed_ver(installed_version:mongodbversion, fixed_version:fix);
-    {
-      security_message(data:report, port:mongodbPort);
-      exit(0);
-    }
+  if(VULN) {
+    report = report_fixed_ver(installed_version:version, fixed_version:fix);
+    security_message(data:report, port:port);
+    exit(0);
   }
 }
+
+exit(99);

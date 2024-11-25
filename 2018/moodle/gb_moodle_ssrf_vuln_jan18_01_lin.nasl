@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112274");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-06-27T05:05:29+0000");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-05-09 13:17:32 +0200 (Wed, 09 May 2018)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:N/A:N");
@@ -22,7 +22,7 @@ if( description )
 
   script_cve_id("CVE-2018-1042");
 
-  script_name("Moodle 3.x Server Side Request Forgery Vulnerability - Jan'18 (Linux)");
+  script_name("Moodle 3.x SSRF Vulnerability (Jan 2018) - Linux");
 
   script_category(ACT_GATHER_INFO);
 
@@ -31,12 +31,20 @@ if( description )
   script_dependencies("gb_moodle_cms_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("moodle/detected", "Host/runs_unixoide");
 
-  script_tag(name:"summary", value:"Moodle is prone to a server side request forgery vulnerability.");
+  script_tag(name:"summary", value:"Moodle is prone to a server-side request forgery (SSRF)
+  vulnerability.");
+
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
-  script_tag(name:"insight", value:"By substituting the source URL in the filepicker AJAX request authenticated users are able
-  to retrieve and view any URL. We classify this issue as serious because some cloud hosting providers contain internal resources that can expose data and compromise a server.");
-  script_tag(name:"affected", value:"Moodle versions 3.4, 3.3 to 3.3.3, 3.2 to 3.2.6, 3.1 to 3.1.9 and earlier.");
-  script_tag(name:"solution", value:"Update to version 3.4.1, 3.3.4, 3.2.7 or 3.1.10 respectively.");
+
+  script_tag(name:"insight", value:"By substituting the source URL in the filepicker AJAX request
+  authenticated users are able to retrieve and view any URL. We classify this issue as serious
+  because some cloud hosting providers contain internal resources that can expose data and
+  compromise a server.");
+
+  script_tag(name:"affected", value:"Moodle versions 3.4, 3.3 to 3.3.3, 3.2 to 3.2.6, 3.1 to 3.1.9
+  and earlier.");
+
+  script_tag(name:"solution", value:"Update to version 3.4.1, 3.3.4, 3.2.7, 3.1.10 or later.");
 
   script_xref(name:"URL", value:"https://moodle.org/mod/forum/discuss.php?d=364381");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/102752");
@@ -49,10 +57,14 @@ CPE = "cpe:/a:moodle:moodle";
 include( "host_details.inc" );
 include( "version_func.inc" );
 
-if( ! port = get_app_port( cpe: CPE ) ) exit( 0 );
-if( ! infos = get_app_version_and_location( port: port, cpe:CPE, exit_no_version:TRUE ) ) exit( 0 );
-version = infos['version'];
-path = infos['location'];
+if( ! port = get_app_port( cpe: CPE ) )
+  exit( 0 );
+
+if( ! infos = get_app_version_and_location( port: port, cpe:CPE, exit_no_version:TRUE ) )
+  exit( 0 );
+
+version = infos["version"];
+path = infos["location"];
 
 if( version_is_less( version: version, test_version: "3.1.10" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "3.1.10", install_path: path );
@@ -78,4 +90,4 @@ if( version_is_equal( version: version, test_version: "3.4.0" ) ) {
   exit( 0 );
 }
 
-exit( 0 );
+exit( 99 );

@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113282");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-07-19T05:05:32+0000");
+  script_tag(name:"last_modification", value:"2024-07-19 05:05:32 +0000 (Fri, 19 Jul 2024)");
   script_tag(name:"creation_date", value:"2018-10-30 15:32:24 +0200 (Tue, 30 Oct 2018)");
   script_tag(name:"cvss_base", value:"7.2");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:C/I:C/A:C");
@@ -19,13 +19,13 @@ if(description)
 
   script_cve_id("CVE-2007-6600", "CVE-2007-4772", "CVE-2007-6067", "CVE-2007-4769", "CVE-2007-6601");
 
-  script_name("PostgreSQL 7.4 < 7.4.19, 8.0 < 8.0.15, 8.1 < 8.1.11, 8.2 < 8.2.6 Multiple Vulnerabilities (Linux)");
+  script_name("PostgreSQL 7.4 < 7.4.19, 8.0 < 8.0.15, 8.1 < 8.1.11, 8.2 < 8.2.6 Multiple Vulnerabilities - Linux");
 
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Denial of Service");
-  script_dependencies("postgresql_detect.nasl", "secpod_postgresql_detect_lin.nasl", "secpod_postgresql_detect_win.nasl", "os_detection.nasl");
+  script_dependencies("gb_postgresql_consolidation.nasl", "os_detection.nasl");
   script_mandatory_keys("postgresql/detected", "Host/runs_unixoide");
 
   script_tag(name:"summary", value:"PostgreSQL is prone to multiple Privilege Escalation and Denial of Service (DoS)

@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801327");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-15T05:05:39+0000");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:39 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-05-05 15:59:12 +0200 (Wed, 05 May 2010)");
   script_cve_id("CVE-2010-1608");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_name("IBM Lotus Notes Buffer Overflow Vulnerability (Windows)");
+  script_name("IBM Lotus Notes Buffer Overflow Vulnerability - Windows");
   script_xref(name:"URL", value:"http://secunia.com/advisories/38622");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/38300");
   script_xref(name:"URL", value:"https://forum.immunityinc.com/board/thread/1161/vulndisco-9-0/");

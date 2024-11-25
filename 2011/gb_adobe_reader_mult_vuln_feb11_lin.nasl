@@ -8,7 +8,7 @@ CPE = "cpe:/a:adobe:acrobat_reader";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801845");
-  script_version("2023-07-28T05:05:23+0000");
+  script_version("2024-02-20T14:37:13+0000");
   script_cve_id("CVE-2010-4091", "CVE-2011-0562", "CVE-2011-0563",
                 "CVE-2011-0564", "CVE-2011-0565", "CVE-2011-0566",
                 "CVE-2011-0567", "CVE-2011-0568", "CVE-2011-0570",
@@ -21,9 +21,9 @@ if(description)
                 "CVE-2011-0605", "CVE-2011-0606");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-28 05:05:23 +0000 (Fri, 28 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 14:37:13 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2011-02-15 08:14:35 +0100 (Tue, 15 Feb 2011)");
-  script_name("Adobe Reader Multiple Vulnerabilities February-2011 (Linux)");
+  script_name("Adobe Reader Multiple Vulnerabilities (Feb 2011) - Linux");
 
 
   script_tag(name:"summary", value:"Adobe Reader is prone to multiple vulnerabilities.");

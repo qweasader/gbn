@@ -9,8 +9,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.63897");
   script_cve_id("CVE-2009-1300");
   script_tag(name:"creation_date", value:"2009-04-28 18:40:12 +0000 (Tue, 28 Apr 2009)");
-  script_version("2023-06-21T05:06:20+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:20 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-10-23T05:05:58+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:58 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
 
@@ -23,7 +23,6 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"USN-762-1");
   script_xref(name:"URL", value:"https://ubuntu.com/security/notices/USN-762-1");
-  script_xref(name:"URL", value:"https://launchpad.net/bugs/356012");
   script_xref(name:"URL", value:"https://launchpad.net/bugs/356012");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'apt' package(s) announced via the USN-762-1 advisory.");

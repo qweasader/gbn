@@ -9,8 +9,8 @@ CPE = "cpe:/a:nextcloud:nextcloud_server";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.124444");
-  script_version("2023-10-31T05:06:37+0000");
-  script_tag(name:"last_modification", value:"2023-10-31 05:06:37 +0000 (Tue, 31 Oct 2023)");
+  script_version("2024-11-22T15:40:47+0000");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"creation_date", value:"2023-10-16 08:53:11 +0000 (Mon, 16 Oct 2023)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:N/A:N");
@@ -24,7 +24,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("Nextcloud Server < 22.2.10.14, 23.x < 23.0.12.9, 24.x < 24.0.12.5 25.x < 25.0.9, 26.x < 26.0.4 Improper Access Control Vulnerability (GHSA-2hrc-5fgp-c9c9)");
+  script_name("Nextcloud Server < 22.2.10.14, 23.x < 23.0.12.9, 24.x < 24.0.12.5, 25.x < 25.0.9, 26.x < 26.0.4 Improper Access Control Vulnerability (GHSA-2hrc-5fgp-c9c9)");
 
   script_category(ACT_GATHER_INFO);
 

@@ -12,14 +12,14 @@ if(description)
   script_cve_id("CVE-2012-4667");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
-  script_version("2023-10-27T05:05:28+0000");
+  script_version("2024-06-27T05:05:29+0000");
 
-  script_name("SquidClamav Multiple Cross Site Scripting Vulnerabilities");
+  script_name("SquidClamav Multiple XSS Vulnerabilities");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/55293");
   script_xref(name:"URL", value:"http://squidclamav.darold.net/news.html");
 
-  script_tag(name:"last_modification", value:"2023-10-27 05:05:28 +0000 (Fri, 27 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-06-27 05:05:29 +0000 (Thu, 27 Jun 2024)");
   script_tag(name:"creation_date", value:"2012-09-17 11:57:49 +0200 (Mon, 17 Sep 2012)");
   script_category(ACT_ATTACK);
   script_tag(name:"qod_type", value:"remote_analysis");

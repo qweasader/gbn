@@ -9,8 +9,8 @@ CPE = "cpe:/a:givewp:givewp";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127672");
-  script_version("2024-01-22T05:07:31+0000");
-  script_tag(name:"last_modification", value:"2024-01-22 05:07:31 +0000 (Mon, 22 Jan 2024)");
+  script_version("2024-10-31T05:05:48+0000");
+  script_tag(name:"last_modification", value:"2024-10-31 05:05:48 +0000 (Thu, 31 Oct 2024)");
   script_tag(name:"creation_date", value:"2024-01-02 09:10:45 +0000 (Tue, 02 Jan 2024)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -44,7 +44,7 @@ if (description)
   script_tag(name:"insight", value:"Deserialization of untrusted input via the $output['main_key']
   value.");
 
-  script_tag(name:"affected", value:"WordPress GiveWP prior to version 2.26.0.");
+  script_tag(name:"affected", value:"WordPress GiveWP plugin prior to version 2.26.0.");
 
   script_tag(name:"solution", value:"Update to version 2.26.0 or later.");
 

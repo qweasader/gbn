@@ -9,9 +9,9 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.0.105090");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:P/A:N");
-  script_version("2023-07-27T05:05:09+0000");
+  script_version("2024-06-28T15:38:46+0000");
 
-  script_name("SolarWinds Storage Manager AuthenticationFilter Remote Code Execution Vulnerability");
+  script_name("SolarWinds Storage Manager AuthenticationFilter RCE Vulnerability");
   script_xref(name:"URL", value:"http://www.zerodayinitiative.com/advisories/ZDI-14-299/");
 
   script_tag(name:"impact", value:"This may allow a remote attacker to subvert
@@ -25,11 +25,12 @@ in the AuthenticationFilter class.");
 
   script_tag(name:"solution", value:"Update to 5.7.2 or higher.");
   script_tag(name:"solution_type", value:"VendorFix");
-  script_tag(name:"summary", value:"SolarWinds Storage Manager is prone to a remote code execution vulnerability");
+  script_tag(name:"summary", value:"SolarWinds Storage Manager is prone to a remote code execution
+  (RCE) vulnerability.");
 
   script_tag(name:"affected", value:"Storage Manager Server before 5.7.2 is vulnerable.");
 
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:09 +0000 (Thu, 27 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2014-09-16 15:55:12 +0200 (Tue, 16 Sep 2014)");
   script_category(ACT_ATTACK);
   script_family("Web application abuses");

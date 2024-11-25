@@ -7,14 +7,17 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.865518");
-  script_version("2023-06-21T05:06:23+0000");
-  script_tag(name:"last_modification", value:"2023-06-21 05:06:23 +0000 (Wed, 21 Jun 2023)");
+  script_version("2024-02-16T05:06:55+0000");
+  script_tag(name:"last_modification", value:"2024-02-16 05:06:55 +0000 (Fri, 16 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-04-05 13:43:15 +0530 (Fri, 05 Apr 2013)");
   script_cve_id("CVE-2012-3363", "CVE-2013-1830", "CVE-2013-1831", "CVE-2013-1832",
                 "CVE-2013-1833", "CVE-2013-1834", "CVE-2013-1835", "CVE-2013-1836",
                 "CVE-2012-6087");
   script_tag(name:"cvss_base", value:"6.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:P/I:P/A:P");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-02-15 03:20:09 +0000 (Thu, 15 Feb 2024)");
   script_name("Fedora Update for moodle FEDORA-2013-4404");
   script_xref(name:"FEDORA", value:"2013-4404");
   script_xref(name:"URL", value:"http://lists.fedoraproject.org/pipermail/package-announce/2013-April/101310.html");

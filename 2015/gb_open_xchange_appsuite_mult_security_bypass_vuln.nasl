@@ -1,33 +1,19 @@
-# Copyright (C) 2015 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2015 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:open-xchange:open-xchange_appsuite";
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.806073");
-  script_version("2022-12-12T10:22:32+0000");
+  script_version("2024-06-28T05:05:33+0000");
   script_cve_id("CVE-2014-2391", "CVE-2014-2392");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2022-12-12 10:22:32 +0000 (Mon, 12 Dec 2022)");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2015-10-06 12:24:33 +0530 (Tue, 06 Oct 2015)");
   script_tag(name:"qod_type", value:"remote_banner");
   script_name("Open-Xchange (OX) App Suite Multiple Security Bypass Vulnerabilities (Oct 2015)");
@@ -41,7 +27,7 @@ if(description)
   properly.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attackers
-  to obtain potentially useful password-pattern information .");
+  to obtain potentially useful password-pattern information.");
 
   script_tag(name:"affected", value:"Open-Xchange (OX) App Suite versions before
   7.2.2-rev20, 7.4.1 before 7.4.1-rev11, and 7.4.2 before 7.4.2-rev13");
@@ -54,7 +40,7 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/archive/1/531762");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2015 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2015 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_open-xchange_ox_app_suite_http_detect.nasl");
   script_mandatory_keys("open-xchange/app_suite/detected");

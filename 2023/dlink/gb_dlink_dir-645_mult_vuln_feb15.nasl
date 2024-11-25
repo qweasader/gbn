@@ -9,11 +9,14 @@ CPE = "cpe:/o:dlink:dir-645_firmware";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170315");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-10-16T08:00:45+0000");
+  script_tag(name:"last_modification", value:"2024-10-16 08:00:45 +0000 (Wed, 16 Oct 2024)");
   script_tag(name:"creation_date", value:"2023-02-22 19:26:41 +0000 (Wed, 22 Feb 2023)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_origin", value:"NVD");
+  script_tag(name:"severity_date", value:"2024-07-24 16:05:08 +0000 (Wed, 24 Jul 2024)");
 
   script_tag(name:"qod_type", value:"remote_banner");
 
@@ -35,7 +38,7 @@ if(description)
   script_tag(name:"summary", value:"D-Link DIR-645 Rev. A devices are prone to multiple
   vulnerabilities.");
 
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if the target host is a vulnerable device.");
 
   script_tag(name:"insight", value:"The following vulnerabilities exist:
 

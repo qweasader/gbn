@@ -39,7 +39,8 @@ function get_ricoh_detect_urls() {
   ricoh_detect_urls = make_array();
 
   ricoh_detect_urls["/machinei.asp?Lang=en-us"]                      = 'class="modelName">([^<]+)<';                           # class="modelName">SP C250DN</td>
-  ricoh_detect_urls["/web/guest/en/websys/status/configuration.cgi"] = ">Model Name<[^:]+:<[^<]+<td nowrap>((Aficio )?[^<]+)"; # >Model Name</td><td nowrap>:</td><td nowrap>Aficio MP C3501</td>
+  ricoh_detect_urls["/"]                                             = "/web/guest/([a-z]{2})/websys/webArch/mainFrame.cgi";   # /web/guest/fr/websys/webArch/mainFrame.cgi
+  ricoh_detect_urls["/general/information.html"]                     = "<title>RICOH ([ A-Z0-9-]+)</title>";                   # <title>RICOH SP 230DNw</title>
 
   return ricoh_detect_urls;
 }

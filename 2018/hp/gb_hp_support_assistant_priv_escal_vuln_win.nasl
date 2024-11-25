@@ -9,16 +9,16 @@ CPE = "cpe:/a:hp:support_solution_framework";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812945");
-  script_version("2023-07-14T16:09:27+0000");
+  script_version("2024-11-22T15:40:47+0000");
   script_cve_id("CVE-2017-2744");
   script_tag(name:"cvss_base", value:"2.1");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-14 16:09:27 +0000 (Fri, 14 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-11-22 15:40:47 +0000 (Fri, 22 Nov 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-02-09 18:13:00 +0000 (Fri, 09 Feb 2018)");
   script_tag(name:"creation_date", value:"2018-02-23 11:48:49 +0530 (Fri, 23 Feb 2018)");
-  script_name("HP Support Assistant Privilege Escalation Vulnerability (Windows)");
+  script_name("HP Support Assistant Privilege Escalation Vulnerability - Windows");
 
   script_tag(name:"summary", value:"HP Support Assistant is prone to a privilege escalation vulnerability.");
 
@@ -42,7 +42,7 @@ if(description)
   script_xref(name:"URL", value:"https://support.hp.com/us-en/document/c05648974");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
-  script_family("General");
+  script_family("Privilege escalation");
   script_dependencies("gb_hp_support_assistant_detect.nasl");
   script_mandatory_keys("HP/Support/Assistant/Win/Ver", "HP/Support/Assistant/FW/Win/Ver");
 

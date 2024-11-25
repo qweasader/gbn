@@ -7,13 +7,13 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.801482");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-02-26T14:36:40+0000");
+  script_tag(name:"last_modification", value:"2024-02-26 14:36:40 +0000 (Mon, 26 Feb 2024)");
   script_tag(name:"creation_date", value:"2010-12-13 14:33:55 +0100 (Mon, 13 Dec 2010)");
   script_cve_id("CVE-2009-1536");
   script_tag(name:"cvss_base", value:"2.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:N/I:N/A:P");
-  script_name("Microsoft Windows ASP.NET Denial of Service Vulnerability(970957)");
+  script_name("Microsoft Windows ASP.NET Denial of Service Vulnerability (970957)");
   script_xref(name:"URL", value:"http://www.vupen.com/english/advisories/2009/2231");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/35985");
   script_xref(name:"URL", value:"https://docs.microsoft.com/en-us/security-updates/securitybulletins/2009/ms09-036");
@@ -42,7 +42,6 @@ if(description)
   Microsoft Bulletin MS09-036.");
   exit(0);
 }
-
 
 include("smb_nt.inc");
 include("secpod_reg.inc");

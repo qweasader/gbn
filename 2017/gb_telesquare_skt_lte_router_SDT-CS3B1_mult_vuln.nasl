@@ -9,10 +9,10 @@ CPE = "cpe:/h:telesquare:sdt-cs3b1";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.812367");
-  script_version("2023-07-25T05:05:58+0000");
+  script_version("2024-10-10T07:25:31+0000");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"creation_date", value:"2017-12-28 11:04:35 +0530 (Thu, 28 Dec 2017)");
   script_name("Telesquare SKT LTE Router SDT-CS3B1 Multiple Vulnerabilities");
 
@@ -25,7 +25,7 @@ if(description)
 
   - Application provides direct access to objects based on user-supplied input.
 
-  - Application allows unauthenticated user to execute reboot command .
+  - Application allows unauthenticated user to execute reboot command.
 
   - Application interface allows users to perform certain actions via HTTP
     requests without performing any validity checks to verify the requests.");

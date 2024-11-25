@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.14251");
-  script_version("2023-08-03T05:05:16+0000");
-  script_tag(name:"last_modification", value:"2023-08-03 05:05:16 +0000 (Thu, 03 Aug 2023)");
+  script_version("2024-02-09T14:47:30+0000");
+  script_tag(name:"last_modification", value:"2024-02-09 14:47:30 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2005-11-03 14:08:04 +0100 (Thu, 03 Nov 2005)");
   script_xref(name:"OSVDB", value:"7098");
   script_cve_id("CVE-2003-1011");
@@ -47,7 +47,7 @@ packages = get_kb_item("ssh/login/osx_pkgs");
 if ( ! packages ) exit(0);
 
 uname = get_kb_item("ssh/login/uname");
-# MacOS X 10.2.8 and 10.3.2 only
+# Mac OS X 10.2.8 and 10.3.2 only
 if ( egrep(pattern:"Darwin.* (6\.8\.|7\.2\.)", string:uname) )
 {
   if ( ! egrep(pattern:"^SecUpd2003-12-19", string:packages) )

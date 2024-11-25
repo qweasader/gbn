@@ -9,8 +9,8 @@ CPE = "cpe:/a:limesurvey:limesurvey";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.127025");
-  script_version("2023-06-01T09:09:48+0000");
-  script_tag(name:"last_modification", value:"2023-06-01 09:09:48 +0000 (Thu, 01 Jun 2023)");
+  script_version("2024-07-16T05:05:43+0000");
+  script_tag(name:"last_modification", value:"2024-07-16 05:05:43 +0000 (Tue, 16 Jul 2024)");
   script_tag(name:"creation_date", value:"2022-05-30 12:26:46 +0000 (Mon, 30 May 2022)");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
@@ -31,7 +31,7 @@ if(description)
   script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("secpod_limesurvey_detect.nasl");
-  script_mandatory_keys("limesurvey/installed");
+  script_mandatory_keys("limesurvey/http/detected");
 
   script_tag(name:"summary", value:"LimeSurvey is prone to a remote code execution (RCE) vulnerability.");
 
@@ -40,7 +40,7 @@ if(description)
   script_tag(name:"impact", value:"Successful exploitation allows an attacker to upload
   an arbitrary PHP code file via the upload and install plugins function.");
 
-  script_tag(name:"affected", value:"LimeSurvey through version 5.2.4.");
+  script_tag(name:"affected", value:"LimeSurvey version 5.2.4 and prior.");
 
   script_tag(name:"solution", value:"No known solution was made available for at least one year since
   the disclosure of this vulnerability. Likely none will be provided anymore. General solution options

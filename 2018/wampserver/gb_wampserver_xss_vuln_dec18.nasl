@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112471");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-09-25T05:06:11+0000");
+  script_tag(name:"last_modification", value:"2024-09-25 05:06:11 +0000 (Wed, 25 Sep 2024)");
   script_tag(name:"creation_date", value:"2018-12-21 15:57:10 +0100 (Fri, 21 Dec 2018)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -32,7 +32,7 @@ if( description )
   script_mandatory_keys("wampserver/installed");
 
   script_tag(name:"summary", value:"WampServer is prone to an XSS vulnerability.");
-  script_tag(name:"vuldetect", value:"The script checks if a vulnerable version is present on the target host.");
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
   script_tag(name:"impact", value:"Successful exploitation would allow an attacker to create a crafted link to
   inject arbitrary HTML and JavaScript into the target website.");
   script_tag(name:"affected", value:"WampServer before version 3.1.5.");

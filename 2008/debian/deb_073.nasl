@@ -8,8 +8,8 @@ if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.53823");
   script_cve_id("CVE-2001-1257", "CVE-2001-1258", "CVE-2001-1370");
-  script_version("2023-07-19T05:05:15+0000");
-  script_tag(name:"last_modification", value:"2023-07-19 05:05:15 +0000 (Wed, 19 Jul 2023)");
+  script_version("2024-10-10T07:25:31+0000");
+  script_tag(name:"last_modification", value:"2024-10-10 07:25:31 +0000 (Thu, 10 Oct 2024)");
   script_tag(name:"creation_date", value:"2008-01-17 14:24:38 +0100 (Thu, 17 Jan 2008)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -45,7 +45,7 @@ believe this is remotely exploitable directly through Apache/PHP/IMP.
 However, shell access to the server or other means (e.g., FTP) could
 be used to create this file.
 
-This has been fixed in version 2:2.2.6-0.potato.1 . Please note you
+This has been fixed in version 2:2.2.6-0.potato.1. Please note you
 will also need to upgrade the horde package to the same version.");
   script_tag(name:"summary", value:"The remote host is missing an update to imp
 announced via advisory DSA 073-1.");

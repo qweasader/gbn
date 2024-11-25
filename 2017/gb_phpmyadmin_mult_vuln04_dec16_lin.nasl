@@ -9,8 +9,8 @@ CPE = "cpe:/a:phpmyadmin:phpmyadmin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.108131");
-  script_version("2023-10-17T05:05:34+0000");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_version("2024-02-29T14:37:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-29 14:37:57 +0000 (Thu, 29 Feb 2024)");
   script_tag(name:"creation_date", value:"2017-04-10 12:18:02 +0200 (Mon, 10 Apr 2017)");
   script_tag(name:"cvss_base", value:"5.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:N");
@@ -18,12 +18,11 @@ if(description)
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2017-07-01 01:30:00 +0000 (Sat, 01 Jul 2017)");
   script_cve_id("CVE-2016-9855", "CVE-2016-9854", "CVE-2016-9853", "CVE-2016-9852", "CVE-2016-9851");
-  script_name("phpMyAdmin Multiple Security Vulnerabilities - 03 - Dec16 (Linux)");
+  script_name("phpMyAdmin Multiple Security Vulnerabilities - 03 (Dec 2016) - Linux");
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2017 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_phpmyadmin_http_detect.nasl", "os_detection.nasl");
-  script_require_ports("Services/www", 80);
   script_mandatory_keys("phpMyAdmin/installed", "Host/runs_unixoide");
 
   script_tag(name:"summary", value:"phpMyAdmin is prone to multiple security vulnerabilities.");
@@ -43,8 +42,11 @@ if(description)
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe:CPE ) ) exit( 0 );
-if( ! vers = get_app_version( cpe:CPE, port:port ) ) exit( 0 );
+if( ! port = get_app_port( cpe:CPE ) )
+  exit( 0 );
+
+if( ! vers = get_app_version( cpe:CPE, port:port ) )
+  exit( 0 );
 
 if( vers =~ "^4\.4\." ) {
   if( version_is_less( version:vers, test_version:"4.4.15.9" ) ) {

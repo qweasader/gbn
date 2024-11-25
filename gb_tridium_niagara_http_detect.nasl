@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.141355");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-03-13T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-03-13 05:05:57 +0000 (Wed, 13 Mar 2024)");
   script_tag(name:"creation_date", value:"2018-08-07 16:23:44 +0700 (Tue, 07 Aug 2018)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -17,15 +17,15 @@ if(description)
 
   script_name("Tridium Niagara Detection (HTTP)");
 
-  script_tag(name:"summary", value:"HTTP based detection of Tridium Niagara.");
-
   script_category(ACT_GATHER_INFO);
 
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Product detection");
   script_dependencies("find_service.nasl", "httpver.nasl", "global_settings.nasl");
-  script_require_ports("Services/www", 80, 443);
+  script_require_ports("Services/www", 80);
   script_exclude_keys("Settings/disable_cgi_scanning");
+
+  script_tag(name:"summary", value:"HTTP based detection of Tridium Niagara.");
 
   exit(0);
 }

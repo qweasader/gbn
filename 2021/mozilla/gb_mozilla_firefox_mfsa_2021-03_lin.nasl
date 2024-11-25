@@ -1,22 +1,8 @@
-# Copyright (C) 2021 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2021 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 CPE = "cpe:/a:mozilla:firefox";
 
@@ -25,8 +11,8 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.2.1.2021.03");
   script_cve_id("CVE-2021-23953", "CVE-2021-23954", "CVE-2021-23955", "CVE-2021-23956", "CVE-2021-23958", "CVE-2021-23960", "CVE-2021-23961", "CVE-2021-23962", "CVE-2021-23963", "CVE-2021-23964", "CVE-2021-23965");
   script_tag(name:"creation_date", value:"2021-11-08 15:21:25 +0000 (Mon, 08 Nov 2021)");
-  script_version("2022-09-22T10:44:54+0000");
-  script_tag(name:"last_modification", value:"2022-09-22 10:44:54 +0000 (Thu, 22 Sep 2022)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H");
@@ -35,7 +21,7 @@ if(description)
 
   script_name("Mozilla Firefox Security Advisory (MFSA2021-03) - Linux");
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2021 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2021 Greenbone AG");
   script_family("General");
   script_dependencies("gb_firefox_detect_lin.nasl");
   script_mandatory_keys("mozilla/firefox/linux/detected");
@@ -74,7 +60,7 @@ CVE-2021-23958: Screen sharing permission leaked across tabs
 The browser could have been confused into transferring a screen sharing state into another tab, which would leak unintended information.
 
 CVE-2021-23960: Use-after-poison for incorrectly redeclared JavaScript variables during GC
-Performing garbage collection on re-declared JavaScript variables resulted in a user-after-poison, and a potentially exploitable crash.
+Performing garbage collection on redeclared JavaScript variables resulted in a user-after-poison, and a potentially exploitable crash.
 
 CVE-2021-23961: More internal network hosts could have been probed by a malicious webpage
 Further techniques that built on the slipstream research combined with a malicious webpage could have exposed both an internal network's hosts as well as services running on the user's local machine.

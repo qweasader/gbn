@@ -9,16 +9,16 @@ CPE = "cpe:/a:kaseya:virtual_system_administrator";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813382");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-06-26T05:05:39+0000");
   script_cve_id("CVE-2017-12410");
   script_tag(name:"cvss_base", value:"6.9");
   script_tag(name:"cvss_base_vector", value:"AV:L/AC:M/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-06-26 05:05:39 +0000 (Wed, 26 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-09 20:01:00 +0000 (Tue, 09 Oct 2018)");
   script_tag(name:"creation_date", value:"2018-05-30 11:18:44 +0530 (Wed, 30 May 2018)");
-  script_name("Kaseya Virtual System Administrator Agent Local Privilege Escalation Vulnerability");
+  script_name("Kaseya Virtual System Administrator Agent <= 9.4.0.36 Local Privilege Escalation Vulnerability");
 
   script_tag(name:"summary", value:"Kaseya Virtual System Administrator agent is prone to a local privilege escalation vulnerability.");
 
@@ -41,13 +41,12 @@ if(description)
   script_tag(name:"qod_type", value:"remote_banner");
   script_xref(name:"URL", value:"https://www.securityfocus.com/archive/1/archive/1/541884/100/0/threaded");
   script_xref(name:"URL", value:"https://helpdesk.kaseya.com/hc/en-gb/articles/360002367172-CVE-2017-12410-TOCTOU-Flaw-in-the-VSA-s-Agent-");
-  script_xref(name:"URL", value:"https://www.kaseya.com/products/vsa");
 
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2018 Greenbone AG");
   script_family("Web application abuses");
   script_dependencies("gb_kaseya_vsa_detect.nasl");
-  script_mandatory_keys("kaseya_vsa/installed");
+  script_mandatory_keys("kaseya/vsa/detected");
   exit(0);
 }
 

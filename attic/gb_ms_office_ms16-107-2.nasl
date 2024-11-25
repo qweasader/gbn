@@ -7,11 +7,11 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112000");
-  script_version("2023-09-22T16:08:59+0000");
+  script_version("2024-06-28T15:38:46+0000");
   script_cve_id("CVE-2016-0137");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
-  script_tag(name:"last_modification", value:"2023-09-22 16:08:59 +0000 (Fri, 22 Sep 2023)");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2018-10-12 22:11:00 +0000 (Fri, 12 Oct 2018)");
@@ -25,10 +25,11 @@ if(description)
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/92785");
   script_xref(name:"URL", value:"https://technet.microsoft.com/library/security/MS16-107");
 
-  script_tag(name:"summary", value:"This host is missing a critical security
-  update according to Microsoft Bulletin MS16-107.
+  script_tag(name:"summary", value:"This host is missing a critical security update according to
+  Microsoft Bulletin MS16-107.
 
-  This VT has been replaced by 'Microsoft Office Suite Remote Code Execution Vulnerabilities (3185852)' (1.3.6.1.4.1.25623.1.0.807361).");
+  This VT has been replaced by 'Microsoft Office Suite RCE Vulnerabilities (3185852)'
+  (1.3.6.1.4.1.25623.1.0.807361).");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

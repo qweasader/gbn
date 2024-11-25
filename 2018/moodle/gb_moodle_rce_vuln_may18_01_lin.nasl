@@ -7,8 +7,8 @@
 if( description )
 {
   script_oid("1.3.6.1.4.1.25623.1.0.113183");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-05-09 13:16:19 +0200 (Wed, 09 May 2018)");
   script_tag(name:"cvss_base", value:"7.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:P/A:P");
@@ -22,7 +22,7 @@ if( description )
 
   script_cve_id("CVE-2017-2641");
 
-  script_name("Moodle 2.x / 3.x Remote Code Execution Vulnerability - Mar'17 (Linux)");
+  script_name("Moodle 2.x / 3.x Remote Code Execution Vulnerability (Mar 2017) - Linux");
 
   script_category(ACT_GATHER_INFO);
 
@@ -31,7 +31,8 @@ if( description )
   script_dependencies("gb_moodle_cms_detect.nasl", "os_detection.nasl");
   script_mandatory_keys("moodle/detected", "Host/runs_unixoide");
 
-  script_tag(name:"summary", value:"Moodle is prone to an authenticated remote code execution vulnerability.");
+  script_tag(name:"summary", value:"Moodle is prone to an authenticated remote code execution (RCE)
+  vulnerability.");
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
   script_tag(name:"insight", value:"Remote Code Execution is made possible by a combination of
 

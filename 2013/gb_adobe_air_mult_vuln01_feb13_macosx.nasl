@@ -7,8 +7,8 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.803411");
-  script_version("2023-07-27T05:05:08+0000");
-  script_tag(name:"last_modification", value:"2023-07-27 05:05:08 +0000 (Thu, 27 Jul 2023)");
+  script_version("2024-02-09T05:06:25+0000");
+  script_tag(name:"last_modification", value:"2024-02-09 05:06:25 +0000 (Fri, 09 Feb 2024)");
   script_tag(name:"creation_date", value:"2013-02-15 11:14:45 +0530 (Fri, 15 Feb 2013)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -17,7 +17,7 @@ if(description)
                 "CVE-2013-1365", "CVE-2013-1366", "CVE-2013-1367", "CVE-2013-1368",
                 "CVE-2013-1369", "CVE-2013-1370", "CVE-2013-1372", "CVE-2013-1373",
                 "CVE-2013-1374");
-  script_name("Adobe AIR Multiple Vulnerabilities -01 Feb13 (Mac OS X)");
+  script_name("Adobe AIR Multiple Vulnerabilities -01 (Feb 2013) - Mac OS X");
   script_xref(name:"URL", value:"https://lwn.net/Articles/537746");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/57912");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/57916");

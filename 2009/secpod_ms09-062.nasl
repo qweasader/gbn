@@ -1,28 +1,14 @@
-# Copyright (C) 2009 Greenbone Networks GmbH
+# SPDX-FileCopyrightText: 2009 Greenbone AG
 # Some text descriptions might be excerpted from (a) referenced
 # source(s), and are Copyright (C) by the respective right holder(s).
 #
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+# SPDX-License-Identifier: GPL-2.0-only
 
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.900878");
-  script_version("2022-05-09T13:48:18+0000");
-  script_tag(name:"last_modification", value:"2022-05-09 13:48:18 +0000 (Mon, 09 May 2022)");
+  script_version("2024-06-21T05:05:42+0000");
+  script_tag(name:"last_modification", value:"2024-06-21 05:05:42 +0000 (Fri, 21 Jun 2024)");
   script_tag(name:"creation_date", value:"2009-10-21 10:12:07 +0200 (Wed, 21 Oct 2009)");
   script_tag(name:"cvss_base", value:"9.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:C/I:C/A:C");
@@ -42,11 +28,14 @@ if(description)
   script_xref(name:"URL", value:"https://docs.microsoft.com/en-us/security-updates/securitybulletins/2009/ms09-062");
 
   script_category(ACT_GATHER_INFO);
-  script_copyright("Copyright (C) 2009 Greenbone Networks GmbH");
+  script_copyright("Copyright (C) 2009 Greenbone AG");
   script_family("Windows : Microsoft Bulletins");
+  # nb: The MSSQL "Consolidation" wasn't added here on purpose and only the SMB Login one was used
+  # as the consolidation is not required for the KB check below.
   script_dependencies("secpod_ms_visual_prdts_detect.nasl",
                       "secpod_office_products_version_900032.nasl",
-                      "smb_reg_service_pack.nasl", "gb_ms_ie_detect.nasl");
+                      "smb_reg_service_pack.nasl", "gb_ms_ie_detect.nasl",
+                      "gb_microsoft_sql_server_smb_login_detect.nasl");
   script_require_ports(139, 445);
   script_mandatory_keys("SMB/registry_enumerated");
 
@@ -63,7 +52,7 @@ if(description)
 
   - Microsoft Office Groove 2007 SP1 and prior
 
-  - Microsoft Excel  Viewer 2003 SP 3 and prior
+  - Microsoft Excel Viewer 2003 SP 3 and prior
 
   - Microsoft Office 2007 System SP 1/2 and prior
 
@@ -273,24 +262,23 @@ if(hotfix_check_sp(win2k:5) > 0)
   }
 }
 
-# Microsoft SQL Server 2005
-key = "SOFTWARE\Microsoft\Microsoft SQL Server\";
-if(registry_key_exists(key:key))
-{
-  foreach item (registry_enum_keys(key:key))
-  {
-    sqlpath = registry_get_sz(key:key + item + "\Setup", item:"SQLBinRoot");
-    sqlVer = FileVer (file:"\sqlservr.exe", path:sqlpath);
-    # 2005.90.4000 < 2005.90.4053.0 and 2005.90.4200 < 2005.90.4262.0
-    if(sqlVer)
-    {
-      if(version_in_range(version:sqlVer, test_version:"2005.90.3000", test_version2:"2005.90.3079.9")||
-         version_in_range(version:sqlVer, test_version:"2005.90.3300", test_version2:"2005.90.3352.9")||
-         version_in_range(version:sqlVer, test_version:"2005.90.4000", test_version2:"2005.90.4052.9")||
-         version_in_range(version:sqlVer, test_version:"2005.90.4200", test_version2:"2005.90.4261.9"))
-      {
-        security_message( port: 0, data: "The target host was found to be vulnerable" );
-        exit(0);
+if(get_kb_item("microsoft/sqlserver/smb-login/detected")) {
+
+  # Microsoft SQL Server 2005
+  key = "SOFTWARE\Microsoft\Microsoft SQL Server\";
+  if(registry_key_exists(key:key)) {
+    foreach item (registry_enum_keys(key:key)) {
+      sqlpath = registry_get_sz(key:key + item + "\Setup", item:"SQLBinRoot");
+      sqlVer = FileVer (file:"\sqlservr.exe", path:sqlpath);
+      # 2005.90.4000 < 2005.90.4053.0 and 2005.90.4200 < 2005.90.4262.0
+      if(sqlVer) {
+        if(version_in_range(version:sqlVer, test_version:"2005.90.3000", test_version2:"2005.90.3079.9")||
+           version_in_range(version:sqlVer, test_version:"2005.90.3300", test_version2:"2005.90.3352.9")||
+           version_in_range(version:sqlVer, test_version:"2005.90.4000", test_version2:"2005.90.4052.9")||
+           version_in_range(version:sqlVer, test_version:"2005.90.4200", test_version2:"2005.90.4261.9")) {
+          security_message( port: 0, data: "The target host was found to be vulnerable" );
+          exit(0);
+        }
       }
     }
   }

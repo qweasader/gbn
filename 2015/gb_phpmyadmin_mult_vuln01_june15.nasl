@@ -9,13 +9,13 @@ CPE = "cpe:/a:phpmyadmin:phpmyadmin";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.805398");
-  script_version("2023-10-17T05:05:34+0000");
+  script_version("2024-02-20T05:05:48+0000");
   script_cve_id("CVE-2015-3902", "CVE-2015-3903");
   script_tag(name:"cvss_base", value:"6.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:P/A:P");
-  script_tag(name:"last_modification", value:"2023-10-17 05:05:34 +0000 (Tue, 17 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-02-20 05:05:48 +0000 (Tue, 20 Feb 2024)");
   script_tag(name:"creation_date", value:"2015-06-04 17:24:38 +0530 (Thu, 04 Jun 2015)");
-  script_name("phpMyAdmin Multiple Vulnerabilities -01 June15");
+  script_name("phpMyAdmin Multiple Vulnerabilities -01 (Jun 2015)");
 
   script_tag(name:"summary", value:"phpMyAdmin is prone to multiple vulnerabilities.");
 
@@ -52,7 +52,7 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_phpmyadmin_http_detect.nasl");
   script_mandatory_keys("phpMyAdmin/installed");
-  script_require_ports("Services/www", 80);
+
   exit(0);
 }
 

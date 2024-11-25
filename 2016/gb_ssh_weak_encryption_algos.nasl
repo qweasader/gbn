@@ -7,10 +7,10 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.105611");
-  script_version("2023-10-12T05:05:32+0000");
+  script_version("2024-06-14T05:05:48+0000");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:P/I:N/A:N");
   script_tag(name:"cvss_base", value:"4.3");
-  script_tag(name:"last_modification", value:"2023-10-12 05:05:32 +0000 (Thu, 12 Oct 2023)");
+  script_tag(name:"last_modification", value:"2024-06-14 05:05:48 +0000 (Fri, 14 Jun 2024)");
   script_tag(name:"creation_date", value:"2016-04-19 12:49:32 +0200 (Tue, 19 Apr 2016)");
   script_name("Weak Encryption Algorithm(s) Supported (SSH)");
   script_category(ACT_GATHER_INFO);
@@ -61,6 +61,7 @@ if(description)
 include("ssh_func.inc");
 include("misc_func.inc");
 include("port_service_func.inc");
+include("host_details.inc");
 
 function check_algo( port, type ) {
 
@@ -103,6 +104,14 @@ if( rep = check_algo( port:port, type:"server_to_client" ) )
   report += 'The remote SSH server supports the following weak server-to-client encryption algorithm(s):\n\n' + rep;
 
 if( report ) {
+
+  # nb:
+  # - Store the reference from this one to gb_ssh_algos.nasl to show a cross-reference within the
+  #   reports
+  # - We don't want to use get_app_* functions as we're only interested in the cross-reference here
+  register_host_detail( name:"detected_by", value:"1.3.6.1.4.1.25623.1.0.105565" ); # gb_ssh_algos.nasl
+  register_host_detail( name:"detected_at", value:port + "/tcp" );
+
   security_message( port:port, data:chomp( report ) );
   exit( 0 );
 }

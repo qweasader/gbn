@@ -9,7 +9,7 @@ CPE = "cpe:/a:adobe:acrobat_dc_classic";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.813668");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-12T05:05:32+0000");
   script_cve_id("CVE-2018-12782", "CVE-2018-5015", "CVE-2018-5028", "CVE-2018-5032",
                 "CVE-2018-5036", "CVE-2018-5038", "CVE-2018-5040", "CVE-2018-5041",
                 "CVE-2018-5045", "CVE-2018-5052", "CVE-2018-5058", "CVE-2018-5067",
@@ -38,12 +38,12 @@ if(description)
                 "CVE-2018-5034", "CVE-2018-5037", "CVE-2018-5043", "CVE-2018-12784");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-12 05:05:32 +0000 (Mon, 12 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2019-08-21 16:20:00 +0000 (Wed, 21 Aug 2019)");
   script_tag(name:"creation_date", value:"2018-07-12 13:11:59 +0530 (Thu, 12 Jul 2018)");
-  script_name("Adobe Acrobat DC (Classic Track) Multiple Vulnerabilities (apsb18-21) - Mac OS X");
+  script_name("Adobe Acrobat DC (Classic Track) Multiple Vulnerabilities (APSB18-21) - Mac OS X");
 
   script_tag(name:"summary", value:"Adobe Acrobat DC (Classic Track) is prone to multiple vulnerabilities.");
 

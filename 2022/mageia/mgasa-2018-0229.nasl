@@ -9,13 +9,13 @@ if(description)
   script_oid("1.3.6.1.4.1.25623.1.1.10.2018.0229");
   script_cve_id("CVE-2016-10046", "CVE-2016-10051", "CVE-2016-10052", "CVE-2016-10053", "CVE-2016-10054", "CVE-2016-10055", "CVE-2016-10056", "CVE-2016-10057", "CVE-2016-10058", "CVE-2016-10068", "CVE-2016-10144", "CVE-2016-10145", "CVE-2016-10146", "CVE-2016-5010", "CVE-2016-6491", "CVE-2016-6823", "CVE-2016-7101", "CVE-2016-7799", "CVE-2016-7906", "CVE-2016-8677", "CVE-2016-8678", "CVE-2016-8707", "CVE-2016-8862", "CVE-2016-8866", "CVE-2016-9298", "CVE-2016-9556", "CVE-2016-9559", "CVE-2016-9773", "CVE-2017-11352", "CVE-2017-11403", "CVE-2017-11446", "CVE-2017-11523", "CVE-2017-11533", "CVE-2017-11535", "CVE-2017-11537", "CVE-2017-11639", "CVE-2017-11640", "CVE-2017-12428", "CVE-2017-12431", "CVE-2017-12432", "CVE-2017-12434", "CVE-2017-12587", "CVE-2017-12640", "CVE-2017-12671", "CVE-2017-12877", "CVE-2017-12983", "CVE-2017-13134", "CVE-2017-13139", "CVE-2017-13140", "CVE-2017-13141", "CVE-2017-13142", "CVE-2017-13143", "CVE-2017-13144", "CVE-2017-13145", "CVE-2017-13758", "CVE-2017-13768", "CVE-2017-13769", "CVE-2017-14224", "CVE-2017-14607", "CVE-2017-14682", "CVE-2017-14741", "CVE-2017-14989", "CVE-2017-15277", "CVE-2017-16546", "CVE-2017-17499", "CVE-2017-17504", "CVE-2017-17879", "CVE-2017-5506", "CVE-2017-5507", "CVE-2017-5508", "CVE-2017-5509", "CVE-2017-5510", "CVE-2017-5511", "CVE-2017-7606", "CVE-2017-7619", "CVE-2017-7941", "CVE-2017-7942", "CVE-2017-7943", "CVE-2017-8343", "CVE-2017-8344", "CVE-2017-8345", "CVE-2017-8346", "CVE-2017-8347", "CVE-2017-8348", "CVE-2017-8349", "CVE-2017-8350", "CVE-2017-8351", "CVE-2017-8352", "CVE-2017-8353", "CVE-2017-8354", "CVE-2017-8355", "CVE-2017-8356", "CVE-2017-8357", "CVE-2017-8765", "CVE-2017-8830", "CVE-2017-9098", "CVE-2017-9141", "CVE-2017-9142", "CVE-2017-9143", "CVE-2017-9144", "CVE-2017-9439", "CVE-2017-9440", "CVE-2017-9500", "CVE-2017-9501");
   script_tag(name:"creation_date", value:"2022-01-28 10:58:44 +0000 (Fri, 28 Jan 2022)");
-  script_version("2023-06-20T05:05:24+0000");
-  script_tag(name:"last_modification", value:"2023-06-20 05:05:24 +0000 (Tue, 20 Jun 2023)");
+  script_version("2024-10-23T05:05:59+0000");
+  script_tag(name:"last_modification", value:"2024-10-23 05:05:59 +0000 (Wed, 23 Oct 2024)");
   script_tag(name:"cvss_base", value:"7.8");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:C");
-  script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
+  script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
-  script_tag(name:"severity_date", value:"2020-10-15 16:08:00 +0000 (Thu, 15 Oct 2020)");
+  script_tag(name:"severity_date", value:"2024-06-27 14:37:57 +0000 (Thu, 27 Jun 2024)");
 
   script_name("Mageia: Security Advisory (MGASA-2018-0229)");
   script_category(ACT_GATHER_INFO);
@@ -26,8 +26,8 @@ if(description)
 
   script_xref(name:"Advisory-ID", value:"MGASA-2018-0229");
   script_xref(name:"URL", value:"https://advisories.mageia.org/MGASA-2018-0229.html");
-  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=19078");
   script_xref(name:"URL", value:"http://git.imagemagick.org/repos/ImageMagick/blob/ImageMagick-6/ChangeLog");
+  script_xref(name:"URL", value:"https://bugs.mageia.org/show_bug.cgi?id=19078");
 
   script_tag(name:"summary", value:"The remote host is missing an update for the 'converseen, cuneiform-linux, dvdauthor, emacs, imagemagick, inkscape, k3d, kxstitch, libopenshot, ocaml-glmlite, perl-Image-SubImageFind, pfstools, php-imagick, php-magickwand, psiconv, pythonmagick, ruby-rmagick, synfig, vdr-plugin-skinelchi, vdr-plugin-skinenigmang' package(s) announced via the MGASA-2018-0229 advisory.");
 

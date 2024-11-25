@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140719");
-  script_version("2023-07-20T05:05:18+0000");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:18 +0000 (Thu, 20 Jul 2023)");
+  script_version("2024-11-01T05:05:36+0000");
+  script_tag(name:"last_modification", value:"2024-11-01 05:05:36 +0000 (Fri, 01 Nov 2024)");
   script_tag(name:"creation_date", value:"2018-01-23 10:22:04 +0700 (Tue, 23 Jan 2018)");
   script_tag(name:"cvss_base", value:"4.3");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:M/Au:N/C:N/I:P/A:N");
@@ -34,10 +34,10 @@ if (description)
   script_tag(name:"summary", value:"The WordPress plugin 'Download Manager' is prone to a cross-site
   scripting (XSS) vulnerability.");
 
+  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
+
   script_tag(name:"insight", value:"The XSS flaw exists via the id parameter in a
   wpdm_generate_password action to wp-admin/admin-ajax.php.");
-
-  script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 
   script_tag(name:"affected", value:"WordPress Download Manager plugin 2.9.51 and prior.");
 
@@ -54,13 +54,16 @@ CPE = "cpe:/a:wpdownloadmanager:wordpress_download_manager";
 include("host_details.inc");
 include("version_func.inc");
 
-if( ! port = get_app_port( cpe: CPE ) ) exit( 0 );
-if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) ) exit( 0 );
+if( ! port = get_app_port( cpe: CPE ) )
+  exit( 0 );
+
+if( ! infos = get_app_version_and_location( cpe: CPE, port: port, exit_no_version: TRUE ) )
+  exit( 0 );
 
 version = infos["version"];
 location = infos["location"];
 
-if ( version_is_less( version: version, test_version: "2.9.52" )) {
+if( version_is_less( version: version, test_version: "2.9.52" ) ) {
   report = report_fixed_ver( installed_version: version, fixed_version: "2.9.52", install_path: location );
   security_message( port: port, data: report );
   exit( 0 );

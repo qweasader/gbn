@@ -9,8 +9,8 @@ CPE = "cpe:/a:ibm:db2";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807815");
-  script_version("2023-11-03T05:05:46+0000");
-  script_tag(name:"last_modification", value:"2023-11-03 05:05:46 +0000 (Fri, 03 Nov 2023)");
+  script_version("2024-02-19T05:05:57+0000");
+  script_tag(name:"last_modification", value:"2024-02-19 05:05:57 +0000 (Mon, 19 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-05-02 14:34:01 +0530 (Mon, 02 May 2016)");
   script_tag(name:"cvss_base", value:"4.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:N/I:N/A:P");
@@ -20,7 +20,7 @@ if(description)
 
   script_cve_id("CVE-2016-0211", "CVE-2016-0215");
 
-  script_name("IBM Db2 LUW Multiple Denial of Service Vulnerabilities - May16");
+  script_name("IBM Db2 LUW Multiple Denial of Service Vulnerabilities (May 2016)");
 
   script_tag(name:"summary", value:"IBM Db2 is prone to multiple denial of service vulnerabilities.");
 

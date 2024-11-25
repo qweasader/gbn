@@ -8,7 +8,7 @@
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.832614");
-  script_version("2024-01-22T05:07:31+0000");
+  script_version("2024-08-01T05:05:42+0000");
   script_xref(name:"CISA", value:"Known Exploited Vulnerability (KEV) catalog");
   script_xref(name:"URL", value:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog");
   script_cve_id("CVE-2023-23495", "CVE-2023-29497", "CVE-2023-32361", "CVE-2023-32377",
@@ -26,15 +26,22 @@ if(description)
                 "CVE-2023-41070", "CVE-2023-41073", "CVE-2023-41074", "CVE-2023-41078",
                 "CVE-2023-41079", "CVE-2023-41968", "CVE-2023-41979", "CVE-2023-41980",
                 "CVE-2023-41981", "CVE-2023-41984", "CVE-2023-41986", "CVE-2023-41993",
-                "CVE-2023-41995", "CVE-2023-42826");
+                "CVE-2023-41995", "CVE-2023-42826", "CVE-2023-38612", "CVE-2023-38607",
+                "CVE-2023-38610", "CVE-2023-40385", "CVE-2023-40393", "CVE-2023-40411",
+                "CVE-2023-40414", "CVE-2023-40430", "CVE-2023-40438", "CVE-2023-41060",
+                "CVE-2023-41987", "CVE-2023-41994", "CVE-2023-42934", "CVE-2023-42933",
+                "CVE-2023-42929", "CVE-2023-42876", "CVE-2023-42872", "CVE-2023-42871",
+                "CVE-2023-42870", "CVE-2023-42833", "CVE-2023-40396", "CVE-2023-42949",
+                "CVE-2023-42957", "CVE-2023-42925", "CVE-2023-42943", "CVE-2023-42959",
+                "CVE-2023-42918", "CVE-2023-42948");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2024-01-22 05:07:31 +0000 (Mon, 22 Jan 2024)");
+  script_tag(name:"last_modification", value:"2024-08-01 05:05:42 +0000 (Thu, 01 Aug 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2023-09-29 04:29:00 +0000 (Fri, 29 Sep 2023)");
   script_tag(name:"creation_date", value:"2023-10-27 13:07:18 +0530 (Fri, 27 Oct 2023)");
-  script_name("Apple MacOSX Security Update (HT213940)");
+  script_name("Apple Mac OS X Security Update (HT213940)");
 
   script_tag(name:"summary", value:"Apple Mac OS X is prone to multiple
   vulnerabilities.");
@@ -53,7 +60,9 @@ if(description)
 
   - An improper input validation.
 
-  - An improper memory handling.");
+  - An improper memory handling.
+
+  For more information about the vulnerabilities refer to Reference links.");
 
   script_tag(name:"impact", value:"Successful exploitation will allow attackers
   to conduct spoofing, arbitrary code execution, denial of service, information disclosure.");

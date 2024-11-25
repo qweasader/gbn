@@ -9,16 +9,16 @@ CPE = "cpe:/a:adobe:dng_converter";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.809763");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-02-27T14:36:53+0000");
   script_cve_id("CVE-2016-7856");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-27 14:36:53 +0000 (Tue, 27 Feb 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-12-16 16:33:00 +0000 (Fri, 16 Dec 2016)");
   script_tag(name:"creation_date", value:"2016-12-15 17:16:00 +0530 (Thu, 15 Dec 2016)");
-  script_name("Adobe DNG Converter Memory Corruption Vulnerability - (Windows)");
+  script_name("Adobe DNG Converter Memory Corruption Vulnerability - Windows");
 
   script_tag(name:"summary", value:"Adobe DNG Converter is prone to a memory corruption vulnerability.");
 
@@ -47,7 +47,6 @@ if(description)
   script_xref(name:"URL", value:"https://www.adobe.com/support/downloads/product.jsp?product=106&platform=Windows");
   exit(0);
 }
-
 
 include("host_details.inc");
 include("version_func.inc");

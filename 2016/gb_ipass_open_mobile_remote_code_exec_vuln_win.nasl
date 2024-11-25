@@ -9,13 +9,13 @@ CPE = "cpe:/a:ipass:ipass_open_mobile";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.808732");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-02-15T05:05:40+0000");
   script_cve_id("CVE-2015-0925");
   script_tag(name:"cvss_base", value:"9.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:S/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-02-15 05:05:40 +0000 (Thu, 15 Feb 2024)");
   script_tag(name:"creation_date", value:"2016-08-03 16:39:37 +0530 (Wed, 03 Aug 2016)");
-  script_name("iPass Open Mobile Remote Code Execution Vulnerability (Windows)");
+  script_name("iPass Open Mobile Remote Code Execution Vulnerability - Windows");
 
   script_tag(name:"summary", value:"iPass Open Mobile is prone to a remote code execution (RCE) vulnerability.");
 

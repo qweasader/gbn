@@ -9,17 +9,17 @@ CPE = "cpe:/a:postgresql:postgresql";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807913");
-  script_version("2023-07-21T05:05:22+0000");
+  script_version("2024-07-19T05:05:32+0000");
   script_cve_id("CVE-2016-3065", "CVE-2016-2193");
   script_tag(name:"cvss_base", value:"8.5");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:P/I:N/A:C");
-  script_tag(name:"last_modification", value:"2023-07-21 05:05:22 +0000 (Fri, 21 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-07-19 05:05:32 +0000 (Fri, 19 Jul 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2016-04-14 22:09:00 +0000 (Thu, 14 Apr 2016)");
   script_tag(name:"creation_date", value:"2016-04-26 17:11:55 +0530 (Tue, 26 Apr 2016)");
   script_tag(name:"qod_type", value:"remote_banner");
-  script_name("PostgreSQL Multiple Vulnerabilities - Apr16 (Windows)");
+  script_name("PostgreSQL Multiple Vulnerabilities (Apr 2016) - Windows");
 
   script_tag(name:"summary", value:"PostgreSQL is prone to multiple vulnerabilities.");
 
@@ -50,7 +50,7 @@ if(description)
   script_copyright("Copyright (C) 2016 Greenbone AG");
   script_category(ACT_GATHER_INFO);
   script_family("Databases");
-  script_dependencies("postgresql_detect.nasl", "secpod_postgresql_detect_lin.nasl", "secpod_postgresql_detect_win.nasl", "os_detection.nasl");
+  script_dependencies("gb_postgresql_consolidation.nasl", "os_detection.nasl");
   script_mandatory_keys("postgresql/detected", "Host/runs_windows");
   exit(0);
 }

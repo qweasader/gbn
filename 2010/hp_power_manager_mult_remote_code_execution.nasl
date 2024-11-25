@@ -9,8 +9,8 @@ CPE = "cpe:/a:hp:power_manager";
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.100457");
-  script_version("2023-07-28T16:09:07+0000");
-  script_tag(name:"last_modification", value:"2023-07-28 16:09:07 +0000 (Fri, 28 Jul 2023)");
+  script_version("2024-06-28T05:05:33+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 05:05:33 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2010-01-20 19:30:24 +0100 (Wed, 20 Jan 2010)");
   script_cve_id("CVE-2009-3999", "CVE-2009-4000");
   script_tag(name:"cvss_base", value:"10.0");
@@ -18,7 +18,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("HP Power Manager Multiple Remote Code Execution Vulnerabilities");
+  script_name("HP Power Manager Multiple RCE Vulnerabilities");
 
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/37866");
   script_xref(name:"URL", value:"http://www.securityfocus.com/bid/37867");
@@ -33,7 +33,6 @@ if (description)
   script_copyright("Copyright (C) 2010 Greenbone AG");
   script_dependencies("hp_power_manager_detect.nasl");
   script_mandatory_keys("hp_power_manager/detected");
-  script_require_ports("Services/www", 80);
 
   script_tag(name:"solution", value:"The vendor has released updates and an advisory. Please see the references
 for details.");

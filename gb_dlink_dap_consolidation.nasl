@@ -9,8 +9,8 @@ include("plugin_feed_info.inc");
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.170325");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-07-03T06:48:05+0000");
+  script_tag(name:"last_modification", value:"2024-07-03 06:48:05 +0000 (Wed, 03 Jul 2024)");
   script_tag(name:"creation_date", value:"2023-02-27 21:15:15 +0000 (Mon, 27 Feb 2023)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -22,9 +22,9 @@ if(description)
   script_category(ACT_GATHER_INFO);
   script_copyright("Copyright (C) 2023 Greenbone AG");
   script_family("Product detection");
-  if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
-    script_dependencies("gb_dlink_dap_http_detect.nasl",
-                        "gsf/gb_dlink_devices_hnap_detect.nasl",
+  script_dependencies("gb_dlink_dap_dhp_http_detect.nasl");
+  if(FEED_NAME == "GSF" || FEED_NAME == "GEF" || FEED_NAME == "SCM")
+    script_dependencies("gsf/gb_dlink_devices_hnap_detect.nasl",
                         "gsf/gb_dlink_devices_upnp_detect.nasl",
                         "gsf/gb_dlink_devices_mdns_detect.nasl");
   script_mandatory_keys("d-link/dap/detected");
@@ -73,17 +73,17 @@ foreach source( make_list( "http", "hnap", "upnp", "mdns" ) ) {
   }
 }
 
-os_app = "D-Link ";
-os_cpe = "cpe:/o:dlink:";
-hw_app = "D-Link ";
-hw_cpe = "cpe:/h:dlink:";
+os_app = "D-Link DAP";
+os_cpe = "cpe:/o:dlink:dap";
+hw_app = "D-Link DAP";
+hw_cpe = "cpe:/h:dlink:dap";
 
 if( detected_model != "unknown" ) {
-  os_app += detected_model + " Firmware";
-  os_cpe += tolower( detected_model ) + "_firmware";
-  hw_app += detected_model + " Device";
-  hw_cpe += tolower( detected_model );
-  set_kb_item( name:"d-link/dap/model", value:detected_model );
+  os_app += "-" + detected_model + " Firmware";
+  os_cpe += "-" + tolower( detected_model ) + "_firmware";
+  hw_app += "-" + detected_model + " Device";
+  hw_cpe += "-" + tolower( detected_model );
+  set_kb_item( name:"d-link/dap/model", value:"DAP-" + detected_model );
 } else {
   os_app += " Unknown Model Firmware";
   os_cpe += "-unknown_model_firmware";

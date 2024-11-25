@@ -7,8 +7,8 @@
 if (description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.112252");
-  script_version("2023-11-21T05:05:52+0000");
-  script_tag(name:"last_modification", value:"2023-11-21 05:05:52 +0000 (Tue, 21 Nov 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2018-04-09 12:25:00 +0200 (Mon, 09 Apr 2018)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -22,7 +22,7 @@ if (description)
 
   script_tag(name:"solution_type", value:"VendorFix");
 
-  script_name("D-Link DIR-868L StarHub Firmware Remote Code Execution Vulnerability");
+  script_name("D-Link DIR-868L StarHub Firmware RCE Vulnerability");
 
   script_category(ACT_GATHER_INFO);
 
@@ -32,7 +32,7 @@ if (description)
   script_mandatory_keys("d-link/dir/detected", "d-link/dir/hw_version");
 
   script_tag(name:"summary", value:"D-Link DIR-868L devices are prone to a pre-authenticated remote
-  code execution vulnerability.");
+  code execution (RCE) vulnerability.");
 
   script_tag(name:"vuldetect", value:"Checks if a vulnerable version is present on the target host.");
 

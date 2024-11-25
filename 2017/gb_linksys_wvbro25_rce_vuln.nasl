@@ -9,8 +9,8 @@ CPE = "cpe:/o:linksys:wvbr0-25_firmware";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.140625");
-  script_version("2023-07-25T05:05:58+0000");
-  script_tag(name:"last_modification", value:"2023-07-25 05:05:58 +0000 (Tue, 25 Jul 2023)");
+  script_version("2024-06-28T15:38:46+0000");
+  script_tag(name:"last_modification", value:"2024-06-28 15:38:46 +0000 (Fri, 28 Jun 2024)");
   script_tag(name:"creation_date", value:"2017-12-22 13:48:08 +0700 (Fri, 22 Dec 2017)");
   script_tag(name:"cvss_base", value:"10.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:C/I:C/A:C");
@@ -34,7 +34,8 @@ if(description)
   script_mandatory_keys("linksys/detected");
   script_require_ports("Services/www", 80);
 
-  script_tag(name:"summary", value:"Linksys WVBRO-25 is prone to a remote code execution vulnerability.");
+  script_tag(name:"summary", value:"Linksys WVBRO-25 is prone to a remote code execution (RCE)
+  vulnerability.");
 
   script_tag(name:"insight", value:"The Linksys WVBR0-25 Wireless Video Bridge, used by DirecTV to connect
   wireless Genie cable boxes to the Genie DVR, is vulnerable to OS command injection in version < 1.0.41 of the web

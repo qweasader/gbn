@@ -9,8 +9,8 @@ include("plugin_feed_info.inc");
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.147797");
-  script_version("2023-06-02T09:09:16+0000");
-  script_tag(name:"last_modification", value:"2023-06-02 09:09:16 +0000 (Fri, 02 Jun 2023)");
+  script_version("2024-07-03T06:48:05+0000");
+  script_tag(name:"last_modification", value:"2024-07-03 06:48:05 +0000 (Wed, 03 Jul 2024)");
   script_tag(name:"creation_date", value:"2022-03-14 07:34:32 +0000 (Mon, 14 Mar 2022)");
   script_tag(name:"cvss_base", value:"0.0");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:L/Au:N/C:N/I:N/A:N");
@@ -26,7 +26,7 @@ if(description)
   script_copyright("Copyright (C) 2022 Greenbone AG");
   script_family("Product detection");
   script_dependencies("gb_fortinet_fortigate_ssh_login_detect.nasl");
-  if(FEED_NAME == "GSF" || FEED_NAME == "SCM")
+  if(FEED_NAME == "GSF" || FEED_NAME == "GEF" || FEED_NAME == "SCM")
     script_dependencies("gsf/gb_fortinet_fortigate_snmp_detect.nasl",
                         "gsf/gb_fortinet_fortigate_http_detect.nasl");
   script_mandatory_keys("fortinet/fortigate/detected");

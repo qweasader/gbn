@@ -9,11 +9,11 @@ CPE = "cpe:/a:symphony-cms:symphony_cms";
 if(description)
 {
   script_oid("1.3.6.1.4.1.25623.1.0.807852");
-  script_version("2023-07-20T05:05:17+0000");
+  script_version("2024-03-04T14:37:58+0000");
   script_cve_id("CVE-2016-4309");
   script_tag(name:"cvss_base", value:"7.6");
   script_tag(name:"cvss_base_vector", value:"AV:N/AC:H/Au:N/C:C/I:C/A:C");
-  script_tag(name:"last_modification", value:"2023-07-20 05:05:17 +0000 (Thu, 20 Jul 2023)");
+  script_tag(name:"last_modification", value:"2024-03-04 14:37:58 +0000 (Mon, 04 Mar 2024)");
   script_tag(name:"severity_vector", value:"CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H");
   script_tag(name:"severity_origin", value:"NVD");
   script_tag(name:"severity_date", value:"2020-08-27 18:32:00 +0000 (Thu, 27 Aug 2020)");
@@ -44,7 +44,6 @@ if(description)
   script_family("Web application abuses");
   script_dependencies("gb_symphony_cms_detect.nasl");
   script_mandatory_keys("symphony/installed");
-  script_require_ports("Services/www", 80);
 
   exit(0);
 }
@@ -52,17 +51,16 @@ if(description)
 include("version_func.inc");
 include("host_details.inc");
 
-if(!cmsPort = get_app_port(cpe:CPE)){
+if(!port = get_app_port(cpe:CPE))
+  exit(0);
+
+if(!version = get_app_version(cpe:CPE, port:port))
+  exit(0);
+
+if(version_is_equal(version:version, test_version:"2.6.7")) {
+  report = report_fixed_ver(installed_version:version, fixed_version:"See the solution tag for a possible Mitigation");
+  security_message(data:report, port:port);
   exit(0);
 }
 
-if(!cmsVer = get_app_version(cpe:CPE, port:cmsPort)){
-  exit(0);
-}
-
-if(version_is_equal(version:cmsVer, test_version:"2.6.7"))
-{
-  report = report_fixed_ver(installed_version:cmsVer, fixed_version:"See the solution tag for a possible Mitigation");
-  security_message(data:report, port:cmsPort);
-  exit(0);
-}
+exit(99);
